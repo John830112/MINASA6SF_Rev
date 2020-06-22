@@ -59,8 +59,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\BlockParaModel1.cs" />
+    <Compile Include="Models\BlockParaModel2.cs" />
     <Compile Include="Models\BlockSelectComboList.cs" />
     <Compile Include="Models\commandModel.cs" />
+    <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="ViewModels\MainPanelViewModel.cs" />
     <Compile Include="Views\BlockPara.xaml.cs">
       <DependentUpon>BlockPara.xaml</DependentUpon>

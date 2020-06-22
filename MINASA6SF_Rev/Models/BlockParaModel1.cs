@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MINASA6SF_Rev.Models
 {
-    public class BlockParaModel1 
+    public class BlockParaModel1 : ViewModelBase
     {
         int blockNum;
         public int BlockNum
@@ -18,11 +18,7 @@ namespace MINASA6SF_Rev.Models
             }
             set
             {
-                if (blockNum == value)
-                {
-                    return;
-                }
-                blockNum = value;
+                SetProperty(ref blockNum, value);
             }
         }
 
@@ -35,11 +31,7 @@ namespace MINASA6SF_Rev.Models
             }
             set
             {
-                if (blockData.Equals(value))
-                {
-                    return;
-                }
-                blockData = value;
+                SetProperty(ref blockData, value);
             }
         }        
     }

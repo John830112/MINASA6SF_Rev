@@ -25,7 +25,6 @@ namespace MINASA6SF_Rev
         {
             InitializeComponent();
             this.Content = new MainPanel(this);
-           //test
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
