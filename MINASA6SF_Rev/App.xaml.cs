@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using MINASA6SF_Rev.ViewModels;
+using MINASA6SF_Rev.Views;
 
 namespace MINASA6SF_Rev
 {
@@ -13,5 +15,6 @@ namespace MINASA6SF_Rev
     /// </summary>
     public partial class App : Application
     {
+        MainPanelViewModel mainPanelViewModel = new MainPanelViewModel();
     }
 }
