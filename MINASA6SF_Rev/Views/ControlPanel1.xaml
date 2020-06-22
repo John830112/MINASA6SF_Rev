@@ -7,25 +7,14 @@
              xmlns:local2="clr-namespace:MINASA6SF_Rev.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="430" d:DesignWidth="720">
+       
     <UserControl.Resources>
-
         <!--컨트롤 판넬 버튼 템플릿-->
         <ControlTemplate x:Key="ButtonTemplate" TargetType="Button">
             <Grid>
                 <Ellipse x:Name="ButtonEllipse" Height="50" Width="100" Fill="{TemplateBinding Background}" 
                          Stroke="{TemplateBinding BorderBrush}"/>
                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                 <!--<Rectangle x:Name = "ButtonEllipse" Height = "50" Width = "100" >
-                    <Rectangle.Fill>
-                        <LinearGradientBrush StartPoint = "0,0.2" EndPoint = "0.2,1.6">
-                            <GradientStop Offset = "0.2" Color = "Gray" />
-                            <GradientStop Offset = "1" Color = "White" />
-                        </LinearGradientBrush>
-                    </Rectangle.Fill>
-                </Rectangle>
-                <ContentPresenter Content = "{TemplateBinding Content}" 
-               HorizontalAlignment = "Center" VerticalAlignment = "Center"/>--> 
             </Grid>
 
             <ControlTemplate.Triggers>
@@ -133,7 +122,6 @@
 
         <!--컨트롤 판넬 콤보박스용 뷰모델(블록 번호, 속도, 가속, 감속)-->
         <local2:MainPanelViewModel x:Key="Viewmodel"/> 
-
     </UserControl.Resources>
 
     <Grid Background="White" ShowGridLines="False">
@@ -186,8 +174,8 @@
                     <TextBlock Margin="20 5 0 0">전원 ON 적산 시간 :</TextBlock>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
-                    <TextBox FontSize="14" Text="" Margin="0 10 0 0" TextAlignment="Right" BorderThickness="0"/>
-                    <TextBox FontSize="14" Text="" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
+                    <TextBox FontSize="14" Text="0" Margin="0 10 0 0" TextAlignment="Right" BorderThickness="0"/>
+                    <TextBox FontSize="14" Text="0" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
                     <TextBox FontSize="14" Text="0" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
                     <TextBox FontSize="14" Text="0" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
                     <TextBox FontSize="14" Text="0" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
@@ -260,27 +248,35 @@
                 </StackPanel>
 
                 <ComboBox FontSize="14" Grid.Row="0" Grid.Column="1" Margin="0 6 0 0" BorderThickness="2"
-                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=selectBlockNum}"/>
+                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=SelectBlockNum}"
+                          SelectedValue="{Binding Source={StaticResource Viewmodel}, Path=Selected_BlockNum, Mode=TwoWay}"/>
                 <ComboBox FontSize="14" Grid.Row="0" Grid.Column="3" Margin="0 6 0 0" BorderThickness="2"
-                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=blockSpeed}"/>
+                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=BlockSpeed}"
+                          SelectedValue="{Binding Source={StaticResource Viewmodel}, Path=Selected_BlockSpeed, Mode=TwoWay}"/>
                 <ComboBox FontSize="14" Grid.Row="1" Grid.Column="3" Margin="0 4 0 0" BorderThickness="2"
-                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=blockAccSpeed}"/>
+                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=BlockAccSpeed}"
+                          SelectedValue="{Binding Source={StaticResource Viewmodel}, Path=Selected_BlockAccSpeed, Mode=TwoWay}"/>
                 <ComboBox FontSize="14" Grid.Row="2" Grid.Column="3" Margin="0 4 0 0" BorderThickness="2"
-                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=blockDecSpeed}"/>
-                <TextBox FontSize="14" Grid.Row="1" Grid.Column="1" Margin="0 4 0 0" BorderThickness="2">
-                </TextBox>
-                <TextBox FontSize="14" Grid.Row="2" Grid.Column="1" Margin="0 4 0 0" BorderThickness="2">
+                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=BlockDecSpeed}"
+                          SelectedValue="{Binding Source={StaticResource Viewmodel}, Path=Selected_BlockDecSpeed, Mode=TwoWay}"/>
+                <TextBox FontSize="14" Grid.Row="1" Grid.Column="1" Margin="0 4 0 0" IsReadOnly="True" />
+                <TextBox FontSize="14" Grid.Row="2" Grid.Column="1" Margin="0 4 0 0" IsReadOnly="True">
                 </TextBox>
             </Grid>
         </GroupBox>
 
         <!-- 컨트롤 판넬 버튼 -->
         <StackPanel Grid.ColumnSpan="5" Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
-            <Button Template="{StaticResource ButtonTemplate}" Content="Servo ON" Width="110" Height="60" Margin="10 -50 0 0" FontWeight="Bold"/>
-            <Button Template="{StaticResource ButtonTemplate}" Content="STB" Width="110" Height="60" Margin="20 -50 0 0" FontWeight="Bold"/>
-            <Button Template="{StaticResource ButtonTemplate}" Content="A-Clear"  Width="110" Height="60" Margin="20 -50 0 0" FontWeight="Bold"/>
-            <Button Template="{StaticResource ButtonTemplate}" Content="S-STOP"  Width="110" Height="60" Margin="20 -50 0 0" FontWeight="Bold"/>
-            <Button Template="{StaticResource ButtonTemplate}" Content="H-STOP"  Width="110" Height="60" Margin="20 -50 0 0" FontWeight="Bold"/>
+            <Button Template="{StaticResource ButtonTemplate}" Content="Servo ON" Width="110" Height="60" Margin="10 -50 0 0" 
+                    FontWeight="Bold" Command="{Binding Source={StaticResource Viewmodel}, Path=servoOn}"/>
+            <Button Template="{StaticResource ButtonTemplate}" Content="STB" Width="110" Height="60" Margin="20 -50 0 0" 
+                    FontWeight="Bold"/>
+            <Button Template="{StaticResource ButtonTemplate}" Content="A-Clear"  Width="110" Height="60" Margin="20 -50 0 0" 
+                    FontWeight="Bold"/>
+            <Button Template="{StaticResource ButtonTemplate}" Content="S-STOP"  Width="110" Height="60" Margin="20 -50 0 0" 
+                    FontWeight="Bold"/>
+            <Button Template="{StaticResource ButtonTemplate}" Content="H-STOP"  Width="110" Height="60" Margin="20 -50 0 0" 
+                    FontWeight="Bold"/>
         </StackPanel>
     </Grid>
 </UserControl>

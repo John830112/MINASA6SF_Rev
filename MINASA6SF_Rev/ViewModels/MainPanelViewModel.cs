@@ -15,7 +15,7 @@ using System.Collections.ObjectModel;
 
 namespace MINASA6SF_Rev.ViewModels
 {
-    public class MainPanelViewModel:INotifyPropertyChanged
+    public class MainPanelViewModel:ViewModelBase
     {
         //Block동작 편집 파라미터 VM Instance
         public ObservableCollection<BlockParaModel1> blockParaModel1s { get; set; }
@@ -26,17 +26,71 @@ namespace MINASA6SF_Rev.ViewModels
         ObservableCollection<BlockParaModel2> BlockParaModel2s = new ObservableCollection<BlockParaModel2>();
 
 
-
         //ControlPanel 콤보박스 변수
-        public ObservableCollection<int> selectBlockNum { get; set; }
-        public ObservableCollection<int> blockAccSpeed { get; set; }
-        public ObservableCollection<int> blockDecSpeed { get; set; }
-        public ObservableCollection<int> blockSpeed { get; set; }
+        public ObservableCollection<int> SelectBlockNum { get; set; }
+        public ObservableCollection<int> BlockAccSpeed { get; set; }
+        public ObservableCollection<int> BlockDecSpeed { get; set; }
+        public ObservableCollection<int> BlockSpeed { get; set; }
 
-        ObservableCollection<int> SelectBlockNum= new ObservableCollection<int>();
-        ObservableCollection<int> BlockAccSpeed = new ObservableCollection<int>();
-        ObservableCollection<int> BlockDecSpeed = new ObservableCollection<int>();
-        ObservableCollection<int> BlockSpeed = new ObservableCollection<int>();
+        ObservableCollection<int> selectBlockNum= new ObservableCollection<int>();
+        ObservableCollection<int> blockAccSpeed = new ObservableCollection<int>();
+        ObservableCollection<int> blockDecSpeed = new ObservableCollection<int>();
+        ObservableCollection<int> blockSpeed = new ObservableCollection<int>();
+
+
+        int selectedBlockNum;
+        public int Selected_BlockNum
+        {
+            get
+            {
+                return selectedBlockNum;
+            }
+            set
+            {
+                SetProperty(ref selectedBlockNum, value);
+            }
+        }
+
+        int selectedBlockSpeed;
+        public int Selected_BlockSpeed
+        {
+            get
+            {
+                return selectedBlockSpeed;
+            }
+            set
+            {
+                SetProperty(ref selectedBlockSpeed, value);
+            }
+        }
+
+        int selectedBlockAccSpeed;
+        public int Selected_BlockAccSpeed
+        {
+            get
+            {
+                return selectedBlockAccSpeed;
+            }
+            set
+            {
+                SetProperty(ref selectedBlockAccSpeed, value);
+            }
+        }
+
+        int selectedBlockDecSpeed;
+        public int Selected_BlockDecSpeed
+        {
+            get
+            {
+                return selectedBlockDecSpeed;
+            }
+            set
+            {
+                SetProperty(ref selectedBlockDecSpeed, value);
+            }
+        }
+
+
 
         //MainPanel 리스트뷰 버튼 커맨드...
         string framesource="ControlPanel1.xaml";
@@ -47,11 +101,11 @@ namespace MINASA6SF_Rev.ViewModels
             {
                 if(framesource.Equals(value))
                 { return; }
-                framesource = value;
-                OnPropertyRaised("FrameSource");
+                SetProperty(ref framesource, value);                
             }
         }
 
+        //MainPanel Frame선택 버튼
         public ICommand controlPanel { set; get; }
         public ICommand blockpara { set; get; }
         public ICommand servopara { set; get; }
@@ -88,7 +142,11 @@ namespace MINASA6SF_Rev.ViewModels
 
         private void ExecuteServoOn(object parameter)
         {
-            throw new NotImplementedException();
+            //ControlPanel combobox 바인딩 테스트
+            Debug.WriteLine(Selected_BlockNum.ToString());
+            Debug.WriteLine(Selected_BlockSpeed.ToString());
+            Debug.WriteLine(Selected_BlockAccSpeed.ToString());
+            Debug.WriteLine(Selected_BlockDecSpeed.ToString());
         }
 
         private bool CanexecuteServoOn(object parameter)
@@ -176,25 +234,22 @@ namespace MINASA6SF_Rev.ViewModels
             BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 원점 복귀 무효화 설정 ", Range = "0 - 1", SettingValue = 0, Unit = "" });
             blockParaModel2s = BlockParaModel2s;
 
-            
-
             //ControlPanel1 컴보박스 인스턴스 생성
             for (int i = 0; i < 256; i++)
             {
-                SelectBlockNum.Add(i);
-                selectBlockNum = SelectBlockNum;
+                selectBlockNum.Add(i);
+                SelectBlockNum = selectBlockNum;
             }
             for(int i=0; i<16; i++)
             {
-                BlockAccSpeed.Add(i);
-                BlockDecSpeed.Add(i);
-                BlockSpeed.Add(i);
-                blockAccSpeed = BlockAccSpeed;
-                blockDecSpeed = BlockDecSpeed;
-                blockSpeed = BlockSpeed;
-            }
-    }
-
+                blockAccSpeed.Add(i);
+                blockDecSpeed.Add(i);
+                blockSpeed.Add(i);
+                BlockAccSpeed = blockAccSpeed;
+                BlockDecSpeed = blockDecSpeed;
+                BlockSpeed = blockSpeed;
+            }         
+        }
     #region MainPanel1제어
         private void ExecuteControlpanel(object parameter)
         {
@@ -245,20 +300,6 @@ namespace MINASA6SF_Rev.ViewModels
         {
             return true;
         }
-        #endregion
-
-        #region ControlPanel 제어
-
-
-        #endregion
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyRaised(string propertyname)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
-            }
-        }
+        #endregion    
     }
 }
