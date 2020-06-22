@@ -1,0 +1,286 @@
+﻿<UserControl x:Class="MINASA6SF_Rev.Views.ControlPanel1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
+             xmlns:local2="clr-namespace:MINASA6SF_Rev.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="430" d:DesignWidth="720">
+    <UserControl.Resources>
+
+        <!--컨트롤 판넬 버튼 템플릿-->
+        <ControlTemplate x:Key="ButtonTemplate" TargetType="Button">
+            <Grid>
+                <Ellipse x:Name="ButtonEllipse" Height="50" Width="100" Fill="{TemplateBinding Background}" 
+                         Stroke="{TemplateBinding BorderBrush}"/>
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                 <!--<Rectangle x:Name = "ButtonEllipse" Height = "50" Width = "100" >
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint = "0,0.2" EndPoint = "0.2,1.6">
+                            <GradientStop Offset = "0.2" Color = "Gray" />
+                            <GradientStop Offset = "1" Color = "White" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <ContentPresenter Content = "{TemplateBinding Content}" 
+               HorizontalAlignment = "Center" VerticalAlignment = "Center"/>--> 
+            </Grid>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property = "IsMouseOver" Value = "True">
+                    <Setter TargetName = "ButtonEllipse" Property = "Fill" >
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint = "0,0.2" EndPoint = "0.2,1.4">
+                                <GradientStop Offset = "0" Color = "#FF0F4E7A" />
+                                <GradientStop Offset = "1" Color = "White" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+
+                <Trigger Property = "IsPressed" Value = "True">
+                    <Setter Property = "RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX = "0.9" ScaleY = "0.9" CenterX = "0" CenterY = "0"  />
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property = "RenderTransformOrigin" Value = "0.5,0.5" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="JogPlayButton" TargetType="Button">
+            <Grid>
+                <Image Source="..\icons\circled_play_50px.png" Stretch="None"/>
+                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.9" ScaleY="0.9" CenterX="0" CenterY="0"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="JogPlayButton2" TargetType="Button">
+            <Grid>
+                <Image Source="..\icons\circled_play_50px2.png" Stretch="None"/>
+                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.9" ScaleY="0.9" CenterX="0" CenterY="0"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="JogPause" TargetType="Button">
+            <Grid>
+                <Image Source="..\icons\pause_button_50px.png" Stretch="None"/>
+                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.9" ScaleY="0.9" CenterX="0" CenterY="0"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="JogFastFord" TargetType="Button">
+            <Grid>
+                <Image Source="..\icons\fast_forward_round_50px.png" Stretch="None"/>
+                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.9" ScaleY="0.9" CenterX="0" CenterY="0"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="JogRewind" TargetType="Button">
+            <Grid>
+                <Image Source="..\icons\rewind_button_round_50px.png" Stretch="None"/>
+                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.9" ScaleY="0.9" CenterX="0" CenterY="0"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <!--컨트롤 판넬 콤보박스용 뷰모델(블록 번호, 속도, 가속, 감속)-->
+        <local2:MainPanelViewModel x:Key="Viewmodel"/> 
+
+    </UserControl.Resources>
+
+    <Grid Background="White" ShowGridLines="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="305"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="39*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="130"/>
+        </Grid.RowDefinitions>
+
+        <!-- 앰프 및 모터 품번의 텍스트 블럭 -->
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,9,-50,9" Grid.Row="0" Grid.Column="0" Height="32" Width="79" >
+            <TextBlock HorizontalAlignment="Left">Amp Name :</TextBlock>
+            <TextBlock HorizontalAlignment="Left">Motor Name :</TextBlock>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="50 0 0 0">
+            <TextBlock x:Name="AmpNum" HorizontalAlignment="Left" Text="#Value!"/>
+            <TextBlock x:Name="MotorNum" HorizontalAlignment="Left" Text="#Value!"/>
+        </StackPanel>
+        
+        <!-- 구동 상태 텍스트 블럭 -->
+        <GroupBox FontSize="22" FontWeight="DemiBold" Header="구동 상태" Grid.Row="1" Grid.Column="0"
+                  VerticalAlignment="Top" BorderThickness="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="20 20 0 0" Height="285">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel TextBlock.FontSize="14">
+                    <TextBlock Margin="20 10 0 0">Position actual value :</TextBlock>
+                    <TextBlock Margin="20 5 0 0">Velocity actual value :</TextBlock>
+                    <TextBlock Margin="20 5 0 0">Torque demand :</TextBlock>
+                    <TextBlock Margin="20 5 0 0">부하율 :</TextBlock>
+                    <TextBlock Margin="20 5 0 0">실제의 유효한 블록 No. :</TextBlock>
+                    <TextBlock Margin="20 5 0 0">주전원 PN간 전압 :</TextBlock>
+                    <TextBlock Margin="20 5 0 0">앰프 온도 :</TextBlock>
+                    <TextBlock Margin="20 5 0 0">엔코더 온도 :</TextBlock>
+                    <TextBlock Margin="20 5 0 0">전원 ON 적산 시간 :</TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBox FontSize="14" Text="" Margin="0 10 0 0" TextAlignment="Right" BorderThickness="0"/>
+                    <TextBox FontSize="14" Text="" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
+                    <TextBox FontSize="14" Text="0" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
+                    <TextBox FontSize="14" Text="0" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
+                    <TextBox FontSize="14" Text="0" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
+                    <TextBox FontSize="14" Text="0" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
+                    <TextBox FontSize="14" Text="0" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
+                    <TextBox FontSize="14" Text="0" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
+                    <TextBox FontSize="14" Text="0" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">
+                    <Label FontWeight="Normal" FontSize="8" Margin="0 10 0 0">pulse</Label>
+                    <Label FontWeight="Normal" FontSize="8" Margin="0 3 0 0">r/min</Label>
+                    <Label FontWeight="Normal" FontSize="8" Margin="0 3 0 0">%</Label>
+                    <Label FontWeight="Normal" FontSize="8" Margin="0 3 0 0">%</Label>
+                    <Label FontWeight="Normal" FontSize="8" Margin="0 3 0 0">Block</Label>
+                    <Label FontWeight="Normal" FontSize="8" Margin="0 3 0 0">V</Label>
+                    <Label FontWeight="Normal" FontSize="8" Margin="0 3 0 0">Dec</Label>
+                    <Label FontWeight="Normal" FontSize="8" Margin="0 3 0 0">Dec</Label>
+                    <Label FontWeight="Normal" FontSize="8" Margin="0 3 0 0">Hour</Label>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <!-- JOG운전 버튼 그룹-->
+        <GroupBox Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Header="JOG 운전" FontWeight="DemiBold" FontSize="22" Height="130"
+                  BorderThickness="2" Margin="0 10 0 0" >
+            <Grid>
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Button Template="{StaticResource JogRewind}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"/>
+                    <Button Template="{StaticResource JogPlayButton2}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"/>
+                    <Button Template="{StaticResource JogPause}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"/>
+                    <Button Template="{StaticResource JogPlayButton}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"/>
+                    <Button Template="{StaticResource JogFastFord}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <!-- Operation condition 그룹-->
+        <GroupBox Header="Operation condiation" FontSize="22" FontWeight="DemiBold" Grid.Column="3" Grid.Row="2" BorderThickness="2"
+                  Grid.ColumnSpan="2" Margin="0 0 0 6">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="65"/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Label FontWeight="DemiBold" FontSize="14">블록 번호 선택 :</Label>
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Label FontWeight="DemiBold" FontSize="14">속도 :</Label>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Label FontWeight="DemiBold" FontSize="14">가속 :</Label>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Label FontWeight="DemiBold" FontSize="14">강성 :</Label>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Label FontWeight="DemiBold" FontSize="14">감속 :</Label>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Label FontWeight="DemiBold" FontSize="14">관성비 :</Label>
+                </StackPanel>
+
+                <ComboBox FontSize="14" Grid.Row="0" Grid.Column="1" Margin="0 6 0 0" BorderThickness="2"
+                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=selectBlockNum}"/>
+                <ComboBox FontSize="14" Grid.Row="0" Grid.Column="3" Margin="0 6 0 0" BorderThickness="2"
+                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=blockSpeed}"/>
+                <ComboBox FontSize="14" Grid.Row="1" Grid.Column="3" Margin="0 4 0 0" BorderThickness="2"
+                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=blockAccSpeed}"/>
+                <ComboBox FontSize="14" Grid.Row="2" Grid.Column="3" Margin="0 4 0 0" BorderThickness="2"
+                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=blockDecSpeed}"/>
+                <TextBox FontSize="14" Grid.Row="1" Grid.Column="1" Margin="0 4 0 0" BorderThickness="2">
+                </TextBox>
+                <TextBox FontSize="14" Grid.Row="2" Grid.Column="1" Margin="0 4 0 0" BorderThickness="2">
+                </TextBox>
+            </Grid>
+        </GroupBox>
+
+        <!-- 컨트롤 판넬 버튼 -->
+        <StackPanel Grid.ColumnSpan="5" Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <Button Template="{StaticResource ButtonTemplate}" Content="Servo ON" Width="110" Height="60" Margin="10 -50 0 0" FontWeight="Bold"/>
+            <Button Template="{StaticResource ButtonTemplate}" Content="STB" Width="110" Height="60" Margin="20 -50 0 0" FontWeight="Bold"/>
+            <Button Template="{StaticResource ButtonTemplate}" Content="A-Clear"  Width="110" Height="60" Margin="20 -50 0 0" FontWeight="Bold"/>
+            <Button Template="{StaticResource ButtonTemplate}" Content="S-STOP"  Width="110" Height="60" Margin="20 -50 0 0" FontWeight="Bold"/>
+            <Button Template="{StaticResource ButtonTemplate}" Content="H-STOP"  Width="110" Height="60" Margin="20 -50 0 0" FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

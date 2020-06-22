@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="MINASA6SF_Rev.Views.ServoPara"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="720">
+    <UserControl.Resources>
+        <Style x:Key="ToolButton" TargetType="Button">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="SlateGray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="28"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="LightGray" Margin="0,-2,0,2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="553"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="340"/>
+        </Grid.RowDefinitions>
+
+        <ToolBar Background="LightGray" Grid.Column="1" Grid.RowSpan="3" 
+                 Grid.ColumnSpan="3" Margin="0,4,-130,5"  >
+            <Button x:Name="SerVParaRx" Content="수신"
+                    Style="{StaticResource ResourceKey=ToolButton}" 
+                    Margin="5 0 0 0"/>
+            <Separator/>
+            <Button x:Name="SerVParaTx" Content="송신" 
+                    Style="{StaticResource ResourceKey=ToolButton}"/>
+            <Separator/>
+            <Button x:Name="EEP" Content="EEP" Style="{StaticResource ResourceKey=ToolButton}" />
+        </ToolBar>
+
+        <Separator Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Margin="10,14,-95,2"/>
+        <ComboBox Grid.Row="3" Grid.Column="1" Margin="1,9,0,10" HorizontalAlignment="Center" 
+                  VerticalAlignment="Center" Width="150" Height="22">
+            <ComboBoxItem Content="A6SF 매개변수 일람" IsSelected="True" />
+        </ComboBox>
+
+        <ListBox  Background="White" x:Name="ParaTreeView"  Grid.Row="4" Grid.Column="1">
+            <ListBoxItem Content="분류0(기본)"/>
+            <ListBoxItem Content="분류1(게인)"/>
+            <ListBoxItem Content="분류2(진동 억제)"/>
+            <ListBoxItem Content="분류3(속도/토크/풀클로즈)"/>
+            <ListBoxItem Content="분류4(I/F, 모니터)"/>
+            <ListBoxItem Content="분류5(확장기능)"/>
+            <ListBoxItem Content="분류6(특수)"/>
+            <ListBoxItem Content="분류7(특수)"/>
+        </ListBox>
+        <Grid  Grid.Row="4" Grid.Column="2" Height="240" Width="540" VerticalAlignment="Top" 
+               HorizontalAlignment="Center" Margin="0,0,0,0">
+            <Frame x:Name="Para_Count" NavigationUIVisibility="Hidden" Width="540"/>
+        </Grid>
+    </Grid>
+</UserControl>
