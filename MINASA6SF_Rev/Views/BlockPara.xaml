@@ -86,8 +86,9 @@
 
             <TabItem Header="블록 매개변수 편집">
                 <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False"
-                              SelectionUnit="FullRow" VerticalScrollBarVisibility="Visible" Margin="0,0,0,-6"
-                              Background="#FFE5E5E5" ItemsSource="{Binding blockParaModel2s}" SelectionMode="Single">
+                          SelectionUnit="FullRow" VerticalScrollBarVisibility="Visible" Margin="0,0,0,-6"
+                          Background="#FFE5E5E5" ItemsSource="{Binding blockParaModel2s}" 
+                          SelectionMode="Single" Name="blockparam">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding MainIndex }" Width="35" Header="분류"
                                                 CanUserResize="False" IsReadOnly="True" CanUserSort="False"
@@ -133,12 +134,19 @@
                         <DataGridTemplateColumn Header="설정값" Width="90" CanUserResize="False" 
                                                 IsReadOnly="False" CanUserSort="False"
                                                 HeaderStyle="{StaticResource CenterGridHeaderStyle}">
-                                
-                                <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
+                           <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate x:Name="ttt">
                                     <TextBox Text="{Binding Path=SettingValue, Mode=TwoWay}" BorderThickness="0"
-                                             HorizontalContentAlignment="Right" Foreground="Black" Background="White"/>
+                                             HorizontalContentAlignment="Right" Foreground="Black" Background="{Binding Path=Background, 
+                                        RelativeSource={RelativeSource AncestorType=DataGridRow}}">
+                                    </TextBox>
+                                    <DataTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding XPath=SubIndex, RelativeSource={RelativeSource AncestorType=DataGridRow}}" Value="48">
+                                            <Setter Property="TextBox.Background" Value="Yellow"/>
+                                        </DataTrigger>
+                                    </DataTemplate.Triggers>
                                 </DataTemplate>
+                            
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 

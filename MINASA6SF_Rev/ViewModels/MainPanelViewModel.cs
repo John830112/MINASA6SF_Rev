@@ -195,6 +195,7 @@ namespace MINASA6SF_Rev.ViewModels
         private void ExecuteCancel(object parameter)
         {
             Debug.WriteLine("블럭 셋팅 창 취소 테스트");
+            blockSettingDialog.Hide();
 
         }
 
@@ -385,8 +386,7 @@ namespace MINASA6SF_Rev.ViewModels
             blockSettingDialog = new BlockSettingDialogs();
             blockSettingDialog.DataContext = this;
             blockSettingDialog.FunctionSelect1.ItemsSource = blockFunctions;
-            blockSettingDialog.Show();
-            
+            blockSettingDialog.ShowDialog();
         }
         #endregion
     }
