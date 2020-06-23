@@ -35,9 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ModbusLib">
-      <HintPath>..\..\..\..\Documents\MINASA6SF_ModbusRTU\MINASA6SF_ModbusRTU\bin\Debug\ModbusLib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />

@@ -50,7 +50,7 @@
         <TabControl x:Name="Tabcontrol" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" 
                     Height="395" Margin="0,0,0,-194" VerticalAlignment="Top">
             <TabItem Header="블록 동작 편집">
-                <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" 
+                <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False"
                               SelectionUnit="FullRow" VerticalScrollBarVisibility="Visible" Margin="0,0,0,-6"
                               Background="#FFE5E5E5" ItemsSource="{Binding blockParaModel1s}" SelectionMode="Single">
                     <DataGrid.Columns>
@@ -123,16 +123,29 @@
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
 
-                        <DataGridTextColumn Binding="{Binding SettingValue}" Header="설정값" Width="90"
+                        <!--<DataGridTextColumn Binding="{Binding SettingValue, Mode=TwoWay}" Header="설정값" Width="90"
                                                 CanUserResize="False" IsReadOnly="False" CanUserSort="False" 
                                                 HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="HorizontalAlignment" Value="Right"/>
-                                    <Setter Property="HorizontalAlignment" Value="Right"/>
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
+                        </DataGridTextColumn>-->
+
+                        <DataGridTemplateColumn Header="설정값" Width="90" CanUserResize="False" 
+                                                IsReadOnly="False" CanUserSort="False"
+                                                HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                
+                                <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding Path=SettingValue, Mode=TwoWay}" BorderThickness="0"
+                                             HorizontalContentAlignment="Right" Foreground="Black" Background="White"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        
 
                         <DataGridTextColumn Binding="{Binding Unit}" Header="단위" Width="124"
                                                 CanUserResize="False" IsReadOnly="True" CanUserSort="False"
