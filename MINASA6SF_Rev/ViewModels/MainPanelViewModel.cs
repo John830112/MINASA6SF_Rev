@@ -115,6 +115,11 @@ namespace MINASA6SF_Rev.ViewModels
         public ICommand s_Stop { set; get; }
         public ICommand h_Stop { get; set; }
 
+
+        //블럭 동작 편집 커맨드
+        public ICommand BlockActDouClick { set; get; }
+
+
         public MainPanelViewModel()
         {
 
@@ -132,10 +137,22 @@ namespace MINASA6SF_Rev.ViewModels
             this.s_Stop = new commandModel(Executes_Stop, Canexecutes_Stop);
             this.h_Stop = new commandModel(Executeh_Stop, Canexecuteh_Stop);
 
+            //블럭 동작 편집 커맨드
+            this.BlockActDouClick = new commandModel(ExecuteBlockActDouClick, canexecuteBlockActDuoClick);
+
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadStudents();
         }
-                                    
+
+        private void ExecuteBlockActDouClick(object parameter)
+        {
+            Debug.WriteLine("그리드 버튼 테스트");
+        }
+
+        private bool canexecuteBlockActDuoClick(object parameter)
+        {
+            return true;
+        }
 
         private void LoadStudents()
         {
