@@ -8,10 +8,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="720">
 
-    <UserControl.DataContext>
-        <local2:MainPanelViewModel/>
-    </UserControl.DataContext>
-
     <UserControl.Resources>
         <Style x:Key="ToolButton" TargetType="Button">
             <Setter Property="Background" Value="LightGray"/>

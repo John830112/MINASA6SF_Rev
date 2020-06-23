@@ -23,6 +23,12 @@ namespace MINASA6SF_Rev.Views
     public partial class MainPanel : UserControl
     {
         MainWindow mainWindowlocal;
+        MainPanelViewModel MainPanelViewModel = new MainPanelViewModel();
+
+        BlockPara BlockPara = new BlockPara();
+        ControlPanel1 ControlPanel1 = new ControlPanel1();
+        ServoPara ServoPara = new ServoPara();
+        Settings Settings = new Settings();
 
         public MainPanel()
         {
@@ -33,7 +39,10 @@ namespace MINASA6SF_Rev.Views
         {
             InitializeComponent();
             mainWindowlocal = mainWindow;
-
+            DataContext = MainPanelViewModel;
+            BlockPara.DataContext = MainPanelViewModel;
+            ControlPanel1.DataContext = MainPanelViewModel;
+            mainpanel.Navigate(ControlPanel1);
         }
 
         private void PanelHeader_MouseDown(object sender, MouseButtonEventArgs e)
@@ -43,6 +52,30 @@ namespace MINASA6SF_Rev.Views
                 mainWindowlocal.DragMove();
             }
         }
-        
+
+        private void mainpanel_Click(object sender, RoutedEventArgs e)
+        {
+            mainpanel.Navigate(ControlPanel1);
+        }
+
+        private void blockpara_Click(object sender, RoutedEventArgs e)
+        {
+            mainpanel.Navigate(BlockPara);
+        }
+
+        private void servopara_Click(object sender, RoutedEventArgs e)
+        {
+            mainpanel.Navigate(ServoPara);
+        }
+
+        private void setting_Click(object sender, RoutedEventArgs e)
+        {
+            mainpanel.Navigate(Settings);
+        }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }

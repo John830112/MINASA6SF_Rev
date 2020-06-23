@@ -25,7 +25,6 @@ namespace MINASA6SF_Rev.ViewModels
         public ObservableCollection<BlockParaModel2> blockParaModel2s { set; get; }
         ObservableCollection<BlockParaModel2> BlockParaModel2s = new ObservableCollection<BlockParaModel2>();
 
-
         //ControlPanel 콤보박스 변수
         public ObservableCollection<int> SelectBlockNum { get; set; }
         public ObservableCollection<int> BlockAccSpeed { get; set; }
@@ -36,7 +35,6 @@ namespace MINASA6SF_Rev.ViewModels
         ObservableCollection<int> blockAccSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockDecSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockSpeed = new ObservableCollection<int>();
-
 
         int selectedBlockNum;
         public int Selected_BlockNum
@@ -90,8 +88,6 @@ namespace MINASA6SF_Rev.ViewModels
             }
         }
 
-
-
         //MainPanel 리스트뷰 버튼 커맨드...
         string framesource="ControlPanel1.xaml";
         public string FrameSource
@@ -106,11 +102,11 @@ namespace MINASA6SF_Rev.ViewModels
         }
 
         //MainPanel Frame선택 버튼
-        public ICommand controlPanel { set; get; }
-        public ICommand blockpara { set; get; }
-        public ICommand servopara { set; get; }
-        public ICommand settings { set; get; }
-        public ICommand exit { set; get; }
+        //public ICommand controlPanel { set; get; }
+        //public ICommand blockpara { set; get; }
+        //public ICommand servopara { set; get; }
+        //public ICommand settings { set; get; }
+        //public ICommand exit { set; get; }
 
         //ControlPanel1 제어 버튼
         public ICommand servoOn { set; get; }
@@ -123,11 +119,11 @@ namespace MINASA6SF_Rev.ViewModels
         {
 
             //MainPanel 버튼 커맨드
-            this.controlPanel = new commandModel(ExecuteControlpanel, CanExecuteControlpanel);
-            this.blockpara = new commandModel(ExecuteBlockpara, CanExecuteBlockpara);
-            this.servopara = new commandModel(ExecuteServopara, CanExecuteServopara);
-            this.settings = new commandModel(ExecuteSettings, CanExecuteSettings);
-            this.exit = new commandModel(ExecuteExit, CanExecuteExit);
+            //this.controlPanel = new commandModel(ExecuteControlpanel, CanExecuteControlpanel);
+            //this.blockpara = new commandModel(ExecuteBlockpara, CanExecuteBlockpara);
+            //this.servopara = new commandModel(ExecuteServopara, CanExecuteServopara);
+            //this.settings = new commandModel(ExecuteSettings, CanExecuteSettings);
+            //this.exit = new commandModel(ExecuteExit, CanExecuteExit);
 
             //ControlPanel 버튼 커맨드
             this.servoOn = new commandModel(ExecuteServoOn, CanexecuteServoOn);
@@ -139,60 +135,7 @@ namespace MINASA6SF_Rev.ViewModels
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadStudents();
         }
-
-        private void ExecuteServoOn(object parameter)
-        {
-            //ControlPanel combobox 바인딩 테스트
-            Debug.WriteLine(Selected_BlockNum.ToString());
-            Debug.WriteLine(Selected_BlockSpeed.ToString());
-            Debug.WriteLine(Selected_BlockAccSpeed.ToString());
-            Debug.WriteLine(Selected_BlockDecSpeed.ToString());
-        }
-
-        private bool CanexecuteServoOn(object parameter)
-        {
-            return true;
-        }
-
-        private void ExecutestB(object parameter)
-        {
-            throw new NotImplementedException();
-        }
-
-        private bool CanexecutestB(object parameter)
-        {
-            return true;
-        }
-
-        private void Executea_Clear(object parameter)
-        {
-            throw new NotImplementedException();
-        }
-
-        private bool Canexecutea_Clear(object parameter)
-        {
-            return true;
-        }
-
-        private void Executes_Stop(object parameter)
-        {
-            throw new NotImplementedException();
-        }
-
-        private bool Canexecutes_Stop(object parameter)
-        {
-            return true;
-        }
-
-        private void Executeh_Stop(object parameter)
-        {
-            throw new NotImplementedException();
-        }
-
-        private bool Canexecuteh_Stop(object parameter)
-        {
-            return true;
-        }
+                                    
 
         private void LoadStudents()
         {
@@ -250,56 +193,114 @@ namespace MINASA6SF_Rev.ViewModels
                 BlockSpeed = blockSpeed;
             }         
         }
-    #region MainPanel1제어
-        private void ExecuteControlpanel(object parameter)
+    //#region MainPanel1제어
+    //    public void ExecuteControlpanel(object parameter)
+    //    {
+    //        FrameSource = "ControlPanel1.xaml";
+
+    //    }
+
+    //    private bool CanExecuteControlpanel(object parameter)
+    //    {
+    //        return true;
+    //    }
+
+    //    public void ExecuteBlockpara(object parameter)
+    //    {
+    //        FrameSource = "BlockPara.xaml";
+    //    }
+
+    //    private bool CanExecuteBlockpara(object parameter)
+    //    {
+    //        return true;
+    //    }
+
+    //    private void ExecuteServopara(object parameter)
+    //    {
+    //        FrameSource = "ServoPara.xaml";
+
+    //    }
+
+    //    private bool CanExecuteServopara(object parameter)
+    //    {
+    //        return true;
+    //    }
+
+    //    private void ExecuteSettings(object parameter)
+    //    {
+    //        FrameSource = "Settings.xaml";
+    //    }
+
+    //    private bool CanExecuteSettings(object parameter)
+    //    {
+    //        return true;
+    //    }
+
+    //    private void ExecuteExit(object parameter)
+    //    {
+    //        System.Windows.Application.Current.Shutdown();
+    //    }
+
+    //    private bool CanExecuteExit(object parameter)
+    //    {
+    //        return true;
+    //    }
+    //    #endregion
+
+        #region controlpanel button제어
+        private void ExecuteServoOn(object parameter)
         {
-            FrameSource = "ControlPanel1.xaml";
+            //ControlPanel combobox 바인딩 테스트
+            Debug.WriteLine(Selected_BlockNum.ToString());
+            Debug.WriteLine(Selected_BlockSpeed.ToString());
+            Debug.WriteLine(Selected_BlockAccSpeed.ToString());
+            Debug.WriteLine(Selected_BlockDecSpeed.ToString());
         }
 
-        private bool CanExecuteControlpanel(object parameter)
+        private bool CanexecuteServoOn(object parameter)
         {
             return true;
         }
 
-        private void ExecuteBlockpara(object parameter)
+        private void ExecutestB(object parameter)
         {
-            FrameSource = "BlockPara.xaml";
+            throw new NotImplementedException();
         }
 
-        private bool CanExecuteBlockpara(object parameter)
+        private bool CanexecutestB(object parameter)
         {
             return true;
         }
 
-        private void ExecuteServopara(object parameter)
+        private void Executea_Clear(object parameter)
         {
-            FrameSource = "ServoPara.xaml";
+            throw new NotImplementedException();
         }
 
-        private bool CanExecuteServopara(object parameter)
+        private bool Canexecutea_Clear(object parameter)
         {
             return true;
         }
 
-        private void ExecuteSettings(object parameter)
+        private void Executes_Stop(object parameter)
         {
-            FrameSource = "Settings.xaml";
+            throw new NotImplementedException();
         }
 
-        private bool CanExecuteSettings(object parameter)
+        private bool Canexecutes_Stop(object parameter)
         {
             return true;
         }
 
-        private void ExecuteExit(object parameter)
+        private void Executeh_Stop(object parameter)
         {
-            System.Windows.Application.Current.Shutdown();
+            throw new NotImplementedException();
         }
 
-        private bool CanExecuteExit(object parameter)
+        private bool Canexecuteh_Stop(object parameter)
         {
             return true;
         }
-        #endregion    
+        #endregion
     }
 }
