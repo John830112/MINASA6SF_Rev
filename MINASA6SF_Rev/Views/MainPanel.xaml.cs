@@ -30,8 +30,7 @@ namespace MINASA6SF_Rev.Views
         ServoPara ServoPara = new ServoPara();
         Settings Settings = new Settings();
 
-
-        BlockSettingDialog BlockSettingDialog = new BlockSettingDialog();
+        
         Abs_Position_Page2 Abs_Position_Page2 = new Abs_Position_Page2();
         ConditionDiv_Page10 ConditionDiv_Page10 = new ConditionDiv_Page10();
         ConditionDiv_Page11 ConditionDiv_Page11 = new ConditionDiv_Page11();

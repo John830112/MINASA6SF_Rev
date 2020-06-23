@@ -15,11 +15,15 @@ using System.Collections.ObjectModel;
 
 namespace MINASA6SF_Rev.ViewModels
 {
-    public class MainPanelViewModel:ViewModelBase
+    public class MainPanelViewModel:ViewModelBase, IWindowService
     {
         //Block동작 편집 파라미터 VM Instance
         public ObservableCollection<BlockParaModel1> blockParaModel1s { get; set; }
         ObservableCollection<BlockParaModel1> BlockParaModel1s = new ObservableCollection<BlockParaModel1>();
+        BlockSettingDialogs blockSettingDialog;
+
+        public ObservableCollection<BlockFunction> blockFunctions { set; get; }
+
 
         //Block매개변수 편집 VM Instance
         public ObservableCollection<BlockParaModel2> blockParaModel2s { set; get; }
@@ -118,6 +122,9 @@ namespace MINASA6SF_Rev.ViewModels
 
         //블럭 동작 편집 커맨드
         public ICommand BlockActDouClick { set; get; }
+        public ICommand Setting_Reset { set; get; }
+        public ICommand Confirm { set; get; }
+        public ICommand Cancel { set; get; }
 
 
         public MainPanelViewModel()
@@ -138,18 +145,71 @@ namespace MINASA6SF_Rev.ViewModels
             this.h_Stop = new commandModel(Executeh_Stop, Canexecuteh_Stop);
 
             //블럭 동작 편집 커맨드
-            this.BlockActDouClick = new commandModel(ExecuteBlockActDouClick, canexecuteBlockActDuoClick);
+            this.BlockActDouClick = new commandModel(ExecuteBlockActDouClick, CanexecuteBlockActDuoClick);
+
+            this.Setting_Reset = new commandModel(ExecuteSetting_reset, CanexecuteSetting_Rset);
+            this.Confirm = new commandModel(ExecuteConfirm, CanexecuteConfirm);
+            this.Cancel = new commandModel(ExecuteCancel, CanexecuteCancel);
 
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadStudents();
+
+            blockFunctions = new ObservableCollection<BlockFunction>()
+            {
+                new BlockFunction(){Id=0, Name="상대 위치 결정"}
+                ,new BlockFunction(){Id=1, Name="절대 위치 결정"}
+                ,new BlockFunction(){Id=2, Name="JOG"}
+                ,new BlockFunction(){Id=3, Name="원점 복귀"}
+                ,new BlockFunction(){Id=4, Name="감속 정지"}
+                ,new BlockFunction(){Id=5, Name="속도 갱신"}
+                ,new BlockFunction(){Id=6, Name="디크리멘트 카운터 기동"}
+                ,new BlockFunction(){Id=6, Name="출력 신호 조작"}
+                ,new BlockFunction(){Id=7, Name="점프"}
+                ,new BlockFunction(){Id=8, Name="조건 분기(=)"}
+                ,new BlockFunction(){Id=9, Name="조건 분기(>)"}
+                ,new BlockFunction(){Id=10, Name="조건 분기(<)"}
+            };
+        }
+
+        private void ExecuteSetting_reset(object parameter)
+        {
+            Debug.WriteLine("블럭 셋팅 창 리셋 테스트");
+        }
+
+        private bool CanexecuteSetting_Rset(object parameter)
+        {
+            return true;
+        }
+
+        private void ExecuteConfirm(object parameter)
+        {
+            Debug.WriteLine("블럭 셋팅 창 확인 테스트");
+
+        }
+
+        private bool CanexecuteConfirm(object parameter)
+        {
+            return true;
+        }
+
+        private void ExecuteCancel(object parameter)
+        {
+            Debug.WriteLine("블럭 셋팅 창 취소 테스트");
+
+        }
+
+        private bool CanexecuteCancel(object parameter)
+        {
+            return true;
         }
 
         private void ExecuteBlockActDouClick(object parameter)
         {
             Debug.WriteLine("그리드 버튼 테스트");
+            showWindow(this);
         }
 
-        private bool canexecuteBlockActDuoClick(object parameter)
+        private bool CanexecuteBlockActDuoClick(object parameter)
         {
             return true;
         }
@@ -317,6 +377,16 @@ namespace MINASA6SF_Rev.ViewModels
         private bool Canexecuteh_Stop(object parameter)
         {
             return true;
+        }
+
+        //블록셋팅 창 오픈
+        public void showWindow(object dataContext)
+        {
+            blockSettingDialog = new BlockSettingDialogs();
+            blockSettingDialog.DataContext = this;
+            blockSettingDialog.FunctionSelect1.ItemsSource = blockFunctions;
+            blockSettingDialog.Show();
+            
         }
         #endregion
     }

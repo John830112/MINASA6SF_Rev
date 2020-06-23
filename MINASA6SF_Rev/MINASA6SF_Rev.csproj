@@ -55,10 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\BlockFunction.cs" />
     <Compile Include="Models\BlockParaModel1.cs" />
     <Compile Include="Models\BlockParaModel2.cs" />
     <Compile Include="Models\BlockSelectComboList.cs" />
     <Compile Include="Models\commandModel.cs" />
+    <Compile Include="Models\IWindowService.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="ViewModels\MainPanelViewModel.cs" />
     <Compile Include="Views\Abs_Position_Page2.xaml.cs">
@@ -67,8 +69,8 @@
     <Compile Include="Views\BlockPara.xaml.cs">
       <DependentUpon>BlockPara.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BlockSettingDialog.xaml.cs">
-      <DependentUpon>BlockSettingDialog.xaml</DependentUpon>
+    <Compile Include="Views\BlockSettingDialogs.xaml.cs">
+      <DependentUpon>BlockSettingDialogs.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ConditionDiv_Page10.xaml.cs">
       <DependentUpon>ConditionDiv_Page10.xaml</DependentUpon>
@@ -135,7 +137,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BlockSettingDialog.xaml">
+    <Page Include="Views\BlockSettingDialogs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
