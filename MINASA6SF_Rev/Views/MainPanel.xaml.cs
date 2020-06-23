@@ -42,6 +42,9 @@ namespace MINASA6SF_Rev.Views
             DataContext = MainPanelViewModel;
             BlockPara.DataContext = MainPanelViewModel;
             ControlPanel1.DataContext = MainPanelViewModel;
+            ServoPara.DataContext = MainPanelViewModel;
+            Settings.DataContext = MainPanelViewModel;
+
             mainpanel.Navigate(ControlPanel1);
         }
 

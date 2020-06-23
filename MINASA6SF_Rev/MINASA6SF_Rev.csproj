@@ -64,20 +64,59 @@
     <Compile Include="Models\commandModel.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="ViewModels\MainPanelViewModel.cs" />
+    <Compile Include="Views\Abs_Position_Page2.xaml.cs">
+      <DependentUpon>Abs_Position_Page2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BlockPara.xaml.cs">
       <DependentUpon>BlockPara.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BlockSettingDialog.xaml.cs">
+      <DependentUpon>BlockSettingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConditionDiv_Page10.xaml.cs">
+      <DependentUpon>ConditionDiv_Page10.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConditionDiv_Page11.xaml.cs">
+      <DependentUpon>ConditionDiv_Page11.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConditionDiv_Page12.xaml.cs">
+      <DependentUpon>ConditionDiv_Page12.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ControlPanel1.xaml.cs">
       <DependentUpon>ControlPanel1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DecrementCount_Page7.xaml.cs">
+      <DependentUpon>DecrementCount_Page7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DecStop_Page5.xaml.cs">
+      <DependentUpon>DecStop_Page5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeReturn_Page4.xaml.cs">
+      <DependentUpon>HomeReturn_Page4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IncPosition_Page1.xaml.cs">
+      <DependentUpon>IncPosition_Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JOG_Operation_Page3.xaml.cs">
+      <DependentUpon>JOG_Operation_Page3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jump_Page9.xaml.cs">
+      <DependentUpon>Jump_Page9.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPanel.xaml.cs">
       <DependentUpon>MainPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OutPutSignal_Page8.xaml.cs">
+      <DependentUpon>OutPutSignal_Page8.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ServoPara.xaml.cs">
       <DependentUpon>ServoPara.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpeedUpdate_Page6.xaml.cs">
+      <DependentUpon>SpeedUpdate_Page6.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -91,7 +130,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Abs_Position_Page2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BlockPara.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BlockSettingDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConditionDiv_Page10.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConditionDiv_Page11.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConditionDiv_Page12.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -99,7 +158,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DecrementCount_Page7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DecStop_Page5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomeReturn_Page4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\IncPosition_Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\JOG_Operation_Page3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Jump_Page9.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OutPutSignal_Page8.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpeedUpdate_Page6.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
