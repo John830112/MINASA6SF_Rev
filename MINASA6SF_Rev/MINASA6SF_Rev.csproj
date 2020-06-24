@@ -60,6 +60,7 @@
     <Compile Include="Models\BlockParaModel2.cs" />
     <Compile Include="Models\BlockSelectComboList.cs" />
     <Compile Include="Models\commandModel.cs" />
+    <Compile Include="Models\IndexToXamlStringConverter.cs" />
     <Compile Include="Models\IWindowService.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="ViewModels\MainPanelViewModel.cs" />

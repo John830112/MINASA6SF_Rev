@@ -29,7 +29,6 @@ namespace MINASA6SF_Rev.Views
         ControlPanel1 ControlPanel1 = new ControlPanel1();
         ServoPara ServoPara = new ServoPara();
         Settings Settings = new Settings();
-
         
         Abs_Position_Page2 Abs_Position_Page2 = new Abs_Position_Page2();
         ConditionDiv_Page10 ConditionDiv_Page10 = new ConditionDiv_Page10();
@@ -44,11 +43,7 @@ namespace MINASA6SF_Rev.Views
         OutPutSignal_Page8 OutPutSignal_Page8 = new OutPutSignal_Page8();
         SpeedUpdate_Page6 SpeedUpdate_Page6 = new SpeedUpdate_Page6();
 
-
-        public MainPanel()
-        {
-
-        }
+        public MainPanel() {}
 
         public MainPanel(MainWindow mainWindow)
         {

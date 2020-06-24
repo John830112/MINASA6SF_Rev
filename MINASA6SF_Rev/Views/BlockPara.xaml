@@ -40,11 +40,13 @@
 
         <ToolBar Grid.Column="1" Grid.ColumnSpan="5" Margin="0,3,-20,5" Background="White" Grid.RowSpan="2">
             <Button x:Name="BlockParaRx" Content="수신" Style="{StaticResource ResourceKey=ToolButton}" 
-                    VerticalAlignment="Top"/>
+                    VerticalAlignment="Top" Command="{Binding RecCommand}"/>
             <Separator/>
-            <Button x:Name="BlockParaTx" Content="송신" Style="{StaticResource ResourceKey=ToolButton}"/>
+            <Button x:Name="BlockParaTx" Content="송신" Style="{StaticResource ResourceKey=ToolButton}"
+                    Command="{Binding TranCommand}"/>
             <Separator/>
-            <Button x:Name="EEP" Content="EEP" Style="{StaticResource ResourceKey=ToolButton}" />
+            <Button x:Name="EEP" Content="EEP" Style="{StaticResource ResourceKey=ToolButton}" 
+                    Command="{Binding EepCommand}"/>
         </ToolBar>
 
         <TabControl x:Name="Tabcontrol" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4"
@@ -79,7 +81,7 @@
                     <DataGrid.InputBindings>
                         <MouseBinding Gesture="LeftDoubleClick"
                                       Command="{Binding BlockActDouClick}"
-                                      CommandParameter="{Binding SelectedItem}" />
+                                      CommandParameter="{Binding SelectedItem}"/>
                     </DataGrid.InputBindings>
                 </DataGrid>
             </TabItem>
@@ -136,7 +138,7 @@
                                                 HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate x:Name="ttt">
-                                    <TextBox Text="{Binding Path=SettingValue, Mode=TwoWay}" BorderThickness="0"
+                                    <TextBox Text="{Binding Path=SettingValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0"
                                              HorizontalContentAlignment="Right" Foreground="Black" Background="{Binding Path=Background, 
                                         RelativeSource={RelativeSource AncestorType=DataGridRow}}">
                                     </TextBox>

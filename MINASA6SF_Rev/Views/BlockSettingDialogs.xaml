@@ -4,10 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
+        xmlns:local2="clr-namespace:MINASA6SF_Rev.Models"
         mc:Ignorable="d"
         Title="BlockSettingDialogs" Height="335" Width="410" ResizeMode="NoResize" 
         WindowStyle="None" WindowStartupLocation="CenterScreen">
-    
+
+    <Window.Resources>
+        <local2:IndexToXamlStringConverter x:Key="IndexToXamlStringConverter" />
+    </Window.Resources>
     <Grid Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
@@ -24,11 +28,11 @@
         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <ComboBox x:Name="FunctionSelect1" VerticalContentAlignment="Center" Height="30"  FontSize="14" FontStretch="Medium" 
                       Margin="14 20 0 10" BorderThickness="1" SelectedIndex="0"
-                      DisplayMemberPath="Name">
+                      DisplayMemberPath="Name">               
             </ComboBox>
         </StackPanel>
-
-        <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" x:Name="BlockActionParaWindow" NavigationUIVisibility="Hidden"/>
+        <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" x:Name="BlockActionParaWindow" 
+               NavigationUIVisibility="Hidden" Source="{Binding ElementName=FunctionSelect1, Path=SelectedIndex, Converter={StaticResource IndexToXamlStringConverter}}"/>
         <Button Content="재설정" x:Name="ParaReset_Page1" FontSize="14" FontWeight="DemiBold" Foreground="Black" VerticalAlignment="Center" 
                 Grid.Row="2" Width="70" Height="30" Margin="0 20 0 0" Command="{Binding Setting_Reset}"/>
         <Button Content="확인" x:Name="FixSeting_Page1" FontSize="14" FontWeight="DemiBold" Foreground="Black" VerticalAlignment="Center" 

@@ -24,7 +24,6 @@ namespace MINASA6SF_Rev.ViewModels
 
         public ObservableCollection<BlockFunction> blockFunctions { set; get; }
 
-
         //Block매개변수 편집 VM Instance
         public ObservableCollection<BlockParaModel2> blockParaModel2s { set; get; }
         ObservableCollection<BlockParaModel2> BlockParaModel2s = new ObservableCollection<BlockParaModel2>();
@@ -52,7 +51,6 @@ namespace MINASA6SF_Rev.ViewModels
                 SetProperty(ref selectedBlockNum, value);
             }
         }
-
         int selectedBlockSpeed;
         public int Selected_BlockSpeed
         {
@@ -65,7 +63,6 @@ namespace MINASA6SF_Rev.ViewModels
                 SetProperty(ref selectedBlockSpeed, value);
             }
         }
-
         int selectedBlockAccSpeed;
         public int Selected_BlockAccSpeed
         {
@@ -78,7 +75,6 @@ namespace MINASA6SF_Rev.ViewModels
                 SetProperty(ref selectedBlockAccSpeed, value);
             }
         }
-
         int selectedBlockDecSpeed;
         public int Selected_BlockDecSpeed
         {
@@ -91,6 +87,18 @@ namespace MINASA6SF_Rev.ViewModels
                 SetProperty(ref selectedBlockDecSpeed, value);
             }
         }
+
+        int blockFunction;
+        public int BlockFunctionID
+        {
+            get { return blockFunction; }
+            set { SetProperty(ref blockFunction, value);
+                Debug.WriteLine(blockFunction.ToString());
+            }
+            
+        }
+
+
 
         //MainPanel 리스트뷰 버튼 커맨드...
         string framesource="ControlPanel1.xaml";
@@ -105,6 +113,7 @@ namespace MINASA6SF_Rev.ViewModels
             }
         }
 
+        #region 각종 ICommand객체 생성
         //MainPanel Frame선택 버튼
         //public ICommand controlPanel { set; get; }
         //public ICommand blockpara { set; get; }
@@ -126,7 +135,13 @@ namespace MINASA6SF_Rev.ViewModels
         public ICommand Confirm { set; get; }
         public ICommand Cancel { set; get; }
 
+        //블럭 파라미터 수신, 송신, EEP 커맨드
+        public ICommand RecCommand { set; get; }
+        public ICommand TranCommand { set; get; }
+        public ICommand EepCommand { set; get; }
+        #endregion
 
+        #region viewmodel 생성자
         public MainPanelViewModel()
         {
 
@@ -147,9 +162,15 @@ namespace MINASA6SF_Rev.ViewModels
             //블럭 동작 편집 커맨드
             this.BlockActDouClick = new commandModel(ExecuteBlockActDouClick, CanexecuteBlockActDuoClick);
 
+            //블럭 동작 파라미터 설정 창 커맨드
             this.Setting_Reset = new commandModel(ExecuteSetting_reset, CanexecuteSetting_Rset);
             this.Confirm = new commandModel(ExecuteConfirm, CanexecuteConfirm);
             this.Cancel = new commandModel(ExecuteCancel, CanexecuteCancel);
+
+            //블럭 파라미터 수신,송신,EEP 커맨드
+            this.RecCommand = new commandModel(ExecuteRecCommand, CanexecuteRecCommand);
+            this.TranCommand = new commandModel(ExecuteTransCommand, CanexecuteTransCommand);
+            this.EepCommand = new commandModel(ExecuteEepCommand, CanexecuteEepCommand);
 
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadStudents();
@@ -170,7 +191,121 @@ namespace MINASA6SF_Rev.ViewModels
                 ,new BlockFunction(){Id=10, Name="조건 분기(<)"}
             };
         }
+        #endregion
 
+        #region 블럭 동작 편집, 블럭 매개변수 객체 생성 함수
+        private void LoadStudents()
+        {
+            //Block동작 편집 Instance생성
+            for(int i=0; i<256; i++)
+            {
+                BlockParaModel1s.Add(new BlockParaModel1() { BlockNum= i, BlockData = "설정 안됨" });
+                blockParaModel1s = BlockParaModel1s;
+            }
+
+            //Block매개변수 Instance생성
+            for (int i=0; i<16; i++)
+            {
+                BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = i, ParameterName = " 블록 동작 속도 " + $"V{i}", Range = "0 - 20000", SettingValue = 0, Unit = " r/min" });
+               // blockParaModel2s = BlockParaModel2s;
+            }
+            int v = 0;
+            for (int i = 16; i < 32; i++)
+            {
+                BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = i, ParameterName = " 블록 동작 가속도 " + $"A{v}", Range = "0 - 10000", SettingValue = 0, Unit = " ms/(3000r/min)" });
+               // blockParaModel2s = BlockParaModel2s;
+                ++v;
+            }
+            int b = 0;
+            for (int i = 16; i < 32; i++)
+            {
+                BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = i, ParameterName = " 블록 동작 감속도 " + $"D{b}", Range = "0 - 10000", SettingValue = 0, Unit = " ms/(3000r/min)" });
+               // blockParaModel2s = BlockParaModel2s;
+                ++b;
+            }
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 방법 설정 ", Range = "0 - 3", SettingValue = 0, Unit = "" });
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 원점 오프셋 ", Range = "-2147483648 - 2147483647", SettingValue = 0, Unit = " 지령 단위" });
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 정방향 소프트웨어 한계값 ", Range = "-2147483648 - 2147483647", SettingValue = 0, Unit = " 지령단위" });
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 부방향 소프트웨어 한계값 ", Range = "-2147483648 - 2147483647", SettingValue = 0, Unit = " 지령단위" });
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 시 원점 복귀 속도(고속) ", Range = "0 - 20000", SettingValue = 0, Unit = " r/min" });
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 시 원점 복귀 속도(저속) ", Range = "0 - 20000", SettingValue = 0, Unit = " r/min" });
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 원점 복귀 가속도 ", Range = "0 - 10000", SettingValue = 0, Unit = " ms/(3000r/min)" });
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 원점 복귀 무효화 설정 ", Range = "0 - 1", SettingValue = 0, Unit = "" });
+            blockParaModel2s = BlockParaModel2s;
+
+            //ControlPanel1 컴보박스 인스턴스 생성
+            for (int i = 0; i < 256; i++)
+            {
+                selectBlockNum.Add(i);
+                SelectBlockNum = selectBlockNum;
+            }
+            for(int i=0; i<16; i++)
+            {
+                blockAccSpeed.Add(i);
+                blockDecSpeed.Add(i);
+                blockSpeed.Add(i);
+                BlockAccSpeed = blockAccSpeed;
+                BlockDecSpeed = blockDecSpeed;
+                BlockSpeed = blockSpeed;
+            }         
+        }
+        #endregion
+
+        //#region MainPanel1제어 커맨드 함수
+        //    public void ExecuteControlpanel(object parameter)
+        //    {
+        //        FrameSource = "ControlPanel1.xaml";
+
+        //    }
+
+        //    private bool CanExecuteControlpanel(object parameter)
+        //    {
+        //        return true;
+        //    }
+
+        //    public void ExecuteBlockpara(object parameter)
+        //    {
+        //        FrameSource = "BlockPara.xaml";
+        //    }
+
+        //    private bool CanExecuteBlockpara(object parameter)
+        //    {
+        //        return true;
+        //    }
+
+        //    private void ExecuteServopara(object parameter)
+        //    {
+        //        FrameSource = "ServoPara.xaml";
+
+        //    }
+
+        //    private bool CanExecuteServopara(object parameter)
+        //    {
+        //        return true;
+        //    }
+
+        //    private void ExecuteSettings(object parameter)
+        //    {
+        //        FrameSource = "Settings.xaml";
+        //    }
+
+        //    private bool CanExecuteSettings(object parameter)
+        //    {
+        //        return true;
+        //    }
+
+        //    private void ExecuteExit(object parameter)
+        //    {
+        //        System.Windows.Application.Current.Shutdown();
+        //    }
+
+        //    private bool CanExecuteExit(object parameter)
+        //    {
+        //        return true;
+        //    }
+        //    #endregion
+      
+        #region 블럭 셋팅 창 커맨드 함수
         private void ExecuteSetting_reset(object parameter)
         {
             Debug.WriteLine("블럭 셋팅 창 리셋 테스트");
@@ -214,118 +349,45 @@ namespace MINASA6SF_Rev.ViewModels
         {
             return true;
         }
+        #endregion
 
-        private void LoadStudents()
+        #region 블럭 파라미터 수신, 송신, EEP버튼 커맨드 함수
+        //블럭 파라미터 수신,송신,EEP 커맨드
+        private void ExecuteRecCommand(object parameter)
         {
-            //Block동작 편집 Instance생성
-            for(int i=0; i<256; i++)
-            {
-                BlockParaModel1s.Add(new BlockParaModel1() { BlockNum= i, BlockData = "설정 안됨" });
-                blockParaModel1s = BlockParaModel1s;
-            }
-
-            //Block매개변수 Instance생성
-            for (int i=0; i<16; i++)
-            {
-                BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = i, ParameterName = " 블록 동작 속도 " + $"V{i}", Range = "0 - 20000", SettingValue = 0, Unit = " r/min" });
-               // blockParaModel2s = BlockParaModel2s;
-            }
-            int v = 0;
-            for (int i = 16; i < 32; i++)
-            {
-                BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = i, ParameterName = " 블록 동작 가속도 " + $"A{v}", Range = "0 - 10000", SettingValue = 0, Unit = " ms/(3000r/min)" });
-               // blockParaModel2s = BlockParaModel2s;
-                ++v;
-            }
-            int b = 0;
-            for (int i = 16; i < 32; i++)
-            {
-                BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = i, ParameterName = " 블록 동작 감속도 " + $"D{b}", Range = "0 - 10000", SettingValue = 0, Unit = " ms/(3000r/min)" });
-               // blockParaModel2s = BlockParaModel2s;
-                ++b;
-            }
-
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 방법 설정 ", Range = "0 - 3", SettingValue = 0, Unit = "" });
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 원점 오프셋 ", Range = "-2147483648 - 2147483647", SettingValue = 0, Unit = " 지령 단위" });
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 정방향 소프트웨어 한계값 ", Range = "-2147483648 - 2147483647", SettingValue = 0, Unit = " 지령단위" });
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 부방향 소프트웨어 한계값 ", Range = "-2147483648 - 2147483647", SettingValue = 0, Unit = " 지령단위" });
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 시 원점 복귀 속도(고속) ", Range = "0 - 20000", SettingValue = 0, Unit = " r/min" });
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 시 원점 복귀 속도(저속) ", Range = "0 - 20000", SettingValue = 0, Unit = " r/min" });
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 원점 복귀 가속도 ", Range = "0 - 10000", SettingValue = 0, Unit = " ms/(3000r/min)" });
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 원점 복귀 무효화 설정 ", Range = "0 - 1", SettingValue = 0, Unit = "" });
-            blockParaModel2s = BlockParaModel2s;
-
-            //ControlPanel1 컴보박스 인스턴스 생성
-            for (int i = 0; i < 256; i++)
-            {
-                selectBlockNum.Add(i);
-                SelectBlockNum = selectBlockNum;
-            }
-            for(int i=0; i<16; i++)
-            {
-                blockAccSpeed.Add(i);
-                blockDecSpeed.Add(i);
-                blockSpeed.Add(i);
-                BlockAccSpeed = blockAccSpeed;
-                BlockDecSpeed = blockDecSpeed;
-                BlockSpeed = blockSpeed;
-            }         
+            Debug.WriteLine("수신버튼 테스트");
+            BlockParaModel2s[0].SettingValue = 33;                  //첫번째 객체에 값을 기록.
         }
-    //#region MainPanel1제어
-    //    public void ExecuteControlpanel(object parameter)
-    //    {
-    //        FrameSource = "ControlPanel1.xaml";
 
-    //    }
+        private bool CanexecuteRecCommand(object parameter)
+        {
+            return true;
+        }
 
-    //    private bool CanExecuteControlpanel(object parameter)
-    //    {
-    //        return true;
-    //    }
+        private void ExecuteTransCommand(object parameter)
+        {
+            Debug.WriteLine("송신버튼 테스트");
+            Debug.WriteLine(BlockParaModel2s[0].SettingValue.ToString());       //첫번째 객체의 값을 가져옴.
+        }
 
-    //    public void ExecuteBlockpara(object parameter)
-    //    {
-    //        FrameSource = "BlockPara.xaml";
-    //    }
+        private bool CanexecuteTransCommand(object parameter)
+        {
+            return true;
+        }
 
-    //    private bool CanExecuteBlockpara(object parameter)
-    //    {
-    //        return true;
-    //    }
+        private void ExecuteEepCommand(object parameter)
+        {
+            Debug.WriteLine("EEP버튼 테스트");
+        }
 
-    //    private void ExecuteServopara(object parameter)
-    //    {
-    //        FrameSource = "ServoPara.xaml";
-
-    //    }
-
-    //    private bool CanExecuteServopara(object parameter)
-    //    {
-    //        return true;
-    //    }
-
-    //    private void ExecuteSettings(object parameter)
-    //    {
-    //        FrameSource = "Settings.xaml";
-    //    }
-
-    //    private bool CanExecuteSettings(object parameter)
-    //    {
-    //        return true;
-    //    }
-
-    //    private void ExecuteExit(object parameter)
-    //    {
-    //        System.Windows.Application.Current.Shutdown();
-    //    }
-
-    //    private bool CanExecuteExit(object parameter)
-    //    {
-    //        return true;
-    //    }
-    //    #endregion
-
-        #region controlpanel button제어
+        private bool CanexecuteEepCommand(object parameter)
+        {
+            return true;
+        }
+        #endregion
+     
+        #region ControlPanel 제어 버튼 커맨드 함수
+        //ControlPanel 제어버튼
         private void ExecuteServoOn(object parameter)
         {
             //ControlPanel combobox 바인딩 테스트
@@ -379,15 +441,16 @@ namespace MINASA6SF_Rev.ViewModels
         {
             return true;
         }
-
-        //블록셋팅 창 오픈
-        public void showWindow(object dataContext)
+        #endregion
+       
+        //블럭 셋팅 창 오픈
+        public void showWindow(object BlocksettingDialog)
         {
             blockSettingDialog = new BlockSettingDialogs();
             blockSettingDialog.DataContext = this;
             blockSettingDialog.FunctionSelect1.ItemsSource = blockFunctions;
             blockSettingDialog.ShowDialog();
         }
-        #endregion
+       
     }
 }
