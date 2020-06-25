@@ -21,8 +21,6 @@
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
     </UserControl.Resources>
-
-
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"/>
@@ -48,13 +46,12 @@
             <Button x:Name="EEP" Content="EEP" Style="{StaticResource ResourceKey=ToolButton}" 
                     Command="{Binding EepCommand}"/>
         </ToolBar>
-
         <TabControl x:Name="Tabcontrol" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4"
-                    Height="395" Margin="0,0,0,-194" VerticalAlignment="Top">
+                    Height="390" Margin="0,0,0,-194" VerticalAlignment="Top">
             <TabItem Header="블록 동작 편집">
                 <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False"
                           SelectionUnit="FullRow" VerticalScrollBarVisibility="Visible" Margin="0,0,0,-6"
-                          HorizontalScrollBarVisibility="Disabled"
+                          HorizontalScrollBarVisibility="Disabled" CanUserReorderColumns="False" Height="360"
                           Background="#FFE5E5E5" ItemsSource="{Binding blockParaModel1s}" SelectionMode="Single">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding BlockNum}" Header="No." Width="40"
@@ -67,7 +64,7 @@
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
 
-                        <DataGridTextColumn Binding="{Binding BlockData}" Header="◎   Block Data   ◎" Width="*" 
+                        <DataGridTextColumn Binding="{Binding BlockData}" Header="◀    Block Data    ▶" Width="*" 
                                                 CanUserResize="False" IsReadOnly="True" CanUserSort="False"
                                                 HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                             <DataGridTextColumn.ElementStyle>
@@ -87,9 +84,9 @@
             </TabItem>
 
             <TabItem Header="블록 매개변수 편집">
-                <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False"
+                <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" Height="360"
                           SelectionUnit="FullRow" VerticalScrollBarVisibility="Visible" Margin="0,0,0,-6"
-                          Background="#FFE5E5E5" ItemsSource="{Binding blockParaModel2s}" 
+                          Background="#FFE5E5E5" ItemsSource="{Binding blockParaModel2s}" CanUserReorderColumns="False"
                           SelectionMode="Single" Name="blockparam">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding MainIndex }" Width="35" Header="분류"

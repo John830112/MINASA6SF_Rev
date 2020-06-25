@@ -7,6 +7,6 @@
         xmlns:local2="clr-namespace:MINASA6SF_Rev.Views"       
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="900" ResizeMode="NoResize" WindowStyle="None" 
-        WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown">
-   
+        WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" Padding="0"
+        AllowsTransparency="True" Initialized="Window_Initialized" Loaded="Window_Loaded">
 </Window>

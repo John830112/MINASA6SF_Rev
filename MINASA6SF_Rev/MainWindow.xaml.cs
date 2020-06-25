@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +23,35 @@ namespace MINASA6SF_Rev
     /// </summary>
     public partial class MainWindow : Window
     {
+        LoadingWindow splash;
+        BackgroundWorker bg;
+
         public MainWindow()
         {
             InitializeComponent();
             this.Content = new MainPanel(this);
+            
+            bg = new BackgroundWorker();
+            bg.DoWork += new DoWorkEventHandler(bg_DoWork);
+            bg.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bg_RunWorkerCompleted);
+        }
+
+        private void bg_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            splash.Close();
+            this.Opacity = 1;
+        }
+
+        private void bg_DoWork(object sender, DoWorkEventArgs e)
+        {
+            System.Threading.Thread.Sleep(5000);
+            Debug.WriteLine("....");
+        }
+
+
+        private void Window_Initialized(object sender, EventArgs e)
+        {
+          
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -38,6 +65,19 @@ namespace MINASA6SF_Rev
                 }
                 return;
             }
+        }
+
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.Opacity = 0;
+            splash = new LoadingWindow();
+            splash.Show();
+            bg.RunWorkerAsync();
         }
     }
 }

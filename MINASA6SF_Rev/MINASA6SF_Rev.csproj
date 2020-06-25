@@ -49,12 +49,18 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.0\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LoadingWindow.xaml.cs">
+      <DependentUpon>LoadingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\BlockFunction.cs" />
     <Compile Include="Models\BlockParaModel1.cs" />
     <Compile Include="Models\BlockParaModel2.cs" />
@@ -62,6 +68,7 @@
     <Compile Include="Models\commandModel.cs" />
     <Compile Include="Models\IndexToXamlStringConverter.cs" />
     <Compile Include="Models\IWindowService.cs" />
+    <Compile Include="Models\ServoParaModel.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="ViewModels\MainPanelViewModel.cs" />
     <Compile Include="Views\Abs_Position_Page2.xaml.cs">
@@ -109,6 +116,30 @@
     <Compile Include="Views\OutPutSignal_Page8.xaml.cs">
       <DependentUpon>OutPutSignal_Page8.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\para0.xaml.cs">
+      <DependentUpon>para0.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\para1.xaml.cs">
+      <DependentUpon>para1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\para2.xaml.cs">
+      <DependentUpon>para2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\para3.xaml.cs">
+      <DependentUpon>para3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\para4.xaml.cs">
+      <DependentUpon>para4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\para5.xaml.cs">
+      <DependentUpon>para5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\para6.xaml.cs">
+      <DependentUpon>para6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\para7.xaml.cs">
+      <DependentUpon>para7.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ServoPara.xaml.cs">
       <DependentUpon>ServoPara.xaml</DependentUpon>
     </Compile>
@@ -118,6 +149,10 @@
     <Compile Include="Views\SpeedUpdate_Page6.xaml.cs">
       <DependentUpon>SpeedUpdate_Page6.xaml</DependentUpon>
     </Compile>
+    <Page Include="LoadingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -190,6 +225,38 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\para0.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\para1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\para2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\para3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\para4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\para5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\para6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\para7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ServoPara.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -221,6 +288,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

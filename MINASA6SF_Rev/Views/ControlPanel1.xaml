@@ -247,7 +247,7 @@
                     <Label FontWeight="DemiBold" FontSize="14">관성비 :</Label>
                 </StackPanel>
 
-                <ComboBox FontSize="14" Grid.Row="0" Grid.Column="1" Margin="0 6 0 0" BorderThickness="2"
+                <ComboBox FontSize="14" Grid.Row="0" Grid.Column="1" Margin="0 6 0 0" BorderThickness="2" VerticalAlignment="Center"
                           ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=SelectBlockNum}"
                           SelectedValue="{Binding Source={StaticResource Viewmodel}, Path=Selected_BlockNum, Mode=TwoWay}"/>
                 <ComboBox FontSize="14" Grid.Row="0" Grid.Column="3" Margin="0 6 0 0" BorderThickness="2"
@@ -267,15 +267,15 @@
 
         <!-- 컨트롤 판넬 버튼 -->
         <StackPanel Grid.ColumnSpan="5" Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
-            <Button Template="{StaticResource ButtonTemplate}" Content="Servo ON" Width="110" Height="60" Margin="10 -50 0 0" 
+            <Button Template="{StaticResource ButtonTemplate}" Content="Servo ON" Width="110" Height="60" Margin="10 -70 0 0" 
                     FontWeight="Bold" Command="{Binding Source={StaticResource Viewmodel}, Path=servoOn}"/>
-            <Button Template="{StaticResource ButtonTemplate}" Content="STB" Width="110" Height="60" Margin="20 -50 0 0" 
+            <Button Template="{StaticResource ButtonTemplate}" Content="STB" Width="110" Height="60" Margin="20 -70 0 0" 
                     FontWeight="Bold"/>
-            <Button Template="{StaticResource ButtonTemplate}" Content="A-Clear"  Width="110" Height="60" Margin="20 -50 0 0" 
+            <Button Template="{StaticResource ButtonTemplate}" Content="A-Clear"  Width="110" Height="60" Margin="20 -70 0 0" 
                     FontWeight="Bold"/>
-            <Button Template="{StaticResource ButtonTemplate}" Content="S-STOP"  Width="110" Height="60" Margin="20 -50 0 0" 
+            <Button Template="{StaticResource ButtonTemplate}" Content="S-STOP"  Width="110" Height="60" Margin="20 -70 0 0" 
                     FontWeight="Bold"/>
-            <Button Template="{StaticResource ButtonTemplate}" Content="H-STOP"  Width="110" Height="60" Margin="20 -50 0 0" 
+            <Button Template="{StaticResource ButtonTemplate}" Content="H-STOP"  Width="110" Height="60" Margin="20 -70 0 0" 
                     FontWeight="Bold"/>
         </StackPanel>
     </Grid>

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
+             xmlns:local2="clr-namespace:MINASA6SF_Rev.Models"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="720">
     <UserControl.Resources>
@@ -19,9 +20,9 @@
 
     <Grid Background="LightGray" Margin="0,-2,0,2">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="553"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="550"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -49,7 +50,8 @@
             <ComboBoxItem Content="A6SF 매개변수 일람" IsSelected="True" />
         </ComboBox>
 
-        <ListBox  Background="White" x:Name="ParaTreeView"  Grid.Row="4" Grid.Column="1">
+        <ListBox  Background="White" x:Name="ParaTreeView" Grid.Row="4" Grid.Column="1"
+                   SelectionChanged="ParaTreeView_SelectionChanged">
             <ListBoxItem Content="분류0(기본)"/>
             <ListBoxItem Content="분류1(게인)"/>
             <ListBoxItem Content="분류2(진동 억제)"/>
@@ -59,9 +61,9 @@
             <ListBoxItem Content="분류6(특수)"/>
             <ListBoxItem Content="분류7(특수)"/>
         </ListBox>
-        <Grid  Grid.Row="4" Grid.Column="2" Height="240" Width="540" VerticalAlignment="Top" 
-               HorizontalAlignment="Center" Margin="0,0,0,0">
-            <Frame x:Name="Para_Count" NavigationUIVisibility="Hidden" Width="540"/>
+        <Grid  Grid.Row="4" Grid.Column="2" Height="240" Width="545" VerticalAlignment="Top" 
+               HorizontalAlignment="Center">
+            <Frame x:Name="Para_Count" NavigationUIVisibility="Hidden" Width="545" Source="para0.xaml"/>
         </Grid>
     </Grid>
 </UserControl>

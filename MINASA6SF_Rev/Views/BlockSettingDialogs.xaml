@@ -7,37 +7,43 @@
         xmlns:local2="clr-namespace:MINASA6SF_Rev.Models"
         mc:Ignorable="d"
         Title="BlockSettingDialogs" Height="335" Width="410" ResizeMode="NoResize" 
-        WindowStyle="None" WindowStartupLocation="CenterScreen">
+        WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent">
 
     <Window.Resources>
-        <local2:IndexToXamlStringConverter x:Key="IndexToXamlStringConverter" />
+        <local2:IndexToXamlStringConverter x:Key="IndexToXamlStringConverter"/>
     </Window.Resources>
-    <Grid Background="LightGray">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="55"/>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="Auto"/>
 
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-            <ComboBox x:Name="FunctionSelect1" VerticalContentAlignment="Center" Height="30"  FontSize="14" FontStretch="Medium" 
-                      Margin="14 20 0 10" BorderThickness="1" SelectedIndex="0"
-                      DisplayMemberPath="Name">               
-            </ComboBox>
-        </StackPanel>
-        <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" x:Name="BlockActionParaWindow" 
-               NavigationUIVisibility="Hidden" Source="{Binding ElementName=FunctionSelect1, Path=SelectedIndex, Converter={StaticResource IndexToXamlStringConverter}}"/>
-        <Button Content="재설정" x:Name="ParaReset_Page1" FontSize="14" FontWeight="DemiBold" Foreground="Black" VerticalAlignment="Center" 
-                Grid.Row="2" Width="70" Height="30" Margin="0 20 0 0" Command="{Binding Setting_Reset}"/>
-        <Button Content="확인" x:Name="FixSeting_Page1" FontSize="14" FontWeight="DemiBold" Foreground="Black" VerticalAlignment="Center" 
-                Grid.Row="2" Grid.Column="2" Width="70" Height="30" Margin="0 10 0 0" Command="{Binding Confirm}"/>
-        <Button Content="취소" x:Name="CancelButton_Page1" FontSize="14" FontWeight="DemiBold" Foreground="Black" VerticalAlignment="Center" 
-                Grid.Row="2" Grid.Column="3" Height="30" Width="70" Margin="0 10 0 0" Command="{Binding Cancel}"/>
-    </Grid>
+    <Border BorderBrush="LightGray" BorderThickness="10" CornerRadius="10"  Background="Black">
+        <Grid Background="LightGray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <ComboBox x:Name="FunctionSelect1" VerticalContentAlignment="Center" Height="30"  FontSize="14" FontStretch="Medium" 
+                          Margin="14 15 0 10" BorderThickness="1" SelectedIndex="0"
+                          DisplayMemberPath="Name">               
+                </ComboBox>
+            </StackPanel>
+            <Separator Grid.ColumnSpan="4" Grid.Row="1" Margin="10, -210, 0, 0"/>
+            <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" x:Name="BlockActionParaWindow" 
+                   NavigationUIVisibility="Hidden" Source="{Binding ElementName=FunctionSelect1, 
+                   Path=SelectedIndex, Converter={StaticResource IndexToXamlStringConverter}}"/>
+        
+            <Separator Grid.ColumnSpan="4" Grid.Row="2" Margin="10, -40, 0, 0"/>
+            <Button Content="재설정" x:Name="ParaReset_Page1" FontSize="14" FontWeight="DemiBold" Foreground="Black" VerticalAlignment="Center" 
+                    Grid.Row="2" Width="70" Height="30" Margin="0 5 0 0" Command="{Binding Setting_Reset}"/>
+            <Button Content="확인" x:Name="FixSeting_Page1" FontSize="14" FontWeight="DemiBold" Foreground="Black" VerticalAlignment="Center" 
+                    Grid.Row="2" Grid.Column="2" Width="70" Height="30" Margin="0 5 0 0" Command="{Binding Confirm}"/>
+            <Button Content="취소" x:Name="CancelButton_Page1" FontSize="14" FontWeight="DemiBold" Foreground="Black" VerticalAlignment="Center" 
+                    Grid.Row="2" Grid.Column="3" Height="30" Width="70" Margin="0 5 0 0" Command="{Binding Cancel}"/>
+        </Grid>
+    </Border>
 </Window>

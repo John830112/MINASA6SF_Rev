@@ -23,25 +23,25 @@ namespace MINASA6SF_Rev.Views
     public partial class MainPanel : UserControl
     {
         MainWindow mainWindowlocal;
-        MainPanelViewModel MainPanelViewModel = new MainPanelViewModel();
+        static MainPanelViewModel MainPanelViewModel = new MainPanelViewModel();
 
         BlockPara BlockPara = new BlockPara();
         ControlPanel1 ControlPanel1 = new ControlPanel1();
-        ServoPara ServoPara = new ServoPara();
+        ServoPara ServoPara = new ServoPara(MainPanelViewModel);
         Settings Settings = new Settings();
         
-        Abs_Position_Page2 Abs_Position_Page2 = new Abs_Position_Page2();
-        ConditionDiv_Page10 ConditionDiv_Page10 = new ConditionDiv_Page10();
-        ConditionDiv_Page11 ConditionDiv_Page11 = new ConditionDiv_Page11();
-        ConditionDiv_Page12 ConditionDiv_Page12 = new ConditionDiv_Page12();
-        DecrementCount_Page7 DecrementCount_Page7 = new DecrementCount_Page7();
-        DecStop_Page5 DecStop_Page5 = new DecStop_Page5();
-        HomeReturn_Page4 HomeReturn_Page4 = new HomeReturn_Page4();
-        IncPosition_Page1 IncPosition_Page1 = new IncPosition_Page1();
-        JOG_Operation_Page3 JOG_Operation_Page3 = new JOG_Operation_Page3();
-        Jump_Page9 Jump_Page9 = new Jump_Page9();
-        OutPutSignal_Page8 OutPutSignal_Page8 = new OutPutSignal_Page8();
-        SpeedUpdate_Page6 SpeedUpdate_Page6 = new SpeedUpdate_Page6();
+        //Abs_Position_Page2 Abs_Position_Page2 = new Abs_Position_Page2();
+        //ConditionDiv_Page10 ConditionDiv_Page10 = new ConditionDiv_Page10();
+        //ConditionDiv_Page11 ConditionDiv_Page11 = new ConditionDiv_Page11();
+        //ConditionDiv_Page12 ConditionDiv_Page12 = new ConditionDiv_Page12();
+        //DecrementCount_Page7 DecrementCount_Page7 = new DecrementCount_Page7();
+        //DecStop_Page5 DecStop_Page5 = new DecStop_Page5();
+        //HomeReturn_Page4 HomeReturn_Page4 = new HomeReturn_Page4();
+        //IncPosition_Page1 IncPosition_Page1 = new IncPosition_Page1();
+        //JOG_Operation_Page3 JOG_Operation_Page3 = new JOG_Operation_Page3();
+        //Jump_Page9 Jump_Page9 = new Jump_Page9();
+        //OutPutSignal_Page8 OutPutSignal_Page8 = new OutPutSignal_Page8();
+        //SpeedUpdate_Page6 SpeedUpdate_Page6 = new SpeedUpdate_Page6();
 
         public MainPanel() {}
 
@@ -54,7 +54,6 @@ namespace MINASA6SF_Rev.Views
             ControlPanel1.DataContext = MainPanelViewModel;
             ServoPara.DataContext = MainPanelViewModel;
             Settings.DataContext = MainPanelViewModel;
-
             mainpanel.Navigate(ControlPanel1);
         }
 

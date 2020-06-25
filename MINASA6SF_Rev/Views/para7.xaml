@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="MINASA6SF_Rev.Views.para7"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
+             xmlns:local2="clr-namespace:MINASA6SF_Rev.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="270" d:DesignWidth="540">
+    <UserControl.DataContext>
+        <local2:MainPanelViewModel/>
+    </UserControl.DataContext>
+    
+    <Grid Background="White" DataContext="{Binding}">
+        <DataGrid x:Name="ServoPara7" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" CanUserResizeColumns="True" 
+                  SelectionMode="Single" CanUserAddRows="False" ItemsSource="{Binding para7}"  CanUserReorderColumns="False"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding MainIndex}" Header="분류" Width="35" CanUserResize="False" IsReadOnly="True" CanUserSort="False"/>
+                <DataGridTextColumn Binding="{Binding SubIndex}" Header="번호" Width="35" CanUserResize="False" IsReadOnly="True" CanUserSort="False"/>
+                <DataGridTextColumn Binding="{Binding ParaName}" Header="          매개변수 명칭" Width="180" CanUserResize="False" IsReadOnly="True" CanUserSort="False"/>
+                <DataGridTextColumn Binding="{Binding range}" Header="              범위" Width="120" CanUserResize="False" IsReadOnly="True" CanUserSort="False"/>
+                <DataGridTextColumn Binding="{Binding SetVal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header=" 설정값" Width="80" CanUserResize="False" IsReadOnly="False" CanUserSort="False"/>
+                <DataGridTextColumn Binding="{Binding unitVal}" Header=" 단위" Width="620" CanUserResize="False" IsReadOnly="True" CanUserSort="False"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
