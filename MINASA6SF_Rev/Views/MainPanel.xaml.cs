@@ -89,5 +89,6 @@ namespace MINASA6SF_Rev.Views
         {
             System.Windows.Application.Current.Shutdown();
         }
+
     }
 }

@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MINASA6SF_Rev"
         xmlns:local2="clr-namespace:MINASA6SF_Rev.Views"       
-        mc:Ignorable="d"
+        mc:Ignorable="d" Name="mainWin"
         Title="MainWindow" Height="500" Width="900" ResizeMode="NoResize" WindowStyle="None" 
         WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" Padding="0"
-        AllowsTransparency="True" Initialized="Window_Initialized" Loaded="Window_Loaded">
+        AllowsTransparency="True" Opacity="0">
+    
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="mainWin"
+                         Storyboard.TargetProperty="Opacity"
+                         From="0.0" To="1.0" Duration="0:0:0.3"
+                         />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
 </Window>

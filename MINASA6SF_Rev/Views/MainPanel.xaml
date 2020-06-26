@@ -9,7 +9,7 @@
              xmlns:local3="clr-namespace:MINASA6SF_Rev.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="900" Padding="0">
-  
+    
         <Grid>
             <Grid x:Name="panelHeader" HorizontalAlignment="Center" VerticalAlignment="Top"
                   Width="1000" Height="50" Background="#FF0F4E7A" MouseDown="PanelHeader_MouseDown">

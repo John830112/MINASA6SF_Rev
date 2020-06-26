@@ -34,7 +34,6 @@ namespace MINASA6SF_Rev.ViewModels
         public ObservableCollection<ServoParaModel> para6 { set; get; }
         public ObservableCollection<ServoParaModel> para7 { set; get; }
 
-
         //Block매개변수 편집 VM Instance
         public ObservableCollection<BlockParaModel2> blockParaModel2s { set; get; }
         ObservableCollection<BlockParaModel2> BlockParaModel2s = new ObservableCollection<BlockParaModel2>();

@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MINASA6SF_Rev"
         mc:Ignorable="d"
-        Title="LoadingWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Focusable="True">
-    <Grid>
-        
+        Title="LoadingWindow" Height="250" Width="450" WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        >
+   
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Vertical">
+            <ProgressBar Name="loadingprogress" Margin="20,30,20,0" Height="30" Width="300" Minimum="0" Maximum="100" Loaded="Loadingprogress_Loaded"/>
+            <TextBlock Name="startText" Margin="20" Text="Starting..." FontSize="25" FontWeight="Bold"
+                   FontFamily="Italic" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock.Foreground>
+                    <SolidColorBrush x:Name="myforeground" Color="White"/>
+                </TextBlock.Foreground>
+                <TextBlock.Triggers>
+                    <EventTrigger RoutedEvent="TextBlock.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="myforeground"
+                                                Storyboard.TargetProperty="Color"
+                                               From="White" To="Black" Duration="0:0:0.5" AutoReverse="True" 
+                                                RepeatBehavior="Forever"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TextBlock.Triggers>
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </Window>
