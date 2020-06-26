@@ -5,8 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
              xmlns:local2="clr-namespace:MINASA6SF_Rev.Models"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" x:Name="servoparapage" Opacity="0"
              d:DesignHeight="450" d:DesignWidth="720">
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="servoparapage"
+                         Storyboard.TargetProperty="Opacity"
+                         From="0.0" To="1.0" Duration="0:0:0.2"
+                         />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+
     <UserControl.Resources>
         <Style x:Key="ToolButton" TargetType="Button">
             <Setter Property="Background" Value="LightGray"/>

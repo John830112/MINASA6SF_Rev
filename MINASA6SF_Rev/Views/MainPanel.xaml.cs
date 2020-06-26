@@ -23,14 +23,14 @@ namespace MINASA6SF_Rev.Views
     /// </summary>
     public partial class MainPanel : UserControl
     {
-        static MainPanelViewModel MainPanelViewModel;
+        
+        static MainPanelViewModel mainPanelViewModel;
         MainWindow mainWindowlocal;
 
         BlockPara BlockPara = new BlockPara();
         ControlPanel1 ControlPanel1 = new ControlPanel1();
-        ServoPara ServoPara = new ServoPara(MainPanelViewModel);
-        Settings Settings = new Settings();
-        
+        ServoPara ServoPara;
+        Settings Settings;
         //Abs_Position_Page2 Abs_Position_Page2 = new Abs_Position_Page2();
         //ConditionDiv_Page10 ConditionDiv_Page10 = new ConditionDiv_Page10();
         //ConditionDiv_Page11 ConditionDiv_Page11 = new ConditionDiv_Page11();
@@ -48,14 +48,20 @@ namespace MINASA6SF_Rev.Views
 
         public MainPanel(MainWindow mainWindow)
         {
+
+            Settings = new Settings();
+            mainPanelViewModel = new MainPanelViewModel(Settings);
+            ServoPara = new ServoPara(mainPanelViewModel);
+
             InitializeComponent();
-            MainPanelViewModel = new MainPanelViewModel(Settings);
             mainWindowlocal = mainWindow;
-            DataContext = MainPanelViewModel;
-            BlockPara.DataContext = MainPanelViewModel;
-            ControlPanel1.DataContext = MainPanelViewModel;
-            ServoPara.DataContext = MainPanelViewModel;
-            Settings.DataContext = MainPanelViewModel;
+            DataContext = mainPanelViewModel;
+            BlockPara.DataContext = mainPanelViewModel;
+            ControlPanel1.DataContext = mainPanelViewModel;
+            ServoPara.DataContext = mainPanelViewModel;
+            Settings.DataContext = mainPanelViewModel;
+
+
             mainpanel.Navigate(ControlPanel1);
         }
 
