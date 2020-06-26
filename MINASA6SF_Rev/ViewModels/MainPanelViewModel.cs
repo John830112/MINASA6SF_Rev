@@ -11,12 +11,20 @@ using MINASA6SF_Rev.Models;
 using MINASA6SF_Rev.Views;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using EasyModbus;
+
 
 
 namespace MINASA6SF_Rev.ViewModels
 {
     public class MainPanelViewModel:ViewModelBase, IWindowService
     {
+        Settings settings;
+        ModbusClient modbusClient;
+
+        public ObservableCollection<int> axisNum { set; get; }
+        ObservableCollection<int> axisNums = new ObservableCollection<int>();
+
         //Block동작 편집 파라미터 VM Instance
         public ObservableCollection<BlockParaModel1> blockParaModel1s { get; set; }
         ObservableCollection<BlockParaModel1> BlockParaModel1s = new ObservableCollection<BlockParaModel1>();
@@ -146,11 +154,23 @@ namespace MINASA6SF_Rev.ViewModels
         public ICommand RecCommand { set; get; }
         public ICommand TranCommand { set; get; }
         public ICommand EepCommand { set; get; }
+
+        //Settings 커맨드
+        public ICommand SettingConfirm { set; get; }
+
+
         #endregion
 
         #region viewmodel 생성자
+
         public MainPanelViewModel()
         {
+
+        }
+
+        public MainPanelViewModel(Settings _settings)
+        {
+            settings = _settings;
             //MainPanel 버튼 커맨드
             //this.controlPanel = new commandModel(ExecuteControlpanel, CanExecuteControlpanel);
             //this.blockpara = new commandModel(ExecuteBlockpara, CanExecuteBlockpara);
@@ -178,10 +198,32 @@ namespace MINASA6SF_Rev.ViewModels
             this.TranCommand = new commandModel(ExecuteTransCommand, CanexecuteTransCommand);
             this.EepCommand = new commandModel(ExecuteEepCommand, CanexecuteEepCommand);
 
+            //Setting 커맨드
+            this.SettingConfirm = new commandModel(ExecuteSettingsConfirm, CanexecuteSettingsConfirm);
+            for(int i=1; i<=30; i++)
+            {
+                axisNums.Add(i);
+            }
+            axisNum = axisNums;
+
+
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadObjectViewModel();
         }
         #endregion
+
+        //IP Address 및 Settings 화면 커맨드 
+        private void ExecuteSettingsConfirm(object parameter)
+        {
+            modbusClient = new ModbusClient(settings.xxxx.Address, Convert.ToInt32(settings.portxxxx.Text));
+            Debug.WriteLine("IPAddress :" + settings.xxxx.Address + " " + "Port : " + settings.portxxxx.Text);
+
+        }
+
+        private bool CanexecuteSettingsConfirm(object parameter)
+        {
+            return true;
+        }
 
         #region 블럭 동작 편집, 블럭 매개변수 객체 생성 함수
         private void LoadObjectViewModel()
@@ -900,6 +942,5 @@ namespace MINASA6SF_Rev.ViewModels
             blockSettingDialog.FunctionSelect1.ItemsSource = blockFunctions;
             blockSettingDialog.ShowDialog();
         }
-       
     }
 }

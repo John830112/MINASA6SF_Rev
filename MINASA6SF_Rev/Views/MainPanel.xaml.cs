@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +23,8 @@ namespace MINASA6SF_Rev.Views
     /// </summary>
     public partial class MainPanel : UserControl
     {
+        static MainPanelViewModel MainPanelViewModel;
         MainWindow mainWindowlocal;
-        static MainPanelViewModel MainPanelViewModel = new MainPanelViewModel();
 
         BlockPara BlockPara = new BlockPara();
         ControlPanel1 ControlPanel1 = new ControlPanel1();
@@ -48,6 +49,7 @@ namespace MINASA6SF_Rev.Views
         public MainPanel(MainWindow mainWindow)
         {
             InitializeComponent();
+            MainPanelViewModel = new MainPanelViewModel(Settings);
             mainWindowlocal = mainWindow;
             DataContext = MainPanelViewModel;
             BlockPara.DataContext = MainPanelViewModel;
