@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Interactivity;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -15,6 +16,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MINASA6SF_Rev;
 using MINASA6SF_Rev.ViewModels;
+using Microsoft.Expression.Interactivity.Core;
+using System.Windows.Media.Animation;
+using System.Threading;
 
 namespace MINASA6SF_Rev.Views
 {
@@ -60,9 +64,19 @@ namespace MINASA6SF_Rev.Views
             ControlPanel1.DataContext = mainPanelViewModel;
             ServoPara.DataContext = mainPanelViewModel;
             Settings.DataContext = mainPanelViewModel;
-
-
             mainpanel.Navigate(ControlPanel1);
+            this.Loaded += UserControl1_Loaded;
+        }
+
+        void UserControl1_Loaded(object sender, RoutedEventArgs e)
+        {
+            Window window = Window.GetWindow(this);
+            window.Closing += window_Closing;
+        }
+
+        void window_Closing(object sender, global::System.ComponentModel.CancelEventArgs e)
+        {
+        
         }
 
         private void PanelHeader_MouseDown(object sender, MouseButtonEventArgs e)
