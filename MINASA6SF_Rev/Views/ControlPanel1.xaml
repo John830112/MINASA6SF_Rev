@@ -261,17 +261,17 @@
                 </StackPanel>
 
                 <ComboBox FontSize="14" Grid.Row="0" Grid.Column="1" Margin="0 6 0 0" BorderThickness="2" VerticalAlignment="Center"
-                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=SelectBlockNum}"
-                          SelectedValue="{Binding Source={StaticResource Viewmodel}, Path=Selected_BlockNum, Mode=TwoWay}"/>
+                          ItemsSource="{Binding SelectBlockNum}"
+                          SelectedValue="{Binding Selected_BlockNum, Mode=TwoWay}"/>
                 <ComboBox FontSize="14" Grid.Row="0" Grid.Column="3" Margin="0 6 0 0" BorderThickness="2"
-                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=BlockSpeed}"
-                          SelectedValue="{Binding Source={StaticResource Viewmodel}, Path=Selected_BlockSpeed, Mode=TwoWay}"/>
+                          ItemsSource="{Binding BlockSpeed}"
+                          SelectedValue="{Binding Selected_BlockSpeed, Mode=TwoWay}"/>
                 <ComboBox FontSize="14" Grid.Row="1" Grid.Column="3" Margin="0 4 0 0" BorderThickness="2"
-                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=BlockAccSpeed}"
-                          SelectedValue="{Binding Source={StaticResource Viewmodel}, Path=Selected_BlockAccSpeed, Mode=TwoWay}"/>
+                          ItemsSource="{Binding BlockAccSpeed}"
+                          SelectedValue="{Binding Selected_BlockAccSpeed, Mode=TwoWay}"/>
                 <ComboBox FontSize="14" Grid.Row="2" Grid.Column="3" Margin="0 4 0 0" BorderThickness="2"
-                          ItemsSource="{Binding Source={StaticResource Viewmodel}, Path=BlockDecSpeed}"
-                          SelectedValue="{Binding Source={StaticResource Viewmodel}, Path=Selected_BlockDecSpeed, Mode=TwoWay}"/>
+                          ItemsSource="{Binding BlockDecSpeed}"
+                          SelectedValue="{Binding Selected_BlockDecSpeed, Mode=TwoWay}"/>
                 <TextBox FontSize="14" Grid.Row="1" Grid.Column="1" Margin="0 4 0 0" IsReadOnly="True" />
                 <TextBox FontSize="14" Grid.Row="2" Grid.Column="1" Margin="0 4 0 0" IsReadOnly="True">
                 </TextBox>
@@ -281,7 +281,7 @@
         <!-- 컨트롤 판넬 버튼 -->
         <StackPanel Grid.ColumnSpan="5" Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
             <Button Template="{StaticResource ButtonTemplate}" Content="Servo ON" Width="110" Height="60" Margin="10 -70 0 0" 
-                    FontWeight="Bold" Command="{Binding Source={StaticResource Viewmodel}, Path=servoOn}"/>
+                    FontWeight="Bold" Command="{Binding servoOn}"/>
             <Button Template="{StaticResource ButtonTemplate}" Content="STB" Width="110" Height="60" Margin="20 -70 0 0" 
                     FontWeight="Bold"/>
             <Button Template="{StaticResource ButtonTemplate}" Content="A-Clear"  Width="110" Height="60" Margin="20 -70 0 0" 
