@@ -13,25 +13,24 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Reflection;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace MINASA6SF_Rev.ViewModels
 {
     public class MainPanelViewModel:ViewModelBase, IWindowService
     {
+        DispatcherTimer mirrTimer = new DispatcherTimer();
+        bool mirrorONOFF;
         Master modbusTCP = new Master();
-
         Settings settings;
-
         public ObservableCollection<int> axisNum { set; get; }
         ObservableCollection<int> axisNums = new ObservableCollection<int>();
-
         //Block동작 편집 파라미터 VM Instance
         public ObservableCollection<BlockParaModel1> blockParaModel1s { get; set; }
         ObservableCollection<BlockParaModel1> BlockParaModel1s = new ObservableCollection<BlockParaModel1>();
         BlockSettingDialogs blockSettingDialog;
-
         public ObservableCollection<BlockFunction> blockFunctions { set; get; }
-        
         //ServoPara para0~para1의 객체생성
         public ObservableCollection<ServoParaModel> para0 { set; get; }
         public ObservableCollection<ServoParaModel> para1 { set; get; }
@@ -41,23 +40,18 @@ namespace MINASA6SF_Rev.ViewModels
         public ObservableCollection<ServoParaModel> para5 { set; get; }
         public ObservableCollection<ServoParaModel> para6 { set; get; }
         public ObservableCollection<ServoParaModel> para7 { set; get; }
-
         //Block매개변수 편집 VM Instance
         public ObservableCollection<BlockParaModel2> blockParaModel2s { set; get; }
         ObservableCollection<BlockParaModel2> BlockParaModel2s = new ObservableCollection<BlockParaModel2>();
-
         //ControlPanel 콤보박스 변수
         public ObservableCollection<int> SelectBlockNum { get; set; }
         public ObservableCollection<int> BlockAccSpeed { get; set; }
         public ObservableCollection<int> BlockDecSpeed { get; set; }
         public ObservableCollection<int> BlockSpeed { get; set; }
-
         ObservableCollection<int> selectBlockNum= new ObservableCollection<int>();
         ObservableCollection<int> blockAccSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockDecSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockSpeed = new ObservableCollection<int>();
-
-      
 
         int selectedBlockNum;
         public int Selected_BlockNum
@@ -108,6 +102,98 @@ namespace MINASA6SF_Rev.ViewModels
             }
         }
 
+
+
+
+        /*------------------------------------------------------------------------------------------------------
+         * ModbusTCP MirrReg value
+         ------------------------------------------------------------------------------------------------------*/
+        public byte[] _mirrReg1;
+        public byte[] _mirrReg2;
+        /*
+         * MirrorReg 0 ~ 8
+         */
+
+        //모터 실위치  0x600F
+        Int32 _positionActualValue = 0;
+        public Int32 PositionActualValue
+        {
+            get { return _positionActualValue; }
+            set { SetProperty(ref _positionActualValue, value); }
+        }
+
+        //모터 속도   0x601C
+        Int32 _velotcityActualValue = 0;
+        public Int32 VelocityActualValue
+        {
+            get { return _velotcityActualValue; }
+            set { SetProperty(ref _velotcityActualValue, value); }
+        }
+
+        //Torque demand   0x6025
+        Int16 _torqueDemand = 0;
+        public Int16 TorqueDemand
+        {
+            get { return _torqueDemand; }
+            set { SetProperty(ref _torqueDemand, value); }
+        }
+
+        //부하율   0x4D12
+        float _overLoad = 0.0f;
+        public float OverLoad
+        {
+            get { return _overLoad; }
+            set { SetProperty(ref _overLoad, value); }
+        }
+
+        //현재 유효한 블록 NO    0x4416
+        Int16 _blockNumMon = 0;
+        public Int16 BlockNumMon
+        {
+            get { return _blockNumMon; }
+            set { SetProperty(ref _blockNumMon, value); }
+        }
+
+
+        /*
+         * MirrorReg 9 ~ 16
+         */
+
+        //주전원 PN간 전압   0x602C
+        Int32 _dcLinkCircuitVolt = 0;
+        public Int32 DCLinkCircuitvole
+        {
+            get { return _dcLinkCircuitVolt; }
+            set { SetProperty(ref _dcLinkCircuitVolt, value); }
+        }
+
+        //앰프 온도    0x4D30
+        Int32 _ampTemp = 0;
+        public Int32 AmpTemp
+        {
+            get { return _ampTemp; }
+            set { SetProperty(ref _ampTemp, value); }
+        }
+
+        //엔코더 온도   0x4D32
+        Int32 _encoderTemp = 0;
+        public Int32 EncoderTemp
+        {
+            get { return _encoderTemp; }
+            set { SetProperty(ref _encoderTemp, value); }
+        }
+
+        //전원 ON 적산 시간   0x4D2C
+        Int32 _powerONTime = 0;
+        public Int32 PowerONTime
+        {
+            get { return _powerONTime; }
+            set { SetProperty(ref _powerONTime, value); }
+        }
+
+
+
+
         int blockFunction;
         public int BlockFunctionID
         {
@@ -129,55 +215,37 @@ namespace MINASA6SF_Rev.ViewModels
                 SetProperty(ref framesource, value);                
             }
         }
-
         #region 각종 ICommand객체 생성
-        //MainPanel Frame선택 버튼
-        //public ICommand controlPanel { set; get; }
-        //public ICommand blockpara { set; get; }
-        //public ICommand servopara { set; get; }
-        //public ICommand settings { set; get; }
-        //public ICommand exit { set; get; }
-
+       
         //ControlPanel1 제어 버튼
         public ICommand servoOn { set; get; }
         public ICommand stB { set; get; }
         public ICommand a_Clear { set; get; }
         public ICommand s_Stop { set; get; }
         public ICommand h_Stop { get; set; }
-
-
         //블럭 동작 편집 커맨드
         public ICommand BlockActDouClick { set; get; }
         public ICommand Setting_Reset { set; get; }
         public ICommand Confirm { set; get; }
         public ICommand Cancel { set; get; }
-
         //블럭 파라미터 수신, 송신, EEP 커맨드
         public ICommand RecCommand { set; get; }
         public ICommand TranCommand { set; get; }
         public ICommand EepCommand { set; get; }
-
         //Settings 커맨드
         public ICommand SettingConfirm { set; get; }
-
-
+        public ICommand Disconnect { set; get; }
         #endregion
 
         #region viewmodel 생성자
-
         public MainPanelViewModel() { }
 
         public MainPanelViewModel(Settings _settings)
-        {           
+        {
+            mirrTimer.Tick += MirrTimer_Tick;
+            mirrTimer.Interval = new TimeSpan(0, 0, 0, 0, 20);
+            mirrorONOFF = false;
             settings = _settings;
-           
-            //MainPanel 버튼 커맨드
-            //this.controlPanel = new commandModel(ExecuteControlpanel, CanExecuteControlpanel);
-            //this.blockpara = new commandModel(ExecuteBlockpara, CanExecuteBlockpara);
-            //this.servopara = new commandModel(ExecuteServopara, CanExecuteServopara);
-            //this.settings = new commandModel(ExecuteSettings, CanExecuteSettings);
-            //this.exit = new commandModel(ExecuteExit, CanExecuteExit);
-
             //ControlPanel 버튼 커맨드
             this.servoOn = new commandModel(ExecuteServoOn, CanexecuteServoOn);
             this.stB = new commandModel(ExecutestB, CanexecutestB);
@@ -200,27 +268,77 @@ namespace MINASA6SF_Rev.ViewModels
 
             //Setting 커맨드
             this.SettingConfirm = new commandModel(ExecuteSettingsConfirm, CanexecuteSettingsConfirm);
+            this.Disconnect = new commandModel(ExecuteDisconnect, CanexecuteDisconnect);
+
+            //축수 등록
             for(int i=1; i<=30; i++)
             {
                 axisNums.Add(i);
             }
             axisNum = axisNums;
 
-
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadObjectViewModel();
+        }
+
+        private void ExecuteDisconnect(object parameter)
+        {
+            mirrTimer.Stop();
+            modbusTCP.disconnect();
+        }
+
+        private bool CanexecuteDisconnect(object parameter)
+        {
+            return true;
         }
         #endregion
 
 
-        
-        
+        //MirrTimer 실행 함수
+        private void MirrTimer_Tick(object sender, EventArgs e)
+        {
+            modbusTCP.ReadHoldingRegister(0, 0x01, 17432, 8, ref _mirrReg1);
+            Thread.Sleep(20);
+            modbusTCP.ReadHoldingRegister(0, 0x01, 17440, 8, ref _mirrReg2);
+
+            if(_mirrReg1 !=null)
+            {
+                Debug.WriteLine(_mirrReg1.Length);
+                Debug.WriteLine(_mirrReg2.Length);
+            }
+            else
+            {
+                return;
+            }
+        }
+
         //IP Address 및 Settings 화면 커맨드 
         private void ExecuteSettingsConfirm(object parameter)
         {
             modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
             Debug.WriteLine("IPAddress :" + settings.xxxx.Address + " " + "Port : " + settings.portxxxx.Text);
 
+            // Register값 리딩 확인.
+            //modbusTCP.ReadCoils(0, 0x01, 4096, 8, ref num1);
+            //modbusTCP.ReadHoldingRegister(0, 0x01, 19740, 2, ref num1);
+            //Thread.Sleep(50);
+            //Debug.WriteLine(num1.Length);
+
+            //서보 ON/OFF동작 확인 OK
+            //modbusTCP.WriteSingleCoils(0, 0x01, 96, true);
+            //Thread.Sleep(1000);
+            //modbusTCP.WriteSingleCoils(0, 0x01, 96, false);
+
+            if (!mirrorONOFF)
+            {
+                mirrTimer.Start();
+                mirrorONOFF = true;
+            }
+            else
+            {
+                mirrTimer.Stop();
+                mirrorONOFF = false;
+            }
         }
 
         private bool CanexecuteSettingsConfirm(object parameter)
@@ -744,60 +862,6 @@ namespace MINASA6SF_Rev.ViewModels
 
         }
         #endregion
-
-        //#region MainPanel1제어 커맨드 함수
-        //    public void ExecuteControlpanel(object parameter)
-        //    {
-        //        FrameSource = "ControlPanel1.xaml";
-
-        //    }
-
-        //    private bool CanExecuteControlpanel(object parameter)
-        //    {
-        //        return true;
-        //    }
-
-        //    public void ExecuteBlockpara(object parameter)
-        //    {
-        //        FrameSource = "BlockPara.xaml";
-        //    }
-
-        //    private bool CanExecuteBlockpara(object parameter)
-        //    {
-        //        return true;
-        //    }
-
-        //    private void ExecuteServopara(object parameter)
-        //    {
-        //        FrameSource = "ServoPara.xaml";
-
-        //    }
-
-        //    private bool CanExecuteServopara(object parameter)
-        //    {
-        //        return true;
-        //    }
-
-        //    private void ExecuteSettings(object parameter)
-        //    {
-        //        FrameSource = "Settings.xaml";
-        //    }
-
-        //    private bool CanExecuteSettings(object parameter)
-        //    {
-        //        return true;
-        //    }
-
-        //    private void ExecuteExit(object parameter)
-        //    {
-        //        System.Windows.Application.Current.Shutdown();
-        //    }
-
-        //    private bool CanExecuteExit(object parameter)
-        //    {
-        //        return true;
-        //    }
-        //    #endregion
       
         #region 블럭 셋팅 창 커맨드 함수
         private void ExecuteSetting_reset(object parameter)
