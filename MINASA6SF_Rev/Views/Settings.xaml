@@ -54,10 +54,10 @@
                     <TextBlock Margin="10 5 0 0">Block 동작 기동 선택 :</TextBlock>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
-                    <local2:IP_Address_ x:Name="xxxx" Width="160" Address="{Binding AddressInVM}" Height="25" FontSize="15" 
+                    <local2:IP_Address_ x:Name="xxxx" Width="160" Address="10.10.100.254" Height="25" FontSize="15" 
                                         Margin="0,2,0,1"/>
                     <TextBox x:Name="portxxxx" Width="160" Height="25" FontSize="15" Margin="0,1,0,2"
-                             HorizontalContentAlignment="Right"/>
+                             HorizontalContentAlignment="Right" Text="8899"/>
 
                     <ComboBox x:Name="ParityBit" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
                               MaxDropDownHeight="200" Margin="0 2 0 0" BorderThickness="2" HorizontalContentAlignment="Right"

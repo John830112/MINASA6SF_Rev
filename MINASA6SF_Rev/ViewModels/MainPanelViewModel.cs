@@ -11,16 +11,16 @@ using MINASA6SF_Rev.Models;
 using MINASA6SF_Rev.Views;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
-using EasyModbus;
-
-
+using System.Configuration;
+using System.Reflection;
 
 namespace MINASA6SF_Rev.ViewModels
 {
     public class MainPanelViewModel:ViewModelBase, IWindowService
     {
+        Master modbusTCP = new Master();
+
         Settings settings;
-        ModbusClient modbusClient;
 
         public ObservableCollection<int> axisNum { set; get; }
         ObservableCollection<int> axisNums = new ObservableCollection<int>();
@@ -56,6 +56,8 @@ namespace MINASA6SF_Rev.ViewModels
         ObservableCollection<int> blockAccSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockDecSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockSpeed = new ObservableCollection<int>();
+
+      
 
         int selectedBlockNum;
         public int Selected_BlockNum
@@ -163,14 +165,12 @@ namespace MINASA6SF_Rev.ViewModels
 
         #region viewmodel 생성자
 
-        public MainPanelViewModel()
-        {
-
-        }
+        public MainPanelViewModel() { }
 
         public MainPanelViewModel(Settings _settings)
-        {
+        {           
             settings = _settings;
+           
             //MainPanel 버튼 커맨드
             //this.controlPanel = new commandModel(ExecuteControlpanel, CanExecuteControlpanel);
             //this.blockpara = new commandModel(ExecuteBlockpara, CanExecuteBlockpara);
@@ -212,10 +212,13 @@ namespace MINASA6SF_Rev.ViewModels
         }
         #endregion
 
+
+        
+        
         //IP Address 및 Settings 화면 커맨드 
         private void ExecuteSettingsConfirm(object parameter)
         {
-            modbusClient = new ModbusClient(settings.xxxx.Address, Convert.ToInt32(settings.portxxxx.Text));
+            modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
             Debug.WriteLine("IPAddress :" + settings.xxxx.Address + " " + "Port : " + settings.portxxxx.Text);
 
         }
