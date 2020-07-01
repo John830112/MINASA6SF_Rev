@@ -83,9 +83,17 @@
             </Grid>
         </GroupBox>
         <Button x:Name="Confirm" Grid.Row="2" Content="Confirm" Height="40" Width="100" 
-                Margin="20 -70 0 0" Command="{Binding SettingConfirm}"/>
+                Margin="20 -70 0 0" Command="{Binding SettingConfirm}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="6" ShadowDepth="10" Color="Gray"/>
+            </Button.Effect>
+        </Button>
         <Button x:Name="Disconnect" Grid.Row="2" Grid.Column="1" Content="Disconnect" Height="40" 
-                Width="100" Margin="40 -70 0 0" Command="{Binding Disconnect}"/>
+                Width="100" Margin="40 -70 0 0" Command="{Binding Disconnect}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="6" ShadowDepth="10" Color="Gray"/>
+            </Button.Effect>
+        </Button>
 
     </Grid>
 </UserControl>

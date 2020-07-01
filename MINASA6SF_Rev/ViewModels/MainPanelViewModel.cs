@@ -17,6 +17,7 @@ using System.Windows.Threading;
 using System.Timers;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 
 namespace MINASA6SF_Rev.ViewModels
 {
@@ -27,6 +28,8 @@ namespace MINASA6SF_Rev.ViewModels
         //백그라운드 스레드 비동기 타이머
         System.Timers.Timer mirrTimer = new System.Timers.Timer();
         bool mirrorONOFF;
+        bool servoON;
+
         Master modbusTCP = new Master();
         Settings settings;
         public ObservableCollection<int> axisNum { set; get; }
@@ -61,6 +64,13 @@ namespace MINASA6SF_Rev.ViewModels
         ObservableCollection<int> blockDecSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockSpeed = new ObservableCollection<int>();
 
+        //StatusBar 변수
+        string statusBar = "";
+        public string StatusBar
+        {
+            get { return statusBar; }
+            set { SetProperty(ref statusBar, value); }
+        }
 
 
 
@@ -133,6 +143,7 @@ namespace MINASA6SF_Rev.ViewModels
          ------------------------------------------------------------------------------------------------------*/
         public byte[] _mirrReg1;
         public byte[] _mirrReg2;
+        public byte[] _servoONStatus;
 
         /*------------------------------------------------------------------------------------------------------
          * MirrorReg 0 ~ 8
@@ -311,7 +322,7 @@ namespace MINASA6SF_Rev.ViewModels
                 Thread.Sleep(20);
                 modbusTCP.ReadHoldingRegister(0, (byte)settings.axisNumselect.SelectedValue, 17440, 8, ref _mirrReg2);
 
-                if (_mirrReg1 != null)
+                if (_mirrReg1 != null  && _mirrReg2 !=null)
                 {
                     Debug.WriteLine(_mirrReg1.Length);
                     Debug.WriteLine(_mirrReg2.Length);
@@ -323,7 +334,8 @@ namespace MINASA6SF_Rev.ViewModels
             }
             catch (Exception es)
             {
-                MessageBox.Show(es.Message, "예외발생_MirrTimer", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                mirrTimer.Stop();
+                StatusBar = "MirrImer예외 발생중...";
             }
         }
 
@@ -352,10 +364,8 @@ namespace MINASA6SF_Rev.ViewModels
         {
             try
             {
-                mirrTimer.Interval = (double)settings.cycleTime.SelectedValue;
-                Debug.WriteLine("실행");
+                mirrTimer.Interval = double.Parse(settings.cycleTime.SelectedValue.ToString());                
                 modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
-                Debug.WriteLine("IPAddress :" + settings.xxxx.Address + " " + "Port : " + settings.portxxxx.Text);
 
                 //Register값 리딩 확인.
                 //modbusTCP.ReadCoils(0, 0x01, 4096, 8, ref num1);
@@ -363,11 +373,7 @@ namespace MINASA6SF_Rev.ViewModels
                 //Thread.Sleep(50);
                 //Debug.WriteLine(num1.Length);
 
-                //서보 ON/OFF동작 확인 OK
-                //modbusTCP.WriteSingleCoils(0, 0x01, 96, true);
-                //Thread.Sleep(1000);
-                //modbusTCP.WriteSingleCoils(0, 0x01, 96, false);
-              
+               
             }
             catch (Exception e)
             {
@@ -998,16 +1004,33 @@ namespace MINASA6SF_Rev.ViewModels
             return true;
         }
         #endregion
-     
+
         #region ControlPanel 제어 버튼 커맨드 함수
-        //ControlPanel 제어버튼
+        /*------------------------------------------------------------------------------------------------------
+          ControlPanel 제어버튼
+         *------------------------------------------------------------------------------------------------------*/
+        
+        //ServoON
         private void ExecuteServoOn(object parameter)
         {
             //ControlPanel combobox 바인딩 테스트
-            Debug.WriteLine(Selected_BlockNum.ToString());
-            Debug.WriteLine(Selected_BlockSpeed.ToString());
-            Debug.WriteLine(Selected_BlockAccSpeed.ToString());
-            Debug.WriteLine(Selected_BlockDecSpeed.ToString());
+            //Debug.WriteLine(Selected_BlockNum.ToString());
+            //Debug.WriteLine(Selected_BlockSpeed.ToString());
+            //Debug.WriteLine(Selected_BlockAccSpeed.ToString());
+            //Debug.WriteLine(Selected_BlockDecSpeed.ToString());
+
+            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
+
+            if(_servoONStatus[0]==0)
+            {
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, true);
+                servoON = false;
+            }
+            else
+            {
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, false);
+                servoON = true;
+            }
         }
 
         private bool CanexecuteServoOn(object parameter)

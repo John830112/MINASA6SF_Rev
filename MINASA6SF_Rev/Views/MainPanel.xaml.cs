@@ -65,7 +65,7 @@ namespace MINASA6SF_Rev.Views
             ControlPanel1.DataContext = mainPanelViewModel;
             ServoPara.DataContext = mainPanelViewModel;
             Settings.DataContext = mainPanelViewModel;
-      
+            mainpanel.DataContext = mainPanelViewModel;
             mainpanel.Navigate(ControlPanel1);
             this.Loaded += UserControl1_Loaded;
         }
