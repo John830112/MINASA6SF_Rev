@@ -260,16 +260,16 @@
                     <Label FontWeight="DemiBold" FontSize="14">관성비 :</Label>
                 </StackPanel>
 
-                <ComboBox FontSize="14" Grid.Row="0" Grid.Column="1" Margin="0 6 0 0" BorderThickness="2" VerticalAlignment="Center"
+                <ComboBox FontSize="14" Grid.Row="0" Grid.Column="1" Margin="0 6 0 0" BorderThickness="1" VerticalAlignment="Center"
                           ItemsSource="{Binding SelectBlockNum}"
                           SelectedValue="{Binding Selected_BlockNum, Mode=TwoWay}"/>
-                <ComboBox FontSize="14" Grid.Row="0" Grid.Column="3" Margin="0 6 0 0" BorderThickness="2"
+                <ComboBox FontSize="14" Grid.Row="0" Grid.Column="3" Margin="0 6 0 0" BorderThickness="1"
                           ItemsSource="{Binding BlockSpeed}"
                           SelectedValue="{Binding Selected_BlockSpeed, Mode=TwoWay}"/>
-                <ComboBox FontSize="14" Grid.Row="1" Grid.Column="3" Margin="0 4 0 0" BorderThickness="2"
+                <ComboBox FontSize="14" Grid.Row="1" Grid.Column="3" Margin="0 4 0 0" BorderThickness="1"
                           ItemsSource="{Binding BlockAccSpeed}"
                           SelectedValue="{Binding Selected_BlockAccSpeed, Mode=TwoWay}"/>
-                <ComboBox FontSize="14" Grid.Row="2" Grid.Column="3" Margin="0 4 0 0" BorderThickness="2"
+                <ComboBox FontSize="14" Grid.Row="2" Grid.Column="3" Margin="0 4 0 0" BorderThickness="1"
                           ItemsSource="{Binding BlockDecSpeed}"
                           SelectedValue="{Binding Selected_BlockDecSpeed, Mode=TwoWay}"/>
                 <TextBox FontSize="14" Grid.Row="1" Grid.Column="1" Margin="0 4 0 0" IsReadOnly="True" />

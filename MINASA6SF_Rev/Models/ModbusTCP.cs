@@ -5,6 +5,7 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Windows;
 
 namespace MINASA6SF_Rev.Models
 {
@@ -49,7 +50,7 @@ namespace MINASA6SF_Rev.Models
 
         // ------------------------------------------------------------------------
         // Private declarations
-        private static ushort _timeout = 500;
+        private static ushort _timeout = 300;
         private static ushort _refresh = 10;
         private static bool _connected = false;
         private static bool _no_sync_connection = false;
@@ -163,10 +164,11 @@ namespace MINASA6SF_Rev.Models
                 }
                 _connected = true;
             }
-            catch (System.IO.IOException error)
+            catch (SocketException ex)
             {
                 _connected = false;
-                throw (error);
+                MessageBox.Show(ex.Message, "예외발생", MessageBoxButton.OK, MessageBoxImage.Error);
+                //throw (error);
             }
         }
 
@@ -728,10 +730,9 @@ namespace MINASA6SF_Rev.Models
         // Write data and and wait for response
         private byte[] WriteSyncData(byte[] write_data, ushort id)
         {
-
-            if (tcpSynCl.Connected)
+            try
             {
-                try
+                if (tcpSynCl.Connected)
                 {
                     tcpSynCl.Send(write_data, 0, write_data.Length, SocketFlags.None);
                     int result = tcpSynCl.Receive(tcpSynClBuffer, 0, tcpSynClBuffer.Length, SocketFlags.None);
@@ -766,13 +767,15 @@ namespace MINASA6SF_Rev.Models
                     }
                     return data;
                 }
-                catch (SystemException)
-                {
-                    CallException(id, write_data[6], write_data[7], excExceptionConnectionLost);
-                }
+
+                else 
+                return null;
             }
-            else CallException(id, write_data[6], write_data[7], excExceptionConnectionLost);
-            return null;
+            catch (Exception e)
+            {
+                CallException(id, write_data[6], write_data[7], excExceptionConnectionLost);
+                return null;
+            }
         }
     }
 }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
              xmlns:local2="clr-namespace:MINASA6SF_Rev.customControl"
-             mc:Ignorable="d" x:Name="settingspage" Opacity="0"
+             mc:Ignorable="d" x:Name="settingspage" Opacity="1"
              d:DesignHeight="450" d:DesignWidth="720">
 
     <UserControl.Triggers>
@@ -54,26 +54,26 @@
                     <TextBlock Margin="10 5 0 0">Block 동작 기동 선택 :</TextBlock>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
-                    <local2:IP_Address_ x:Name="xxxx" Width="160" Address="10.10.100.254" Height="25" FontSize="15" 
+                    <local2:IP_Address_ x:Name="xxxx" Width="160" Address="10.10.100.254" Height="23" FontSize="15" 
                                         Margin="0,2,0,1"/>
-                    <TextBox x:Name="portxxxx" Width="160" Height="25" FontSize="15" Margin="0,1,0,2"
+                    <TextBox x:Name="portxxxx" Width="160" Height="23" FontSize="15" Margin="0,1,0,1"
                              HorizontalContentAlignment="Right" Text="8899"/>
 
-                    <ComboBox x:Name="ParityBit" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
-                              MaxDropDownHeight="200" Margin="0 2 0 0" BorderThickness="2" HorizontalContentAlignment="Right"
-                              ItemsSource="{Binding axisNum}"/>
+                    <ComboBox x:Name="axisNumselect" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
+                              MaxDropDownHeight="200" Margin="0 1 0 1" BorderThickness="1" HorizontalContentAlignment="Right"
+                              ItemsSource="{Binding axisNum}" SelectedIndex="0"/>
 
-                    <ComboBox x:Name="dataBit" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
-                              Margin="0 2 0 0" BorderThickness="2"/>
+                    <ComboBox x:Name="cycleTime" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" HorizontalContentAlignment="Right"
+                              Margin="0 1 0 1" BorderThickness="1" ItemsSource="{Binding cycTime}" SelectedIndex="1"/>
 
-                    <ComboBox x:Name="AxisNum" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
-                              Margin="0 2 0 0" BorderThickness="2"/>
+                    <ComboBox x:Name="dummy1" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
+                              Margin="0 1 0 1" BorderThickness="1"/>
 
-                    <ComboBox x:Name="StopBit" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
-                              Margin="0 2 0 0" BorderThickness="2"/>
+                    <ComboBox x:Name="dummy2" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
+                              Margin="0 1 0 1" BorderThickness="1"/>
 
                     <ComboBox x:Name="BlockFunctionSelectionSetting" FontSize="12" VerticalContentAlignment="Center" 
-                              FontStretch="Medium" Margin="0 3 0 0" BorderThickness="2">
+                              FontStretch="Medium" Margin="0 1 0 0" BorderThickness="1">
                         <ComboBoxItem Content="0 : Block 동작무효"/>
                         <ComboBoxItem Content="1 : Modbus 통신기동"/>
                         <ComboBoxItem Content="2 : I/O 신호기동"/>

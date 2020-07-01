@@ -13,19 +13,27 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Reflection;
-using System.Threading;
 using System.Windows.Threading;
+using System.Timers;
+using System.Threading;
+using System.Windows;
 
 namespace MINASA6SF_Rev.ViewModels
 {
     public class MainPanelViewModel:ViewModelBase, IWindowService
     {
-        DispatcherTimer mirrTimer = new DispatcherTimer();
+        //DispatcherTimer mirrTimer = new DispatcherTimer();
+
+        //백그라운드 스레드 비동기 타이머
+        System.Timers.Timer mirrTimer = new System.Timers.Timer();
         bool mirrorONOFF;
         Master modbusTCP = new Master();
         Settings settings;
         public ObservableCollection<int> axisNum { set; get; }
         ObservableCollection<int> axisNums = new ObservableCollection<int>();
+        public ObservableCollection<int> cycTime { set; get; }
+        ObservableCollection<int> cycTimes = new ObservableCollection<int>();
+
         //Block동작 편집 파라미터 VM Instance
         public ObservableCollection<BlockParaModel1> blockParaModel1s { get; set; }
         ObservableCollection<BlockParaModel1> BlockParaModel1s = new ObservableCollection<BlockParaModel1>();
@@ -52,6 +60,9 @@ namespace MINASA6SF_Rev.ViewModels
         ObservableCollection<int> blockAccSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockDecSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockSpeed = new ObservableCollection<int>();
+
+
+
 
         int selectedBlockNum;
         public int Selected_BlockNum
@@ -103,17 +114,29 @@ namespace MINASA6SF_Rev.ViewModels
         }
 
 
+        //MainPanel 리스트뷰 버튼 커맨드...
+        string framesource ="ControlPanel1.xaml";
+        public string FrameSource
+        {
+            get {return framesource;}
+            set
+            {
+                if(framesource.Equals(value))
+                { return; }
+                SetProperty(ref framesource, value);                
+            }
+        }
 
-
+        #region ModbusTCP MirrReg Value
         /*------------------------------------------------------------------------------------------------------
          * ModbusTCP MirrReg value
          ------------------------------------------------------------------------------------------------------*/
         public byte[] _mirrReg1;
         public byte[] _mirrReg2;
-        /*
-         * MirrorReg 0 ~ 8
-         */
 
+        /*------------------------------------------------------------------------------------------------------
+         * MirrorReg 0 ~ 8
+          ------------------------------------------------------------------------------------------------------*/
         //모터 실위치  0x600F
         Int32 _positionActualValue = 0;
         public Int32 PositionActualValue
@@ -155,10 +178,9 @@ namespace MINASA6SF_Rev.ViewModels
         }
 
 
-        /*
+        /*------------------------------------------------------------------------------------------------------
          * MirrorReg 9 ~ 16
-         */
-
+          ------------------------------------------------------------------------------------------------------*/
         //주전원 PN간 전압   0x602C
         Int32 _dcLinkCircuitVolt = 0;
         public Int32 DCLinkCircuitvole
@@ -191,9 +213,7 @@ namespace MINASA6SF_Rev.ViewModels
             set { SetProperty(ref _powerONTime, value); }
         }
 
-
-
-
+        //현재 유효한 블록 번호
         int blockFunction;
         public int BlockFunctionID
         {
@@ -202,19 +222,8 @@ namespace MINASA6SF_Rev.ViewModels
                 Debug.WriteLine(blockFunction.ToString());
             }
         }
+        #endregion
 
-        //MainPanel 리스트뷰 버튼 커맨드...
-        string framesource="ControlPanel1.xaml";
-        public string FrameSource
-        {
-            get {return framesource;}
-            set
-            {
-                if(framesource.Equals(value))
-                { return; }
-                SetProperty(ref framesource, value);                
-            }
-        }
         #region 각종 ICommand객체 생성
        
         //ControlPanel1 제어 버튼
@@ -239,11 +248,10 @@ namespace MINASA6SF_Rev.ViewModels
 
         #region viewmodel 생성자
         public MainPanelViewModel() { }
-
         public MainPanelViewModel(Settings _settings)
         {
-            mirrTimer.Tick += MirrTimer_Tick;
-            mirrTimer.Interval = new TimeSpan(0, 0, 0, 0, 20);
+            mirrTimer.Elapsed += MirrTimer_Tick;
+            mirrTimer.Interval = (double)settings.cycleTime.SelectedValue;
             mirrorONOFF = false;
             settings = _settings;
             //ControlPanel 버튼 커맨드
@@ -276,58 +284,97 @@ namespace MINASA6SF_Rev.ViewModels
                 axisNums.Add(i);
             }
             axisNum = axisNums;
+            
+            //CycleTime설정
+            cycTimes.Add(20);
+            cycTimes.Add(30);
+            cycTimes.Add(50);
+            cycTimes.Add(70);
+            cycTimes.Add(100);
+            cycTimes.Add(130);
+            cycTimes.Add(160);
+            cycTime = cycTimes;
+
+
 
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadObjectViewModel();
         }
-
-        private void ExecuteDisconnect(object parameter)
-        {
-            mirrTimer.Stop();
-            modbusTCP.disconnect();
-        }
-
-        private bool CanexecuteDisconnect(object parameter)
-        {
-            return true;
-        }
         #endregion
-
 
         //MirrTimer 실행 함수
         private void MirrTimer_Tick(object sender, EventArgs e)
         {
-            modbusTCP.ReadHoldingRegister(0, 0x01, 17432, 8, ref _mirrReg1);
-            Thread.Sleep(20);
-            modbusTCP.ReadHoldingRegister(0, 0x01, 17440, 8, ref _mirrReg2);
+            try
+            {
+                modbusTCP.ReadHoldingRegister(0, (byte)settings.axisNumselect.SelectedValue, 17432, 8, ref _mirrReg1);
+                Thread.Sleep(20);
+                modbusTCP.ReadHoldingRegister(0, (byte)settings.axisNumselect.SelectedValue, 17440, 8, ref _mirrReg2);
 
-            if(_mirrReg1 !=null)
-            {
-                Debug.WriteLine(_mirrReg1.Length);
-                Debug.WriteLine(_mirrReg2.Length);
+                if (_mirrReg1 != null)
+                {
+                    Debug.WriteLine(_mirrReg1.Length);
+                    Debug.WriteLine(_mirrReg2.Length);
+                }
+                else
+                {
+                    return;
+                }
             }
-            else
+            catch (Exception es)
             {
-                return;
+                MessageBox.Show(es.Message, "예외발생_MirrTimer", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
         }
 
-        //IP Address 및 Settings 화면 커맨드 
+        #region Settings화면
+        //Settings 화면 Disconnect 커맨드
+        private void ExecuteDisconnect(object parameter)
+        {
+            mirrTimer.Stop();
+            modbusTCP.disconnect();
+            mirrorONOFF = false;
+        }
+
+        private bool CanexecuteDisconnect(object parameter)
+        {
+            if(mirrorONOFF)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        //Settings 화면 Confirm 커맨드 
         private void ExecuteSettingsConfirm(object parameter)
         {
-            modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
-            Debug.WriteLine("IPAddress :" + settings.xxxx.Address + " " + "Port : " + settings.portxxxx.Text);
+            try
+            {
+                
+                Debug.WriteLine("실행");
+                modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
+                Debug.WriteLine("IPAddress :" + settings.xxxx.Address + " " + "Port : " + settings.portxxxx.Text);
 
-            // Register값 리딩 확인.
-            //modbusTCP.ReadCoils(0, 0x01, 4096, 8, ref num1);
-            //modbusTCP.ReadHoldingRegister(0, 0x01, 19740, 2, ref num1);
-            //Thread.Sleep(50);
-            //Debug.WriteLine(num1.Length);
+                //Register값 리딩 확인.
+                //modbusTCP.ReadCoils(0, 0x01, 4096, 8, ref num1);
+                //modbusTCP.ReadHoldingRegister(0, 0x01, 19740, 2, ref num1);
+                //Thread.Sleep(50);
+                //Debug.WriteLine(num1.Length);
 
-            //서보 ON/OFF동작 확인 OK
-            //modbusTCP.WriteSingleCoils(0, 0x01, 96, true);
-            //Thread.Sleep(1000);
-            //modbusTCP.WriteSingleCoils(0, 0x01, 96, false);
+                //서보 ON/OFF동작 확인 OK
+                //modbusTCP.WriteSingleCoils(0, 0x01, 96, true);
+                //Thread.Sleep(1000);
+                //modbusTCP.WriteSingleCoils(0, 0x01, 96, false);
+              
+            }
+            catch (Exception e)
+            {
+                mirrorONOFF = true;
+                mirrTimer.Stop();
+                MessageBox.Show(e.Message, "예외발생_ConfirmBtn", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
 
             if (!mirrorONOFF)
             {
@@ -343,8 +390,16 @@ namespace MINASA6SF_Rev.ViewModels
 
         private bool CanexecuteSettingsConfirm(object parameter)
         {
-            return true;
+            if (!mirrorONOFF)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
+        #endregion
 
         #region 블럭 동작 편집, 블럭 매개변수 객체 생성 함수
         private void LoadObjectViewModel()
