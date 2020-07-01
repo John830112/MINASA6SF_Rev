@@ -55,14 +55,45 @@
                               Margin="0 20 0 0">
 
                         <ListViewItem Height="50" Margin="0 0 0 10">
-                            <Button Width="170" Background="#FF0F4E7A" BorderThickness="0"
+                            <Button Width="170" Background="#FF0F4E7A" BorderThickness="0" BorderBrush="Transparent"
                                     HorizontalContentAlignment="Left" Click="mainpanel_Click">
-                                <StackPanel Orientation="Horizontal">
+
+                            <Button.RenderTransform>
+                                <ScaleTransform x:Name="AnimatedRotateTransform" CenterX="25" CenterY="25"/>
+                            </Button.RenderTransform>
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Button.Click">
+                                    <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            
+                                            <DoubleAnimation Storyboard.TargetName="AnimatedRotateTransform"
+                                                             Storyboard.TargetProperty="ScaleX" 
+                                                             From="1" To="0.8" Duration="0:0:0.2" FillBehavior="HoldEnd" />
+                                            <DoubleAnimation Storyboard.TargetName="AnimatedRotateTransform"
+                                                             Storyboard.TargetProperty="ScaleY" 
+                                                             From="1" To="0.8" Duration="0:0:0.2" FillBehavior="HoldEnd" />
+
+                                                <DoubleAnimation Storyboard.TargetName="AnimatedRotateTransform"
+                                                             Storyboard.TargetProperty="ScaleX" 
+                                                             From="0.8" To="1" Duration="0:0:0.2" FillBehavior="HoldEnd" BeginTime="0:0:0.2" />
+                                                <DoubleAnimation Storyboard.TargetName="AnimatedRotateTransform"
+                                                             Storyboard.TargetProperty="ScaleY" 
+                                                             From="0.8" To="1" Duration="0:0:0.2" FillBehavior="HoldEnd" BeginTime="0:0:0.2"/>
+
+
+
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                            </Button.Triggers>
+                            <StackPanel Orientation="Horizontal">
                                     <Image Source="..\icons\home.png" Height="40" VerticalAlignment="Center"/>
                                     <TextBlock Margin="15 0 0 0" Text="Main" VerticalAlignment="Center" 
-                                           Foreground="White"/>
-                                </StackPanel>
-                            </Button>
+                                                   Foreground="White"/>
+                            </StackPanel>
+                        </Button>
                         </ListViewItem>
                         <ListViewItem Height="50" Margin="0 0 0 10">
                             <Button Width="170" Background="#FF0F4E7A" BorderThickness="0"

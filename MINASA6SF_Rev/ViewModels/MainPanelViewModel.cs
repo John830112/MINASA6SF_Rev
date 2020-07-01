@@ -251,7 +251,7 @@ namespace MINASA6SF_Rev.ViewModels
         public MainPanelViewModel(Settings _settings)
         {
             mirrTimer.Elapsed += MirrTimer_Tick;
-            mirrTimer.Interval = (double)settings.cycleTime.SelectedValue;
+            mirrTimer.Interval = 30.0;
             mirrorONOFF = false;
             settings = _settings;
             //ControlPanel 버튼 커맨드
@@ -352,7 +352,7 @@ namespace MINASA6SF_Rev.ViewModels
         {
             try
             {
-                
+                mirrTimer.Interval = (double)settings.cycleTime.SelectedValue;
                 Debug.WriteLine("실행");
                 modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
                 Debug.WriteLine("IPAddress :" + settings.xxxx.Address + " " + "Port : " + settings.portxxxx.Text);
