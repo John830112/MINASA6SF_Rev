@@ -26,7 +26,7 @@ namespace MINASA6SF_Rev.ViewModels
         //DispatcherTimer mirrTimer = new DispatcherTimer();
 
         //백그라운드 스레드 비동기 타이머
-        System.Timers.Timer mirrTimer = new System.Timers.Timer();
+        DispatcherTimer mirrTimer = new DispatcherTimer();
         bool mirrorONOFF;
         bool servoON;
 
@@ -141,8 +141,9 @@ namespace MINASA6SF_Rev.ViewModels
         /*------------------------------------------------------------------------------------------------------
          * ModbusTCP MirrReg value
          ------------------------------------------------------------------------------------------------------*/
-        public byte[] _mirrReg1;
-        public byte[] _mirrReg2;
+        byte[] _mirrReg1;
+        byte[] _mirrReg2;
+       
         public byte[] _servoONStatus;
 
         /*------------------------------------------------------------------------------------------------------
@@ -155,6 +156,7 @@ namespace MINASA6SF_Rev.ViewModels
             get { return _positionActualValue; }
             set { SetProperty(ref _positionActualValue, value); }
         }
+        byte[] positionactualvalue = new byte[4];
 
         //모터 속도   0x601C
         Int32 _velotcityActualValue = 0;
@@ -261,8 +263,8 @@ namespace MINASA6SF_Rev.ViewModels
         public MainPanelViewModel() { }
         public MainPanelViewModel(Settings _settings)
         {
-            mirrTimer.Elapsed += MirrTimer_Tick;
-            mirrTimer.Interval = 30.0;
+            mirrTimer.Tick += MirrTimer_Tick;
+            mirrTimer.Interval = new TimeSpan(0, 0, 0,0, 10);
             mirrorONOFF = false;
             settings = _settings;
             //ControlPanel 버튼 커맨드
@@ -297,13 +299,15 @@ namespace MINASA6SF_Rev.ViewModels
             axisNum = axisNums;
             
             //CycleTime설정
+            cycTimes.Add(5);
+            cycTimes.Add(10);
+            cycTimes.Add(15);
             cycTimes.Add(20);
             cycTimes.Add(30);
+            cycTimes.Add(40);
             cycTimes.Add(50);
             cycTimes.Add(70);
             cycTimes.Add(100);
-            cycTimes.Add(130);
-            cycTimes.Add(160);
             cycTime = cycTimes;
 
 
@@ -318,11 +322,11 @@ namespace MINASA6SF_Rev.ViewModels
         {
             try
             {
-                modbusTCP.ReadHoldingRegister(0, (byte)settings.axisNumselect.SelectedValue, 17432, 8, ref _mirrReg1);
-                Thread.Sleep(20);
-                modbusTCP.ReadHoldingRegister(0, (byte)settings.axisNumselect.SelectedValue, 17440, 8, ref _mirrReg2);
+                modbusTCP.ReadHoldingRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 17432, 8, ref _mirrReg1);
+                Thread.Sleep(10);
+                modbusTCP.ReadHoldingRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 17440, 8, ref _mirrReg2);
 
-                if (_mirrReg1 != null  && _mirrReg2 !=null)
+                if (_mirrReg1 != null && _mirrReg2 != null)
                 {
                     Debug.WriteLine(_mirrReg1.Length);
                     Debug.WriteLine(_mirrReg2.Length);
@@ -331,11 +335,17 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     return;
                 }
+                Array.Reverse(_mirrReg1);
+                Array.Reverse(_mirrReg2);
+
+                Array.Copy(_mirrReg1, 12, positionactualvalue, 0, 4);
+
+                PositionActualValue = BitConverter.ToInt32(positionactualvalue, 0);
             }
             catch (Exception es)
             {
                 mirrTimer.Stop();
-                StatusBar = "MirrImer예외 발생중...";
+                StatusBar = es.Message;
             }
         }
 
@@ -364,7 +374,7 @@ namespace MINASA6SF_Rev.ViewModels
         {
             try
             {
-                mirrTimer.Interval = double.Parse(settings.cycleTime.SelectedValue.ToString());                
+                mirrTimer.Interval =new  TimeSpan(0,0,0,0,int.Parse(settings.cycleTime.SelectedValue.ToString()));                
                 modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
 
                 //Register값 리딩 확인.

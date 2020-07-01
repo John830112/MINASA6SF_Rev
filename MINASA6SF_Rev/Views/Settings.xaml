@@ -64,7 +64,7 @@
                               ItemsSource="{Binding axisNum}" SelectedIndex="0"/>
 
                     <ComboBox x:Name="cycleTime" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" HorizontalContentAlignment="Right"
-                              Margin="0 1 0 1" BorderThickness="1" ItemsSource="{Binding cycTime}" SelectedIndex="1"/>
+                              Margin="0 1 0 1" BorderThickness="1" ItemsSource="{Binding cycTime}" SelectedIndex="0"/>
 
                     <ComboBox x:Name="dummy1" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
                               Margin="0 1 0 1" BorderThickness="1"/>
