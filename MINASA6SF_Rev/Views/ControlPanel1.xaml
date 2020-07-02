@@ -189,10 +189,10 @@
                 <StackPanel Grid.Column="1">
                     <TextBox FontSize="14" Text="{Binding PositionActualValue}" Margin="0 10 0 0" TextAlignment="Right" BorderThickness="0"/>
                     <TextBox FontSize="14" Text="{Binding VelocityActualValue}" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
-                    <TextBox FontSize="14" Text="{Binding TorqueDemand}" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
+                    <TextBox FontSize="14" Text="{Binding TorqueDemand, StringFormat=F1}" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
                     <TextBox FontSize="14" Text="{Binding OverLoad, StringFormat=F1}" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
                     <TextBox FontSize="14" Text="{Binding BlockNumMon}" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
-                    <TextBox FontSize="14" Text="{Binding DCLinkCircuitvole}" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
+                    <TextBox FontSize="14" Text="{Binding DCLinkCircuitvolt}" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
                     <TextBox FontSize="14" Text="{Binding AmpTemp}" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
                     <TextBox FontSize="14" Text="{Binding EncoderTemp}" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>
                     <TextBox FontSize="14" Text="{Binding PowerONTime}" Margin="0 5 0 0" TextAlignment="Right" BorderThickness="0"/>

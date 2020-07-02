@@ -168,7 +168,7 @@ namespace MINASA6SF_Rev.Models
             {
                 _connected = false;
                 MessageBox.Show(ex.Message, "예외발생", MessageBoxButton.OK, MessageBoxImage.Error);
-                //throw (error);
+                return;
             }
         }
 
@@ -771,11 +771,12 @@ namespace MINASA6SF_Rev.Models
                 else 
                 return null;
             }
-            catch (Exception e)
+            catch (System.Net.Sockets.SocketException e)
             {
                 CallException(id, write_data[6], write_data[7], excExceptionConnectionLost);
                 return null;
             }
+
         }
     }
 }
