@@ -5,9 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
              xmlns:local2="clr-namespace:MINASA6SF_Rev.ViewModels"
+             xmlns:local3="clr-namespace:MINASA6SF_Rev.Models"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" x:Name="controlpage"
              d:DesignHeight="430" d:DesignWidth="720"
              Opacity="1">
+
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="Loaded">
             <BeginStoryboard>
@@ -22,6 +25,7 @@
     </UserControl.Triggers>
     
     <UserControl.Resources>
+        <local3:StringConverter x:Key="stringConverter"/>
         <!--컨트롤 판넬 버튼 템플릿-->
         <ControlTemplate x:Key="ButtonTemplate" TargetType="Button">
             <Grid>
@@ -54,6 +58,11 @@
         </ControlTemplate>
         <ControlTemplate x:Key="JogPlayButton" TargetType="Button">
             <Grid>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDown">
+                        <i:InvokeCommandAction Command="{Binding Mousedown}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
                 <Image Source="..\icons\circled_play_50px.png" Stretch="None"/>
                 <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Grid>
@@ -65,8 +74,10 @@
                         </Setter.Value>
                     </Setter>
                     <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+
                 </Trigger>
             </ControlTemplate.Triggers>
+
         </ControlTemplate>
         <ControlTemplate x:Key="JogPlayButton2" TargetType="Button">
             <Grid>
@@ -280,7 +291,7 @@
 
         <!-- 컨트롤 판넬 버튼 -->
         <StackPanel Grid.ColumnSpan="5" Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
-            <Button Template="{StaticResource ButtonTemplate}" Content="Servo ON" Width="110" Height="60" Margin="10 -70 0 0" 
+            <Button Template="{StaticResource ButtonTemplate}" Content="ServoON_OFF" Width="110" Height="60" Margin="10 -70 0 0" x:Name="servoon"
                     FontWeight="Bold" Command="{Binding servoOn}">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="6" ShadowDepth="10" Color="Gray"/>

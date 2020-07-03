@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Windows;
+using System.Diagnostics.Eventing.Reader;
 
 namespace MINASA6SF_Rev.Models
 {
@@ -54,11 +55,13 @@ namespace MINASA6SF_Rev.Models
         private static ushort _refresh = 10;
         private static bool _connected = false;
         private static bool _no_sync_connection = false;
+        bool connected1 = false;
+        bool connected2 = false;
 
-        private Socket tcpAsyCl;
+        private static Socket tcpAsyCl;
         private byte[] tcpAsyClBuffer = new byte[2048];
 
-        private Socket tcpSynCl;
+        private static Socket tcpSynCl;
         private byte[] tcpSynClBuffer = new byte[2048];
 
         // ------------------------------------------------------------------------
@@ -104,10 +107,14 @@ namespace MINASA6SF_Rev.Models
             get { return _connected; }
         }
 
+
         // ------------------------------------------------------------------------
         /// <summary>Create master instance without parameters.</summary>
+       
         public Master()
         {
+           
+
         }
 
         // ------------------------------------------------------------------------
@@ -136,6 +143,8 @@ namespace MINASA6SF_Rev.Models
         /// <param name="no_sync_connection">Disable sencond connection for synchronous requests</param>
         public void connect(string ip, ushort port, bool no_sync_connection)
         {
+            connected1 = true;
+            connected2 = true;
             try
             {
                 IPAddress _ip;
@@ -167,6 +176,8 @@ namespace MINASA6SF_Rev.Models
             catch (SocketException ex)
             {
                 _connected = false;
+                connected1 = false;
+                connected2 = false;
                 MessageBox.Show(ex.Message, "예외발생", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
@@ -176,6 +187,8 @@ namespace MINASA6SF_Rev.Models
         /// <summary>Stop connection to slave.</summary>
         public void disconnect()
         {
+            connected1 = false;
+            connected2 = false;
             Dispose();
         }
 
@@ -183,6 +196,8 @@ namespace MINASA6SF_Rev.Models
         /// <summary>Destroy master instance.</summary>
         ~Master()
         {
+            connected1 = false;
+            connected2 = false;
             Dispose();
         }
 
@@ -190,6 +205,8 @@ namespace MINASA6SF_Rev.Models
         /// <summary>Destroy master instance</summary>
         public void Dispose()
         {
+            connected1 = false;
+            connected2 = false;
             if (tcpAsyCl != null)
             {
                 if (tcpAsyCl.Connected)
@@ -730,16 +747,17 @@ namespace MINASA6SF_Rev.Models
         // Write data and and wait for response
         private byte[] WriteSyncData(byte[] write_data, ushort id)
         {
+            byte[] data;
             try
-            {
-                if (tcpSynCl.Connected)
+            {               
+                if (connected1)
                 {
                     tcpSynCl.Send(write_data, 0, write_data.Length, SocketFlags.None);
                     int result = tcpSynCl.Receive(tcpSynClBuffer, 0, tcpSynClBuffer.Length, SocketFlags.None);
 
                     byte unit = tcpSynClBuffer[6];
                     byte function = tcpSynClBuffer[7];
-                    byte[] data;
+
 
                     if (result == 0) CallException(id, unit, write_data[7], excExceptionConnectionLost);
 
@@ -767,16 +785,15 @@ namespace MINASA6SF_Rev.Models
                     }
                     return data;
                 }
-
-                else 
-                return null;
+                else
+                    return null;
             }
             catch (System.Net.Sockets.SocketException e)
             {
                 CallException(id, write_data[6], write_data[7], excExceptionConnectionLost);
                 return null;
             }
-
         }
     }
 }
+
