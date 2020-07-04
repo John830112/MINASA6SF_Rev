@@ -9,7 +9,7 @@
         Title="MainWindow" Height="500" Width="900" ResizeMode="NoResize" WindowStyle="None" 
         WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" Padding="0"
         Opacity="0">
-    
+
     <Window.Triggers>
         <EventTrigger RoutedEvent="Loaded">
             <BeginStoryboard>

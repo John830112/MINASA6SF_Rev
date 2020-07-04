@@ -11,23 +11,37 @@ using System.Windows.Interactivity;
 
 namespace MINASA6SF_Rev.Models
 {
-    public class MouseBehaviour : Behavior<Button>
+    public class MouseBehaviour
     {
-        protected override void OnAttached()
+        public static readonly DependencyProperty MouseUpCommandProperty =
+            DependencyProperty.RegisterAttached("MouseUpCommand", typeof(ICommand),
+            typeof(MouseBehaviour), new FrameworkPropertyMetadata(
+            new PropertyChangedCallback(MouseUpCommandChanged)));
+
+        private static void MouseUpCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            
-            this.AssociatedObject.MouseDown += AssociatedObject_MouseDown;
+            FrameworkElement element = (FrameworkElement)d;
+
+            element.MouseUp += new MouseButtonEventHandler(element_MouseUp);
         }
 
-        public void AssociatedObject_MouseDown(object sender, MouseButtonEventArgs e)
+        static void element_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            Debug.WriteLine("MouseDown called");
+            FrameworkElement element = (FrameworkElement)sender;
+
+            ICommand command = GetMouseUpCommand(element);
+
+            command.Execute(e);
         }
 
-        protected override void OnDetaching()
+        public static void SetMouseUpCommand(UIElement element, ICommand value)
         {
-            Debug.WriteLine("OnDetaching called");
-            AssociatedObject.MouseDown -= AssociatedObject_MouseDown;
+            element.SetValue(MouseUpCommandProperty, value);
+        }
+
+        public static ICommand GetMouseUpCommand(UIElement element)
+        {
+            return (ICommand)element.GetValue(MouseUpCommandProperty);
         }
     }
 }

@@ -22,13 +22,16 @@ using System.Threading;
 using System.Windows.Documents;
 using System.Net;
 using System.Diagnostics;
+using System.Windows.Media;
+using System.Windows.Interactivity;
+using GalaSoft.MvvmLight.Command;
 
 namespace MINASA6SF_Rev.ViewModels
 {
     public class MainPanelViewModel:ViewModelBase, IWindowService
     {
         BackgroundWorker worker = new BackgroundWorker();
-        
+
         bool mirrorONOFF;
         bool servoON;
         int mirrTime;
@@ -151,17 +154,12 @@ namespace MINASA6SF_Rev.ViewModels
         byte[] _mirrReg1;
         byte[] _mirrReg2;
 
-        public byte[] MirrReg1
-        {
-            get { return _mirrReg1; }
-            set { _mirrReg1 = value; }
-        }
+      
+        /*------------------------------------------------------------------------------------------------------
+        * ModbusTCP WriteRegister value
+        ------------------------------------------------------------------------------------------------------*/
+        byte[] jogBlockSelect = new byte[2];    //jogBlockSelect
 
-        public byte[] MirrReg2
-        {
-            get { return _mirrReg1; }
-            set { _mirrReg1 = value; }
-        }
 
         /*------------------------------------------------------------------------------------------------------
          * MirrorReg 0 ~ 8
@@ -286,7 +284,17 @@ namespace MINASA6SF_Rev.ViewModels
         public ICommand SettingConfirm { set; get; }
         public ICommand Disconnect { set; get; }
         //Mouse 커맨드
-        public ICommand Mousedown { set; get; }
+        public ICommand jogrewind1 { set; get; }
+        public ICommand jogrewind2 { set; get; }
+        public ICommand jogplaybtn1 { set; get; }
+        public ICommand jogplaybtn2 { set; get; }
+        public ICommand jogpause1 { set; get; }
+        public ICommand jogpause2 { set; get; }
+        public ICommand jogplaybtn3 { set; get; }
+        public ICommand jogplaybtn4 { set; get; }
+        public ICommand jogfastford1 { set; get; }
+        public ICommand jogfastford2 { set; get; }
+
         #endregion
 
         #region viewmodel 생성자
@@ -319,8 +327,22 @@ namespace MINASA6SF_Rev.ViewModels
             this.SettingConfirm = new commandModel(ExecuteSettingsConfirm, CanexecuteSettingsConfirm);
             this.Disconnect = new commandModel(ExecuteDisconnect, CanexecuteDisconnect);
 
-            //Mouse  커맨드
-            this.Mousedown = new commandModel(ExecuteMousedown, CanexecuteMousedown);
+            //JOG Mouse  커맨드
+            this.jogrewind1 = new commandModel(Executejogrewind1, Canexecutejogrewind1);        //빠른 부방향 시작
+            this.jogrewind2 = new commandModel(Executejogrewind2, Canexecutejogrewind2);        //빠른 부방향 정지
+
+            this.jogplaybtn1 = new commandModel(Executejogplaybtn1, Canexecutejogplaybtn1);     //느린 부방향 시작
+            this.jogplaybtn2 = new commandModel(Executejogplaybtn2, Canexecutejogplaybtn2);     //느린 부방향 정지
+
+            this.jogpause1 = new commandModel(Executejogpause1, Canexecutejogpause1);           //Pause  보류
+            this.jogpause2 = new commandModel(Executejogpause2, Canexecutejogpause2);           //Pause  보류
+
+            this.jogplaybtn3 = new commandModel(Executejogplaybtn3, Canexecutejogplaybtn3);     //느린 정방향 시작
+            this.jogplaybtn4 = new commandModel(Executejogplaybtn4, Canexecutejogplaybtn4);     //느린 정방향 정지
+
+            this.jogfastford1 = new commandModel(Executejogfastford1, Canexecutejogfastford1);  //빠른 부방향 시작
+            this.jogfastford2 = new commandModel(Executejogfastford2, Canexecutejogfastford2);  //빠른 부방향 정지
+
 
             //축수 등록
             for(int i=1; i<=30; i++)
@@ -330,22 +352,28 @@ namespace MINASA6SF_Rev.ViewModels
             axisNum = axisNums;
             
             //CycleTime설정
-            cycTimes.Add(5);
-            cycTimes.Add(7);
-            cycTimes.Add(10);
-            cycTimes.Add(15);
+            cycTimes.Add(20);
             cycTimes.Add(30);
-            cycTimes.Add(40);            
+            cycTimes.Add(40);
+            cycTimes.Add(50);            
             cycTime = cycTimes;
            
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadObjectViewModel();
             
-            worker.DoWork += MirrTimer_Tick;           
+            worker.DoWork += MirrTimer_Tick;
         }
 
-        private void ExecuteMousedown(object parameter)
+        //빠른 부방향 시작
+        private void Executejogrewind1(object parameter)  
         {
+            //블록 지정
+
+            mirrorONOFF = false;
+            jogBlockSelect[0] = (byte)(252 >> 8);
+            jogBlockSelect[1] = (byte)(252);
+            modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 17428, jogBlockSelect);
+
             modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
 
             if (_servoONStatus[0] == 0)
@@ -353,18 +381,117 @@ namespace MINASA6SF_Rev.ViewModels
                 modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, true);
                 servoON = false;
             }
-            else
-            {
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, false);
-                servoON = true;
-            }
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 288, true);
+
+            mirrorONOFF = true;
         }
 
-        private bool CanexecuteMousedown(object parameter)
+        private bool Canexecutejogrewind1(object parameter)
         {
             return true;
         }
 
+        //빠른 부방향 정지
+        private void Executejogrewind2(object parameter)
+        {
+            mirrorONOFF = false;
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, true);
+            MessageBox.Show("화이");
+            mirrorONOFF = true;
+        }
+
+        private bool Canexecutejogrewind2(object parameter)
+        {
+            return true;
+        }
+
+        //느린 부방향 시작
+        private void Executejogplaybtn1(object parameter)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool Canexecutejogplaybtn1(object parameter)
+        {
+            return true;
+        }
+
+        //느린 부방향 정지
+        private void Executejogplaybtn2(object parameter)
+        {
+           
+        }
+
+        private bool Canexecutejogplaybtn2(object parameter)
+        {
+            return true;
+        }
+
+        //Pause  보류
+        private void Executejogpause1(object parameter)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool Canexecutejogpause1(object parameter)
+        {
+            return false;
+        }
+
+        //Pause  보류
+        private void Executejogpause2(object parameter)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool Canexecutejogpause2(object parameter)
+        {
+            return true;
+        }
+
+        //느린 정방향 시작
+        private void Executejogplaybtn3(object parameter)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool Canexecutejogplaybtn3(object parameter)
+        {
+            return true;
+        }
+
+        //느린 정방향 정지
+        private void Executejogplaybtn4(object parameter)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool Canexecutejogplaybtn4(object parameter)
+        {
+            return true;
+        }
+
+        //빠른 부방향 시작
+        private void Executejogfastford1(object parameter)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool Canexecutejogfastford1(object parameter)
+        {
+            return true;
+        }
+        
+        //빠른 부방향 정지
+        private void Executejogfastford2(object parameter)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool Canexecutejogfastford2(object parameter)
+        {
+            return true;
+        }
         #endregion
 
         //MirrTimer 실행 함수
@@ -393,19 +520,19 @@ namespace MINASA6SF_Rev.ViewModels
                     Array.Copy(_mirrReg2, 4, encodertemp, 0, 4);
                     Array.Copy(_mirrReg2, 0, powerontime, 0, 4);
 
-                    PositionActualValue = BitConverter.ToInt32(positionactualvalue, 0);
-                    VelocityActualValue = BitConverter.ToInt32(velocityactualvalue, 0);
-                    torquecmd = BitConverter.ToInt32(torquedemand, 0);
-                    TorqueDemand = torquecmd / 20;
-                    overload1 = BitConverter.ToInt32(overload, 0);
-                    OverLoad = overload1 / 5;
-                    BlockNumMon = BitConverter.ToInt16(blocknummon, 0);
-                    DCLinkCircuitvolt = BitConverter.ToInt32(dclinkcircuitvolt, 0);
-                    AmpTemp = BitConverter.ToInt16(amptemp, 0);
-                    EncoderTemp = BitConverter.ToInt32(encodertemp, 0);
-                    powerontimetemp = BitConverter.ToInt32(powerontime, 0);
-                    PowerONTime = powerontimetemp / 2;
-                }
+                PositionActualValue = BitConverter.ToInt32(positionactualvalue, 0);
+                VelocityActualValue = BitConverter.ToInt32(velocityactualvalue, 0);
+                torquecmd = BitConverter.ToInt32(torquedemand, 0);
+                TorqueDemand = torquecmd / 20;
+                overload1 = BitConverter.ToInt32(overload, 0);
+                OverLoad = overload1 / 5;
+                BlockNumMon = BitConverter.ToInt16(blocknummon, 0);
+                DCLinkCircuitvolt = BitConverter.ToInt32(dclinkcircuitvolt, 0);
+                AmpTemp = BitConverter.ToInt16(amptemp, 0);
+                EncoderTemp = BitConverter.ToInt32(encodertemp, 0);
+                powerontimetemp = BitConverter.ToInt32(powerontime, 0);
+                PowerONTime = powerontimetemp / 2;
+            }
             }
             catch (Exception es)
             {

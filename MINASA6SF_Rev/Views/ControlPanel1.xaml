@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
              xmlns:local2="clr-namespace:MINASA6SF_Rev.ViewModels"
              xmlns:local3="clr-namespace:MINASA6SF_Rev.Models"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"            
              mc:Ignorable="d" x:Name="controlpage"
              d:DesignHeight="430" d:DesignWidth="720"
              Opacity="1">
@@ -56,14 +56,10 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
-        <ControlTemplate x:Key="JogPlayButton" TargetType="Button">
+        
+        <ControlTemplate x:Key="JogRewind" TargetType="Button">
             <Grid>
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseDown">
-                        <i:InvokeCommandAction Command="{Binding Mousedown}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-                <Image Source="..\icons\circled_play_50px.png" Stretch="None"/>
+                <Image  Source="..\icons\rewind_button_round_50px.png" Stretch="None"/>
                 <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Grid>
             <ControlTemplate.Triggers>
@@ -74,11 +70,10 @@
                         </Setter.Value>
                     </Setter>
                     <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
-
                 </Trigger>
             </ControlTemplate.Triggers>
-
         </ControlTemplate>
+        
         <ControlTemplate x:Key="JogPlayButton2" TargetType="Button">
             <Grid>
                 <Image Source="..\icons\circled_play_50px2.png" Stretch="None"/>
@@ -95,6 +90,7 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
+        
         <ControlTemplate x:Key="JogPause" TargetType="Button">
             <Grid>
                 <Image Source="..\icons\pause_button_50px.png" Stretch="None"/>
@@ -111,6 +107,24 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
+
+        <ControlTemplate x:Key="JogPlayButton" TargetType="Button">
+            <Grid>
+                <Image Source="..\icons\circled_play_50px.png" Stretch="None"/>
+                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.9" ScaleY="0.9" CenterX="0" CenterY="0"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
         <ControlTemplate x:Key="JogFastFord" TargetType="Button">
             <Grid>
                 <Image Source="..\icons\fast_forward_round_50px.png" Stretch="None"/>
@@ -127,22 +141,7 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
-        <ControlTemplate x:Key="JogRewind" TargetType="Button">
-            <Grid>
-                <Image Source="..\icons\rewind_button_round_50px.png" Stretch="None"/>
-                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </Grid>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="0.9" ScaleY="0.9" CenterX="0" CenterY="0"/>
-                        </Setter.Value>
-                    </Setter>
-                    <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
+
 
         <!--컨트롤 판넬 콤보박스용 뷰모델(블록 번호, 속도, 가속, 감속)-->
         <local2:MainPanelViewModel x:Key="Viewmodel"/> 
@@ -227,7 +226,16 @@
                   BorderThickness="2" Margin="0 10 0 0" >
             <Grid>
                 <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <Button Template="{StaticResource JogRewind}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"/>
+                    <Button Template="{StaticResource JogRewind}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding jogrewind1}"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding jogrewind2}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
                     <Button Template="{StaticResource JogPlayButton2}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"/>
                     <Button Template="{StaticResource JogPause}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"/>
                     <Button Template="{StaticResource JogPlayButton}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"/>
