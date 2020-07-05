@@ -318,7 +318,7 @@
                 <ComboBox FontSize="14" Grid.Row="0" Grid.Column="1" Margin="0 6 0 0" BorderThickness="1" VerticalAlignment="Center"
                           ItemsSource="{Binding SelectBlockNum}"
                           SelectedValue="{Binding Selected_BlockNum, Mode=TwoWay}"/>
-                <TextBox FontSize="14" Grid.Row="0" Grid.Column="3" Margin="0 6 0 0" BorderThickness="1"                   
+                <TextBox FontSize="14" Grid.Row="0" Grid.Column="3" Margin="0 6 0 0" BorderThickness="1" IsReadOnly="True"              
                            Text="{Binding SelectBlockNumMon1}"/>
                 <ComboBox FontSize="14" Grid.Row="1" Grid.Column="3" Margin="0 4 0 0" BorderThickness="1"
                           ItemsSource="{Binding BlockAccSpeed}"

@@ -1351,14 +1351,21 @@ namespace MINASA6SF_Rev.ViewModels
             if (alarmStatus[0] != 0)
             {
                 modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
-                System.Threading.Thread.Sleep(120);
+                System.Threading.Thread.Sleep(200);
                 modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
-                System.Threading.Thread.Sleep(120);
-
+                System.Threading.Thread.Sleep(100);
                 modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
-                System.Threading.Thread.Sleep(120);
+                System.Threading.Thread.Sleep(200);
                 modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
-                System.Threading.Thread.Sleep(120);
+                System.Threading.Thread.Sleep(100);
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
+                System.Threading.Thread.Sleep(200);
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
+                System.Threading.Thread.Sleep(100);
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
+                System.Threading.Thread.Sleep(200);
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
+                System.Threading.Thread.Sleep(100);
                 Debug.WriteLine("알람 클리어");
             }
         }
