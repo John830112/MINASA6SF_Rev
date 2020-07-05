@@ -300,7 +300,7 @@
                     <Label FontWeight="DemiBold" FontSize="14">블록 번호 선택 :</Label>
                 </StackPanel>
                 <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <Label FontWeight="DemiBold" FontSize="14">속도 :</Label>
+                    <Label FontWeight="DemiBold" FontSize="14"> 선택 :</Label>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <Label FontWeight="DemiBold" FontSize="14">가속 :</Label>
@@ -318,9 +318,8 @@
                 <ComboBox FontSize="14" Grid.Row="0" Grid.Column="1" Margin="0 6 0 0" BorderThickness="1" VerticalAlignment="Center"
                           ItemsSource="{Binding SelectBlockNum}"
                           SelectedValue="{Binding Selected_BlockNum, Mode=TwoWay}"/>
-                <ComboBox FontSize="14" Grid.Row="0" Grid.Column="3" Margin="0 6 0 0" BorderThickness="1"
-                          ItemsSource="{Binding BlockSpeed}"
-                          SelectedValue="{Binding Selected_BlockSpeed, Mode=TwoWay}"/>
+                <TextBox FontSize="14" Grid.Row="0" Grid.Column="3" Margin="0 6 0 0" BorderThickness="1"                   
+                           Text="{Binding SelectBlockNumMon1}"/>
                 <ComboBox FontSize="14" Grid.Row="1" Grid.Column="3" Margin="0 4 0 0" BorderThickness="1"
                           ItemsSource="{Binding BlockAccSpeed}"
                           SelectedValue="{Binding Selected_BlockAccSpeed, Mode=TwoWay}"/>
@@ -342,25 +341,25 @@
                 </Button.Effect>
             </Button>
             <Button Template="{StaticResource ButtonTemplate}" Content="STB" Width="110" Height="60" Margin="20 -70 0 0" 
-                    FontWeight="Bold">
+                    FontWeight="Bold" Command="{Binding stB}">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="6" ShadowDepth="10" Color="Gray"/>
                 </Button.Effect>
             </Button>
             <Button Template="{StaticResource ButtonTemplate}" Content="A-Clear"  Width="110" Height="60" Margin="20 -70 0 0" 
-                    FontWeight="Bold">
+                    FontWeight="Bold" Command="{Binding a_Clear}">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="6" ShadowDepth="10" Color="Gray"/>
                 </Button.Effect>
             </Button>
             <Button Template="{StaticResource ButtonTemplate}" Content="S-STOP"  Width="110" Height="60" Margin="20 -70 0 0" 
-                    FontWeight="Bold">
+                    FontWeight="Bold" Command="{Binding s_Stop}">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="6" ShadowDepth="10" Color="Gray"/>
                 </Button.Effect>
             </Button>
             <Button Template="{StaticResource ButtonTemplate}" Content="H-STOP"  Width="110" Height="60" Margin="20 -70 0 0" 
-                    FontWeight="Bold">
+                    FontWeight="Bold" Command="{Binding h_Stop}">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="6" ShadowDepth="10" Color="Gray"/>
                 </Button.Effect>

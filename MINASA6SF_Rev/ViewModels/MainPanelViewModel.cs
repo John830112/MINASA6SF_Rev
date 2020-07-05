@@ -18,13 +18,15 @@ using System.Windows.Media.Imaging;
 using System.Runtime.CompilerServices;
 using System.Timers;
 using System.Windows.Threading;
-using System.Threading;
+
 using System.Windows.Documents;
 using System.Net;
 using System.Diagnostics;
 using System.Windows.Media;
 using System.Windows.Interactivity;
 using GalaSoft.MvvmLight.Command;
+using System.Diagnostics.Eventing.Reader;
+using System.Threading;
 
 namespace MINASA6SF_Rev.ViewModels
 {
@@ -36,15 +38,23 @@ namespace MINASA6SF_Rev.ViewModels
         bool servoON;
         int mirrTime;
         public byte[] _servoONStatus;
+        byte[] blockNumSelect = new byte[2];
+        byte[] selectedBlock = new byte[2];
+        byte[] selectedBlock2 = new byte[2];
+        int axisNum1 = 1;
+
+
+        byte[] alarmStatus = new byte[2];
+
 
         float overload1;
         float torquecmd;
         Int32 powerontimetemp;
 
-        private Master modbusTCP = new Master();
-       
-       
+        private Master modbusTCP = new Master();       
+
         Settings settings;
+
         public ObservableCollection<int> axisNum { set; get; }
         ObservableCollection<int> axisNums = new ObservableCollection<int>();
         public ObservableCollection<int> cycTime { set; get; }
@@ -95,20 +105,26 @@ namespace MINASA6SF_Rev.ViewModels
             set
             {
                 SetProperty(ref selectedBlockNum, value);
+                blockNumSelect[0] = (byte)(selectedBlockNum >> 8);
+                blockNumSelect[1] = (byte)(selectedBlockNum);
+                modbusTCP.WriteSingleRegister(0, 0x01, 0x4414, blockNumSelect);
             }
         }
-        int selectedBlockSpeed;
-        public int Selected_BlockSpeed
+
+        ushort selectBlockNumMon1;
+        public ushort SelectBlockNumMon1
         {
             get
             {
-                return selectedBlockSpeed;
+                return selectBlockNumMon1;
             }
             set
             {
-                SetProperty(ref selectedBlockSpeed, value);
+                SetProperty(ref selectBlockNumMon1, value);             
+
             }
         }
+
         int selectedBlockAccSpeed;
         public int Selected_BlockAccSpeed
         {
@@ -154,13 +170,12 @@ namespace MINASA6SF_Rev.ViewModels
         byte[] _mirrReg1;
         byte[] _mirrReg2;
 
-      
         /*------------------------------------------------------------------------------------------------------
         * ModbusTCP WriteRegister value
         ------------------------------------------------------------------------------------------------------*/
         byte[] jogBlockSelect = new byte[2];    //jogBlockSelect
-
-
+        byte[] alarmClear = new byte[4];       //Warning, Alarm 클리어
+        ushort Alarmclear = 29300;
         /*------------------------------------------------------------------------------------------------------
          * MirrorReg 0 ~ 8
           ------------------------------------------------------------------------------------------------------*/
@@ -299,6 +314,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         #region viewmodel 생성자
         public MainPanelViewModel() { }
+
         public MainPanelViewModel(Settings _settings)
         {            
             mirrorONOFF = false;
@@ -343,13 +359,12 @@ namespace MINASA6SF_Rev.ViewModels
             this.jogfastford1 = new commandModel(Executejogfastford1, Canexecutejogfastford1);  //빠른 부방향 시작
             this.jogfastford2 = new commandModel(Executejogfastford2, Canexecutejogfastford2);  //빠른 부방향 정지
 
-
             //축수 등록
             for(int i=1; i<=30; i++)
             {
                 axisNums.Add(i);
             }
-            axisNum = axisNums;
+            axisNum = axisNums;            
             
             //CycleTime설정
             cycTimes.Add(3);
@@ -360,16 +375,16 @@ namespace MINASA6SF_Rev.ViewModels
            
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadObjectViewModel();
-            
+            worker.WorkerReportsProgress = false;
+            worker.WorkerSupportsCancellation = true;
             worker.DoWork += MirrTimer_Tick;
         }
+        #endregion
 
-
-
-
-
-
-
+        #region JOG 버튼 동작 
+        /*------------------------------------------------------------------------------------------------------
+          JOG버튼 동작
+         *------------------------------------------------------------------------------------------------------*/
 
         //빠른 부방향 시작
         private void Executejogrewind1(object parameter)  
@@ -377,13 +392,13 @@ namespace MINASA6SF_Rev.ViewModels
             jogBlockSelect[0] = (byte)(252 >> 8);
             jogBlockSelect[1] = (byte)(252);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 17428, jogBlockSelect);
-            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
+            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, 1, ref _servoONStatus);
             if (_servoONStatus[0] == 0)
             {
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, true);
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
                 servoON = false;
             }
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 288, true);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             Debug.WriteLine("Down");
         }
 
@@ -395,8 +410,8 @@ namespace MINASA6SF_Rev.ViewModels
         //빠른 부방향 정지
         private void Executejogrewind2(object parameter)
         {
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, true);
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, false);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, true);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, false);
             Debug.WriteLine("Up");
         }
 
@@ -411,13 +426,13 @@ namespace MINASA6SF_Rev.ViewModels
             jogBlockSelect[0] = (byte)(253 >> 8);
             jogBlockSelect[1] = (byte)(253);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 17428, jogBlockSelect);
-            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
+            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, 1, ref _servoONStatus);
             if (_servoONStatus[0] == 0)
             {
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, true);
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
                 servoON = false;
             }
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 288, true);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             Debug.WriteLine("Down");
         }
 
@@ -429,8 +444,8 @@ namespace MINASA6SF_Rev.ViewModels
         //느린 부방향 정지
         private void Executejogplaybtn2(object parameter)
         {
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, true);
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, false);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, true);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, false);
             Debug.WriteLine("Up");
         }
 
@@ -442,7 +457,7 @@ namespace MINASA6SF_Rev.ViewModels
         //Pause  보류
         private void Executejogpause1(object parameter)
         {
-            throw new NotImplementedException();
+            return;
         }
 
         private bool Canexecutejogpause1(object parameter)
@@ -453,12 +468,12 @@ namespace MINASA6SF_Rev.ViewModels
         //Pause  보류
         private void Executejogpause2(object parameter)
         {
-            throw new NotImplementedException();
+            return;
         }
 
         private bool Canexecutejogpause2(object parameter)
         {
-            return true;
+            return false;
         }
 
         //느린 정방향 시작
@@ -470,10 +485,10 @@ namespace MINASA6SF_Rev.ViewModels
             modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
             if (_servoONStatus[0] == 0)
             {
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, true);
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
                 servoON = false;
             }
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 288, true);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             Debug.WriteLine("Down");
         }
 
@@ -504,10 +519,10 @@ namespace MINASA6SF_Rev.ViewModels
             modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
             if (_servoONStatus[0] == 0)
             {
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, true);
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
                 servoON = false;
             }
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 288, true);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             Debug.WriteLine("Down");
         }
 
@@ -519,8 +534,8 @@ namespace MINASA6SF_Rev.ViewModels
         //빠른 부방향 정지
         private void Executejogfastford2(object parameter)
         {
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, true);
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, false);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, true);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, false);
             Debug.WriteLine("Up");
         }
 
@@ -530,57 +545,75 @@ namespace MINASA6SF_Rev.ViewModels
         }
         #endregion
 
-
-
-
-
-
-
         //MirrTimer 실행 함수
         private void MirrTimer_Tick(object sender, DoWorkEventArgs e)
         {
             try
             {
-                while (mirrorONOFF)
+                while (true)
                 {
-                    modbusTCP.ReadHoldingRegister(0, 0x01, 17432, 8, ref _mirrReg1);
-                    modbusTCP.ReadHoldingRegister(0, 0x01, 17440, 8, ref _mirrReg2);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17432, 8, ref _mirrReg1);
+                    Thread.Sleep(5);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17440, 8, ref _mirrReg2);
 
-                    Array.Reverse(_mirrReg1);
-                    Array.Reverse(_mirrReg2);
+                    if (_mirrReg1 != null && _mirrReg2 != null)
+                    {
+                        Array.Reverse(_mirrReg1);
+                        Array.Reverse(_mirrReg2);
 
-                    Array.Copy(_mirrReg1, 12, positionactualvalue, 0, 4);
-                    Array.Copy(_mirrReg1, 8, velocityactualvalue, 0, 4);
-                    Array.Copy(_mirrReg1, 4, torquedemand, 0, 4);
-                    Array.Copy(_mirrReg1, 0, overload, 0, 4);
+                        Array.Copy(_mirrReg1, 12, positionactualvalue, 0, 4);
+                        Array.Copy(_mirrReg1, 8, velocityactualvalue, 0, 4);
+                        Array.Copy(_mirrReg1, 4, torquedemand, 0, 4);
+                        Array.Copy(_mirrReg1, 0, overload, 0, 4);
 
-                    Array.Copy(_mirrReg2, 14, blocknummon, 0, 2);
-                    Array.Copy(_mirrReg2, 10, dclinkcircuitvolt, 0, 4);
-                    Array.Copy(_mirrReg2, 8, amptemp, 0, 2);
-                    Array.Copy(_mirrReg2, 4, encodertemp, 0, 4);
-                    Array.Copy(_mirrReg2, 0, powerontime, 0, 4);
+                        Array.Copy(_mirrReg2, 14, blocknummon, 0, 2);
+                        Array.Copy(_mirrReg2, 10, dclinkcircuitvolt, 0, 4);
+                        Array.Copy(_mirrReg2, 8, amptemp, 0, 2);
+                        Array.Copy(_mirrReg2, 4, encodertemp, 0, 4);
+                        Array.Copy(_mirrReg2, 0, powerontime, 0, 4);
 
-                    PositionActualValue = BitConverter.ToInt32(positionactualvalue, 0);
-                    VelocityActualValue = BitConverter.ToInt32(velocityactualvalue, 0);
-                    torquecmd = BitConverter.ToInt32(torquedemand, 0);
-                    TorqueDemand = torquecmd / 20;
-                    overload1 = BitConverter.ToInt32(overload, 0);
-                    OverLoad = overload1 / 5;
+                        PositionActualValue = BitConverter.ToInt32(positionactualvalue, 0);
+                        VelocityActualValue = BitConverter.ToInt32(velocityactualvalue, 0);
+                        torquecmd = BitConverter.ToInt32(torquedemand, 0);
+                        TorqueDemand = torquecmd / 20;
+                        overload1 = BitConverter.ToInt32(overload, 0);
+                        OverLoad = overload1 / 5;
 
-                    BlockNumMon = BitConverter.ToInt16(blocknummon, 0);
-                    DCLinkCircuitvolt = BitConverter.ToInt32(dclinkcircuitvolt, 0);
-                    AmpTemp = BitConverter.ToInt16(amptemp, 0);
-                    EncoderTemp = BitConverter.ToInt32(encodertemp, 0);
-                    powerontimetemp = BitConverter.ToInt32(powerontime, 0);
-                    PowerONTime = powerontimetemp / 2;
+                        BlockNumMon = BitConverter.ToInt16(blocknummon, 0);
+                        DCLinkCircuitvolt = BitConverter.ToInt32(dclinkcircuitvolt, 0);
+                        AmpTemp = BitConverter.ToInt16(amptemp, 0);
+                        EncoderTemp = BitConverter.ToInt32(encodertemp, 0);
+                        powerontimetemp = BitConverter.ToInt32(powerontime, 0);
+                        PowerONTime = powerontimetemp / 2;
+
+                        Thread.Sleep(5);
+                        modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4415, 1, ref selectedBlock);
+                        if(selectedBlock !=null)
+                        {
+                            Array.Reverse(selectedBlock);
+                            Array.Copy(selectedBlock, 0, selectedBlock2, 0, 2);
+                            SelectBlockNumMon1 = BitConverter.ToUInt16(selectedBlock2, 0);
+                        }
+                    }
+                    else if (worker.CancellationPending == true)
+                    {
+                        e.Cancel = true;
+                        return;
+                    }
                 }
             }
             catch (Exception es)
             {
                 //StatusBar = "통신이 끊어 졌습니다. 확인 하십시오...";
-                StatusBar = es.Message;
+                StatusBar = es.Message + "  backgroundworker";
             }
         }
+
+        private void Timer_Elapsed1(object sender)
+        {
+            
+        }
+
 
         #region Settings화면
         //Settings 화면 Confirm 커맨드 
@@ -590,8 +623,12 @@ namespace MINASA6SF_Rev.ViewModels
             {
                 mirrTime = int.Parse(settings.cycleTime.SelectedValue.ToString());
                 modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
+                axisNum1 = int.Parse(settings.axisNumselect.SelectedValue.ToString());
+                
                 worker.RunWorkerAsync();
 
+                Thread.Sleep(20);
+                Debug.WriteLine(SelectBlockNumMon1.ToString());
                 //Register값 리딩 확인.
                 //modbusTCP.ReadCoils(0, 0x01, 4096, 8, ref num1);
                 //modbusTCP.ReadHoldingRegister(0, 0x01, 19740, 2, ref num1);
@@ -633,6 +670,7 @@ namespace MINASA6SF_Rev.ViewModels
         {
             try
             {
+                worker.CancelAsync();
                 mirrorONOFF = false;
                 modbusTCP.disconnect();
                 StatusBar = "통신 끊음";
@@ -1288,9 +1326,16 @@ namespace MINASA6SF_Rev.ViewModels
             return true;
         }
 
+        //STB버튼
         private void ExecutestB(object parameter)
         {
-            throw new NotImplementedException();
+            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
+            if (_servoONStatus[0] == 0)
+            {
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, true);
+                servoON = false;
+            }
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
         }
 
         private bool CanexecutestB(object parameter)
@@ -1298,9 +1343,24 @@ namespace MINASA6SF_Rev.ViewModels
             return true;
         }
 
+        //Alarm클리어 버튼
         private void Executea_Clear(object parameter)
         {
-            throw new NotImplementedException();
+            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x00A1, 1, ref alarmStatus);
+
+            if (alarmStatus[0] != 0)
+            {
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
+                System.Threading.Thread.Sleep(120);
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
+                System.Threading.Thread.Sleep(120);
+
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
+                System.Threading.Thread.Sleep(120);
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
+                System.Threading.Thread.Sleep(120);
+                Debug.WriteLine("알람 클리어");
+            }
         }
 
         private bool Canexecutea_Clear(object parameter)
@@ -1308,9 +1368,11 @@ namespace MINASA6SF_Rev.ViewModels
             return true;
         }
 
+        //S-Stop
         private void Executes_Stop(object parameter)
         {
-            throw new NotImplementedException();
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 292, true);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 292, false);         
         }
 
         private bool Canexecutes_Stop(object parameter)
@@ -1318,9 +1380,11 @@ namespace MINASA6SF_Rev.ViewModels
             return true;
         }
 
+        //H-Stop
         private void Executeh_Stop(object parameter)
         {
-            throw new NotImplementedException();
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, true);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, false);
         }
 
         private bool Canexecuteh_Stop(object parameter)
