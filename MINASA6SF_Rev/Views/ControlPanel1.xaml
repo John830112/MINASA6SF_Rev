@@ -236,10 +236,46 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>
-                    <Button Template="{StaticResource JogPlayButton2}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"/>
-                    <Button Template="{StaticResource JogPause}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"/>
-                    <Button Template="{StaticResource JogPlayButton}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"/>
-                    <Button Template="{StaticResource JogFastFord}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"/>
+                    <Button Template="{StaticResource JogPlayButton2}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding jogplaybtn1}"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding jogplaybtn2}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                    <Button Template="{StaticResource JogPause}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding jogpause1}"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding jogpause2}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                    <Button Template="{StaticResource JogPlayButton}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding jogplaybtn3}"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding jogplaybtn4}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                    <Button Template="{StaticResource JogFastFord}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding jogfastford1}"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding jogfastford2}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
                 </StackPanel>
             </Grid>
         </GroupBox>
