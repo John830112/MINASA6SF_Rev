@@ -18,13 +18,11 @@ using System.Windows.Media.Imaging;
 using System.Runtime.CompilerServices;
 using System.Timers;
 using System.Windows.Threading;
-
 using System.Windows.Documents;
 using System.Net;
 using System.Diagnostics;
 using System.Windows.Media;
 using System.Windows.Interactivity;
-using GalaSoft.MvvmLight.Command;
 using System.Diagnostics.Eventing.Reader;
 using System.Threading;
 
@@ -277,7 +275,6 @@ namespace MINASA6SF_Rev.ViewModels
         }
         #endregion
 
-
         #region 각종 ICommand객체 생성
 
         //ControlPanel1 제어 버튼
@@ -393,10 +390,19 @@ namespace MINASA6SF_Rev.ViewModels
             jogBlockSelect[1] = (byte)(252);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 17428, jogBlockSelect);
             modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, 1, ref _servoONStatus);
-            if (_servoONStatus[0] == 0)
+            if (_servoONStatus != null)
             {
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
-                servoON = false;
+
+                if (_servoONStatus[0] == 0)
+                {
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
+                    servoON = false;
+                }
+            }
+            else
+            {
+                StatusBar = "서보 ON 상태 읽기 실패_JOG운전 버튼";
+                return;
             }
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             Debug.WriteLine("Down");
@@ -427,10 +433,18 @@ namespace MINASA6SF_Rev.ViewModels
             jogBlockSelect[1] = (byte)(253);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 17428, jogBlockSelect);
             modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, 1, ref _servoONStatus);
-            if (_servoONStatus[0] == 0)
+            if (_servoONStatus != null)
             {
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
-                servoON = false;
+                if (_servoONStatus[0] == 0)
+                {
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
+                    servoON = false;
+                }
+            }
+            else
+            {
+                StatusBar = "서보 ON 상태 읽기 실패_JOG운전 버튼";
+                return;
             }
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             Debug.WriteLine("Down");
@@ -483,10 +497,19 @@ namespace MINASA6SF_Rev.ViewModels
             jogBlockSelect[1] = (byte)(254);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 17428, jogBlockSelect);
             modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
-            if (_servoONStatus[0] == 0)
+            if (_servoONStatus != null)
             {
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
-                servoON = false;
+
+                if (_servoONStatus[0] == 0)
+                {
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
+                    servoON = false;
+                }
+            }
+            else
+            {
+                StatusBar = "서보 ON 상태 읽기 실패_JOG운전 버튼";
+                return;
             }
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             Debug.WriteLine("Down");
@@ -517,10 +540,19 @@ namespace MINASA6SF_Rev.ViewModels
             jogBlockSelect[1] = (byte)(255);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 17428, jogBlockSelect);
             modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
-            if (_servoONStatus[0] == 0)
+            if (_servoONStatus != null)
             {
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
-                servoON = false;
+
+                if (_servoONStatus[0] == 0)
+                {
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
+                    servoON = false;
+                }
+            }
+            else
+            {
+                StatusBar = "서보 ON 상태 읽기 실패_JOG운전 버튼";
+                return;
             }
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             Debug.WriteLine("Down");
@@ -545,6 +577,7 @@ namespace MINASA6SF_Rev.ViewModels
         }
         #endregion
 
+        #region MirrTimer
         //MirrTimer 실행 함수
         private void MirrTimer_Tick(object sender, DoWorkEventArgs e)
         {
@@ -600,20 +633,20 @@ namespace MINASA6SF_Rev.ViewModels
                         e.Cancel = true;
                         return;
                     }
+                    else
+                    {
+                        StatusBar = "MirrReg_Timer값 수신되지 않음";
+                        return;
+                    }
                 }
             }
             catch (Exception es)
             {
                 //StatusBar = "통신이 끊어 졌습니다. 확인 하십시오...";
-                StatusBar = es.Message + "  backgroundworker";
+                StatusBar = es.Message + "  MirrReg_timer";
             }
         }
-
-        private void Timer_Elapsed1(object sender)
-        {
-            
-        }
-
+        #endregion
 
         #region Settings화면
         //Settings 화면 Confirm 커맨드 
@@ -626,9 +659,8 @@ namespace MINASA6SF_Rev.ViewModels
                 axisNum1 = int.Parse(settings.axisNumselect.SelectedValue.ToString());
                 
                 worker.RunWorkerAsync();
-
-                Thread.Sleep(20);
                 Debug.WriteLine(SelectBlockNumMon1.ToString());
+
                 //Register값 리딩 확인.
                 //modbusTCP.ReadCoils(0, 0x01, 4096, 8, ref num1);
                 //modbusTCP.ReadHoldingRegister(0, 0x01, 19740, 2, ref num1);
@@ -694,6 +726,136 @@ namespace MINASA6SF_Rev.ViewModels
         }
         #endregion
 
+        #region ControlPanel 제어 버튼 커맨드 함수
+        /*------------------------------------------------------------------------------------------------------
+          ControlPanel 제어버튼
+         *------------------------------------------------------------------------------------------------------*/
+        
+        //ServoON
+        private void ExecuteServoOn(object parameter)
+        {
+            //ControlPanel combobox 바인딩 테스트
+            //Debug.WriteLine(Selected_BlockNum.ToString());
+            //Debug.WriteLine(Selected_BlockSpeed.ToString());
+            //Debug.WriteLine(Selected_BlockAccSpeed.ToString());
+            //Debug.WriteLine(Selected_BlockDecSpeed.ToString());
+
+            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
+            if (_servoONStatus != null)
+            {
+                if (_servoONStatus[0] == 0)
+                {
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, true);
+                    servoON = false;
+                }
+                else
+                {
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, false);
+                    servoON = true;
+                }
+            }
+            else
+            {
+                StatusBar = "서보온 상태를 확인 할 수 없습니다." + "ServoON_OFF버튼";
+                return;
+            }
+        }
+
+        private bool CanexecuteServoOn(object parameter)
+        {
+            return true;
+        }
+
+        //STB버튼
+        private void ExecutestB(object parameter)
+        {
+            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
+
+            if (_servoONStatus != null)
+            {
+                if (_servoONStatus[0] == 0)
+                {
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, true);
+                    servoON = false;
+                }
+                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
+            }
+            else
+            {
+                StatusBar = "서보온 상태를 확인 할 수 없습니다." + " STB버튼";
+                return;
+            }
+        }
+
+        private bool CanexecutestB(object parameter)
+        {
+            return true;
+        }
+
+        //Alarm클리어 버튼
+        private void Executea_Clear(object parameter)
+        {
+            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x00A1, 1, ref alarmStatus);
+            if (alarmStatus != null)
+            {
+                if (alarmStatus[0] != 0)
+                {
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
+                    System.Threading.Thread.Sleep(200);
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
+                    System.Threading.Thread.Sleep(100);
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
+                    System.Threading.Thread.Sleep(200);
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
+                    System.Threading.Thread.Sleep(100);
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
+                    System.Threading.Thread.Sleep(200);
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
+                    System.Threading.Thread.Sleep(100);
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
+                    System.Threading.Thread.Sleep(200);
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
+                    System.Threading.Thread.Sleep(100);
+                    Debug.WriteLine("알람 클리어");
+                }
+            }
+            else
+            {
+                StatusBar = "알람 상태를 확인 할 수 없습니다." + " AlarmClear버튼";
+                return;
+            }
+        }
+
+        private bool Canexecutea_Clear(object parameter)
+        {
+            return true;
+        }
+
+        //S-Stop
+        private void Executes_Stop(object parameter)
+        {
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 292, true);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 292, false);         
+        }
+
+        private bool Canexecutes_Stop(object parameter)
+        {
+            return true;
+        }
+
+        //H-Stop
+        private void Executeh_Stop(object parameter)
+        {
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, true);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, false);
+        }
+
+        private bool Canexecuteh_Stop(object parameter)
+        {
+            return true;
+        }
+        #endregion
+     
         #region 블럭 동작 편집, 블럭 매개변수 객체 생성 함수
         private void LoadObjectViewModel()
         {
@@ -1290,116 +1452,7 @@ namespace MINASA6SF_Rev.ViewModels
             return true;
         }
         #endregion
-
-
-
-        #region ControlPanel 제어 버튼 커맨드 함수
-        /*------------------------------------------------------------------------------------------------------
-          ControlPanel 제어버튼
-         *------------------------------------------------------------------------------------------------------*/
-        
-        //ServoON
-        private void ExecuteServoOn(object parameter)
-        {
-            //ControlPanel combobox 바인딩 테스트
-            //Debug.WriteLine(Selected_BlockNum.ToString());
-            //Debug.WriteLine(Selected_BlockSpeed.ToString());
-            //Debug.WriteLine(Selected_BlockAccSpeed.ToString());
-            //Debug.WriteLine(Selected_BlockDecSpeed.ToString());
-         
-            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
-
-            if(_servoONStatus[0]==0)
-            {
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, true);
-                servoON = false;
-            }
-            else
-            {
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, false);
-                servoON = true;
-            }
-        }
-
-        private bool CanexecuteServoOn(object parameter)
-        {
-            return true;
-        }
-
-        //STB버튼
-        private void ExecutestB(object parameter)
-        {
-            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
-            if (_servoONStatus[0] == 0)
-            {
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, true);
-                servoON = false;
-            }
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
-        }
-
-        private bool CanexecutestB(object parameter)
-        {
-            return true;
-        }
-
-        //Alarm클리어 버튼
-        private void Executea_Clear(object parameter)
-        {
-            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x00A1, 1, ref alarmStatus);
-
-            if (alarmStatus[0] != 0)
-            {
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
-                System.Threading.Thread.Sleep(200);
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
-                System.Threading.Thread.Sleep(100);
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
-                System.Threading.Thread.Sleep(200);
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
-                System.Threading.Thread.Sleep(100);
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
-                System.Threading.Thread.Sleep(200);
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
-                System.Threading.Thread.Sleep(100);
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
-                System.Threading.Thread.Sleep(200);
-                modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
-                System.Threading.Thread.Sleep(100);
-                Debug.WriteLine("알람 클리어");
-            }
-        }
-
-        private bool Canexecutea_Clear(object parameter)
-        {
-            return true;
-        }
-
-        //S-Stop
-        private void Executes_Stop(object parameter)
-        {
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 292, true);
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 292, false);         
-        }
-
-        private bool Canexecutes_Stop(object parameter)
-        {
-            return true;
-        }
-
-        //H-Stop
-        private void Executeh_Stop(object parameter)
-        {
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, true);
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, false);
-        }
-
-        private bool Canexecuteh_Stop(object parameter)
-        {
-            return true;
-        }
-        #endregion
-       
+    
         //블럭 셋팅 창 오픈
         public void showWindow(object BlocksettingDialog)
         {
