@@ -181,9 +181,25 @@
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
             <Frame x:Name="mainpanel" NavigationUIVisibility="Hidden"/>
-            <StatusBar Grid.Column="0" Grid.Row="1" Height="20" Background="LightGray">
+            <StatusBar Grid.Column="0" Grid.Row="1" Background="LightGray">
                 <StatusBarItem>
-                    <TextBlock  x:Name="StatusAlm" Text="{Binding StatusBar}"/>
+                    <TextBox  x:Name="StatusAlm" Text="{Binding StatusBar}" IsReadOnly="True" Background="Transparent" 
+                              Foreground="Black" BorderThickness="0" VerticalContentAlignment="Center" VerticalAlignment="Center">
+                        <TextBox.RenderTransform>
+                            <TranslateTransform x:Name="statusBarTranslate" X="0" Y="0"/>
+                        </TextBox.RenderTransform>
+                        <TextBox.Triggers>
+                            <EventTrigger SourceName="StatusAlm" RoutedEvent="TextBox.TextChanged">
+                                <BeginStoryboard Name="myBeginStoryboard">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="statusBarTranslate" 
+                                                         Storyboard.TargetProperty="X" AutoReverse="True" RepeatBehavior="Forever"
+                                                         From="0" To="50" Duration="0:0:5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBox.Triggers>
+                    </TextBox>
                 </StatusBarItem>
             </StatusBar>
         </Grid>
