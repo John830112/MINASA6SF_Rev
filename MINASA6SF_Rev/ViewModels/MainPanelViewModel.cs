@@ -28,14 +28,23 @@ using System.Threading;
 
 namespace MINASA6SF_Rev.ViewModels
 {
-    public class MainPanelViewModel:ViewModelBase, IWindowService
+    public class MainPanelViewModel : ViewModelBase, IWindowService
     {
         BackgroundWorker worker = new BackgroundWorker();
 
         bool mirrorONOFF;
         bool servoON;
         int mirrTime;
-        public byte[] _servoONStatus;
+        byte[] _servoONStatus;
+        int lampstatus = 0;
+        public int LampStatus
+        {
+            get { return lampstatus; }
+            set { SetProperty(ref lampstatus, value); }
+        }
+
+
+
         byte[] blockNumSelect = new byte[2];
         byte[] selectedBlock = new byte[2];
         byte[] selectedBlock2 = new byte[2];
@@ -375,6 +384,7 @@ namespace MINASA6SF_Rev.ViewModels
             worker.WorkerReportsProgress = false;
             worker.WorkerSupportsCancellation = true;
             worker.DoWork += MirrTimer_Tick;
+            
         }
         #endregion
 
@@ -588,9 +598,13 @@ namespace MINASA6SF_Rev.ViewModels
                     modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17432, 8, ref _mirrReg1);
                     Thread.Sleep(5);
                     modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17440, 8, ref _mirrReg2);
+                    Thread.Sleep(5);
 
-                    if (_mirrReg1 != null && _mirrReg2 != null)
+                    modbusTCP.ReadCoils(0, (byte)axisNum1, 96, 1, ref _servoONStatus);
+                   
+                    if (_mirrReg1 != null && _mirrReg2 != null &&_servoONStatus !=null)
                     {
+                        LampStatus = _servoONStatus[0];
                         Array.Reverse(_mirrReg1);
                         Array.Reverse(_mirrReg2);
 
@@ -621,7 +635,7 @@ namespace MINASA6SF_Rev.ViewModels
 
                         Thread.Sleep(5);
                         modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4415, 1, ref selectedBlock);
-                        if(selectedBlock !=null)
+                        if (selectedBlock != null)
                         {
                             Array.Reverse(selectedBlock);
                             Array.Copy(selectedBlock, 0, selectedBlock2, 0, 2);
@@ -642,7 +656,6 @@ namespace MINASA6SF_Rev.ViewModels
             }
             catch (Exception es)
             {
-                //StatusBar = "통신이 끊어 졌습니다. 확인 하십시오...";
                 StatusBar = es.Message + "  MirrReg_timer";
             }
         }
@@ -658,8 +671,7 @@ namespace MINASA6SF_Rev.ViewModels
                 modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
                 axisNum1 = int.Parse(settings.axisNumselect.SelectedValue.ToString());
                 
-                worker.RunWorkerAsync();
-                Debug.WriteLine(SelectBlockNumMon1.ToString());
+                worker.RunWorkerAsync();               
 
                 //Register값 리딩 확인.
                 //modbusTCP.ReadCoils(0, 0x01, 4096, 8, ref num1);
@@ -674,13 +686,13 @@ namespace MINASA6SF_Rev.ViewModels
                 else
                 {
                     mirrorONOFF = false;
-                }
-                
+                }                
+
                 StatusBar = "접속";
             }
             catch (Exception e)
             {
-                mirrorONOFF = true;
+                mirrorONOFF = false;
                 MessageBox.Show(e.Message, "예외발생_ConfirmBtn", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
         }
@@ -741,6 +753,9 @@ namespace MINASA6SF_Rev.ViewModels
             //Debug.WriteLine(Selected_BlockDecSpeed.ToString());
 
             modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
+            
+            //LampStatus = _servoONStatus[0];
+
             if (_servoONStatus != null)
             {
                 if (_servoONStatus[0] == 0)

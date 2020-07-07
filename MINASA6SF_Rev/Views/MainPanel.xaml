@@ -7,11 +7,20 @@
              xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
              xmlns:local2="clr-namespace:MINASA6SF_Rev"
              xmlns:local3="clr-namespace:MINASA6SF_Rev.ViewModels"
+             xmlns:local4 ="clr-namespace:MINASA6SF_Rev.Models"
              mc:Ignorable="d" x:Name="mainpanel1" 
              d:DesignHeight="500" d:DesignWidth="900" Padding="0">
 
 
     <UserControl.Resources>
+        <local4:LampConverter x:Key="lampconverter"/>
+        <x:Array x:Key="lampArray" Type="{x:Type sys:String}"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib">
+            <sys:String>..\RadioLamp\LED-green.png"</sys:String>
+            <sys:String>..\RadioLamp\LED-red.png</sys:String>
+        </x:Array>
+         
+
         <ControlTemplate x:Key="buttontemplate" TargetType="Button">
             <Border x:Name="border" Background="{TemplateBinding Background}" 
                     BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
@@ -98,11 +107,17 @@
                                    Margin="34,99,82,35"/>
                     <TextBlock TextAlignment="Left" VerticalAlignment="Center" Text="Modbus_ON" 
                                    Margin="34,73,73,61"/>
-                    <Image Source="..\RadioLamp\LED-gray.png" Height="20" Width="20"
+                    <Image x:Name="modbusLamp" Source="..\RadioLamp\LED-gray.png" Height="20" Width="20"
                                Margin="-150 15 0 0"/>
-                    <Image Source="..\RadioLamp\LED-green.png" Height="20" Width="20"
+                    <!--<Image x:Name="servoONLamp" Source="..\RadioLamp\LED-green.png" Height="20" Width="20"
+                               Margin="-150 68 0 0"/>-->
+
+                    <Image x:Name="servoONLamp" 
+                           Source="{Binding Path=LampStatus, Converter={StaticResource lampconverter}}" Height="20" Width="20"
                                Margin="-150 68 0 0"/>
-                    <Image Source="..\RadioLamp\LED-red.png" Height="20" Width="20"
+                    
+                    
+                    <Image x:Name="alarmLamp"  Source="..\RadioLamp\LED-red.png" Height="20" Width="20"
                                Margin="-150 120 0 0"/>
                 </Grid>
 
