@@ -8,18 +8,18 @@ using System.Windows.Data;
 
 namespace MINASA6SF_Rev.Models
 {
-    [ValueConversion(typeof(int), typeof(String))]
-    class LampConverter : IValueConverter
-    {
+     [ValueConversion(typeof(int), typeof(String))]
+    class LampConverter1 : IValueConverter
+    {      
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             int lampValue = (int)value;
-            if (lampValue==1)
-                return @"..\RadioLamp\LED-green.png";
+            if (lampValue == 1)
+                return @"..\RadioLamp\LED-red.png";
             else
-                return @"..\RadioLamp\LED-gray.png";
+                return @"..\RadioLamp\LED-green.png";
         }
-
+     
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return null;

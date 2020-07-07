@@ -98,6 +98,7 @@
     <Compile Include="Models\IndexToXamlStringConverter.cs" />
     <Compile Include="Models\IWindowService.cs" />
     <Compile Include="Models\LampConverter.cs" />
+    <Compile Include="Models\LampConverter1.cs" />
     <Compile Include="Models\ModbusTCP.cs" />
     <Compile Include="Models\ModbusTCP_.cs" />
     <Compile Include="Models\MouseBehaviour.cs" />

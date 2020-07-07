@@ -44,6 +44,14 @@ namespace MINASA6SF_Rev.ViewModels
         }
 
 
+        byte[] _alarmStatus = new byte[2];
+        int alarmStatus = 1;
+        public int AlarmStatus
+        {
+            get { return alarmStatus; }
+            set { SetProperty(ref alarmStatus, value); }
+        }
+
 
         byte[] blockNumSelect = new byte[2];
         byte[] selectedBlock = new byte[2];
@@ -51,7 +59,6 @@ namespace MINASA6SF_Rev.ViewModels
         int axisNum1 = 1;
 
 
-        byte[] alarmStatus = new byte[2];
 
 
         float overload1;
@@ -601,10 +608,14 @@ namespace MINASA6SF_Rev.ViewModels
                     Thread.Sleep(5);
 
                     modbusTCP.ReadCoils(0, (byte)axisNum1, 96, 1, ref _servoONStatus);
-                   
-                    if (_mirrReg1 != null && _mirrReg2 != null &&_servoONStatus !=null)
+                    Thread.Sleep(5);
+                    modbusTCP.ReadCoils(0, (byte)axisNum1, 161, 1, ref _alarmStatus);
+
+                    if (_mirrReg1 != null && _mirrReg2 != null &&_servoONStatus !=null && _alarmStatus !=null)
                     {
                         LampStatus = _servoONStatus[0];
+                        AlarmStatus = _alarmStatus[0];
+
                         Array.Reverse(_mirrReg1);
                         Array.Reverse(_mirrReg2);
 
@@ -810,10 +821,10 @@ namespace MINASA6SF_Rev.ViewModels
         //Alarm클리어 버튼
         private void Executea_Clear(object parameter)
         {
-            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x00A1, 1, ref alarmStatus);
-            if (alarmStatus != null)
+            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x00A1, 1, ref _alarmStatus);
+            if (_alarmStatus != null)
             {
-                if (alarmStatus[0] != 0)
+                if (_alarmStatus[0] != 0)
                 {
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
                     System.Threading.Thread.Sleep(200);

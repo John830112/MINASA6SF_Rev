@@ -14,6 +14,7 @@
 
     <UserControl.Resources>
         <local4:LampConverter x:Key="lampconverter"/>
+        <local4:LampConverter1 x:Key="lampconverter1"/>
         <x:Array x:Key="lampArray" Type="{x:Type sys:String}"
                  xmlns:sys="clr-namespace:System;assembly=mscorlib">
             <sys:String>..\RadioLamp\LED-green.png"</sys:String>
@@ -109,16 +110,14 @@
                                    Margin="34,73,73,61"/>
                     <Image x:Name="modbusLamp" Source="..\RadioLamp\LED-gray.png" Height="20" Width="20"
                                Margin="-150 15 0 0"/>
-                    <!--<Image x:Name="servoONLamp" Source="..\RadioLamp\LED-green.png" Height="20" Width="20"
-                               Margin="-150 68 0 0"/>-->
-
+                  
                     <Image x:Name="servoONLamp" 
-                           Source="{Binding Path=LampStatus, Converter={StaticResource lampconverter}}" Height="20" Width="20"
-                               Margin="-150 68 0 0"/>
-                    
-                    
-                    <Image x:Name="alarmLamp"  Source="..\RadioLamp\LED-red.png" Height="20" Width="20"
-                               Margin="-150 120 0 0"/>
+                           Source="{Binding Path=LampStatus, Converter={StaticResource lampconverter}}" 
+                           Height="20" Width="20" Margin="-150 68 0 0"/>
+
+                    <Image x:Name="alarmLamp"  
+                           Source="{Binding Path=AlarmStatus, Converter={StaticResource lampconverter1}}"  
+                           Height="20" Width="20" Margin="-150 120 0 0"/>
                 </Grid>
 
                 <Button HorizontalContentAlignment="Center" Margin="5 10 5 0" Width="170" Background="Transparent" BorderBrush="Transparent"
