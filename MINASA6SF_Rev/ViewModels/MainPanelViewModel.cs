@@ -603,12 +603,9 @@ namespace MINASA6SF_Rev.ViewModels
                 while (true)
                 {
                     modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17432, 8, ref _mirrReg1);
-                    Thread.Sleep(5);
                     modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17440, 8, ref _mirrReg2);
-                    Thread.Sleep(5);
 
                     modbusTCP.ReadCoils(0, (byte)axisNum1, 96, 1, ref _servoONStatus);
-                    Thread.Sleep(5);
                     modbusTCP.ReadCoils(0, (byte)axisNum1, 161, 1, ref _alarmStatus);
 
                     if (_mirrReg1 != null && _mirrReg2 != null &&_servoONStatus !=null && _alarmStatus !=null)
