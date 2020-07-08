@@ -14,10 +14,15 @@ namespace MINASA6SF_Rev.Models
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             int lampValue = (int)value;
-            if (lampValue==1)
-                return @"..\RadioLamp\LED-green.png";
-            else
-                return @"..\RadioLamp\LED-gray.png";
+            switch (lampValue)
+            {
+                case 1:
+                    return @"..\RadioLamp\LED-green.png";
+                    break;
+                default:
+                    return @"..\RadioLamp\LED-gray.png";
+                    break;
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -45,12 +45,36 @@ namespace MINASA6SF_Rev.ViewModels
 
 
         byte[] _alarmStatus = new byte[2];
-        int alarmStatus = 1;
+        int alarmStatus = 0;
         public int AlarmStatus
         {
             get { return alarmStatus; }
             set { SetProperty(ref alarmStatus, value); }
         }
+
+        bool _modbusOnStatus = false;
+        public bool ModbusOnStatus
+        {
+            get { return _modbusOnStatus; }
+            set { SetProperty(ref _modbusOnStatus, value); }
+        }
+
+
+        byte[] _errorCode = new byte[2];
+        ushort _maincode = 0;
+        ushort _subcode = 0;
+
+        string errorcode = "00.0";
+        public string ErrorCode
+        {
+            get { return errorcode; }
+            set { SetProperty(ref errorcode, value); }
+        }
+
+
+
+
+
 
 
         byte[] blockNumSelect = new byte[2];
@@ -604,15 +628,17 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17432, 8, ref _mirrReg1);
                     modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17440, 8, ref _mirrReg2);
-
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4001, 1, ref _errorCode);
                     modbusTCP.ReadCoils(0, (byte)axisNum1, 96, 1, ref _servoONStatus);
                     modbusTCP.ReadCoils(0, (byte)axisNum1, 161, 1, ref _alarmStatus);
 
-                    if (_mirrReg1 != null && _mirrReg2 != null &&_servoONStatus !=null && _alarmStatus !=null)
+                    if (_mirrReg1 != null && _mirrReg2 != null &&_servoONStatus !=null && _alarmStatus !=null && _errorCode !=null)
                     {
                         LampStatus = _servoONStatus[0];
                         AlarmStatus = _alarmStatus[0];
+                        ModbusOnStatus=modbusTCP.connected;
 
+                        Array.Reverse(_errorCode);
                         Array.Reverse(_mirrReg1);
                         Array.Reverse(_mirrReg2);
 
@@ -641,7 +667,11 @@ namespace MINASA6SF_Rev.ViewModels
                         powerontimetemp = BitConverter.ToInt32(powerontime, 0);
                         PowerONTime = powerontimetemp / 2;
 
-                        Thread.Sleep(5);
+                        _maincode = _errorCode[1];
+                        _subcode = _errorCode[0];
+                        ErrorCode = _maincode.ToString() + "." + _subcode.ToString();
+
+                     
                         modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4415, 1, ref selectedBlock);
                         if (selectedBlock != null)
                         {
@@ -722,10 +752,27 @@ namespace MINASA6SF_Rev.ViewModels
         {
             try
             {
+                if (modbusTCP.connected)
+                {
+                    if (LampStatus == 1)
+                    {
+                        modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, false);
+                        Thread.Sleep(150);
+                        mirrorONOFF = false;
+                        servoON = true;
+                        Debug.WriteLine(LampStatus.ToString());
+                    }
+                }
+
+
                 worker.CancelAsync();
                 mirrorONOFF = false;
                 modbusTCP.disconnect();
                 StatusBar = "통신 끊음";
+                AlarmStatus = 0;
+                LampStatus = 0;
+                ModbusOnStatus = false;
+                ErrorCode = "00.0";
             }
             catch (Exception e)
             {
@@ -760,9 +807,7 @@ namespace MINASA6SF_Rev.ViewModels
             //Debug.WriteLine(Selected_BlockAccSpeed.ToString());
             //Debug.WriteLine(Selected_BlockDecSpeed.ToString());
 
-            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
-            
-            //LampStatus = _servoONStatus[0];
+            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);            
 
             if (_servoONStatus != null)
             {

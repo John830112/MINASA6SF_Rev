@@ -15,12 +15,8 @@
     <UserControl.Resources>
         <local4:LampConverter x:Key="lampconverter"/>
         <local4:LampConverter1 x:Key="lampconverter1"/>
-        <x:Array x:Key="lampArray" Type="{x:Type sys:String}"
-                 xmlns:sys="clr-namespace:System;assembly=mscorlib">
-            <sys:String>..\RadioLamp\LED-green.png"</sys:String>
-            <sys:String>..\RadioLamp\LED-red.png</sys:String>
-        </x:Array>
-         
+        <local4:LampConverter2 x:Key="lampconverter2"/>
+
 
         <ControlTemplate x:Key="buttontemplate" TargetType="Button">
             <Border x:Name="border" Background="{TemplateBinding Background}" 
@@ -90,34 +86,36 @@
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
                             <GradientStop Color="#FFFFFF" Offset="0"/>
-                            <GradientStop Color="#848484" Offset="1"/>
+                            <GradientStop Color="#747474" Offset="1"/>
                         </LinearGradientBrush>
                     </Grid.Background>
                     <Button Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top" 
                                 Height="25" Background="Transparent" BorderBrush="Transparent">
                         <Image Source="..\icons\menu.png"/>
                     </Button>
-                    <TextBlock TextAlignment="Left" VerticalAlignment="Center" Text="Alarm" 
-                                   Margin="34,126,82,8"/>
-                    <TextBlock Text="00.0" Margin="117,128,24,6" Foreground="Red" 
-                                   HorizontalAlignment="Center" 
-                                   VerticalAlignment="Center" Width="39" Background="#FFB4B4B4" 
-                                   FontWeight="Bold" 
-                                   TextDecorations="{x:Null}"/>
-                    <TextBlock TextAlignment="Left" VerticalAlignment="Center" Text="Servo_ON" 
-                                   Margin="34,99,82,35"/>
-                    <TextBlock TextAlignment="Left" VerticalAlignment="Center" Text="Modbus_ON" 
-                                   Margin="34,73,73,61"/>
-                    <Image x:Name="modbusLamp" Source="..\RadioLamp\LED-gray.png" Height="20" Width="20"
-                               Margin="-150 15 0 0"/>
+                    <TextBlock TextAlignment="Left" VerticalAlignment="Center" Text="Alarm_Code" FontSize="15"
+                                   Margin="34,126,62,8"/>
+                    <TextBlock Text="{Binding ErrorCode}" Margin="130,128,15,6" Foreground="Red" FontSize="15"
+                               HorizontalAlignment="Center" TextAlignment="Center" Padding="0"
+                               VerticalAlignment="Center" Width="50" Background="#FFB4B4B4" 
+                               FontWeight="Bold" 
+                               TextDecorations="{x:Null}"/>
+                    <TextBlock TextAlignment="Left" VerticalAlignment="Center" Text="Servo_ON" FontSize="15" 
+                                   Margin="34,99,72,35"/>
+                    <TextBlock TextAlignment="Left" VerticalAlignment="Center" Text="Modbus_ON" FontSize="15"
+                                   Margin="34,73,58,61"/>
+                    
+                    <Image x:Name="modbusLamp" 
+                           Source="{Binding Path=ModbusOnStatus, Converter={StaticResource lampconverter2}}" 
+                           Height="25" Width="25" Margin="-150 15 0 0"/>
                   
                     <Image x:Name="servoONLamp" 
                            Source="{Binding Path=LampStatus, Converter={StaticResource lampconverter}}" 
-                           Height="20" Width="20" Margin="-150 68 0 0"/>
+                           Height="25" Width="25" Margin="-150 68 0 0"/>
 
                     <Image x:Name="alarmLamp"  
                            Source="{Binding Path=AlarmStatus, Converter={StaticResource lampconverter1}}"  
-                           Height="20" Width="20" Margin="-150 120 0 0"/>
+                           Height="25" Width="25" Margin="-150 120 0 0"/>
                 </Grid>
 
                 <Button HorizontalContentAlignment="Center" Margin="5 10 5 0" Width="170" Background="Transparent" BorderBrush="Transparent"
