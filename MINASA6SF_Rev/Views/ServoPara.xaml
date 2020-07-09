@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
              xmlns:local2="clr-namespace:MINASA6SF_Rev.Models"
-             mc:Ignorable="d" x:Name="servoparapage" Opacity="0"
+             mc:Ignorable="d" x:Name="servoparapage" Opacity="1"
              d:DesignHeight="450" d:DesignWidth="720">
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="Loaded">
@@ -47,14 +47,14 @@
 
         <ToolBar Background="LightGray" Grid.Column="1" Grid.RowSpan="3" 
                  Grid.ColumnSpan="3" Margin="0,4,-130,5"  >
-            <Button x:Name="SerVParaRx" Content="수신"
-                    Style="{StaticResource ResourceKey=ToolButton}" 
-                    Margin="5 0 0 0"/>
+            <Button x:Name="SerVParaRx" Content="수신" Style="{StaticResource ResourceKey=ToolButton}" 
+                    Command="{Binding RecCommand}" Margin="5 0 0 0"/>
             <Separator/>
-            <Button x:Name="SerVParaTx" Content="송신" 
-                    Style="{StaticResource ResourceKey=ToolButton}"/>
+            <Button x:Name="SerVParaTx" Content="송신" Style="{StaticResource ResourceKey=ToolButton}"
+                    Command="{Binding TranCommand}"/>
             <Separator/>
-            <Button x:Name="EEP" Content="EEP" Style="{StaticResource ResourceKey=ToolButton}" />
+            <Button x:Name="EEP" Content="EEP" Style="{StaticResource ResourceKey=ToolButton}"
+                    Command="{Binding EepCommand}"/>
         </ToolBar>
 
         <Separator Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Margin="10,14,-95,2"/>

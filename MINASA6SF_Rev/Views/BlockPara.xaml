@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
              xmlns:local2="clr-namespace:MINASA6SF_Rev.ViewModels"
-             mc:Ignorable="d" x:Name="blockparapage" Opacity="0"
+             mc:Ignorable="d" x:Name="blockparapage" Opacity="1"
              d:DesignHeight="450" d:DesignWidth="720">
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="Loaded">
@@ -177,7 +177,28 @@
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding SubIndex}" Value="48">
                                     <Setter Property="Background" Value="Yellow"/>
-                                </DataTrigger>                                
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SubIndex}" Value="49">
+                                    <Setter Property="Background" Value="Yellow"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SubIndex}" Value="50">
+                                    <Setter Property="Background" Value="Yellow"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SubIndex}" Value="51">
+                                    <Setter Property="Background" Value="Yellow"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SubIndex}" Value="52">
+                                    <Setter Property="Background" Value="Yellow"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SubIndex}" Value="53">
+                                    <Setter Property="Background" Value="Yellow"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SubIndex}" Value="54">
+                                    <Setter Property="Background" Value="Yellow"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SubIndex}" Value="55">
+                                    <Setter Property="Background" Value="Yellow"/>
+                                </DataTrigger>
                             </Style.Triggers>
                         </Style>
                     </DataGrid.ItemContainerStyle>

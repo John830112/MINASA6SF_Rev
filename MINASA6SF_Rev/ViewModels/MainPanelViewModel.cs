@@ -72,7 +72,8 @@ namespace MINASA6SF_Rev.ViewModels
         }
 
 
-
+        ushort _eeprom = 0x6173;
+        byte[] _eepromwrite = new byte[4];
 
 
 
@@ -83,14 +84,11 @@ namespace MINASA6SF_Rev.ViewModels
         int axisNum1 = 1;
 
 
-
-
         float overload1;
         float torquecmd;
         Int32 powerontimetemp;
 
         private Master modbusTCP = new Master();       
-
         Settings settings;
 
         public ObservableCollection<int> axisNum { set; get; }
@@ -332,6 +330,9 @@ namespace MINASA6SF_Rev.ViewModels
         public ICommand RecCommand { set; get; }
         public ICommand TranCommand { set; get; }
         public ICommand EepCommand { set; get; }
+        //ServoParameter 수신, 송신,
+        public ICommand SPReCommand { set; get; }
+        public ICommand SPTranCommand { set; get; }
         //Settings 커맨드
         public ICommand SettingConfirm { set; get; }
         public ICommand Disconnect { set; get; }
@@ -376,6 +377,11 @@ namespace MINASA6SF_Rev.ViewModels
             this.TranCommand = new commandModel(ExecuteTransCommand, CanexecuteTransCommand);
             this.EepCommand = new commandModel(ExecuteEepCommand, CanexecuteEepCommand);
 
+            //ServoParameter 수신, 송신,
+            this.SPReCommand = new commandModel(ExecuteSPReCommand, CanexecuteSPRCommand);
+            this.SPTranCommand = new commandModel(ExecuteSPTranCommand, CanexecuteSPTranCommand);
+
+
             //Setting 커맨드
             this.SettingConfirm = new commandModel(ExecuteSettingsConfirm, CanexecuteSettingsConfirm);
             this.Disconnect = new commandModel(ExecuteDisconnect, CanexecuteDisconnect);
@@ -416,7 +422,7 @@ namespace MINASA6SF_Rev.ViewModels
             worker.WorkerSupportsCancellation = true;
             worker.DoWork += MirrTimer_Tick;
             
-        }
+        }     
         #endregion
 
         #region JOG 버튼 동작 
@@ -764,7 +770,6 @@ namespace MINASA6SF_Rev.ViewModels
                     }
                 }
 
-
                 worker.CancelAsync();
                 mirrorONOFF = false;
                 modbusTCP.disconnect();
@@ -948,20 +953,20 @@ namespace MINASA6SF_Rev.ViewModels
                 ++v;
             }
             int b = 0;
-            for (int i = 16; i < 32; i++)
+            for (int i = 32; i < 48; i++)
             {
                 BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = i, ParameterName = " 블록 동작 감속도 " + $"D{b}", Range = "0 - 10000", SettingValue = 0, Unit = " ms/(3000r/min)" });
                // blockParaModel2s = BlockParaModel2s;
                 ++b;
             }
             BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 방법 설정 ", Range = "0 - 3", SettingValue = 0, Unit = "" });
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 원점 오프셋 ", Range = "-2147483648 - 2147483647", SettingValue = 0, Unit = " 지령 단위" });
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 정방향 소프트웨어 한계값 ", Range = "-2147483648 - 2147483647", SettingValue = 0, Unit = " 지령단위" });
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 부방향 소프트웨어 한계값 ", Range = "-2147483648 - 2147483647", SettingValue = 0, Unit = " 지령단위" });
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 시 원점 복귀 속도(고속) ", Range = "0 - 20000", SettingValue = 0, Unit = " r/min" });
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 시 원점 복귀 속도(저속) ", Range = "0 - 20000", SettingValue = 0, Unit = " r/min" });
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 원점 복귀 가속도 ", Range = "0 - 10000", SettingValue = 0, Unit = " ms/(3000r/min)" });
-            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 원점 복귀 무효화 설정 ", Range = "0 - 1", SettingValue = 0, Unit = "" });
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 49, ParameterName = " 블록 동작 원점 오프셋 ", Range = "-2147483648 - 2147483647", SettingValue = 0, Unit = " 지령 단위" });
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 50, ParameterName = " 블록 동작 정방향 소프트웨어 한계값 ", Range = "-2147483648 - 2147483647", SettingValue = 0, Unit = " 지령단위" });
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 51, ParameterName = " 블록 동작 부방향 소프트웨어 한계값 ", Range = "-2147483648 - 2147483647", SettingValue = 0, Unit = " 지령단위" });
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 52, ParameterName = " 블록 동작 시 원점 복귀 속도(고속) ", Range = "0 - 20000", SettingValue = 0, Unit = " r/min" });
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 53, ParameterName = " 블록 동작 시 원점 복귀 속도(저속) ", Range = "0 - 20000", SettingValue = 0, Unit = " r/min" });
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 54, ParameterName = " 블록 동작 원점 복귀 가속도 ", Range = "0 - 10000", SettingValue = 0, Unit = " ms/(3000r/min)" });
+            BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 55, ParameterName = " 원점 복귀 무효화 설정 ", Range = "0 - 1", SettingValue = 0, Unit = "" });
             blockParaModel2s = BlockParaModel2s;
 
             //ControlPanel1 컴보박스 인스턴스 생성
@@ -1490,10 +1495,9 @@ namespace MINASA6SF_Rev.ViewModels
         //블럭 파라미터 수신,송신,EEP 커맨드
         private void ExecuteRecCommand(object parameter)
         {
-            Debug.WriteLine("수신버튼 테스트");
             BlockParaModel2s[0].SettingValue = 33;                  //첫번째 객체에 값을 기록.
+            Debug.WriteLine("수신버튼 테스트");
         }
-
         private bool CanexecuteRecCommand(object parameter)
         {
             return true;
@@ -1501,10 +1505,9 @@ namespace MINASA6SF_Rev.ViewModels
 
         private void ExecuteTransCommand(object parameter)
         {
-            Debug.WriteLine("송신버튼 테스트");
             Debug.WriteLine(BlockParaModel2s[0].SettingValue.ToString());       //첫번째 객체의 값을 가져옴.
+            Debug.WriteLine("송신버튼 테스트");
         }
-
         private bool CanexecuteTransCommand(object parameter)
         {
             return true;
@@ -1512,15 +1515,42 @@ namespace MINASA6SF_Rev.ViewModels
 
         private void ExecuteEepCommand(object parameter)
         {
+            _eepromwrite[0] = (byte)(_eeprom >> 8);
+            _eepromwrite[1] = (byte)_eeprom;
+
+            Thread.Sleep(5);
+            modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x1020, _eepromwrite);
             Debug.WriteLine("EEP버튼 테스트");
         }
-
         private bool CanexecuteEepCommand(object parameter)
         {
             return true;
         }
         #endregion
-    
+
+        #region ServoParameter 수신, 송신 버튼
+        // 서보파라미터 수신, 송신 버튼
+        private void ExecuteSPReCommand(object parameter)
+        {
+            Debug.WriteLine("서보 파라미터 수신버튼 테스트");
+        }
+
+        private bool CanexecuteSPRCommand(object parameter)
+        {
+            return true;
+        }
+
+        private void ExecuteSPTranCommand(object parameter)
+        {
+            Debug.WriteLine("서보 파라미터 송신버튼 테스트");
+        }
+
+        private bool CanexecuteSPTranCommand(object parameter)
+        {
+            return true;
+        }
+        #endregion
+
         //블럭 셋팅 창 오픈
         public void showWindow(object BlocksettingDialog)
         {

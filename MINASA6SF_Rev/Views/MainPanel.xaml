@@ -9,7 +9,7 @@
              xmlns:local3="clr-namespace:MINASA6SF_Rev.ViewModels"
              xmlns:local4 ="clr-namespace:MINASA6SF_Rev.Models"
              mc:Ignorable="d" x:Name="mainpanel1" 
-             d:DesignHeight="500" d:DesignWidth="900" Padding="0">
+             d:DesignHeight="500" d:DesignWidth="900" Padding="1">
 
 
     <UserControl.Resources>
