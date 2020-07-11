@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
-             mc:Ignorable="d" x:Name="outputpage" Opacity="0"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" x:Name="outputpage" Opacity="1"
              d:DesignHeight="225" d:DesignWidth="400">
 
     <UserControl.Triggers>
@@ -28,6 +29,20 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
+
+        <x:Array Type="sys:String" x:Key="conditionSelect">
+            <sys:String>0:0</sys:String>
+            <sys:String>1:1</sys:String>
+            <sys:String>2:2</sys:String>
+            <sys:String>3:3</sys:String>
+        </x:Array>
+
+        <x:Array Type="sys:String" x:Key="outputSelect">
+            <sys:String>0:유지</sys:String>
+            <sys:String>2:오프</sys:String>
+            <sys:String>3:온</sys:String>
+        </x:Array>
+        
     </UserControl.Resources>
 
     <Grid Background="LightGray">
@@ -58,19 +73,26 @@
         <TextBlock Text="천이 조건" Style="{StaticResource TextForm}" Grid.Row="7" Grid.Column="0"/>
 
         <ComboBox x:Name="B_CTRL1Combo8" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource outputSelect}"/>
         <ComboBox x:Name="B_CTRL2Combo8" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource outputSelect}"/>
         <ComboBox x:Name="B_CTRL3Combo8" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource outputSelect}"/>
         <ComboBox x:Name="B_CTRL4Combo8" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource outputSelect}"/>
         <ComboBox x:Name="B_CTRL5Combo8" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource outputSelect}"/>
         <ComboBox x:Name="B_CTRL6Combo8" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource outputSelect}"/>
         <ComboBox x:Name="SuccNumCombo8" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource conditionSelect}"/>
 
 
     </Grid>

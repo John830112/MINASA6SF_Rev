@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
-             mc:Ignorable="d" x:Name="conditiondivpage11page" Opacity="0"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" x:Name="conditiondivpage11page" Opacity="1"
              d:DesignHeight="225" d:DesignWidth="400">
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="Loaded">
@@ -26,6 +27,26 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
+
+        <x:Array Type="sys:String" x:Key="comparisontarget">
+            <sys:String>0:지령위치</sys:String>
+            <sys:String>1:현재위치</sys:String>
+            <sys:String>2:위치편차</sys:String>
+            <sys:String>3:지령속도</sys:String>
+            <sys:String>4:모터속도</sys:String>
+            <sys:String>5:지령토크</sys:String>
+            <sys:String>6:디크리먼트 카운트</sys:String>
+            <sys:String>7:입력신호</sys:String>
+            <sys:String>8:출력신호</sys:String>
+        </x:Array>
+
+        <x:Array Type="sys:String" x:Key="conditionSelect">
+            <sys:String>0:0</sys:String>
+            <sys:String>1:1</sys:String>
+            <sys:String>2:2</sys:String>
+            <sys:String>3:3</sys:String>
+        </x:Array>
+    
     </UserControl.Resources>
 
     <Grid Background="LightGray">
@@ -51,12 +72,16 @@
         <TextBlock Text="비교값(역치)" Style="{StaticResource TextForm}" Grid.Row="4" Grid.Column="0"/>
 
         <ComboBox x:Name="CompaNumCombo11" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource comparisontarget}"/>
         <TextBox x:Name="CompaBlockNum11" VerticalContentAlignment="Center" Background="AliceBlue" FontSize="14" 
-                 Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                 Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0" Text="0"
+                 TextAlignment="Right"/>
         <ComboBox x:Name="SuccNumCombo11" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource conditionSelect}"/>
         <TextBox x:Name="CompaThroValue11" VerticalContentAlignment="Center" Background="AliceBlue" FontSize="14" 
-                 Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                 Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0" Text="0"
+                 TextAlignment="Right"/>
     </Grid>
 </UserControl>

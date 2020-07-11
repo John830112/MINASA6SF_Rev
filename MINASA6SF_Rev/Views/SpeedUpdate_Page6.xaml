@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
-             mc:Ignorable="d" x:Name="speedupdatepage" Opacity="0"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" x:Name="speedupdatepage" Opacity="1"
              d:DesignHeight="225" d:DesignWidth="400">
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="Loaded">
@@ -26,6 +27,35 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
+
+        <x:Array Type="sys:String" x:Key="BlockSpeedNum">
+            <sys:String>0:V0</sys:String>
+            <sys:String>1:V1</sys:String>
+            <sys:String>2:V2</sys:String>
+            <sys:String>3:V3</sys:String>
+            <sys:String>4:V4</sys:String>
+            <sys:String>5:V5</sys:String>
+            <sys:String>6:V6</sys:String>
+            <sys:String>7:V7</sys:String>
+            <sys:String>8:V8</sys:String>
+            <sys:String>9:V9</sys:String>
+            <sys:String>10:V10</sys:String>
+            <sys:String>11:V11</sys:String>
+            <sys:String>12:V12</sys:String>
+            <sys:String>13:V13</sys:String>
+            <sys:String>14:V14</sys:String>
+            <sys:String>15:V15</sys:String>
+        </x:Array>
+        <x:Array Type="sys:String" x:Key="Jogdirection">
+            <sys:String>0:정방향</sys:String>
+            <sys:String>0:부방향</sys:String>
+        </x:Array>
+        <x:Array Type="sys:String" x:Key="conditionSelect">
+            <sys:String>0:0</sys:String>
+            <sys:String>1:1</sys:String>
+            <sys:String>2:2</sys:String>
+            <sys:String>3:3</sys:String>
+        </x:Array>
     </UserControl.Resources>
 
     <Grid Background="LightGray">
@@ -50,10 +80,13 @@
         <TextBlock Text="천이 조건" Style="{StaticResource TextForm}" Grid.Row="3" Grid.Column="0"/>
 
         <ComboBox x:Name="SpeedNumCombo6" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource BlockSpeedNum}"/>
         <ComboBox x:Name="JogDirectNumCombo6" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource Jogdirection}"/>
         <ComboBox x:Name="SuccNumCombo6" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource conditionSelect}"/>
     </Grid>
 </UserControl>

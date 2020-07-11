@@ -25,6 +25,7 @@ using System.Windows.Media;
 using System.Windows.Interactivity;
 using System.Diagnostics.Eventing.Reader;
 using System.Threading;
+using System.Collections;
 
 namespace MINASA6SF_Rev.ViewModels
 {
@@ -77,7 +78,6 @@ namespace MINASA6SF_Rev.ViewModels
 
 
 
-
         byte[] blockNumSelect = new byte[2];
         byte[] selectedBlock = new byte[2];
         byte[] selectedBlock2 = new byte[2];
@@ -101,6 +101,26 @@ namespace MINASA6SF_Rev.ViewModels
         ObservableCollection<BlockParaModel1> BlockParaModel1s = new ObservableCollection<BlockParaModel1>();
         BlockSettingDialogs blockSettingDialog;
         public ObservableCollection<BlockFunction> blockFunctions { set; get; }
+
+        //BlockSettingDialog Frame 페이지 생성
+        IncPosition_Page1 incPosition_Page1 = new IncPosition_Page1();
+        Abs_Position_Page2 abs_Position_Page2 = new Abs_Position_Page2();
+        JOG_Operation_Page3 jOG_Operation_Page3 = new JOG_Operation_Page3();
+        HomeReturn_Page4 homeReturn_Page4 = new HomeReturn_Page4();
+        DecStop_Page5 decStop_Page5 = new DecStop_Page5();
+        SpeedUpdate_Page6 speedUpdate_Page6 = new SpeedUpdate_Page6();
+        DecrementCount_Page7 cecrementCount_Page7 = new DecrementCount_Page7();
+        OutPutSignal_Page8 outPutSignal_Page8 = new OutPutSignal_Page8();
+        Jump_Page9 jump_Page9 = new Jump_Page9();
+        ConditionDiv_Page10 conditionDiv_Page10 = new ConditionDiv_Page10();
+        ConditionDiv_Page11 conditionDiv_Page11 = new ConditionDiv_Page11();
+        ConditionDiv_Page12 conditionDiv_Page12 = new ConditionDiv_Page12();
+
+
+        //Block매개변수 편집 VM Instance
+        public ObservableCollection<BlockParaModel2> blockParaModel2s { set; get; }
+        ObservableCollection<BlockParaModel2> BlockParaModel2s = new ObservableCollection<BlockParaModel2>();
+        
         //ServoPara para0~para1의 객체생성
         public ObservableCollection<ServoParaModel> para0 { set; get; }
         public ObservableCollection<ServoParaModel> para1 { set; get; }
@@ -110,9 +130,6 @@ namespace MINASA6SF_Rev.ViewModels
         public ObservableCollection<ServoParaModel> para5 { set; get; }
         public ObservableCollection<ServoParaModel> para6 { set; get; }
         public ObservableCollection<ServoParaModel> para7 { set; get; }
-        //Block매개변수 편집 VM Instance
-        public ObservableCollection<BlockParaModel2> blockParaModel2s { set; get; }
-        ObservableCollection<BlockParaModel2> BlockParaModel2s = new ObservableCollection<BlockParaModel2>();
         //ControlPanel 콤보박스 변수
         public ObservableCollection<int> SelectBlockNum { get; set; }
         public ObservableCollection<int> BlockAccSpeed { get; set; }
@@ -122,6 +139,58 @@ namespace MINASA6SF_Rev.ViewModels
         ObservableCollection<int> blockAccSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockDecSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockSpeed = new ObservableCollection<int>();
+
+
+
+        /*------------------------------------------------------------------------------------------------------
+         *BlockSettingDialog 각 기능별 셋팅 변수
+         *  01h 상대이동
+         *  02h 절대이동
+         *  03h JOG 무한장 운전
+         *  04h 원점복귀
+         *  05h 감속정지
+         *  06h 속도갱신
+         *  07h 디크리멘트 카운터 기동
+         *  08h 출력신호조작
+         *  09h 점프
+         *  0Ah 조건분기(=)
+         *  0Bh 조건분기(>)
+         *  0Ch 조건분기(<)
+          ------------------------------------------------------------------------------------------------------*/
+        
+        //BlockSetting 변수        
+        ushort cmdcode01h = 0x01;
+        ushort cmdcode02h = 0x02;
+        ushort cmdcode03h = 0x03;
+        ushort cmdcode04h = 0x04;
+        ushort cmdcode05h = 0x05;
+        ushort cmdcode06h = 0x06;
+        ushort cmdcode07h = 0x07;
+        ushort cmdcode08h = 0x08;
+        ushort cmdcode09h = 0x09;
+        ushort cmdcode0Ah = 0x0A;
+        ushort cmdcode0Bh = 0x0B;
+        ushort cmdcode0Ch = 0x0C;
+        byte[] value1 = new byte[4];
+        byte[] value11 = new byte[4];
+
+
+        //상대이동
+        ushort spdnum = 0;
+        ushort accnum = 0;
+        ushort decnum = 0;
+        ushort movdir = 0;
+        ushort blockchif = 0;
+
+        ushort hiki3;
+        ushort hiki4;
+        ushort hiki5;
+        ushort hiki1;
+        ushort hiki2;
+
+
+
+
 
         //StatusBar 변수
         string statusBar = "";
@@ -326,6 +395,10 @@ namespace MINASA6SF_Rev.ViewModels
         public ICommand Setting_Reset { set; get; }
         public ICommand Confirm { set; get; }
         public ICommand Cancel { set; get; }
+
+        public ICommand funSelection { set; get; }
+
+
         //블럭 파라미터 수신, 송신, EEP 커맨드
         public ICommand RecCommand { set; get; }
         public ICommand TranCommand { set; get; }
@@ -347,7 +420,6 @@ namespace MINASA6SF_Rev.ViewModels
         public ICommand jogplaybtn4 { set; get; }
         public ICommand jogfastford1 { set; get; }
         public ICommand jogfastford2 { set; get; }
-
         #endregion
 
         #region viewmodel 생성자
@@ -371,7 +443,8 @@ namespace MINASA6SF_Rev.ViewModels
             this.Setting_Reset = new commandModel(ExecuteSetting_reset, CanexecuteSetting_Rset);
             this.Confirm = new commandModel(ExecuteConfirm, CanexecuteConfirm);
             this.Cancel = new commandModel(ExecuteCancel, CanexecuteCancel);
-
+            this.funSelection = new commandModel(ExecuteFunSelection, CanexecutefunSelection);
+ 
             //블럭 파라미터 수신,송신,EEP 커맨드
             this.RecCommand = new commandModel(ExecuteRecCommand, CanexecuteRecCommand);
             this.TranCommand = new commandModel(ExecuteTransCommand, CanexecuteTransCommand);
@@ -380,7 +453,6 @@ namespace MINASA6SF_Rev.ViewModels
             //ServoParameter 수신, 송신,
             this.SPReCommand = new commandModel(ExecuteSPReCommand, CanexecuteSPRCommand);
             this.SPTranCommand = new commandModel(ExecuteSPTranCommand, CanexecuteSPTranCommand);
-
 
             //Setting 커맨드
             this.SettingConfirm = new commandModel(ExecuteSettingsConfirm, CanexecuteSettingsConfirm);
@@ -411,9 +483,6 @@ namespace MINASA6SF_Rev.ViewModels
             
             //CycleTime설정
             cycTimes.Add(3);
-            //cycTimes.Add(10);
-            //cycTimes.Add(20);
-            //cycTimes.Add(30);            
             cycTime = cycTimes;
            
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
@@ -421,8 +490,67 @@ namespace MINASA6SF_Rev.ViewModels
             worker.WorkerReportsProgress = false;
             worker.WorkerSupportsCancellation = true;
             worker.DoWork += MirrTimer_Tick;
-            
-        }     
+
+            //BlockSettingDialog 객체 할당
+            blockSettingDialog = new BlockSettingDialogs();
+            blockSettingDialog.DataContext = this;
+            blockSettingDialog.FunctionSelect1.ItemsSource = blockFunctions;
+            blockSettingDialog.BlockActionParaWindow.Navigate(incPosition_Page1);
+
+
+
+
+
+        }
+        #endregion
+
+        #region BlockSettingDialog Frame Command함수
+        private void ExecuteFunSelection(object parameter)
+        {
+            switch (blockSettingDialog.FunctionSelect1.SelectedIndex)
+            {
+                case 0:
+                    blockSettingDialog.BlockActionParaWindow.Navigate(incPosition_Page1);
+                    break;
+                case 1:
+                    blockSettingDialog.BlockActionParaWindow.Navigate(abs_Position_Page2);
+                    break;
+                case 2:
+                    blockSettingDialog.BlockActionParaWindow.Navigate(jOG_Operation_Page3);
+                    break;
+                case 3:
+                    blockSettingDialog.BlockActionParaWindow.Navigate(homeReturn_Page4);
+                    break;
+                case 4:
+                    blockSettingDialog.BlockActionParaWindow.Navigate(decStop_Page5);
+                    break;
+                case 5:
+                    blockSettingDialog.BlockActionParaWindow.Navigate(speedUpdate_Page6);
+                    break;
+                case 6:
+                    blockSettingDialog.BlockActionParaWindow.Navigate(cecrementCount_Page7);
+                    break;
+                case 7:
+                    blockSettingDialog.BlockActionParaWindow.Navigate(outPutSignal_Page8);
+                    break;
+                case 8:
+                    blockSettingDialog.BlockActionParaWindow.Navigate(jump_Page9);
+                    break;
+                case 9:
+                    blockSettingDialog.BlockActionParaWindow.Navigate(conditionDiv_Page10);
+                    break;
+                case 10:
+                    blockSettingDialog.BlockActionParaWindow.Navigate(conditionDiv_Page11);
+                    break;
+                case 11:
+                    blockSettingDialog.BlockActionParaWindow.Navigate(conditionDiv_Page12);
+                    break;
+            }
+        }
+        private bool CanexecutefunSelection(object parameter)
+        {
+            return true;
+        }
         #endregion
 
         #region JOG 버튼 동작 
@@ -1000,6 +1128,7 @@ namespace MINASA6SF_Rev.ViewModels
                 ,new BlockFunction(){Id=9, Name="조건 분기(>)"}
                 ,new BlockFunction(){Id=10, Name="조건 분기(<)"}
             };
+
             para0 = new ObservableCollection<ServoParaModel>()
             {
                  new ServoParaModel() { MainIndex = "0", SubIndex = 0, ParaName = "회전 방향 설정", range = "0- 1", SetVal = 1, unitVal = "---" }
@@ -1458,8 +1587,70 @@ namespace MINASA6SF_Rev.ViewModels
 
         private void ExecuteConfirm(object parameter)
         {
-            Debug.WriteLine("블럭 셋팅 창 확인 테스트");
 
+            if(blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.IncPosition_Page1"))
+            {
+                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
+            }
+            else if(blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.Abs_Position_Page2"))
+            {
+                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
+
+            }
+            else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.JOG_Operation_Page3"))
+            {
+                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
+
+            }
+            else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.HomeReturn_Page4"))
+            {
+                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
+
+            }
+            else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.DecStop_Page5"))
+            {
+                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
+
+            }
+            else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.SpeedUpdate_Page6"))
+            {
+                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
+
+            }
+            else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.DecrementCount_Page7"))
+            {
+                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
+
+            }
+            else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.OutPutSignal_Page8"))
+            {
+                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
+
+            }
+            else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.Jump_Page9"))
+            {
+                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
+
+            }
+            else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.ConditionDiv_Page10"))
+            {
+                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
+
+            }
+            else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.ConditionDiv_Page11"))
+            {
+                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
+
+            }
+            else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.ConditionDiv_Page12"))
+            {
+                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
+
+            }
+
+
+            Debug.WriteLine(incPosition_Page1.SpeedNumCombo1.SelectedIndex.ToString());
+            Debug.WriteLine("블럭 셋팅 창 확인 테스트");
         }
 
         private bool CanexecuteConfirm(object parameter)
@@ -1471,7 +1662,6 @@ namespace MINASA6SF_Rev.ViewModels
         {
             Debug.WriteLine("블럭 셋팅 창 취소 테스트");
             blockSettingDialog.Hide();
-
         }
 
         private bool CanexecuteCancel(object parameter)
@@ -1553,10 +1743,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         //블럭 셋팅 창 오픈
         public void showWindow(object BlocksettingDialog)
-        {
-            blockSettingDialog = new BlockSettingDialogs();
-            blockSettingDialog.DataContext = this;
-            blockSettingDialog.FunctionSelect1.ItemsSource = blockFunctions;
+        {         
             blockSettingDialog.ShowDialog();
         }
     }

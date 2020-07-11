@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
-             mc:Ignorable="d" x:Name="homereturnpage" Opacity="0"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" x:Name="homereturnpage" Opacity="1"
              d:DesignHeight="225" d:DesignWidth="400">
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="Loaded">
@@ -26,6 +27,23 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
+        
+        <x:Array Type="sys:String" x:Key="HomeMethod">
+            <sys:String>1:HOME + Z상</sys:String>
+            <sys:String>2:HOME</sys:String>
+            <sys:String>3:제조사 사용E</sys:String>
+        </x:Array>
+        <x:Array Type="sys:String" x:Key="Jogdirection">
+            <sys:String>0:정방향</sys:String>
+            <sys:String>0:부방향</sys:String>
+        </x:Array>
+        
+        <x:Array Type="sys:String" x:Key="conditionSelect">
+            <sys:String>0:0</sys:String>
+            <sys:String>1:1</sys:String>
+            <sys:String>2:2</sys:String>
+            <sys:String>3:3</sys:String>
+        </x:Array>
     </UserControl.Resources>
 
     <Grid Background="LightGray">
@@ -50,10 +68,13 @@
         <TextBlock Text="천이 조건" Style="{StaticResource TextForm}" Grid.Row="3" Grid.Column="0"/>
 
         <ComboBox x:Name="HomeMothod4" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource HomeMethod}"/>
         <ComboBox x:Name="HomeDirectNumCombo4" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource Jogdirection}"/>
         <ComboBox x:Name="SuccNumCombo4" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
-                  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"/>
+                  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
+                  ItemsSource="{StaticResource conditionSelect}"/>
     </Grid>
 </UserControl>
