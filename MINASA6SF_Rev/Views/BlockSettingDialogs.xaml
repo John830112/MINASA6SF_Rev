@@ -9,7 +9,9 @@
         mc:Ignorable="d" x:Name="blocksettingdialogpage" Opacity="1"
         Title="BlockSettingDialogs" Height="335" Width="410" ResizeMode="NoResize" 
         WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent">
-
+    <Window.InputBindings>
+        <KeyBinding Key="Escape" Command="{Binding BlockSettingDialogCloseCommand}"/>
+    </Window.InputBindings>
     <Window.Triggers>
         <EventTrigger RoutedEvent="Loaded">
             <BeginStoryboard>
