@@ -88,8 +88,9 @@ namespace MINASA6SF_Rev.ViewModels
         float torquecmd;
         Int32 powerontimetemp;
 
-        private Master modbusTCP = new Master();       
+        private Master modbusTCP = new Master();
         Settings settings;
+        BlockPara blockpara;
 
         public ObservableCollection<int> axisNum { set; get; }
         ObservableCollection<int> axisNums = new ObservableCollection<int>();
@@ -120,7 +121,7 @@ namespace MINASA6SF_Rev.ViewModels
         //Block매개변수 편집 VM Instance
         public ObservableCollection<BlockParaModel2> blockParaModel2s { set; get; }
         ObservableCollection<BlockParaModel2> BlockParaModel2s = new ObservableCollection<BlockParaModel2>();
-        
+
         //ServoPara para0~para1의 객체생성
         public ObservableCollection<ServoParaModel> para0 { set; get; }
         public ObservableCollection<ServoParaModel> para1 { set; get; }
@@ -135,7 +136,7 @@ namespace MINASA6SF_Rev.ViewModels
         public ObservableCollection<int> BlockAccSpeed { get; set; }
         public ObservableCollection<int> BlockDecSpeed { get; set; }
         public ObservableCollection<int> BlockSpeed { get; set; }
-        ObservableCollection<int> selectBlockNum= new ObservableCollection<int>();
+        ObservableCollection<int> selectBlockNum = new ObservableCollection<int>();
         ObservableCollection<int> blockAccSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockDecSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockSpeed = new ObservableCollection<int>();
@@ -157,7 +158,7 @@ namespace MINASA6SF_Rev.ViewModels
          *  0Bh 조건분기(>)
          *  0Ch 조건분기(<)
           ------------------------------------------------------------------------------------------------------*/
-        
+
         //BlockSetting 변수        
         ushort cmdcode01h = 0x01;
         ushort cmdcode02h = 0x02;
@@ -181,7 +182,13 @@ namespace MINASA6SF_Rev.ViewModels
         ushort decnum = 0;
         ushort movdir = 0;
         ushort blockchif = 0;
-
+        Int32 targetposition = 0;
+        public Int32 TargetPosition
+        {
+            get { return targetposition; }
+            set { SetProperty(ref targetposition, value); }
+        }
+     
         ushort hiki3;
         ushort hiki4;
         ushort hiki5;
@@ -225,7 +232,7 @@ namespace MINASA6SF_Rev.ViewModels
             }
             set
             {
-                SetProperty(ref selectBlockNumMon1, value);             
+                SetProperty(ref selectBlockNumMon1, value);
 
             }
         }
@@ -256,15 +263,15 @@ namespace MINASA6SF_Rev.ViewModels
         }
 
         //MainPanel 리스트뷰 버튼 커맨드...
-        string framesource ="ControlPanel1.xaml";
+        string framesource = "ControlPanel1.xaml";
         public string FrameSource
         {
-            get {return framesource;}
+            get { return framesource; }
             set
             {
-                if(framesource.Equals(value))
+                if (framesource.Equals(value))
                 { return; }
-                SetProperty(ref framesource, value);                
+                SetProperty(ref framesource, value);
             }
         }
 
@@ -376,7 +383,9 @@ namespace MINASA6SF_Rev.ViewModels
         public int BlockFunctionID
         {
             get { return blockFunction; }
-            set { SetProperty(ref blockFunction, value);
+            set
+            {
+                SetProperty(ref blockFunction, value);
                 Debug.WriteLine(blockFunction.ToString());
             }
         }
@@ -425,10 +434,13 @@ namespace MINASA6SF_Rev.ViewModels
         #region viewmodel 생성자
         public MainPanelViewModel() { }
 
-        public MainPanelViewModel(Settings _settings)
-        {            
+        public MainPanelViewModel(Settings _settings, BlockPara _blockpara)
+        {
             mirrorONOFF = false;
             settings = _settings;
+            blockpara = _blockpara;
+            incPosition_Page1.DataContext = this;
+
             //ControlPanel 버튼 커맨드
             this.servoOn = new commandModel(ExecuteServoOn, CanexecuteServoOn);
             this.stB = new commandModel(ExecutestB, CanexecutestB);
@@ -444,7 +456,7 @@ namespace MINASA6SF_Rev.ViewModels
             this.Confirm = new commandModel(ExecuteConfirm, CanexecuteConfirm);
             this.Cancel = new commandModel(ExecuteCancel, CanexecuteCancel);
             this.funSelection = new commandModel(ExecuteFunSelection, CanexecutefunSelection);
- 
+
             //블럭 파라미터 수신,송신,EEP 커맨드
             this.RecCommand = new commandModel(ExecuteRecCommand, CanexecuteRecCommand);
             this.TranCommand = new commandModel(ExecuteTransCommand, CanexecuteTransCommand);
@@ -475,16 +487,16 @@ namespace MINASA6SF_Rev.ViewModels
             this.jogfastford2 = new commandModel(Executejogfastford2, Canexecutejogfastford2);  //빠른 부방향 정지
 
             //축수 등록
-            for(int i=1; i<=30; i++)
+            for (int i = 1; i <= 30; i++)
             {
                 axisNums.Add(i);
             }
-            axisNum = axisNums;            
-            
+            axisNum = axisNums;
+
             //CycleTime설정
             cycTimes.Add(3);
             cycTime = cycTimes;
-           
+
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadObjectViewModel();
             worker.WorkerReportsProgress = false;
@@ -559,7 +571,7 @@ namespace MINASA6SF_Rev.ViewModels
          *------------------------------------------------------------------------------------------------------*/
 
         //빠른 부방향 시작
-        private void Executejogrewind1(object parameter)  
+        private void Executejogrewind1(object parameter)
         {
             jogBlockSelect[0] = (byte)(252 >> 8);
             jogBlockSelect[1] = (byte)(252);
@@ -737,7 +749,7 @@ namespace MINASA6SF_Rev.ViewModels
         {
             return true;
         }
-        
+
         //빠른 부방향 정지
         private void Executejogfastford2(object parameter)
         {
@@ -766,11 +778,11 @@ namespace MINASA6SF_Rev.ViewModels
                     modbusTCP.ReadCoils(0, (byte)axisNum1, 96, 1, ref _servoONStatus);
                     modbusTCP.ReadCoils(0, (byte)axisNum1, 161, 1, ref _alarmStatus);
 
-                    if (_mirrReg1 != null && _mirrReg2 != null &&_servoONStatus !=null && _alarmStatus !=null && _errorCode !=null)
+                    if (_mirrReg1 != null && _mirrReg2 != null && _servoONStatus != null && _alarmStatus != null && _errorCode != null)
                     {
                         LampStatus = _servoONStatus[0];
                         AlarmStatus = _alarmStatus[0];
-                        ModbusOnStatus=modbusTCP.connected;
+                        ModbusOnStatus = modbusTCP.connected;
 
                         Array.Reverse(_errorCode);
                         Array.Reverse(_mirrReg1);
@@ -805,7 +817,7 @@ namespace MINASA6SF_Rev.ViewModels
                         _subcode = _errorCode[0];
                         ErrorCode = _maincode.ToString() + "." + _subcode.ToString();
 
-                     
+
                         modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4415, 1, ref selectedBlock);
                         if (selectedBlock != null)
                         {
@@ -842,8 +854,8 @@ namespace MINASA6SF_Rev.ViewModels
                 mirrTime = int.Parse(settings.cycleTime.SelectedValue.ToString());
                 modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
                 axisNum1 = int.Parse(settings.axisNumselect.SelectedValue.ToString());
-                
-                worker.RunWorkerAsync();               
+
+                worker.RunWorkerAsync();
 
                 //Register값 리딩 확인.
                 //modbusTCP.ReadCoils(0, 0x01, 4096, 8, ref num1);
@@ -858,7 +870,7 @@ namespace MINASA6SF_Rev.ViewModels
                 else
                 {
                     mirrorONOFF = false;
-                }                
+                }
 
                 StatusBar = "접속";
             }
@@ -915,7 +927,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         private bool CanexecuteDisconnect(object parameter)
         {
-            if(mirrorONOFF)
+            if (mirrorONOFF)
             {
                 return true;
             }
@@ -930,7 +942,7 @@ namespace MINASA6SF_Rev.ViewModels
         /*------------------------------------------------------------------------------------------------------
           ControlPanel 제어버튼
          *------------------------------------------------------------------------------------------------------*/
-        
+
         //ServoON
         private void ExecuteServoOn(object parameter)
         {
@@ -940,7 +952,7 @@ namespace MINASA6SF_Rev.ViewModels
             //Debug.WriteLine(Selected_BlockAccSpeed.ToString());
             //Debug.WriteLine(Selected_BlockDecSpeed.ToString());
 
-            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);            
+            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
 
             if (_servoONStatus != null)
             {
@@ -1013,10 +1025,6 @@ namespace MINASA6SF_Rev.ViewModels
                     System.Threading.Thread.Sleep(200);
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
                     System.Threading.Thread.Sleep(100);
-                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
-                    System.Threading.Thread.Sleep(200);
-                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
-                    System.Threading.Thread.Sleep(100);
                     Debug.WriteLine("알람 클리어");
                 }
             }
@@ -1036,7 +1044,7 @@ namespace MINASA6SF_Rev.ViewModels
         private void Executes_Stop(object parameter)
         {
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 292, true);
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 292, false);         
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 292, false);
         }
 
         private bool Canexecutes_Stop(object parameter)
@@ -1056,35 +1064,35 @@ namespace MINASA6SF_Rev.ViewModels
             return true;
         }
         #endregion
-     
+
         #region 블럭 동작 편집, 블럭 매개변수 객체 생성 함수
         private void LoadObjectViewModel()
         {
             //Block동작 편집 Instance생성
-            for(int i=0; i<256; i++)
+            for (int i = 0; i < 256; i++)
             {
-                BlockParaModel1s.Add(new BlockParaModel1() { BlockNum= i, BlockData = "설정 안됨" });
+                BlockParaModel1s.Add(new BlockParaModel1() { BlockNum = i, BlockData = "설정 안됨" });
                 blockParaModel1s = BlockParaModel1s;
             }
 
             //Block매개변수 Instance생성
-            for (int i=0; i<16; i++)
+            for (int i = 0; i < 16; i++)
             {
                 BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = i, ParameterName = " 블록 동작 속도 " + $"V{i}", Range = "0 - 20000", SettingValue = 0, Unit = " r/min" });
-               // blockParaModel2s = BlockParaModel2s;
+                // blockParaModel2s = BlockParaModel2s;
             }
             int v = 0;
             for (int i = 16; i < 32; i++)
             {
                 BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = i, ParameterName = " 블록 동작 가속도 " + $"A{v}", Range = "0 - 10000", SettingValue = 0, Unit = " ms/(3000r/min)" });
-               // blockParaModel2s = BlockParaModel2s;
+                // blockParaModel2s = BlockParaModel2s;
                 ++v;
             }
             int b = 0;
             for (int i = 32; i < 48; i++)
             {
                 BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = i, ParameterName = " 블록 동작 감속도 " + $"D{b}", Range = "0 - 10000", SettingValue = 0, Unit = " ms/(3000r/min)" });
-               // blockParaModel2s = BlockParaModel2s;
+                // blockParaModel2s = BlockParaModel2s;
                 ++b;
             }
             BlockParaModel2s.Add(new BlockParaModel2() { MainIndex = 60, SubIndex = 48, ParameterName = " 블록 동작 방법 설정 ", Range = "0 - 3", SettingValue = 0, Unit = "" });
@@ -1103,7 +1111,7 @@ namespace MINASA6SF_Rev.ViewModels
                 selectBlockNum.Add(i);
                 SelectBlockNum = selectBlockNum;
             }
-            for(int i=0; i<16; i++)
+            for (int i = 0; i < 16; i++)
             {
                 blockAccSpeed.Add(i);
                 blockDecSpeed.Add(i);
@@ -1113,6 +1121,7 @@ namespace MINASA6SF_Rev.ViewModels
                 BlockSpeed = blockSpeed;
             }
 
+            //BlockSettingDialogs Function 설정 콤보박스 아이템 생성
             blockFunctions = new ObservableCollection<BlockFunction>()
             {
                  new BlockFunction(){Id=0, Name="상대 위치 결정"}
@@ -1573,7 +1582,7 @@ namespace MINASA6SF_Rev.ViewModels
             };
         }
         #endregion
-      
+
         #region 블럭 셋팅 창 커맨드 함수
         private void ExecuteSetting_reset(object parameter)
         {
@@ -1588,64 +1597,1124 @@ namespace MINASA6SF_Rev.ViewModels
         private void ExecuteConfirm(object parameter)
         {
 
-            if(blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.IncPosition_Page1"))
+            if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.IncPosition_Page1"))
             {
-                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
-            }
-            else if(blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.Abs_Position_Page2"))
-            {
-                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
 
+                spdnum = (ushort)incPosition_Page1.SpeedNumCombo1.SelectedIndex;
+                accnum = (ushort)incPosition_Page1.AccNumCombo1.SelectedIndex;
+                decnum = (ushort)incPosition_Page1.DecNumCombo1.SelectedIndex;
+                movdir = 0;
+                blockchif = (ushort)incPosition_Page1.SuccNumCombo1.SelectedIndex;
+
+                hiki3 = (byte)(decnum << 4);
+                hiki4 = (byte)(movdir << 2);
+                hiki5 = (byte)(blockchif);
+                hiki1 = (byte)(spdnum << 4);
+                hiki2 = accnum;
+
+                value1[0] = (byte)(hiki3 + hiki4 + hiki5);
+                value1[1] = 0;
+                value1[2] = (byte)cmdcode01h;
+                value1[3] = (byte)(hiki1 + hiki2);
+
+                value11[0] = (byte)(TargetPosition >> 8);
+                value11[1] = (byte)(TargetPosition);
+                value11[2] = (byte)(TargetPosition >> 24);
+                value11[3] = (byte)(TargetPosition >> 16);
+
+
+                switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
+                {
+                    case 0:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4800, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4802, value11);                        
+                        return;
+                    case 1:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4804, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4806, value11);
+                        return;
+                    case 2:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4808, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x480A, value11);
+                        return;
+                    case 3:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x480C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x480E, value11);
+                        return;
+                    case 4:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4810, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4812, value11);
+                        return;
+                    case 5:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4814 ,value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4816, value11);
+                        return;
+                    case 6:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4818, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x481A, value11);
+                        return;
+                    case 7:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x481C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x481E, value11);
+                        return;
+                    case 8:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4820, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4822, value11);
+                        return;
+                    case 9:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4824, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4826, value11);
+                        return;
+                    case 10:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4828, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x482A, value11);
+                        return;
+                    case 11:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x482C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x482E, value11);
+                        return;
+                    case 12:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4830, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4832, value11);
+                        return;
+                    case 13:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4834, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4836, value11);
+                        return;
+                    case 14:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4838, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x483A, value11);
+                        return;
+                    case 15:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x483C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x483E, value11);
+                        return;
+                    case 16:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4840, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4842, value11);
+                        return;
+                    case 17:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4844, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4846, value11);
+                        return;
+                    case 18:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4848, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x484A, value11);
+                        return;
+                    case 19:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x484C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x484E, value11);
+                        return;
+                    case 20:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4850, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4852, value11);
+                        return;
+                    case 21:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4854, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4856, value11);
+                        return;
+                    case 22:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4858, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x485A, value11);
+                        return;
+                    case 23:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x485C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x485E, value11);
+                        return;
+                    case 24:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4860, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4862, value11);
+                        return;
+                    case 25:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4864, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4866, value11);
+                        return;
+                    case 26:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4868, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x486A, value11);
+                        return;
+                    case 27:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x486C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x486E, value11);
+                        return;
+                    case 28:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4870, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4872, value11);
+                        return;
+                    case 29:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4874, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4876, value11);
+                        return;
+                    case 30:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4878, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x487A, value11);
+                        return;
+                    case 31:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x487C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x487E, value11);
+                        return;
+                    case 32:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4880, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4882, value11);
+                        return;
+                    case 33:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4884, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4886, value11);
+                        return;
+                    case 34:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4888, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x488A, value11);
+                        return;
+                    case 35:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x488C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x488E, value11);
+                        return;
+                    case 36:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4890, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4892, value11);
+                        return;
+                    case 37:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4894, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4896, value11);
+                        return;
+                    case 38:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4898, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x489A, value11);
+                        return;
+                    case 39:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x489C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x489E, value11);
+                        return;
+                    case 40:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48A0, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48A2, value11);
+                        return;
+                    case 41:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48A4, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48A6, value11);
+                        return;
+                    case 42:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48A8, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48AA, value11);
+                        return;
+                    case 43:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48AC, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48AE, value11);
+                        return;
+                    case 44:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48B0, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48B2, value11);
+                        return;
+                    case 45:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48B4, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48B6, value11);
+                        return;
+                    case 46:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48B8, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48BA, value11);
+                        return;
+                    case 47:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48BC, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48BE, value11);
+                        return;
+                    case 48:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48C0, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48C2, value11);
+                        return;
+                    case 49:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48C4, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48C6, value11);
+                        return;
+                    case 50:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48C8, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48CA, value11);
+                        return;
+                    case 51:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48CC, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48CE, value11);
+                        return;
+                    case 52:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48D0, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48D2, value11);
+                        return;
+                    case 53:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48D4, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48D6, value11);
+                        return;
+                    case 54:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48D8, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48DA, value11);
+                        return;
+                    case 55:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48DC, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48DE, value11);
+                        return;
+                    case 56:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48E0, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48E2, value11);
+                        return;
+                    case 57:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48E4, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48E6, value11);
+                        return;
+                    case 58:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48E8, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48EA, value11);
+                        return;
+                    case 59:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48EC, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48EE, value11);
+                        return;
+                    case 60:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48F0, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48F2, value11);
+                        return;
+                    case 61:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48F4, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48F6, value11);
+                        return;
+                    case 62:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48F8, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48FA, value11);
+                        return;
+                    case 63:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48FC, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x48FE, value11);
+                        return;
+                    case 64:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4900, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4902, value11);
+                        return;
+                    case 65:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4904, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4906, value11);
+                        return;
+                    case 66:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4908, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x490A, value11);
+                        return;
+                    case 67:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x490C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x490E, value11);
+                        return;
+                    case 68:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4910, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4912, value11);
+                        return;
+                    case 69:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4914, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4916, value11);
+                        return;
+                    case 70:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4918, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x491A, value11);
+                        return;
+                    case 71:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x491C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x491E, value11);
+                        return;
+                    case 72:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4920, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4922, value11);
+                        return;
+                    case 73:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4924, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4926, value11);
+                        return;
+                    case 74:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4928, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x492A, value11);
+                        return;
+                    case 75:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x492C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x492E, value11);
+                        return;
+                    case 76:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4930, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4932, value11);
+                        return;
+                    case 77:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4934, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4936, value11);
+                        return;
+                    case 78:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4938, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x493A, value11);
+                        return;
+                    case 79:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x493C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x493E, value11);
+                        return;
+                    case 80:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4940, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4942, value11);
+                        return;
+                    case 81:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4944, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4946, value11);
+                        return;
+                    case 82:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4948, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x494A, value11);
+                        return;
+                    case 83:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x494C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x494E, value11);
+                        return;
+                    case 84:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4950, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4952, value11);
+                        return;
+                    case 85:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4954, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4956, value11);
+                        return;
+                    case 86:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4958, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x495A, value11);
+                        return;
+                    case 87:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x495C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x495E, value11);
+                        return;
+                    case 88:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4960, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4962, value11);
+                        return;
+                    case 89:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4964, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4966, value11);
+                        return;
+                    case 90:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4968, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x496A, value11);
+                        return;
+                    case 91:
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x496C, value1);
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x496E, value11);
+                        return;
+                    //case 92:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 93:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 94:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 95:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 96:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 97:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 98:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 99:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 100:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 101:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 102:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 103:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 104:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 105:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 106:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 107:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 108:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 109:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 110:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 111:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 112:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 113:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 114:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 115:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 116:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 117:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 118:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 119:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 120:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 121:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 122:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 123:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 124:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 125:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 126:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 127:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 128:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 129:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 130:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 131:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 132:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 134:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 135:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 136:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 137:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 138:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 139:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 140:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 141:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 142:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 143:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 144:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 145:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 146:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 147:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 148:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 149:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 150:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 151:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 152:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 153:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 154:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 155:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 156:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 157:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 158:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 159:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 160:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 161:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 162:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 163:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 164:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 165:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 166:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 167:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 168:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 169:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 170:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 171:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 172:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 173:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 174:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 175:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 176:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 177:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 178:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 179:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 180:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 181:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 182:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 183:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 184:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 185:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 186:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 187:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 188:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 189:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 190:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 191:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 192:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 193:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 194:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 195:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 196:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 197:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 198:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 199:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 200:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 201:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 202:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 203:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 204:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 205:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 206:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 207:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 208:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 209:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 210:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 211:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 212:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 213:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 214:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 215:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 216:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 217:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 218:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 219:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 220:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 221:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 222:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 223:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 224:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 225:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 226:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 227:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 228:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 229:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 230:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 231:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 232:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 233:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 234:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 235:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 236:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 237:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 238:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 239:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 240:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 241:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 242:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 243:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 244:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 245:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 246:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 247:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 248:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 249:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 250:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 251:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 252:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 253:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 254:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+                        //case 255:
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, blocknumberaddr, value1);
+                        //    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, (ushort)(blocknumberaddr + 0x0002), value11);
+                        //    return;
+
+                }
+
+
+
+
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  //BlockParaModel  BlockNumber
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); //BlockParaModel  BlockData
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "hi";  //값 반영됨 확인
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());        //BlockParameter Number
+
+
+                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
+                Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
+            }
+            else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.Abs_Position_Page2"))
+            {
+
+                Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
+                Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.JOG_Operation_Page3"))
             {
                 Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
-
+                Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.HomeReturn_Page4"))
             {
                 Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
-
+                Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.DecStop_Page5"))
             {
                 Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
-
+                Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.SpeedUpdate_Page6"))
             {
                 Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
-
+                Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.DecrementCount_Page7"))
             {
                 Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
-
+                Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.OutPutSignal_Page8"))
             {
                 Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
-
+                Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.Jump_Page9"))
             {
                 Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
-
+                Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.ConditionDiv_Page10"))
             {
                 Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
-
+                Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.ConditionDiv_Page11"))
             {
                 Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
-
+                Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.ConditionDiv_Page12"))
             {
                 Debug.WriteLine(blockSettingDialog.BlockActionParaWindow.Content.ToString());
-
+                Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
 
 
@@ -1743,7 +2812,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         //블럭 셋팅 창 오픈
         public void showWindow(object BlocksettingDialog)
-        {         
+        {
             blockSettingDialog.ShowDialog();
         }
     }

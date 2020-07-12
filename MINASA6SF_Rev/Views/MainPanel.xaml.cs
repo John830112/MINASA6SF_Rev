@@ -36,18 +36,13 @@ namespace MINASA6SF_Rev.Views
         ServoPara ServoPara;
         Settings Settings;
 
-
-
-
-
-
         public MainPanel() {}
 
         public MainPanel(MainWindow mainWindow)
         {
 
             Settings = new Settings();
-            mainPanelViewModel = new MainPanelViewModel(Settings);
+            mainPanelViewModel = new MainPanelViewModel(Settings, BlockPara);
             ServoPara = new ServoPara(mainPanelViewModel);
 
             InitializeComponent();

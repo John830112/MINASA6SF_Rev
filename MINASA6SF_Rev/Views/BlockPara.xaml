@@ -64,11 +64,12 @@
                 <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False"
                           SelectionUnit="FullRow" VerticalScrollBarVisibility="Visible" Margin="0,0,0,-6"
                           HorizontalScrollBarVisibility="Disabled" CanUserReorderColumns="False" Height="360"
-                          Background="#FFE5E5E5" ItemsSource="{Binding blockParaModel1s}" SelectionMode="Single">
+                          Background="#FFE5E5E5" ItemsSource="{Binding blockParaModel1s}" SelectionMode="Single"
+                          x:Name="blockParaModel1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding BlockNum}" Header="No." Width="40"
-                                                CanUserResize="False" IsReadOnly="True" CanUserSort="False"
-                                                HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                            CanUserResize="False" IsReadOnly="True" CanUserSort="False"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -77,8 +78,8 @@
                         </DataGridTextColumn>
 
                         <DataGridTextColumn Binding="{Binding BlockData}" Header="◀    Block Data    ▶" Width="*" 
-                                                CanUserResize="False" IsReadOnly="True" CanUserSort="False"
-                                                HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                            CanUserResize="False" IsReadOnly="True" CanUserSort="False"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="HorizontalAlignment" Value="Center"/>
