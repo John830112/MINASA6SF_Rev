@@ -31,8 +31,8 @@ namespace MINASA6SF_Rev.ViewModels
 {
     public class MainPanelViewModel : ViewModelBase, IWindowService
     {
-        BackgroundWorker worker = new BackgroundWorker();
-        BackgroundWorker worker2 = new BackgroundWorker();
+        BackgroundWorker worker = new BackgroundWorker();  //MirrorTimer 동작
+        BackgroundWorker worker2 = new BackgroundWorker(); //블럭 파라미터 송신
         bool mirrorONOFF;
         bool servoON;
         int mirrTime;
@@ -184,6 +184,252 @@ namespace MINASA6SF_Rev.ViewModels
         byte[] recValue8;
         byte[] recValue9;
         byte[] recValue10;
+        byte[] recValue11;
+        byte[] recValue12;
+        byte[] recValue13;
+        byte[] recValue14;
+        byte[] recValue15;
+        byte[] recValue16;
+        byte[] recValue17;
+        byte[] recValue18;
+        byte[] recValue19;
+        byte[] recValue20; 
+        byte[] recValue21;
+        byte[] recValue22;
+        byte[] recValue23;
+        byte[] recValue24;
+        byte[] recValue25;
+        byte[] recValue26;
+        byte[] recValue27;
+        byte[] recValue28;
+        byte[] recValue29;
+        byte[] recValue30;
+        byte[] recValue31;
+        byte[] recValue32;
+        byte[] recValue33;
+        byte[] recValue34;
+        byte[] recValue35;
+        byte[] recValue36;
+        byte[] recValue37;
+        byte[] recValue38;
+        byte[] recValue39;
+        byte[] recValue40;
+        byte[] recValue41;
+        byte[] recValue42;
+        byte[] recValue43;
+        byte[] recValue44;
+        byte[] recValue45;
+        byte[] recValue46;
+        byte[] recValue47;
+        byte[] recValue48;
+        byte[] recValue49;
+        byte[] recValue50;
+        byte[] recValue51;
+        byte[] recValue52;
+        byte[] recValue53;
+        byte[] recValue54;
+        byte[] recValue55;
+        byte[] recValue56;
+        byte[] recValue57;
+        byte[] recValue58;
+        byte[] recValue59;
+        byte[] recValue60;
+        byte[] recValue61;
+        byte[] recValue62;
+        byte[] recValue63;
+        byte[] recValue64;
+        byte[] recValue65;
+        byte[] recValue66;
+        byte[] recValue67;
+        byte[] recValue68;
+        byte[] recValue69;
+        byte[] recValue70;
+        byte[] recValue71;
+        byte[] recValue72;
+        byte[] recValue73;
+        byte[] recValue74;
+        byte[] recValue75;
+        byte[] recValue76;
+        byte[] recValue77;
+        byte[] recValue78;
+        byte[] recValue79;
+        byte[] recValue80;
+        byte[] recValue81;
+        byte[] recValue82;
+        byte[] recValue83;
+        byte[] recValue84;
+        byte[] recValue85;
+        byte[] recValue86;
+        byte[] recValue87;
+        byte[] recValue88;
+        byte[] recValue89;
+        byte[] recValue90;
+        byte[] recValue91;
+        byte[] recValue92;
+        byte[] recValue93;
+        byte[] recValue94;
+        byte[] recValue95;
+        byte[] recValue96;
+        byte[] recValue97;
+        byte[] recValue98;
+        byte[] recValue99;
+        byte[] recValue100;
+        byte[] recValue101;
+        byte[] recValue102;
+        byte[] recValue103;
+        byte[] recValue104;
+        byte[] recValue105;
+        byte[] recValue106;
+        byte[] recValue107;
+        byte[] recValue108;
+        byte[] recValue109;
+        byte[] recValue110;
+        byte[] recValue111;
+        byte[] recValue112;
+        byte[] recValue113;
+        byte[] recValue114;
+        byte[] recValue115;
+        byte[] recValue116;
+        byte[] recValue117;
+        byte[] recValue118;
+        byte[] recValue119;
+        byte[] recValue120;
+        byte[] recValue121;
+        byte[] recValue122;
+        byte[] recValue123;
+        byte[] recValue124;
+        byte[] recValue125;
+        byte[] recValue126;
+        byte[] recValue127;
+        byte[] recValue128;
+        byte[] recValue129;
+        byte[] recValue130;
+        byte[] recValue131;
+        byte[] recValue132;
+        byte[] recValue133;
+        byte[] recValue134;
+        byte[] recValue135;
+        byte[] recValue136;
+        byte[] recValue137;
+        byte[] recValue138;
+        byte[] recValue139;
+        byte[] recValue140;
+        byte[] recValue141;
+        byte[] recValue142;
+        byte[] recValue143;
+        byte[] recValue144;
+        byte[] recValue145;
+        byte[] recValue146;
+        byte[] recValue147;
+        byte[] recValue148;
+        byte[] recValue149;
+        byte[] recValue150;
+        byte[] recValue151;
+        byte[] recValue152;
+        byte[] recValue153;
+        byte[] recValue154;
+        byte[] recValue155;
+        byte[] recValue156;
+        byte[] recValue157;
+        byte[] recValue158;
+        byte[] recValue159;
+        byte[] recValue160;
+        byte[] recValue161;
+        byte[] recValue162;
+        byte[] recValue163;
+        byte[] recValue164;
+        byte[] recValue165;
+        byte[] recValue166;
+        byte[] recValue167;
+        byte[] recValue168;
+        byte[] recValue169;
+        byte[] recValue170;
+        byte[] recValue171;
+        byte[] recValue172;
+        byte[] recValue173;
+        byte[] recValue174;
+        byte[] recValue175;
+        byte[] recValue176;
+        byte[] recValue177;
+        byte[] recValue178;
+        byte[] recValue179;
+        byte[] recValue180;
+        byte[] recValue181;
+        byte[] recValue182;
+        byte[] recValue183;
+        byte[] recValue184;
+        byte[] recValue185;
+        byte[] recValue186;
+        byte[] recValue187;
+        byte[] recValue188;
+        byte[] recValue189;
+        byte[] recValue190;
+        byte[] recValue191;
+        byte[] recValue192;
+        byte[] recValue193;
+        byte[] recValue194;
+        byte[] recValue195;
+        byte[] recValue196;
+        byte[] recValue197;
+        byte[] recValue198;
+        byte[] recValue199;
+        byte[] recValue200;
+        byte[] recValue201;
+        byte[] recValue202;
+        byte[] recValue203;
+        byte[] recValue204;
+        byte[] recValue205;
+        byte[] recValue206;
+        byte[] recValue207;
+        byte[] recValue208;
+        byte[] recValue209;
+        byte[] recValue210;
+        byte[] recValue211;
+        byte[] recValue212;
+        byte[] recValue213;
+        byte[] recValue214;
+        byte[] recValue215;
+        byte[] recValue216;
+        byte[] recValue217;
+        byte[] recValue218;
+        byte[] recValue219;
+        byte[] recValue220;
+        byte[] recValue221;
+        byte[] recValue222;
+        byte[] recValue223;
+        byte[] recValue224;
+        byte[] recValue225;
+        byte[] recValue226;
+        byte[] recValue227;
+        byte[] recValue228;
+        byte[] recValue229;
+        byte[] recValue230;
+        byte[] recValue231;
+        byte[] recValue232;
+        byte[] recValue233;
+        byte[] recValue234;
+        byte[] recValue235;
+        byte[] recValue236;
+        byte[] recValue237;
+        byte[] recValue238;
+        byte[] recValue239;
+        byte[] recValue240; 
+        byte[] recValue241;
+        byte[] recValue242;
+        byte[] recValue243;
+        byte[] recValue244;
+        byte[] recValue245;
+        byte[] recValue246;
+        byte[] recValue247;
+        byte[] recValue248;
+        byte[] recValue249;
+        byte[] recValue250; 
+        byte[] recValue251;
+        byte[] recValue252;
+        byte[] recValue253;
+        byte[] recValue254;
+        byte[] recValue255;
+        
 
 
         //상대이동 및 절대이동
@@ -462,7 +708,6 @@ namespace MINASA6SF_Rev.ViewModels
             //BlockSettingDialogClose 커맨드
             this.BlockSettingDialogCloseCommand = new commandModel(ExecuteBlockSettingDialogCloseCommand, CanexecuteBlockSettingDialogCloseCommand);
 
-
             //블럭 동작 편집 커맨드
             this.BlockActDouClick = new commandModel(ExecuteBlockActDouClick, CanexecuteBlockActDuoClick);
 
@@ -521,7 +766,6 @@ namespace MINASA6SF_Rev.ViewModels
             worker2.WorkerReportsProgress = true;
             worker2.WorkerSupportsCancellation = false;
             worker2.DoWork += BlockParameterRec;
-
 
             //BlockSettingDialog 객체 할당
             blockSettingDialog = new BlockSettingDialogs();
@@ -4357,12 +4601,1043 @@ namespace MINASA6SF_Rev.ViewModels
         //블럭 파라미터 수신 백그라운드 워커
         private void BlockParameterRec(object sender, DoWorkEventArgs e)
         {
+
+            switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
+            {
+                case 0:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4800, 2, ref recValue1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4802, 2, ref recValue2);
+                    return;
+                case 1:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4804, 2, ref recValue3);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4806, 2, ref recValue4);
+                    return;
+                case 2:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4808, 2, ref recValue5);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x480A, 2, ref recValue6);
+                    return;
+                case 3:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x480C, 2, ref recValue7);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x480E, 2, ref recValue8);
+                    return;
+                case 4:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4810, 2, ref recValue9);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4812, 2, ref recValue10);
+                    return;
+                case 5:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4814, 2, ref recValue11);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4816, 2, ref recValue22);
+                    return;
+                case 6:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4818, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x481A, 2, ref value11);
+                    return;
+                case 7:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x481C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x481E, 2, ref value11);
+                    return;
+                case 8:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4820, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4822, 2, ref value11);
+                    return;
+                case 9:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4824, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4826, 2, ref value11);
+                    return;
+                case 10:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4828, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x482A, 2, ref value11);
+                    return;
+                case 11:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x482C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x482E, 2, ref value11);
+                    return;
+                case 12:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4830, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4832, 2, ref value11);
+                    return;
+                case 13:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4834, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4836, 2, ref value11);
+                    return;
+                case 14:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4838, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x483A, 2, ref value11);
+                    return;
+                case 15:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x483C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x483E, 2, ref value11);
+                    return;
+                case 16:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4840, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4842, 2, ref value11);
+                    return;
+                case 17:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4844, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4846, 2, ref value11);
+                    return;
+                case 18:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4848, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x484A, 2, ref value11);
+                    return;
+                case 19:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x484C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x484E, 2, ref value11);
+                    return;
+                case 20:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4850, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4852, 2, ref value11);
+                    return;
+                case 21:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4854, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4856, 2, ref value11);
+                    return;
+                case 22:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4858, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x485A, 2, ref value11);
+                    return;
+                case 23:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x485C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x485E, 2, ref value11);
+                    return;
+                case 24:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4860, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4862, 2, ref value11);
+                    return;
+                case 25:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4864, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4866, 2, ref value11);
+                    return;
+                case 26:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4868, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x486A, 2, ref value11);
+                    return;
+                case 27:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x486C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x486E, 2, ref value11);
+                    return;
+                case 28:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4870, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4872, 2, ref value11);
+                    return;
+                case 29:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4874, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4876, 2, ref value11);
+                    return;
+                case 30:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4878, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x487A, 2, ref value11);
+                    return;
+                case 31:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x487C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x487E, 2, ref value11);
+                    return;
+                case 32:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4880, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4882, 2, ref value11);
+                    return;
+                case 33:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4884, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4886, 2, ref value11);
+                    return;
+                case 34:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4888, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x488A, 2, ref value11);
+                    return;
+                case 35:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x488C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x488E, 2, ref value11);
+                    return;
+                case 36:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4890, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4892, 2, ref value11);
+                    return;
+                case 37:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4894, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4896, 2, ref value11);
+                    return;
+                case 38:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4898, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x489A, 2, ref value11);
+                    return;
+                case 39:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x489C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x489E, 2, ref value11);
+                    return;
+                case 40:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48A0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48A2, 2, ref value11);
+                    return;
+                case 41:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48A4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48A6, 2, ref value11);
+                    return;
+                case 42:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48A8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48AA, 2, ref value11);
+                    return;
+                case 43:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48AC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48AE, 2, ref value11);
+                    return;
+                case 44:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48B0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48B2, 2, ref value11);
+                    return;
+                case 45:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48B4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48B6, 2, ref value11);
+                    return;
+                case 46:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48B8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48BA, 2, ref value11);
+                    return;
+                case 47:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48BC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48BE, 2, ref value11);
+                    return;
+                case 48:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48C0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48C2, 2, ref value11);
+                    return;
+                case 49:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48C4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48C6, 2, ref value11);
+                    return;
+                case 50:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48C8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48CA, 2, ref value11);
+                    return;
+                case 51:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48CC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48CE, 2, ref value11);
+                    return;
+                case 52:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48D0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48D2, 2, ref value11);
+                    return;
+                case 53:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48D4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48D6, 2, ref value11);
+                    return;
+                case 54:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48D8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48DA, 2, ref value11);
+                    return;
+                case 55:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48DC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48DE, 2, ref value11);
+                    return;
+                case 56:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48E0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48E2, 2, ref value11);
+                    return;
+                case 57:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48E4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48E6, 2, ref value11);
+                    return;
+                case 58:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48E8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48EA, 2, ref value11);
+                    return;
+                case 59:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48EC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48EE, 2, ref value11);
+                    return;
+                case 60:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48F0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48F2, 2, ref value11);
+                    return;
+                case 61:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48F4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48F6, 2, ref value11);
+                    return;
+                case 62:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48F8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48FA, 2, ref value11);
+                    return;
+                case 63:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48FC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x48FE, 2, ref value11);
+                    return;
+                case 64:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4900, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4902, 2, ref value11);
+                    return;
+                case 65:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4904, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4906, 2, ref value11);
+                    return;
+                case 66:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4908, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x490A, 2, ref value11);
+                    return;
+                case 67:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x490C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x490E, 2, ref value11);
+                    return;
+                case 68:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4910, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4912, 2, ref value11);
+                    return;
+                case 69:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4914, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4916, 2, ref value11);
+                    return;
+                case 70:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4918, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x491A, 2, ref value11);
+                    return;
+                case 71:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x491C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x491E, 2, ref value11);
+                    return;
+                case 72:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4920, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4922, 2, ref value11);
+                    return;
+                case 73:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4924, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4926, 2, ref value11);
+                    return;
+                case 74:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4928, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x492A, 2, ref value11);
+                    return;
+                case 75:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x492C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x492E, 2, ref value11);
+                    return;
+                case 76:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4930, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4932, 2, ref value11);
+                    return;
+                case 77:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4934, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4936, 2, ref value11);
+                    return;
+                case 78:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4938, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x493A, 2, ref value11);
+                    return;
+                case 79:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x493C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x493E, 2, ref value11);
+                    return;
+                case 80:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4940, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4942, 2, ref value11);
+                    return;
+                case 81:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4944, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4946, 2, ref value11);
+                    return;
+                case 82:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4948, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x494A, 2, ref value11);
+                    return;
+                case 83:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x494C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x494E, 2, ref value11);
+                    return;
+                case 84:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4950, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4952, 2, ref value11);
+                    return;
+                case 85:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4954, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4956, 2, ref value11);
+                    return;
+                case 86:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4958, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x495A, 2, ref value11);
+                    return;
+                case 87:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x495C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x495E, 2, ref value11);
+                    return;
+                case 88:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4960, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4962, 2, ref value11);
+                    return;
+                case 89:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4964, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4966, 2, ref value11);
+                    return;
+                case 90:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4968, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x496A, 2, ref value11);
+                    return;
+                case 91:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x496C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x496E, 2, ref value11);
+                    return;
+                case 92:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4970, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4972, 2, ref value11);
+                    return;
+                case 93:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4974, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4976, 2, ref value11);
+                    return;
+                case 94:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4978, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x497A, 2, ref value11);
+                    return;
+                case 95:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x497C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x497E, 2, ref value11);
+                    return;
+                case 96:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4980, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4982, 2, ref value11);
+                    return;
+                case 97:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4984, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4986, 2, ref value11);
+                    return;
+                case 98:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4988, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x498A, 2, ref value11);
+                    return;
+                case 99:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x498C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x498E, 2, ref value11);
+                    return;
+                case 100:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4990, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4992, 2, ref value11);
+                    return;
+                case 101:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4994, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4996, 2, ref value11);
+                    return;
+                case 102:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4998, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x499A, 2, ref value11);
+                    return;
+                case 103:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x499C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x499E, 2, ref value11);
+                    return;
+                case 104:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49A0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49A2, 2, ref value11);
+                    return;
+                case 105:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49A4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49A6, 2, ref value11);
+                    return;
+                case 106:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49A8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49AA, 2, ref value11);
+                    return;
+                case 107:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49AC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49AE, 2, ref value11);
+                    return;
+                case 108:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49B0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49B2, 2, ref value11);
+                    return;
+                case 109:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49B4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49B6, 2, ref value11);
+                    return;
+                case 110:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49B8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49BA, 2, ref value11);
+                    return;
+                case 111:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49BC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49BE, 2, ref value11);
+                    return;
+                case 112:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49C0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49C2, 2, ref value11);
+                    return;
+                case 113:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49C4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49C6, 2, ref value11);
+                    return;
+                case 114:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49C8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49CA, 2, ref value11);
+                    return;
+                case 115:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49CC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49CE, 2, ref value11);
+                    return;
+                case 116:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49D0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49D2, 2, ref value11);
+                    return;
+                case 117:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49D4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49D6, 2, ref value11);
+                    return;
+                case 118:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49D8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49DA, 2, ref value11);
+                    return;
+                case 119:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49DC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49DE, 2, ref value11);
+                    return;
+                case 120:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49E0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49E2, 2, ref value11);
+                    return;
+                case 121:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49E4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49E6, 2, ref value11);
+                    return;
+                case 122:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49E8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49EA, 2, ref value11);
+                    return;
+                case 123:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49EC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49EE, 2, ref value11);
+                    return;
+                case 124:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49F0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49F2, 2, ref value11);
+                    return;
+                case 125:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49F4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49F6, 2, ref value11);
+                    return;
+                case 126:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49F8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49FA, 2, ref value11);
+                    return;
+                case 127:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49FC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x49FE, 2, ref value11);
+                    return;
+                case 128:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A00, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A02, 2, ref value11);
+                    return;
+                case 129:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A04, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A06, 2, ref value11);
+                    return;
+                case 130:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A08, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A0A, 2, ref value11);
+                    return;
+                case 131:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A0C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A0E, 2, ref value11);
+                    return;
+                case 132:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A10, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A12, 2, ref value11);
+                    return;
+                case 133:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A14, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A16, 2, ref value11);
+                    return;
+                case 134:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A18, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A1A, 2, ref value11);
+                    return;
+                case 135:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A1C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A1E, 2, ref value11);
+                    return;
+                case 136:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A20, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A22, 2, ref value11);
+                    return;
+                case 137:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A24, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A26, 2, ref value11);
+                    return;
+                case 138:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A28, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A2A, 2, ref value11);
+                    return;
+                case 139:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A2C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A2E, 2, ref value11);
+                    return;
+                case 140://
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A30, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A32, 2, ref value11);
+                    return;
+                case 141:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A34, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A36, 2, ref value11);
+                    return;
+                case 142:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A38, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A3A, 2, ref value11);
+                    return;
+                case 143:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A3C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A3E, 2, ref value11);
+                    return;
+                case 144:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A40, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A42, 2, ref value11);
+                    return;
+                case 145:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A44, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A46, 2, ref value11);
+                    return;
+                case 146:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A48, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A4A, 2, ref value11);
+                    return;
+                case 147:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A4C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A4E, 2, ref value11);
+                    return;
+                case 148:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A50, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A52, 2, ref value11);
+                    return;
+                case 149:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A54, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A56, 2, ref value11);
+                    return;
+                case 150:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A58, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A5A, 2, ref value11);
+                    return;
+                case 151:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A5C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A5E, 2, ref value11);
+                    return;
+                case 152:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A60, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A62, 2, ref value11);
+                    return;
+                case 153:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A64, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A66, 2, ref value11);
+                    return;
+                case 154:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A68, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A6A, 2, ref value11);
+                    return;
+                case 155:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A6C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A6E, 2, ref value11);
+                    return;
+                case 156:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A70, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A72, 2, ref value11);
+                    return;
+                case 157:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A74, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A76, 2, ref value11);
+                    return;
+                case 158:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A78, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A7A, 2, ref value11);
+                    return;
+                case 159:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A7C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A7E, 2, ref value11);
+                    return;
+                case 160:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A80, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A82, 2, ref value11);
+                    return;
+                case 161:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A84, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A86, 2, ref value11);
+                    return;
+                case 162:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A88, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A8A, 2, ref value11);
+                    return;
+                case 163:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A8C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A8E, 2, ref value11);
+                    return;
+                case 164:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A90, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A92, 2, ref value11);
+                    return;
+                case 165:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A94, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A96, 2, ref value11);
+                    return;
+                case 166:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A98, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A9A, 2, ref value11);
+                    return;
+                case 167:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A9C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4A9E, 2, ref value11);
+                    return;
+                case 168:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AA0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AA2, 2, ref value11);
+                    return;
+                case 169:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AA4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AA6, 2, ref value11);
+                    return;
+                case 170:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AA8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AAA, 2, ref value11);
+                    return;
+                case 171:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AAC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AAE, 2, ref value11);
+                    return;
+                case 172://
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AB0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AB2, 2, ref value11);
+                    return;
+                case 173:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AB4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AB6, 2, ref value11);
+                    return;
+                case 174:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AB8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4ABA, 2, ref value11);
+                    return;
+                case 175:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4ABC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4ABE, 2, ref value11);
+                    return;
+                case 176:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AC0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AC2, 2, ref value11);
+                    return;
+                case 177:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AC4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AC6, 2, ref value11);
+                    return;
+                case 178:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AC8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4ACA, 2, ref value11);
+                    return;
+                case 179:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4ACC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4ACE, 2, ref value11);
+                    return;
+                case 180:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AD0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AD2, 2, ref value11);
+                    return;
+                case 181:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AD4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AD6, 2, ref value11);
+                    return;
+                case 182:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AD8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4ADA, 2, ref value11);
+                    return;
+                case 183:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4ADC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4ADE, 2, ref value11);
+                    return;
+                case 184:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AE0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AE2, 2, ref value11);
+                    return;
+                case 185:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AE4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AE6, 2, ref value11);
+                    return;
+                case 186:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AE8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AEA, 2, ref value11);
+                    return;
+                case 187:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AEC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AEE, 2, ref value11);
+                    return;
+                case 188:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AF0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AF2, 2, ref value11);
+                    return;
+                case 189:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AF4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AF6, 2, ref value11);
+                    return;
+                case 190:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AF8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AFA, 2, ref value11);
+                    return;
+                case 191:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AFC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4AFE, 2, ref value11);
+                    return;
+                case 192:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B00, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B02, 2, ref value11);
+                    return;
+                case 193:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B04, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B06, 2, ref value11);
+                    return;
+                case 194:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B08, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B0A, 2, ref value11);
+                    return;
+                case 195:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B0C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B0E, 2, ref value11);
+                    return;
+                case 196:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B10, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B12, 2, ref value11);
+                    return;
+                case 197:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B14, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B16, 2, ref value11);
+                    return;
+                case 198:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B18, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B1A, 2, ref value11);
+                    return;
+                case 199:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B1C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B1E, 2, ref value11);
+                    return;
+                case 200:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B20, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B22, 2, ref value11);
+                    return;
+                case 201:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B24, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B26, 2, ref value11);
+                    return;
+                case 202:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B28, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B2A, 2, ref value11);
+                    return;
+                case 203:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B2C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B2E, 2, ref value11);
+                    return;
+                case 204:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B30, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B32, 2, ref value11);
+                    return;
+                case 205:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B34, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B36, 2, ref value11);
+                    return;
+                case 206:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B38, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B3A, 2, ref value11);
+                    return;
+                case 207:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B3C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B3E, 2, ref value11);
+                    return;
+                case 208:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B40, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B42, 2, ref value11);
+                    return;
+                case 209:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B44, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B46, 2, ref value11);
+                    return;
+                case 210:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B48, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B4A, 2, ref value11);
+                    return;
+                case 211:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B4C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B4E, 2, ref value11);
+                    return;
+                case 212:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B50, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B52, 2, ref value11);
+                    return;
+                case 213:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B54, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B56, 2, ref value11);
+                    return;
+                case 214:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B58, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B5A, 2, ref value11);
+                    return;
+                case 215:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B5C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B5E, 2, ref value11);
+                    return;
+                case 216:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B60, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B62, 2, ref value11);
+                    return;
+                case 217:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B64, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B66, 2, ref value11);
+                    return;
+                case 218:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B68, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B6A, 2, ref value11);
+                    return;
+                case 219:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B6C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B6E, 2, ref value11);
+                    return;
+                case 220:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B70, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B72, 2, ref value11);
+                    return;
+                case 221:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B74, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B76, 2, ref value11);
+                    return;
+                case 222:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B78, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B7A, 2, ref value11);
+                    return;
+                case 223:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B7C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B7E, 2, ref value11);
+                    return;
+                case 224:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B80, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B82, 2, ref value11);
+                    return;
+                case 225:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B84, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B86, 2, ref value11);
+                    return;
+                case 226:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B88, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B8A, 2, ref value11);
+                    return;
+                case 227:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B8C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B8E, 2, ref value11);
+                    return;
+                case 228:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B90, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B92, 2, ref value11);
+                    return;
+                case 229:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B94, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B96, 2, ref value11);
+                    return;
+                case 230:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B98, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B9A, 2, ref value11);
+                    return;
+                case 231:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B9C, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4B9E, 2, ref value11);
+                    return;
+                case 232:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BA0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BA2, 2, ref value11);
+                    return;
+                case 233:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BA4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BA6, 2, ref value11);
+                    return;
+                case 234:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BA8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BAA, 2, ref value11);
+                    return;
+                case 235:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BAC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BAE, 2, ref value11);
+                    return;
+                case 236:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BB0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BB2, 2, ref value11);
+                    return;
+                case 237:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BB4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BB6, 2, ref value11);
+                    return;
+                case 238:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BB8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BBA, 2, ref value11);
+                    return;
+                case 239:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BBC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BBE, 2, ref value11);
+                    return;
+                case 240:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BC0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BC2, 2, ref value11);
+                    return;
+                case 241:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BC4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BC6, 2, ref value11);
+                    return;
+                case 242:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BC8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BCA, 2, ref value11);
+                    return;
+                case 243:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BCC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BCE, 2, ref value11);
+                    return;
+                case 244:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BD0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BD2, 2, ref value11);
+                    return;
+                case 245:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BD4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BD6, 2, ref value11);
+                    return;
+                case 246:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BD8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BDA, 2, ref value11);
+                    return;
+                case 247:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BDC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BDE, 2, ref value11);
+                    return;
+                case 248:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BE0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BE2, 2, ref value11);
+                    return;
+                case 249:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BE4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BE6, 2, ref value11);
+                    return;
+                case 250:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BE8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BEA, 2, ref value11);
+                    return;
+                case 251:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BEC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BEE, 2, ref value11);
+                    return;
+                case 252:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BF0, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BF2, 2, ref value11);
+                    return;
+                case 253:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BF4, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BF6, 2, ref value11);
+                    return;
+                case 254:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BF8, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BFA, 2, ref value11);
+                    return;
+                case 255:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BFC, 2, ref value1);
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BFE, 2, ref value11);
+                    return;
+            }
+
+
             modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4800, 2, ref recValue1);
             Thread.Sleep(5);
             Debug.WriteLine(recValue1.Length.ToString());
             modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4802, 2, ref recValue2);
             Thread.Sleep(5);
             Debug.WriteLine(recValue1.Length.ToString());
+
             //modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4832, 50, ref recValue3);
             //Thread.Sleep(20);
             //Debug.WriteLine(recValue1.Length.ToString());
@@ -4411,7 +5686,7 @@ namespace MINASA6SF_Rev.ViewModels
             //0x4800 command
             parameter7_4byte11[0] = parameter7_4byte1[0];    //속도와 가속
             parameter7_4byte11[1] = parameter7_4byte1[1];    //커맨드 Code
-            parameter7_4byte11[2] = parameter7_4byte1[2];    //예약
+            parameter7_4byte11[2] = parameter7_4byte1[2];    //예약                   
             parameter7_4byte11[3] = parameter7_4byte1[3];    //감속, 방향, 천이 조건
             
             //0x4802 data
