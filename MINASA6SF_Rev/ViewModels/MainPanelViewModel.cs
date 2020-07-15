@@ -7751,7 +7751,6 @@ namespace MINASA6SF_Rev.ViewModels
             parameter7_4byte1_135[2] = parameter7_4byte135[2];    //예약                   
             parameter7_4byte1_135[3] = parameter7_4byte135[3];    //감속, 방향, 천이 조건
 
-
             //0x4802 data
             parameter7_4byte1_136[0] = parameter7_4byte136[2];
             parameter7_4byte1_136[1] = parameter7_4byte136[3];
@@ -8315,8 +8314,1718 @@ namespace MINASA6SF_Rev.ViewModels
             parameter7_4byte1_227[3] = parameter7_4byte227[1];
 
 
+            //0x4800 command
+            parameter7_4byte1_228[0] = parameter7_4byte228[0];    //속도와 가속
+            parameter7_4byte1_228[1] = parameter7_4byte228[1];    //커맨드 Code
+            parameter7_4byte1_228[2] = parameter7_4byte228[2];    //예약                   
+            parameter7_4byte1_228[3] = parameter7_4byte228[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_229[0] = parameter7_4byte229[2];
+            parameter7_4byte1_229[1] = parameter7_4byte229[3];
+            parameter7_4byte1_229[2] = parameter7_4byte229[0];
+            parameter7_4byte1_229[3] = parameter7_4byte229[1];
+
+            //0x4800 command
+            parameter7_4byte1_230[0] = parameter7_4byte230[0];    //속도와 가속
+            parameter7_4byte1_230[1] = parameter7_4byte230[1];    //커맨드 Code
+            parameter7_4byte1_230[2] = parameter7_4byte230[2];    //예약                   
+            parameter7_4byte1_230[3] = parameter7_4byte230[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_231[0] = parameter7_4byte231[2];
+            parameter7_4byte1_231[1] = parameter7_4byte231[3];
+            parameter7_4byte1_231[2] = parameter7_4byte231[0];
+            parameter7_4byte1_231[3] = parameter7_4byte231[1];
+
+            //0x4800 command
+            parameter7_4byte1_232[0] = parameter7_4byte232[0];    //속도와 가속
+            parameter7_4byte1_232[1] = parameter7_4byte232[1];    //커맨드 Code
+            parameter7_4byte1_232[2] = parameter7_4byte232[2];    //예약                   
+            parameter7_4byte1_232[3] = parameter7_4byte232[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_233[0] = parameter7_4byte233[2];
+            parameter7_4byte1_233[1] = parameter7_4byte233[3];
+            parameter7_4byte1_233[2] = parameter7_4byte233[0];
+            parameter7_4byte1_233[3] = parameter7_4byte233[1];
+
+            //0x4800 command
+            parameter7_4byte1_234[0] = parameter7_4byte234[0];    //속도와 가속
+            parameter7_4byte1_234[1] = parameter7_4byte234[1];    //커맨드 Code
+            parameter7_4byte1_234[2] = parameter7_4byte234[2];    //예약                   
+            parameter7_4byte1_234[3] = parameter7_4byte234[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_235[0] = parameter7_4byte235[2];
+            parameter7_4byte1_235[1] = parameter7_4byte235[3];
+            parameter7_4byte1_235[2] = parameter7_4byte235[0];
+            parameter7_4byte1_235[3] = parameter7_4byte235[1];
+
+            //0x4800 command
+            parameter7_4byte1_236[0] = parameter7_4byte236[0];    //속도와 가속
+            parameter7_4byte1_236[1] = parameter7_4byte236[1];    //커맨드 Code
+            parameter7_4byte1_236[2] = parameter7_4byte236[2];    //예약                   
+            parameter7_4byte1_236[3] = parameter7_4byte236[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_237[0] = parameter7_4byte237[2];
+            parameter7_4byte1_237[1] = parameter7_4byte237[3];
+            parameter7_4byte1_237[2] = parameter7_4byte237[0];
+            parameter7_4byte1_237[3] = parameter7_4byte237[1];
+
+            //0x4800 command
+            parameter7_4byte1_238[0] = parameter7_4byte238[0];    //속도와 가속
+            parameter7_4byte1_238[1] = parameter7_4byte238[1];    //커맨드 Code
+            parameter7_4byte1_238[2] = parameter7_4byte238[2];    //예약                   
+            parameter7_4byte1_238[3] = parameter7_4byte238[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_239[0] = parameter7_4byte239[2];
+            parameter7_4byte1_239[1] = parameter7_4byte239[3];
+            parameter7_4byte1_239[2] = parameter7_4byte239[0];
+            parameter7_4byte1_239[3] = parameter7_4byte239[1];
+
+            //0x4800 command
+            parameter7_4byte1_240[0] = parameter7_4byte240[0];    //속도와 가속
+            parameter7_4byte1_240[1] = parameter7_4byte240[1];    //커맨드 Code
+            parameter7_4byte1_240[2] = parameter7_4byte240[2];    //예약                   
+            parameter7_4byte1_240[3] = parameter7_4byte240[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_241[0] = parameter7_4byte241[2];
+            parameter7_4byte1_241[1] = parameter7_4byte241[3];
+            parameter7_4byte1_241[2] = parameter7_4byte241[0];
+            parameter7_4byte1_241[3] = parameter7_4byte241[1];
+
+            //0x4800 command
+            parameter7_4byte1_242[0] = parameter7_4byte242[0];    //속도와 가속
+            parameter7_4byte1_242[1] = parameter7_4byte242[1];    //커맨드 Code
+            parameter7_4byte1_242[2] = parameter7_4byte242[2];    //예약                   
+            parameter7_4byte1_242[3] = parameter7_4byte242[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_243[0] = parameter7_4byte243[2];
+            parameter7_4byte1_243[1] = parameter7_4byte243[3];
+            parameter7_4byte1_243[2] = parameter7_4byte243[0];
+            parameter7_4byte1_243[3] = parameter7_4byte243[1];
+
+            //0x4800 command
+            parameter7_4byte1_244[0] = parameter7_4byte244[0];    //속도와 가속
+            parameter7_4byte1_244[1] = parameter7_4byte244[1];    //커맨드 Code
+            parameter7_4byte1_244[2] = parameter7_4byte244[2];    //예약                   
+            parameter7_4byte1_244[3] = parameter7_4byte244[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_245[0] = parameter7_4byte245[2];
+            parameter7_4byte1_245[1] = parameter7_4byte245[3];
+            parameter7_4byte1_245[2] = parameter7_4byte245[0];
+            parameter7_4byte1_245[3] = parameter7_4byte245[1];
+
+            //0x4800 command
+            parameter7_4byte1_246[0] = parameter7_4byte246[0];    //속도와 가속
+            parameter7_4byte1_246[1] = parameter7_4byte246[1];    //커맨드 Code
+            parameter7_4byte1_246[2] = parameter7_4byte246[2];    //예약                   
+            parameter7_4byte1_246[3] = parameter7_4byte246[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_247[0] = parameter7_4byte247[2];
+            parameter7_4byte1_247[1] = parameter7_4byte247[3];
+            parameter7_4byte1_247[2] = parameter7_4byte247[0];
+            parameter7_4byte1_247[3] = parameter7_4byte247[1];
+
+            //0x4800 command
+            parameter7_4byte1_248[0] = parameter7_4byte248[0];    //속도와 가속
+            parameter7_4byte1_248[1] = parameter7_4byte248[1];    //커맨드 Code
+            parameter7_4byte1_248[2] = parameter7_4byte248[2];    //예약                   
+            parameter7_4byte1_248[3] = parameter7_4byte248[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_249[0] = parameter7_4byte249[2];
+            parameter7_4byte1_249[1] = parameter7_4byte249[3];
+            parameter7_4byte1_249[2] = parameter7_4byte249[0];
+            parameter7_4byte1_249[3] = parameter7_4byte249[1];
+
+            //0x4800 command
+            parameter7_4byte1_250[0] = parameter7_4byte250[0];    //속도와 가속
+            parameter7_4byte1_250[1] = parameter7_4byte250[1];    //커맨드 Code
+            parameter7_4byte1_250[2] = parameter7_4byte250[2];    //예약                   
+            parameter7_4byte1_250[3] = parameter7_4byte250[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_251[0] = parameter7_4byte251[2];
+            parameter7_4byte1_251[1] = parameter7_4byte251[3];
+            parameter7_4byte1_251[2] = parameter7_4byte251[0];
+            parameter7_4byte1_251[3] = parameter7_4byte251[1];
+
+            //0x4800 command
+            parameter7_4byte1_252[0] = parameter7_4byte252[0];    //속도와 가속
+            parameter7_4byte1_252[1] = parameter7_4byte252[1];    //커맨드 Code
+            parameter7_4byte1_252[2] = parameter7_4byte252[2];    //예약                   
+            parameter7_4byte1_252[3] = parameter7_4byte252[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_253[0] = parameter7_4byte253[2];
+            parameter7_4byte1_253[1] = parameter7_4byte253[3];
+            parameter7_4byte1_253[2] = parameter7_4byte253[0];
+            parameter7_4byte1_253[3] = parameter7_4byte253[1];
+
+            //0x4800 command
+            parameter7_4byte1_254[0] = parameter7_4byte254[0];    //속도와 가속
+            parameter7_4byte1_254[1] = parameter7_4byte254[1];    //커맨드 Code
+            parameter7_4byte1_254[2] = parameter7_4byte254[2];    //예약                   
+            parameter7_4byte1_254[3] = parameter7_4byte254[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_255[0] = parameter7_4byte255[2];
+            parameter7_4byte1_255[1] = parameter7_4byte255[3];
+            parameter7_4byte1_255[2] = parameter7_4byte255[0];
+            parameter7_4byte1_255[3] = parameter7_4byte255[1];
+
+            //0x4800 command
+            parameter7_4byte1_256[0] = parameter7_4byte256[0];    //속도와 가속
+            parameter7_4byte1_256[1] = parameter7_4byte256[1];    //커맨드 Code
+            parameter7_4byte1_256[2] = parameter7_4byte256[2];    //예약                   
+            parameter7_4byte1_256[3] = parameter7_4byte256[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_257[0] = parameter7_4byte257[2];
+            parameter7_4byte1_257[1] = parameter7_4byte257[3];
+            parameter7_4byte1_257[2] = parameter7_4byte257[0];
+            parameter7_4byte1_257[3] = parameter7_4byte257[1];
+
+            //0x4800 command
+            parameter7_4byte1_258[0] = parameter7_4byte258[0];    //속도와 가속
+            parameter7_4byte1_258[1] = parameter7_4byte258[1];    //커맨드 Code
+            parameter7_4byte1_258[2] = parameter7_4byte258[2];    //예약                   
+            parameter7_4byte1_258[3] = parameter7_4byte258[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_259[0] = parameter7_4byte259[2];
+            parameter7_4byte1_259[1] = parameter7_4byte259[3];
+            parameter7_4byte1_259[2] = parameter7_4byte259[0];
+            parameter7_4byte1_259[3] = parameter7_4byte259[1];
+
+            //0x4800 command
+            parameter7_4byte1_260[0] = parameter7_4byte260[0];    //속도와 가속
+            parameter7_4byte1_260[1] = parameter7_4byte260[1];    //커맨드 Code
+            parameter7_4byte1_260[2] = parameter7_4byte260[2];    //예약                   
+            parameter7_4byte1_260[3] = parameter7_4byte260[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_261[0] = parameter7_4byte261[2];
+            parameter7_4byte1_261[1] = parameter7_4byte261[3];
+            parameter7_4byte1_261[2] = parameter7_4byte261[0];
+            parameter7_4byte1_261[3] = parameter7_4byte261[1];
+
+            //0x4800 command
+            parameter7_4byte1_262[0] = parameter7_4byte262[0];    //속도와 가속
+            parameter7_4byte1_262[1] = parameter7_4byte262[1];    //커맨드 Code
+            parameter7_4byte1_262[2] = parameter7_4byte262[2];    //예약                   
+            parameter7_4byte1_262[3] = parameter7_4byte262[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_263[0] = parameter7_4byte263[2];
+            parameter7_4byte1_263[1] = parameter7_4byte263[3];
+            parameter7_4byte1_263[2] = parameter7_4byte263[0];
+            parameter7_4byte1_263[3] = parameter7_4byte263[1];
+
+            //0x4800 command
+            parameter7_4byte1_264[0] = parameter7_4byte264[0];    //속도와 가속
+            parameter7_4byte1_264[1] = parameter7_4byte264[1];    //커맨드 Code
+            parameter7_4byte1_264[2] = parameter7_4byte264[2];    //예약                   
+            parameter7_4byte1_264[3] = parameter7_4byte264[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_265[0] = parameter7_4byte265[2];
+            parameter7_4byte1_265[1] = parameter7_4byte265[3];
+            parameter7_4byte1_265[2] = parameter7_4byte265[0];
+            parameter7_4byte1_265[3] = parameter7_4byte265[1];
+
+            //0x4800 command
+            parameter7_4byte1_266[0] = parameter7_4byte266[0];    //속도와 가속
+            parameter7_4byte1_266[1] = parameter7_4byte266[1];    //커맨드 Code
+            parameter7_4byte1_266[2] = parameter7_4byte266[2];    //예약                   
+            parameter7_4byte1_266[3] = parameter7_4byte266[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_267[0] = parameter7_4byte267[2];
+            parameter7_4byte1_267[1] = parameter7_4byte267[3];
+            parameter7_4byte1_267[2] = parameter7_4byte267[0];
+            parameter7_4byte1_267[3] = parameter7_4byte267[1];
+
+            //0x4800 command
+            parameter7_4byte1_268[0] = parameter7_4byte268[0];    //속도와 가속
+            parameter7_4byte1_268[1] = parameter7_4byte268[1];    //커맨드 Code
+            parameter7_4byte1_268[2] = parameter7_4byte268[2];    //예약                   
+            parameter7_4byte1_268[3] = parameter7_4byte268[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_268[0] = parameter7_4byte269[2];
+            parameter7_4byte1_268[1] = parameter7_4byte269[3];
+            parameter7_4byte1_268[2] = parameter7_4byte269[0];
+            parameter7_4byte1_268[3] = parameter7_4byte269[1];
+
+            //0x4800 command
+            parameter7_4byte1_270[0] = parameter7_4byte270[0];    //속도와 가속
+            parameter7_4byte1_270[1] = parameter7_4byte270[1];    //커맨드 Code
+            parameter7_4byte1_270[2] = parameter7_4byte270[2];    //예약                   
+            parameter7_4byte1_270[3] = parameter7_4byte270[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_271[0] = parameter7_4byte271[2];
+            parameter7_4byte1_271[1] = parameter7_4byte271[3];
+            parameter7_4byte1_271[2] = parameter7_4byte271[0];
+            parameter7_4byte1_271[3] = parameter7_4byte271[1];
+
+            //0x4800 command
+            parameter7_4byte1_272[0] = parameter7_4byte272[0];    //속도와 가속
+            parameter7_4byte1_272[1] = parameter7_4byte272[1];    //커맨드 Code
+            parameter7_4byte1_272[2] = parameter7_4byte272[2];    //예약                   
+            parameter7_4byte1_272[3] = parameter7_4byte272[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_273[0] = parameter7_4byte273[2];
+            parameter7_4byte1_273[1] = parameter7_4byte273[3];
+            parameter7_4byte1_273[2] = parameter7_4byte273[0];
+            parameter7_4byte1_273[3] = parameter7_4byte273[1];
+
+            //0x4800 command
+            parameter7_4byte1_274[0] = parameter7_4byte274[0];    //속도와 가속
+            parameter7_4byte1_274[1] = parameter7_4byte274[1];    //커맨드 Code
+            parameter7_4byte1_274[2] = parameter7_4byte274[2];    //예약                   
+            parameter7_4byte1_274[3] = parameter7_4byte274[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_275[0] = parameter7_4byte275[2];
+            parameter7_4byte1_275[1] = parameter7_4byte275[3];
+            parameter7_4byte1_275[2] = parameter7_4byte275[0];
+            parameter7_4byte1_275[3] = parameter7_4byte275[1];
+
+            //0x4800 command
+            parameter7_4byte1_276[0] = parameter7_4byte276[0];    //속도와 가속
+            parameter7_4byte1_276[1] = parameter7_4byte276[1];    //커맨드 Code
+            parameter7_4byte1_276[2] = parameter7_4byte276[2];    //예약                   
+            parameter7_4byte1_276[3] = parameter7_4byte276[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_277[0] = parameter7_4byte277[2];
+            parameter7_4byte1_277[1] = parameter7_4byte277[3];
+            parameter7_4byte1_277[2] = parameter7_4byte277[0];
+            parameter7_4byte1_277[3] = parameter7_4byte277[1];
+
+            //0x4800 command
+            parameter7_4byte1_278[0] = parameter7_4byte278[0];    //속도와 가속
+            parameter7_4byte1_278[1] = parameter7_4byte278[1];    //커맨드 Code
+            parameter7_4byte1_278[2] = parameter7_4byte278[2];    //예약                   
+            parameter7_4byte1_278[3] = parameter7_4byte278[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_279[0] = parameter7_4byte279[2];
+            parameter7_4byte1_279[1] = parameter7_4byte279[3];
+            parameter7_4byte1_279[2] = parameter7_4byte279[0];
+            parameter7_4byte1_279[3] = parameter7_4byte279[1];
+
+            //0x4800 command
+            parameter7_4byte1_280[0] = parameter7_4byte280[0];    //속도와 가속
+            parameter7_4byte1_280[1] = parameter7_4byte280[1];    //커맨드 Code
+            parameter7_4byte1_280[2] = parameter7_4byte280[2];    //예약                   
+            parameter7_4byte1_280[3] = parameter7_4byte280[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_281[0] = parameter7_4byte281[2];
+            parameter7_4byte1_281[1] = parameter7_4byte281[3];
+            parameter7_4byte1_281[2] = parameter7_4byte281[0];
+            parameter7_4byte1_281[3] = parameter7_4byte281[1];
+
+            //0x4800 command
+            parameter7_4byte1_282[0] = parameter7_4byte282[0];    //속도와 가속
+            parameter7_4byte1_282[1] = parameter7_4byte282[1];    //커맨드 Code
+            parameter7_4byte1_282[2] = parameter7_4byte282[2];    //예약                   
+            parameter7_4byte1_282[3] = parameter7_4byte282[3];    //감속, 방향, 천이 조건
+
+            //0x4802 
+            parameter7_4byte1_283[0] = parameter7_4byte283[2];
+            parameter7_4byte1_283[1] = parameter7_4byte283[3];
+            parameter7_4byte1_283[2] = parameter7_4byte283[0];
+            parameter7_4byte1_283[3] = parameter7_4byte283[1];
+       
+
+            //0x4802 data
+            parameter7_4byte1_284[0] = parameter7_4byte284[2];
+            parameter7_4byte1_284[1] = parameter7_4byte284[3];
+            parameter7_4byte1_284[2] = parameter7_4byte284[0];
+            parameter7_4byte1_284[3] = parameter7_4byte284[1];
+
+            //0x4800 command
+            parameter7_4byte1_285[0] = parameter7_4byte285[0];    //속도와 가속
+            parameter7_4byte1_285[1] = parameter7_4byte285[1];    //커맨드 Code
+            parameter7_4byte1_285[2] = parameter7_4byte285[2];    //예약                   
+            parameter7_4byte1_285[3] = parameter7_4byte285[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_286[0] = parameter7_4byte286[2];
+            parameter7_4byte1_286[1] = parameter7_4byte286[3];
+            parameter7_4byte1_286[2] = parameter7_4byte286[0];
+            parameter7_4byte1_286[3] = parameter7_4byte286[1];
+
+            //0x4800 command
+            parameter7_4byte1_287[0] = parameter7_4byte287[0];    //속도와 가속
+            parameter7_4byte1_287[1] = parameter7_4byte287[1];    //커맨드 Code
+            parameter7_4byte1_287[2] = parameter7_4byte287[2];    //예약                   
+            parameter7_4byte1_287[3] = parameter7_4byte287[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_288[0] = parameter7_4byte288[2];
+            parameter7_4byte1_288[1] = parameter7_4byte288[3];
+            parameter7_4byte1_288[2] = parameter7_4byte288[0];
+            parameter7_4byte1_288[3] = parameter7_4byte288[1];
+
+            //0x4800 command
+            parameter7_4byte1_289[0] = parameter7_4byte289[0];    //속도와 가속
+            parameter7_4byte1_289[1] = parameter7_4byte289[1];    //커맨드 Code
+            parameter7_4byte1_289[2] = parameter7_4byte289[2];    //예약                   
+            parameter7_4byte1_289[3] = parameter7_4byte289[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_290[0] = parameter7_4byte290[2];
+            parameter7_4byte1_290[1] = parameter7_4byte290[3];
+            parameter7_4byte1_290[2] = parameter7_4byte290[0];
+            parameter7_4byte1_290[3] = parameter7_4byte290[1];
+
+            //0x4800 command
+            parameter7_4byte1_291[0] = parameter7_4byte291[0];    //속도와 가속
+            parameter7_4byte1_291[1] = parameter7_4byte291[1];    //커맨드 Code
+            parameter7_4byte1_291[2] = parameter7_4byte291[2];    //예약                   
+            parameter7_4byte1_291[3] = parameter7_4byte291[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_292[0] = parameter7_4byte292[2];
+            parameter7_4byte1_292[1] = parameter7_4byte292[3];
+            parameter7_4byte1_292[2] = parameter7_4byte292[0];
+            parameter7_4byte1_292[3] = parameter7_4byte292[1];
+
+            //0x4800 command
+            parameter7_4byte1_293[0] = parameter7_4byte293[0];    //속도와 가속
+            parameter7_4byte1_293[1] = parameter7_4byte293[1];    //커맨드 Code
+            parameter7_4byte1_293[2] = parameter7_4byte293[2];    //예약                   
+            parameter7_4byte1_293[3] = parameter7_4byte293[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_294[0] = parameter7_4byte294[2];
+            parameter7_4byte1_294[1] = parameter7_4byte294[3];
+            parameter7_4byte1_294[2] = parameter7_4byte294[0];
+            parameter7_4byte1_294[3] = parameter7_4byte294[1];
+
+            //0x4800 command
+            parameter7_4byte1_295[0] = parameter7_4byte295[0];    //속도와 가속
+            parameter7_4byte1_295[1] = parameter7_4byte295[1];    //커맨드 Code
+            parameter7_4byte1_295[2] = parameter7_4byte295[2];    //예약                   
+            parameter7_4byte1_295[3] = parameter7_4byte295[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_296[0] = parameter7_4byte296[2];
+            parameter7_4byte1_296[1] = parameter7_4byte296[3];
+            parameter7_4byte1_296[2] = parameter7_4byte296[0];
+            parameter7_4byte1_296[3] = parameter7_4byte296[1];
+
+            //0x4800 command
+            parameter7_4byte1_297[0] = parameter7_4byte297[0];    //속도와 가속
+            parameter7_4byte1_297[1] = parameter7_4byte297[1];    //커맨드 Code
+            parameter7_4byte1_297[2] = parameter7_4byte297[2];    //예약                   
+            parameter7_4byte1_297[3] = parameter7_4byte297[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_298[0] = parameter7_4byte298[2];
+            parameter7_4byte1_298[1] = parameter7_4byte298[3];
+            parameter7_4byte1_298[2] = parameter7_4byte298[0];
+            parameter7_4byte1_298[3] = parameter7_4byte298[1];
+
+            //0x4800 command
+            parameter7_4byte1_299[0] = parameter7_4byte299[0];    //속도와 가속
+            parameter7_4byte1_299[1] = parameter7_4byte299[1];    //커맨드 Code
+            parameter7_4byte1_299[2] = parameter7_4byte299[2];    //예약                   
+            parameter7_4byte1_299[3] = parameter7_4byte299[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_300[0] = parameter7_4byte300[2];
+            parameter7_4byte1_300[1] = parameter7_4byte300[3];
+            parameter7_4byte1_300[2] = parameter7_4byte300[0];
+            parameter7_4byte1_300[3] = parameter7_4byte300[1];
+
+            //0x4800 command
+            parameter7_4byte1_301[0] = parameter7_4byte301[0];    //속도와 가속
+            parameter7_4byte1_301[1] = parameter7_4byte301[1];    //커맨드 Code
+            parameter7_4byte1_301[2] = parameter7_4byte301[2];    //예약                   
+            parameter7_4byte1_301[3] = parameter7_4byte301[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_302[0] = parameter7_4byte302[2];
+            parameter7_4byte1_302[1] = parameter7_4byte302[3];
+            parameter7_4byte1_302[2] = parameter7_4byte302[0];
+            parameter7_4byte1_302[3] = parameter7_4byte302[1];
+
+            //0x4800 command
+            parameter7_4byte1_303[0] = parameter7_4byte303[0];    //속도와 가속
+            parameter7_4byte1_303[1] = parameter7_4byte303[1];    //커맨드 Code
+            parameter7_4byte1_303[2] = parameter7_4byte303[2];    //예약                   
+            parameter7_4byte1_303[3] = parameter7_4byte303[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_304[0] = parameter7_4byte304[2];
+            parameter7_4byte1_304[1] = parameter7_4byte304[3];
+            parameter7_4byte1_304[2] = parameter7_4byte304[0];
+            parameter7_4byte1_304[3] = parameter7_4byte304[1];
+
+            //0x4800 command
+            parameter7_4byte1_305[0] = parameter7_4byte305[0];    //속도와 가속
+            parameter7_4byte1_305[1] = parameter7_4byte305[1];    //커맨드 Code
+            parameter7_4byte1_305[2] = parameter7_4byte305[2];    //예약                   
+            parameter7_4byte1_305[3] = parameter7_4byte305[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_306[0] = parameter7_4byte306[2];
+            parameter7_4byte1_306[1] = parameter7_4byte306[3];
+            parameter7_4byte1_306[2] = parameter7_4byte306[0];
+            parameter7_4byte1_306[3] = parameter7_4byte306[1];
+
+            //0x4800 command
+            parameter7_4byte1_307[0] = parameter7_4byte307[0];    //속도와 가속
+            parameter7_4byte1_307[1] = parameter7_4byte307[1];    //커맨드 Code
+            parameter7_4byte1_307[2] = parameter7_4byte307[2];    //예약                   
+            parameter7_4byte1_307[3] = parameter7_4byte307[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_308[0] = parameter7_4byte308[2];
+            parameter7_4byte1_308[1] = parameter7_4byte308[3];
+            parameter7_4byte1_308[2] = parameter7_4byte308[0];
+            parameter7_4byte1_308[3] = parameter7_4byte308[1];
+
+            //0x4800 command
+            parameter7_4byte1_309[0] = parameter7_4byte309[0];    //속도와 가속
+            parameter7_4byte1_309[1] = parameter7_4byte309[1];    //커맨드 Code
+            parameter7_4byte1_309[2] = parameter7_4byte309[2];    //예약                   
+            parameter7_4byte1_309[3] = parameter7_4byte309[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_310[0] = parameter7_4byte310[2];
+            parameter7_4byte1_310[1] = parameter7_4byte310[3];
+            parameter7_4byte1_310[2] = parameter7_4byte310[0];
+            parameter7_4byte1_310[3] = parameter7_4byte310[1];
+
+            //0x4800 command
+            parameter7_4byte1_311[0] = parameter7_4byte311[0];    //속도와 가속
+            parameter7_4byte1_311[1] = parameter7_4byte311[1];    //커맨드 Code
+            parameter7_4byte1_311[2] = parameter7_4byte311[2];    //예약                   
+            parameter7_4byte1_311[3] = parameter7_4byte311[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_312[0] = parameter7_4byte312[2];
+            parameter7_4byte1_312[1] = parameter7_4byte312[3];
+            parameter7_4byte1_312[2] = parameter7_4byte312[0];
+            parameter7_4byte1_312[3] = parameter7_4byte312[1];
+            //0x4800 command
+            parameter7_4byte1_313[0] = parameter7_4byte313[0];    //속도와 가속
+            parameter7_4byte1_313[1] = parameter7_4byte313[1];    //커맨드 Code
+            parameter7_4byte1_313[2] = parameter7_4byte313[2];    //예약                   
+            parameter7_4byte1_313[3] = parameter7_4byte313[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_314[0] = parameter7_4byte314[2];
+            parameter7_4byte1_314[1] = parameter7_4byte314[3];
+            parameter7_4byte1_314[2] = parameter7_4byte314[0];
+            parameter7_4byte1_314[3] = parameter7_4byte314[1];
+
+            //0x4800 command
+            parameter7_4byte1_315[0] = parameter7_4byte315[0];    //속도와 가속
+            parameter7_4byte1_315[1] = parameter7_4byte315[1];    //커맨드 Code
+            parameter7_4byte1_315[2] = parameter7_4byte315[2];    //예약                   
+            parameter7_4byte1_315[3] = parameter7_4byte315[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_316[0] = parameter7_4byte316[2];
+            parameter7_4byte1_316[1] = parameter7_4byte316[3];
+            parameter7_4byte1_316[2] = parameter7_4byte316[0];
+            parameter7_4byte1_316[3] = parameter7_4byte316[1];
+
+            //0x4800 command
+            parameter7_4byte1_317[0] = parameter7_4byte317[0];    //속도와 가속
+            parameter7_4byte1_317[1] = parameter7_4byte317[1];    //커맨드 Code
+            parameter7_4byte1_317[2] = parameter7_4byte317[2];    //예약                   
+            parameter7_4byte1_317[3] = parameter7_4byte317[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_318[0] = parameter7_4byte318[2];
+            parameter7_4byte1_318[1] = parameter7_4byte318[3];
+            parameter7_4byte1_318[2] = parameter7_4byte318[0];
+            parameter7_4byte1_318[3] = parameter7_4byte318[1];
+
+            //0x4800 command
+            parameter7_4byte1_319[0] = parameter7_4byte319[0];    //속도와 가속
+            parameter7_4byte1_319[1] = parameter7_4byte319[1];    //커맨드 Code
+            parameter7_4byte1_319[2] = parameter7_4byte319[2];    //예약                   
+            parameter7_4byte1_319[3] = parameter7_4byte319[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_320[0] = parameter7_4byte320[2];
+            parameter7_4byte1_320[1] = parameter7_4byte320[3];
+            parameter7_4byte1_320[2] = parameter7_4byte320[0];
+            parameter7_4byte1_320[3] = parameter7_4byte320[1];
+
+            //0x4800 command
+            parameter7_4byte1_321[0] = parameter7_4byte321[0];    //속도와 가속
+            parameter7_4byte1_321[1] = parameter7_4byte321[1];    //커맨드 Code
+            parameter7_4byte1_321[2] = parameter7_4byte321[2];    //예약                   
+            parameter7_4byte1_321[3] = parameter7_4byte321[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_322[0] = parameter7_4byte322[2];
+            parameter7_4byte1_322[1] = parameter7_4byte322[3];
+            parameter7_4byte1_322[2] = parameter7_4byte322[0];
+            parameter7_4byte1_322[3] = parameter7_4byte322[1];
+
+            //0x4800 command
+            parameter7_4byte1_323[0] = parameter7_4byte323[0];    //속도와 가속
+            parameter7_4byte1_323[1] = parameter7_4byte323[1];    //커맨드 Code
+            parameter7_4byte1_323[2] = parameter7_4byte323[2];    //예약                   
+            parameter7_4byte1_323[3] = parameter7_4byte323[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_324[0] = parameter7_4byte324[2];
+            parameter7_4byte1_324[1] = parameter7_4byte324[3];
+            parameter7_4byte1_324[2] = parameter7_4byte324[0];
+            parameter7_4byte1_324[3] = parameter7_4byte324[1];
+
+            //0x4800 command
+            parameter7_4byte1_325[0] = parameter7_4byte325[0];    //속도와 가속
+            parameter7_4byte1_325[1] = parameter7_4byte325[1];    //커맨드 Code
+            parameter7_4byte1_325[2] = parameter7_4byte325[2];    //예약                   
+            parameter7_4byte1_325[3] = parameter7_4byte325[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_326[0] = parameter7_4byte326[2];
+            parameter7_4byte1_326[1] = parameter7_4byte326[3];
+            parameter7_4byte1_326[2] = parameter7_4byte326[0];
+            parameter7_4byte1_326[3] = parameter7_4byte326[1];
+
+            //0x4800 command
+            parameter7_4byte1_327[0] = parameter7_4byte327[0];    //속도와 가속
+            parameter7_4byte1_327[1] = parameter7_4byte327[1];    //커맨드 Code
+            parameter7_4byte1_327[2] = parameter7_4byte327[2];    //예약                   
+            parameter7_4byte1_327[3] = parameter7_4byte327[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_328[0] = parameter7_4byte328[2];
+            parameter7_4byte1_328[1] = parameter7_4byte328[3];
+            parameter7_4byte1_328[2] = parameter7_4byte328[0];
+            parameter7_4byte1_328[3] = parameter7_4byte328[1];
+
+            //0x4800 command
+            parameter7_4byte1_329[0] = parameter7_4byte329[0];    //속도와 가속
+            parameter7_4byte1_329[1] = parameter7_4byte329[1];    //커맨드 Code
+            parameter7_4byte1_329[2] = parameter7_4byte329[2];    //예약                   
+            parameter7_4byte1_329[3] = parameter7_4byte329[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_330[0] = parameter7_4byte330[2];
+            parameter7_4byte1_330[1] = parameter7_4byte330[3];
+            parameter7_4byte1_330[2] = parameter7_4byte330[0];
+            parameter7_4byte1_330[3] = parameter7_4byte330[1];
+
+            //0x4800 command
+            parameter7_4byte1_331[0] = parameter7_4byte331[0];    //속도와 가속
+            parameter7_4byte1_331[1] = parameter7_4byte331[1];    //커맨드 Code
+            parameter7_4byte1_331[2] = parameter7_4byte331[2];    //예약                   
+            parameter7_4byte1_331[3] = parameter7_4byte331[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_332[0] = parameter7_4byte332[2];
+            parameter7_4byte1_332[1] = parameter7_4byte332[3];
+            parameter7_4byte1_332[2] = parameter7_4byte332[0];
+            parameter7_4byte1_332[3] = parameter7_4byte332[1];
+
+            //0x4800 command
+            parameter7_4byte1_333[0] = parameter7_4byte333[0];    //속도와 가속
+            parameter7_4byte1_333[1] = parameter7_4byte333[1];    //커맨드 Code
+            parameter7_4byte1_333[2] = parameter7_4byte333[2];    //예약                   
+            parameter7_4byte1_333[3] = parameter7_4byte333[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_334[0] = parameter7_4byte334[2];
+            parameter7_4byte1_334[1] = parameter7_4byte334[3];
+            parameter7_4byte1_334[2] = parameter7_4byte334[0];
+            parameter7_4byte1_334[3] = parameter7_4byte334[1];
+
+            //0x4800 command
+            parameter7_4byte1_335[0] = parameter7_4byte335[0];    //속도와 가속
+            parameter7_4byte1_335[1] = parameter7_4byte335[1];    //커맨드 Code
+            parameter7_4byte1_335[2] = parameter7_4byte335[2];    //예약                   
+            parameter7_4byte1_335[3] = parameter7_4byte335[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_336[0] = parameter7_4byte336[2];
+            parameter7_4byte1_336[1] = parameter7_4byte336[3];
+            parameter7_4byte1_336[2] = parameter7_4byte336[0];
+            parameter7_4byte1_336[3] = parameter7_4byte336[1];
+
+            //0x4800 command
+            parameter7_4byte1_337[0] = parameter7_4byte337[0];    //속도와 가속
+            parameter7_4byte1_337[1] = parameter7_4byte337[1];    //커맨드 Code
+            parameter7_4byte1_337[2] = parameter7_4byte337[2];    //예약                   
+            parameter7_4byte1_337[3] = parameter7_4byte337[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_338[0] = parameter7_4byte338[2];
+            parameter7_4byte1_338[1] = parameter7_4byte338[3];
+            parameter7_4byte1_338[2] = parameter7_4byte338[0];
+            parameter7_4byte1_338[3] = parameter7_4byte338[1];
+
+            //0x4800 command
+            parameter7_4byte1_339[0] = parameter7_4byte339[0];    //속도와 가속
+            parameter7_4byte1_339[1] = parameter7_4byte339[1];    //커맨드 Code
+            parameter7_4byte1_339[2] = parameter7_4byte339[2];    //예약                   
+            parameter7_4byte1_339[3] = parameter7_4byte339[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_340[0] = parameter7_4byte340[2];
+            parameter7_4byte1_340[1] = parameter7_4byte340[3];
+            parameter7_4byte1_340[2] = parameter7_4byte340[0];
+            parameter7_4byte1_340[3] = parameter7_4byte340[1];
+
+            //0x4800 command
+            parameter7_4byte1_341[0] = parameter7_4byte341[0];    //속도와 가속
+            parameter7_4byte1_341[1] = parameter7_4byte341[1];    //커맨드 Code
+            parameter7_4byte1_341[2] = parameter7_4byte341[2];    //예약                   
+            parameter7_4byte1_341[3] = parameter7_4byte341[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_342[0] = parameter7_4byte342[2];
+            parameter7_4byte1_342[1] = parameter7_4byte342[3];
+            parameter7_4byte1_342[2] = parameter7_4byte342[0];
+            parameter7_4byte1_342[3] = parameter7_4byte342[1];
+
+            //0x4800 command
+            parameter7_4byte1_343[0] = parameter7_4byte343[0];    //속도와 가속
+            parameter7_4byte1_343[1] = parameter7_4byte343[1];    //커맨드 Code
+            parameter7_4byte1_343[2] = parameter7_4byte343[2];    //예약                   
+            parameter7_4byte1_343[3] = parameter7_4byte343[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_344[0] = parameter7_4byte344[2];
+            parameter7_4byte1_344[1] = parameter7_4byte344[3];
+            parameter7_4byte1_344[2] = parameter7_4byte344[0];
+            parameter7_4byte1_344[3] = parameter7_4byte344[1];
+
+            //0x4800 command
+            parameter7_4byte1_345[0] = parameter7_4byte345[0];    //속도와 가속
+            parameter7_4byte1_345[1] = parameter7_4byte345[1];    //커맨드 Code
+            parameter7_4byte1_345[2] = parameter7_4byte345[2];    //예약                   
+            parameter7_4byte1_345[3] = parameter7_4byte345[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_346[0] = parameter7_4byte346[2];
+            parameter7_4byte1_346[1] = parameter7_4byte346[3];
+            parameter7_4byte1_346[2] = parameter7_4byte346[0];
+            parameter7_4byte1_346[3] = parameter7_4byte346[1];
+
+            //0x4800 command
+            parameter7_4byte1_347[0] = parameter7_4byte347[0];    //속도와 가속
+            parameter7_4byte1_347[1] = parameter7_4byte347[1];    //커맨드 Code
+            parameter7_4byte1_347[2] = parameter7_4byte347[2];    //예약                   
+            parameter7_4byte1_347[3] = parameter7_4byte347[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_348[0] = parameter7_4byte348[2];
+            parameter7_4byte1_348[1] = parameter7_4byte348[3];
+            parameter7_4byte1_348[2] = parameter7_4byte348[0];
+            parameter7_4byte1_348[3] = parameter7_4byte348[1];
+
+            //0x4800 command
+            parameter7_4byte1_349[0] = parameter7_4byte349[0];    //속도와 가속
+            parameter7_4byte1_349[1] = parameter7_4byte349[1];    //커맨드 Code
+            parameter7_4byte1_349[2] = parameter7_4byte349[2];    //예약                   
+            parameter7_4byte1_349[3] = parameter7_4byte349[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_350[0] = parameter7_4byte350[2];
+            parameter7_4byte1_350[1] = parameter7_4byte350[3];
+            parameter7_4byte1_350[2] = parameter7_4byte350[0];
+            parameter7_4byte1_350[3] = parameter7_4byte350[1];
+
+            //0x4800 command
+            parameter7_4byte1_351[0] = parameter7_4byte351[0];    //속도와 가속
+            parameter7_4byte1_351[1] = parameter7_4byte351[1];    //커맨드 Code
+            parameter7_4byte1_351[2] = parameter7_4byte351[2];    //예약                   
+            parameter7_4byte1_351[3] = parameter7_4byte351[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_352[0] = parameter7_4byte352[2];
+            parameter7_4byte1_352[1] = parameter7_4byte352[3];
+            parameter7_4byte1_352[2] = parameter7_4byte352[0];
+            parameter7_4byte1_352[3] = parameter7_4byte352[1];
+
+            //0x4800 command
+            parameter7_4byte1_353[0] = parameter7_4byte353[0];    //속도와 가속
+            parameter7_4byte1_353[1] = parameter7_4byte353[1];    //커맨드 Code
+            parameter7_4byte1_353[2] = parameter7_4byte353[2];    //예약                   
+            parameter7_4byte1_353[3] = parameter7_4byte353[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_354[0] = parameter7_4byte354[2];
+            parameter7_4byte1_354[1] = parameter7_4byte354[3];
+            parameter7_4byte1_354[2] = parameter7_4byte354[0];
+            parameter7_4byte1_354[3] = parameter7_4byte354[1];
+
+            //0x4800 command
+            parameter7_4byte1_355[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_355[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_355[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_355[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_356[0] = parameter7_4byte356[2];
+            parameter7_4byte1_356[1] = parameter7_4byte356[3];
+            parameter7_4byte1_356[2] = parameter7_4byte356[0];
+            parameter7_4byte1_356[3] = parameter7_4byte356[1];
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //0x4800 command
+            parameter7_4byte1_357[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_357[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_357[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_357[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_358[0] = parameter7_4byte356[2];
+            parameter7_4byte1_358[1] = parameter7_4byte356[3];
+            parameter7_4byte1_358[2] = parameter7_4byte356[0];
+            parameter7_4byte1_358[3] = parameter7_4byte356[1];
+
+
+
+
+            //0x4800 command
+            parameter7_4byte1_359[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_359[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_359[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_359[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_360[0] = parameter7_4byte356[2];
+            parameter7_4byte1_360[1] = parameter7_4byte356[3];
+            parameter7_4byte1_360[2] = parameter7_4byte356[0];
+            parameter7_4byte1_360[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_361[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_361[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_361[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_361[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_362[0] = parameter7_4byte356[2];
+            parameter7_4byte1_362[1] = parameter7_4byte356[3];
+            parameter7_4byte1_362[2] = parameter7_4byte356[0];
+            parameter7_4byte1_362[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_363[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_363[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_363[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_363[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_364[0] = parameter7_4byte356[2];
+            parameter7_4byte1_364[1] = parameter7_4byte356[3];
+            parameter7_4byte1_364[2] = parameter7_4byte356[0];
+            parameter7_4byte1_364[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_365[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_365[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_365[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_365[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_366[0] = parameter7_4byte356[2];
+            parameter7_4byte1_366[1] = parameter7_4byte356[3];
+            parameter7_4byte1_366[2] = parameter7_4byte356[0];
+            parameter7_4byte1_366[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_367[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_367[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_367[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_367[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_368[0] = parameter7_4byte356[2];
+            parameter7_4byte1_368[1] = parameter7_4byte356[3];
+            parameter7_4byte1_368[2] = parameter7_4byte356[0];
+            parameter7_4byte1_368[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_369[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_369[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_369[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_369[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_370[0] = parameter7_4byte356[2];
+            parameter7_4byte1_370[1] = parameter7_4byte356[3];
+            parameter7_4byte1_370[2] = parameter7_4byte356[0];
+            parameter7_4byte1_370[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_371[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_371[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_371[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_371[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_372[0] = parameter7_4byte356[2];
+            parameter7_4byte1_372[1] = parameter7_4byte356[3];
+            parameter7_4byte1_372[2] = parameter7_4byte356[0];
+            parameter7_4byte1_372[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_373[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_373[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_373[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_373[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_374[0] = parameter7_4byte356[2];
+            parameter7_4byte1_374[1] = parameter7_4byte356[3];
+            parameter7_4byte1_374[2] = parameter7_4byte356[0];
+            parameter7_4byte1_374[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_375[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_375[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_375[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_375[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_376[0] = parameter7_4byte356[2];
+            parameter7_4byte1_376[1] = parameter7_4byte356[3];
+            parameter7_4byte1_376[2] = parameter7_4byte356[0];
+            parameter7_4byte1_376[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_377[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_377[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_377[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_377[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_378[0] = parameter7_4byte356[2];
+            parameter7_4byte1_378[1] = parameter7_4byte356[3];
+            parameter7_4byte1_378[2] = parameter7_4byte356[0];
+            parameter7_4byte1_378[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_379[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_379[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_379[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_379[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_380[0] = parameter7_4byte356[2];
+            parameter7_4byte1_380[1] = parameter7_4byte356[3];
+            parameter7_4byte1_380[2] = parameter7_4byte356[0];
+            parameter7_4byte1_380[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_381[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_381[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_381[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_381[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_382[0] = parameter7_4byte356[2];
+            parameter7_4byte1_382[1] = parameter7_4byte356[3];
+            parameter7_4byte1_382[2] = parameter7_4byte356[0];
+            parameter7_4byte1_382[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_383[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_383[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_383[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_383[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_384[0] = parameter7_4byte356[2];
+            parameter7_4byte1_384[1] = parameter7_4byte356[3];
+            parameter7_4byte1_384[2] = parameter7_4byte356[0];
+            parameter7_4byte1_384[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_385[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_385[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_385[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_385[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_386[0] = parameter7_4byte356[2];
+            parameter7_4byte1_386[1] = parameter7_4byte356[3];
+            parameter7_4byte1_386[2] = parameter7_4byte356[0];
+            parameter7_4byte1_386[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_387[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_387[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_387[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_387[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_388[0] = parameter7_4byte356[2];
+            parameter7_4byte1_388[1] = parameter7_4byte356[3];
+            parameter7_4byte1_388[2] = parameter7_4byte356[0];
+            parameter7_4byte1_388[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_389[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_389[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_389[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_389[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_390[0] = parameter7_4byte356[2];
+            parameter7_4byte1_390[1] = parameter7_4byte356[3];
+            parameter7_4byte1_390[2] = parameter7_4byte356[0];
+            parameter7_4byte1_390[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_391[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_391[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_391[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_391[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_392[0] = parameter7_4byte356[2];
+            parameter7_4byte1_392[1] = parameter7_4byte356[3];
+            parameter7_4byte1_392[2] = parameter7_4byte356[0];
+            parameter7_4byte1_392[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_393[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_393[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_393[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_393[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_394[0] = parameter7_4byte356[2];
+            parameter7_4byte1_394[1] = parameter7_4byte356[3];
+            parameter7_4byte1_394[2] = parameter7_4byte356[0];
+            parameter7_4byte1_394[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_395[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_395[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_395[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_395[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_396[0] = parameter7_4byte356[2];
+            parameter7_4byte1_396[1] = parameter7_4byte356[3];
+            parameter7_4byte1_396[2] = parameter7_4byte356[0];
+            parameter7_4byte1_396[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_397[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_397[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_397[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_397[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_398[0] = parameter7_4byte356[2];
+            parameter7_4byte1_398[1] = parameter7_4byte356[3];
+            parameter7_4byte1_398[2] = parameter7_4byte356[0];
+            parameter7_4byte1_398[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_399[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_399[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_399[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_399[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_400[0] = parameter7_4byte356[2];
+            parameter7_4byte1_400[1] = parameter7_4byte356[3];
+            parameter7_4byte1_400[2] = parameter7_4byte356[0];
+            parameter7_4byte1_400[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_401[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_401[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_401[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_401[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_402[0] = parameter7_4byte356[2];
+            parameter7_4byte1_402[1] = parameter7_4byte356[3];
+            parameter7_4byte1_402[2] = parameter7_4byte356[0];
+            parameter7_4byte1_402[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_403[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_403[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_403[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_403[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_404[0] = parameter7_4byte356[2];
+            parameter7_4byte1_404[1] = parameter7_4byte356[3];
+            parameter7_4byte1_404[2] = parameter7_4byte356[0];
+            parameter7_4byte1_404[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_405[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_405[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_405[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_405[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_406[0] = parameter7_4byte356[2];
+            parameter7_4byte1_406[1] = parameter7_4byte356[3];
+            parameter7_4byte1_406[2] = parameter7_4byte356[0];
+            parameter7_4byte1_406[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_407[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_407[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_407[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_407[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+
+            //0x4802 data
+            parameter7_4byte1_408[0] = parameter7_4byte356[2];
+            parameter7_4byte1_408[1] = parameter7_4byte356[3];
+            parameter7_4byte1_408[2] = parameter7_4byte356[0];
+            parameter7_4byte1_408[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_409[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_409[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_409[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_409[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_410[0] = parameter7_4byte356[2];
+            parameter7_4byte1_410[1] = parameter7_4byte356[3];
+            parameter7_4byte1_410[2] = parameter7_4byte356[0];
+            parameter7_4byte1_410[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_411[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_411[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_411[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_411[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_412[0] = parameter7_4byte356[2];
+            parameter7_4byte1_412[1] = parameter7_4byte356[3];
+            parameter7_4byte1_412[2] = parameter7_4byte356[0];
+            parameter7_4byte1_412[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_413[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_413[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_413[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_413[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_414[0] = parameter7_4byte356[2];
+            parameter7_4byte1_414[1] = parameter7_4byte356[3];
+            parameter7_4byte1_414[2] = parameter7_4byte356[0];
+            parameter7_4byte1_414[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_415[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_415[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_415[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_415[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_416[0] = parameter7_4byte356[2];
+            parameter7_4byte1_416[1] = parameter7_4byte356[3];
+            parameter7_4byte1_416[2] = parameter7_4byte356[0];
+            parameter7_4byte1_416[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_417[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_417[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_417[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_417[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_418[0] = parameter7_4byte356[2];
+            parameter7_4byte1_418[1] = parameter7_4byte356[3];
+            parameter7_4byte1_418[2] = parameter7_4byte356[0];
+            parameter7_4byte1_418[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_419[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_419[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_419[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_419[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_420[0] = parameter7_4byte356[2];
+            parameter7_4byte1_420[1] = parameter7_4byte356[3];
+            parameter7_4byte1_420[2] = parameter7_4byte356[0];
+            parameter7_4byte1_420[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_421[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_421[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_421[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_421[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_422[0] = parameter7_4byte356[2];
+            parameter7_4byte1_422[1] = parameter7_4byte356[3];
+            parameter7_4byte1_422[2] = parameter7_4byte356[0];
+            parameter7_4byte1_422[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_423[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_423[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_423[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_423[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_424[0] = parameter7_4byte356[2];
+            parameter7_4byte1_424[1] = parameter7_4byte356[3];
+            parameter7_4byte1_424[2] = parameter7_4byte356[0];
+            parameter7_4byte1_424[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_425[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_425[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_425[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_425[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_426[0] = parameter7_4byte356[2];
+            parameter7_4byte1_426[1] = parameter7_4byte356[3];
+            parameter7_4byte1_426[2] = parameter7_4byte356[0];
+            parameter7_4byte1_426[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_427[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_427[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_427[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_427[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_428[0] = parameter7_4byte356[2];
+            parameter7_4byte1_428[1] = parameter7_4byte356[3];
+            parameter7_4byte1_428[2] = parameter7_4byte356[0];
+            parameter7_4byte1_428[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_429[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_429[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_429[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_429[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+
+            //0x4802 data
+            parameter7_4byte1_430[0] = parameter7_4byte356[2];
+            parameter7_4byte1_430[1] = parameter7_4byte356[3];
+            parameter7_4byte1_430[2] = parameter7_4byte356[0];
+            parameter7_4byte1_430[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_431[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_431[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_431[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_431[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_432[0] = parameter7_4byte356[2];
+            parameter7_4byte1_432[1] = parameter7_4byte356[3];
+            parameter7_4byte1_432[2] = parameter7_4byte356[0];
+            parameter7_4byte1_432[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_433[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_433[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_433[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_433[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+
+            //0x4802 data
+            parameter7_4byte1_434[0] = parameter7_4byte356[2];
+            parameter7_4byte1_434[1] = parameter7_4byte356[3];
+            parameter7_4byte1_434[2] = parameter7_4byte356[0];
+            parameter7_4byte1_434[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_435[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_435[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_435[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_435[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+
+            //0x4802 data
+            parameter7_4byte1_436[0] = parameter7_4byte356[2];
+            parameter7_4byte1_436[1] = parameter7_4byte356[3];
+            parameter7_4byte1_436[2] = parameter7_4byte356[0];
+            parameter7_4byte1_436[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_437[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_437[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_437[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_437[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_438[0] = parameter7_4byte356[2];
+            parameter7_4byte1_438[1] = parameter7_4byte356[3];
+            parameter7_4byte1_438[2] = parameter7_4byte356[0];
+            parameter7_4byte1_438[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_439[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_439[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_439[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_439[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_440[0] = parameter7_4byte356[2];
+            parameter7_4byte1_440[1] = parameter7_4byte356[3];
+            parameter7_4byte1_440[2] = parameter7_4byte356[0];
+            parameter7_4byte1_440[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_441[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_441[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_441[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_441[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_442[0] = parameter7_4byte356[2];
+            parameter7_4byte1_442[1] = parameter7_4byte356[3];
+            parameter7_4byte1_442[2] = parameter7_4byte356[0];
+            parameter7_4byte1_442[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_443[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_443[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_443[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_443[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_444[0] = parameter7_4byte356[2];
+            parameter7_4byte1_444[1] = parameter7_4byte356[3];
+            parameter7_4byte1_444[2] = parameter7_4byte356[0];
+            parameter7_4byte1_444[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_445[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_445[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_445[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_445[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_446[0] = parameter7_4byte356[2];
+            parameter7_4byte1_446[1] = parameter7_4byte356[3];
+            parameter7_4byte1_446[2] = parameter7_4byte356[0];
+            parameter7_4byte1_446[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_447[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_447[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_447[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_447[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_448[0] = parameter7_4byte356[2];
+            parameter7_4byte1_448[1] = parameter7_4byte356[3];
+            parameter7_4byte1_448[2] = parameter7_4byte356[0];
+            parameter7_4byte1_448[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_449[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_449[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_449[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_449[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_450[0] = parameter7_4byte356[2];
+            parameter7_4byte1_450[1] = parameter7_4byte356[3];
+            parameter7_4byte1_450[2] = parameter7_4byte356[0];
+            parameter7_4byte1_450[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_451[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_451[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_451[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_451[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_452[0] = parameter7_4byte356[2];
+            parameter7_4byte1_452[1] = parameter7_4byte356[3];
+            parameter7_4byte1_452[2] = parameter7_4byte356[0];
+            parameter7_4byte1_452[3] = parameter7_4byte356[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_453[0] = parameter7_4byte355[0];    //속도와 가속
+            parameter7_4byte1_453[1] = parameter7_4byte355[1];    //커맨드 Code
+            parameter7_4byte1_453[2] = parameter7_4byte355[2];    //예약                   
+            parameter7_4byte1_453[3] = parameter7_4byte355[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_454[0] = parameter7_4byte356[2];
+            parameter7_4byte1_454[1] = parameter7_4byte356[3];
+            parameter7_4byte1_454[2] = parameter7_4byte356[0];
+            parameter7_4byte1_454[3] = parameter7_4byte356[1];
+
+
+
+
+
+
+
+
+
+
+
+            //0x4800 command
+            parameter7_4byte1_455[0] = parameter7_4byte455[0];    //속도와 가속
+            parameter7_4byte1_455[1] = parameter7_4byte455[1];    //커맨드 Code
+            parameter7_4byte1_455[2] = parameter7_4byte455[2];    //예약                   
+            parameter7_4byte1_455[3] = parameter7_4byte455[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_456[0] = parameter7_4byte456[2];
+            parameter7_4byte1_456[1] = parameter7_4byte456[3];
+            parameter7_4byte1_456[2] = parameter7_4byte456[0];
+            parameter7_4byte1_456[3] = parameter7_4byte456[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_457[0] = parameter7_4byte457[0];    //속도와 가속
+            parameter7_4byte1_457[1] = parameter7_4byte457[1];    //커맨드 Code
+            parameter7_4byte1_457[2] = parameter7_4byte457[2];    //예약                   
+            parameter7_4byte1_457[3] = parameter7_4byte457[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_458[0] = parameter7_4byte458[2];
+            parameter7_4byte1_458[1] = parameter7_4byte458[3];
+            parameter7_4byte1_458[2] = parameter7_4byte458[0];
+            parameter7_4byte1_458[3] = parameter7_4byte458[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_459[0] = parameter7_4byte459[0];    //속도와 가속
+            parameter7_4byte1_459[1] = parameter7_4byte459[1];    //커맨드 Code
+            parameter7_4byte1_459[2] = parameter7_4byte459[2];    //예약                   
+            parameter7_4byte1_459[3] = parameter7_4byte459[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_460[0] = parameter7_4byte460[2];
+            parameter7_4byte1_460[1] = parameter7_4byte460[3];
+            parameter7_4byte1_460[2] = parameter7_4byte460[0];
+            parameter7_4byte1_460[3] = parameter7_4byte460[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_461[0] = parameter7_4byte461[0];    //속도와 가속
+            parameter7_4byte1_461[1] = parameter7_4byte461[1];    //커맨드 Code
+            parameter7_4byte1_461[2] = parameter7_4byte461[2];    //예약                   
+            parameter7_4byte1_461[3] = parameter7_4byte461[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_462[0] = parameter7_4byte462[2];
+            parameter7_4byte1_462[1] = parameter7_4byte462[3];
+            parameter7_4byte1_462[2] = parameter7_4byte462[0];
+            parameter7_4byte1_462[3] = parameter7_4byte462[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_463[0] = parameter7_4byte463[0];    //속도와 가속
+            parameter7_4byte1_463[1] = parameter7_4byte463[1];    //커맨드 Code
+            parameter7_4byte1_463[2] = parameter7_4byte463[2];    //예약                   
+            parameter7_4byte1_463[3] = parameter7_4byte463[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_464[0] = parameter7_4byte464[2];
+            parameter7_4byte1_464[1] = parameter7_4byte464[3];
+            parameter7_4byte1_464[2] = parameter7_4byte464[0];
+            parameter7_4byte1_464[3] = parameter7_4byte464[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_465[0] = parameter7_4byte465[0];    //속도와 가속
+            parameter7_4byte1_465[1] = parameter7_4byte465[1];    //커맨드 Code
+            parameter7_4byte1_465[2] = parameter7_4byte465[2];    //예약                   
+            parameter7_4byte1_465[3] = parameter7_4byte465[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_466[0] = parameter7_4byte466[2];
+            parameter7_4byte1_466[1] = parameter7_4byte466[3];
+            parameter7_4byte1_466[2] = parameter7_4byte466[0];
+            parameter7_4byte1_466[3] = parameter7_4byte466[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_467[0] = parameter7_4byte467[0];    //속도와 가속
+            parameter7_4byte1_467[1] = parameter7_4byte467[1];    //커맨드 Code
+            parameter7_4byte1_467[2] = parameter7_4byte467[2];    //예약                   
+            parameter7_4byte1_467[3] = parameter7_4byte467[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_468[0] = parameter7_4byte468[2];
+            parameter7_4byte1_468[1] = parameter7_4byte468[3];
+            parameter7_4byte1_468[2] = parameter7_4byte468[0];
+            parameter7_4byte1_468[3] = parameter7_4byte468[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_469[0] = parameter7_4byte469[0];    //속도와 가속
+            parameter7_4byte1_469[1] = parameter7_4byte469[1];    //커맨드 Code
+            parameter7_4byte1_469[2] = parameter7_4byte469[2];    //예약                   
+            parameter7_4byte1_469[3] = parameter7_4byte469[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_470[0] = parameter7_4byte470[2];
+            parameter7_4byte1_470[1] = parameter7_4byte470[3];
+            parameter7_4byte1_470[2] = parameter7_4byte470[0];
+            parameter7_4byte1_470[3] = parameter7_4byte470[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_471[0] = parameter7_4byte471[0];    //속도와 가속
+            parameter7_4byte1_471[1] = parameter7_4byte471[1];    //커맨드 Code
+            parameter7_4byte1_471[2] = parameter7_4byte471[2];    //예약                   
+            parameter7_4byte1_471[3] = parameter7_4byte471[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_472[0] = parameter7_4byte472[2];
+            parameter7_4byte1_472[1] = parameter7_4byte472[3];
+            parameter7_4byte1_472[2] = parameter7_4byte472[0];
+            parameter7_4byte1_472[3] = parameter7_4byte472[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_473[0] = parameter7_4byte473[0];    //속도와 가속
+            parameter7_4byte1_473[1] = parameter7_4byte473[1];    //커맨드 Code
+            parameter7_4byte1_473[2] = parameter7_4byte473[2];    //예약                   
+            parameter7_4byte1_473[3] = parameter7_4byte473[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_474[0] = parameter7_4byte474[2];
+            parameter7_4byte1_474[1] = parameter7_4byte474[3];
+            parameter7_4byte1_474[2] = parameter7_4byte474[0];
+            parameter7_4byte1_474[3] = parameter7_4byte474[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_475[0] = parameter7_4byte475[0];    //속도와 가속
+            parameter7_4byte1_475[1] = parameter7_4byte475[1];    //커맨드 Code
+            parameter7_4byte1_475[2] = parameter7_4byte475[2];    //예약                   
+            parameter7_4byte1_475[3] = parameter7_4byte475[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_476[0] = parameter7_4byte476[2];
+            parameter7_4byte1_476[1] = parameter7_4byte476[3];
+            parameter7_4byte1_476[2] = parameter7_4byte476[0];
+            parameter7_4byte1_476[3] = parameter7_4byte476[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_477[0] = parameter7_4byte477[0];    //속도와 가속
+            parameter7_4byte1_477[1] = parameter7_4byte477[1];    //커맨드 Code
+            parameter7_4byte1_477[2] = parameter7_4byte477[2];    //예약                   
+            parameter7_4byte1_477[3] = parameter7_4byte477[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_478[0] = parameter7_4byte478[2];
+            parameter7_4byte1_478[1] = parameter7_4byte478[3];
+            parameter7_4byte1_478[2] = parameter7_4byte478[0];
+            parameter7_4byte1_478[3] = parameter7_4byte478[1];
+
+            //0x4800 command
+            parameter7_4byte1_479[0] = parameter7_4byte479[0];    //속도와 가속
+            parameter7_4byte1_479[1] = parameter7_4byte479[1];    //커맨드 Code
+            parameter7_4byte1_479[2] = parameter7_4byte479[2];    //예약                   
+            parameter7_4byte1_479[3] = parameter7_4byte479[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_480[0] = parameter7_4byte480[2];
+            parameter7_4byte1_480[1] = parameter7_4byte480[3];
+            parameter7_4byte1_480[2] = parameter7_4byte480[0];
+            parameter7_4byte1_480[3] = parameter7_4byte480[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_481[0] = parameter7_4byte481[0];    //속도와 가속
+            parameter7_4byte1_481[1] = parameter7_4byte481[1];    //커맨드 Code
+            parameter7_4byte1_481[2] = parameter7_4byte481[2];    //예약                   
+            parameter7_4byte1_481[3] = parameter7_4byte481[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_482[0] = parameter7_4byte482[2];
+            parameter7_4byte1_482[1] = parameter7_4byte482[3];
+            parameter7_4byte1_482[2] = parameter7_4byte482[0];
+            parameter7_4byte1_482[3] = parameter7_4byte482[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_483[0] = parameter7_4byte483[0];    //속도와 가속
+            parameter7_4byte1_483[1] = parameter7_4byte483[1];    //커맨드 Code
+            parameter7_4byte1_483[2] = parameter7_4byte483[2];    //예약                   
+            parameter7_4byte1_483[3] = parameter7_4byte483[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_484[0] = parameter7_4byte484[2];
+            parameter7_4byte1_484[1] = parameter7_4byte484[3];
+            parameter7_4byte1_484[2] = parameter7_4byte484[0];
+            parameter7_4byte1_484[3] = parameter7_4byte484[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_485[0] = parameter7_4byte485[0];    //속도와 가속
+            parameter7_4byte1_485[1] = parameter7_4byte485[1];    //커맨드 Code
+            parameter7_4byte1_485[2] = parameter7_4byte485[2];    //예약                   
+            parameter7_4byte1_485[3] = parameter7_4byte485[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_486[0] = parameter7_4byte486[2];
+            parameter7_4byte1_486[1] = parameter7_4byte486[3];
+            parameter7_4byte1_486[2] = parameter7_4byte486[0];
+            parameter7_4byte1_486[3] = parameter7_4byte486[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_487[0] = parameter7_4byte487[0];    //속도와 가속
+            parameter7_4byte1_487[1] = parameter7_4byte487[1];    //커맨드 Code
+            parameter7_4byte1_487[2] = parameter7_4byte487[2];    //예약                   
+            parameter7_4byte1_487[3] = parameter7_4byte487[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_488[0] = parameter7_4byte488[2];
+            parameter7_4byte1_488[1] = parameter7_4byte488[3];
+            parameter7_4byte1_488[2] = parameter7_4byte488[0];
+            parameter7_4byte1_488[3] = parameter7_4byte488[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_489[0] = parameter7_4byte489[0];    //속도와 가속
+            parameter7_4byte1_489[1] = parameter7_4byte489[1];    //커맨드 Code
+            parameter7_4byte1_489[2] = parameter7_4byte489[2];    //예약                   
+            parameter7_4byte1_489[3] = parameter7_4byte489[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_490[0] = parameter7_4byte490[2];
+            parameter7_4byte1_490[1] = parameter7_4byte490[3];
+            parameter7_4byte1_490[2] = parameter7_4byte490[0];
+            parameter7_4byte1_490[3] = parameter7_4byte490[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_491[0] = parameter7_4byte491[0];    //속도와 가속
+            parameter7_4byte1_491[1] = parameter7_4byte491[1];    //커맨드 Code
+            parameter7_4byte1_491[2] = parameter7_4byte491[2];    //예약                   
+            parameter7_4byte1_491[3] = parameter7_4byte491[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_492[0] = parameter7_4byte492[2];
+            parameter7_4byte1_492[1] = parameter7_4byte492[3];
+            parameter7_4byte1_492[2] = parameter7_4byte492[0];
+            parameter7_4byte1_492[3] = parameter7_4byte492[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_493[0] = parameter7_4byte493[0];    //속도와 가속
+            parameter7_4byte1_493[1] = parameter7_4byte493[1];    //커맨드 Code
+            parameter7_4byte1_493[2] = parameter7_4byte493[2];    //예약                   
+            parameter7_4byte1_493[3] = parameter7_4byte493[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_494[0] = parameter7_4byte494[2];
+            parameter7_4byte1_494[1] = parameter7_4byte494[3];
+            parameter7_4byte1_494[2] = parameter7_4byte494[0];
+            parameter7_4byte1_494[3] = parameter7_4byte494[1];
+
+
+            //0x4800 command
+            parameter7_4byte1_495[0] = parameter7_4byte495[0];    //속도와 가속
+            parameter7_4byte1_495[1] = parameter7_4byte495[1];    //커맨드 Code
+            parameter7_4byte1_495[2] = parameter7_4byte495[2];    //예약                   
+            parameter7_4byte1_495[3] = parameter7_4byte495[3];    //감속, 방향, 천이 조건
+
+            //0x4802 data
+            parameter7_4byte1_496[0] = parameter7_4byte496[2];
+            parameter7_4byte1_496[1] = parameter7_4byte496[3];
+            parameter7_4byte1_496[2] = parameter7_4byte496[0];
+            parameter7_4byte1_496[3] = parameter7_4byte496[1];
 
 
 
