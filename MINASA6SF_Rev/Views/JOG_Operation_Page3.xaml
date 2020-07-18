@@ -88,7 +88,7 @@
 
         <x:Array Type="sys:String" x:Key="Jogdirection">
             <sys:String>0:정방향</sys:String>
-            <sys:String>0:부방향</sys:String>
+            <sys:String>1:부방향</sys:String>
         </x:Array>
         
         <x:Array Type="sys:String" x:Key="conditionSelect">

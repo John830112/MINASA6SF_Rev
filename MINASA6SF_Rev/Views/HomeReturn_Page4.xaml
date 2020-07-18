@@ -31,11 +31,11 @@
         <x:Array Type="sys:String" x:Key="HomeMethod">
             <sys:String>1:HOME + Z상</sys:String>
             <sys:String>2:HOME</sys:String>
-            <sys:String>3:제조사 사용E</sys:String>
+            <sys:String>3:제조사 사용</sys:String>
         </x:Array>
         <x:Array Type="sys:String" x:Key="Jogdirection">
             <sys:String>0:정방향</sys:String>
-            <sys:String>0:부방향</sys:String>
+            <sys:String>1:부방향</sys:String>
         </x:Array>
         
         <x:Array Type="sys:String" x:Key="conditionSelect">
