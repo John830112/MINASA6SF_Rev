@@ -3291,6 +3291,7 @@ namespace MINASA6SF_Rev.ViewModels
             return true;
         }
 
+        #region BlockSettingDialog 기능별 셋팅 송신 완료
         private void ExecuteConfirm(object parameter)
         {
             if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.IncPosition_Page1"))
@@ -19178,6 +19179,7 @@ namespace MINASA6SF_Rev.ViewModels
         {
             return true;
         }
+        #endregion
 
         private void ExecuteCancel(object parameter)
         {
