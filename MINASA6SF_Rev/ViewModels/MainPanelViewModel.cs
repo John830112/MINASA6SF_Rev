@@ -105,7 +105,7 @@ namespace MINASA6SF_Rev.ViewModels
         HomeReturn_Page4 homeReturn_Page4 = new HomeReturn_Page4();
         DecStop_Page5 decStop_Page5 = new DecStop_Page5();
         SpeedUpdate_Page6 speedUpdate_Page6 = new SpeedUpdate_Page6();
-        DecrementCount_Page7 cecrementCount_Page7 = new DecrementCount_Page7();
+        DecrementCount_Page7 decrementCount_Page7 = new DecrementCount_Page7();
         OutPutSignal_Page8 outPutSignal_Page8 = new OutPutSignal_Page8();
         Jump_Page9 jump_Page9 = new Jump_Page9();
         ConditionDiv_Page10 conditionDiv_Page10 = new ConditionDiv_Page10();
@@ -773,7 +773,59 @@ namespace MINASA6SF_Rev.ViewModels
             get { return targetposition; }
             set { SetProperty(ref targetposition, value); }
         }
-     
+
+        UInt16 jumpBlockNum = 0;
+        public UInt16 JumpBlockNum
+        {
+            get { return jumpBlockNum; }
+            set { SetProperty(ref jumpBlockNum, value); }
+        }
+
+        
+
+
+
+
+
+        string bctl1;
+        public string BCTL1
+        {
+            get { return bctl1; }
+            set { SetProperty(ref bctl1, value); }
+        }
+        string bctl2;
+        public string BCTL2
+        {
+            get { return bctl2; }
+            set { SetProperty(ref bctl2, value); }
+        }
+        string bctl3;
+        public string BCTL3
+        {
+            get { return bctl3; }
+            set { SetProperty(ref bctl3, value); }
+        }
+        string bctl4;
+        public string BCTL4
+        {
+            get { return bctl4; }
+            set { SetProperty(ref bctl4, value); }
+        }
+        string bctl5;
+        public string BCTL5
+        { 
+            get { return bctl5; }
+            set { SetProperty(ref bctl5, value); }
+        }
+        string bctl6;
+        public string BCTL6
+        {
+            get { return bctl6; }
+            set { SetProperty(ref bctl6, value); }
+        }
+
+
+
         ushort hiki3;
         ushort hiki4;
         ushort hiki5;
@@ -2060,6 +2112,11 @@ namespace MINASA6SF_Rev.ViewModels
             //BlockParaDialog Page Datacontext 설정
             incPosition_Page1.DataContext = this;
             abs_Position_Page2.DataContext = this;
+            decrementCount_Page7.DataContext = this;
+            jump_Page9.DataContext = this;
+            conditionDiv_Page10.DataContext = this;
+            conditionDiv_Page11.DataContext = this;
+            conditionDiv_Page12.DataContext = this;
 
             //ControlPanel 버튼 커맨드
             this.servoOn = new commandModel(ExecuteServoOn, CanexecuteServoOn);
@@ -2164,7 +2221,7 @@ namespace MINASA6SF_Rev.ViewModels
                     blockSettingDialog.BlockActionParaWindow.Navigate(speedUpdate_Page6);
                     break;
                 case 6:
-                    blockSettingDialog.BlockActionParaWindow.Navigate(cecrementCount_Page7);
+                    blockSettingDialog.BlockActionParaWindow.Navigate(decrementCount_Page7);
                     break;
                 case 7:
                     blockSettingDialog.BlockActionParaWindow.Navigate(outPutSignal_Page8);
@@ -4544,12 +4601,16 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData ="상대위치결정" + ", 속도번호:V" + SpdNum.ToString() + ", 가속설정번호:A" + AccNum.ToString() + ", 감속설정번호:D" + Decnum.ToString() +
-                ", 천이조건:"+BlockChif.ToString() + " , 상대이동량: "+TargetPosition.ToString();  //값 반영됨 확인
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData ="상대위치결정" + 
+                    ", 속도번호:V" + SpdNum.ToString() + 
+                    ", 가속설정번호:A" + AccNum.ToString() + 
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:"+BlockChif.ToString() + 
+                    " , 상대이동량: "+TargetPosition.ToString(); 
 
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  //BlockParaModel  BlockNumber
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); //BlockParaModel  BlockData
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());        //BlockParameter Number
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());      
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.Abs_Position_Page2"))
@@ -5860,12 +5921,16 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "절대위치결정" + ", 속도번호:V" + SpdNum.ToString() + ", 가속설정번호:A" + AccNum.ToString() + ", 감속설정번호:D" + Decnum.ToString() +
-                ", 천이조건:" + BlockChif.ToString() + " , 상대이동량: " + TargetPosition.ToString();  //값 반영됨 확인
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "절대위치결정" + 
+                    ", 속도번호:V" + SpdNum.ToString() + 
+                    ", 가속설정번호:A" + AccNum.ToString() + 
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() + 
+                    " , 상대이동량: " + TargetPosition.ToString();  
 
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  //BlockParaModel  BlockNumber
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); //BlockParaModel  BlockData
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             //BlockParameter Number
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.JOG_Operation_Page3"))
@@ -7176,18 +7241,21 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "JOG" + ", 속도번호:V" + SpdNum.ToString() + ", 가속설정번호:A" + AccNum.ToString() + ", 감속설정번호:D" + Decnum.ToString() +
-                ", 천이조건:" + BlockChif.ToString();  //값 반영됨 확인
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  //BlockParaModel  BlockNumber
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); //BlockParaModel  BlockData
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             //BlockParameter Number
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "JOG" + 
+                    ", 속도번호:V" + SpdNum.ToString() + 
+                    ", 가속설정번호:A" + AccNum.ToString() + 
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString(); 
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString()); 
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString());
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                            
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.HomeReturn_Page4"))
             {
-                SpdNum = (ushort)(homeReturn_Page4.HomeMothod4.SelectedIndex + 1);            //검출방법
-                Movidr = (ushort)homeReturn_Page4.HomeDirectNumCombo4.SelectedIndex;    //원점복귀 방향
-                BlockChif = (ushort)homeReturn_Page4.SuccNumCombo4.SelectedIndex;       //블록천이조건
+                SpdNum = (ushort)(homeReturn_Page4.HomeMothod4.SelectedIndex + 1);      
+                Movidr = (ushort)homeReturn_Page4.HomeDirectNumCombo4.SelectedIndex;    
+                BlockChif = (ushort)homeReturn_Page4.SuccNumCombo4.SelectedIndex;       
 
                 hiki3 = 0;
                 hiki4 = (byte)(Movidr << 2);
@@ -8491,73 +8559,69 @@ namespace MINASA6SF_Rev.ViewModels
 
                 if (SpdNum == 1)
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:정방향" + ", 천이 조건:" + BlockChif.ToString();  
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString();  
 
                     if (Movidr == 0)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:정방향" + ", 천이 조건:" + BlockChif.ToString(); 
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
                     }
                     else if (Movidr == 1)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:부방향" + ", 천이 조건:" + BlockChif.ToString();
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:부방향" + ", 천이조건:" + BlockChif.ToString();
                     }
                 }
                 else if(SpdNum==2)
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME" + ", 복귀 방향:정방향" + ", 천이 조건:" + BlockChif.ToString();  
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString();  
 
                     if (Movidr == 0)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME" + ", 복귀 방향:정방향" + ", 천이 조건:" + BlockChif.ToString(); 
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
                     }
                     else if (Movidr == 1)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME" + ", 복귀 방향:부방향" + ", 천이 조건:" + BlockChif.ToString();
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME" + ", 복귀 방향:부방향" + ", 천이조건:" + BlockChif.ToString();
                     }
                 }
                 else if (SpdNum == 3)
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:정방향" + ", 천이 조건:" + BlockChif.ToString(); 
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
 
                     if (Movidr == 0)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:정방향" + ", 천이 조건:" + BlockChif.ToString(); 
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
                     }
                     else if (Movidr == 1)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:부방향" + ", 천이 조건:" + BlockChif.ToString();
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:부방향" + ", 천이조건:" + BlockChif.ToString();
                     }
                 }
 
-
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  //BlockParaModel  BlockNumber
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); //BlockParaModel  BlockData
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             //BlockParameter Number
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString()); 
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString());
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                            
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.DecStop_Page5"))
             {
-                SpdNum = (ushort)abs_Position_Page2.SpeedNumCombo2.SelectedIndex;
-                AccNum = (ushort)abs_Position_Page2.AccNumCombo2.SelectedIndex;
-                Decnum = (ushort)abs_Position_Page2.DecNumCombo2.SelectedIndex;
-                Movidr = 0;
-                BlockChif = (ushort)abs_Position_Page2.SuccNumCombo2.SelectedIndex;
+                SpdNum = (ushort)decStop_Page5.StopMothodCombo5.SelectedIndex;
+                BlockChif = (ushort)decStop_Page5.SuccNumCombo5.SelectedIndex;
 
-                hiki3 = (byte)(Decnum << 4);
-                hiki4 = (byte)(Movidr << 2);
+                hiki3 = 0;
+                hiki4 = 0;
                 hiki5 = (byte)(BlockChif);
                 hiki1 = (byte)(SpdNum << 4);
-                hiki2 = AccNum;
+                hiki2 = 0;
 
                 value1[0] = (byte)(hiki3 + hiki4 + hiki5);
                 value1[1] = 0;
-                value1[2] = (byte)cmdcode02h;
+                value1[2] = (byte)cmdcode05h;
                 value1[3] = (byte)(hiki1 + hiki2);
 
-                value11[0] = (byte)(TargetPosition >> 8);
-                value11[1] = (byte)(TargetPosition);
-                value11[2] = (byte)(TargetPosition >> 24);
-                value11[3] = (byte)(TargetPosition >> 16);
+                value11[0] = 0;
+                value11[1] = 0;
+                value11[2] = 0;
+                value11[3] = 0;
 
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
@@ -9843,36 +9907,40 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "절대 위치 결정" + ", 속도 번호:V" + SpdNum.ToString() + ", 가속 설정 번호:A" + AccNum.ToString() + ", 감속 설정 번호:D" + Decnum.ToString() +
-                ", 천이 조건:" + BlockChif.ToString() + " , 상대 이동량: " + TargetPosition.ToString();  //값 반영됨 확인
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  //BlockParaModel  BlockNumber
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); //BlockParaModel  BlockData
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             //BlockParameter Number
+                if(SpdNum==0)
+                {
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "감속정지" + ", 정지방법:감속정지" + ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "감속정지" + ", 정지방법:즉시정지" + ", 천이조건:" + BlockChif.ToString();
+                }
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.SpeedUpdate_Page6"))
             {
-                SpdNum = (ushort)abs_Position_Page2.SpeedNumCombo2.SelectedIndex;
-                AccNum = (ushort)abs_Position_Page2.AccNumCombo2.SelectedIndex;
-                Decnum = (ushort)abs_Position_Page2.DecNumCombo2.SelectedIndex;
-                Movidr = 0;
-                BlockChif = (ushort)abs_Position_Page2.SuccNumCombo2.SelectedIndex;
+                SpdNum = (ushort)speedUpdate_Page6.SpeedNumCombo6.SelectedIndex;
+                Movidr = (ushort)speedUpdate_Page6.JogDirectNumCombo6.SelectedIndex;
+                BlockChif = (ushort)speedUpdate_Page6.SuccNumCombo6.SelectedIndex;
 
-                hiki3 = (byte)(Decnum << 4);
+                hiki3 = 0;
                 hiki4 = (byte)(Movidr << 2);
                 hiki5 = (byte)(BlockChif);
                 hiki1 = (byte)(SpdNum << 4);
-                hiki2 = AccNum;
+                hiki2 = 0;
 
                 value1[0] = (byte)(hiki3 + hiki4 + hiki5);
                 value1[1] = 0;
-                value1[2] = (byte)cmdcode02h;
+                value1[2] = (byte)cmdcode06h;
                 value1[3] = (byte)(hiki1 + hiki2);
 
-                value11[0] = (byte)(TargetPosition >> 8);
-                value11[1] = (byte)(TargetPosition);
-                value11[2] = (byte)(TargetPosition >> 24);
-                value11[3] = (byte)(TargetPosition >> 16);
+                value11[0] = 0;
+                value11[1] = 0;
+                value11[2] = 0;
+                value11[3] = 0;
 
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
@@ -11158,30 +11226,39 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "절대 위치 결정" + ", 속도 번호:V" + SpdNum.ToString() + ", 가속 설정 번호:A" + AccNum.ToString() + ", 감속 설정 번호:D" + Decnum.ToString() +
-                ", 천이 조건:" + BlockChif.ToString() + " , 상대 이동량: " + TargetPosition.ToString();  //값 반영됨 확인
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  //BlockParaModel  BlockNumber
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); //BlockParaModel  BlockData
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             //BlockParameter Number
+                if (Movidr == 0)
+                {
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "속도갱신" + ", 속도번호:V" + 
+                        SpdNum.ToString() + ", JOG 방향:정방향" + ", 천이조건:" + BlockChif.ToString();    
+                }
+                else
+                {
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "속도갱신" + ", 속도번호:V" + 
+                        SpdNum.ToString() + ", JOG 방향:부방향" + ", 천이조건:" + BlockChif.ToString();
+                }
+
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.DecrementCount_Page7"))
             {
-                SpdNum = (ushort)abs_Position_Page2.SpeedNumCombo2.SelectedIndex;
-                AccNum = (ushort)abs_Position_Page2.AccNumCombo2.SelectedIndex;
-                Decnum = (ushort)abs_Position_Page2.DecNumCombo2.SelectedIndex;
+                SpdNum = 0;
+                AccNum = 0;
+                Decnum = 0;
                 Movidr = 0;
-                BlockChif = (ushort)abs_Position_Page2.SuccNumCombo2.SelectedIndex;
+                BlockChif = (ushort)decrementCount_Page7.SuccNumCombo7.SelectedIndex;
 
-                hiki3 = (byte)(Decnum << 4);
-                hiki4 = (byte)(Movidr << 2);
+                hiki3 = 0;
+                hiki4 = 0;
                 hiki5 = (byte)(BlockChif);
-                hiki1 = (byte)(SpdNum << 4);
-                hiki2 = AccNum;
+                hiki1 = 0;
+                hiki2 = 0;
 
                 value1[0] = (byte)(hiki3 + hiki4 + hiki5);
                 value1[1] = 0;
-                value1[2] = (byte)cmdcode02h;
+                value1[2] = (byte)cmdcode07h;
                 value1[3] = (byte)(hiki1 + hiki2);
 
                 value11[0] = (byte)(TargetPosition >> 8);
@@ -12473,36 +12550,52 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "절대 위치 결정" + ", 속도 번호:V" + SpdNum.ToString() + ", 가속 설정 번호:A" + AccNum.ToString() + ", 감속 설정 번호:D" + Decnum.ToString() +
-                ", 천이 조건:" + BlockChif.ToString() + " , 상대 이동량: " + TargetPosition.ToString();  //값 반영됨 확인
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  //BlockParaModel  BlockNumber
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); //BlockParaModel  BlockData
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             //BlockParameter Number
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "디크리멘트 카운트 기동" + ", 천이조건:" + BlockChif.ToString() + " , 카운트 설정값: " + TargetPosition.ToString();  
+
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.OutPutSignal_Page8"))
             {
-                SpdNum = (ushort)abs_Position_Page2.SpeedNumCombo2.SelectedIndex;
-                AccNum = (ushort)abs_Position_Page2.AccNumCombo2.SelectedIndex;
-                Decnum = (ushort)abs_Position_Page2.DecNumCombo2.SelectedIndex;
+                BCTL1 = outPutSignal_Page8.B_CTRL1Combo8.SelectedValue.ToString().Substring(0, 1);
+                BCTL2 = outPutSignal_Page8.B_CTRL2Combo8.SelectedValue.ToString().Substring(0, 1);
+                BCTL3 = outPutSignal_Page8.B_CTRL3Combo8.SelectedValue.ToString().Substring(0, 1);
+                BCTL4 = outPutSignal_Page8.B_CTRL4Combo8.SelectedValue.ToString().Substring(0, 1);
+                BCTL5 = outPutSignal_Page8.B_CTRL5Combo8.SelectedValue.ToString().Substring(0, 1);
+                BCTL6 = outPutSignal_Page8.B_CTRL6Combo8.SelectedValue.ToString().Substring(0, 1);
+
                 Movidr = 0;
-                BlockChif = (ushort)abs_Position_Page2.SuccNumCombo2.SelectedIndex;
+                BlockChif = (ushort)outPutSignal_Page8.SuccNumCombo8.SelectedIndex;
 
-                hiki3 = (byte)(Decnum << 4);
-                hiki4 = (byte)(Movidr << 2);
-                hiki5 = (byte)(BlockChif);
-                hiki1 = (byte)(SpdNum << 4);
-                hiki2 = AccNum;
 
-                value1[0] = (byte)(hiki3 + hiki4 + hiki5);
+                ushort hiki1temp1 = (byte)(Convert.ToUInt16(BCTL1)<<2);
+                ushort hiki1temp2 = (byte)(Convert.ToUInt16(BCTL2));
+                ushort hiki1temp3 = (byte)(Convert.ToUInt16(BCTL3)<<2);
+                ushort hiki1temp4 = (byte)(Convert.ToUInt16(BCTL4));
+                ushort hiki1temp5 = (byte)(Convert.ToUInt16(BCTL5)<<2);
+                ushort hiki1temp6 = (byte)(Convert.ToUInt16(BCTL6));
+
+
+                hiki3 = (ushort)(hiki1temp5 + hiki1temp6);
+                hiki4 = 0;
+                hiki5 = (ushort)(BlockChif);
+                hiki1 = (ushort)(hiki1temp1 + hiki1temp2);
+                hiki2 = (ushort)(hiki1temp3 + hiki1temp4);
+
+                byte hiki1tem = (byte)(hiki1 << 4);
+                byte hiki3tem = (byte)(hiki3 << 4);
+
+                value1[0] = (byte)(hiki3tem + hiki4 + hiki5);
                 value1[1] = 0;
-                value1[2] = (byte)cmdcode02h;
-                value1[3] = (byte)(hiki1 + hiki2);
-
-                value11[0] = (byte)(TargetPosition >> 8);
-                value11[1] = (byte)(TargetPosition);
-                value11[2] = (byte)(TargetPosition >> 24);
-                value11[3] = (byte)(TargetPosition >> 16);
+                value1[2] = (byte)cmdcode08h;
+                value1[3] = (byte)(hiki1tem + hiki2);
+                
+                value11[0] = 0;
+                value11[1] = 0;
+                value11[2] = 0;
+                value11[3] = 0;
 
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
@@ -13788,36 +13881,44 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "절대 위치 결정" + ", 속도 번호:V" + SpdNum.ToString() + ", 가속 설정 번호:A" + AccNum.ToString() + ", 감속 설정 번호:D" + Decnum.ToString() +
-                ", 천이 조건:" + BlockChif.ToString() + " , 상대 이동량: " + TargetPosition.ToString();  //값 반영됨 확인
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  //BlockParaModel  BlockNumber
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); //BlockParaModel  BlockData
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             //BlockParameter Number
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "출력신호조작" + 
+                    ", B-CTRL1" + outPutSignal_Page8.B_CTRL1Combo8.SelectedValue.ToString().Substring(1) +
+                    ", B-CTRL2" + outPutSignal_Page8.B_CTRL2Combo8.SelectedValue.ToString().Substring(1) +
+                    ", B-CTRL3" + outPutSignal_Page8.B_CTRL3Combo8.SelectedValue.ToString().Substring(1) +
+                    ", B-CTRL4" + outPutSignal_Page8.B_CTRL4Combo8.SelectedValue.ToString().Substring(1) +
+                    ", B-CTRL5" + outPutSignal_Page8.B_CTRL5Combo8.SelectedValue.ToString().Substring(1) +
+                    ", B-CTRL6" + outPutSignal_Page8.B_CTRL6Combo8.SelectedValue.ToString().Substring(1) +
+                    " ,천이조건:" + BlockChif.ToString();
+
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString());
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
+
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.Jump_Page9"))
             {
-                SpdNum = (ushort)abs_Position_Page2.SpeedNumCombo2.SelectedIndex;
-                AccNum = (ushort)abs_Position_Page2.AccNumCombo2.SelectedIndex;
-                Decnum = (ushort)abs_Position_Page2.DecNumCombo2.SelectedIndex;
+                SpdNum = 0;
+                AccNum = 0;
+                Decnum = 0;
                 Movidr = 0;
-                BlockChif = (ushort)abs_Position_Page2.SuccNumCombo2.SelectedIndex;
+                BlockChif = (ushort)jump_Page9.SuccNumCombo9.SelectedIndex;
 
-                hiki3 = (byte)(Decnum << 4);
-                hiki4 = (byte)(Movidr << 2);
-                hiki5 = (byte)(BlockChif);
-                hiki1 = (byte)(SpdNum << 4);
-                hiki2 = AccNum;
+                hiki3 = (byte)((JumpBlockNum & 0b0000_0000_0011_1100));       
+                hiki4 = (byte)((JumpBlockNum & 0b0000_0000_0000_0011));       
+                hiki5 = (ushort)(BlockChif);
+                hiki1 = 0;
+                hiki2 = (ushort)((JumpBlockNum & 0b0000_0011_1100_0000));       
 
-                value1[0] = (byte)(hiki3 + hiki4 + hiki5);
+                value1[0] = (byte)((hiki3<<2) + (hiki4<<2) + hiki5);
                 value1[1] = 0;
-                value1[2] = (byte)cmdcode02h;
-                value1[3] = (byte)(hiki1 + hiki2);
+                value1[2] = (byte)cmdcode09h;
+                value1[3] = (byte)(hiki1 + (hiki2 >> 6));
 
-                value11[0] = (byte)(TargetPosition >> 8);
-                value11[1] = (byte)(TargetPosition);
-                value11[2] = (byte)(TargetPosition >> 24);
-                value11[3] = (byte)(TargetPosition >> 16);
+                value11[0] = 0;
+                value11[1] = 0;
+                value11[2] = 0;
+                value11[3] = 0;
 
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
@@ -15103,31 +15204,32 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "절대 위치 결정" + ", 속도 번호:V" + SpdNum.ToString() + ", 가속 설정 번호:A" + AccNum.ToString() + ", 감속 설정 번호:D" + Decnum.ToString() +
-                ", 천이 조건:" + BlockChif.ToString() + " , 상대 이동량: " + TargetPosition.ToString();  //값 반영됨 확인
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  //BlockParaModel  BlockNumber
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); //BlockParaModel  BlockData
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             //BlockParameter Number
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "점프" + "" +
+                    ", 블록번호:" + JumpBlockNum.ToString() + ", 천이조건:" + BlockChif.ToString();
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.ConditionDiv_Page10"))
             {
-                SpdNum = (ushort)abs_Position_Page2.SpeedNumCombo2.SelectedIndex;
-                AccNum = (ushort)abs_Position_Page2.AccNumCombo2.SelectedIndex;
-                Decnum = (ushort)abs_Position_Page2.DecNumCombo2.SelectedIndex;
+                SpdNum = (ushort)conditionDiv_Page10.CompaNumCombo10.SelectedIndex;
+                AccNum = 0;
+                Decnum = 0;
                 Movidr = 0;
-                BlockChif = (ushort)abs_Position_Page2.SuccNumCombo2.SelectedIndex;
+                BlockChif = (ushort)conditionDiv_Page10.SuccNumCombo10.SelectedIndex;
 
-                hiki3 = (byte)(Decnum << 4);
-                hiki4 = (byte)(Movidr << 2);
+
+                hiki3 = (byte)((JumpBlockNum & 0b0000_0000_0011_1100));
+                hiki4 = (byte)((JumpBlockNum & 0b0000_0000_0000_0011));
                 hiki5 = (byte)(BlockChif);
-                hiki1 = (byte)(SpdNum << 4);
-                hiki2 = AccNum;
+                hiki1 = (byte)(SpdNum);
+                hiki2 = (ushort)((JumpBlockNum & 0b0000_0011_1100_0000));
 
-                value1[0] = (byte)(hiki3 + hiki4 + hiki5);
+                value1[0] = (byte)((hiki3 << 2) + (hiki4 << 2) + hiki5);
                 value1[1] = 0;
-                value1[2] = (byte)cmdcode02h;
-                value1[3] = (byte)(hiki1 + hiki2);
+                value1[2] = (byte)cmdcode0Ah;
+                value1[3] = (byte)((hiki1 <<4) + (hiki2 >> 6));
 
                 value11[0] = (byte)(TargetPosition >> 8);
                 value11[1] = (byte)(TargetPosition);
@@ -16418,31 +16520,35 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "절대 위치 결정" + ", 속도 번호:V" + SpdNum.ToString() + ", 가속 설정 번호:A" + AccNum.ToString() + ", 감속 설정 번호:D" + Decnum.ToString() +
-                ", 천이 조건:" + BlockChif.ToString() + " , 상대 이동량: " + TargetPosition.ToString();  //값 반영됨 확인
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  //BlockParaModel  BlockNumber
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); //BlockParaModel  BlockData
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             //BlockParameter Number
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "조건분기(=)" + 
+                    ", 비교대상:" + conditionDiv_Page10.CompaNumCombo10.SelectedValue.ToString().Substring(2) + 
+                    ", 블록번호:" + JumpBlockNum.ToString() + 
+                    ", 천이조건:" + BlockChif.ToString() + 
+                    " , 비교값(역치):" + TargetPosition.ToString();  
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.ConditionDiv_Page11"))
             {
-                SpdNum = (ushort)abs_Position_Page2.SpeedNumCombo2.SelectedIndex;
-                AccNum = (ushort)abs_Position_Page2.AccNumCombo2.SelectedIndex;
-                Decnum = (ushort)abs_Position_Page2.DecNumCombo2.SelectedIndex;
+                SpdNum = (ushort)conditionDiv_Page11.CompaNumCombo11.SelectedIndex;
+                AccNum = 0;
+                Decnum = 0;
                 Movidr = 0;
-                BlockChif = (ushort)abs_Position_Page2.SuccNumCombo2.SelectedIndex;
+                BlockChif = (ushort)conditionDiv_Page11.SuccNumCombo11.SelectedIndex;
 
-                hiki3 = (byte)(Decnum << 4);
-                hiki4 = (byte)(Movidr << 2);
+
+                hiki3 = (byte)((JumpBlockNum & 0b0000_0000_0011_1100));
+                hiki4 = (byte)((JumpBlockNum & 0b0000_0000_0000_0011));
                 hiki5 = (byte)(BlockChif);
-                hiki1 = (byte)(SpdNum << 4);
-                hiki2 = AccNum;
+                hiki1 = (byte)(SpdNum);
+                hiki2 = (ushort)((JumpBlockNum & 0b0000_0011_1100_0000));
 
-                value1[0] = (byte)(hiki3 + hiki4 + hiki5);
+                value1[0] = (byte)((hiki3 << 2) + (hiki4 << 2) + hiki5);
                 value1[1] = 0;
-                value1[2] = (byte)cmdcode02h;
-                value1[3] = (byte)(hiki1 + hiki2);
+                value1[2] = (byte)cmdcode0Bh;
+                value1[3] = (byte)((hiki1 << 4) + (hiki2 >> 6));
 
                 value11[0] = (byte)(TargetPosition >> 8);
                 value11[1] = (byte)(TargetPosition);
@@ -17733,31 +17839,36 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "절대 위치 결정" + ", 속도 번호:V" + SpdNum.ToString() + ", 가속 설정 번호:A" + AccNum.ToString() + ", 감속 설정 번호:D" + Decnum.ToString() +
-                ", 천이 조건:" + BlockChif.ToString() + " , 상대 이동량: " + TargetPosition.ToString();  //값 반영됨 확인
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  //BlockParaModel  BlockNumber
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); //BlockParaModel  BlockData
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             //BlockParameter Number
+                  ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "조건분기(>)" +
+                    ", 비교대상:" + conditionDiv_Page11.CompaNumCombo11.SelectedValue.ToString().Substring(2) +
+                    ", 블록번호:" + JumpBlockNum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    " , 비교값(역치):" + TargetPosition.ToString();
+
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.ConditionDiv_Page12"))
             {
-                SpdNum = (ushort)abs_Position_Page2.SpeedNumCombo2.SelectedIndex;
-                AccNum = (ushort)abs_Position_Page2.AccNumCombo2.SelectedIndex;
-                Decnum = (ushort)abs_Position_Page2.DecNumCombo2.SelectedIndex;
+                SpdNum = (ushort)conditionDiv_Page12.CompaNumCombo12.SelectedIndex;
+                AccNum = 0;
+                Decnum = 0;
                 Movidr = 0;
-                BlockChif = (ushort)abs_Position_Page2.SuccNumCombo2.SelectedIndex;
+                BlockChif = (ushort)conditionDiv_Page12.SuccNumCombo12.SelectedIndex;
 
-                hiki3 = (byte)(Decnum << 4);
-                hiki4 = (byte)(Movidr << 2);
+
+                hiki3 = (byte)((JumpBlockNum & 0b0000_0000_0011_1100));
+                hiki4 = (byte)((JumpBlockNum & 0b0000_0000_0000_0011));
                 hiki5 = (byte)(BlockChif);
-                hiki1 = (byte)(SpdNum << 4);
-                hiki2 = AccNum;
+                hiki1 = (byte)(SpdNum);
+                hiki2 = (ushort)((JumpBlockNum & 0b0000_0011_1100_0000));
 
-                value1[0] = (byte)(hiki3 + hiki4 + hiki5);
+                value1[0] = (byte)((hiki3 << 2) + (hiki4 << 2) + hiki5);
                 value1[1] = 0;
-                value1[2] = (byte)cmdcode02h;
-                value1[3] = (byte)(hiki1 + hiki2);
+                value1[2] = (byte)cmdcode0Ch;
+                value1[3] = (byte)((hiki1 << 4) + (hiki2 >> 6));
 
                 value11[0] = (byte)(TargetPosition >> 8);
                 value11[1] = (byte)(TargetPosition);
@@ -19048,15 +19159,18 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "절대 위치 결정" + ", 속도 번호:V" + SpdNum.ToString() + ", 가속 설정 번호:A" + AccNum.ToString() + ", 감속 설정 번호:D" + Decnum.ToString() +
-                ", 천이 조건:" + BlockChif.ToString() + " , 상대 이동량: " + TargetPosition.ToString();  //값 반영됨 확인
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  //BlockParaModel  BlockNumber
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); //BlockParaModel  BlockData
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             //BlockParameter Number
+                 ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "조건분기(<)" +
+                    ", 비교대상:" + conditionDiv_Page12.CompaNumCombo12.SelectedValue.ToString().Substring(2) +
+                    ", 블록번호:" + JumpBlockNum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    " , 비교값(역치):" + TargetPosition.ToString();
+
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
 
-            Debug.WriteLine(incPosition_Page1.SpeedNumCombo1.SelectedIndex.ToString());
             Debug.WriteLine("블럭 셋팅 창 확인 테스트");
         }
 
@@ -23296,29 +23410,29 @@ namespace MINASA6SF_Rev.ViewModels
             parameter7_4byte1_512[3] = parameter7_4byte512[1];
             #endregion
 
-            int cmdCode = Convert.ToInt32(parameter7_4byte1_1[1]);  //커맨드 Code 
+            int cmdCode = Convert.ToInt32(parameter7_4byte1_1[1]);                                 //커맨드 Code 
 
-            if(Convert.ToInt32(parameter7_4byte1_1[1]) == 1)            //상대위치 결정
+            if(Convert.ToInt32(parameter7_4byte1_1[1]) == 1)                                       //상대위치 결정
             {
-                spdnum =         (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);   // 속도 번호  hiki1
-                accnum =         (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111);  //가속 번호  hiki2
-                //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);   //예약
-                decnum =         (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);   //감속 번호  hiki3
+                spdnum =         (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);           //속도번호  hiki1
+                accnum =         (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); //가속번호  hiki2
+                //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                        //예약
+                decnum =         (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           //감속번호  hiki3
                 movdir =         (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                blockchif =      (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_0011);  //천이 조건  hiki5
-                targetposition = BitConverter.ToInt32(parameter7_4byte1_2, 0);   //블록 데이터 구성
+                blockchif =      (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_0011);//천이조건  hiki5
+                targetposition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                    //블록데이터 구성
             }
-            else if(Convert.ToInt32(parameter7_4byte1_1[1]) == 2)       //절대위치 결정
+            else if(Convert.ToInt32(parameter7_4byte1_1[1]) == 2)                                 //절대위치 결정
             {
-                spdNum1 =         (Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);   // 속도 번호  hiki1
-                accNum1 =         (Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);  //가속 번호  hiki2
-                //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);   //예약
-                decNum1 =         (Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);   //감속 번호  hiki3
-                movdir1 =        ((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                blockchif1 =      (Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);  //천이 조건  hiki5
-                dataConfig1 = BitConverter.ToInt32(parameter7_4byte1_2, 0);   //블록 데이터 구성
+                spdNum1 =         (Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                accNum1 =         (Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호  hiki2
+                //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                       //예약
+                decNum1 =         (Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호  hiki3
+                movdir1 =        ((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2); //방향  hiki4
+                blockchif1 =      (Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+                dataConfig1 = BitConverter.ToInt32(parameter7_4byte1_2, 0);                       //블록데이터 구성
             }
-            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 3)      //JOG운전
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 3)                                //JOG운전
             {
                 spdNum2 =         (Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호 hiki1
                 accNum2 =         (Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호 hiki2
@@ -23326,30 +23440,30 @@ namespace MINASA6SF_Rev.ViewModels
                 movdir2 =        ((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2); //방향     hiki4
                 blockchif2 =      (Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
             }
-            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 4)      //원점 복귀
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 4)                                //원점복귀
             {
                 detectMethod =    (Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //검출방법 hiki1
                 movdir3 =        ((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2); //방향     hiki4
                 blockchif3 =      (Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
 
             }
-            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 5)       //감속 정지
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 5)                                //감속정지
             {
                 stopMethod =      (Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //정지방법 hiki1
                 blockchif4 =      (Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
             }
-            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 6)       //속도 갱신
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 6)                                 //속도갱신
             {
                 speedNum =        (Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
                 movdir5 =        ((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2); //동작방향  hiki4
                 blockchif5 =      (Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
             }
-            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 7)       //디크리멘트 카운트 기동
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 7)                                 //디크리멘트 카운트 기동
             {
                 blockchif6 =      (Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
                 dataConfig6 = BitConverter.ToInt32(parameter7_4byte1_2, 0);                       //카운트 설정값 hiki7
             }
-            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 8)       //출력신호조작            
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 8)                                //출력신호조작            
             {   
                 //**********비트값 검증 필요************
                 b_CTRL1_2 =       (Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //hiki1
@@ -23357,7 +23471,7 @@ namespace MINASA6SF_Rev.ViewModels
                 b_CTRL5_6 =       (Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //hiki3
                 blockchif7 =      (Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이 조건hiki5
             }
-            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 9)       //점프
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 9)                                //점프
             {
                 //**********비트값 검증 필요************
                 //gotoblockNum;                                                                   //hiki2~3~4
@@ -23389,7 +23503,6 @@ namespace MINASA6SF_Rev.ViewModels
                 blockchif9 = (Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);            //천이조건 hiki5
                 dataConfig9 = BitConverter.ToInt32(parameter7_4byte1_2, 0);                       //비교값   hiki7
             }
-
 
 
             Debug.WriteLine(cmdCode.ToString());

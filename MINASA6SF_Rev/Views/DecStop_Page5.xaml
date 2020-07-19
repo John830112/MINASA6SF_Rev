@@ -31,7 +31,7 @@
    
         <x:Array Type="sys:String" x:Key="StopMethod">
             <sys:String>0:감속정지</sys:String>
-            <sys:String>0:즉시정지</sys:String>
+            <sys:String>1:즉시정지</sys:String>
         </x:Array>
 
         <x:Array Type="sys:String" x:Key="conditionSelect">

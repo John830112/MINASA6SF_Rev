@@ -59,7 +59,7 @@
 
         <TextBox x:Name="BlockNumCombo9" VerticalContentAlignment="Center" FontSize="14" Background="AliceBlue"  
                  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
-                 Text="0" TextAlignment="Right"/>
+                 Text="{Binding JumpBlockNum, Mode=TwoWay}" TextAlignment="Right"/>
         <ComboBox x:Name="SuccNumCombo9" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
                   Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
                   ItemsSource="{StaticResource conditionSelect}"/>

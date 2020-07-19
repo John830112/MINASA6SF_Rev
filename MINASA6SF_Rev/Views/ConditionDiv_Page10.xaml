@@ -76,12 +76,12 @@
                   ItemsSource="{StaticResource comparisontarget}"/>
         <TextBox x:Name="CompaBlockNum10" Background="AliceBlue" FontSize="14" Grid.Row="2" Grid.Column="2" 
                  Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0" VerticalContentAlignment="Center"
-                 Text="0" TextAlignment="Right"/>
+                 Text="{Binding JumpBlockNum, Mode=TwoWay}" TextAlignment="Right"/>
         <ComboBox x:Name="SuccNumCombo10" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
                   Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
                   ItemsSource="{StaticResource conditionSelect}"/>
         <TextBox x:Name="CompaThroValue10" VerticalContentAlignment="Center" Background="AliceBlue" 
                  FontSize="14" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
-                 Text="0" TextAlignment="Right"/>
+                 Text="{Binding TargetPosition, Mode=TwoWay}" TextAlignment="Right"/>
     </Grid>
 </UserControl>
