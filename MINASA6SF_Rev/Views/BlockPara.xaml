@@ -77,7 +77,7 @@
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
 
-                        <DataGridTextColumn Binding="{Binding BlockData}" Header="◀    Block Data    ▶" Width="*" 
+                        <DataGridTextColumn Binding="{Binding BlockData, Mode=TwoWay}" Header="◀    Block Data    ▶" Width="*" 
                                             CanUserResize="False" IsReadOnly="True" CanUserSort="False"
                                             HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                             <DataGridTextColumn.ElementStyle>
