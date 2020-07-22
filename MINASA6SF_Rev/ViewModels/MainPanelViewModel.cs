@@ -706,7 +706,12 @@ namespace MINASA6SF_Rev.ViewModels
         int blockchif3;     //천이조건 hiki5
 
         //감속정지 
-        int stopMethod;     //정지방법 hiki1
+        ushort stopMethod;     //정지방법 hiki1
+        public ushort StopMethod
+        {
+            get { return stopMethod; }
+            set { SetProperty(ref stopMethod, value); }
+        }
         int blockchif4;     //천이조건 hiki5
 
         //속도갱신 
@@ -12564,7 +12569,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "디크리멘트 카운트 기동" + ", 천이조건:" + BlockChif.ToString() + " , 카운트 설정값: " + TargetPosition.ToString();  
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "디크리멘트 카운터 기동" + ", 천이조건:" + BlockChif.ToString() + " , 카운터 설정치[1ms]: " + TargetPosition.ToString();  
 
                 Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
                 Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
@@ -23553,28 +23558,67 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 5)                                //감속정지
             {
-                stopMethod =      (Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //정지방법 hiki1
-                blockchif4 =      (Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod =     (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //정지방법 hiki1
+                BlockChif =      (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (StopMethod == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:감속정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:즉시정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
             }
             else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 6)                                 //속도갱신
             {
-                speedNum =        (Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
-                movdir5 =        ((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2); //동작방향  hiki4
-                blockchif5 =      (Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum =         (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                Movidr =         (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2); //동작방향  hiki4
+                BlockChif =      (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                       ", 속도번호:V" + SpdNum.ToString() +
+                      ", JOG방향:정방향" +
+                      ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                      ", 속도번호:V" + SpdNum.ToString() +
+                     ", JOG방향:부방향" +
+                     ", 천이조건:" + BlockChif.ToString();
+                }
             }
             else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 7)                                 //디크리멘트 카운트 기동
             {
-                blockchif6 =      (Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
-                dataConfig6 = BitConverter.ToInt32(parameter7_4byte1_2, 0);                       //카운트 설정값 hiki7
+                BlockChif =      (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                       //카운트 설정값 hiki7
+
+                BlockParaModel1s[0].BlockData = "디크리멘트 카운터 기동" +
+                     ", 천이조건:" + BlockChif.ToString() +
+                     ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
+
             else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 8)                                //출력신호조작            
             {   
                 //**********비트값 검증 필요************
                 b_CTRL1_2 =       (Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //hiki1
                 b_CTRL3_4 =       (Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //hiki2
                 b_CTRL5_6 =       (Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //hiki3
-                blockchif7 =      (Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이 조건hiki5
+                BlockChif =      (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이 조건hiki5
+
+
+
+
             }
+
             else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 9)                                //점프
             {
                 //**********비트값 검증 필요************
@@ -23608,14 +23652,6 @@ namespace MINASA6SF_Rev.ViewModels
                 dataConfig9 = BitConverter.ToInt32(parameter7_4byte1_2, 0);                       //비교값   hiki7
             }
 
-
-            Debug.WriteLine(cmdCode.ToString());
-            Debug.WriteLine(spdNum1.ToString());
-            Debug.WriteLine(accNum1.ToString());
-            Debug.WriteLine(decNum1.ToString());
-            Debug.WriteLine(movdir1.ToString());
-            Debug.WriteLine(blockchif1.ToString());
-            Debug.WriteLine(dataConfig1.ToString());
         }
 
         // recValue1~recValue512
