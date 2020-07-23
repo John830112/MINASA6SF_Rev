@@ -172,6 +172,8 @@ namespace MINASA6SF_Rev.ViewModels
                 SetProperty(ref outputsingnalcombo6, value);
             }
         }
+        string functionName = "";
+        int cmdCode;
 
         float overload1;
         float torquecmd;
@@ -3428,6 +3430,8 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[2] = (byte)(TargetPosition >> 24);
                 value11[3] = (byte)(TargetPosition >> 16);
 
+                functionName = "상대위치결정";
+
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -4712,7 +4716,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData ="상대위치결정" + 
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + 
                     ", 속도번호:V" + SpdNum.ToString() + 
                     ", 가속설정번호:A" + AccNum.ToString() + 
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -4747,6 +4751,8 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[1] = (byte)(TargetPosition);
                 value11[2] = (byte)(TargetPosition >> 24);
                 value11[3] = (byte)(TargetPosition >> 16);
+
+                functionName = "절대위치결정";
 
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
@@ -6032,7 +6038,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "절대위치결정" + 
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + 
                     ", 속도번호:V" + SpdNum.ToString() + 
                     ", 가속설정번호:A" + AccNum.ToString() + 
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -6067,6 +6073,8 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[1] = 0;
                 value11[2] = 0;
                 value11[3] = 0;
+
+                functionName = "JOG";
 
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
@@ -7354,7 +7362,7 @@ namespace MINASA6SF_Rev.ViewModels
 
                 if (Movidr == 0)
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "JOG" +
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName +
                         ", 속도번호:V" + SpdNum.ToString() +
                         ", 가속설정번호:A" + AccNum.ToString() +
                         ", 감속설정번호:D" + Decnum.ToString() +
@@ -7396,6 +7404,8 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[1] = 0;
                 value11[2] = 0;
                 value11[3] = 0;
+
+                functionName = "원점복귀";
 
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
@@ -8683,41 +8693,41 @@ namespace MINASA6SF_Rev.ViewModels
 
                 if (SpdNum == 1)
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString();  
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString();  
 
                     if (Movidr == 0)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
                     }
                     else if (Movidr == 1)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:부방향" + ", 천이조건:" + BlockChif.ToString();
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:부방향" + ", 천이조건:" + BlockChif.ToString();
                     }
                 }
                 else if(SpdNum==2)
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString();  
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString();  
 
                     if (Movidr == 0)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
                     }
                     else if (Movidr == 1)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:HOME" + ", 복귀 방향:부방향" + ", 천이조건:" + BlockChif.ToString();
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME" + ", 복귀 방향:부방향" + ", 천이조건:" + BlockChif.ToString();
                     }
                 }
                 else if (SpdNum == 3)
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
 
                     if (Movidr == 0)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
                     }
                     else if (Movidr == 1)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "원점복귀" + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:부방향" + ", 천이조건:" + BlockChif.ToString();
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:부방향" + ", 천이조건:" + BlockChif.ToString();
                     }
                 }
 
@@ -8746,6 +8756,8 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[1] = 0;
                 value11[2] = 0;
                 value11[3] = 0;
+
+                functionName = "감속정지";
 
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
@@ -10033,11 +10045,11 @@ namespace MINASA6SF_Rev.ViewModels
 
                 if(SpdNum==0)
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "감속정지" + ", 정지방법:감속정지" + ", 천이조건:" + BlockChif.ToString();
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 정지방법:감속정지" + ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "감속정지" + ", 정지방법:즉시정지" + ", 천이조건:" + BlockChif.ToString();
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 정지방법:즉시정지" + ", 천이조건:" + BlockChif.ToString();
                 }
                 Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
                 Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
@@ -10065,6 +10077,8 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[1] = 0;
                 value11[2] = 0;
                 value11[3] = 0;
+
+                functionName = "속도갱신";
 
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
@@ -11352,7 +11366,7 @@ namespace MINASA6SF_Rev.ViewModels
 
                 if (Movidr == 0)
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "속도갱신" + ", 속도번호:V" + 
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 속도번호:V" + 
                         SpdNum.ToString() + ", JOG 방향:정방향" + ", 천이조건:" + BlockChif.ToString();    
                 }
                 else
@@ -11389,6 +11403,8 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[1] = (byte)(TargetPosition);
                 value11[2] = (byte)(TargetPosition >> 24);
                 value11[3] = (byte)(TargetPosition >> 16);
+
+                functionName = "디크리멘트 카운터 기동";
 
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
@@ -12674,7 +12690,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "디크리멘트 카운터 기동" + ", 천이조건:" + BlockChif.ToString() + " , 카운터 설정치[1ms]: " + TargetPosition.ToString();  
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName  + ", 천이조건:" + BlockChif.ToString() + " , 카운터 설정치[1ms]: " + TargetPosition.ToString();  
 
                 Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
                 Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
@@ -12721,6 +12737,8 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[2] = 0;
                 value11[3] = 0;
 
+                functionName = "출력신호조작";
+
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -14005,7 +14023,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "출력신호조작" + 
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + 
                     ", B-CTRL1" + outPutSignal_Page8.B_CTRL1Combo8.SelectedValue.ToString().Substring(1) +
                     ", B-CTRL2" + outPutSignal_Page8.B_CTRL2Combo8.SelectedValue.ToString().Substring(1) +
                     ", B-CTRL3" + outPutSignal_Page8.B_CTRL3Combo8.SelectedValue.ToString().Substring(1) +
@@ -14044,6 +14062,8 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[2] = 0;
                 value11[3] = 0;
 
+                functionName = "점프";
+
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -15328,7 +15348,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "점프" + "" +
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + "" +
                     ", 블록번호:" + JumpBlockNum.ToString() + ", 천이조건:" + BlockChif.ToString();
 
                 Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
@@ -15361,6 +15381,8 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[2] = (byte)(TargetPosition >> 24);
                 value11[3] = (byte)(TargetPosition >> 16);
 
+                functionName = "조건분기(=)";
+
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -16645,7 +16667,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "조건분기(=)" + 
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + 
                     ", 비교대상:" + conditionDiv_Page10.CompaNumCombo10.SelectedValue.ToString().Substring(2) + 
                     ", 블록번호:" + JumpBlockNum.ToString() + 
                     ", 천이조건:" + BlockChif.ToString() + 
@@ -16680,6 +16702,8 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[2] = (byte)(TargetPosition >> 24);
                 value11[3] = (byte)(TargetPosition >> 16);
 
+                functionName = "조건분기(>)";
+
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -17964,7 +17988,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                  ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "조건분기(>)" +
+                  ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName +
                     ", 비교대상:" + conditionDiv_Page11.CompaNumCombo11.SelectedValue.ToString().Substring(2) +
                     ", 블록번호:" + JumpBlockNum.ToString() +
                     ", 천이조건:" + BlockChif.ToString() +
@@ -18000,6 +18024,8 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[2] = (byte)(TargetPosition >> 24);
                 value11[3] = (byte)(TargetPosition >> 16);
 
+                functionName = "조건분기(<)";
+
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -19284,7 +19310,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                 ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "조건분기(<)" +
+                 ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName +
                     ", 비교대상:" + conditionDiv_Page12.CompaNumCombo12.SelectedValue.ToString().Substring(2) +
                     ", 블록번호:" + JumpBlockNum.ToString() +
                     ", 천이조건:" + BlockChif.ToString() +
@@ -19876,7 +19902,6 @@ namespace MINASA6SF_Rev.ViewModels
             //Array.Reverse(recValue511);
             //Array.Reverse(recValue512);
             #endregion
-
             #region 블럭 수신 데이터 변수에 할당   // Array.Copy(recValue1, 0, parameter7_4byte1, 0, 4);
             Array.Copy(recValue1, 0, parameter7_4byte1, 0, 4);
             Array.Copy(recValue2, 0, parameter7_4byte2, 0, 4);
@@ -20391,7 +20416,6 @@ namespace MINASA6SF_Rev.ViewModels
             //Array.Copy(recValue511, 0, parameter7_4byte511, 0, 4);
             //Array.Copy(recValue512, 0, parameter7_4byte512, 0, 4);
             #endregion
-
             #region Blockdata 배열 바이트 변수에 할당 (hiki1~hiki5) 및 블록 데이터 할당.   // parameter7_4byte1_1[0] = parameter7_4byte1[0];    //속도와 가속
             parameter7_4byte1_1[0] = parameter7_4byte1[0];    
             parameter7_4byte1_1[1] = parameter7_4byte1[1];    
@@ -20403,50 +20427,50 @@ namespace MINASA6SF_Rev.ViewModels
             parameter7_4byte1_2[2] = parameter7_4byte2[0];
             parameter7_4byte1_2[3] = parameter7_4byte2[1];
 
-            //parameter7_4byte1_3[0] = parameter7_4byte3[0];    
-            //parameter7_4byte1_3[1] = parameter7_4byte3[1];    
-            //parameter7_4byte1_3[2] = parameter7_4byte3[2];    
-            //parameter7_4byte1_3[3] = parameter7_4byte3[3];    
+            parameter7_4byte1_3[0] = parameter7_4byte3[0];
+            parameter7_4byte1_3[1] = parameter7_4byte3[1];
+            parameter7_4byte1_3[2] = parameter7_4byte3[2];
+            parameter7_4byte1_3[3] = parameter7_4byte3[3];
 
-            //parameter7_4byte1_4[0] = parameter7_4byte4[2];
-            //parameter7_4byte1_4[1] = parameter7_4byte4[3];
-            //parameter7_4byte1_4[2] = parameter7_4byte4[0];
-            //parameter7_4byte1_4[3] = parameter7_4byte4[1];
+            parameter7_4byte1_4[0] = parameter7_4byte4[2];
+            parameter7_4byte1_4[1] = parameter7_4byte4[3];
+            parameter7_4byte1_4[2] = parameter7_4byte4[0];
+            parameter7_4byte1_4[3] = parameter7_4byte4[1];
 
-            //parameter7_4byte1_5[0] = parameter7_4byte5[0];    
-            //parameter7_4byte1_5[1] = parameter7_4byte5[1];    
-            //parameter7_4byte1_5[2] = parameter7_4byte5[2];    
-            //parameter7_4byte1_5[3] = parameter7_4byte5[3];    
+            parameter7_4byte1_5[0] = parameter7_4byte5[0];
+            parameter7_4byte1_5[1] = parameter7_4byte5[1];
+            parameter7_4byte1_5[2] = parameter7_4byte5[2];
+            parameter7_4byte1_5[3] = parameter7_4byte5[3];
 
-            //parameter7_4byte1_6[0] = parameter7_4byte6[2];
-            //parameter7_4byte1_6[1] = parameter7_4byte6[3];
-            //parameter7_4byte1_6[2] = parameter7_4byte6[0];
-            //parameter7_4byte1_6[3] = parameter7_4byte6[1];
+            parameter7_4byte1_6[0] = parameter7_4byte6[2];
+            parameter7_4byte1_6[1] = parameter7_4byte6[3];
+            parameter7_4byte1_6[2] = parameter7_4byte6[0];
+            parameter7_4byte1_6[3] = parameter7_4byte6[1];
 
-            //parameter7_4byte1_7[0] = parameter7_4byte7[0];    
-            //parameter7_4byte1_7[1] = parameter7_4byte7[1];    
-            //parameter7_4byte1_7[2] = parameter7_4byte7[2];    
-            //parameter7_4byte1_7[3] = parameter7_4byte7[3];    
+            parameter7_4byte1_7[0] = parameter7_4byte7[0];
+            parameter7_4byte1_7[1] = parameter7_4byte7[1];
+            parameter7_4byte1_7[2] = parameter7_4byte7[2];
+            parameter7_4byte1_7[3] = parameter7_4byte7[3];
 
-            //parameter7_4byte1_8[0] = parameter7_4byte8[2];
-            //parameter7_4byte1_8[1] = parameter7_4byte8[3];
-            //parameter7_4byte1_8[2] = parameter7_4byte8[0];
-            //parameter7_4byte1_8[3] = parameter7_4byte8[1];
+            parameter7_4byte1_8[0] = parameter7_4byte8[2];
+            parameter7_4byte1_8[1] = parameter7_4byte8[3];
+            parameter7_4byte1_8[2] = parameter7_4byte8[0];
+            parameter7_4byte1_8[3] = parameter7_4byte8[1];
 
-            //parameter7_4byte1_9[0] = parameter7_4byte9[0];    
-            //parameter7_4byte1_9[1] = parameter7_4byte9[1];    
-            //parameter7_4byte1_9[2] = parameter7_4byte9[2];    
-            //parameter7_4byte1_9[3] = parameter7_4byte9[3];    
+            parameter7_4byte1_9[0] = parameter7_4byte9[0];
+            parameter7_4byte1_9[1] = parameter7_4byte9[1];
+            parameter7_4byte1_9[2] = parameter7_4byte9[2];
+            parameter7_4byte1_9[3] = parameter7_4byte9[3];
 
-            //parameter7_4byte1_10[0] = parameter7_4byte10[2];
-            //parameter7_4byte1_10[1] = parameter7_4byte10[3];
-            //parameter7_4byte1_10[2] = parameter7_4byte10[0];
-            //parameter7_4byte1_10[3] = parameter7_4byte10[1];
+            parameter7_4byte1_10[0] = parameter7_4byte10[2];
+            parameter7_4byte1_10[1] = parameter7_4byte10[3];
+            parameter7_4byte1_10[2] = parameter7_4byte10[0];
+            parameter7_4byte1_10[3] = parameter7_4byte10[1];
 
-            //parameter7_4byte1_11[0] = parameter7_4byte11[0];  
-            //parameter7_4byte1_11[1] = parameter7_4byte11[1];  
-            //parameter7_4byte1_11[2] = parameter7_4byte11[2];    
-            //parameter7_4byte1_11[3] = parameter7_4byte11[3];  
+            parameter7_4byte1_11[0] = parameter7_4byte11[0];
+            parameter7_4byte1_11[1] = parameter7_4byte11[1];
+            parameter7_4byte1_11[2] = parameter7_4byte11[2];
+            parameter7_4byte1_11[3] = parameter7_4byte11[3];
 
             ////0x4802 data   
             //parameter7_4byte1_12[0] = parameter7_4byte12[2];
@@ -23536,17 +23560,18 @@ namespace MINASA6SF_Rev.ViewModels
             //parameter7_4byte1_512[3] = parameter7_4byte512[1];
             #endregion
 
-            int cmdCode = Convert.ToInt32(parameter7_4byte1_1[1]);                                 //커맨드 Code 
 
+
+            cmdCode = Convert.ToInt32(parameter7_4byte1_1[1]);        //커맨드 Code  0번 블럭
             if(Convert.ToInt32(parameter7_4byte1_1[1]) == 1)                                       //상대위치결정
             {
                 SpdNum =         (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);           //속도번호  hiki1
                 AccNum =         (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); //가속번호  hiki2
-                //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                        //예약
+                //dummy1 =        Convert.ToInt32(parameter7_4byte1_1[2]);                        //예약
                 Decnum =         (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           //감속번호  hiki3
-                Movidr =         (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+                Movidr =        (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
                 BlockChif =      (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                    //블록데이터 구성
+                TargetPosition =     BitConverter.ToInt32(parameter7_4byte1_2, 0);                    //블록데이터 구성
 
                 BlockParaModel1s[0].BlockData = "상대위치결정" + 
                     ", 속도번호:V" + SpdNum.ToString() + 
@@ -23558,13 +23583,13 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if(Convert.ToInt32(parameter7_4byte1_1[1]) == 2)                                        //절대위치결정
             {
-                SpdNum =         (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
-                AccNum =         (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호  hiki2
-                //dummy1 =        Conve   Convert.ToInt32(parameter7_4byte1_1[2]);                       //예약
-                Decnum =         (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호  hiki3
+                SpdNum =          (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                AccNum =          (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호  hiki2
+                //dummy1 =         Conve   Convert.ToInt32(parameter7_4byte1_1[2]);                       //예약
+                Decnum =          (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호  hiki3
                 Movidr =         (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif =      (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //블록데이터 구성
+                BlockChif =       (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+                TargetPosition =      BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //블록데이터 구성
 
                 BlockParaModel1s[0].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
@@ -23576,11 +23601,11 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 3)                                       //JOG운전
             {
-                SpdNum =         (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호 hiki1
-                AccNum =         (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum =         (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호 hiki3
+                SpdNum =          (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호 hiki1
+                AccNum =          (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum =          (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호 hiki3
                 Movidr =         (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif =      (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+                BlockChif =       (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if(Movidr==0)
@@ -23605,9 +23630,9 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 4)                                      //원점복귀
             {
-                SpdNum =        (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //검출방법 hiki1
+                SpdNum =         (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //검출방법 hiki1
                 Movidr =        (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif =     (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+                BlockChif =      (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if(SpdNum==1)
                 {
@@ -23683,9 +23708,9 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 6)                                       //속도갱신
             {
-                SpdNum =         (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                SpdNum =          (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
                 Movidr =         (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif =      (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+                BlockChif =       (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
@@ -23704,8 +23729,8 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif =      (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //카운트 설정값 hiki7
+                BlockChif =       (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition =      BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //카운트 설정값 hiki7
 
                 BlockParaModel1s[0].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
@@ -23713,9 +23738,9 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 8)                                       //출력신호조작            
             {   
-                b_CTRL1_2 =       (Convert.ToUInt16(parameter7_4byte1_1[0]) >> 4);                       //hiki1
-                b_CTRL3_4 =       (Convert.ToUInt16(parameter7_4byte1_1[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 =       (Convert.ToUInt16(parameter7_4byte1_1[3]) >> 4);                       //hiki3
+                b_CTRL1_2 =             (Convert.ToUInt16(parameter7_4byte1_1[0]) >> 4);                       //hiki1
+                b_CTRL3_4 =             (Convert.ToUInt16(parameter7_4byte1_1[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 =             (Convert.ToUInt16(parameter7_4byte1_1[3]) >> 4);                       //hiki3
                 BlockChif =      (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 =  (int)(((b_CTRL1_2) & 0b_1100) >> 2);
@@ -23819,30 +23844,2715 @@ namespace MINASA6SF_Rev.ViewModels
                 ", B-CTRL6:" + bctrl6 +
                 ", 천이조건:" + BlockChif.ToString();
             }
-            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 9)                                //점프
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                 ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
                 //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                 ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
                 ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);          //천이조건 hiki5
+                         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);          //천이조건 hiki5
+             
                 JumpBlockNum = (ushort)((hiki2local <<6) + (hiki3local <<2) + hiki4local);
 
                 BlockParaModel1s[0].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
-            }    // 점프
+            } 
             else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                 ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
                 //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                 ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                            SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                        TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(=)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 11)      // 조건분기(>)
+            {
+                  ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                  ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                 ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                             SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                          BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                         TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(>)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 12)      // 조건분기(<)
+            {
+                 ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                 ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                            SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1              
+                         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                        TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+                
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(<)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+
+
+
+
+            cmdCode = Convert.ToInt32(parameter7_4byte1_3[1]);        //커맨드 Code 1번 블럭
+            if (Convert.ToInt32(parameter7_4byte1_3[1]) == 1)                                       //상대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[0]) & 0b_0000_1111); //가속번호  hiki2
+                //dummy1 =        Convert.ToInt32(parameter7_4byte1_3[2]);                        //예약
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_3[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+               BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[3]) & 0b_0000_0011);//천이조건  hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_4, 0);                    //블록데이터 구성
+
+                BlockParaModel1s[1].BlockData = "상대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 상대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_3[1]) == 2)                                        //절대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[0]) & 0b_0000_1111);       //가속번호  hiki2
+       //dummy1 =         Conve   Convert.ToInt32(parameter7_4byte1_3[2]);                       //예약
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_4, 0);                           //블록데이터 구성
+
+                BlockParaModel1s[1].BlockData = "절대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 절대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_3[1]) == 3)                                       //JOG운전
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_0011);       //천이조건 hiki5
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[1].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:정방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[1].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:부방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_3[1]) == 4)                                      //원점복귀
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+                if (SpdNum == 1)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[1].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[1].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else if (SpdNum == 2)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[1].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[1].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[1].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[1].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_3[1]) == 5)                                       //감속정지
+            {
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_0011);       //천이조건 hiki5
+                if (StopMethod == 0)
+                {
+                    BlockParaModel1s[1].BlockData = "감속정지" +
+                    ", 정지방법:감속정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[1].BlockData = "감속정지" +
+                    ", 정지방법:즉시정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_3[1]) == 6)                                       //속도갱신
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_0011);       //천이조건  hiki5
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[1].BlockData = "속도갱신" +
+                       ", 속도번호:V" + SpdNum.ToString() +
+                      ", JOG방향:정방향" +
+                      ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[1].BlockData = "속도갱신" +
+                      ", 속도번호:V" + SpdNum.ToString() +
+                     ", JOG방향:부방향" +
+                     ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_3[1]) == 7)                                       //디크리멘트 카운트 기동
+            {
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_4, 0);                           //카운트 설정값 hiki7
+
+                BlockParaModel1s[1].BlockData = "디크리멘트 카운터 기동" +
+                     ", 천이조건:" + BlockChif.ToString() +
+                     ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_3[1]) == 8)                                       //출력신호조작            
+            {
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_3[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_3[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_3[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_0011);       //천이 조건hiki5
+
+                OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
+                OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
+                OutPutsignalcombo3 = (int)(((b_CTRL3_4) & 0b_1100) >> 2);
+                OutPutsignalcombo4 = (int)((b_CTRL3_4) & 0b_0011);
+                OutPutsignalcombo5 = (int)(((b_CTRL5_6) & 0b_1100) >> 2);
+                OutPutsignalcombo6 = (int)((b_CTRL5_6) & 0b_0011);
+
+                string bctrl1 = "";
+                string bctrl2 = "";
+                string bctrl3 = "";
+                string bctrl4 = "";
+                string bctrl5 = "";
+                string bctrl6 = "";
+
+                switch (OutPutsignalcombo1)
+                {
+                    case 0:
+                        bctrl1 = "유지";
+                        break;
+                    case 2:
+                        bctrl1 = "오프";
+                        break;
+                    case 3:
+                        bctrl1 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo2)
+                {
+                    case 0:
+                        bctrl2 = "유지";
+                        break;
+                    case 2:
+                        bctrl2 = "오프";
+                        break;
+                    case 3:
+                        bctrl2 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo3)
+                {
+                    case 0:
+                        bctrl3 = "유지";
+                        break;
+                    case 2:
+                        bctrl3 = "오프";
+                        break;
+                    case 3:
+                        bctrl3 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo4)
+                {
+                    case 0:
+                        bctrl4 = "유지";
+                        break;
+                    case 2:
+                        bctrl4 = "오프";
+                        break;
+                    case 3:
+                        bctrl4 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo5)
+                {
+                    case 0:
+                        bctrl5 = "유지";
+                        break;
+                    case 2:
+                        bctrl5 = "오프";
+                        break;
+                    case 3:
+                        bctrl5 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo6)
+                {
+                    case 0:
+                        bctrl6 = "유지";
+                        break;
+                    case 2:
+                        bctrl6 = "오프";
+                        break;
+                    case 3:
+                        bctrl6 = "온";
+                        break;
+                }
+
+                BlockParaModel1s[1].BlockData = "출력신호조작" +
+                ", B-CTRL1:" + bctrl1 +
+                ", B-CTRL2:" + bctrl2 +
+                ", B-CTRL3:" + bctrl3 +
+                ", B-CTRL4:" + bctrl4 +
+                ", B-CTRL5:" + bctrl5 +
+                ", B-CTRL6:" + bctrl6 +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_3[1]) == 9)                                       //점프
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[0]) & 0b_0000_1111); // hiki2
+                          //dummy1 =         Convert.ToInt32(parameter7_4byte1_3[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_3[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_0011);          //천이조건 hiki5
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                BlockParaModel1s[1].BlockData = "점프" +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_3[1]) == 10)      // 조건분기(=)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[0]) & 0b_0000_1111); // hiki2
+                          //dummy1 =         Convert.ToInt32(parameter7_4byte1_3[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_3[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_4, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[1].BlockData = "조건분기(=)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_3[1]) == 11)      // 조건분기(>)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[0]) & 0b_0000_1111); // hiki2
+                          //dummy1 =         Convert.ToInt32(parameter7_4byte1_3[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_3[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_4, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[1].BlockData = "조건분기(>)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_3[1]) == 12)      // 조건분기(<)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[0]) & 0b_0000_1111);     // hiki2
+                          //dummy1 =         Convert.ToInt32(parameter7_4byte1_3[2]);                     // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[3]) >> 4);               // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_3[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_3[0]) >> 4);               // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_3[3]) & 0b_0000_0011);     //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_4, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[1].BlockData = "조건분기(<)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+
+
+
+
+
+            cmdCode = Convert.ToInt32(parameter7_4byte1_5[1]);        //커맨드 Code 2번 블럭
+            if (Convert.ToInt32(parameter7_4byte1_5[1]) == 1)                                       //상대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[0]) & 0b_0000_1111); //가속번호  hiki2
+                //dummy1 =        Convert.ToInt32(parameter7_4byte1_5[2]);                        //예약
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_5[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_6, 0);                    //블록데이터 구성
+
+                BlockParaModel1s[2].BlockData = "상대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 상대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_5[1]) == 2)                                        //절대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[0]) & 0b_0000_1111);       //가속번호  hiki2
+       //dummy1 =         Conve   Convert.ToInt32(parameter7_4byte1_5[2]);                       //예약
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_6, 0);                           //블록데이터 구성
+
+                BlockParaModel1s[2].BlockData = "절대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 절대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_5[1]) == 3)                                       //JOG운전
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[2].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:정방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[2].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:부방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_5[1]) == 4)                                      //원점복귀
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+                if (SpdNum == 1)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[2].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[2].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else if (SpdNum == 2)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[2].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[2].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[2].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[2].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_5[1]) == 5)                                       //감속정지
+            {
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (StopMethod == 0)
+                {
+                    BlockParaModel1s[2].BlockData = "감속정지" +
+                    ", 정지방법:감속정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[2].BlockData = "감속정지" +
+                    ", 정지방법:즉시정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_5[1]) == 6)                                       //속도갱신
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_0011);       //천이조건  hiki5
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[2].BlockData = "속도갱신" +
+                       ", 속도번호:V" + SpdNum.ToString() +
+                      ", JOG방향:정방향" +
+                      ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[2].BlockData = "속도갱신" +
+                      ", 속도번호:V" + SpdNum.ToString() +
+                     ", JOG방향:부방향" +
+                     ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_5[1]) == 7)                                       //디크리멘트 카운트 기동
+            {
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_6, 0);                           //카운트 설정값 hiki7
+
+                BlockParaModel1s[2].BlockData = "디크리멘트 카운터 기동" +
+                     ", 천이조건:" + BlockChif.ToString() +
+                     ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_5[1]) == 8)                                       //출력신호조작            
+            {
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_5[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_5[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_5[3]) >> 4);                       //hiki3
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_0011);       //천이 조건hiki5
+
+                OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
+                OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
+                OutPutsignalcombo3 = (int)(((b_CTRL3_4) & 0b_1100) >> 2);
+                OutPutsignalcombo4 = (int)((b_CTRL3_4) & 0b_0011);
+                OutPutsignalcombo5 = (int)(((b_CTRL5_6) & 0b_1100) >> 2);
+                OutPutsignalcombo6 = (int)((b_CTRL5_6) & 0b_0011);
+
+                string bctrl1 = "";
+                string bctrl2 = "";
+                string bctrl3 = "";
+                string bctrl4 = "";
+                string bctrl5 = "";
+                string bctrl6 = "";
+
+                switch (OutPutsignalcombo1)
+                {
+                    case 0:
+                        bctrl1 = "유지";
+                        break;
+                    case 2:
+                        bctrl1 = "오프";
+                        break;
+                    case 3:
+                        bctrl1 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo2)
+                {
+                    case 0:
+                        bctrl2 = "유지";
+                        break;
+                    case 2:
+                        bctrl2 = "오프";
+                        break;
+                    case 3:
+                        bctrl2 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo3)
+                {
+                    case 0:
+                        bctrl3 = "유지";
+                        break;
+                    case 2:
+                        bctrl3 = "오프";
+                        break;
+                    case 3:
+                        bctrl3 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo4)
+                {
+                    case 0:
+                        bctrl4 = "유지";
+                        break;
+                    case 2:
+                        bctrl4 = "오프";
+                        break;
+                    case 3:
+                        bctrl4 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo5)
+                {
+                    case 0:
+                        bctrl5 = "유지";
+                        break;
+                    case 2:
+                        bctrl5 = "오프";
+                        break;
+                    case 3:
+                        bctrl5 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo6)
+                {
+                    case 0:
+                        bctrl6 = "유지";
+                        break;
+                    case 2:
+                        bctrl6 = "오프";
+                        break;
+                    case 3:
+                        bctrl6 = "온";
+                        break;
+                }
+
+                BlockParaModel1s[2].BlockData = "출력신호조작" +
+                ", B-CTRL1:" + bctrl1 +
+                ", B-CTRL2:" + bctrl2 +
+                ", B-CTRL3:" + bctrl3 +
+                ", B-CTRL4:" + bctrl4 +
+                ", B-CTRL5:" + bctrl5 +
+                ", B-CTRL6:" + bctrl6 +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_5[1]) == 9)                                       //점프
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[0]) & 0b_0000_1111); // hiki2
+                          //dummy1 =         Convert.ToInt32(parameter7_4byte1_5[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_5[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_0011);          //천이조건 hiki5
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                BlockParaModel1s[2].BlockData = "점프" +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_5[1]) == 10)      // 조건분기(=)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[0]) & 0b_0000_1111); // hiki2
+                          //dummy1 =         Convert.ToInt32(parameter7_4byte1_5[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_5[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_6, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[2].BlockData = "조건분기(=)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_5[1]) == 11)      // 조건분기(>)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[0]) & 0b_0000_1111); // hiki2
+                          //dummy1 =         Convert.ToInt32(parameter7_4byte1_5[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_5[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_6, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[2].BlockData = "조건분기(>)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_5[1]) == 12)      // 조건분기(<)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[0]) & 0b_0000_1111); // hiki2
+                          //dummy1 =         Convert.ToInt32(parameter7_4byte1_5[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_5[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_5[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_5[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_6, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[2].BlockData = "조건분기(<)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+
+  //----------------------------------------------아래부터 작업
+
+
+            cmdCode = Convert.ToInt32(parameter7_4byte1_7[1]);        //커맨드 Code 3번 블럭
+            if (Convert.ToInt32(parameter7_4byte1_7[1]) == 1)                                       //상대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); //가속번호  hiki2
+                //dummy1 =        Convert.ToInt32(parameter7_4byte1_1[2]);                        //예약
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_0011);//천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                    //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "상대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 상대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_7[1]) == 2)                                        //절대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호  hiki2
+                //dummy1 =         Conve   Convert.ToInt32(parameter7_4byte1_1[2]);                       //예약
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "절대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 절대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_7[1]) == 3)                                       //JOG운전
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호 hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:정방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:부방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_7[1]) == 4)                                      //원점복귀
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //검출방법 hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+                if (SpdNum == 1)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else if (SpdNum == 2)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_7[1]) == 5)                                       //감속정지
+            {
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (StopMethod == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:감속정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:즉시정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_7[1]) == 6)                                       //속도갱신
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                       ", 속도번호:V" + SpdNum.ToString() +
+                      ", JOG방향:정방향" +
+                      ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                      ", 속도번호:V" + SpdNum.ToString() +
+                     ", JOG방향:부방향" +
+                     ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_7[1]) == 7)                                       //디크리멘트 카운트 기동
+            {
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //카운트 설정값 hiki7
+
+                BlockParaModel1s[0].BlockData = "디크리멘트 카운터 기동" +
+                     ", 천이조건:" + BlockChif.ToString() +
+                     ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_7[1]) == 8)                                       //출력신호조작            
+            {
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_1[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_1[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_1[3]) >> 4);                       //hiki3
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이 조건hiki5
+
+                OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
+                OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
+                OutPutsignalcombo3 = (int)(((b_CTRL3_4) & 0b_1100) >> 2);
+                OutPutsignalcombo4 = (int)((b_CTRL3_4) & 0b_0011);
+                OutPutsignalcombo5 = (int)(((b_CTRL5_6) & 0b_1100) >> 2);
+                OutPutsignalcombo6 = (int)((b_CTRL5_6) & 0b_0011);
+
+                string bctrl1 = "";
+                string bctrl2 = "";
+                string bctrl3 = "";
+                string bctrl4 = "";
+                string bctrl5 = "";
+                string bctrl6 = "";
+
+                switch (OutPutsignalcombo1)
+                {
+                    case 0:
+                        bctrl1 = "유지";
+                        break;
+                    case 2:
+                        bctrl1 = "오프";
+                        break;
+                    case 3:
+                        bctrl1 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo2)
+                {
+                    case 0:
+                        bctrl2 = "유지";
+                        break;
+                    case 2:
+                        bctrl2 = "오프";
+                        break;
+                    case 3:
+                        bctrl2 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo3)
+                {
+                    case 0:
+                        bctrl3 = "유지";
+                        break;
+                    case 2:
+                        bctrl3 = "오프";
+                        break;
+                    case 3:
+                        bctrl3 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo4)
+                {
+                    case 0:
+                        bctrl4 = "유지";
+                        break;
+                    case 2:
+                        bctrl4 = "오프";
+                        break;
+                    case 3:
+                        bctrl4 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo5)
+                {
+                    case 0:
+                        bctrl5 = "유지";
+                        break;
+                    case 2:
+                        bctrl5 = "오프";
+                        break;
+                    case 3:
+                        bctrl5 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo6)
+                {
+                    case 0:
+                        bctrl6 = "유지";
+                        break;
+                    case 2:
+                        bctrl6 = "오프";
+                        break;
+                    case 3:
+                        bctrl6 = "온";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "출력신호조작" +
+                ", B-CTRL1:" + bctrl1 +
+                ", B-CTRL2:" + bctrl2 +
+                ", B-CTRL3:" + bctrl3 +
+                ", B-CTRL4:" + bctrl4 +
+                ", B-CTRL5:" + bctrl5 +
+                ", B-CTRL6:" + bctrl6 +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_7[1]) == 9)                                       //점프
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);          //천이조건 hiki5
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                BlockParaModel1s[0].BlockData = "점프" +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_7[1]) == 10)      // 조건분기(=)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
                 ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
                 ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
                 SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
-                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
                 TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
 
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(=)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_7[1]) == 11)      // 조건분기(>)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(>)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_7[1]) == 12)      // 조건분기(<)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1              
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(<)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+
+
+
+
+            cmdCode = Convert.ToInt32(parameter7_4byte1_9[1]);        //커맨드 Code 
+            if (Convert.ToInt32(parameter7_4byte1_9[1]) == 1)                                       //상대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); //가속번호  hiki2
+                //dummy1 =        Convert.ToInt32(parameter7_4byte1_1[2]);                        //예약
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_0011);//천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                    //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "상대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 상대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_9[1]) == 2)                                        //절대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호  hiki2
+                //dummy1 =         Conve   Convert.ToInt32(parameter7_4byte1_1[2]);                       //예약
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "절대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 절대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_9[1]) == 3)                                       //JOG운전
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호 hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:정방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:부방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_9[1]) == 4)                                      //원점복귀
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //검출방법 hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+                if (SpdNum == 1)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else if (SpdNum == 2)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_9[1]) == 5)                                       //감속정지
+            {
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (StopMethod == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:감속정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:즉시정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_9[1]) == 6)                                       //속도갱신
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                       ", 속도번호:V" + SpdNum.ToString() +
+                      ", JOG방향:정방향" +
+                      ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                      ", 속도번호:V" + SpdNum.ToString() +
+                     ", JOG방향:부방향" +
+                     ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_9[1]) == 7)                                       //디크리멘트 카운트 기동
+            {
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //카운트 설정값 hiki7
+
+                BlockParaModel1s[0].BlockData = "디크리멘트 카운터 기동" +
+                     ", 천이조건:" + BlockChif.ToString() +
+                     ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_9[1]) == 8)                                       //출력신호조작            
+            {
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_1[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_1[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_1[3]) >> 4);                       //hiki3
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이 조건hiki5
+
+                OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
+                OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
+                OutPutsignalcombo3 = (int)(((b_CTRL3_4) & 0b_1100) >> 2);
+                OutPutsignalcombo4 = (int)((b_CTRL3_4) & 0b_0011);
+                OutPutsignalcombo5 = (int)(((b_CTRL5_6) & 0b_1100) >> 2);
+                OutPutsignalcombo6 = (int)((b_CTRL5_6) & 0b_0011);
+
+                string bctrl1 = "";
+                string bctrl2 = "";
+                string bctrl3 = "";
+                string bctrl4 = "";
+                string bctrl5 = "";
+                string bctrl6 = "";
+
+                switch (OutPutsignalcombo1)
+                {
+                    case 0:
+                        bctrl1 = "유지";
+                        break;
+                    case 2:
+                        bctrl1 = "오프";
+                        break;
+                    case 3:
+                        bctrl1 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo2)
+                {
+                    case 0:
+                        bctrl2 = "유지";
+                        break;
+                    case 2:
+                        bctrl2 = "오프";
+                        break;
+                    case 3:
+                        bctrl2 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo3)
+                {
+                    case 0:
+                        bctrl3 = "유지";
+                        break;
+                    case 2:
+                        bctrl3 = "오프";
+                        break;
+                    case 3:
+                        bctrl3 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo4)
+                {
+                    case 0:
+                        bctrl4 = "유지";
+                        break;
+                    case 2:
+                        bctrl4 = "오프";
+                        break;
+                    case 3:
+                        bctrl4 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo5)
+                {
+                    case 0:
+                        bctrl5 = "유지";
+                        break;
+                    case 2:
+                        bctrl5 = "오프";
+                        break;
+                    case 3:
+                        bctrl5 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo6)
+                {
+                    case 0:
+                        bctrl6 = "유지";
+                        break;
+                    case 2:
+                        bctrl6 = "오프";
+                        break;
+                    case 3:
+                        bctrl6 = "온";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "출력신호조작" +
+                ", B-CTRL1:" + bctrl1 +
+                ", B-CTRL2:" + bctrl2 +
+                ", B-CTRL3:" + bctrl3 +
+                ", B-CTRL4:" + bctrl4 +
+                ", B-CTRL5:" + bctrl5 +
+                ", B-CTRL6:" + bctrl6 +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_9[1]) == 9)                                       //점프
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);          //천이조건 hiki5
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                BlockParaModel1s[0].BlockData = "점프" +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_9[1]) == 10)      // 조건분기(=)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(=)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_9[1]) == 11)      // 조건분기(>)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(>)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_9[1]) == 12)      // 조건분기(<)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1              
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(<)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+
+
+
+
+            cmdCode = Convert.ToInt32(parameter7_4byte1_11[1]);        //커맨드 Code 
+            if (Convert.ToInt32(parameter7_4byte1_11[1]) == 1)                                       //상대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); //가속번호  hiki2
+                //dummy1 =        Convert.ToInt32(parameter7_4byte1_1[2]);                        //예약
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_0011);//천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                    //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "상대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 상대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_11[1]) == 2)                                        //절대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호  hiki2
+                //dummy1 =         Conve   Convert.ToInt32(parameter7_4byte1_1[2]);                       //예약
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "절대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 절대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_11[1]) == 3)                                       //JOG운전
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호 hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:정방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:부방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_11[1]) == 4)                                      //원점복귀
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //검출방법 hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+                if (SpdNum == 1)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else if (SpdNum == 2)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_11[1]) == 5)                                       //감속정지
+            {
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (StopMethod == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:감속정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:즉시정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_11[1]) == 6)                                       //속도갱신
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                       ", 속도번호:V" + SpdNum.ToString() +
+                      ", JOG방향:정방향" +
+                      ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                      ", 속도번호:V" + SpdNum.ToString() +
+                     ", JOG방향:부방향" +
+                     ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_11[1]) == 7)                                       //디크리멘트 카운트 기동
+            {
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //카운트 설정값 hiki7
+
+                BlockParaModel1s[0].BlockData = "디크리멘트 카운터 기동" +
+                     ", 천이조건:" + BlockChif.ToString() +
+                     ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_11[1]) == 8)                                       //출력신호조작            
+            {
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_1[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_1[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_1[3]) >> 4);                       //hiki3
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이 조건hiki5
+
+                OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
+                OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
+                OutPutsignalcombo3 = (int)(((b_CTRL3_4) & 0b_1100) >> 2);
+                OutPutsignalcombo4 = (int)((b_CTRL3_4) & 0b_0011);
+                OutPutsignalcombo5 = (int)(((b_CTRL5_6) & 0b_1100) >> 2);
+                OutPutsignalcombo6 = (int)((b_CTRL5_6) & 0b_0011);
+
+                string bctrl1 = "";
+                string bctrl2 = "";
+                string bctrl3 = "";
+                string bctrl4 = "";
+                string bctrl5 = "";
+                string bctrl6 = "";
+
+                switch (OutPutsignalcombo1)
+                {
+                    case 0:
+                        bctrl1 = "유지";
+                        break;
+                    case 2:
+                        bctrl1 = "오프";
+                        break;
+                    case 3:
+                        bctrl1 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo2)
+                {
+                    case 0:
+                        bctrl2 = "유지";
+                        break;
+                    case 2:
+                        bctrl2 = "오프";
+                        break;
+                    case 3:
+                        bctrl2 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo3)
+                {
+                    case 0:
+                        bctrl3 = "유지";
+                        break;
+                    case 2:
+                        bctrl3 = "오프";
+                        break;
+                    case 3:
+                        bctrl3 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo4)
+                {
+                    case 0:
+                        bctrl4 = "유지";
+                        break;
+                    case 2:
+                        bctrl4 = "오프";
+                        break;
+                    case 3:
+                        bctrl4 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo5)
+                {
+                    case 0:
+                        bctrl5 = "유지";
+                        break;
+                    case 2:
+                        bctrl5 = "오프";
+                        break;
+                    case 3:
+                        bctrl5 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo6)
+                {
+                    case 0:
+                        bctrl6 = "유지";
+                        break;
+                    case 2:
+                        bctrl6 = "오프";
+                        break;
+                    case 3:
+                        bctrl6 = "온";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "출력신호조작" +
+                ", B-CTRL1:" + bctrl1 +
+                ", B-CTRL2:" + bctrl2 +
+                ", B-CTRL3:" + bctrl3 +
+                ", B-CTRL4:" + bctrl4 +
+                ", B-CTRL5:" + bctrl5 +
+                ", B-CTRL6:" + bctrl6 +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_11[1]) == 9)                                       //점프
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);          //천이조건 hiki5
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                BlockParaModel1s[0].BlockData = "점프" +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_11[1]) == 10)      // 조건분기(=)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(=)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_11[1]) == 11)      // 조건분기(>)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(>)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_11[1]) == 12)      // 조건분기(<)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1              
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(<)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+
+
+
+
+
+            cmdCode = Convert.ToInt32(parameter7_4byte1_1[1]);        //커맨드 Code 
+            if (Convert.ToInt32(parameter7_4byte1_1[1]) == 1)                                       //상대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); //가속번호  hiki2
+                //dummy1 =        Convert.ToInt32(parameter7_4byte1_1[2]);                        //예약
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_0011);//천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                    //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "상대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 상대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 2)                                        //절대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호  hiki2
+                //dummy1 =         Conve   Convert.ToInt32(parameter7_4byte1_1[2]);                       //예약
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "절대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 절대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 3)                                       //JOG운전
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호 hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:정방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:부방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 4)                                      //원점복귀
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //검출방법 hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+                if (SpdNum == 1)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else if (SpdNum == 2)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 5)                                       //감속정지
+            {
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (StopMethod == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:감속정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:즉시정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 6)                                       //속도갱신
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                       ", 속도번호:V" + SpdNum.ToString() +
+                      ", JOG방향:정방향" +
+                      ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                      ", 속도번호:V" + SpdNum.ToString() +
+                     ", JOG방향:부방향" +
+                     ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 7)                                       //디크리멘트 카운트 기동
+            {
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //카운트 설정값 hiki7
+
+                BlockParaModel1s[0].BlockData = "디크리멘트 카운터 기동" +
+                     ", 천이조건:" + BlockChif.ToString() +
+                     ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 8)                                       //출력신호조작            
+            {
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_1[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_1[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_1[3]) >> 4);                       //hiki3
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이 조건hiki5
+
+                OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
+                OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
+                OutPutsignalcombo3 = (int)(((b_CTRL3_4) & 0b_1100) >> 2);
+                OutPutsignalcombo4 = (int)((b_CTRL3_4) & 0b_0011);
+                OutPutsignalcombo5 = (int)(((b_CTRL5_6) & 0b_1100) >> 2);
+                OutPutsignalcombo6 = (int)((b_CTRL5_6) & 0b_0011);
+
+                string bctrl1 = "";
+                string bctrl2 = "";
+                string bctrl3 = "";
+                string bctrl4 = "";
+                string bctrl5 = "";
+                string bctrl6 = "";
+
+                switch (OutPutsignalcombo1)
+                {
+                    case 0:
+                        bctrl1 = "유지";
+                        break;
+                    case 2:
+                        bctrl1 = "오프";
+                        break;
+                    case 3:
+                        bctrl1 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo2)
+                {
+                    case 0:
+                        bctrl2 = "유지";
+                        break;
+                    case 2:
+                        bctrl2 = "오프";
+                        break;
+                    case 3:
+                        bctrl2 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo3)
+                {
+                    case 0:
+                        bctrl3 = "유지";
+                        break;
+                    case 2:
+                        bctrl3 = "오프";
+                        break;
+                    case 3:
+                        bctrl3 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo4)
+                {
+                    case 0:
+                        bctrl4 = "유지";
+                        break;
+                    case 2:
+                        bctrl4 = "오프";
+                        break;
+                    case 3:
+                        bctrl4 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo5)
+                {
+                    case 0:
+                        bctrl5 = "유지";
+                        break;
+                    case 2:
+                        bctrl5 = "오프";
+                        break;
+                    case 3:
+                        bctrl5 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo6)
+                {
+                    case 0:
+                        bctrl6 = "유지";
+                        break;
+                    case 2:
+                        bctrl6 = "오프";
+                        break;
+                    case 3:
+                        bctrl6 = "온";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "출력신호조작" +
+                ", B-CTRL1:" + bctrl1 +
+                ", B-CTRL2:" + bctrl2 +
+                ", B-CTRL3:" + bctrl3 +
+                ", B-CTRL4:" + bctrl4 +
+                ", B-CTRL5:" + bctrl5 +
+                ", B-CTRL6:" + bctrl6 +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 9)                                       //점프
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);          //천이조건 hiki5
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                BlockParaModel1s[0].BlockData = "점프" +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 10)      // 조건분기(=)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
                 switch (SpdNum)
                 {
@@ -23884,14 +26594,14 @@ namespace MINASA6SF_Rev.ViewModels
             else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 11)      // 조건분기(>)
             {
                 ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
-                //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
                 ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
                 ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
                 SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
-                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
                 TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
 
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
                 switch (SpdNum)
                 {
@@ -23933,13 +26643,14 @@ namespace MINASA6SF_Rev.ViewModels
             else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 12)      // 조건분기(<)
             {
                 ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
-                //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
                 ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
                 ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
-                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1              
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5   
                 TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
                 string comp = "";
                 switch (SpdNum)
@@ -23979,6 +26690,2251 @@ namespace MINASA6SF_Rev.ViewModels
                 ", 천이조건:" + BlockChif.ToString() +
                 ", 비교값(역치):" + TargetPosition.ToString();
             }
+
+
+
+
+            cmdCode = Convert.ToInt32(parameter7_4byte1_1[1]);        //커맨드 Code 
+            if (Convert.ToInt32(parameter7_4byte1_1[1]) == 1)                                       //상대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); //가속번호  hiki2
+                //dummy1 =        Convert.ToInt32(parameter7_4byte1_1[2]);                        //예약
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_0011);//천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                    //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "상대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 상대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 2)                                        //절대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호  hiki2
+                //dummy1 =         Conve   Convert.ToInt32(parameter7_4byte1_1[2]);                       //예약
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "절대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 절대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 3)                                       //JOG운전
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호 hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:정방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:부방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 4)                                      //원점복귀
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //검출방법 hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+                if (SpdNum == 1)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else if (SpdNum == 2)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 5)                                       //감속정지
+            {
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (StopMethod == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:감속정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:즉시정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 6)                                       //속도갱신
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                       ", 속도번호:V" + SpdNum.ToString() +
+                      ", JOG방향:정방향" +
+                      ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                      ", 속도번호:V" + SpdNum.ToString() +
+                     ", JOG방향:부방향" +
+                     ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 7)                                       //디크리멘트 카운트 기동
+            {
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //카운트 설정값 hiki7
+
+                BlockParaModel1s[0].BlockData = "디크리멘트 카운터 기동" +
+                     ", 천이조건:" + BlockChif.ToString() +
+                     ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 8)                                       //출력신호조작            
+            {
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_1[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_1[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_1[3]) >> 4);                       //hiki3
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이 조건hiki5
+
+                OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
+                OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
+                OutPutsignalcombo3 = (int)(((b_CTRL3_4) & 0b_1100) >> 2);
+                OutPutsignalcombo4 = (int)((b_CTRL3_4) & 0b_0011);
+                OutPutsignalcombo5 = (int)(((b_CTRL5_6) & 0b_1100) >> 2);
+                OutPutsignalcombo6 = (int)((b_CTRL5_6) & 0b_0011);
+
+                string bctrl1 = "";
+                string bctrl2 = "";
+                string bctrl3 = "";
+                string bctrl4 = "";
+                string bctrl5 = "";
+                string bctrl6 = "";
+
+                switch (OutPutsignalcombo1)
+                {
+                    case 0:
+                        bctrl1 = "유지";
+                        break;
+                    case 2:
+                        bctrl1 = "오프";
+                        break;
+                    case 3:
+                        bctrl1 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo2)
+                {
+                    case 0:
+                        bctrl2 = "유지";
+                        break;
+                    case 2:
+                        bctrl2 = "오프";
+                        break;
+                    case 3:
+                        bctrl2 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo3)
+                {
+                    case 0:
+                        bctrl3 = "유지";
+                        break;
+                    case 2:
+                        bctrl3 = "오프";
+                        break;
+                    case 3:
+                        bctrl3 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo4)
+                {
+                    case 0:
+                        bctrl4 = "유지";
+                        break;
+                    case 2:
+                        bctrl4 = "오프";
+                        break;
+                    case 3:
+                        bctrl4 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo5)
+                {
+                    case 0:
+                        bctrl5 = "유지";
+                        break;
+                    case 2:
+                        bctrl5 = "오프";
+                        break;
+                    case 3:
+                        bctrl5 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo6)
+                {
+                    case 0:
+                        bctrl6 = "유지";
+                        break;
+                    case 2:
+                        bctrl6 = "오프";
+                        break;
+                    case 3:
+                        bctrl6 = "온";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "출력신호조작" +
+                ", B-CTRL1:" + bctrl1 +
+                ", B-CTRL2:" + bctrl2 +
+                ", B-CTRL3:" + bctrl3 +
+                ", B-CTRL4:" + bctrl4 +
+                ", B-CTRL5:" + bctrl5 +
+                ", B-CTRL6:" + bctrl6 +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 9)                                       //점프
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);          //천이조건 hiki5
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                BlockParaModel1s[0].BlockData = "점프" +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 10)      // 조건분기(=)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(=)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 11)      // 조건분기(>)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(>)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 12)      // 조건분기(<)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1              
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(<)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+
+
+
+
+            cmdCode = Convert.ToInt32(parameter7_4byte1_1[1]);        //커맨드 Code 
+            if (Convert.ToInt32(parameter7_4byte1_1[1]) == 1)                                       //상대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); //가속번호  hiki2
+                //dummy1 =        Convert.ToInt32(parameter7_4byte1_1[2]);                        //예약
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_0011);//천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                    //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "상대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 상대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 2)                                        //절대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호  hiki2
+                //dummy1 =         Conve   Convert.ToInt32(parameter7_4byte1_1[2]);                       //예약
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "절대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 절대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 3)                                       //JOG운전
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호 hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:정방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:부방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 4)                                      //원점복귀
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //검출방법 hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+                if (SpdNum == 1)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else if (SpdNum == 2)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 5)                                       //감속정지
+            {
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (StopMethod == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:감속정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:즉시정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 6)                                       //속도갱신
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                       ", 속도번호:V" + SpdNum.ToString() +
+                      ", JOG방향:정방향" +
+                      ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                      ", 속도번호:V" + SpdNum.ToString() +
+                     ", JOG방향:부방향" +
+                     ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 7)                                       //디크리멘트 카운트 기동
+            {
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //카운트 설정값 hiki7
+
+                BlockParaModel1s[0].BlockData = "디크리멘트 카운터 기동" +
+                     ", 천이조건:" + BlockChif.ToString() +
+                     ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 8)                                       //출력신호조작            
+            {
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_1[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_1[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_1[3]) >> 4);                       //hiki3
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이 조건hiki5
+
+                OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
+                OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
+                OutPutsignalcombo3 = (int)(((b_CTRL3_4) & 0b_1100) >> 2);
+                OutPutsignalcombo4 = (int)((b_CTRL3_4) & 0b_0011);
+                OutPutsignalcombo5 = (int)(((b_CTRL5_6) & 0b_1100) >> 2);
+                OutPutsignalcombo6 = (int)((b_CTRL5_6) & 0b_0011);
+
+                string bctrl1 = "";
+                string bctrl2 = "";
+                string bctrl3 = "";
+                string bctrl4 = "";
+                string bctrl5 = "";
+                string bctrl6 = "";
+
+                switch (OutPutsignalcombo1)
+                {
+                    case 0:
+                        bctrl1 = "유지";
+                        break;
+                    case 2:
+                        bctrl1 = "오프";
+                        break;
+                    case 3:
+                        bctrl1 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo2)
+                {
+                    case 0:
+                        bctrl2 = "유지";
+                        break;
+                    case 2:
+                        bctrl2 = "오프";
+                        break;
+                    case 3:
+                        bctrl2 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo3)
+                {
+                    case 0:
+                        bctrl3 = "유지";
+                        break;
+                    case 2:
+                        bctrl3 = "오프";
+                        break;
+                    case 3:
+                        bctrl3 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo4)
+                {
+                    case 0:
+                        bctrl4 = "유지";
+                        break;
+                    case 2:
+                        bctrl4 = "오프";
+                        break;
+                    case 3:
+                        bctrl4 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo5)
+                {
+                    case 0:
+                        bctrl5 = "유지";
+                        break;
+                    case 2:
+                        bctrl5 = "오프";
+                        break;
+                    case 3:
+                        bctrl5 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo6)
+                {
+                    case 0:
+                        bctrl6 = "유지";
+                        break;
+                    case 2:
+                        bctrl6 = "오프";
+                        break;
+                    case 3:
+                        bctrl6 = "온";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "출력신호조작" +
+                ", B-CTRL1:" + bctrl1 +
+                ", B-CTRL2:" + bctrl2 +
+                ", B-CTRL3:" + bctrl3 +
+                ", B-CTRL4:" + bctrl4 +
+                ", B-CTRL5:" + bctrl5 +
+                ", B-CTRL6:" + bctrl6 +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 9)                                       //점프
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);          //천이조건 hiki5
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                BlockParaModel1s[0].BlockData = "점프" +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 10)      // 조건분기(=)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(=)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 11)      // 조건분기(>)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(>)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 12)      // 조건분기(<)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1              
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(<)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+
+
+
+
+            cmdCode = Convert.ToInt32(parameter7_4byte1_1[1]);        //커맨드 Code 
+            if (Convert.ToInt32(parameter7_4byte1_1[1]) == 1)                                       //상대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); //가속번호  hiki2
+                //dummy1 =        Convert.ToInt32(parameter7_4byte1_1[2]);                        //예약
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_0011);//천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                    //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "상대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 상대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 2)                                        //절대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호  hiki2
+                //dummy1 =         Conve   Convert.ToInt32(parameter7_4byte1_1[2]);                       //예약
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "절대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 절대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 3)                                       //JOG운전
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호 hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:정방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:부방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 4)                                      //원점복귀
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //검출방법 hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+                if (SpdNum == 1)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else if (SpdNum == 2)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 5)                                       //감속정지
+            {
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (StopMethod == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:감속정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:즉시정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 6)                                       //속도갱신
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                       ", 속도번호:V" + SpdNum.ToString() +
+                      ", JOG방향:정방향" +
+                      ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                      ", 속도번호:V" + SpdNum.ToString() +
+                     ", JOG방향:부방향" +
+                     ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 7)                                       //디크리멘트 카운트 기동
+            {
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //카운트 설정값 hiki7
+
+                BlockParaModel1s[0].BlockData = "디크리멘트 카운터 기동" +
+                     ", 천이조건:" + BlockChif.ToString() +
+                     ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 8)                                       //출력신호조작            
+            {
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_1[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_1[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_1[3]) >> 4);                       //hiki3
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이 조건hiki5
+
+                OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
+                OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
+                OutPutsignalcombo3 = (int)(((b_CTRL3_4) & 0b_1100) >> 2);
+                OutPutsignalcombo4 = (int)((b_CTRL3_4) & 0b_0011);
+                OutPutsignalcombo5 = (int)(((b_CTRL5_6) & 0b_1100) >> 2);
+                OutPutsignalcombo6 = (int)((b_CTRL5_6) & 0b_0011);
+
+                string bctrl1 = "";
+                string bctrl2 = "";
+                string bctrl3 = "";
+                string bctrl4 = "";
+                string bctrl5 = "";
+                string bctrl6 = "";
+
+                switch (OutPutsignalcombo1)
+                {
+                    case 0:
+                        bctrl1 = "유지";
+                        break;
+                    case 2:
+                        bctrl1 = "오프";
+                        break;
+                    case 3:
+                        bctrl1 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo2)
+                {
+                    case 0:
+                        bctrl2 = "유지";
+                        break;
+                    case 2:
+                        bctrl2 = "오프";
+                        break;
+                    case 3:
+                        bctrl2 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo3)
+                {
+                    case 0:
+                        bctrl3 = "유지";
+                        break;
+                    case 2:
+                        bctrl3 = "오프";
+                        break;
+                    case 3:
+                        bctrl3 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo4)
+                {
+                    case 0:
+                        bctrl4 = "유지";
+                        break;
+                    case 2:
+                        bctrl4 = "오프";
+                        break;
+                    case 3:
+                        bctrl4 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo5)
+                {
+                    case 0:
+                        bctrl5 = "유지";
+                        break;
+                    case 2:
+                        bctrl5 = "오프";
+                        break;
+                    case 3:
+                        bctrl5 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo6)
+                {
+                    case 0:
+                        bctrl6 = "유지";
+                        break;
+                    case 2:
+                        bctrl6 = "오프";
+                        break;
+                    case 3:
+                        bctrl6 = "온";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "출력신호조작" +
+                ", B-CTRL1:" + bctrl1 +
+                ", B-CTRL2:" + bctrl2 +
+                ", B-CTRL3:" + bctrl3 +
+                ", B-CTRL4:" + bctrl4 +
+                ", B-CTRL5:" + bctrl5 +
+                ", B-CTRL6:" + bctrl6 +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 9)                                       //점프
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);          //천이조건 hiki5
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                BlockParaModel1s[0].BlockData = "점프" +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 10)      // 조건분기(=)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(=)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 11)      // 조건분기(>)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(>)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 12)      // 조건분기(<)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1              
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(<)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+
+
+
+
+            cmdCode = Convert.ToInt32(parameter7_4byte1_1[1]);        //커맨드 Code 
+            if (Convert.ToInt32(parameter7_4byte1_1[1]) == 1)                                       //상대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); //가속번호  hiki2
+                //dummy1 =        Convert.ToInt32(parameter7_4byte1_1[2]);                        //예약
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_0011);//천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                    //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "상대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 상대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 2)                                        //절대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호  hiki2
+                //dummy1 =         Conve   Convert.ToInt32(parameter7_4byte1_1[2]);                       //예약
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "절대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 절대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 3)                                       //JOG운전
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호 hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:정방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:부방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 4)                                      //원점복귀
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //검출방법 hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+                if (SpdNum == 1)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else if (SpdNum == 2)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 5)                                       //감속정지
+            {
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (StopMethod == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:감속정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:즉시정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 6)                                       //속도갱신
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                       ", 속도번호:V" + SpdNum.ToString() +
+                      ", JOG방향:정방향" +
+                      ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                      ", 속도번호:V" + SpdNum.ToString() +
+                     ", JOG방향:부방향" +
+                     ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 7)                                       //디크리멘트 카운트 기동
+            {
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //카운트 설정값 hiki7
+
+                BlockParaModel1s[0].BlockData = "디크리멘트 카운터 기동" +
+                     ", 천이조건:" + BlockChif.ToString() +
+                     ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 8)                                       //출력신호조작            
+            {
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_1[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_1[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_1[3]) >> 4);                       //hiki3
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이 조건hiki5
+
+                OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
+                OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
+                OutPutsignalcombo3 = (int)(((b_CTRL3_4) & 0b_1100) >> 2);
+                OutPutsignalcombo4 = (int)((b_CTRL3_4) & 0b_0011);
+                OutPutsignalcombo5 = (int)(((b_CTRL5_6) & 0b_1100) >> 2);
+                OutPutsignalcombo6 = (int)((b_CTRL5_6) & 0b_0011);
+
+                string bctrl1 = "";
+                string bctrl2 = "";
+                string bctrl3 = "";
+                string bctrl4 = "";
+                string bctrl5 = "";
+                string bctrl6 = "";
+
+                switch (OutPutsignalcombo1)
+                {
+                    case 0:
+                        bctrl1 = "유지";
+                        break;
+                    case 2:
+                        bctrl1 = "오프";
+                        break;
+                    case 3:
+                        bctrl1 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo2)
+                {
+                    case 0:
+                        bctrl2 = "유지";
+                        break;
+                    case 2:
+                        bctrl2 = "오프";
+                        break;
+                    case 3:
+                        bctrl2 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo3)
+                {
+                    case 0:
+                        bctrl3 = "유지";
+                        break;
+                    case 2:
+                        bctrl3 = "오프";
+                        break;
+                    case 3:
+                        bctrl3 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo4)
+                {
+                    case 0:
+                        bctrl4 = "유지";
+                        break;
+                    case 2:
+                        bctrl4 = "오프";
+                        break;
+                    case 3:
+                        bctrl4 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo5)
+                {
+                    case 0:
+                        bctrl5 = "유지";
+                        break;
+                    case 2:
+                        bctrl5 = "오프";
+                        break;
+                    case 3:
+                        bctrl5 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo6)
+                {
+                    case 0:
+                        bctrl6 = "유지";
+                        break;
+                    case 2:
+                        bctrl6 = "오프";
+                        break;
+                    case 3:
+                        bctrl6 = "온";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "출력신호조작" +
+                ", B-CTRL1:" + bctrl1 +
+                ", B-CTRL2:" + bctrl2 +
+                ", B-CTRL3:" + bctrl3 +
+                ", B-CTRL4:" + bctrl4 +
+                ", B-CTRL5:" + bctrl5 +
+                ", B-CTRL6:" + bctrl6 +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 9)                                       //점프
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);          //천이조건 hiki5
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                BlockParaModel1s[0].BlockData = "점프" +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 10)      // 조건분기(=)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(=)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 11)      // 조건분기(>)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(>)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 12)      // 조건분기(<)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1              
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(<)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+
+
+
+
+            cmdCode = Convert.ToInt32(parameter7_4byte1_1[1]);        //커맨드 Code 
+            if (Convert.ToInt32(parameter7_4byte1_1[1]) == 1)                                       //상대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); //가속번호  hiki2
+                //dummy1 =        Convert.ToInt32(parameter7_4byte1_1[2]);                        //예약
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_0011);//천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                    //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "상대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 상대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 2)                                        //절대위치결정
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호  hiki2
+                //dummy1 =         Conve   Convert.ToInt32(parameter7_4byte1_1[2]);                       //예약
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호  hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //블록데이터 구성
+
+                BlockParaModel1s[0].BlockData = "절대위치결정" +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
+                    ", 감속설정번호:D" + Decnum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    ", 절대이동량:" + TargetPosition.ToString();
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 3)                                       //JOG운전
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //감속번호 hiki3
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:정방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "JOG" +
+                   ", 속도번호:V" + SpdNum.ToString() +
+                   ", 가속설정번호:A" + AccNum.ToString() +
+                   ", 감속설정번호:D" + Decnum.ToString() +
+                   ", JOG방향:부방향" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 4)                                      //원점복귀
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //검출방법 hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+                if (SpdNum == 1)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME+Z상" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else if (SpdNum == 2)
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:HOME" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+                else
+                {
+                    if (Movidr == 0)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:정방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                    else if (Movidr == 1)
+                    {
+                        BlockParaModel1s[0].BlockData = "원점복귀" +
+                        ", 원점 복귀 방법:제조사 사용" +
+                        ", 복귀방향:부방향" +
+                        ", 천이조건:" + BlockChif.ToString();
+                    }
+                }
+
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 5)                                       //감속정지
+            {
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+
+
+                if (StopMethod == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:감속정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "감속정지" +
+                    ", 정지방법:즉시정지" +
+                   ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 6)                                       //속도갱신
+            {
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[0]) >> 4);                 //속도번호  hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건  hiki5
+
+                if (Movidr == 0)
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                       ", 속도번호:V" + SpdNum.ToString() +
+                      ", JOG방향:정방향" +
+                      ", 천이조건:" + BlockChif.ToString();
+                }
+                else
+                {
+                    BlockParaModel1s[0].BlockData = "속도갱신" +
+                      ", 속도번호:V" + SpdNum.ToString() +
+                     ", JOG방향:부방향" +
+                     ", 천이조건:" + BlockChif.ToString();
+                }
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 7)                                       //디크리멘트 카운트 기동
+            {
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                           //카운트 설정값 hiki7
+
+                BlockParaModel1s[0].BlockData = "디크리멘트 카운터 기동" +
+                     ", 천이조건:" + BlockChif.ToString() +
+                     ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 8)                                       //출력신호조작            
+            {
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_1[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_1[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_1[3]) >> 4);                       //hiki3
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이 조건hiki5
+
+                OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
+                OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
+                OutPutsignalcombo3 = (int)(((b_CTRL3_4) & 0b_1100) >> 2);
+                OutPutsignalcombo4 = (int)((b_CTRL3_4) & 0b_0011);
+                OutPutsignalcombo5 = (int)(((b_CTRL5_6) & 0b_1100) >> 2);
+                OutPutsignalcombo6 = (int)((b_CTRL5_6) & 0b_0011);
+
+                string bctrl1 = "";
+                string bctrl2 = "";
+                string bctrl3 = "";
+                string bctrl4 = "";
+                string bctrl5 = "";
+                string bctrl6 = "";
+
+                switch (OutPutsignalcombo1)
+                {
+                    case 0:
+                        bctrl1 = "유지";
+                        break;
+                    case 2:
+                        bctrl1 = "오프";
+                        break;
+                    case 3:
+                        bctrl1 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo2)
+                {
+                    case 0:
+                        bctrl2 = "유지";
+                        break;
+                    case 2:
+                        bctrl2 = "오프";
+                        break;
+                    case 3:
+                        bctrl2 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo3)
+                {
+                    case 0:
+                        bctrl3 = "유지";
+                        break;
+                    case 2:
+                        bctrl3 = "오프";
+                        break;
+                    case 3:
+                        bctrl3 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo4)
+                {
+                    case 0:
+                        bctrl4 = "유지";
+                        break;
+                    case 2:
+                        bctrl4 = "오프";
+                        break;
+                    case 3:
+                        bctrl4 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo5)
+                {
+                    case 0:
+                        bctrl5 = "유지";
+                        break;
+                    case 2:
+                        bctrl5 = "오프";
+                        break;
+                    case 3:
+                        bctrl5 = "온";
+                        break;
+                }
+
+                switch (OutPutsignalcombo6)
+                {
+                    case 0:
+                        bctrl6 = "유지";
+                        break;
+                    case 2:
+                        bctrl6 = "오프";
+                        break;
+                    case 3:
+                        bctrl6 = "온";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "출력신호조작" +
+                ", B-CTRL1:" + bctrl1 +
+                ", B-CTRL2:" + bctrl2 +
+                ", B-CTRL3:" + bctrl3 +
+                ", B-CTRL4:" + bctrl4 +
+                ", B-CTRL5:" + bctrl5 +
+                ", B-CTRL6:" + bctrl6 +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 9)                                       //점프
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);          //천이조건 hiki5
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                BlockParaModel1s[0].BlockData = "점프" +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 10)      // 조건분기(=)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(=)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 11)      // 조건분기(>)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(>)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+            else if (Convert.ToInt32(parameter7_4byte1_1[1]) == 12)      // 조건분기(<)
+            {
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); // hiki2
+                                                                                                      //dummy1 =         Convert.ToInt32(parameter7_4byte1_1[2]);                           // 예약
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           // hiki3
+                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  // hiki4
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);                      // 비교대상  hiki1              
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                     //비교값   hiki7
+
+                JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
+
+                string comp = "";
+                switch (SpdNum)
+                {
+                    case 0:
+                        comp = "지령위치";
+                        break;
+                    case 1:
+                        comp = "현재위치";
+                        break;
+                    case 2:
+                        comp = "위치편차";
+                        break;
+                    case 3:
+                        comp = "지령속도";
+                        break;
+                    case 4:
+                        comp = "모터속도";
+                        break;
+                    case 5:
+                        comp = "지령토크";
+                        break;
+                    case 6:
+                        comp = "디크리멘트카운트";
+                        break;
+                    case 7:
+                        comp = "입력신호";
+                        break;
+                    case 8:
+                        comp = "출력신호";
+                        break;
+                }
+
+                BlockParaModel1s[0].BlockData = "조건분기(<)" +
+                ", 비교대상:" + comp +
+                ", 블록번호:" + JumpBlockNum.ToString() +
+                ", 천이조건:" + BlockChif.ToString() +
+                ", 비교값(역치):" + TargetPosition.ToString();
+            }
+
+
+
+
+
         }
 
         // recValue1~recValue512
@@ -25064,8 +30020,48 @@ namespace MINASA6SF_Rev.ViewModels
         #endregion
 
         //블럭 셋팅 창 오픈
-        public void showWindow(object BlocksettingDialog)
+        public void showWindow(object MPViewModel)
         {
+            switch(cmdCode)
+            {
+                case 1:
+                    blockSettingDialog.FunctionSelect1.SelectedIndex = 0;
+                    break;
+                case 2:
+                    blockSettingDialog.FunctionSelect1.SelectedIndex = 1;
+                    break;
+                case 3:
+                    blockSettingDialog.FunctionSelect1.SelectedIndex = 2;
+                    break;
+                case 4:
+                    blockSettingDialog.FunctionSelect1.SelectedIndex = 3;
+                    break;
+                case 5:
+                    blockSettingDialog.FunctionSelect1.SelectedIndex = 4;
+                    break;
+                case 6:
+                    blockSettingDialog.FunctionSelect1.SelectedIndex = 5;
+                    break;
+                case 7:
+                    blockSettingDialog.FunctionSelect1.SelectedIndex = 6;
+                    break;
+                case 8:
+                    blockSettingDialog.FunctionSelect1.SelectedIndex = 7;
+                    break;
+                case 9:
+                    blockSettingDialog.FunctionSelect1.SelectedIndex = 8;
+                    break;
+                case 10:
+                    blockSettingDialog.FunctionSelect1.SelectedIndex = 9;
+                    break;
+                case 11:
+                    blockSettingDialog.FunctionSelect1.SelectedIndex = 10;
+                    break;
+                case 12:
+                    blockSettingDialog.FunctionSelect1.SelectedIndex = 11;
+                    break;
+            }
+            Debug.WriteLine(cmdCode.ToString());
             blockSettingDialog.ShowDialog();
         }
     }
