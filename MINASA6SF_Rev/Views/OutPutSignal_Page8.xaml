@@ -72,7 +72,7 @@
         <TextBlock Text="B-CTRL6" Style="{StaticResource TextForm}" Grid.Row="6" Grid.Column="0"/>
         <TextBlock Text="천이 조건" Style="{StaticResource TextForm}" Grid.Row="7" Grid.Column="0"/>
 
-        <ComboBox x:Name="B_CTRL1Combo8" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
+        <ComboBox x:Name="B_CTRL1Combo8" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="{Binding OutPutsignalcombo1}" 
                   Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
                   ItemsSource="{StaticResource outputSelect}"/>
         <ComboBox x:Name="B_CTRL2Combo8" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
@@ -93,7 +93,5 @@
         <ComboBox x:Name="SuccNumCombo8" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0" 
                   Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Height="30" Margin="0 0 20 0"
                   ItemsSource="{StaticResource conditionSelect}"/>
-
-
     </Grid>
 </UserControl>
