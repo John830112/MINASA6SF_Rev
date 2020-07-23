@@ -230,7 +230,8 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <Button Template="{StaticResource JogRewind}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold">
+                    <Button Template="{StaticResource JogRewind}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"
+                            FocusVisualStyle="{x:Null}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding jogrewind1}"/>
@@ -240,7 +241,8 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>
-                    <Button Template="{StaticResource JogPlayButton2}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold">
+                    <Button Template="{StaticResource JogPlayButton2}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"
+                            FocusVisualStyle="{x:Null}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding jogplaybtn1}"/>
@@ -250,8 +252,8 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>
-                    
-                    <Button Template="{StaticResource JogPause}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold">
+                    <Button Template="{StaticResource JogPause}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"
+                            FocusVisualStyle="{x:Null}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding jogpause1}"/>
@@ -261,7 +263,8 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>
-                    <Button Template="{StaticResource JogPlayButton}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold">
+                    <Button Template="{StaticResource JogPlayButton}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"
+                            FocusVisualStyle="{x:Null}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding jogplaybtn3}"/>
@@ -271,7 +274,8 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>
-                    <Button Template="{StaticResource JogFastFord}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold">
+                    <Button Template="{StaticResource JogFastFord}" Width="60" Height="50" Margin="0 0 0 0" FontWeight="Bold"
+                            FocusVisualStyle="{x:Null}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding jogfastford1}"/>
@@ -447,15 +451,15 @@
                 </StackPanel>
 
                 <ComboBox FontSize="14" Grid.Row="0" Grid.Column="1" Margin="0 6 0 0" BorderThickness="1" VerticalAlignment="Center"
-                          ItemsSource="{Binding SelectBlockNum}"
+                          ItemsSource="{Binding SelectBlockNum}" FocusVisualStyle="{x:Null}"
                           SelectedValue="{Binding Selected_BlockNum, Mode=TwoWay}"/>
                 <TextBox FontSize="14" Grid.Row="0" Grid.Column="3" Margin="0 6 0 0" BorderThickness="1" IsReadOnly="True"              
                            Text="{Binding SelectBlockNumMon1}"/>
                 <ComboBox FontSize="14" Grid.Row="1" Grid.Column="3" Margin="0 4 0 0" BorderThickness="1"
-                          ItemsSource="{Binding BlockAccSpeed}"
+                          ItemsSource="{Binding BlockAccSpeed}" FocusVisualStyle="{x:Null}"
                           SelectedValue="{Binding Selected_BlockAccSpeed, Mode=TwoWay}"/>
                 <ComboBox FontSize="14" Grid.Row="2" Grid.Column="3" Margin="0 4 0 0" BorderThickness="1"
-                          ItemsSource="{Binding BlockDecSpeed}"
+                          ItemsSource="{Binding BlockDecSpeed}" FocusVisualStyle="{x:Null}"
                           SelectedValue="{Binding Selected_BlockDecSpeed, Mode=TwoWay}"/>
                 <TextBox FontSize="14" Grid.Row="1" Grid.Column="1" Margin="0 4 0 0" IsReadOnly="True" />
                 <TextBox FontSize="14" Grid.Row="2" Grid.Column="1" Margin="0 4 0 0" IsReadOnly="True">
@@ -465,31 +469,36 @@
 
         <!-- 컨트롤 판넬 버튼 -->
         <StackPanel Grid.ColumnSpan="5" Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
-            <Button Template="{StaticResource ButtonTemplate}" Content="ServoON_OFF" Width="110" Height="60" Margin="10 -70 0 0" x:Name="servoon"
+            <Button Template="{StaticResource ButtonTemplate}" Content="ServoON_OFF" Width="110" Height="60" 
+                    Margin="10 -70 0 0" x:Name="servoon" FocusVisualStyle="{x:Null}"
                     FontWeight="Bold" Command="{Binding servoOn}">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="6" ShadowDepth="10" Color="Gray"/>
                 </Button.Effect>
             </Button>
-            <Button Template="{StaticResource ButtonTemplate}" Content="STB" Width="110" Height="60" Margin="20 -70 0 0" 
+            <Button Template="{StaticResource ButtonTemplate}" Content="STB" Width="110" Height="60" 
+                    Margin="20 -70 0 0" FocusVisualStyle="{x:Null}"
                     FontWeight="Bold" Command="{Binding stB}">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="6" ShadowDepth="10" Color="Gray"/>
                 </Button.Effect>
             </Button>
-            <Button Template="{StaticResource ButtonTemplate}" Content="A-Clear"  Width="110" Height="60" Margin="20 -70 0 0" 
+            <Button Template="{StaticResource ButtonTemplate}" Content="A-Clear"  Width="110" Height="60" 
+                    Margin="20 -70 0 0" FocusVisualStyle="{x:Null}"
                     FontWeight="Bold" Command="{Binding a_Clear}">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="6" ShadowDepth="10" Color="Gray"/>
                 </Button.Effect>
             </Button>
-            <Button Template="{StaticResource ButtonTemplate}" Content="S-STOP"  Width="110" Height="60" Margin="20 -70 0 0" 
+            <Button Template="{StaticResource ButtonTemplate}" Content="S-STOP"  Width="110" Height="60" 
+                    Margin="20 -70 0 0" FocusVisualStyle="{x:Null}"
                     FontWeight="Bold" Command="{Binding s_Stop}">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="6" ShadowDepth="10" Color="Gray"/>
                 </Button.Effect>
             </Button>
-            <Button Template="{StaticResource ButtonTemplate}" Content="H-STOP"  Width="110" Height="60" Margin="20 -70 0 0" 
+            <Button Template="{StaticResource ButtonTemplate}" Content="H-STOP"  Width="110" Height="60" 
+                    Margin="20 -70 0 0" FocusVisualStyle="{x:Null}"
                     FontWeight="Bold" Command="{Binding h_Stop}">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="6" ShadowDepth="10" Color="Gray"/>

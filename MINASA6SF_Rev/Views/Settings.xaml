@@ -61,19 +61,20 @@
 
                     <ComboBox x:Name="axisNumselect" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
                               MaxDropDownHeight="200" Margin="0 1 0 1" BorderThickness="1" HorizontalContentAlignment="Right"
-                              ItemsSource="{Binding axisNum}" SelectedIndex="0"/>
+                              ItemsSource="{Binding axisNum}" SelectedIndex="0" FocusVisualStyle="{x:Null}"/>
 
                     <ComboBox x:Name="cycleTime" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" HorizontalContentAlignment="Right"
-                              Margin="0 1 0 1" BorderThickness="1" ItemsSource="{Binding cycTime}" SelectedIndex="0"/>
+                              Margin="0 1 0 1" BorderThickness="1" ItemsSource="{Binding cycTime}" SelectedIndex="0"
+                              FocusVisualStyle="{x:Null}"/>
 
                     <ComboBox x:Name="dummy1" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
-                              Margin="0 1 0 1" BorderThickness="1"/>
+                              Margin="0 1 0 1" BorderThickness="1" FocusVisualStyle="{x:Null}"/>
 
                     <ComboBox x:Name="dummy2" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
-                              Margin="0 1 0 1" BorderThickness="1"/>
+                              Margin="0 1 0 1" BorderThickness="1" FocusVisualStyle="{x:Null}"/>
 
                     <ComboBox x:Name="BlockFunctionSelectionSetting" FontSize="12" VerticalContentAlignment="Center" 
-                              FontStretch="Medium" Margin="0 1 0 0" BorderThickness="1">
+                              FontStretch="Medium" Margin="0 1 0 0" BorderThickness="1" FocusVisualStyle="{x:Null}">
                         <ComboBoxItem Content="0 : Block 동작무효"/>
                         <ComboBoxItem Content="1 : Modbus 통신기동"/>
                         <ComboBoxItem Content="2 : I/O 신호기동"/>
@@ -83,13 +84,13 @@
             </Grid>
         </GroupBox>
         <Button x:Name="Confirm" Grid.Row="2" Content="Confirm" Height="40" Width="100" 
-                Margin="20 -70 0 0" Command="{Binding SettingConfirm}">
+                Margin="20 -70 0 0" Command="{Binding SettingConfirm}" FocusVisualStyle="{x:Null}">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="6" ShadowDepth="10" Color="Gray"/>
             </Button.Effect>
         </Button>
         <Button x:Name="Disconnect" Grid.Row="2" Grid.Column="1" Content="Disconnect" Height="40" 
-                Width="100" Margin="40 -70 0 0" Command="{Binding Disconnect}">
+                Width="100" Margin="40 -70 0 0" Command="{Binding Disconnect}" FocusVisualStyle="{x:Null}">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="6" ShadowDepth="10" Color="Gray"/>
             </Button.Effect>

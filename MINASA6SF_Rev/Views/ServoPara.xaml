@@ -48,23 +48,23 @@
         <ToolBar Background="LightGray" Grid.Column="1" Grid.RowSpan="3" 
                  Grid.ColumnSpan="3" Margin="0,4,-130,5"  >
             <Button x:Name="SerVParaRx" Content="수신" Style="{StaticResource ResourceKey=ToolButton}" 
-                    Command="{Binding RecCommand}" Margin="5 0 0 0"/>
+                    Command="{Binding RecCommand}" Margin="5 0 0 0" FocusVisualStyle="{x:Null}"/>
             <Separator/>
             <Button x:Name="SerVParaTx" Content="송신" Style="{StaticResource ResourceKey=ToolButton}"
-                    Command="{Binding TranCommand}"/>
+                    Command="{Binding TranCommand}" FocusVisualStyle="{x:Null}"/>
             <Separator/>
             <Button x:Name="EEP" Content="EEP" Style="{StaticResource ResourceKey=ToolButton}"
-                    Command="{Binding EepCommand}"/>
+                    Command="{Binding EepCommand}" FocusVisualStyle="{x:Null}"/>
         </ToolBar>
 
         <Separator Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Margin="10,14,-95,2"/>
         <ComboBox Grid.Row="3" Grid.Column="1" Margin="1,9,0,10" HorizontalAlignment="Center" 
-                  VerticalAlignment="Center" Width="150" Height="22">
+                  VerticalAlignment="Center" Width="150" Height="22" FocusVisualStyle="{x:Null}">
             <ComboBoxItem Content="A6SF 매개변수 일람" IsSelected="True" />
         </ComboBox>
 
         <ListBox  Background="White" x:Name="ParaTreeView" Grid.Row="4" Grid.Column="1"
-                   SelectionChanged="ParaTreeView_SelectionChanged">
+                   SelectionChanged="ParaTreeView_SelectionChanged" FocusVisualStyle="{x:Null}">
             <ListBoxItem Content="분류0(기본)"/>
             <ListBoxItem Content="분류1(게인)"/>
             <ListBoxItem Content="분류2(진동 억제)"/>
