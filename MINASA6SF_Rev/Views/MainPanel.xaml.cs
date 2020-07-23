@@ -42,7 +42,7 @@ namespace MINASA6SF_Rev.Views
         {
 
             Settings = new Settings();
-            mainPanelViewModel = new MainPanelViewModel(Settings, BlockPara);
+            mainPanelViewModel = new MainPanelViewModel(Settings, BlockPara, ControlPanel1);
             ServoPara = new ServoPara(mainPanelViewModel);
 
             InitializeComponent();

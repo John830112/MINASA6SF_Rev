@@ -358,12 +358,18 @@
     <Resource Include="icons\stop_circled_50px.png" />
     <Resource Include="icons\tx.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="icons\lock_button_40px.png" />
+    <Resource Include="icons\open_button_40px.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="RadioLamp\LED-gray.png" />
     <Resource Include="RadioLamp\LED-green.png" />
     <Resource Include="RadioLamp\LED-red.png" />
     <Resource Include="RadioLamp\LED-yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\lock_button.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

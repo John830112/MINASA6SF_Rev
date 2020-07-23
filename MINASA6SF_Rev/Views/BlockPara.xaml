@@ -150,7 +150,7 @@
                                 <DataTemplate x:Name="ttt">
                                     <TextBox Text="{Binding Path=SettingValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0"
                                              HorizontalContentAlignment="Right" Foreground="Black" Background="{Binding Path=Background, 
-                                        RelativeSource={RelativeSource AncestorType=DataGridRow}}">
+                                             RelativeSource={RelativeSource AncestorType=DataGridRow}}">
                                     </TextBox>
                                     <DataTemplate.Triggers>
                                         <DataTrigger Binding="{Binding XPath=SubIndex, RelativeSource={RelativeSource AncestorType=DataGridRow}}" Value="48">

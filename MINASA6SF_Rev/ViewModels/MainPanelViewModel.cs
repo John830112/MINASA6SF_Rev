@@ -35,6 +35,12 @@ namespace MINASA6SF_Rev.ViewModels
         BackgroundWorker worker2 = new BackgroundWorker(); //블럭 파라미터 송신
         bool mirrorONOFF;
         bool servoON;
+        bool blockselect_Lock_Release=false;
+        public bool BlockSelect_Lock_Release
+        {
+            get { return blockselect_Lock_Release; }
+            set { SetProperty(ref blockselect_Lock_Release, value); }
+        }
         int mirrTime;
         byte[] _servoONStatus;
         int lampstatus = 0;
@@ -79,6 +85,35 @@ namespace MINASA6SF_Rev.ViewModels
         byte[] selectedBlock2 = new byte[2];
         int axisNum1 = 1;
 
+        ushort jogBlockSelect_Value1 = 252;
+        public ushort JogBlockSelect_Value1  //JOG운전 BlockNum 선택 변수
+        {
+            get { return jogBlockSelect_Value1; }
+            set { SetProperty(ref jogBlockSelect_Value1, value); }
+        }
+
+        ushort jogBlockSelect_Value2 = 253;
+        public ushort JogBlockSelect_Value2  //JOG운전 BlockNum 선택 변수
+        {
+            get { return jogBlockSelect_Value2; }
+            set { SetProperty(ref jogBlockSelect_Value2, value); }
+        }
+
+        ushort jogBlockSelect_Value3 = 254;
+        public ushort JogBlockSelect_Value3  //JOG운전 BlockNum 선택 변수
+        {
+            get { return jogBlockSelect_Value3; }
+            set { SetProperty(ref jogBlockSelect_Value3, value); }
+        }
+
+        ushort jogBlockSelect_Value4 = 255;
+        public ushort JogBlockSelect_Value4  //JOG운전 BlockNum 선택 변수
+        {
+            get { return jogBlockSelect_Value4; }
+            set { SetProperty(ref jogBlockSelect_Value4, value); }
+        }
+
+
         float overload1;
         float torquecmd;
         Int32 powerontimetemp;
@@ -86,6 +121,7 @@ namespace MINASA6SF_Rev.ViewModels
         private Master modbusTCP = new Master();
         Settings settings;
         BlockPara blockpara;
+        ControlPanel1 controlpanel1;
 
         public ObservableCollection<int> axisNum { set; get; }
         ObservableCollection<int> axisNums = new ObservableCollection<int>();
@@ -685,25 +721,7 @@ namespace MINASA6SF_Rev.ViewModels
         #endregion
 
         #region 블록 커맨드 수신 변수
-        //상대위치결정 또는 절대위치결정 
-        int spdNum1;        //속도 번호  hiki1
-        int accNum1;        //가속 번호  hiki2
-        int decNum1;        //감속 번호  hiki3
-        int movdir1;        //방향  hiki4
-        int blockchif1;     //천이 조건  hiki5
-        int dataConfig1;    //블록 데이터 구성
-
-        //JOG운전 
-        int spdNum2;        //속도번호 hiki1
-        int accNum2;        //가속번호 hiki2
-        int decNum2;        //감속번호 hiki3
-        int movdir2;        //방향     hiki4
-        int blockchif2;     //천이조건 hiki5
-
-        //원점복귀 
-        int detectMethod;   //검출방법 hiki1
-        int movdir3;        //방향     hiki4
-        int blockchif3;     //천이조건 hiki5
+      
 
         //감속정지 
         ushort stopMethod;     //정지방법 hiki1
@@ -712,25 +730,12 @@ namespace MINASA6SF_Rev.ViewModels
             get { return stopMethod; }
             set { SetProperty(ref stopMethod, value); }
         }
-        int blockchif4;     //천이조건 hiki5
-
-        //속도갱신 
-        int speedNum;      //속도번호  hiki1
-        int movdir5;       //동작방향  hiki4
-        int blockchif5;    //천이조건  hiki5
-
-        //디크리멘트 카운트 기동
-        int blockchif6;    //천이조건 hiki5
-        int dataConfig6;   //카운트 설정값
-
         //출력신호조작
         int b_CTRL1_2;      //hiki1
         int b_CTRL3_4;      //hiki2
         int b_CTRL5_6;      //hiki4
-        int blockchif7;     //천이조건hiki5
 
         //점프 
-        int gotoblockNum;   //hiki2~3~4
         int blockchif8;     //천이조건 hiki5
 
         //조건분기(=,<,>)
@@ -785,9 +790,6 @@ namespace MINASA6SF_Rev.ViewModels
             get { return jumpBlockNum; }
             set { SetProperty(ref jumpBlockNum, value); }
         }
-
-        
-
 
 
 
@@ -2108,11 +2110,12 @@ namespace MINASA6SF_Rev.ViewModels
         #region viewmodel 생성자
         public MainPanelViewModel() { }
 
-        public MainPanelViewModel(Settings _settings, BlockPara _blockpara)
+        public MainPanelViewModel(Settings _settings, BlockPara _blockpara, ControlPanel1 _controlPanel1)
         {
             mirrorONOFF = false;
             settings = _settings;
             blockpara = _blockpara;
+            controlpanel1 = _controlPanel1;
 
             //BlockParaDialog Page Datacontext 설정
             incPosition_Page1.DataContext = this;
@@ -2275,16 +2278,16 @@ namespace MINASA6SF_Rev.ViewModels
         //빠른 부방향 시작
         private void Executejogrewind1(object parameter)
         {
-            jogBlockSelect[0] = (byte)(252 >> 8);
-            jogBlockSelect[1] = (byte)(252);
-            modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 17428, jogBlockSelect);
-            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, 1, ref _servoONStatus);
+            jogBlockSelect[0] = (byte)(JogBlockSelect_Value1 >> 8);
+            jogBlockSelect[1] = (byte)(JogBlockSelect_Value1);
+            modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);  // JOGBLOCK선택
+            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, 1, ref _servoONStatus);  //SERVO ON 상태 읽기
             if (_servoONStatus != null)
             {
 
                 if (_servoONStatus[0] == 0)
                 {
-                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);  //SERVO ON
                     servoON = false;
                 }
             }
@@ -2293,7 +2296,7 @@ namespace MINASA6SF_Rev.ViewModels
                 StatusBar = "서보 ON 상태 읽기 실패_JOG운전 버튼";
                 return;
             }
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);  //STB
             Debug.WriteLine("Down");
         }
 
@@ -2305,8 +2308,8 @@ namespace MINASA6SF_Rev.ViewModels
         //빠른 부방향 정지
         private void Executejogrewind2(object parameter)
         {
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, true);
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, false);
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, true);   //즉시정지 ON
+            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, false);  //즉시정지 OFF
             Debug.WriteLine("Up");
         }
 
@@ -2318,9 +2321,9 @@ namespace MINASA6SF_Rev.ViewModels
         //느린 부방향 시작
         private void Executejogplaybtn1(object parameter)
         {
-            jogBlockSelect[0] = (byte)(253 >> 8);
-            jogBlockSelect[1] = (byte)(253);
-            modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 17428, jogBlockSelect);
+            jogBlockSelect[0] = (byte)(JogBlockSelect_Value2 >> 8);
+            jogBlockSelect[1] = (byte)(JogBlockSelect_Value2);
+            modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);
             modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, 1, ref _servoONStatus);
             if (_servoONStatus != null)
             {
@@ -2360,12 +2363,28 @@ namespace MINASA6SF_Rev.ViewModels
         //Pause  보류
         private void Executejogpause1(object parameter)
         {
-            return;
+            if(BlockSelect_Lock_Release)
+            {
+                controlpanel1.combo1.Visibility = Visibility.Hidden;
+                controlpanel1.combo2.Visibility = Visibility.Hidden;
+                controlpanel1.combo3.Visibility = Visibility.Hidden;
+                controlpanel1.combo4.Visibility = Visibility.Hidden;
+                BlockSelect_Lock_Release = false;
+            }
+            else
+            {
+                controlpanel1.combo1.Visibility = Visibility.Visible;
+                controlpanel1.combo2.Visibility = Visibility.Visible;
+                controlpanel1.combo3.Visibility = Visibility.Visible;
+                controlpanel1.combo4.Visibility = Visibility.Visible;
+                BlockSelect_Lock_Release = true;
+            }
+
         }
 
         private bool Canexecutejogpause1(object parameter)
         {
-            return false;
+            return true;
         }
 
         //Pause  보류
@@ -2382,9 +2401,9 @@ namespace MINASA6SF_Rev.ViewModels
         //느린 정방향 시작
         private void Executejogplaybtn3(object parameter)
         {
-            jogBlockSelect[0] = (byte)(254 >> 8);
-            jogBlockSelect[1] = (byte)(254);
-            modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 17428, jogBlockSelect);
+            jogBlockSelect[0] = (byte)(JogBlockSelect_Value3 >> 8);
+            jogBlockSelect[1] = (byte)(JogBlockSelect_Value3);
+            modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);
             modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
             if (_servoONStatus != null)
             {
@@ -2425,9 +2444,9 @@ namespace MINASA6SF_Rev.ViewModels
         //빠른 부방향 시작
         private void Executejogfastford1(object parameter)
         {
-            jogBlockSelect[0] = (byte)(255 >> 8);
-            jogBlockSelect[1] = (byte)(255);
-            modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 17428, jogBlockSelect);
+            jogBlockSelect[0] = (byte)(JogBlockSelect_Value4 >> 8);
+            jogBlockSelect[1] = (byte)(JogBlockSelect_Value4);
+            modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);
             modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
             if (_servoONStatus != null)
             {
@@ -2745,8 +2764,22 @@ namespace MINASA6SF_Rev.ViewModels
         //S-Stop
         private void Executes_Stop(object parameter)
         {
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 292, true);
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 292, false);
+            
+            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
+
+            if (_servoONStatus != null)
+            {
+                if (_servoONStatus[0] == 1)
+                {
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 292, true);
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 292, false);
+                }
+            }
+            else
+            {
+                StatusBar = "서보온 상태를 확인 할 수 없습니다." + " S-Stop버튼";
+                return;
+            }
         }
 
         private bool Canexecutes_Stop(object parameter)
@@ -2757,8 +2790,21 @@ namespace MINASA6SF_Rev.ViewModels
         //H-Stop
         private void Executeh_Stop(object parameter)
         {
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, true);
-            modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, false);
+            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
+
+            if (_servoONStatus != null)
+            {
+                if (_servoONStatus[0] == 1)
+                {
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, true);
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, false);
+                }
+            }
+            else
+            {
+                StatusBar = "서보온 상태를 확인 할 수 없습니다." + " H-Stop버튼";
+                return;
+            }
         }
 
         private bool Canexecuteh_Stop(object parameter)
@@ -23613,8 +23659,6 @@ namespace MINASA6SF_Rev.ViewModels
                 b_CTRL3_4 =       (Convert.ToInt32(parameter7_4byte1_1[0]) & 0b_0000_1111);       //hiki2
                 b_CTRL5_6 =       (Convert.ToInt32(parameter7_4byte1_1[3]) >> 4);                 //hiki3
                 BlockChif =      (UInt16)(Convert.ToInt32(parameter7_4byte1_1[3]) & 0b_0000_0011);       //천이 조건hiki5
-
-
 
 
             }
