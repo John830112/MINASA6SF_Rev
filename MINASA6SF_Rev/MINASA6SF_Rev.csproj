@@ -107,6 +107,7 @@
     <Compile Include="Models\ServoParaModel.cs" />
     <Compile Include="Models\StringConverter.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
+    <Compile Include="ViewModels\BlockDataRecViewModel.cs" />
     <Compile Include="ViewModels\MainPanelViewModel.cs" />
     <Compile Include="Views\Abs_Position_Page2.xaml.cs">
       <DependentUpon>Abs_Position_Page2.xaml</DependentUpon>
