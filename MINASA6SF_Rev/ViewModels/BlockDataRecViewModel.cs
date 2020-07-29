@@ -34,12 +34,14 @@ namespace MINASA6SF_Rev.ViewModels
         partial void BlockParameterRec1(object sender, DoWorkEventArgs e)
         {
             int count = 0;
-            for (int i = 0; i < 11; i++)
+            for (int i = 0; i < 51; i++)
             {
                 BlockParameterRec(i);
                 count += 1;
                 Debug.WriteLine(count.ToString());
             }
+            mirrorONOFF = true;
+            worker.RunWorkerAsync();
 
             #region 블럭 파라미터 수신 변수 Reverse처리   //Array.Reverse(recValue1);
             Array.Reverse(recValue1);
@@ -64,86 +66,86 @@ namespace MINASA6SF_Rev.ViewModels
             Array.Reverse(recValue20);
             Array.Reverse(recValue21);
             Array.Reverse(recValue22);
-            //Array.Reverse(recValue23);
-            //Array.Reverse(recValue24);
-            //Array.Reverse(recValue25);
-            //Array.Reverse(recValue26);
-            //Array.Reverse(recValue27);
-            //Array.Reverse(recValue28);
-            //Array.Reverse(recValue29);
-            //Array.Reverse(recValue30);
-            //Array.Reverse(recValue31);
-            //Array.Reverse(recValue32);
-            //Array.Reverse(recValue33);
-            //Array.Reverse(recValue34);
-            //Array.Reverse(recValue35);
-            //Array.Reverse(recValue36);
-            //Array.Reverse(recValue37);
-            //Array.Reverse(recValue38);
-            //Array.Reverse(recValue39);
-            //Array.Reverse(recValue40);
-            //Array.Reverse(recValue41);
-            //Array.Reverse(recValue42);
-            //Array.Reverse(recValue43);
-            //Array.Reverse(recValue44);
-            //Array.Reverse(recValue45);
-            //Array.Reverse(recValue46);
-            //Array.Reverse(recValue47);
-            //Array.Reverse(recValue48);
-            //Array.Reverse(recValue49);
-            //Array.Reverse(recValue50);
-            //Array.Reverse(recValue51);
-            //Array.Reverse(recValue52);
-            //Array.Reverse(recValue53);
-            //Array.Reverse(recValue54);
-            //Array.Reverse(recValue55);
-            //Array.Reverse(recValue56);
-            //Array.Reverse(recValue57);
-            //Array.Reverse(recValue58);
-            //Array.Reverse(recValue59);
-            //Array.Reverse(recValue60);
-            //Array.Reverse(recValue61);
-            //Array.Reverse(recValue62);
-            //Array.Reverse(recValue63);
-            //Array.Reverse(recValue64);
-            //Array.Reverse(recValue65);
-            //Array.Reverse(recValue66);
-            //Array.Reverse(recValue67);
-            //Array.Reverse(recValue68);
-            //Array.Reverse(recValue69);
-            //Array.Reverse(recValue70);
-            //Array.Reverse(recValue71);
-            //Array.Reverse(recValue72);
-            //Array.Reverse(recValue73);
-            //Array.Reverse(recValue74);
-            //Array.Reverse(recValue75);
-            //Array.Reverse(recValue76);
-            //Array.Reverse(recValue77);
-            //Array.Reverse(recValue78);
-            //Array.Reverse(recValue79);
-            //Array.Reverse(recValue80);
-            //Array.Reverse(recValue81);
-            //Array.Reverse(recValue82);
-            //Array.Reverse(recValue83);
-            //Array.Reverse(recValue84);
-            //Array.Reverse(recValue85);
-            //Array.Reverse(recValue86);
-            //Array.Reverse(recValue87);
-            //Array.Reverse(recValue88);
-            //Array.Reverse(recValue89);
-            //Array.Reverse(recValue90);
-            //Array.Reverse(recValue91);
-            //Array.Reverse(recValue92);
-            //Array.Reverse(recValue93);
-            //Array.Reverse(recValue94);
-            //Array.Reverse(recValue95);
-            //Array.Reverse(recValue96);
-            //Array.Reverse(recValue97);
-            //Array.Reverse(recValue98);
-            //Array.Reverse(recValue99);
-            //Array.Reverse(recValue100);
-            //Array.Reverse(recValue101);
-            //Array.Reverse(recValue102);
+            Array.Reverse(recValue23);
+            Array.Reverse(recValue24);
+            Array.Reverse(recValue25);
+            Array.Reverse(recValue26);
+            Array.Reverse(recValue27);
+            Array.Reverse(recValue28);
+            Array.Reverse(recValue29);
+            Array.Reverse(recValue30);
+            Array.Reverse(recValue31);
+            Array.Reverse(recValue32);
+            Array.Reverse(recValue33);
+            Array.Reverse(recValue34);
+            Array.Reverse(recValue35);
+            Array.Reverse(recValue36);
+            Array.Reverse(recValue37);
+            Array.Reverse(recValue38);
+            Array.Reverse(recValue39);
+            Array.Reverse(recValue40);
+            Array.Reverse(recValue41);
+            Array.Reverse(recValue42);
+            Array.Reverse(recValue43);
+            Array.Reverse(recValue44);
+            Array.Reverse(recValue45);
+            Array.Reverse(recValue46);
+            Array.Reverse(recValue47);
+            Array.Reverse(recValue48);
+            Array.Reverse(recValue49);
+            Array.Reverse(recValue50);
+            Array.Reverse(recValue51);
+            Array.Reverse(recValue52);
+            Array.Reverse(recValue53);
+            Array.Reverse(recValue54);
+            Array.Reverse(recValue55);
+            Array.Reverse(recValue56);
+            Array.Reverse(recValue57);
+            Array.Reverse(recValue58);
+            Array.Reverse(recValue59);
+            Array.Reverse(recValue60);
+            Array.Reverse(recValue61);
+            Array.Reverse(recValue62);
+            Array.Reverse(recValue63);
+            Array.Reverse(recValue64);
+            Array.Reverse(recValue65);
+            Array.Reverse(recValue66);
+            Array.Reverse(recValue67);
+            Array.Reverse(recValue68);
+            Array.Reverse(recValue69);
+            Array.Reverse(recValue70);
+            Array.Reverse(recValue71);
+            Array.Reverse(recValue72);
+            Array.Reverse(recValue73);
+            Array.Reverse(recValue74);
+            Array.Reverse(recValue75);
+            Array.Reverse(recValue76);
+            Array.Reverse(recValue77);
+            Array.Reverse(recValue78);
+            Array.Reverse(recValue79);
+            Array.Reverse(recValue80);
+            Array.Reverse(recValue81);
+            Array.Reverse(recValue82);
+            Array.Reverse(recValue83);
+            Array.Reverse(recValue84);
+            Array.Reverse(recValue85);
+            Array.Reverse(recValue86);
+            Array.Reverse(recValue87);
+            Array.Reverse(recValue88);
+            Array.Reverse(recValue89);
+            Array.Reverse(recValue90);
+            Array.Reverse(recValue91);
+            Array.Reverse(recValue92);
+            Array.Reverse(recValue93);
+            Array.Reverse(recValue94);
+            Array.Reverse(recValue95);
+            Array.Reverse(recValue96);
+            Array.Reverse(recValue97);
+            Array.Reverse(recValue98);
+            Array.Reverse(recValue99);
+            Array.Reverse(recValue100);
+            Array.Reverse(recValue101);
+            Array.Reverse(recValue102);
             //Array.Reverse(recValue103);
             //Array.Reverse(recValue104);
             //Array.Reverse(recValue105);
@@ -588,86 +590,86 @@ namespace MINASA6SF_Rev.ViewModels
             Array.Copy(recValue20, 0, parameter7_4byte20, 0, 4);
             Array.Copy(recValue21, 0, parameter7_4byte21, 0, 4);
             Array.Copy(recValue22, 0, parameter7_4byte22, 0, 4);
-            //Array.Copy(recValue23, 0, parameter7_4byte23, 0, 4);
-            //Array.Copy(recValue24, 0, parameter7_4byte24, 0, 4);
-            //Array.Copy(recValue25, 0, parameter7_4byte25, 0, 4);
-            //Array.Copy(recValue26, 0, parameter7_4byte26, 0, 4);
-            //Array.Copy(recValue27, 0, parameter7_4byte27, 0, 4);
-            //Array.Copy(recValue28, 0, parameter7_4byte28, 0, 4);
-            //Array.Copy(recValue29, 0, parameter7_4byte29, 0, 4);
-            //Array.Copy(recValue30, 0, parameter7_4byte30, 0, 4);
-            //Array.Copy(recValue31, 0, parameter7_4byte31, 0, 4);
-            //Array.Copy(recValue32, 0, parameter7_4byte32, 0, 4);
-            //Array.Copy(recValue33, 0, parameter7_4byte33, 0, 4);
-            //Array.Copy(recValue34, 0, parameter7_4byte34, 0, 4);
-            //Array.Copy(recValue35, 0, parameter7_4byte35, 0, 4);
-            //Array.Copy(recValue36, 0, parameter7_4byte36, 0, 4);
-            //Array.Copy(recValue37, 0, parameter7_4byte37, 0, 4);
-            //Array.Copy(recValue38, 0, parameter7_4byte38, 0, 4);
-            //Array.Copy(recValue39, 0, parameter7_4byte39, 0, 4);
-            //Array.Copy(recValue40, 0, parameter7_4byte40, 0, 4);
-            //Array.Copy(recValue41, 0, parameter7_4byte41, 0, 4);
-            //Array.Copy(recValue42, 0, parameter7_4byte42, 0, 4);
-            //Array.Copy(recValue43, 0, parameter7_4byte43, 0, 4);
-            //Array.Copy(recValue44, 0, parameter7_4byte44, 0, 4);
-            //Array.Copy(recValue45, 0, parameter7_4byte45, 0, 4);
-            //Array.Copy(recValue46, 0, parameter7_4byte46, 0, 4);
-            //Array.Copy(recValue47, 0, parameter7_4byte47, 0, 4);
-            //Array.Copy(recValue48, 0, parameter7_4byte48, 0, 4);
-            //Array.Copy(recValue49, 0, parameter7_4byte49, 0, 4);
-            //Array.Copy(recValue50, 0, parameter7_4byte50, 0, 4);
-            //Array.Copy(recValue51, 0, parameter7_4byte51, 0, 4);
-            //Array.Copy(recValue52, 0, parameter7_4byte52, 0, 4);
-            //Array.Copy(recValue53, 0, parameter7_4byte53, 0, 4);
-            //Array.Copy(recValue54, 0, parameter7_4byte54, 0, 4);
-            //Array.Copy(recValue55, 0, parameter7_4byte55, 0, 4);
-            //Array.Copy(recValue56, 0, parameter7_4byte56, 0, 4);
-            //Array.Copy(recValue57, 0, parameter7_4byte57, 0, 4);
-            //Array.Copy(recValue58, 0, parameter7_4byte58, 0, 4);
-            //Array.Copy(recValue59, 0, parameter7_4byte59, 0, 4);
-            //Array.Copy(recValue60, 0, parameter7_4byte60, 0, 4);
-            //Array.Copy(recValue61, 0, parameter7_4byte61, 0, 4);
-            //Array.Copy(recValue62, 0, parameter7_4byte62, 0, 4);
-            //Array.Copy(recValue63, 0, parameter7_4byte63, 0, 4);
-            //Array.Copy(recValue64, 0, parameter7_4byte64, 0, 4);
-            //Array.Copy(recValue65, 0, parameter7_4byte65, 0, 4);
-            //Array.Copy(recValue66, 0, parameter7_4byte66, 0, 4);
-            //Array.Copy(recValue67, 0, parameter7_4byte67, 0, 4);
-            //Array.Copy(recValue68, 0, parameter7_4byte68, 0, 4);
-            //Array.Copy(recValue69, 0, parameter7_4byte69, 0, 4);
-            //Array.Copy(recValue70, 0, parameter7_4byte70, 0, 4);
-            //Array.Copy(recValue71, 0, parameter7_4byte71, 0, 4);
-            //Array.Copy(recValue72, 0, parameter7_4byte72, 0, 4);
-            //Array.Copy(recValue73, 0, parameter7_4byte73, 0, 4);
-            //Array.Copy(recValue74, 0, parameter7_4byte74, 0, 4);
-            //Array.Copy(recValue75, 0, parameter7_4byte75, 0, 4);
-            //Array.Copy(recValue76, 0, parameter7_4byte76, 0, 4);
-            //Array.Copy(recValue77, 0, parameter7_4byte77, 0, 4);
-            //Array.Copy(recValue78, 0, parameter7_4byte78, 0, 4);
-            //Array.Copy(recValue79, 0, parameter7_4byte79, 0, 4);
-            //Array.Copy(recValue80, 0, parameter7_4byte80, 0, 4);
-            //Array.Copy(recValue81, 0, parameter7_4byte81, 0, 4);
-            //Array.Copy(recValue82, 0, parameter7_4byte82, 0, 4);
-            //Array.Copy(recValue83, 0, parameter7_4byte83, 0, 4);
-            //Array.Copy(recValue84, 0, parameter7_4byte84, 0, 4);
-            //Array.Copy(recValue85, 0, parameter7_4byte85, 0, 4);
-            //Array.Copy(recValue86, 0, parameter7_4byte86, 0, 4);
-            //Array.Copy(recValue87, 0, parameter7_4byte87, 0, 4);
-            //Array.Copy(recValue88, 0, parameter7_4byte88, 0, 4);
-            //Array.Copy(recValue89, 0, parameter7_4byte89, 0, 4);
-            //Array.Copy(recValue90, 0, parameter7_4byte90, 0, 4);
-            //Array.Copy(recValue91, 0, parameter7_4byte91, 0, 4);
-            //Array.Copy(recValue92, 0, parameter7_4byte92, 0, 4);
-            //Array.Copy(recValue93, 0, parameter7_4byte93, 0, 4);
-            //Array.Copy(recValue94, 0, parameter7_4byte94, 0, 4);
-            //Array.Copy(recValue95, 0, parameter7_4byte95, 0, 4);
-            //Array.Copy(recValue96, 0, parameter7_4byte96, 0, 4);
-            //Array.Copy(recValue97, 0, parameter7_4byte97, 0, 4);
-            //Array.Copy(recValue98, 0, parameter7_4byte98, 0, 4);
-            //Array.Copy(recValue99, 0, parameter7_4byte99, 0, 4);
-            //Array.Copy(recValue100, 0, parameter7_4byte100, 0, 4);
-            //Array.Copy(recValue101, 0, parameter7_4byte101, 0, 4);
-            //Array.Copy(recValue102, 0, parameter7_4byte102, 0, 4);
+            Array.Copy(recValue23, 0, parameter7_4byte23, 0, 4);
+            Array.Copy(recValue24, 0, parameter7_4byte24, 0, 4);
+            Array.Copy(recValue25, 0, parameter7_4byte25, 0, 4);
+            Array.Copy(recValue26, 0, parameter7_4byte26, 0, 4);
+            Array.Copy(recValue27, 0, parameter7_4byte27, 0, 4);
+            Array.Copy(recValue28, 0, parameter7_4byte28, 0, 4);
+            Array.Copy(recValue29, 0, parameter7_4byte29, 0, 4);
+            Array.Copy(recValue30, 0, parameter7_4byte30, 0, 4);
+            Array.Copy(recValue31, 0, parameter7_4byte31, 0, 4);
+            Array.Copy(recValue32, 0, parameter7_4byte32, 0, 4);
+            Array.Copy(recValue33, 0, parameter7_4byte33, 0, 4);
+            Array.Copy(recValue34, 0, parameter7_4byte34, 0, 4);
+            Array.Copy(recValue35, 0, parameter7_4byte35, 0, 4);
+            Array.Copy(recValue36, 0, parameter7_4byte36, 0, 4);
+            Array.Copy(recValue37, 0, parameter7_4byte37, 0, 4);
+            Array.Copy(recValue38, 0, parameter7_4byte38, 0, 4);
+            Array.Copy(recValue39, 0, parameter7_4byte39, 0, 4);
+            Array.Copy(recValue40, 0, parameter7_4byte40, 0, 4);
+            Array.Copy(recValue41, 0, parameter7_4byte41, 0, 4);
+            Array.Copy(recValue42, 0, parameter7_4byte42, 0, 4);
+            Array.Copy(recValue43, 0, parameter7_4byte43, 0, 4);
+            Array.Copy(recValue44, 0, parameter7_4byte44, 0, 4);
+            Array.Copy(recValue45, 0, parameter7_4byte45, 0, 4);
+            Array.Copy(recValue46, 0, parameter7_4byte46, 0, 4);
+            Array.Copy(recValue47, 0, parameter7_4byte47, 0, 4);
+            Array.Copy(recValue48, 0, parameter7_4byte48, 0, 4);
+            Array.Copy(recValue49, 0, parameter7_4byte49, 0, 4);
+            Array.Copy(recValue50, 0, parameter7_4byte50, 0, 4);
+            Array.Copy(recValue51, 0, parameter7_4byte51, 0, 4);
+            Array.Copy(recValue52, 0, parameter7_4byte52, 0, 4);
+            Array.Copy(recValue53, 0, parameter7_4byte53, 0, 4);
+            Array.Copy(recValue54, 0, parameter7_4byte54, 0, 4);
+            Array.Copy(recValue55, 0, parameter7_4byte55, 0, 4);
+            Array.Copy(recValue56, 0, parameter7_4byte56, 0, 4);
+            Array.Copy(recValue57, 0, parameter7_4byte57, 0, 4);
+            Array.Copy(recValue58, 0, parameter7_4byte58, 0, 4);
+            Array.Copy(recValue59, 0, parameter7_4byte59, 0, 4);
+            Array.Copy(recValue60, 0, parameter7_4byte60, 0, 4);
+            Array.Copy(recValue61, 0, parameter7_4byte61, 0, 4);
+            Array.Copy(recValue62, 0, parameter7_4byte62, 0, 4);
+            Array.Copy(recValue63, 0, parameter7_4byte63, 0, 4);
+            Array.Copy(recValue64, 0, parameter7_4byte64, 0, 4);
+            Array.Copy(recValue65, 0, parameter7_4byte65, 0, 4);
+            Array.Copy(recValue66, 0, parameter7_4byte66, 0, 4);
+            Array.Copy(recValue67, 0, parameter7_4byte67, 0, 4);
+            Array.Copy(recValue68, 0, parameter7_4byte68, 0, 4);
+            Array.Copy(recValue69, 0, parameter7_4byte69, 0, 4);
+            Array.Copy(recValue70, 0, parameter7_4byte70, 0, 4);
+            Array.Copy(recValue71, 0, parameter7_4byte71, 0, 4);
+            Array.Copy(recValue72, 0, parameter7_4byte72, 0, 4);
+            Array.Copy(recValue73, 0, parameter7_4byte73, 0, 4);
+            Array.Copy(recValue74, 0, parameter7_4byte74, 0, 4);
+            Array.Copy(recValue75, 0, parameter7_4byte75, 0, 4);
+            Array.Copy(recValue76, 0, parameter7_4byte76, 0, 4);
+            Array.Copy(recValue77, 0, parameter7_4byte77, 0, 4);
+            Array.Copy(recValue78, 0, parameter7_4byte78, 0, 4);
+            Array.Copy(recValue79, 0, parameter7_4byte79, 0, 4);
+            Array.Copy(recValue80, 0, parameter7_4byte80, 0, 4);
+            Array.Copy(recValue81, 0, parameter7_4byte81, 0, 4);
+            Array.Copy(recValue82, 0, parameter7_4byte82, 0, 4);
+            Array.Copy(recValue83, 0, parameter7_4byte83, 0, 4);
+            Array.Copy(recValue84, 0, parameter7_4byte84, 0, 4);
+            Array.Copy(recValue85, 0, parameter7_4byte85, 0, 4);
+            Array.Copy(recValue86, 0, parameter7_4byte86, 0, 4);
+            Array.Copy(recValue87, 0, parameter7_4byte87, 0, 4);
+            Array.Copy(recValue88, 0, parameter7_4byte88, 0, 4);
+            Array.Copy(recValue89, 0, parameter7_4byte89, 0, 4);
+            Array.Copy(recValue90, 0, parameter7_4byte90, 0, 4);
+            Array.Copy(recValue91, 0, parameter7_4byte91, 0, 4);
+            Array.Copy(recValue92, 0, parameter7_4byte92, 0, 4);
+            Array.Copy(recValue93, 0, parameter7_4byte93, 0, 4);
+            Array.Copy(recValue94, 0, parameter7_4byte94, 0, 4);
+            Array.Copy(recValue95, 0, parameter7_4byte95, 0, 4);
+            Array.Copy(recValue96, 0, parameter7_4byte96, 0, 4);
+            Array.Copy(recValue97, 0, parameter7_4byte97, 0, 4);
+            Array.Copy(recValue98, 0, parameter7_4byte98, 0, 4);
+            Array.Copy(recValue99, 0, parameter7_4byte99, 0, 4);
+            Array.Copy(recValue100, 0, parameter7_4byte100, 0, 4);
+            Array.Copy(recValue101, 0, parameter7_4byte101, 0, 4);
+            Array.Copy(recValue102, 0, parameter7_4byte102, 0, 4);
             //Array.Copy(recValue103, 0, parameter7_4byte103, 0, 4);
             //Array.Copy(recValue104, 0, parameter7_4byte104, 0, 4);
             //Array.Copy(recValue105, 0, parameter7_4byte105, 0, 4);
@@ -1190,483 +1192,483 @@ namespace MINASA6SF_Rev.ViewModels
             parameter7_4byte1_22[2] = parameter7_4byte22[0];
             parameter7_4byte1_22[3] = parameter7_4byte22[1];
 
-            //parameter7_4byte1_23[0] = parameter7_4byte23[0];  
-            //parameter7_4byte1_23[1] = parameter7_4byte23[1];  
-            //parameter7_4byte1_23[2] = parameter7_4byte23[2];    
-            //parameter7_4byte1_23[3] = parameter7_4byte23[3];  
-
-            //parameter7_4byte1_24[0] = parameter7_4byte24[2];
-            //parameter7_4byte1_24[1] = parameter7_4byte24[3];
-            //parameter7_4byte1_24[2] = parameter7_4byte24[0];
-            //parameter7_4byte1_24[3] = parameter7_4byte24[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_25[0] = parameter7_4byte25[0];  
-            //parameter7_4byte1_25[1] = parameter7_4byte25[1];  
-            //parameter7_4byte1_25[2] = parameter7_4byte25[2];    
-            //parameter7_4byte1_25[3] = parameter7_4byte25[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_26[0] = parameter7_4byte26[2];
-            //parameter7_4byte1_26[1] = parameter7_4byte26[3];
-            //parameter7_4byte1_26[2] = parameter7_4byte26[0];
-            //parameter7_4byte1_26[3] = parameter7_4byte26[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_27[0] = parameter7_4byte27[0];  
-            //parameter7_4byte1_27[1] = parameter7_4byte27[1];  
-            //parameter7_4byte1_27[2] = parameter7_4byte27[2];    
-            //parameter7_4byte1_27[3] = parameter7_4byte27[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_28[0] = parameter7_4byte28[2];
-            //parameter7_4byte1_28[1] = parameter7_4byte28[3];
-            //parameter7_4byte1_28[2] = parameter7_4byte28[0];
-            //parameter7_4byte1_28[3] = parameter7_4byte28[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_29[0] = parameter7_4byte29[0];  
-            //parameter7_4byte1_29[1] = parameter7_4byte29[1];  
-            //parameter7_4byte1_29[2] = parameter7_4byte29[2];    
-            //parameter7_4byte1_29[3] = parameter7_4byte29[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_30[0] = parameter7_4byte30[2];
-            //parameter7_4byte1_30[1] = parameter7_4byte30[3];
-            //parameter7_4byte1_30[2] = parameter7_4byte30[0];
-            //parameter7_4byte1_30[3] = parameter7_4byte30[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_31[0] = parameter7_4byte31[0];  
-            //parameter7_4byte1_31[1] = parameter7_4byte31[1];  
-            //parameter7_4byte1_31[2] = parameter7_4byte31[2];    
-            //parameter7_4byte1_31[3] = parameter7_4byte31[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_32[0] = parameter7_4byte32[2];
-            //parameter7_4byte1_32[1] = parameter7_4byte32[3];
-            //parameter7_4byte1_32[2] = parameter7_4byte32[0];
-            //parameter7_4byte1_32[3] = parameter7_4byte32[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_33[0] = parameter7_4byte33[0];  
-            //parameter7_4byte1_33[1] = parameter7_4byte33[1];  
-            //parameter7_4byte1_33[2] = parameter7_4byte33[2];    
-            //parameter7_4byte1_33[3] = parameter7_4byte33[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_34[0] = parameter7_4byte34[2];
-            //parameter7_4byte1_34[1] = parameter7_4byte34[3];
-            //parameter7_4byte1_34[2] = parameter7_4byte34[0];
-            //parameter7_4byte1_34[3] = parameter7_4byte34[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_35[0] = parameter7_4byte35[0];  
-            //parameter7_4byte1_35[1] = parameter7_4byte35[1];  
-            //parameter7_4byte1_35[2] = parameter7_4byte35[2];    
-            //parameter7_4byte1_35[3] = parameter7_4byte35[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_36[0] = parameter7_4byte36[2];
-            //parameter7_4byte1_36[1] = parameter7_4byte36[3];
-            //parameter7_4byte1_36[2] = parameter7_4byte36[0];
-            //parameter7_4byte1_36[3] = parameter7_4byte36[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_37[0] = parameter7_4byte37[0];  
-            //parameter7_4byte1_37[1] = parameter7_4byte37[1];  
-            //parameter7_4byte1_37[2] = parameter7_4byte37[2];    
-            //parameter7_4byte1_37[3] = parameter7_4byte37[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_38[0] = parameter7_4byte38[2];
-            //parameter7_4byte1_38[1] = parameter7_4byte38[3];
-            //parameter7_4byte1_38[2] = parameter7_4byte38[0];
-            //parameter7_4byte1_38[3] = parameter7_4byte38[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_39[0] = parameter7_4byte39[0];  
-            //parameter7_4byte1_39[1] = parameter7_4byte39[1];  
-            //parameter7_4byte1_39[2] = parameter7_4byte39[2];    
-            //parameter7_4byte1_39[3] = parameter7_4byte39[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_40[0] = parameter7_4byte40[2];
-            //parameter7_4byte1_40[1] = parameter7_4byte40[3];
-            //parameter7_4byte1_40[2] = parameter7_4byte40[0];
-            //parameter7_4byte1_40[3] = parameter7_4byte40[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_41[0] = parameter7_4byte41[0];  
-            //parameter7_4byte1_41[1] = parameter7_4byte41[1];  
-            //parameter7_4byte1_41[2] = parameter7_4byte41[2];    
-            //parameter7_4byte1_41[3] = parameter7_4byte41[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_42[0] = parameter7_4byte42[2];
-            //parameter7_4byte1_42[1] = parameter7_4byte42[3];
-            //parameter7_4byte1_42[2] = parameter7_4byte42[0];
-            //parameter7_4byte1_42[3] = parameter7_4byte42[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_43[0] = parameter7_4byte43[0];  
-            //parameter7_4byte1_43[1] = parameter7_4byte43[1];  
-            //parameter7_4byte1_43[2] = parameter7_4byte43[2];    
-            //parameter7_4byte1_43[3] = parameter7_4byte43[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_44[0] = parameter7_4byte44[2];
-            //parameter7_4byte1_44[1] = parameter7_4byte44[3];
-            //parameter7_4byte1_44[2] = parameter7_4byte44[0];
-            //parameter7_4byte1_44[3] = parameter7_4byte44[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_45[0] = parameter7_4byte45[0];  
-            //parameter7_4byte1_45[1] = parameter7_4byte45[1];  
-            //parameter7_4byte1_45[2] = parameter7_4byte45[2];    
-            //parameter7_4byte1_45[3] = parameter7_4byte45[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_46[0] = parameter7_4byte46[2];
-            //parameter7_4byte1_46[1] = parameter7_4byte46[3];
-            //parameter7_4byte1_46[2] = parameter7_4byte46[0];
-            //parameter7_4byte1_46[3] = parameter7_4byte46[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_47[0] = parameter7_4byte47[0];  
-            //parameter7_4byte1_47[1] = parameter7_4byte47[1];  
-            //parameter7_4byte1_47[2] = parameter7_4byte47[2];    
-            //parameter7_4byte1_47[3] = parameter7_4byte47[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_48[0] = parameter7_4byte48[2];
-            //parameter7_4byte1_48[1] = parameter7_4byte48[3];
-            //parameter7_4byte1_48[2] = parameter7_4byte48[0];
-            //parameter7_4byte1_48[3] = parameter7_4byte48[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_49[0] = parameter7_4byte49[0];  
-            //parameter7_4byte1_49[1] = parameter7_4byte49[1];  
-            //parameter7_4byte1_49[2] = parameter7_4byte49[2];    
-            //parameter7_4byte1_49[3] = parameter7_4byte49[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_50[0] = parameter7_4byte50[2];
-            //parameter7_4byte1_50[1] = parameter7_4byte50[3];
-            //parameter7_4byte1_50[2] = parameter7_4byte50[0];
-            //parameter7_4byte1_50[3] = parameter7_4byte50[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_51[0] = parameter7_4byte51[0];  
-            //parameter7_4byte1_51[1] = parameter7_4byte51[1];  
-            //parameter7_4byte1_51[2] = parameter7_4byte51[2];    
-            //parameter7_4byte1_51[3] = parameter7_4byte51[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_52[0] = parameter7_4byte52[2];
-            //parameter7_4byte1_52[1] = parameter7_4byte52[3];
-            //parameter7_4byte1_52[2] = parameter7_4byte52[0];
-            //parameter7_4byte1_52[3] = parameter7_4byte52[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_53[0] = parameter7_4byte53[0];    
-            //parameter7_4byte1_53[1] = parameter7_4byte53[1];    
-            //parameter7_4byte1_53[2] = parameter7_4byte53[2];    
-            //parameter7_4byte1_53[3] = parameter7_4byte53[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_54[0] = parameter7_4byte54[2];
-            //parameter7_4byte1_54[1] = parameter7_4byte54[3];
-            //parameter7_4byte1_54[2] = parameter7_4byte54[0];
-            //parameter7_4byte1_54[3] = parameter7_4byte54[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_55[0] = parameter7_4byte55[0];    
-            //parameter7_4byte1_55[1] = parameter7_4byte55[1];    
-            //parameter7_4byte1_55[2] = parameter7_4byte55[2];    
-            //parameter7_4byte1_55[3] = parameter7_4byte55[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_56[0] = parameter7_4byte56[2];
-            //parameter7_4byte1_56[1] = parameter7_4byte56[3];
-            //parameter7_4byte1_56[2] = parameter7_4byte56[0];
-            //parameter7_4byte1_56[3] = parameter7_4byte56[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_57[0] = parameter7_4byte57[0];    
-            //parameter7_4byte1_57[1] = parameter7_4byte57[1];    
-            //parameter7_4byte1_57[2] = parameter7_4byte57[2];    
-            //parameter7_4byte1_57[3] = parameter7_4byte57[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_58[0] = parameter7_4byte58[2];
-            //parameter7_4byte1_58[1] = parameter7_4byte58[3];
-            //parameter7_4byte1_58[2] = parameter7_4byte58[0];
-            //parameter7_4byte1_58[3] = parameter7_4byte58[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_59[0] = parameter7_4byte59[0];    
-            //parameter7_4byte1_59[1] = parameter7_4byte59[1];    
-            //parameter7_4byte1_59[2] = parameter7_4byte59[2];    
-            //parameter7_4byte1_59[3] = parameter7_4byte59[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_60[0] = parameter7_4byte60[2];
-            //parameter7_4byte1_60[1] = parameter7_4byte60[3];
-            //parameter7_4byte1_60[2] = parameter7_4byte60[0];
-            //parameter7_4byte1_60[3] = parameter7_4byte60[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_61[0] = parameter7_4byte61[0];    
-            //parameter7_4byte1_61[1] = parameter7_4byte61[1];    
-            //parameter7_4byte1_61[2] = parameter7_4byte61[2];    
-            //parameter7_4byte1_61[3] = parameter7_4byte61[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_62[0] = parameter7_4byte62[2];
-            //parameter7_4byte1_62[1] = parameter7_4byte62[3];
-            //parameter7_4byte1_62[2] = parameter7_4byte62[0];
-            //parameter7_4byte1_62[3] = parameter7_4byte62[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_63[0] = parameter7_4byte63[0];    
-            //parameter7_4byte1_63[1] = parameter7_4byte63[1];    
-            //parameter7_4byte1_63[2] = parameter7_4byte63[2];    
-            //parameter7_4byte1_63[3] = parameter7_4byte63[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_64[0] = parameter7_4byte64[2];
-            //parameter7_4byte1_64[1] = parameter7_4byte64[3];
-            //parameter7_4byte1_64[2] = parameter7_4byte64[0];
-            //parameter7_4byte1_64[3] = parameter7_4byte64[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_65[0] = parameter7_4byte65[0];    
-            //parameter7_4byte1_65[1] = parameter7_4byte65[1];    
-            //parameter7_4byte1_65[2] = parameter7_4byte65[2];    
-            //parameter7_4byte1_65[3] = parameter7_4byte65[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_66[0] = parameter7_4byte66[2];
-            //parameter7_4byte1_66[1] = parameter7_4byte66[3];
-            //parameter7_4byte1_66[2] = parameter7_4byte66[0];
-            //parameter7_4byte1_66[3] = parameter7_4byte66[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_67[0] = parameter7_4byte67[0];    
-            //parameter7_4byte1_67[1] = parameter7_4byte67[1];    
-            //parameter7_4byte1_67[2] = parameter7_4byte67[2];    
-            //parameter7_4byte1_67[3] = parameter7_4byte67[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_68[0] = parameter7_4byte68[2];
-            //parameter7_4byte1_68[1] = parameter7_4byte68[3];
-            //parameter7_4byte1_68[2] = parameter7_4byte68[0];
-            //parameter7_4byte1_68[3] = parameter7_4byte68[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_69[0] = parameter7_4byte69[0];    
-            //parameter7_4byte1_69[1] = parameter7_4byte69[1];    
-            //parameter7_4byte1_69[2] = parameter7_4byte69[2];    
-            //parameter7_4byte1_69[3] = parameter7_4byte69[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_70[0] = parameter7_4byte70[2];
-            //parameter7_4byte1_70[1] = parameter7_4byte70[3];
-            //parameter7_4byte1_70[2] = parameter7_4byte70[0];
-            //parameter7_4byte1_70[3] = parameter7_4byte70[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_71[0] = parameter7_4byte71[0];    
-            //parameter7_4byte1_71[1] = parameter7_4byte71[1];    
-            //parameter7_4byte1_71[2] = parameter7_4byte71[2];    
-            //parameter7_4byte1_71[3] = parameter7_4byte71[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_72[0] = parameter7_4byte72[2];
-            //parameter7_4byte1_72[1] = parameter7_4byte72[3];
-            //parameter7_4byte1_72[2] = parameter7_4byte72[0];
-            //parameter7_4byte1_72[3] = parameter7_4byte72[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_73[0] = parameter7_4byte73[0];    
-            //parameter7_4byte1_73[1] = parameter7_4byte73[1];    
-            //parameter7_4byte1_73[2] = parameter7_4byte73[2];    
-            //parameter7_4byte1_73[3] = parameter7_4byte73[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_74[0] = parameter7_4byte74[2];
-            //parameter7_4byte1_74[1] = parameter7_4byte74[3];
-            //parameter7_4byte1_74[2] = parameter7_4byte74[0];
-            //parameter7_4byte1_74[3] = parameter7_4byte74[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_75[0] = parameter7_4byte75[0];    
-            //parameter7_4byte1_75[1] = parameter7_4byte75[1];    
-            //parameter7_4byte1_75[2] = parameter7_4byte75[2];    
-            //parameter7_4byte1_75[3] = parameter7_4byte75[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_76[0] = parameter7_4byte76[2];
-            //parameter7_4byte1_76[1] = parameter7_4byte76[3];
-            //parameter7_4byte1_76[2] = parameter7_4byte76[0];
-            //parameter7_4byte1_76[3] = parameter7_4byte76[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_77[0] = parameter7_4byte77[0];    
-            //parameter7_4byte1_77[1] = parameter7_4byte77[1];    
-            //parameter7_4byte1_77[2] = parameter7_4byte77[2];    
-            //parameter7_4byte1_77[3] = parameter7_4byte77[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_78[0] = parameter7_4byte78[2];
-            //parameter7_4byte1_78[1] = parameter7_4byte78[3];
-            //parameter7_4byte1_78[2] = parameter7_4byte78[0];
-            //parameter7_4byte1_78[3] = parameter7_4byte78[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_79[0] = parameter7_4byte79[0];    
-            //parameter7_4byte1_79[1] = parameter7_4byte79[1];    
-            //parameter7_4byte1_79[2] = parameter7_4byte79[2];    
-            //parameter7_4byte1_79[3] = parameter7_4byte79[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_80[0] = parameter7_4byte80[2];
-            //parameter7_4byte1_80[1] = parameter7_4byte80[3];
-            //parameter7_4byte1_80[2] = parameter7_4byte80[0];
-            //parameter7_4byte1_80[3] = parameter7_4byte80[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_81[0] = parameter7_4byte81[0];    
-            //parameter7_4byte1_81[1] = parameter7_4byte81[1];    
-            //parameter7_4byte1_81[2] = parameter7_4byte81[2];    
-            //parameter7_4byte1_81[3] = parameter7_4byte81[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_82[0] = parameter7_4byte82[2];
-            //parameter7_4byte1_82[1] = parameter7_4byte82[3];
-            //parameter7_4byte1_82[2] = parameter7_4byte82[0];
-            //parameter7_4byte1_82[3] = parameter7_4byte82[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_83[0] = parameter7_4byte83[0];    
-            //parameter7_4byte1_83[1] = parameter7_4byte83[1];    
-            //parameter7_4byte1_83[2] = parameter7_4byte83[2];    
-            //parameter7_4byte1_83[3] = parameter7_4byte83[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_84[0] = parameter7_4byte84[2];
-            //parameter7_4byte1_84[1] = parameter7_4byte84[3];
-            //parameter7_4byte1_84[2] = parameter7_4byte84[0];
-            //parameter7_4byte1_84[3] = parameter7_4byte84[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_85[0] = parameter7_4byte85[0];    
-            //parameter7_4byte1_85[1] = parameter7_4byte85[1];    
-            //parameter7_4byte1_85[2] = parameter7_4byte85[2];    
-            //parameter7_4byte1_85[3] = parameter7_4byte85[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_86[0] = parameter7_4byte86[2];
-            //parameter7_4byte1_86[1] = parameter7_4byte86[3];
-            //parameter7_4byte1_86[2] = parameter7_4byte86[0];
-            //parameter7_4byte1_86[3] = parameter7_4byte86[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_87[0] = parameter7_4byte87[0];    
-            //parameter7_4byte1_87[1] = parameter7_4byte87[1];    
-            //parameter7_4byte1_87[2] = parameter7_4byte87[2];    
-            //parameter7_4byte1_87[3] = parameter7_4byte87[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_88[0] = parameter7_4byte88[2];
-            //parameter7_4byte1_88[1] = parameter7_4byte88[3];
-            //parameter7_4byte1_88[2] = parameter7_4byte88[0];
-            //parameter7_4byte1_88[3] = parameter7_4byte88[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_89[0] = parameter7_4byte89[0];    
-            //parameter7_4byte1_89[1] = parameter7_4byte89[1];    
-            //parameter7_4byte1_89[2] = parameter7_4byte89[2];    
-            //parameter7_4byte1_89[3] = parameter7_4byte89[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_90[0] = parameter7_4byte90[2];
-            //parameter7_4byte1_90[1] = parameter7_4byte90[3];
-            //parameter7_4byte1_90[2] = parameter7_4byte90[0];
-            //parameter7_4byte1_90[3] = parameter7_4byte90[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_91[0] = parameter7_4byte91[0];    
-            //parameter7_4byte1_91[1] = parameter7_4byte91[1];    
-            //parameter7_4byte1_91[2] = parameter7_4byte91[2];    
-            //parameter7_4byte1_91[3] = parameter7_4byte91[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_92[0] = parameter7_4byte92[2];
-            //parameter7_4byte1_92[1] = parameter7_4byte92[3];
-            //parameter7_4byte1_92[2] = parameter7_4byte92[0];
-            //parameter7_4byte1_92[3] = parameter7_4byte92[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_93[0] = parameter7_4byte93[0];    
-            //parameter7_4byte1_93[1] = parameter7_4byte93[1];    
-            //parameter7_4byte1_93[2] = parameter7_4byte93[2];    
-            //parameter7_4byte1_93[3] = parameter7_4byte93[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_94[0] = parameter7_4byte94[2];
-            //parameter7_4byte1_94[1] = parameter7_4byte94[3];
-            //parameter7_4byte1_94[2] = parameter7_4byte94[0];
-            //parameter7_4byte1_94[3] = parameter7_4byte94[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_95[0] = parameter7_4byte95[0];    
-            //parameter7_4byte1_95[1] = parameter7_4byte95[1];    
-            //parameter7_4byte1_95[2] = parameter7_4byte95[2];    
-            //parameter7_4byte1_95[3] = parameter7_4byte95[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_96[0] = parameter7_4byte96[2];
-            //parameter7_4byte1_96[1] = parameter7_4byte96[3];
-            //parameter7_4byte1_96[2] = parameter7_4byte96[0];
-            //parameter7_4byte1_96[3] = parameter7_4byte96[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_97[0] = parameter7_4byte97[0];    
-            //parameter7_4byte1_97[1] = parameter7_4byte97[1];    
-            //parameter7_4byte1_97[2] = parameter7_4byte97[2];    
-            //parameter7_4byte1_97[3] = parameter7_4byte97[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_98[0] = parameter7_4byte98[2];
-            //parameter7_4byte1_98[1] = parameter7_4byte98[3];
-            //parameter7_4byte1_98[2] = parameter7_4byte98[0];
-            //parameter7_4byte1_98[3] = parameter7_4byte98[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_99[0] = parameter7_4byte99[0];    
-            //parameter7_4byte1_99[1] = parameter7_4byte99[1];    
-            //parameter7_4byte1_99[2] = parameter7_4byte99[2];    
-            //parameter7_4byte1_99[3] = parameter7_4byte99[3];    
-
-            ////0x4802 data
-            //parameter7_4byte1_100[0] = parameter7_4byte100[2];
-            //parameter7_4byte1_100[1] = parameter7_4byte100[3];
-            //parameter7_4byte1_100[2] = parameter7_4byte100[0];
-            //parameter7_4byte1_100[3] = parameter7_4byte100[1];
-
-            ////0x4800 command
-            //parameter7_4byte1_101[0] = parameter7_4byte101[0];  
-            //parameter7_4byte1_101[1] = parameter7_4byte101[1];  
-            //parameter7_4byte1_101[2] = parameter7_4byte101[2];  
-            //parameter7_4byte1_101[3] = parameter7_4byte101[3];  
-
-            ////0x4802 data
-            //parameter7_4byte1_102[0] = parameter7_4byte102[2];
-            //parameter7_4byte1_102[1] = parameter7_4byte102[3];
-            //parameter7_4byte1_102[2] = parameter7_4byte102[0];
-            //parameter7_4byte1_102[3] = parameter7_4byte102[1];
+            parameter7_4byte1_23[0] = parameter7_4byte23[0];
+            parameter7_4byte1_23[1] = parameter7_4byte23[1];
+            parameter7_4byte1_23[2] = parameter7_4byte23[2];
+            parameter7_4byte1_23[3] = parameter7_4byte23[3];
+
+            parameter7_4byte1_24[0] = parameter7_4byte24[2];
+            parameter7_4byte1_24[1] = parameter7_4byte24[3];
+            parameter7_4byte1_24[2] = parameter7_4byte24[0];
+            parameter7_4byte1_24[3] = parameter7_4byte24[1];
+
+            //0x4800 command
+            parameter7_4byte1_25[0] = parameter7_4byte25[0];
+            parameter7_4byte1_25[1] = parameter7_4byte25[1];
+            parameter7_4byte1_25[2] = parameter7_4byte25[2];
+            parameter7_4byte1_25[3] = parameter7_4byte25[3];
+
+            //0x4802 data
+            parameter7_4byte1_26[0] = parameter7_4byte26[2];
+            parameter7_4byte1_26[1] = parameter7_4byte26[3];
+            parameter7_4byte1_26[2] = parameter7_4byte26[0];
+            parameter7_4byte1_26[3] = parameter7_4byte26[1];
+
+            //0x4800 command
+            parameter7_4byte1_27[0] = parameter7_4byte27[0];
+            parameter7_4byte1_27[1] = parameter7_4byte27[1];
+            parameter7_4byte1_27[2] = parameter7_4byte27[2];
+            parameter7_4byte1_27[3] = parameter7_4byte27[3];
+
+            //0x4802 data
+            parameter7_4byte1_28[0] = parameter7_4byte28[2];
+            parameter7_4byte1_28[1] = parameter7_4byte28[3];
+            parameter7_4byte1_28[2] = parameter7_4byte28[0];
+            parameter7_4byte1_28[3] = parameter7_4byte28[1];
+
+            //0x4800 command
+            parameter7_4byte1_29[0] = parameter7_4byte29[0];
+            parameter7_4byte1_29[1] = parameter7_4byte29[1];
+            parameter7_4byte1_29[2] = parameter7_4byte29[2];
+            parameter7_4byte1_29[3] = parameter7_4byte29[3];
+
+            //0x4802 data
+            parameter7_4byte1_30[0] = parameter7_4byte30[2];
+            parameter7_4byte1_30[1] = parameter7_4byte30[3];
+            parameter7_4byte1_30[2] = parameter7_4byte30[0];
+            parameter7_4byte1_30[3] = parameter7_4byte30[1];
+
+            //0x4800 command
+            parameter7_4byte1_31[0] = parameter7_4byte31[0];
+            parameter7_4byte1_31[1] = parameter7_4byte31[1];
+            parameter7_4byte1_31[2] = parameter7_4byte31[2];
+            parameter7_4byte1_31[3] = parameter7_4byte31[3];
+
+            //0x4802 data
+            parameter7_4byte1_32[0] = parameter7_4byte32[2];
+            parameter7_4byte1_32[1] = parameter7_4byte32[3];
+            parameter7_4byte1_32[2] = parameter7_4byte32[0];
+            parameter7_4byte1_32[3] = parameter7_4byte32[1];
+
+            //0x4800 command
+            parameter7_4byte1_33[0] = parameter7_4byte33[0];
+            parameter7_4byte1_33[1] = parameter7_4byte33[1];
+            parameter7_4byte1_33[2] = parameter7_4byte33[2];
+            parameter7_4byte1_33[3] = parameter7_4byte33[3];
+
+            //0x4802 data
+            parameter7_4byte1_34[0] = parameter7_4byte34[2];
+            parameter7_4byte1_34[1] = parameter7_4byte34[3];
+            parameter7_4byte1_34[2] = parameter7_4byte34[0];
+            parameter7_4byte1_34[3] = parameter7_4byte34[1];
+
+            //0x4800 command
+            parameter7_4byte1_35[0] = parameter7_4byte35[0];
+            parameter7_4byte1_35[1] = parameter7_4byte35[1];
+            parameter7_4byte1_35[2] = parameter7_4byte35[2];
+            parameter7_4byte1_35[3] = parameter7_4byte35[3];
+
+            //0x4802 data
+            parameter7_4byte1_36[0] = parameter7_4byte36[2];
+            parameter7_4byte1_36[1] = parameter7_4byte36[3];
+            parameter7_4byte1_36[2] = parameter7_4byte36[0];
+            parameter7_4byte1_36[3] = parameter7_4byte36[1];
+
+            //0x4800 command
+            parameter7_4byte1_37[0] = parameter7_4byte37[0];
+            parameter7_4byte1_37[1] = parameter7_4byte37[1];
+            parameter7_4byte1_37[2] = parameter7_4byte37[2];
+            parameter7_4byte1_37[3] = parameter7_4byte37[3];
+
+            //0x4802 data
+            parameter7_4byte1_38[0] = parameter7_4byte38[2];
+            parameter7_4byte1_38[1] = parameter7_4byte38[3];
+            parameter7_4byte1_38[2] = parameter7_4byte38[0];
+            parameter7_4byte1_38[3] = parameter7_4byte38[1];
+
+            //0x4800 command
+            parameter7_4byte1_39[0] = parameter7_4byte39[0];
+            parameter7_4byte1_39[1] = parameter7_4byte39[1];
+            parameter7_4byte1_39[2] = parameter7_4byte39[2];
+            parameter7_4byte1_39[3] = parameter7_4byte39[3];
+
+            //0x4802 data
+            parameter7_4byte1_40[0] = parameter7_4byte40[2];
+            parameter7_4byte1_40[1] = parameter7_4byte40[3];
+            parameter7_4byte1_40[2] = parameter7_4byte40[0];
+            parameter7_4byte1_40[3] = parameter7_4byte40[1];
+
+            //0x4800 command
+            parameter7_4byte1_41[0] = parameter7_4byte41[0];
+            parameter7_4byte1_41[1] = parameter7_4byte41[1];
+            parameter7_4byte1_41[2] = parameter7_4byte41[2];
+            parameter7_4byte1_41[3] = parameter7_4byte41[3];
+
+            //0x4802 data
+            parameter7_4byte1_42[0] = parameter7_4byte42[2];
+            parameter7_4byte1_42[1] = parameter7_4byte42[3];
+            parameter7_4byte1_42[2] = parameter7_4byte42[0];
+            parameter7_4byte1_42[3] = parameter7_4byte42[1];
+
+            //0x4800 command
+            parameter7_4byte1_43[0] = parameter7_4byte43[0];
+            parameter7_4byte1_43[1] = parameter7_4byte43[1];
+            parameter7_4byte1_43[2] = parameter7_4byte43[2];
+            parameter7_4byte1_43[3] = parameter7_4byte43[3];
+
+            //0x4802 data
+            parameter7_4byte1_44[0] = parameter7_4byte44[2];
+            parameter7_4byte1_44[1] = parameter7_4byte44[3];
+            parameter7_4byte1_44[2] = parameter7_4byte44[0];
+            parameter7_4byte1_44[3] = parameter7_4byte44[1];
+
+            //0x4800 command
+            parameter7_4byte1_45[0] = parameter7_4byte45[0];
+            parameter7_4byte1_45[1] = parameter7_4byte45[1];
+            parameter7_4byte1_45[2] = parameter7_4byte45[2];
+            parameter7_4byte1_45[3] = parameter7_4byte45[3];
+
+            //0x4802 data
+            parameter7_4byte1_46[0] = parameter7_4byte46[2];
+            parameter7_4byte1_46[1] = parameter7_4byte46[3];
+            parameter7_4byte1_46[2] = parameter7_4byte46[0];
+            parameter7_4byte1_46[3] = parameter7_4byte46[1];
+
+            //0x4800 command
+            parameter7_4byte1_47[0] = parameter7_4byte47[0];
+            parameter7_4byte1_47[1] = parameter7_4byte47[1];
+            parameter7_4byte1_47[2] = parameter7_4byte47[2];
+            parameter7_4byte1_47[3] = parameter7_4byte47[3];
+
+            //0x4802 data
+            parameter7_4byte1_48[0] = parameter7_4byte48[2];
+            parameter7_4byte1_48[1] = parameter7_4byte48[3];
+            parameter7_4byte1_48[2] = parameter7_4byte48[0];
+            parameter7_4byte1_48[3] = parameter7_4byte48[1];
+
+            //0x4800 command
+            parameter7_4byte1_49[0] = parameter7_4byte49[0];
+            parameter7_4byte1_49[1] = parameter7_4byte49[1];
+            parameter7_4byte1_49[2] = parameter7_4byte49[2];
+            parameter7_4byte1_49[3] = parameter7_4byte49[3];
+
+            //0x4802 data
+            parameter7_4byte1_50[0] = parameter7_4byte50[2];
+            parameter7_4byte1_50[1] = parameter7_4byte50[3];
+            parameter7_4byte1_50[2] = parameter7_4byte50[0];
+            parameter7_4byte1_50[3] = parameter7_4byte50[1];
+
+            //0x4800 command
+            parameter7_4byte1_51[0] = parameter7_4byte51[0];
+            parameter7_4byte1_51[1] = parameter7_4byte51[1];
+            parameter7_4byte1_51[2] = parameter7_4byte51[2];
+            parameter7_4byte1_51[3] = parameter7_4byte51[3];
+
+            //0x4802 data
+            parameter7_4byte1_52[0] = parameter7_4byte52[2];
+            parameter7_4byte1_52[1] = parameter7_4byte52[3];
+            parameter7_4byte1_52[2] = parameter7_4byte52[0];
+            parameter7_4byte1_52[3] = parameter7_4byte52[1];
+
+            //0x4800 command
+            parameter7_4byte1_53[0] = parameter7_4byte53[0];
+            parameter7_4byte1_53[1] = parameter7_4byte53[1];
+            parameter7_4byte1_53[2] = parameter7_4byte53[2];
+            parameter7_4byte1_53[3] = parameter7_4byte53[3];
+
+            //0x4802 data
+            parameter7_4byte1_54[0] = parameter7_4byte54[2];
+            parameter7_4byte1_54[1] = parameter7_4byte54[3];
+            parameter7_4byte1_54[2] = parameter7_4byte54[0];
+            parameter7_4byte1_54[3] = parameter7_4byte54[1];
+
+            //0x4800 command
+            parameter7_4byte1_55[0] = parameter7_4byte55[0];
+            parameter7_4byte1_55[1] = parameter7_4byte55[1];
+            parameter7_4byte1_55[2] = parameter7_4byte55[2];
+            parameter7_4byte1_55[3] = parameter7_4byte55[3];
+
+            //0x4802 data
+            parameter7_4byte1_56[0] = parameter7_4byte56[2];
+            parameter7_4byte1_56[1] = parameter7_4byte56[3];
+            parameter7_4byte1_56[2] = parameter7_4byte56[0];
+            parameter7_4byte1_56[3] = parameter7_4byte56[1];
+
+            //0x4800 command
+            parameter7_4byte1_57[0] = parameter7_4byte57[0];
+            parameter7_4byte1_57[1] = parameter7_4byte57[1];
+            parameter7_4byte1_57[2] = parameter7_4byte57[2];
+            parameter7_4byte1_57[3] = parameter7_4byte57[3];
+
+            //0x4802 data
+            parameter7_4byte1_58[0] = parameter7_4byte58[2];
+            parameter7_4byte1_58[1] = parameter7_4byte58[3];
+            parameter7_4byte1_58[2] = parameter7_4byte58[0];
+            parameter7_4byte1_58[3] = parameter7_4byte58[1];
+
+            //0x4800 command
+            parameter7_4byte1_59[0] = parameter7_4byte59[0];
+            parameter7_4byte1_59[1] = parameter7_4byte59[1];
+            parameter7_4byte1_59[2] = parameter7_4byte59[2];
+            parameter7_4byte1_59[3] = parameter7_4byte59[3];
+
+            //0x4802 data
+            parameter7_4byte1_60[0] = parameter7_4byte60[2];
+            parameter7_4byte1_60[1] = parameter7_4byte60[3];
+            parameter7_4byte1_60[2] = parameter7_4byte60[0];
+            parameter7_4byte1_60[3] = parameter7_4byte60[1];
+
+            //0x4800 command
+            parameter7_4byte1_61[0] = parameter7_4byte61[0];
+            parameter7_4byte1_61[1] = parameter7_4byte61[1];
+            parameter7_4byte1_61[2] = parameter7_4byte61[2];
+            parameter7_4byte1_61[3] = parameter7_4byte61[3];
+
+            //0x4802 data
+            parameter7_4byte1_62[0] = parameter7_4byte62[2];
+            parameter7_4byte1_62[1] = parameter7_4byte62[3];
+            parameter7_4byte1_62[2] = parameter7_4byte62[0];
+            parameter7_4byte1_62[3] = parameter7_4byte62[1];
+
+            //0x4800 command
+            parameter7_4byte1_63[0] = parameter7_4byte63[0];
+            parameter7_4byte1_63[1] = parameter7_4byte63[1];
+            parameter7_4byte1_63[2] = parameter7_4byte63[2];
+            parameter7_4byte1_63[3] = parameter7_4byte63[3];
+
+            //0x4802 data
+            parameter7_4byte1_64[0] = parameter7_4byte64[2];
+            parameter7_4byte1_64[1] = parameter7_4byte64[3];
+            parameter7_4byte1_64[2] = parameter7_4byte64[0];
+            parameter7_4byte1_64[3] = parameter7_4byte64[1];
+
+            //0x4800 command
+            parameter7_4byte1_65[0] = parameter7_4byte65[0];
+            parameter7_4byte1_65[1] = parameter7_4byte65[1];
+            parameter7_4byte1_65[2] = parameter7_4byte65[2];
+            parameter7_4byte1_65[3] = parameter7_4byte65[3];
+
+            //0x4802 data
+            parameter7_4byte1_66[0] = parameter7_4byte66[2];
+            parameter7_4byte1_66[1] = parameter7_4byte66[3];
+            parameter7_4byte1_66[2] = parameter7_4byte66[0];
+            parameter7_4byte1_66[3] = parameter7_4byte66[1];
+
+            //0x4800 command
+            parameter7_4byte1_67[0] = parameter7_4byte67[0];
+            parameter7_4byte1_67[1] = parameter7_4byte67[1];
+            parameter7_4byte1_67[2] = parameter7_4byte67[2];
+            parameter7_4byte1_67[3] = parameter7_4byte67[3];
+
+            //0x4802 data
+            parameter7_4byte1_68[0] = parameter7_4byte68[2];
+            parameter7_4byte1_68[1] = parameter7_4byte68[3];
+            parameter7_4byte1_68[2] = parameter7_4byte68[0];
+            parameter7_4byte1_68[3] = parameter7_4byte68[1];
+
+            //0x4800 command
+            parameter7_4byte1_69[0] = parameter7_4byte69[0];
+            parameter7_4byte1_69[1] = parameter7_4byte69[1];
+            parameter7_4byte1_69[2] = parameter7_4byte69[2];
+            parameter7_4byte1_69[3] = parameter7_4byte69[3];
+
+            //0x4802 data
+            parameter7_4byte1_70[0] = parameter7_4byte70[2];
+            parameter7_4byte1_70[1] = parameter7_4byte70[3];
+            parameter7_4byte1_70[2] = parameter7_4byte70[0];
+            parameter7_4byte1_70[3] = parameter7_4byte70[1];
+
+            //0x4800 command
+            parameter7_4byte1_71[0] = parameter7_4byte71[0];
+            parameter7_4byte1_71[1] = parameter7_4byte71[1];
+            parameter7_4byte1_71[2] = parameter7_4byte71[2];
+            parameter7_4byte1_71[3] = parameter7_4byte71[3];
+
+            //0x4802 data
+            parameter7_4byte1_72[0] = parameter7_4byte72[2];
+            parameter7_4byte1_72[1] = parameter7_4byte72[3];
+            parameter7_4byte1_72[2] = parameter7_4byte72[0];
+            parameter7_4byte1_72[3] = parameter7_4byte72[1];
+
+            //0x4800 command
+            parameter7_4byte1_73[0] = parameter7_4byte73[0];
+            parameter7_4byte1_73[1] = parameter7_4byte73[1];
+            parameter7_4byte1_73[2] = parameter7_4byte73[2];
+            parameter7_4byte1_73[3] = parameter7_4byte73[3];
+
+            //0x4802 data
+            parameter7_4byte1_74[0] = parameter7_4byte74[2];
+            parameter7_4byte1_74[1] = parameter7_4byte74[3];
+            parameter7_4byte1_74[2] = parameter7_4byte74[0];
+            parameter7_4byte1_74[3] = parameter7_4byte74[1];
+
+            //0x4800 command
+            parameter7_4byte1_75[0] = parameter7_4byte75[0];
+            parameter7_4byte1_75[1] = parameter7_4byte75[1];
+            parameter7_4byte1_75[2] = parameter7_4byte75[2];
+            parameter7_4byte1_75[3] = parameter7_4byte75[3];
+
+            //0x4802 data
+            parameter7_4byte1_76[0] = parameter7_4byte76[2];
+            parameter7_4byte1_76[1] = parameter7_4byte76[3];
+            parameter7_4byte1_76[2] = parameter7_4byte76[0];
+            parameter7_4byte1_76[3] = parameter7_4byte76[1];
+
+            //0x4800 command
+            parameter7_4byte1_77[0] = parameter7_4byte77[0];
+            parameter7_4byte1_77[1] = parameter7_4byte77[1];
+            parameter7_4byte1_77[2] = parameter7_4byte77[2];
+            parameter7_4byte1_77[3] = parameter7_4byte77[3];
+
+            //0x4802 data
+            parameter7_4byte1_78[0] = parameter7_4byte78[2];
+            parameter7_4byte1_78[1] = parameter7_4byte78[3];
+            parameter7_4byte1_78[2] = parameter7_4byte78[0];
+            parameter7_4byte1_78[3] = parameter7_4byte78[1];
+
+            //0x4800 command
+            parameter7_4byte1_79[0] = parameter7_4byte79[0];
+            parameter7_4byte1_79[1] = parameter7_4byte79[1];
+            parameter7_4byte1_79[2] = parameter7_4byte79[2];
+            parameter7_4byte1_79[3] = parameter7_4byte79[3];
+
+            //0x4802 data
+            parameter7_4byte1_80[0] = parameter7_4byte80[2];
+            parameter7_4byte1_80[1] = parameter7_4byte80[3];
+            parameter7_4byte1_80[2] = parameter7_4byte80[0];
+            parameter7_4byte1_80[3] = parameter7_4byte80[1];
+
+            //0x4800 command
+            parameter7_4byte1_81[0] = parameter7_4byte81[0];
+            parameter7_4byte1_81[1] = parameter7_4byte81[1];
+            parameter7_4byte1_81[2] = parameter7_4byte81[2];
+            parameter7_4byte1_81[3] = parameter7_4byte81[3];
+
+            //0x4802 data
+            parameter7_4byte1_82[0] = parameter7_4byte82[2];
+            parameter7_4byte1_82[1] = parameter7_4byte82[3];
+            parameter7_4byte1_82[2] = parameter7_4byte82[0];
+            parameter7_4byte1_82[3] = parameter7_4byte82[1];
+
+            //0x4800 command
+            parameter7_4byte1_83[0] = parameter7_4byte83[0];
+            parameter7_4byte1_83[1] = parameter7_4byte83[1];
+            parameter7_4byte1_83[2] = parameter7_4byte83[2];
+            parameter7_4byte1_83[3] = parameter7_4byte83[3];
+
+            //0x4802 data
+            parameter7_4byte1_84[0] = parameter7_4byte84[2];
+            parameter7_4byte1_84[1] = parameter7_4byte84[3];
+            parameter7_4byte1_84[2] = parameter7_4byte84[0];
+            parameter7_4byte1_84[3] = parameter7_4byte84[1];
+
+            //0x4800 command
+            parameter7_4byte1_85[0] = parameter7_4byte85[0];
+            parameter7_4byte1_85[1] = parameter7_4byte85[1];
+            parameter7_4byte1_85[2] = parameter7_4byte85[2];
+            parameter7_4byte1_85[3] = parameter7_4byte85[3];
+
+            //0x4802 data
+            parameter7_4byte1_86[0] = parameter7_4byte86[2];
+            parameter7_4byte1_86[1] = parameter7_4byte86[3];
+            parameter7_4byte1_86[2] = parameter7_4byte86[0];
+            parameter7_4byte1_86[3] = parameter7_4byte86[1];
+
+            //0x4800 command
+            parameter7_4byte1_87[0] = parameter7_4byte87[0];
+            parameter7_4byte1_87[1] = parameter7_4byte87[1];
+            parameter7_4byte1_87[2] = parameter7_4byte87[2];
+            parameter7_4byte1_87[3] = parameter7_4byte87[3];
+
+            //0x4802 data
+            parameter7_4byte1_88[0] = parameter7_4byte88[2];
+            parameter7_4byte1_88[1] = parameter7_4byte88[3];
+            parameter7_4byte1_88[2] = parameter7_4byte88[0];
+            parameter7_4byte1_88[3] = parameter7_4byte88[1];
+
+            //0x4800 command
+            parameter7_4byte1_89[0] = parameter7_4byte89[0];
+            parameter7_4byte1_89[1] = parameter7_4byte89[1];
+            parameter7_4byte1_89[2] = parameter7_4byte89[2];
+            parameter7_4byte1_89[3] = parameter7_4byte89[3];
+
+            //0x4802 data
+            parameter7_4byte1_90[0] = parameter7_4byte90[2];
+            parameter7_4byte1_90[1] = parameter7_4byte90[3];
+            parameter7_4byte1_90[2] = parameter7_4byte90[0];
+            parameter7_4byte1_90[3] = parameter7_4byte90[1];
+
+            //0x4800 command
+            parameter7_4byte1_91[0] = parameter7_4byte91[0];
+            parameter7_4byte1_91[1] = parameter7_4byte91[1];
+            parameter7_4byte1_91[2] = parameter7_4byte91[2];
+            parameter7_4byte1_91[3] = parameter7_4byte91[3];
+
+            //0x4802 data
+            parameter7_4byte1_92[0] = parameter7_4byte92[2];
+            parameter7_4byte1_92[1] = parameter7_4byte92[3];
+            parameter7_4byte1_92[2] = parameter7_4byte92[0];
+            parameter7_4byte1_92[3] = parameter7_4byte92[1];
+
+            //0x4800 command
+            parameter7_4byte1_93[0] = parameter7_4byte93[0];
+            parameter7_4byte1_93[1] = parameter7_4byte93[1];
+            parameter7_4byte1_93[2] = parameter7_4byte93[2];
+            parameter7_4byte1_93[3] = parameter7_4byte93[3];
+
+            //0x4802 data
+            parameter7_4byte1_94[0] = parameter7_4byte94[2];
+            parameter7_4byte1_94[1] = parameter7_4byte94[3];
+            parameter7_4byte1_94[2] = parameter7_4byte94[0];
+            parameter7_4byte1_94[3] = parameter7_4byte94[1];
+
+            //0x4800 command
+            parameter7_4byte1_95[0] = parameter7_4byte95[0];
+            parameter7_4byte1_95[1] = parameter7_4byte95[1];
+            parameter7_4byte1_95[2] = parameter7_4byte95[2];
+            parameter7_4byte1_95[3] = parameter7_4byte95[3];
+
+            //0x4802 data
+            parameter7_4byte1_96[0] = parameter7_4byte96[2];
+            parameter7_4byte1_96[1] = parameter7_4byte96[3];
+            parameter7_4byte1_96[2] = parameter7_4byte96[0];
+            parameter7_4byte1_96[3] = parameter7_4byte96[1];
+
+            //0x4800 command
+            parameter7_4byte1_97[0] = parameter7_4byte97[0];
+            parameter7_4byte1_97[1] = parameter7_4byte97[1];
+            parameter7_4byte1_97[2] = parameter7_4byte97[2];
+            parameter7_4byte1_97[3] = parameter7_4byte97[3];
+
+            //0x4802 data
+            parameter7_4byte1_98[0] = parameter7_4byte98[2];
+            parameter7_4byte1_98[1] = parameter7_4byte98[3];
+            parameter7_4byte1_98[2] = parameter7_4byte98[0];
+            parameter7_4byte1_98[3] = parameter7_4byte98[1];
+
+            //0x4800 command
+            parameter7_4byte1_99[0] = parameter7_4byte99[0];
+            parameter7_4byte1_99[1] = parameter7_4byte99[1];
+            parameter7_4byte1_99[2] = parameter7_4byte99[2];
+            parameter7_4byte1_99[3] = parameter7_4byte99[3];
+
+            //0x4802 data
+            parameter7_4byte1_100[0] = parameter7_4byte100[2];
+            parameter7_4byte1_100[1] = parameter7_4byte100[3];
+            parameter7_4byte1_100[2] = parameter7_4byte100[0];
+            parameter7_4byte1_100[3] = parameter7_4byte100[1];
+
+            //0x4800 command
+            parameter7_4byte1_101[0] = parameter7_4byte101[0];
+            parameter7_4byte1_101[1] = parameter7_4byte101[1];
+            parameter7_4byte1_101[2] = parameter7_4byte101[2];
+            parameter7_4byte1_101[3] = parameter7_4byte101[3];
+
+            //0x4802 data
+            parameter7_4byte1_102[0] = parameter7_4byte102[2];
+            parameter7_4byte1_102[1] = parameter7_4byte102[3];
+            parameter7_4byte1_102[2] = parameter7_4byte102[0];
+            parameter7_4byte1_102[3] = parameter7_4byte102[1];
 
             ////0x4800 command
             //parameter7_4byte1_103[0] = parameter7_4byte103[0];  

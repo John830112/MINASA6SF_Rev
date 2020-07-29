@@ -2556,7 +2556,7 @@ namespace MINASA6SF_Rev.ViewModels
             try
             {
                 while (mirrorONOFF)
-                {
+                {                    
                     modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17432, 8, ref _mirrReg1);
                     modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17440, 8, ref _mirrReg2);
                     modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4001, 1, ref _errorCode);
@@ -2621,6 +2621,7 @@ namespace MINASA6SF_Rev.ViewModels
                         StatusBar = "MirrReg_Timer값 수신되지 않음";
                         return;
                     }
+
                 }
             }
             catch (Exception es)
@@ -19361,6 +19362,7 @@ namespace MINASA6SF_Rev.ViewModels
         //블럭 파라미터 수신,송신,EEP 커맨드
         private void ExecuteRecCommand(object parameter)
         {
+            mirrorONOFF = false;
             worker2.RunWorkerAsync();   //  ->BlockParameterRec
 
             //BlockParaModel1s[0].BlockData
