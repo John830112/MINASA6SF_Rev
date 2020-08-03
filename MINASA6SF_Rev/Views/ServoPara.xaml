@@ -31,7 +31,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Background="LightGray" Margin="0,-2,0,2">
+    <Grid Background="White" Margin="0,-2,0,2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="160"/>
@@ -42,10 +42,10 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="340"/>
+            <RowDefinition Height="310"/>
         </Grid.RowDefinitions>
 
-        <ToolBar Background="LightGray" Grid.Column="1" Grid.RowSpan="3" 
+        <ToolBar Background="White" Grid.Column="1" Grid.RowSpan="3" 
                  Grid.ColumnSpan="3" Margin="0,4,-130,5"  >
             <Button x:Name="SerVParaRx" Content="수신" Style="{StaticResource ResourceKey=ToolButton}" 
                     Command="{Binding RecCommand}" Margin="5 0 0 0" FocusVisualStyle="{x:Null}"/>

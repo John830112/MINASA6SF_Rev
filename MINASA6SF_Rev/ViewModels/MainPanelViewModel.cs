@@ -35,6 +35,7 @@ namespace MINASA6SF_Rev.ViewModels
         BackgroundWorker worker2 = new BackgroundWorker(); //블럭 파라미터 송신      
 
         partial void BlockParameterRec1(object sender, DoWorkEventArgs e);
+        partial void BlockParameterRec2();
 
         bool mirrorONOFF;
         bool servoON;

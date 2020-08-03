@@ -192,8 +192,9 @@
                 <RowDefinition/>
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
-            <Frame x:Name="mainpanel" NavigationUIVisibility="Hidden"/>
-            <StatusBar Grid.Column="0" Grid.Row="1" Background="LightGray">
+            <Frame x:Name="mainpanel" NavigationUIVisibility="Hidden" Margin="0"/>
+            <StatusBar Grid.Column="0" Grid.Row="1" Background="LightGray" 
+                       BorderBrush="Transparent" BorderThickness="0" Margin="0">
                 <StatusBarItem>
                     <TextBox  x:Name="StatusAlm" Text="{Binding StatusBar}" IsReadOnly="True" Background="Transparent" 
                               Foreground="Black" BorderThickness="0" VerticalContentAlignment="Center" VerticalAlignment="Center">
