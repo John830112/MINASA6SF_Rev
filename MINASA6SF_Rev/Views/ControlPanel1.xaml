@@ -416,7 +416,7 @@
         </GroupBox>
 
         <!-- Operation condition 그룹-->
-        <GroupBox Header="Operation condiation" FontSize="22" FontWeight="DemiBold" Grid.Column="3" Grid.Row="2" BorderThickness="2"
+        <GroupBox Header="구동 설정" FontSize="22" FontWeight="DemiBold" Grid.Column="3" Grid.Row="2" BorderThickness="2"
                   Grid.ColumnSpan="2" Margin="0 0 0 6">
             <Grid>
                 <Grid.ColumnDefinitions>
