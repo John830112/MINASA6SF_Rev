@@ -384,14 +384,15 @@ namespace MINASA6SF_Rev.Models
         /// <param name="unit">Unit identifier (previously slave address). In asynchonous mode this unit is given to the callback function.</param>
         /// <param name="startAddress">Address from where the data read begins.</param>
         /// <param name="OnOff">Specifys if the coil should be switched on or off.</param>
-        public void WriteSingleCoils(ushort id, byte unit, ushort startAddress, bool OnOff)
-        {
-            byte[] data;
-            data = CreateWriteHeader(id, unit, startAddress, 1, 1, fctWriteSingleCoil);
-            if (OnOff == true) data[10] = 255;
-            else data[10] = 0;
-            WriteAsyncData(data, id);
-        }
+        /// 
+        //public void WriteSingleCoils(ushort id, byte unit, ushort startAddress, bool OnOff)
+        //{
+        //    byte[] data;
+        //    data = CreateWriteHeader(id, unit, startAddress, 1, 1, fctWriteSingleCoil);
+        //    if (OnOff == true) data[10] = 255;
+        //    else data[10] = 0;
+        //    WriteAsyncData(data, id);
+        //}
 
         // ------------------------------------------------------------------------
         /// <summary>Write single coil in slave synchronous.</summary>
@@ -400,13 +401,24 @@ namespace MINASA6SF_Rev.Models
         /// <param name="startAddress">Address from where the data read begins.</param>
         /// <param name="OnOff">Specifys if the coil should be switched on or off.</param>
         /// <param name="result">Contains the result of the synchronous write.</param>
-        public void WriteSingleCoils(ushort id, byte unit, ushort startAddress, bool OnOff, ref byte[] result)
+        /// 
+
+        //public void WriteSingleCoils(ushort id, byte unit, ushort startAddress, bool OnOff, ref byte[] result)
+        //{
+        //    byte[] data;
+        //    data = CreateWriteHeader(id, unit, startAddress, 1, 1, fctWriteSingleCoil);
+        //    if (OnOff == true) data[10] = 255;
+        //    else data[10] = 0;
+        //    result = WriteSyncData(data, id);
+        //}
+
+        public void WriteSingleCoils(ushort id, byte unit, ushort startAddress, bool OnOff)
         {
             byte[] data;
             data = CreateWriteHeader(id, unit, startAddress, 1, 1, fctWriteSingleCoil);
             if (OnOff == true) data[10] = 255;
             else data[10] = 0;
-            result = WriteSyncData(data, id);
+            WriteSyncData(data, id);
         }
 
         // ------------------------------------------------------------------------
@@ -471,7 +483,9 @@ namespace MINASA6SF_Rev.Models
             data = CreateWriteHeader(id, unit, startAddress, 1, 1, fctWriteSingleRegister);
             data[10] = values[0];
             data[11] = values[1];
-            WriteAsyncData(data, id);
+
+            //WriteAsyncData(data, id);
+            WriteSyncData(data, id);
         }
 
         // ------------------------------------------------------------------------
@@ -481,19 +495,21 @@ namespace MINASA6SF_Rev.Models
         /// <param name="startAddress">Address to where the data is written.</param>
         /// <param name="values">Contains the register information.</param>
         /// <param name="result">Contains the result of the synchronous write.</param>
-        public void WriteSingleRegister(ushort id, byte unit, ushort startAddress, byte[] values, ref byte[] result)
-        {
-            if (values.GetUpperBound(0) != 1)
-            {
-                CallException(id, unit, fctReadCoil, excIllegalDataVal);
-                return;
-            }
-            byte[] data;
-            data = CreateWriteHeader(id, unit, startAddress, 1, 1, fctWriteSingleRegister);
-            data[10] = values[0];
-            data[11] = values[1];
-            result = WriteSyncData(data, id);
-        }
+   
+        
+        //public void WriteSingleRegister(ushort id, byte unit, ushort startAddress, byte[] values, ref byte[] result)
+        //{
+        //    if (values.GetUpperBound(0) != 1)
+        //    {
+        //        CallException(id, unit, fctReadCoil, excIllegalDataVal);
+        //        return;
+        //    }
+        //    byte[] data;
+        //    data = CreateWriteHeader(id, unit, startAddress, 1, 1, fctWriteSingleRegister);
+        //    data[10] = values[0];
+        //    data[11] = values[1];
+        //    result = WriteSyncData(data, id);
+        //}
 
         // ------------------------------------------------------------------------
         /// <summary>Write multiple registers in slave asynchronous. The result is given in the response function.</summary>
@@ -515,7 +531,8 @@ namespace MINASA6SF_Rev.Models
 
             data = CreateWriteHeader(id, unit, startAddress, Convert.ToUInt16(numBytes / 2), Convert.ToUInt16(numBytes + 2), fctWriteMultipleRegister);
             Array.Copy(values, 0, data, 13, values.Length);
-            WriteAsyncData(data, id);
+            //WriteAsyncData(data, id);
+            WriteSyncData(data, id);
         }
 
         // ------------------------------------------------------------------------
@@ -525,22 +542,23 @@ namespace MINASA6SF_Rev.Models
         /// <param name="startAddress">Address to where the data is written.</param>
         /// <param name="values">Contains the register information.</param>
         /// <param name="result">Contains the result of the synchronous write.</param>
-        public void WriteMultipleRegister(ushort id, byte unit, ushort startAddress, byte[] values, ref byte[] result)
-        {
-            ushort numBytes = Convert.ToUInt16(values.Length);
-            if (numBytes > 250)
-            {
-                CallException(id, unit, fctWriteMultipleRegister, excIllegalDataVal);
-                return;
-            }
+        /// 
+        //public void WriteMultipleRegister(ushort id, byte unit, ushort startAddress, byte[] values, ref byte[] result)
+        //{
+        //    ushort numBytes = Convert.ToUInt16(values.Length);
+        //    if (numBytes > 250)
+        //    {
+        //        CallException(id, unit, fctWriteMultipleRegister, excIllegalDataVal);
+        //        return;
+        //    }
 
-            if (numBytes % 2 > 0) numBytes++;
-            byte[] data;
+        //    if (numBytes % 2 > 0) numBytes++;
+        //    byte[] data;
 
-            data = CreateWriteHeader(id, unit, startAddress, Convert.ToUInt16(numBytes / 2), Convert.ToUInt16(numBytes + 2), fctWriteMultipleRegister);
-            Array.Copy(values, 0, data, 13, values.Length);
-            result = WriteSyncData(data, id);
-        }
+        //    data = CreateWriteHeader(id, unit, startAddress, Convert.ToUInt16(numBytes / 2), Convert.ToUInt16(numBytes + 2), fctWriteMultipleRegister);
+        //    Array.Copy(values, 0, data, 13, values.Length);
+        //    //result = WriteSyncData(data, id);
+        //}
 
         // ------------------------------------------------------------------------
         /// <summary>Read/Write multiple registers in slave asynchronous. The result is given in the response function.</summary>

@@ -1935,8 +1935,6 @@ namespace MINASA6SF_Rev.ViewModels
         byte[] parameter7_4byte1_512 = new byte[4];
         #endregion
 
-        //byte[] parameter7_4byte11 = new byte[4];
-        //byte[] parameter7_4byte22 = new byte[4];
 
         //StatusBar 변수
         string statusBar = "";
@@ -2252,11 +2250,12 @@ namespace MINASA6SF_Rev.ViewModels
 
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadObjectViewModel();
+
             worker.WorkerReportsProgress = false;
             worker.WorkerSupportsCancellation = true;
             worker.DoWork += MirrTimer_Tick;
 
-            worker2.WorkerReportsProgress = true;
+            worker2.WorkerReportsProgress = false;
             worker2.WorkerSupportsCancellation = false;
             worker2.DoWork += BlockParameterRec1;
 
@@ -2888,7 +2887,7 @@ namespace MINASA6SF_Rev.ViewModels
                 BlockParaModel1s.Add(new BlockParaModel1() { BlockNum = i, BlockData = "설정 안됨" });
                 blockParaModel1s = BlockParaModel1s;
             }
-
+             
             //Block매개변수 Instance생성
             for (int i = 0; i < 16; i++)
             {
@@ -19364,7 +19363,7 @@ namespace MINASA6SF_Rev.ViewModels
         private void ExecuteRecCommand(object parameter)
         {
             mirrorONOFF = false;
-            worker2.RunWorkerAsync();   //  ->BlockParameterRec
+            worker2.RunWorkerAsync();   //  ->BlockParameterRec1
 
             //BlockParaModel1s[0].BlockData
             //BlockParaModel2s[0].SettingValue = 33;            //Block속도 파라미터 값
