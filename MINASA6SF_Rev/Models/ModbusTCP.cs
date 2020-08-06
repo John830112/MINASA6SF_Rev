@@ -7,6 +7,9 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Windows;
 using System.Diagnostics.Eventing.Reader;
+using System.Diagnostics;
+using MINASA6SF_Rev.ViewModels;
+
 
 namespace MINASA6SF_Rev.Models
 {
@@ -57,6 +60,7 @@ namespace MINASA6SF_Rev.Models
         private static bool _no_sync_connection = false;
         bool connected1 = false;
         bool connected2 = false;
+        MainPanelViewModel _mainPanelViewModel1;
 
         private static Socket tcpAsyCl;
         private byte[] tcpAsyClBuffer = new byte[2048];
@@ -111,10 +115,9 @@ namespace MINASA6SF_Rev.Models
         // ------------------------------------------------------------------------
         /// <summary>Create master instance without parameters.</summary>
        
-        public Master()
+        public Master(MainPanelViewModel mainPanelViewModel)
         {
-           
-
+            this._mainPanelViewModel1 = mainPanelViewModel;
         }
 
         // ------------------------------------------------------------------------
@@ -767,8 +770,8 @@ namespace MINASA6SF_Rev.Models
         {
             byte[] data;
             try
-            {               
-                if (connected1)
+            {
+                if (connected1 && write_data != null)
                 {
                     tcpSynCl.Send(write_data, 0, write_data.Length, SocketFlags.None);
                     int result = tcpSynCl.Receive(tcpSynClBuffer, 0, tcpSynClBuffer.Length, SocketFlags.None);
@@ -802,13 +805,17 @@ namespace MINASA6SF_Rev.Models
                         Array.Copy(tcpSynClBuffer, 9, data, 0, tcpSynClBuffer[8]);
                     }
                     return data;
+
                 }
                 else
                     return null;
             }
             catch (System.Net.Sockets.SocketException e)
             {
-                CallException(id, write_data[6], write_data[7], excExceptionConnectionLost);
+                //CallException(id, write_data[6], write_data[7], excExceptionConnectionLost);
+                Debug.WriteLine(e.Message.ToString());
+                //_mainPanelViewModel1.mirrorONOFF = true;
+                //_mainPanelViewModel1.worker.RunWorkerAsync();
                 return null;
             }
         }

@@ -31,13 +31,16 @@ namespace MINASA6SF_Rev.ViewModels
 {
     public partial class MainPanelViewModel : ViewModelBase, IWindowService
     {
-        BackgroundWorker worker = new BackgroundWorker();  //MirrorTimer 동작
-        BackgroundWorker worker2 = new BackgroundWorker(); //블럭 파라미터 송신      
+        public BackgroundWorker worker = new BackgroundWorker();  //MirrorTimer 동작
+        public BackgroundWorker worker2 = new BackgroundWorker(); //블럭 파라미터 송신      
+
+        System.Timers.Timer timer = new System.Timers.Timer(30);
+
 
         partial void BlockParameterRec1(object sender, DoWorkEventArgs e);
         partial void BlockParameterRec2();
 
-        bool mirrorONOFF;
+        public bool mirrorONOFF;
         bool servoON;
         bool blockselect_Lock_Release=false;
         public bool BlockSelect_Lock_Release
@@ -183,7 +186,7 @@ namespace MINASA6SF_Rev.ViewModels
         float torquecmd;
         Int32 powerontimetemp;
 
-        private Master modbusTCP = new Master();
+        private Master modbusTCP;
         Settings settings;
         BlockPara blockpara;
         ControlPanel1 controlpanel1;
@@ -2168,6 +2171,9 @@ namespace MINASA6SF_Rev.ViewModels
         public ICommand jogplaybtn4 { set; get; }
         public ICommand jogfastford1 { set; get; }
         public ICommand jogfastford2 { set; get; }
+
+
+
         #endregion
 
         #region viewmodel 생성자
@@ -2175,6 +2181,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         public MainPanelViewModel(Settings _settings, BlockPara _blockpara, ControlPanel1 _controlPanel1)
         {
+            modbusTCP = new Master(this);
             mirrorONOFF = false;
             settings = _settings;
             blockpara = _blockpara;
@@ -2251,12 +2258,17 @@ namespace MINASA6SF_Rev.ViewModels
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadObjectViewModel();
 
+          
+            //timer.Elapsed += MirrTimer_Tick;
+            timer.AutoReset = true;
+          
+
             worker.WorkerReportsProgress = false;
             worker.WorkerSupportsCancellation = true;
             worker.DoWork += MirrTimer_Tick;
 
             worker2.WorkerReportsProgress = false;
-            worker2.WorkerSupportsCancellation = false;
+            worker2.WorkerSupportsCancellation = true;
             worker2.DoWork += BlockParameterRec1;
 
             //BlockSettingDialog 객체 할당
@@ -2551,7 +2563,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         #region MirrTimer
         //MirrTimer 실행 함수
-        private void MirrTimer_Tick(object sender, DoWorkEventArgs e)
+        private void MirrTimer_Tick(object sender, DoWorkEventArgs e) //private void MirrTimer_Tick(object sender, ElapsedEventArgs e)
         {
             try
             {
@@ -2627,6 +2639,7 @@ namespace MINASA6SF_Rev.ViewModels
             catch (Exception es)
             {
                 StatusBar = es.Message + "  MirrReg_timer";
+                return;
             }
         }
         #endregion
@@ -2642,16 +2655,10 @@ namespace MINASA6SF_Rev.ViewModels
                 axisNum1 = int.Parse(settings.axisNumselect.SelectedValue.ToString());
 
                 worker.RunWorkerAsync();
-
-                //Register값 리딩 확인.
-                //modbusTCP.ReadCoils(0, 0x01, 4096, 8, ref num1);
-                //modbusTCP.ReadHoldingRegister(0, 0x01, 19740, 2, ref num1);
-                //Thread.Sleep(50);
-                //Debug.WriteLine(num1.Length);
-
                 if (!mirrorONOFF)
                 {
                     mirrorONOFF = true;
+                   // timer.Enabled = true;
                 }
                 else
                 {
@@ -2695,7 +2702,7 @@ namespace MINASA6SF_Rev.ViewModels
                         Debug.WriteLine(LampStatus.ToString());
                     }
                 }
-
+                worker2.CancelAsync();
                 worker.CancelAsync();
                 mirrorONOFF = false;
                 modbusTCP.disconnect();
@@ -2749,6 +2756,9 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, true);
+                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, false);
+                    Thread.Sleep(50);
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, false);
                     servoON = true;
                 }
