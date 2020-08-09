@@ -68,6 +68,9 @@ namespace MINASA6SF_Rev.Models
         private static Socket tcpSynCl;
         private byte[] tcpSynClBuffer = new byte[2048];
 
+        byte[] data = new byte[12];
+        byte[] data2;
+
         // ------------------------------------------------------------------------
         /// <summary>Response data event. This event is called when new data arrives</summary>
         public delegate void ResponseData(ushort id, byte unit, byte function, byte[] data);
@@ -618,7 +621,7 @@ namespace MINASA6SF_Rev.Models
         // Create modbus header for read action
         private byte[] CreateReadHeader(ushort id, byte unit, ushort startAddress, ushort length, byte function)
         {
-            byte[] data = new byte[12];
+            //byte[] data = new byte[12];
 
             byte[] _id = BitConverter.GetBytes((short)id);
             data[0] = _id[1];			    // Slave id high byte
@@ -768,7 +771,7 @@ namespace MINASA6SF_Rev.Models
         // Write data and and wait for response
         private byte[] WriteSyncData(byte[] write_data, ushort id)
         {
-            byte[] data;
+           
             try
             {
                 if (connected1 && write_data != null)
@@ -794,17 +797,17 @@ namespace MINASA6SF_Rev.Models
                     // Write response data
                     else if ((function >= fctWriteSingleCoil) && (function != fctReadWriteMultipleRegister))
                     {
-                        data = new byte[2];
-                        Array.Copy(tcpSynClBuffer, 10, data, 0, 2);
+                        data2 = new byte[2];
+                        Array.Copy(tcpSynClBuffer, 10, data2, 0, 2);
                     }
                     // ------------------------------------------------------------
                     // Read response data
                     else
                     {
-                        data = new byte[tcpSynClBuffer[8]];
-                        Array.Copy(tcpSynClBuffer, 9, data, 0, tcpSynClBuffer[8]);
+                        data2 = new byte[tcpSynClBuffer[8]];
+                        Array.Copy(tcpSynClBuffer, 9, data2, 0, tcpSynClBuffer[8]);
                     }
-                    return data;
+                    return data2;
 
                 }
                 else
@@ -813,11 +816,11 @@ namespace MINASA6SF_Rev.Models
             catch (System.Net.Sockets.SocketException e)
             {
                 //CallException(id, write_data[6], write_data[7], excExceptionConnectionLost);
-                Debug.WriteLine(e.Message.ToString());
-                //_mainPanelViewModel1.mirrorONOFF = true;
-                //_mainPanelViewModel1.worker.RunWorkerAsync();
+                Debug.WriteLine(e.Message.ToString() + " " + write_data[6].ToString());
+               
                 return null;
             }
+           
         }
     }
 }

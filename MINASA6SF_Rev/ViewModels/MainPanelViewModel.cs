@@ -31,17 +31,16 @@ namespace MINASA6SF_Rev.ViewModels
 {
     public partial class MainPanelViewModel : ViewModelBase, IWindowService
     {
-        public BackgroundWorker worker = new BackgroundWorker();  //MirrorTimer 동작
-        public BackgroundWorker worker2 = new BackgroundWorker(); //블럭 파라미터 송신      
+        //public BackgroundWorker worker = new BackgroundWorker();  //MirrorTimer 동작
+        public BackgroundWorker worker2 = new BackgroundWorker(); //블럭 파라미터 송신 
+        private readonly object balanceLock = new object();
+        public System.Timers.Timer mirrtimer;
 
-        System.Timers.Timer timer = new System.Timers.Timer(30);
-
-
-        partial void BlockParameterRec1(object sender, DoWorkEventArgs e);
+        partial void BlockParameterRec1(object sender, DoWorkEventArgs e);     
         partial void BlockParameterRec2();
 
+
         public bool mirrorONOFF;
-        bool servoON;
         bool blockselect_Lock_Release=false;
         public bool BlockSelect_Lock_Release
         {
@@ -49,7 +48,7 @@ namespace MINASA6SF_Rev.ViewModels
             set { SetProperty(ref blockselect_Lock_Release, value); }
         }
         int mirrTime;
-        byte[] _servoONStatus;
+        byte[] _servoONStatus = new byte[2];
         int lampstatus = 0;
         public int LampStatus
         {
@@ -187,6 +186,7 @@ namespace MINASA6SF_Rev.ViewModels
         Int32 powerontimetemp;
 
         private Master modbusTCP;
+        private ModbusTCP_ modbusTCP2 = new ModbusTCP_();
         Settings settings;
         BlockPara blockpara;
         ControlPanel1 controlpanel1;
@@ -274,518 +274,518 @@ namespace MINASA6SF_Rev.ViewModels
         byte[] value11 = new byte[4];
 
         #region BlockSetting 수신 변수  recValue1~recValue512
-        byte[] recValue1;
-        byte[] recValue2;
-        byte[] recValue3;
-        byte[] recValue4;
-        byte[] recValue5;
-        byte[] recValue6;
-        byte[] recValue7;
-        byte[] recValue8;
-        byte[] recValue9;
-        byte[] recValue10;
-        byte[] recValue11;
-        byte[] recValue12;
-        byte[] recValue13;
-        byte[] recValue14;
-        byte[] recValue15;
-        byte[] recValue16;
-        byte[] recValue17;
-        byte[] recValue18;
-        byte[] recValue19;
-        byte[] recValue20; 
-        byte[] recValue21;
-        byte[] recValue22;
-        byte[] recValue23;
-        byte[] recValue24;
-        byte[] recValue25;
-        byte[] recValue26;
-        byte[] recValue27;
-        byte[] recValue28;
-        byte[] recValue29;
-        byte[] recValue30;
-        byte[] recValue31;
-        byte[] recValue32;
-        byte[] recValue33;
-        byte[] recValue34;
-        byte[] recValue35;
-        byte[] recValue36;
-        byte[] recValue37;
-        byte[] recValue38;
-        byte[] recValue39;
-        byte[] recValue40;
-        byte[] recValue41;
-        byte[] recValue42;
-        byte[] recValue43;
-        byte[] recValue44;
-        byte[] recValue45;
-        byte[] recValue46;
-        byte[] recValue47;
-        byte[] recValue48;
-        byte[] recValue49;
-        byte[] recValue50;
-        byte[] recValue51;
-        byte[] recValue52;
-        byte[] recValue53;
-        byte[] recValue54;
-        byte[] recValue55;
-        byte[] recValue56;
-        byte[] recValue57;
-        byte[] recValue58;
-        byte[] recValue59;
-        byte[] recValue60;
-        byte[] recValue61;
-        byte[] recValue62;
-        byte[] recValue63;
-        byte[] recValue64;
-        byte[] recValue65;
-        byte[] recValue66;
-        byte[] recValue67;
-        byte[] recValue68;
-        byte[] recValue69;
-        byte[] recValue70;
-        byte[] recValue71;
-        byte[] recValue72;
-        byte[] recValue73;
-        byte[] recValue74;
-        byte[] recValue75;
-        byte[] recValue76;
-        byte[] recValue77;
-        byte[] recValue78;
-        byte[] recValue79;
-        byte[] recValue80;
-        byte[] recValue81;
-        byte[] recValue82;
-        byte[] recValue83;
-        byte[] recValue84;
-        byte[] recValue85;
-        byte[] recValue86;
-        byte[] recValue87;
-        byte[] recValue88;
-        byte[] recValue89;
-        byte[] recValue90;
-        byte[] recValue91;
-        byte[] recValue92;
-        byte[] recValue93;
-        byte[] recValue94;
-        byte[] recValue95;
-        byte[] recValue96;
-        byte[] recValue97;
-        byte[] recValue98;
-        byte[] recValue99;
-        byte[] recValue100;
-        byte[] recValue101;
-        byte[] recValue102;
-        byte[] recValue103;
-        byte[] recValue104;
-        byte[] recValue105;
-        byte[] recValue106;
-        byte[] recValue107;
-        byte[] recValue108;
-        byte[] recValue109;
-        byte[] recValue110;
-        byte[] recValue111;
-        byte[] recValue112;
-        byte[] recValue113;
-        byte[] recValue114;
-        byte[] recValue115;
-        byte[] recValue116;
-        byte[] recValue117;
-        byte[] recValue118;
-        byte[] recValue119;
-        byte[] recValue120;
-        byte[] recValue121;
-        byte[] recValue122;
-        byte[] recValue123;
-        byte[] recValue124;
-        byte[] recValue125;
-        byte[] recValue126;
-        byte[] recValue127;
-        byte[] recValue128;
-        byte[] recValue129;
-        byte[] recValue130;
-        byte[] recValue131;
-        byte[] recValue132;
-        byte[] recValue133;
-        byte[] recValue134;
-        byte[] recValue135;
-        byte[] recValue136;
-        byte[] recValue137;
-        byte[] recValue138;
-        byte[] recValue139;
-        byte[] recValue140;
-        byte[] recValue141;
-        byte[] recValue142;
-        byte[] recValue143;
-        byte[] recValue144;
-        byte[] recValue145;
-        byte[] recValue146;
-        byte[] recValue147;
-        byte[] recValue148;
-        byte[] recValue149;
-        byte[] recValue150;
-        byte[] recValue151;
-        byte[] recValue152;
-        byte[] recValue153;
-        byte[] recValue154;
-        byte[] recValue155;
-        byte[] recValue156;
-        byte[] recValue157;
-        byte[] recValue158;
-        byte[] recValue159;
-        byte[] recValue160;
-        byte[] recValue161;
-        byte[] recValue162;
-        byte[] recValue163;
-        byte[] recValue164;
-        byte[] recValue165;
-        byte[] recValue166;
-        byte[] recValue167;
-        byte[] recValue168;
-        byte[] recValue169;
-        byte[] recValue170;
-        byte[] recValue171;
-        byte[] recValue172;
-        byte[] recValue173;
-        byte[] recValue174;
-        byte[] recValue175;
-        byte[] recValue176;
-        byte[] recValue177;
-        byte[] recValue178;
-        byte[] recValue179;
-        byte[] recValue180;
-        byte[] recValue181;
-        byte[] recValue182;
-        byte[] recValue183;
-        byte[] recValue184;
-        byte[] recValue185;
-        byte[] recValue186;
-        byte[] recValue187;
-        byte[] recValue188;
-        byte[] recValue189;
-        byte[] recValue190;
-        byte[] recValue191;
-        byte[] recValue192;
-        byte[] recValue193;
-        byte[] recValue194;
-        byte[] recValue195;
-        byte[] recValue196;
-        byte[] recValue197;
-        byte[] recValue198;
-        byte[] recValue199;
-        byte[] recValue200;
-        byte[] recValue201;
-        byte[] recValue202;
-        byte[] recValue203;
-        byte[] recValue204;
-        byte[] recValue205;
-        byte[] recValue206;
-        byte[] recValue207;
-        byte[] recValue208;
-        byte[] recValue209;
-        byte[] recValue210;
-        byte[] recValue211;
-        byte[] recValue212;
-        byte[] recValue213;
-        byte[] recValue214;
-        byte[] recValue215;
-        byte[] recValue216;
-        byte[] recValue217;
-        byte[] recValue218;
-        byte[] recValue219;
-        byte[] recValue220;
-        byte[] recValue221;
-        byte[] recValue222;
-        byte[] recValue223;
-        byte[] recValue224;
-        byte[] recValue225;
-        byte[] recValue226;
-        byte[] recValue227;
-        byte[] recValue228;
-        byte[] recValue229;
-        byte[] recValue230;
-        byte[] recValue231;
-        byte[] recValue232;
-        byte[] recValue233;
-        byte[] recValue234;
-        byte[] recValue235;
-        byte[] recValue236;
-        byte[] recValue237;
-        byte[] recValue238;
-        byte[] recValue239;
-        byte[] recValue240; 
-        byte[] recValue241;
-        byte[] recValue242;
-        byte[] recValue243;
-        byte[] recValue244;
-        byte[] recValue245;
-        byte[] recValue246;
-        byte[] recValue247;
-        byte[] recValue248;
-        byte[] recValue249;
-        byte[] recValue250; 
-        byte[] recValue251;
-        byte[] recValue252;
-        byte[] recValue253;
-        byte[] recValue254;
-        byte[] recValue255;
-        byte[] recValue256;
-        byte[] recValue257;
-        byte[] recValue258;
-        byte[] recValue259;
-        byte[] recValue260;
-        byte[] recValue261;
-        byte[] recValue262;
-        byte[] recValue263;
-        byte[] recValue264;
-        byte[] recValue265;
-        byte[] recValue266;
-        byte[] recValue267;
-        byte[] recValue268;
-        byte[] recValue269;
-        byte[] recValue270;
-        byte[] recValue271;
-        byte[] recValue272;
-        byte[] recValue273;
-        byte[] recValue274;
-        byte[] recValue275;
-        byte[] recValue276;
-        byte[] recValue277;
-        byte[] recValue278;
-        byte[] recValue279;
-        byte[] recValue280;
-        byte[] recValue281;
-        byte[] recValue282;
-        byte[] recValue283;
-        byte[] recValue284;
-        byte[] recValue285;
-        byte[] recValue286;
-        byte[] recValue287;
-        byte[] recValue288;
-        byte[] recValue289;
-        byte[] recValue290;
-        byte[] recValue291;
-        byte[] recValue292;
-        byte[] recValue293;
-        byte[] recValue294;
-        byte[] recValue295;
-        byte[] recValue296;
-        byte[] recValue297;
-        byte[] recValue298;
-        byte[] recValue299;
-        byte[] recValue300;
-        byte[] recValue301;
-        byte[] recValue302;
-        byte[] recValue303;
-        byte[] recValue304;
-        byte[] recValue305;
-        byte[] recValue306;
-        byte[] recValue307;
-        byte[] recValue308;
-        byte[] recValue309;
-        byte[] recValue310;
-        byte[] recValue311;
-        byte[] recValue312;
-        byte[] recValue313;
-        byte[] recValue314;
-        byte[] recValue315;
-        byte[] recValue316;
-        byte[] recValue317;
-        byte[] recValue318;
-        byte[] recValue319;
-        byte[] recValue320;
-        byte[] recValue321;
-        byte[] recValue322;
-        byte[] recValue323;
-        byte[] recValue324;
-        byte[] recValue325;
-        byte[] recValue326;
-        byte[] recValue327;
-        byte[] recValue328;
-        byte[] recValue329;
-        byte[] recValue330;
-        byte[] recValue331;
-        byte[] recValue332;
-        byte[] recValue333;
-        byte[] recValue334;
-        byte[] recValue335;
-        byte[] recValue336;
-        byte[] recValue337;
-        byte[] recValue338;
-        byte[] recValue339;
-        byte[] recValue340;
-        byte[] recValue341;
-        byte[] recValue342;
-        byte[] recValue343;
-        byte[] recValue344;
-        byte[] recValue345;
-        byte[] recValue346;
-        byte[] recValue347;
-        byte[] recValue348;
-        byte[] recValue349;
-        byte[] recValue350;
-        byte[] recValue351;
-        byte[] recValue352;
-        byte[] recValue353;
-        byte[] recValue354;
-        byte[] recValue355;
-        byte[] recValue356;
-        byte[] recValue357;
-        byte[] recValue358;
-        byte[] recValue359;
-        byte[] recValue360;
-        byte[] recValue361;
-        byte[] recValue362;
-        byte[] recValue363;
-        byte[] recValue364;
-        byte[] recValue365;
-        byte[] recValue366;
-        byte[] recValue367;
-        byte[] recValue368;
-        byte[] recValue369;
-        byte[] recValue370;
-        byte[] recValue371;
-        byte[] recValue372;
-        byte[] recValue373;
-        byte[] recValue374;
-        byte[] recValue375;
-        byte[] recValue376;
-        byte[] recValue377;
-        byte[] recValue378;
-        byte[] recValue379;
-        byte[] recValue380;
-        byte[] recValue381;
-        byte[] recValue382;
-        byte[] recValue383;
-        byte[] recValue384;
-        byte[] recValue385;
-        byte[] recValue386;
-        byte[] recValue387;
-        byte[] recValue388;
-        byte[] recValue389;
-        byte[] recValue390;
-        byte[] recValue391;
-        byte[] recValue392;
-        byte[] recValue393;
-        byte[] recValue394;
-        byte[] recValue395;
-        byte[] recValue396;
-        byte[] recValue397;
-        byte[] recValue398;
-        byte[] recValue399;
-        byte[] recValue400;
-        byte[] recValue401;
-        byte[] recValue402;
-        byte[] recValue403;
-        byte[] recValue404;
-        byte[] recValue405;
-        byte[] recValue406;
-        byte[] recValue407;
-        byte[] recValue408;
-        byte[] recValue409;
-        byte[] recValue410;
-        byte[] recValue411;
-        byte[] recValue412;
-        byte[] recValue413;
-        byte[] recValue414;
-        byte[] recValue415;
-        byte[] recValue416;
-        byte[] recValue417;
-        byte[] recValue418;
-        byte[] recValue419;
-        byte[] recValue420;
-        byte[] recValue421;
-        byte[] recValue422;
-        byte[] recValue423;
-        byte[] recValue424;
-        byte[] recValue425;
-        byte[] recValue426;
-        byte[] recValue427;
-        byte[] recValue428;
-        byte[] recValue429;
-        byte[] recValue430;
-        byte[] recValue431;
-        byte[] recValue432;
-        byte[] recValue433;
-        byte[] recValue434;
-        byte[] recValue435;
-        byte[] recValue436;
-        byte[] recValue437;
-        byte[] recValue438;
-        byte[] recValue439;
-        byte[] recValue440;
-        byte[] recValue441;
-        byte[] recValue442;
-        byte[] recValue443;
-        byte[] recValue444;
-        byte[] recValue445;
-        byte[] recValue446;
-        byte[] recValue447;
-        byte[] recValue448;
-        byte[] recValue449;
-        byte[] recValue450;
-        byte[] recValue451;
-        byte[] recValue452;
-        byte[] recValue453;
-        byte[] recValue454;
-        byte[] recValue455;
-        byte[] recValue456;
-        byte[] recValue457;
-        byte[] recValue458;
-        byte[] recValue459;
-        byte[] recValue460;
-        byte[] recValue461;
-        byte[] recValue462;
-        byte[] recValue463;
-        byte[] recValue464;
-        byte[] recValue465;
-        byte[] recValue466;
-        byte[] recValue467;
-        byte[] recValue468;
-        byte[] recValue469;
-        byte[] recValue470;
-        byte[] recValue471;
-        byte[] recValue472;
-        byte[] recValue473;
-        byte[] recValue474;
-        byte[] recValue475;
-        byte[] recValue476;
-        byte[] recValue477;
-        byte[] recValue478;
-        byte[] recValue479;
-        byte[] recValue480;
-        byte[] recValue481;
-        byte[] recValue482;
-        byte[] recValue483;
-        byte[] recValue484;
-        byte[] recValue485;
-        byte[] recValue486;
-        byte[] recValue487;
-        byte[] recValue488;
-        byte[] recValue489;
-        byte[] recValue490;
-        byte[] recValue491;
-        byte[] recValue492;
-        byte[] recValue493;
-        byte[] recValue494;
-        byte[] recValue495;
-        byte[] recValue496;
-        byte[] recValue497;
-        byte[] recValue498;
-        byte[] recValue499;
-        byte[] recValue500;
-        byte[] recValue501;
-        byte[] recValue502;
-        byte[] recValue503;
-        byte[] recValue504;
-        byte[] recValue505;
-        byte[] recValue506;
-        byte[] recValue507;
-        byte[] recValue508;
-        byte[] recValue509;
-        byte[] recValue510;
-        byte[] recValue511;
-        byte[] recValue512;
+        byte[] recValue1 = new byte[4];
+        byte[] recValue2 = new byte[4];
+        byte[] recValue3 = new byte[4];
+        byte[] recValue4 = new byte[4];
+        byte[] recValue5 = new byte[4];
+        byte[] recValue6 = new byte[4];
+        byte[] recValue7 = new byte[4];
+        byte[] recValue8 = new byte[4];
+        byte[] recValue9 = new byte[4];
+        byte[] recValue10 = new byte[4];
+        byte[] recValue11 = new byte[4];
+        byte[] recValue12 = new byte[4];
+        byte[] recValue13 = new byte[4];
+        byte[] recValue14 = new byte[4];
+        byte[] recValue15 = new byte[4];
+        byte[] recValue16 = new byte[4];
+        byte[] recValue17 = new byte[4];
+        byte[] recValue18 = new byte[4];
+        byte[] recValue19 = new byte[4];
+        byte[] recValue20 = new byte[4]; 
+        byte[] recValue21 = new byte[4];
+        byte[] recValue22 = new byte[4];
+        byte[] recValue23 = new byte[4];
+        byte[] recValue24 = new byte[4];
+        byte[] recValue25 = new byte[4];
+        byte[] recValue26 = new byte[4];
+        byte[] recValue27 = new byte[4];
+        byte[] recValue28 = new byte[4];
+        byte[] recValue29 = new byte[4];
+        byte[] recValue30 = new byte[4];
+        byte[] recValue31 = new byte[4];
+        byte[] recValue32 = new byte[4];
+        byte[] recValue33 = new byte[4];
+        byte[] recValue34 = new byte[4];
+        byte[] recValue35 = new byte[4];
+        byte[] recValue36 = new byte[4];
+        byte[] recValue37 = new byte[4];
+        byte[] recValue38 = new byte[4];
+        byte[] recValue39 = new byte[4];
+        byte[] recValue40 = new byte[4];
+        byte[] recValue41 = new byte[4];
+        byte[] recValue42 = new byte[4];
+        byte[] recValue43 = new byte[4];
+        byte[] recValue44 = new byte[4];
+        byte[] recValue45 = new byte[4];
+        byte[] recValue46 = new byte[4];
+        byte[] recValue47 = new byte[4];
+        byte[] recValue48 = new byte[4];
+        byte[] recValue49 = new byte[4];
+        byte[] recValue50 = new byte[4];
+        byte[] recValue51 = new byte[4];
+        byte[] recValue52 = new byte[4];
+        byte[] recValue53 = new byte[4];
+        byte[] recValue54 = new byte[4];
+        byte[] recValue55 = new byte[4];
+        byte[] recValue56 = new byte[4];
+        byte[] recValue57 = new byte[4];
+        byte[] recValue58 = new byte[4];
+        byte[] recValue59 = new byte[4];
+        byte[] recValue60 = new byte[4];
+        byte[] recValue61 = new byte[4];
+        byte[] recValue62 = new byte[4];
+        byte[] recValue63 = new byte[4];
+        byte[] recValue64 = new byte[4];
+        byte[] recValue65 = new byte[4];
+        byte[] recValue66 = new byte[4];
+        byte[] recValue67 = new byte[4];
+        byte[] recValue68 = new byte[4];
+        byte[] recValue69 = new byte[4];
+        byte[] recValue70 = new byte[4];
+        byte[] recValue71 = new byte[4];
+        byte[] recValue72 = new byte[4];
+        byte[] recValue73 = new byte[4];
+        byte[] recValue74 = new byte[4];
+        byte[] recValue75 = new byte[4];
+        byte[] recValue76 = new byte[4];
+        byte[] recValue77 = new byte[4];
+        byte[] recValue78 = new byte[4];
+        byte[] recValue79 = new byte[4];
+        byte[] recValue80 = new byte[4];
+        byte[] recValue81 = new byte[4];
+        byte[] recValue82 = new byte[4];
+        byte[] recValue83 = new byte[4];
+        byte[] recValue84 = new byte[4];
+        byte[] recValue85 = new byte[4];
+        byte[] recValue86 = new byte[4];
+        byte[] recValue87 = new byte[4];
+        byte[] recValue88 = new byte[4];
+        byte[] recValue89 = new byte[4];
+        byte[] recValue90 = new byte[4];
+        byte[] recValue91 = new byte[4];
+        byte[] recValue92 = new byte[4];
+        byte[] recValue93 = new byte[4];
+        byte[] recValue94 = new byte[4];
+        byte[] recValue95 = new byte[4];
+        byte[] recValue96 = new byte[4];
+        byte[] recValue97 = new byte[4];
+        byte[] recValue98 = new byte[4];
+        byte[] recValue99 = new byte[4];
+        byte[] recValue100 = new byte[4];
+        byte[] recValue101 = new byte[4];
+        byte[] recValue102 = new byte[4];
+        byte[] recValue103 = new byte[4];
+        byte[] recValue104 = new byte[4];
+        byte[] recValue105 = new byte[4];
+        byte[] recValue106 = new byte[4];
+        byte[] recValue107 = new byte[4];
+        byte[] recValue108 = new byte[4];
+        byte[] recValue109 = new byte[4];
+        byte[] recValue110 = new byte[4];
+        byte[] recValue111 = new byte[4];
+        byte[] recValue112 = new byte[4];
+        byte[] recValue113 = new byte[4];
+        byte[] recValue114 = new byte[4];
+        byte[] recValue115 = new byte[4];
+        byte[] recValue116 = new byte[4];
+        byte[] recValue117 = new byte[4];
+        byte[] recValue118 = new byte[4];
+        byte[] recValue119 = new byte[4];
+        byte[] recValue120 = new byte[4];
+        byte[] recValue121 = new byte[4];
+        byte[] recValue122 = new byte[4];
+        byte[] recValue123 = new byte[4];
+        byte[] recValue124 = new byte[4];
+        byte[] recValue125 = new byte[4];
+        byte[] recValue126 = new byte[4];
+        byte[] recValue127 = new byte[4];
+        byte[] recValue128 = new byte[4];
+        byte[] recValue129 = new byte[4];
+        byte[] recValue130 = new byte[4];
+        byte[] recValue131 = new byte[4];
+        byte[] recValue132 = new byte[4];
+        byte[] recValue133 = new byte[4];
+        byte[] recValue134 = new byte[4];
+        byte[] recValue135 = new byte[4];
+        byte[] recValue136 = new byte[4];
+        byte[] recValue137 = new byte[4];
+        byte[] recValue138 = new byte[4];
+        byte[] recValue139 = new byte[4];
+        byte[] recValue140 = new byte[4];
+        byte[] recValue141 = new byte[4];
+        byte[] recValue142 = new byte[4];
+        byte[] recValue143 = new byte[4];
+        byte[] recValue144 = new byte[4];
+        byte[] recValue145 = new byte[4];
+        byte[] recValue146 = new byte[4];
+        byte[] recValue147 = new byte[4];
+        byte[] recValue148 = new byte[4];
+        byte[] recValue149 = new byte[4];
+        byte[] recValue150 = new byte[4];
+        byte[] recValue151 = new byte[4];
+        byte[] recValue152 = new byte[4];
+        byte[] recValue153 = new byte[4];
+        byte[] recValue154 = new byte[4];
+        byte[] recValue155 = new byte[4];
+        byte[] recValue156 = new byte[4];
+        byte[] recValue157 = new byte[4];
+        byte[] recValue158 = new byte[4];
+        byte[] recValue159 = new byte[4];
+        byte[] recValue160 = new byte[4];
+        byte[] recValue161 = new byte[4];
+        byte[] recValue162 = new byte[4];
+        byte[] recValue163 = new byte[4];
+        byte[] recValue164 = new byte[4];
+        byte[] recValue165 = new byte[4];
+        byte[] recValue166 = new byte[4];
+        byte[] recValue167 = new byte[4];
+        byte[] recValue168 = new byte[4];
+        byte[] recValue169 = new byte[4];
+        byte[] recValue170 = new byte[4];
+        byte[] recValue171 = new byte[4];
+        byte[] recValue172 = new byte[4];
+        byte[] recValue173 = new byte[4];
+        byte[] recValue174 = new byte[4];
+        byte[] recValue175 = new byte[4];
+        byte[] recValue176 = new byte[4];
+        byte[] recValue177 = new byte[4];
+        byte[] recValue178 = new byte[4];
+        byte[] recValue179 = new byte[4];
+        byte[] recValue180 = new byte[4];
+        byte[] recValue181 = new byte[4];
+        byte[] recValue182 = new byte[4];
+        byte[] recValue183 = new byte[4];
+        byte[] recValue184 = new byte[4];
+        byte[] recValue185 = new byte[4];
+        byte[] recValue186 = new byte[4];
+        byte[] recValue187 = new byte[4];
+        byte[] recValue188 = new byte[4];
+        byte[] recValue189 = new byte[4];
+        byte[] recValue190 = new byte[4];
+        byte[] recValue191 = new byte[4];
+        byte[] recValue192 = new byte[4];
+        byte[] recValue193 = new byte[4];
+        byte[] recValue194 = new byte[4];
+        byte[] recValue195 = new byte[4];
+        byte[] recValue196 = new byte[4];
+        byte[] recValue197 = new byte[4];
+        byte[] recValue198 = new byte[4];
+        byte[] recValue199 = new byte[4];
+        byte[] recValue200 = new byte[4];
+        byte[] recValue201 = new byte[4];
+        byte[] recValue202 = new byte[4];
+        byte[] recValue203 = new byte[4];
+        byte[] recValue204 = new byte[4];
+        byte[] recValue205 = new byte[4];
+        byte[] recValue206 = new byte[4];
+        byte[] recValue207 = new byte[4];
+        byte[] recValue208 = new byte[4];
+        byte[] recValue209 = new byte[4];
+        byte[] recValue210 = new byte[4];
+        byte[] recValue211 = new byte[4];
+        byte[] recValue212 = new byte[4];
+        byte[] recValue213 = new byte[4];
+        byte[] recValue214 = new byte[4];
+        byte[] recValue215 = new byte[4];
+        byte[] recValue216 = new byte[4];
+        byte[] recValue217 = new byte[4];
+        byte[] recValue218 = new byte[4];
+        byte[] recValue219 = new byte[4];
+        byte[] recValue220 = new byte[4];
+        byte[] recValue221 = new byte[4];
+        byte[] recValue222 = new byte[4];
+        byte[] recValue223 = new byte[4];
+        byte[] recValue224 = new byte[4];
+        byte[] recValue225 = new byte[4];
+        byte[] recValue226 = new byte[4];
+        byte[] recValue227= new byte[4];
+        byte[] recValue228= new byte[4];
+        byte[] recValue229= new byte[4];
+        byte[] recValue230= new byte[4];
+        byte[] recValue231= new byte[4];
+        byte[] recValue232= new byte[4];
+        byte[] recValue233= new byte[4];
+        byte[] recValue234= new byte[4];
+        byte[] recValue235= new byte[4];
+        byte[] recValue236= new byte[4];
+        byte[] recValue237= new byte[4];
+        byte[] recValue238= new byte[4];
+        byte[] recValue239= new byte[4];
+        byte[] recValue240= new byte[4]; 
+        byte[] recValue241= new byte[4];
+        byte[] recValue242= new byte[4];
+        byte[] recValue243= new byte[4];
+        byte[] recValue244= new byte[4];
+        byte[] recValue245= new byte[4];
+        byte[] recValue246= new byte[4];
+        byte[] recValue247 = new byte[4];
+        byte[] recValue248= new byte[4];
+        byte[] recValue249= new byte[4];
+        byte[] recValue250= new byte[4]; 
+        byte[] recValue251= new byte[4];
+        byte[] recValue252= new byte[4];
+        byte[] recValue253= new byte[4];
+        byte[] recValue254= new byte[4];
+        byte[] recValue255= new byte[4];
+        byte[] recValue256= new byte[4];
+        byte[] recValue257= new byte[4];
+        byte[] recValue258= new byte[4];
+        byte[] recValue259= new byte[4];
+        byte[] recValue260= new byte[4];
+        byte[] recValue261= new byte[4];
+        byte[] recValue262= new byte[4];
+        byte[] recValue263= new byte[4];
+        byte[] recValue264= new byte[4];
+        byte[] recValue265= new byte[4];
+        byte[] recValue266= new byte[4];
+        byte[] recValue267= new byte[4];
+        byte[] recValue268 = new byte[4];
+        byte[] recValue269= new byte[4];
+        byte[] recValue270= new byte[4];
+        byte[] recValue271= new byte[4];
+        byte[] recValue272= new byte[4];
+        byte[] recValue273= new byte[4];
+        byte[] recValue274= new byte[4];
+        byte[] recValue275= new byte[4];
+        byte[] recValue276= new byte[4];
+        byte[] recValue277= new byte[4];
+        byte[] recValue278= new byte[4];
+        byte[] recValue279= new byte[4];
+        byte[] recValue280= new byte[4];
+        byte[] recValue281= new byte[4];
+        byte[] recValue282= new byte[4];
+        byte[] recValue283= new byte[4];
+        byte[] recValue284= new byte[4];
+        byte[] recValue285= new byte[4];
+        byte[] recValue286= new byte[4];
+        byte[] recValue287= new byte[4];
+        byte[] recValue288= new byte[4];
+        byte[] recValue289 = new byte[4];
+        byte[] recValue290= new byte[4];
+        byte[] recValue291= new byte[4];
+        byte[] recValue292= new byte[4];
+        byte[] recValue293= new byte[4];
+        byte[] recValue294= new byte[4];
+        byte[] recValue295= new byte[4];
+        byte[] recValue296= new byte[4];
+        byte[] recValue297= new byte[4];
+        byte[] recValue298= new byte[4];
+        byte[] recValue299= new byte[4];
+        byte[] recValue300= new byte[4];
+        byte[] recValue301= new byte[4];
+        byte[] recValue302= new byte[4];
+        byte[] recValue303= new byte[4];
+        byte[] recValue304= new byte[4];
+        byte[] recValue305= new byte[4];
+        byte[] recValue306= new byte[4];
+        byte[] recValue307= new byte[4];
+        byte[] recValue308= new byte[4];
+        byte[] recValue309= new byte[4];
+        byte[] recValue310 = new byte[4];
+        byte[] recValue311= new byte[4];
+        byte[] recValue312= new byte[4];
+        byte[] recValue313= new byte[4];
+        byte[] recValue314= new byte[4];
+        byte[] recValue315= new byte[4];
+        byte[] recValue316= new byte[4];
+        byte[] recValue317= new byte[4];
+        byte[] recValue318= new byte[4];
+        byte[] recValue319= new byte[4];
+        byte[] recValue320= new byte[4];
+        byte[] recValue321= new byte[4];
+        byte[] recValue322= new byte[4];
+        byte[] recValue323= new byte[4];
+        byte[] recValue324= new byte[4];
+        byte[] recValue325= new byte[4];
+        byte[] recValue326= new byte[4];
+        byte[] recValue327= new byte[4];
+        byte[] recValue328= new byte[4];
+        byte[] recValue329= new byte[4];
+        byte[] recValue330= new byte[4];
+        byte[] recValue331 = new byte[4];
+        byte[] recValue332= new byte[4];
+        byte[] recValue333= new byte[4];
+        byte[] recValue334= new byte[4];
+        byte[] recValue335= new byte[4];
+        byte[] recValue336= new byte[4];
+        byte[] recValue337= new byte[4];
+        byte[] recValue338= new byte[4];
+        byte[] recValue339= new byte[4];
+        byte[] recValue340= new byte[4];
+        byte[] recValue341= new byte[4];
+        byte[] recValue342= new byte[4];
+        byte[] recValue343= new byte[4];
+        byte[] recValue344= new byte[4];
+        byte[] recValue345= new byte[4];
+        byte[] recValue346= new byte[4];
+        byte[] recValue347= new byte[4];
+        byte[] recValue348= new byte[4];
+        byte[] recValue349= new byte[4];
+        byte[] recValue350= new byte[4];
+        byte[] recValue351= new byte[4];
+        byte[] recValue352 = new byte[4];
+        byte[] recValue353= new byte[4];
+        byte[] recValue354= new byte[4];
+        byte[] recValue355= new byte[4];
+        byte[] recValue356= new byte[4];
+        byte[] recValue357= new byte[4];
+        byte[] recValue358= new byte[4];
+        byte[] recValue359= new byte[4];
+        byte[] recValue360= new byte[4];
+        byte[] recValue361= new byte[4];
+        byte[] recValue362= new byte[4];
+        byte[] recValue363= new byte[4];
+        byte[] recValue364= new byte[4];
+        byte[] recValue365= new byte[4];
+        byte[] recValue366= new byte[4];
+        byte[] recValue367= new byte[4];
+        byte[] recValue368= new byte[4];
+        byte[] recValue369= new byte[4];
+        byte[] recValue370= new byte[4];
+        byte[] recValue371= new byte[4];
+        byte[] recValue372= new byte[4];
+        byte[] recValue373 = new byte[4];
+        byte[] recValue374= new byte[4];
+        byte[] recValue375= new byte[4];
+        byte[] recValue376= new byte[4];
+        byte[] recValue377= new byte[4];
+        byte[] recValue378= new byte[4];
+        byte[] recValue379= new byte[4];
+        byte[] recValue380= new byte[4];
+        byte[] recValue381= new byte[4];
+        byte[] recValue382= new byte[4];
+        byte[] recValue383= new byte[4];
+        byte[] recValue384= new byte[4];
+        byte[] recValue385= new byte[4];
+        byte[] recValue386= new byte[4];
+        byte[] recValue387= new byte[4];
+        byte[] recValue388= new byte[4];
+        byte[] recValue389= new byte[4];
+        byte[] recValue390= new byte[4];
+        byte[] recValue391= new byte[4];
+        byte[] recValue392= new byte[4];
+        byte[] recValue393= new byte[4];
+        byte[] recValue394 = new byte[4];
+        byte[] recValue395= new byte[4];
+        byte[] recValue396= new byte[4];
+        byte[] recValue397= new byte[4];
+        byte[] recValue398= new byte[4];
+        byte[] recValue399= new byte[4];
+        byte[] recValue400= new byte[4];
+        byte[] recValue401= new byte[4];
+        byte[] recValue402= new byte[4];
+        byte[] recValue403= new byte[4];
+        byte[] recValue404= new byte[4];
+        byte[] recValue405= new byte[4];
+        byte[] recValue406= new byte[4];
+        byte[] recValue407= new byte[4];
+        byte[] recValue408= new byte[4];
+        byte[] recValue409= new byte[4];
+        byte[] recValue410= new byte[4];
+        byte[] recValue411= new byte[4];
+        byte[] recValue412= new byte[4];
+        byte[] recValue413= new byte[4];
+        byte[] recValue414= new byte[4];
+        byte[] recValue415 = new byte[4];
+        byte[] recValue416= new byte[4];
+        byte[] recValue417= new byte[4];
+        byte[] recValue418= new byte[4];
+        byte[] recValue419= new byte[4];
+        byte[] recValue420= new byte[4];
+        byte[] recValue421= new byte[4];
+        byte[] recValue422= new byte[4];
+        byte[] recValue423= new byte[4];
+        byte[] recValue424= new byte[4];
+        byte[] recValue425= new byte[4];
+        byte[] recValue426= new byte[4];
+        byte[] recValue427= new byte[4];
+        byte[] recValue428= new byte[4];
+        byte[] recValue429= new byte[4];
+        byte[] recValue430= new byte[4];
+        byte[] recValue431= new byte[4];
+        byte[] recValue432= new byte[4];
+        byte[] recValue433= new byte[4];
+        byte[] recValue434= new byte[4];
+        byte[] recValue435= new byte[4];
+        byte[] recValue436 = new byte[4];
+        byte[] recValue437= new byte[4];
+        byte[] recValue438= new byte[4];
+        byte[] recValue439= new byte[4];
+        byte[] recValue440= new byte[4];
+        byte[] recValue441= new byte[4];
+        byte[] recValue442= new byte[4];
+        byte[] recValue443= new byte[4];
+        byte[] recValue444= new byte[4];
+        byte[] recValue445= new byte[4];
+        byte[] recValue446= new byte[4];
+        byte[] recValue447= new byte[4];
+        byte[] recValue448= new byte[4];
+        byte[] recValue449= new byte[4];
+        byte[] recValue450= new byte[4];
+        byte[] recValue451= new byte[4];
+        byte[] recValue452= new byte[4];
+        byte[] recValue453= new byte[4];
+        byte[] recValue454= new byte[4];
+        byte[] recValue455= new byte[4];
+        byte[] recValue456= new byte[4];
+        byte[] recValue457 = new byte[4];
+        byte[] recValue458= new byte[4];
+        byte[] recValue459= new byte[4];
+        byte[] recValue460= new byte[4];
+        byte[] recValue461= new byte[4];
+        byte[] recValue462= new byte[4];
+        byte[] recValue463= new byte[4];
+        byte[] recValue464= new byte[4];
+        byte[] recValue465= new byte[4];
+        byte[] recValue466= new byte[4];
+        byte[] recValue467= new byte[4];
+        byte[] recValue468= new byte[4];
+        byte[] recValue469= new byte[4];
+        byte[] recValue470= new byte[4];
+        byte[] recValue471= new byte[4];
+        byte[] recValue472= new byte[4];
+        byte[] recValue473= new byte[4];
+        byte[] recValue474= new byte[4];
+        byte[] recValue475= new byte[4];
+        byte[] recValue476= new byte[4];
+        byte[] recValue477= new byte[4];
+        byte[] recValue478= new byte[4];
+        byte[] recValue479= new byte[4];
+        byte[] recValue480= new byte[4];
+        byte[] recValue481= new byte[4];
+        byte[] recValue482= new byte[4];
+        byte[] recValue483= new byte[4];
+        byte[] recValue484= new byte[4];
+        byte[] recValue485= new byte[4];
+        byte[] recValue486= new byte[4];
+        byte[] recValue487= new byte[4];
+        byte[] recValue488= new byte[4];
+        byte[] recValue489= new byte[4];
+        byte[] recValue490= new byte[4];
+        byte[] recValue491= new byte[4];
+        byte[] recValue492= new byte[4];
+        byte[] recValue493= new byte[4];
+        byte[] recValue494= new byte[4];
+        byte[] recValue495= new byte[4];
+        byte[] recValue496= new byte[4];
+        byte[] recValue497= new byte[4];
+        byte[] recValue498= new byte[4];
+        byte[] recValue499= new byte[4];
+        byte[] recValue500= new byte[4];
+        byte[] recValue501= new byte[4];
+        byte[] recValue502= new byte[4];
+        byte[] recValue503= new byte[4];
+        byte[] recValue504= new byte[4];
+        byte[] recValue505= new byte[4];
+        byte[] recValue506 = new byte[4];
+        byte[] recValue507= new byte[4];
+        byte[] recValue508= new byte[4];
+        byte[] recValue509= new byte[4];
+        byte[] recValue510= new byte[4];
+        byte[] recValue511= new byte[4];
+        byte[] recValue512= new byte[4];
         #endregion
 
         #region 블록 커맨드 수신 변수
@@ -2020,8 +2020,8 @@ namespace MINASA6SF_Rev.ViewModels
         /*------------------------------------------------------------------------------------------------------
          * ModbusTCP MirrReg value
          ------------------------------------------------------------------------------------------------------*/
-        byte[] _mirrReg1;
-        byte[] _mirrReg2;
+        byte[] _mirrReg1 = new byte[16];
+        byte[] _mirrReg2 = new byte[16];
 
         /*------------------------------------------------------------------------------------------------------
         * ModbusTCP WriteRegister value
@@ -2258,26 +2258,15 @@ namespace MINASA6SF_Rev.ViewModels
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadObjectViewModel();
 
-          
-            //timer.Elapsed += MirrTimer_Tick;
-            timer.AutoReset = true;
-          
-
-            worker.WorkerReportsProgress = false;
-            worker.WorkerSupportsCancellation = true;
-            worker.DoWork += MirrTimer_Tick;
-
             worker2.WorkerReportsProgress = false;
             worker2.WorkerSupportsCancellation = true;
-            worker2.DoWork += BlockParameterRec1;
+           // worker2.DoWork += BlockParameterRec1;
 
             //BlockSettingDialog 객체 할당
             blockSettingDialog = new BlockSettingDialogs();
             blockSettingDialog.DataContext = this;
             blockSettingDialog.FunctionSelect1.ItemsSource = blockFunctions;
             blockSettingDialog.BlockActionParaWindow.Navigate(incPosition_Page1);
-
-
         }    
         #endregion
 
@@ -2360,11 +2349,9 @@ namespace MINASA6SF_Rev.ViewModels
             modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, 1, ref _servoONStatus);  //SERVO ON 상태 읽기
             if (_servoONStatus != null)
             {
-
                 if (_servoONStatus[0] == 0)
                 {
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);  //SERVO ON
-                    servoON = false;
                 }
             }
             else
@@ -2406,7 +2393,6 @@ namespace MINASA6SF_Rev.ViewModels
                 if (_servoONStatus[0] == 0)
                 {
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
-                    servoON = false;
                 }
             }
             else
@@ -2487,7 +2473,6 @@ namespace MINASA6SF_Rev.ViewModels
                 if (_servoONStatus[0] == 0)
                 {
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
-                    servoON = false;
                 }
             }
             else
@@ -2530,7 +2515,6 @@ namespace MINASA6SF_Rev.ViewModels
                 if (_servoONStatus[0] == 0)
                 {
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
-                    servoON = false;
                 }
             }
             else
@@ -2562,85 +2546,101 @@ namespace MINASA6SF_Rev.ViewModels
         #endregion
 
         #region MirrTimer
-        //MirrTimer 실행 함수
-        private void MirrTimer_Tick(object sender, DoWorkEventArgs e) //private void MirrTimer_Tick(object sender, ElapsedEventArgs e)
+        private void MirrTimer_New(object source, System.Timers.ElapsedEventArgs e)
         {
             try
             {
-                while (mirrorONOFF)
-                {                    
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17432, 8, ref _mirrReg1);
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17440, 8, ref _mirrReg2);
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4001, 1, ref _errorCode);
-                    modbusTCP.ReadCoils(0, (byte)axisNum1, 96, 1, ref _servoONStatus);
-                    modbusTCP.ReadCoils(0, (byte)axisNum1, 161, 1, ref _alarmStatus);
-
-                    if (_mirrReg1 != null && _mirrReg2 != null && _servoONStatus != null && _alarmStatus != null && _errorCode != null)
+                if (mirrorONOFF)
+                {
+                    if (modbusTCP.connected)
                     {
-                        LampStatus = _servoONStatus[0];
-                        AlarmStatus = _alarmStatus[0];
-                        ModbusOnStatus = modbusTCP.connected;
-
-                        Array.Reverse(_errorCode);
-                        Array.Reverse(_mirrReg1);
-                        Array.Reverse(_mirrReg2);
-
-                        Array.Copy(_mirrReg1, 12, positionactualvalue, 0, 4);
-                        Array.Copy(_mirrReg1, 8, velocityactualvalue, 0, 4);
-                        Array.Copy(_mirrReg1, 4, torquedemand, 0, 4);
-                        Array.Copy(_mirrReg1, 0, overload, 0, 4);
-
-                        Array.Copy(_mirrReg2, 14, blocknummon, 0, 2);
-                        Array.Copy(_mirrReg2, 10, dclinkcircuitvolt, 0, 4);
-                        Array.Copy(_mirrReg2, 8, amptemp, 0, 2);
-                        Array.Copy(_mirrReg2, 4, encodertemp, 0, 4);
-                        Array.Copy(_mirrReg2, 0, powerontime, 0, 4);
-
-                        PositionActualValue = BitConverter.ToInt32(positionactualvalue, 0);
-                        VelocityActualValue = BitConverter.ToInt32(velocityactualvalue, 0);
-                        torquecmd = BitConverter.ToInt32(torquedemand, 0);
-                        TorqueDemand = torquecmd / 20;
-                        overload1 = BitConverter.ToInt32(overload, 0);
-                        OverLoad = overload1 / 5;
-
-                        BlockNumMon = BitConverter.ToInt16(blocknummon, 0);
-                        DCLinkCircuitvolt = BitConverter.ToInt32(dclinkcircuitvolt, 0);
-                        AmpTemp = BitConverter.ToInt16(amptemp, 0);
-                        EncoderTemp = BitConverter.ToInt32(encodertemp, 0);
-                        powerontimetemp = BitConverter.ToInt32(powerontime, 0);
-                        PowerONTime = powerontimetemp / 2;
-
-                        _maincode = _errorCode[1];
-                        _subcode = _errorCode[0];
-                        ErrorCode = _maincode.ToString() + "." + _subcode.ToString();
-
-
-                        modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4415, 1, ref selectedBlock);
-                        if (selectedBlock != null)
+                        lock (balanceLock)
                         {
-                            Array.Reverse(selectedBlock);
-                            Array.Copy(selectedBlock, 0, selectedBlock2, 0, 2);
-                            SelectBlockNumMon1 = BitConverter.ToUInt16(selectedBlock2, 0);
+                            if ((_mirrReg1 != null && _mirrReg1.Length >0) &&
+                                (_mirrReg2 != null && _mirrReg2.Length >0) &&                                
+                                (_errorCode != null && _errorCode.Length >0) &&
+                                (selectedBlock != null && selectedBlock.Length > 0) &&
+                                (_servoONStatus != null && _servoONStatus.Length >0) &&
+                                (_alarmStatus != null && _alarmStatus.Length > 0 ))
+                               { 
+                                modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17432, 8, ref _mirrReg1);
+                                modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17440, 8, ref _mirrReg2);
+                                modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4001, 1, ref _errorCode);
+                                modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4415, 1, ref selectedBlock);
+                                modbusTCP.ReadCoils(0, (byte)axisNum1, 0x0060, 1, ref _servoONStatus);
+                                modbusTCP.ReadCoils(0, (byte)axisNum1, 0x00A1, 1, ref _alarmStatus);
+                                ModbusOnStatus = modbusTCP.connected;
+
+                                Array.Reverse(_errorCode);
+                                Array.Reverse(_mirrReg1);
+                                Array.Reverse(_mirrReg2);
+                                Array.Reverse(selectedBlock);
+
+                                Array.Copy(_mirrReg1, 12, positionactualvalue, 0, 4);
+                                Array.Copy(_mirrReg1, 8, velocityactualvalue, 0, 4);
+                                Array.Copy(_mirrReg1, 4, torquedemand, 0, 4);
+                                Array.Copy(_mirrReg1, 0, overload, 0, 4);
+                                Array.Copy(_mirrReg2, 14, blocknummon, 0, 2);
+                                Array.Copy(_mirrReg2, 10, dclinkcircuitvolt, 0, 4);
+                                Array.Copy(_mirrReg2, 8, amptemp, 0, 2);
+                                Array.Copy(_mirrReg2, 4, encodertemp, 0, 4);
+                                Array.Copy(_mirrReg2, 0, powerontime, 0, 4);
+
+                                Array.Copy(selectedBlock, 0, selectedBlock2, 0, 2);
+                                LampStatus = _servoONStatus[0];
+                                AlarmStatus = _alarmStatus[0];
+                                SelectBlockNumMon1 = BitConverter.ToUInt16(selectedBlock2, 0);
+
+                                PositionActualValue = BitConverter.ToInt32(positionactualvalue, 0);
+                                VelocityActualValue = BitConverter.ToInt32(velocityactualvalue, 0);
+                                torquecmd = BitConverter.ToInt32(torquedemand, 0);
+                                TorqueDemand = torquecmd / 20;
+                                overload1 = BitConverter.ToInt32(overload, 0);
+                                OverLoad = overload1 / 5;
+
+                                BlockNumMon = BitConverter.ToInt16(blocknummon, 0);
+                                DCLinkCircuitvolt = BitConverter.ToInt32(dclinkcircuitvolt, 0);
+                                AmpTemp = BitConverter.ToInt16(amptemp, 0);
+                                EncoderTemp = BitConverter.ToInt32(encodertemp, 0);
+                                powerontimetemp = BitConverter.ToInt32(powerontime, 0);
+                                PowerONTime = powerontimetemp / 2;
+                                _maincode = _errorCode[1];
+                                _subcode = _errorCode[0];
+                                ErrorCode = _maincode.ToString() + "." + _subcode.ToString();
+                            }
+                            else
+                            {
+                                StatusBar = "Null 또는 Length가 0이 발생";
+                                return;
+                            }
                         }
-                    }
-                    else if (worker.CancellationPending == true)
-                    {
-                        e.Cancel = true;
-                        return;
                     }
                     else
                     {
-                        StatusBar = "MirrReg_Timer값 수신되지 않음";
+                        StatusBar = "modbusTCP.connected가 False";
                         return;
                     }
-
+                }
+                else
+                {
+                    StatusBar = "mirrorOnOFF값 False";
+                    return;
                 }
             }
             catch (Exception es)
             {
-                StatusBar = es.Message + "  MirrReg_timer";
+                StatusBar = es.Source.ToString() + "  MirrReg_timer";
                 return;
             }
+        }
+
+//MirrTimer 실행 함수
+        public void MirrTimer_Tick(int v)
+        {
+            mirrtimer = new System.Timers.Timer(v);
+            mirrtimer.Elapsed += MirrTimer_New;
+            mirrorONOFF = true;
+            mirrtimer.Start();          
         }
         #endregion
 
@@ -2654,36 +2654,21 @@ namespace MINASA6SF_Rev.ViewModels
                 modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
                 axisNum1 = int.Parse(settings.axisNumselect.SelectedValue.ToString());
 
-                worker.RunWorkerAsync();
-                if (!mirrorONOFF)
-                {
-                    mirrorONOFF = true;
-                   // timer.Enabled = true;
-                }
-                else
-                {
-                    mirrorONOFF = false;
-                }
-
+                mirrorONOFF = true;
+                MirrTimer_Tick(5);
                 StatusBar = "접속";
             }
             catch (Exception e)
             {
-                mirrorONOFF = false;
                 MessageBox.Show(e.Message, "예외발생_ConfirmBtn", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
         }
-
         private bool CanexecuteSettingsConfirm(object parameter)
         {
             if (!mirrorONOFF)
-            {
                 return true;
-            }
             else
-            {
-                return false;
-            }
+                return false;           
         }
 
         //Settings 화면 Disconnect 커맨드
@@ -2696,21 +2681,22 @@ namespace MINASA6SF_Rev.ViewModels
                     if (LampStatus == 1)
                     {
                         modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, false);
-                        Thread.Sleep(150);
-                        mirrorONOFF = false;
-                        servoON = true;
                         Debug.WriteLine(LampStatus.ToString());
                     }
                 }
-                worker2.CancelAsync();
-                worker.CancelAsync();
+
+                mirrtimer.Stop();
                 mirrorONOFF = false;
+                worker2.CancelAsync();
+                Thread.Sleep(150);
                 modbusTCP.disconnect();
+                ModbusOnStatus = modbusTCP.connected;                
                 StatusBar = "통신 끊음";
                 AlarmStatus = 0;
                 LampStatus = 0;
                 ModbusOnStatus = false;
                 ErrorCode = "00.0";
+
             }
             catch (Exception e)
             {
@@ -2721,13 +2707,10 @@ namespace MINASA6SF_Rev.ViewModels
         private bool CanexecuteDisconnect(object parameter)
         {
             if (mirrorONOFF)
-            {
                 return true;
-            }
             else
-            {
                 return false;
-            }
+          
         }
         #endregion
 
@@ -2738,13 +2721,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         //ServoON
         private void ExecuteServoOn(object parameter)
-        {
-            //ControlPanel combobox 바인딩 테스트
-            //Debug.WriteLine(Selected_BlockNum.ToString());
-            //Debug.WriteLine(Selected_BlockSpeed.ToString());
-            //Debug.WriteLine(Selected_BlockAccSpeed.ToString());
-            //Debug.WriteLine(Selected_BlockDecSpeed.ToString());
-
+        {          
             modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
 
             if (_servoONStatus != null)
@@ -2752,7 +2729,6 @@ namespace MINASA6SF_Rev.ViewModels
                 if (_servoONStatus[0] == 0)
                 {
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, true);
-                    servoON = false;
                 }
                 else
                 {
@@ -2760,7 +2736,6 @@ namespace MINASA6SF_Rev.ViewModels
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, false);
                     Thread.Sleep(50);
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, false);
-                    servoON = true;
                 }
             }
             else
@@ -2785,7 +2760,6 @@ namespace MINASA6SF_Rev.ViewModels
                 if (_servoONStatus[0] == 0)
                 {
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, true);
-                    servoON = false;
                 }
                 modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             }
@@ -19372,9 +19346,11 @@ namespace MINASA6SF_Rev.ViewModels
         //블럭 파라미터 수신,송신,EEP 커맨드
         private void ExecuteRecCommand(object parameter)
         {
-            mirrorONOFF = false;
+            worker2.WorkerSupportsCancellation = true;
+            worker2.WorkerReportsProgress = true;
+            worker2.DoWork += BlockParameterRec1;
             worker2.RunWorkerAsync();   //  ->BlockParameterRec1
-
+                       
             //BlockParaModel1s[0].BlockData
             //BlockParaModel2s[0].SettingValue = 33;            //Block속도 파라미터 값
             Debug.WriteLine("수신버튼 테스트");
