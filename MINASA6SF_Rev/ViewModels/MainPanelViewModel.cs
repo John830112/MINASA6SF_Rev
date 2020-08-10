@@ -38,6 +38,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         partial void BlockParameterRec1(object sender, DoWorkEventArgs e);     
         partial void BlockParameterRec2();
+        partial void BlockParameterRec3();
 
 
         public bool mirrorONOFF;
