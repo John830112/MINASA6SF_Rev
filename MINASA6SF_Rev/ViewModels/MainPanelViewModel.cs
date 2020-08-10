@@ -33,6 +33,7 @@ namespace MINASA6SF_Rev.ViewModels
     {
         public BackgroundWorker worker2 = new BackgroundWorker(); //블럭 파라미터 송신 
         private readonly object balanceLock = new object();
+        public BackgroundWorker worker1 = new BackgroundWorker();
 
         public System.Timers.Timer mirrtimer;
 
@@ -49,6 +50,12 @@ namespace MINASA6SF_Rev.ViewModels
 
 
         public bool mirrorONOFF;
+        public bool MirrorONOFF
+        {
+            get { return mirrorONOFF; }
+            set { SetProperty(ref mirrorONOFF, value); }
+        }
+
         bool blockselect_Lock_Release=false;
         public bool BlockSelect_Lock_Release
         {
@@ -2190,7 +2197,7 @@ namespace MINASA6SF_Rev.ViewModels
         public MainPanelViewModel(Settings _settings, BlockPara _blockpara, ControlPanel1 _controlPanel1)
         {
             modbusTCP = new Master(this);
-            mirrorONOFF = false;
+            MirrorONOFF = false;
             settings = _settings;
             blockpara = _blockpara;
             controlpanel1 = _controlPanel1;
@@ -2269,13 +2276,25 @@ namespace MINASA6SF_Rev.ViewModels
             worker2.WorkerReportsProgress = false;
             worker2.WorkerSupportsCancellation = true;
 
+            mirrtimer = new System.Timers.Timer(50);
+
+            worker1.DoWork += Worker1_DoWork;
+            worker1.WorkerReportsProgress = true;
+            worker1.RunWorkerCompleted += Worker1_RunWorkerCompleted;
 
             //BlockSettingDialog 객체 할당
             blockSettingDialog = new BlockSettingDialogs();
             blockSettingDialog.DataContext = this;
             blockSettingDialog.FunctionSelect1.ItemsSource = blockFunctions;
             blockSettingDialog.BlockActionParaWindow.Navigate(incPosition_Page1);
-        }    
+        }
+
+        private void Worker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("접속 종료");
+        }
+
+
         #endregion
 
         #region BlockSettingDialog 기능별 Command함수
@@ -2558,7 +2577,7 @@ namespace MINASA6SF_Rev.ViewModels
         {
             try
             {
-                if (mirrorONOFF)
+                if (MirrorONOFF)
                 {
                     if (modbusTCP.connected)
                     {
@@ -2642,10 +2661,8 @@ namespace MINASA6SF_Rev.ViewModels
         //MirrTimer 실행 함수
         public void MirrTimer_Tick()
         {
-            mirrtimer = new System.Timers.Timer(50);
             mirrtimer.Elapsed += MirrTimer_New;
-            mirrorONOFF = true;
-
+            MirrorONOFF = true;
             mirrtimer.Start();
         }
         #endregion
@@ -2656,12 +2673,14 @@ namespace MINASA6SF_Rev.ViewModels
         {
             try
             {
+                mirrtimer = new System.Timers.Timer(30);
                 mirrTime = int.Parse(settings.cycleTime.SelectedValue.ToString());
                 modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
                 axisNum1 = int.Parse(settings.axisNumselect.SelectedValue.ToString());
-                mirrorONOFF = true;
+                MirrorONOFF = true;
                 StatusBar = "접속";
                 MirrTimer_Tick();
+                settings.Disconnect.IsEnabled = true;
             }
             catch (Exception e)
             {
@@ -2670,7 +2689,7 @@ namespace MINASA6SF_Rev.ViewModels
         }
         private bool CanexecuteSettingsConfirm(object parameter)
         {
-            if (!mirrorONOFF)
+            if (!MirrorONOFF)
                 return true;
             else
                 return false;           
@@ -2689,21 +2708,8 @@ namespace MINASA6SF_Rev.ViewModels
                         Debug.WriteLine(LampStatus.ToString());
                     }
                 }
-
-                mirrtimer.Stop();
-                mirrtimer.Dispose();
-                Thread.Sleep(100);
-                mirrorONOFF = false;
-                worker2.CancelAsync();
-                modbusTCP.disconnect();
-                Debug.WriteLine(mirrtimer.Enabled.ToString());
-                ModbusOnStatus = modbusTCP.connected;                
-                StatusBar = "통신 끊음";
-                AlarmStatus = 0;
-                LampStatus = 0;
-                ModbusOnStatus = false;
-                ErrorCode = "00.0";
-
+                settings.Disconnect.IsEnabled = false;
+                worker1.RunWorkerAsync();
             }
             catch (Exception e)
             {
@@ -2711,9 +2717,33 @@ namespace MINASA6SF_Rev.ViewModels
             }
         }
 
+        private void Worker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+           
+            mirrtimer.Stop();
+            mirrtimer.Dispose();
+            for(int i=0; i<10; i++)
+            {
+                Thread.Sleep(1000);
+                Count += 23;
+            }
+            Count = 0;
+            worker2.CancelAsync();
+            modbusTCP.disconnect();
+            Debug.WriteLine(mirrtimer.Enabled.ToString());
+            ModbusOnStatus = modbusTCP.connected;
+            StatusBar = "통신 끊음";
+            AlarmStatus = 0;
+            LampStatus = 0;
+            ModbusOnStatus = false;
+            ErrorCode = "00.0";
+            MirrorONOFF = false;
+        }
+
+
         private bool CanexecuteDisconnect(object parameter)
         {
-            if (mirrorONOFF)
+            if (MirrorONOFF)
                 return true;
             else
                 return false;
@@ -19353,15 +19383,24 @@ namespace MINASA6SF_Rev.ViewModels
         //블럭 파라미터 수신,송신,EEP 커맨드
         private void ExecuteRecCommand(object parameter)
         {
+            settings.Disconnect.IsEnabled = false;
             worker2.WorkerSupportsCancellation = true;
             worker2.WorkerReportsProgress = true;
             worker2.DoWork += BlockParameterRec1;
+            worker2.RunWorkerCompleted += Worker2_RunWorkerCompleted;
             worker2.RunWorkerAsync();   //  ->BlockParameterRec1
                        
             //BlockParaModel1s[0].BlockData
             //BlockParaModel2s[0].SettingValue = 33;            //Block속도 파라미터 값
             Debug.WriteLine("수신버튼 테스트");
         }
+
+        //블럭 파라미터 수신 완료 후 실행되는 함수
+        private void Worker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            settings.Disconnect.IsEnabled = true;
+        }
+
         private bool CanexecuteRecCommand(object parameter)
         {
             return true;
