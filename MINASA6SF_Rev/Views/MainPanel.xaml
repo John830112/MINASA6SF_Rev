@@ -196,8 +196,10 @@
             <StatusBar Grid.Column="0" Grid.Row="1" Background="LightGray" 
                        BorderBrush="Transparent" BorderThickness="0" Margin="0">
                 <StatusBarItem>
+                    <StackPanel Orientation="Horizontal">                        
                     <TextBox  x:Name="StatusAlm" Text="{Binding StatusBar}" IsReadOnly="True" Background="Transparent" 
-                              Foreground="Black" BorderThickness="0" VerticalContentAlignment="Center" VerticalAlignment="Center">
+                              Foreground="Black" BorderThickness="0" VerticalContentAlignment="Center" VerticalAlignment="Center"
+                              Width="500">
                         <TextBox.RenderTransform>
                             <TranslateTransform x:Name="statusBarTranslate" X="0" Y="0"/>
                         </TextBox.RenderTransform>
@@ -213,6 +215,8 @@
                             </EventTrigger>
                         </TextBox.Triggers>
                     </TextBox>
+                        <ProgressBar Name="loading" Height="15" Width="215" Minimum="0" Maximum="255" Value="{Binding Count}"/>
+                    </StackPanel>
                 </StatusBarItem>
             </StatusBar>
         </Grid>

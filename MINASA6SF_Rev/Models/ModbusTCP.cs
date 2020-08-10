@@ -58,8 +58,8 @@ namespace MINASA6SF_Rev.Models
         private static ushort _refresh = 10;
         private static bool _connected = false;
         private static bool _no_sync_connection = false;
-        bool connected1 = false;
-        bool connected2 = false;
+        public bool connected1 = false;
+        public bool connected2 = false;
         MainPanelViewModel _mainPanelViewModel1;
 
         private static Socket tcpAsyCl;
@@ -70,7 +70,9 @@ namespace MINASA6SF_Rev.Models
 
         byte[] data = new byte[12];
         byte[] data2;
-
+        int result;
+        byte unit;
+        byte function;
         // ------------------------------------------------------------------------
         /// <summary>Response data event. This event is called when new data arrives</summary>
         public delegate void ResponseData(ushort id, byte unit, byte function, byte[] data);
@@ -161,7 +163,7 @@ namespace MINASA6SF_Rev.Models
                     ip = hst.AddressList[0].ToString();
                 }
                 // ----------------------------------------------------------------
-                // Connect asynchronous client
+                //Connect asynchronous client
                 tcpAsyCl = new Socket(IPAddress.Parse(ip).AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                 tcpAsyCl.Connect(new IPEndPoint(IPAddress.Parse(ip), port));
                 tcpAsyCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.SendTimeout, _timeout);
@@ -220,6 +222,7 @@ namespace MINASA6SF_Rev.Models
                     try { tcpAsyCl.Shutdown(SocketShutdown.Both); }
                     catch { }
                     tcpAsyCl.Close();
+                    
                 }
                 tcpAsyCl = null;
             }
@@ -777,10 +780,11 @@ namespace MINASA6SF_Rev.Models
                 if (connected1 && write_data != null)
                 {
                     tcpSynCl.Send(write_data, 0, write_data.Length, SocketFlags.None);
-                    int result = tcpSynCl.Receive(tcpSynClBuffer, 0, tcpSynClBuffer.Length, SocketFlags.None);
+                    Thread.Sleep(30);
 
-                    byte unit = tcpSynClBuffer[6];
-                    byte function = tcpSynClBuffer[7];
+                    result = tcpSynCl.Receive(tcpSynClBuffer, 0, tcpSynClBuffer.Length, SocketFlags.None);
+                    unit = tcpSynClBuffer[6];
+                    function = tcpSynClBuffer[7];
 
 
                     if (result == 0) CallException(id, unit, write_data[7], excExceptionConnectionLost);

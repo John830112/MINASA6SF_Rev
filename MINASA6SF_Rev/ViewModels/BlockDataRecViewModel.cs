@@ -34,13 +34,12 @@ namespace MINASA6SF_Rev.ViewModels
       
         partial void BlockParameterRec1(object sender, DoWorkEventArgs e)
         {
-            int count = 0;
             mirrtimer.Stop();
 
             for (int i = 0; i < 145; i++)
             {
                 BlockParameterRec(i);
-                count += 1;
+                Count += 1;
                 Debug.WriteLine(count.ToString());
 
                 if (worker2.CancellationPending == true)
@@ -50,6 +49,7 @@ namespace MINASA6SF_Rev.ViewModels
                     return;
                 }
             }
+            Count = 0;
             mirrtimer.Start();
 
 

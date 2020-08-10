@@ -31,14 +31,21 @@ namespace MINASA6SF_Rev.ViewModels
 {
     public partial class MainPanelViewModel : ViewModelBase, IWindowService
     {
-        //public BackgroundWorker worker = new BackgroundWorker();  //MirrorTimer 동작
         public BackgroundWorker worker2 = new BackgroundWorker(); //블럭 파라미터 송신 
         private readonly object balanceLock = new object();
+
         public System.Timers.Timer mirrtimer;
 
         partial void BlockParameterRec1(object sender, DoWorkEventArgs e);     
         partial void BlockParameterRec2();
         partial void BlockParameterRec3();
+
+        public double count = 0;
+        public double Count
+        {
+            get { return count; }
+            set { SetProperty(ref count, value); }
+        }
 
 
         public bool mirrorONOFF;
@@ -2261,7 +2268,7 @@ namespace MINASA6SF_Rev.ViewModels
 
             worker2.WorkerReportsProgress = false;
             worker2.WorkerSupportsCancellation = true;
-           // worker2.DoWork += BlockParameterRec1;
+
 
             //BlockSettingDialog 객체 할당
             blockSettingDialog = new BlockSettingDialogs();
@@ -2547,7 +2554,7 @@ namespace MINASA6SF_Rev.ViewModels
         #endregion
 
         #region MirrTimer
-        private void MirrTimer_New(object source, System.Timers.ElapsedEventArgs e)
+        private void MirrTimer_New(object source, EventArgs e)
         {
             try
             {
@@ -2557,13 +2564,9 @@ namespace MINASA6SF_Rev.ViewModels
                     {
                         lock (balanceLock)
                         {
-                            if ((_mirrReg1 != null && _mirrReg1.Length >0) &&
-                                (_mirrReg2 != null && _mirrReg2.Length >0) &&                                
-                                (_errorCode != null && _errorCode.Length >0) &&
-                                (selectedBlock != null && selectedBlock.Length > 0) &&
-                                (_servoONStatus != null && _servoONStatus.Length >0) &&
-                                (_alarmStatus != null && _alarmStatus.Length > 0 ))
-                               { 
+
+                            if ((_mirrReg1 != null) && (_mirrReg2 != null) && (_errorCode != null) && (selectedBlock != null) && (_servoONStatus != null) && (_alarmStatus != null))
+                            {
                                 modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17432, 8, ref _mirrReg1);
                                 modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17440, 8, ref _mirrReg2);
                                 modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4001, 1, ref _errorCode);
@@ -2608,6 +2611,7 @@ namespace MINASA6SF_Rev.ViewModels
                                 _maincode = _errorCode[1];
                                 _subcode = _errorCode[0];
                                 ErrorCode = _maincode.ToString() + "." + _subcode.ToString();
+                                Debug.WriteLine("실행중...");
                             }
                             else
                             {
@@ -2635,13 +2639,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
         }
 
-//MirrTimer 실행 함수
-        public void MirrTimer_Tick(int v)
+        //MirrTimer 실행 함수
+        public void MirrTimer_Tick()
         {
-            mirrtimer = new System.Timers.Timer(v);
+            mirrtimer = new System.Timers.Timer(50);
             mirrtimer.Elapsed += MirrTimer_New;
             mirrorONOFF = true;
-            mirrtimer.Start();          
+
+            mirrtimer.Start();
         }
         #endregion
 
@@ -2654,10 +2659,9 @@ namespace MINASA6SF_Rev.ViewModels
                 mirrTime = int.Parse(settings.cycleTime.SelectedValue.ToString());
                 modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
                 axisNum1 = int.Parse(settings.axisNumselect.SelectedValue.ToString());
-
                 mirrorONOFF = true;
-                MirrTimer_Tick(5);
                 StatusBar = "접속";
+                MirrTimer_Tick();
             }
             catch (Exception e)
             {
@@ -2687,10 +2691,12 @@ namespace MINASA6SF_Rev.ViewModels
                 }
 
                 mirrtimer.Stop();
+                mirrtimer.Dispose();
+                Thread.Sleep(100);
                 mirrorONOFF = false;
                 worker2.CancelAsync();
-                Thread.Sleep(150);
                 modbusTCP.disconnect();
+                Debug.WriteLine(mirrtimer.Enabled.ToString());
                 ModbusOnStatus = modbusTCP.connected;                
                 StatusBar = "통신 끊음";
                 AlarmStatus = 0;
