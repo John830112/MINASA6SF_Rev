@@ -221,8 +221,7 @@ namespace MINASA6SF_Rev.Models
                 {
                     try { tcpAsyCl.Shutdown(SocketShutdown.Both); }
                     catch { }
-                    tcpAsyCl.Close();
-                    
+                    tcpAsyCl.Close();                    
                 }
                 tcpAsyCl = null;
             }

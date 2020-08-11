@@ -2718,17 +2718,16 @@ namespace MINASA6SF_Rev.ViewModels
         }
 
         private void Worker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-           
+        {           
             mirrtimer.Stop();
             mirrtimer.Dispose();
+            worker2.CancelAsync();
             for(int i=0; i<10; i++)
             {
                 Thread.Sleep(1000);
                 Count += 23;
             }
             Count = 0;
-            worker2.CancelAsync();
             modbusTCP.disconnect();
             Debug.WriteLine(mirrtimer.Enabled.ToString());
             ModbusOnStatus = modbusTCP.connected;
