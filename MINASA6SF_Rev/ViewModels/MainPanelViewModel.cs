@@ -2289,11 +2289,7 @@ namespace MINASA6SF_Rev.ViewModels
             blockSettingDialog.BlockActionParaWindow.Navigate(incPosition_Page1);
         }
 
-        private void Worker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            MessageBox.Show("접속 종료");
-        }
-
+     
 
         #endregion
 
@@ -2583,9 +2579,6 @@ namespace MINASA6SF_Rev.ViewModels
                     {
                         lock (balanceLock)
                         {
-
-                            if ((_mirrReg1 != null) && (_mirrReg2 != null) && (_errorCode != null) && (selectedBlock != null) && (_servoONStatus != null) && (_alarmStatus != null))
-                            {
                                 modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17432, 8, ref _mirrReg1);
                                 modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 17440, 8, ref _mirrReg2);
                                 modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4001, 1, ref _errorCode);
@@ -2630,13 +2623,7 @@ namespace MINASA6SF_Rev.ViewModels
                                 _maincode = _errorCode[1];
                                 _subcode = _errorCode[0];
                                 ErrorCode = _maincode.ToString() + "." + _subcode.ToString();
-                                Debug.WriteLine("실행중...");
-                            }
-                            else
-                            {
-                                StatusBar = "Null 또는 Length가 0이 발생";
-                                return;
-                            }
+                                Debug.WriteLine("실행중...");                          
                         }
                     }
                     else
@@ -2663,24 +2650,42 @@ namespace MINASA6SF_Rev.ViewModels
         {
             mirrtimer.Elapsed += MirrTimer_New;
             MirrorONOFF = true;
-            mirrtimer.Start();
+            mirrtimer.Enabled = true;
         }
         #endregion
 
         #region Settings화면
-        //Settings 화면 Confirm 커맨드 
+        //Settings 화면 Confirm 커맨드  --접속--
         private void ExecuteSettingsConfirm(object parameter)
         {
             try
             {
-                mirrtimer = new System.Timers.Timer(30);
-                mirrTime = int.Parse(settings.cycleTime.SelectedValue.ToString());
-                modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
-                axisNum1 = int.Parse(settings.axisNumselect.SelectedValue.ToString());
-                MirrorONOFF = true;
-                StatusBar = "접속";
-                MirrTimer_Tick();
-                settings.Disconnect.IsEnabled = true;
+                if (!modbusTCP.connected)
+                {
+                    
+                    mirrTime = int.Parse(settings.cycleTime.SelectedValue.ToString());                   
+                    modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
+                    axisNum1 = int.Parse(settings.axisNumselect.SelectedValue.ToString());
+                    Thread.Sleep(50);
+                    if(modbusTCP.connected)
+                    {
+                        MirrorONOFF = true;
+                        StatusBar = "접속";
+                        MirrTimer_Tick();
+                        settings.Disconnect.IsEnabled = true;
+                    }
+                    else
+                    {
+                        StatusBar = "접속 실패...";
+                        return;
+                    }
+                    
+                }
+                else
+                {
+                    StatusBar = "접속중입니다...";
+                    return;
+                }
             }
             catch (Exception e)
             {
@@ -2707,36 +2712,50 @@ namespace MINASA6SF_Rev.ViewModels
                         modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, false);
                         Debug.WriteLine(LampStatus.ToString());
                     }
+                    settings.Disconnect.IsEnabled = false;
+                    worker1.RunWorkerAsync();
+                    StatusBar = "접속 종료중...";
                 }
-                settings.Disconnect.IsEnabled = false;
-                worker1.RunWorkerAsync();
+                else
+                {
+                    StatusBar = "통신 연결 상태가 아님";
+                    return;
+                }
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message, "예외발생_Disconnect", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
         }
 
+        private void Worker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("접속 종료");
+            StatusBar = "접속 종료";
+        }
+
+
         private void Worker1_DoWork(object sender, DoWorkEventArgs e)
-        {           
-            mirrtimer.Stop();
-            mirrtimer.Dispose();
+        {
+            MirrorONOFF = false;
+            mirrtimer.Enabled = false;
             worker2.CancelAsync();
             for(int i=0; i<10; i++)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(900);
                 Count += 23;
             }
             Count = 0;
             modbusTCP.disconnect();
             Debug.WriteLine(mirrtimer.Enabled.ToString());
             ModbusOnStatus = modbusTCP.connected;
-            StatusBar = "통신 끊음";
+            StatusBar = "접속 종료";
             AlarmStatus = 0;
             LampStatus = 0;
+            Thread.Sleep(1000);
             ModbusOnStatus = false;
             ErrorCode = "00.0";
-            MirrorONOFF = false;
+            
         }
 
 
@@ -19382,6 +19401,7 @@ namespace MINASA6SF_Rev.ViewModels
         //블럭 파라미터 수신,송신,EEP 커맨드
         private void ExecuteRecCommand(object parameter)
         {
+
             settings.Disconnect.IsEnabled = false;
             worker2.WorkerSupportsCancellation = true;
             worker2.WorkerReportsProgress = true;

@@ -55,7 +55,7 @@ namespace MINASA6SF_Rev.Models
         // ------------------------------------------------------------------------
         // Private declarations
         private static ushort _timeout = 300;
-        private static ushort _refresh = 10;
+        private static ushort _refresh = 50;
         private static bool _connected = false;
         private static bool _no_sync_connection = false;
         public bool connected1 = false;
@@ -198,6 +198,7 @@ namespace MINASA6SF_Rev.Models
             connected1 = false;
             connected2 = false;
             Dispose();
+            _connected = false;
         }
 
         // ------------------------------------------------------------------------
@@ -207,6 +208,7 @@ namespace MINASA6SF_Rev.Models
             connected1 = false;
             connected2 = false;
             Dispose();
+            _connected = false;
         }
 
         // ------------------------------------------------------------------------
@@ -235,6 +237,7 @@ namespace MINASA6SF_Rev.Models
                 }
                 tcpSynCl = null;
             }
+            _connected = false;
         }
 
         internal void CallException(ushort id, byte unit, byte function, byte exception)
@@ -780,7 +783,6 @@ namespace MINASA6SF_Rev.Models
                 {
                     tcpSynCl.Send(write_data, 0, write_data.Length, SocketFlags.None);
                     Thread.Sleep(30);
-
                     result = tcpSynCl.Receive(tcpSynClBuffer, 0, tcpSynClBuffer.Length, SocketFlags.None);
                     unit = tcpSynClBuffer[6];
                     function = tcpSynClBuffer[7];
