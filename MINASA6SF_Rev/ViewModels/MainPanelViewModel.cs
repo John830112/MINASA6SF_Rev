@@ -40,6 +40,7 @@ namespace MINASA6SF_Rev.ViewModels
         partial void BlockParameterRec1(object sender, DoWorkEventArgs e);     
         partial void BlockParameterRec2();
         partial void BlockParameterRec3();
+        partial void BlockParameterRec4();
 
         public double count = 0;
         public double Count

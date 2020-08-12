@@ -110,6 +110,7 @@
     <Compile Include="ViewModels\BlockDataRecViewModel.cs" />
     <Compile Include="ViewModels\BlockDataRecViewModel2.cs" />
     <Compile Include="ViewModels\BlockDataRecViewModel3.cs" />
+    <Compile Include="ViewModels\BlockDataRecViewModel4.cs" />
     <Compile Include="ViewModels\MainPanelViewModel.cs" />
     <Compile Include="Views\Abs_Position_Page2.xaml.cs">
       <DependentUpon>Abs_Position_Page2.xaml</DependentUpon>
