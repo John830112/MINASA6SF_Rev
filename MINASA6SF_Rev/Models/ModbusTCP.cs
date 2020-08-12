@@ -60,7 +60,6 @@ namespace MINASA6SF_Rev.Models
         private static bool _no_sync_connection = false;
         public bool connected1 = false;
         public bool connected2 = false;
-        MainPanelViewModel _mainPanelViewModel1;
 
         private static Socket tcpAsyCl;
         private byte[] tcpAsyClBuffer = new byte[2048];
@@ -120,10 +119,8 @@ namespace MINASA6SF_Rev.Models
         // ------------------------------------------------------------------------
         /// <summary>Create master instance without parameters.</summary>
        
-        public Master(MainPanelViewModel mainPanelViewModel)
-        {
-            this._mainPanelViewModel1 = mainPanelViewModel;
-        }
+        public Master()
+        { }
 
         // ------------------------------------------------------------------------
         /// <summary>Create master instance with parameters.</summary>
@@ -782,7 +779,7 @@ namespace MINASA6SF_Rev.Models
                 if (connected1 && write_data != null)
                 {
                     tcpSynCl.Send(write_data, 0, write_data.Length, SocketFlags.None);
-                    Thread.Sleep(30);
+                    Thread.Sleep(50);
                     result = tcpSynCl.Receive(tcpSynClBuffer, 0, tcpSynClBuffer.Length, SocketFlags.None);
                     unit = tcpSynClBuffer[6];
                     function = tcpSynClBuffer[7];

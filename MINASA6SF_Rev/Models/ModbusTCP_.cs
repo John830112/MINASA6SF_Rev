@@ -21,8 +21,6 @@ namespace MINASA6SF_Rev.Models
         int rs;  //수신 바이트 수
         private Socket mSocket = null;
 
-        private string IP = "10.10.100.254";
-        private int Port = 8899;
 
         string txtReceiMsg;
 

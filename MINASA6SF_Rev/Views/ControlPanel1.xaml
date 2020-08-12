@@ -178,8 +178,8 @@
                   VerticalAlignment="Top" BorderThickness="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="20 20 0 0" Height="285">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="110"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>

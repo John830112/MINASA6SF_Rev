@@ -64574,6 +64574,7 @@ namespace MINASA6SF_Rev.ViewModels
                 ", 비교값(역치):" + TargetPosition.ToString();
             }
             #endregion
+
             Debug.WriteLine("BlockParameterRec2 실행 완료");
             BlockParameterRec3();
         }

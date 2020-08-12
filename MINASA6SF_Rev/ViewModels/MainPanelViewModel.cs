@@ -36,7 +36,9 @@ namespace MINASA6SF_Rev.ViewModels
         public BackgroundWorker worker1 = new BackgroundWorker();
 
         public System.Timers.Timer mirrtimer;
+        Thread thread = new Thread(ModbusTCPConstructor);
 
+       
         partial void BlockParameterRec1(object sender, DoWorkEventArgs e);     
         partial void BlockParameterRec2();
         partial void BlockParameterRec3();
@@ -201,8 +203,7 @@ namespace MINASA6SF_Rev.ViewModels
         float torquecmd;
         Int32 powerontimetemp;
 
-        private Master modbusTCP;
-        private ModbusTCP_ modbusTCP2 = new ModbusTCP_();
+        private static Master modbusTCP;
         Settings settings;
         BlockPara blockpara;
         ControlPanel1 controlpanel1;
@@ -2197,7 +2198,8 @@ namespace MINASA6SF_Rev.ViewModels
 
         public MainPanelViewModel(Settings _settings, BlockPara _blockpara, ControlPanel1 _controlPanel1)
         {
-            modbusTCP = new Master(this);
+           
+            thread.Start();
             MirrorONOFF = false;
             settings = _settings;
             blockpara = _blockpara;
@@ -2289,10 +2291,11 @@ namespace MINASA6SF_Rev.ViewModels
             blockSettingDialog.FunctionSelect1.ItemsSource = blockFunctions;
             blockSettingDialog.BlockActionParaWindow.Navigate(incPosition_Page1);
         }
-
-     
-
         #endregion
+        private static void ModbusTCPConstructor()
+        {
+            modbusTCP = new Master();
+        }
 
         #region BlockSettingDialog 기능별 Command함수
         private void ExecuteFunSelection(object parameter)
@@ -2629,19 +2632,19 @@ namespace MINASA6SF_Rev.ViewModels
                     }
                     else
                     {
-                        StatusBar = "modbusTCP.connected가 False";
+                        //StatusBar = "modbusTCP.connected가 False";
                         return;
                     }
                 }
                 else
                 {
-                    StatusBar = "mirrorOnOFF값 False";
+                    //StatusBar = "mirrorOnOFF값 False";
                     return;
                 }
             }
             catch (Exception es)
             {
-                StatusBar = es.Source.ToString() + "  MirrReg_timer";
+                //StatusBar = es.Source.ToString() + "  MirrReg_timer";
                 return;
             }
         }
@@ -2662,8 +2665,7 @@ namespace MINASA6SF_Rev.ViewModels
             try
             {
                 if (!modbusTCP.connected)
-                {
-                    
+                {                    
                     mirrTime = int.Parse(settings.cycleTime.SelectedValue.ToString());                   
                     modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
                     axisNum1 = int.Parse(settings.axisNumselect.SelectedValue.ToString());
@@ -2743,17 +2745,15 @@ namespace MINASA6SF_Rev.ViewModels
             worker2.CancelAsync();
             for(int i=0; i<10; i++)
             {
-                Thread.Sleep(900);
+                Thread.Sleep(1000);
                 Count += 23;
             }
             Count = 0;
             modbusTCP.disconnect();
-            Debug.WriteLine(mirrtimer.Enabled.ToString());
             ModbusOnStatus = modbusTCP.connected;
             StatusBar = "접속 종료";
             AlarmStatus = 0;
             LampStatus = 0;
-            Thread.Sleep(1000);
             ModbusOnStatus = false;
             ErrorCode = "00.0";
             
