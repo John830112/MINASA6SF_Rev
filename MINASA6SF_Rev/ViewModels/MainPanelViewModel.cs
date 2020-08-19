@@ -2743,7 +2743,8 @@ namespace MINASA6SF_Rev.ViewModels
             MirrorONOFF = false;
             mirrtimer.Enabled = false;
             worker2.CancelAsync();
-            for(int i=0; i<10; i++)
+            
+            for (int i=0; i<10; i++)
             {
                 Thread.Sleep(1000);
                 Count += 23;
@@ -2765,8 +2766,7 @@ namespace MINASA6SF_Rev.ViewModels
             if (MirrorONOFF)
                 return true;
             else
-                return false;
-          
+                return false;          
         }
         #endregion
 

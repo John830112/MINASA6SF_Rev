@@ -35,7 +35,7 @@ namespace MINASA6SF_Rev.ViewModels
         partial void BlockParameterRec1(object sender, DoWorkEventArgs e)
         {
             mirrtimer.Stop();
-            Thread.Sleep(10000);
+            Thread.Sleep(8000);
             for (int i = 0; i < 181; i++)
             {
                 BlockParameterRec(i);

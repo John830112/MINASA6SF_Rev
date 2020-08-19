@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MINASA6SF_Rev.Views"
         xmlns:local2="clr-namespace:MINASA6SF_Rev.Models"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"     
-        mc:Ignorable="d" x:Name="blocksettingdialogpage" Opacity="1"
+        mc:Ignorable="d" x:Name="blocksettingdialogpage" Opacity="1" Topmost="True"
         Title="BlockSettingDialogs" Height="335" Width="410" ResizeMode="NoResize" 
         WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent">
     <Window.InputBindings>
