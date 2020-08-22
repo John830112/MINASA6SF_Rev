@@ -8852,14 +8852,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_423[1]);
                  if (Convert.ToInt32(parameter7_4byte1_423[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_423[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_424, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[211].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -8869,14 +8869,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_423[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_424, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[211].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -8886,16 +8886,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_423[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[211].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -8904,7 +8904,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[211].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -8915,22 +8915,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_423[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[211].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[211].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -8940,14 +8940,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[211].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[211].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -8957,14 +8957,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[211].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[211].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -8974,39 +8974,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_423[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[211].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[211].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_423[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[211].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[211].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -9014,19 +9014,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_423[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_424, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[211].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_423[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_423[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_423[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_423[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -9120,7 +9120,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[211].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -9131,25 +9131,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_423[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_423[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[211].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_423[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_423[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[0]) >> 4);                      // 비교대상  hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_0011);      //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_424, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -9184,7 +9184,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[211].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -9192,12 +9192,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_423[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_423[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_424, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -9232,7 +9232,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[211].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -9240,12 +9240,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_423[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[3]) >> 4);           // hiki
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_423[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_423[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_423[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_424, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -9281,7 +9281,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[211].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -9293,14 +9293,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_425[1]);
                  if (Convert.ToInt32(parameter7_4byte1_425[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_425[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_426, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[212].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -9310,14 +9310,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_425[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_426, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[212].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -9327,16 +9327,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_425[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[212].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -9345,7 +9345,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[212].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -9356,22 +9356,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_425[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[212].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[212].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -9381,14 +9381,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[212].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[212].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -9398,14 +9398,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[212].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[212].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -9415,39 +9415,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_425[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[212].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[212].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_425[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[212].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[212].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -9455,19 +9455,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_425[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_426, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[212].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_425[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_425[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_425[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_425[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -9561,7 +9561,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[212].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -9572,25 +9572,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_425[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_425[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[212].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_425[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_425[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_426, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -9625,7 +9625,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[212].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -9633,12 +9633,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_425[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_425[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_426, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -9673,7 +9673,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[212].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -9681,12 +9681,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_425[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_425[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_425[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_425[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_426, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -9722,7 +9722,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[212].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -9734,14 +9734,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_427[1]);
                  if (Convert.ToInt32(parameter7_4byte1_427[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_427[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_428, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[213].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -9751,14 +9751,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_427[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_428, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[213].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -9768,16 +9768,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_427[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[213].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -9786,7 +9786,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[213].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -9797,22 +9797,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_427[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[213].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[213].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -9822,14 +9822,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[213].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[213].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -9839,14 +9839,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[213].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[213].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -9856,39 +9856,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_427[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[213].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[213].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_427[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[213].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[213].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -9896,19 +9896,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_427[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_428, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[213].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_427[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_427[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_427[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_427[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -10002,7 +10002,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[213].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -10013,25 +10013,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_427[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_427[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[213].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_427[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_427[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_428, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -10066,7 +10066,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[213].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -10074,12 +10074,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_427[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_427[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_428, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -10114,7 +10114,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[213].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -10122,12 +10122,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_427[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_427[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_427[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_427[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_428, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -10163,7 +10163,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[213].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -10175,14 +10175,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_429[1]);
                  if (Convert.ToInt32(parameter7_4byte1_429[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_429[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_430, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[214].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -10192,14 +10192,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_429[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_430, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[214].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -10209,16 +10209,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_429[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[214].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -10227,7 +10227,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[214].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -10238,22 +10238,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_429[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[214].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[214].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -10263,14 +10263,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[214].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[214].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -10280,14 +10280,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[214].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[214].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -10297,39 +10297,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_429[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[214].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[214].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_429[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[214].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[214].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -10337,19 +10337,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_429[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_430, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[214].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_429[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_429[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_429[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_429[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -10443,7 +10443,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[214].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -10454,25 +10454,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_429[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_429[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[214].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_429[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_429[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_430, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -10507,7 +10507,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[214].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -10515,12 +10515,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_429[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_429[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_430, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -10555,7 +10555,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[214].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -10563,12 +10563,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_429[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_429[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_429[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_429[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_430, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -10604,7 +10604,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[214].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -10616,14 +10616,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_431[1]);
                  if (Convert.ToInt32(parameter7_4byte1_431[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_431[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_432, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[215].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -10633,14 +10633,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_431[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_432, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[215].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -10650,16 +10650,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_431[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[215].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -10668,7 +10668,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[215].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -10679,22 +10679,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_431[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[215].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[215].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -10704,14 +10704,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[215].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[215].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -10721,14 +10721,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[215].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[215].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -10738,39 +10738,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_431[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[215].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[215].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_431[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[215].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[215].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -10778,19 +10778,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_431[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_432, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[215].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_431[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_431[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_431[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_431[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -10884,7 +10884,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[215].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -10895,25 +10895,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_431[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_431[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[215].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_431[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_431[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_432, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -10948,7 +10948,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[215].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -10956,12 +10956,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_431[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_431[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_432, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -10996,7 +10996,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[215].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -11004,12 +11004,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_431[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_431[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_431[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_431[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_432, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -11045,7 +11045,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[215].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -11057,14 +11057,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_433[1]);
                  if (Convert.ToInt32(parameter7_4byte1_433[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_433[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_434, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[216].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -11074,14 +11074,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_433[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_434, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[216].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -11091,16 +11091,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_433[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[216].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -11109,7 +11109,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[216].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -11120,22 +11120,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_433[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                 SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[0]) >> 4);                 //검출방법 hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+              BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[216].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[216].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -11145,14 +11145,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[216].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[216].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -11162,14 +11162,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[216].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[216].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -11179,39 +11179,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_433[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[216].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[216].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_433[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[216].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[216].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -11219,19 +11219,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_433[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_434, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[216].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_433[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_433[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_433[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_433[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -11325,7 +11325,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[216].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -11336,25 +11336,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_433[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_433[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[216].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_433[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_433[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_434, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -11389,7 +11389,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[216].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -11397,12 +11397,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_433[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_433[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_434, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -11437,7 +11437,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[216].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -11445,12 +11445,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_433[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_433[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_433[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_433[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_434, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -11486,7 +11486,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[216].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -11498,14 +11498,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_435[1]);
                  if (Convert.ToInt32(parameter7_4byte1_435[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_435[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_436, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[217].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -11515,14 +11515,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_435[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_436, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[217].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -11532,16 +11532,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_435[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[217].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -11550,7 +11550,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[217].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -11561,22 +11561,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_435[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                 SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[0]) >> 4);                 //검출방법 hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+              BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[217].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[217].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -11586,14 +11586,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[217].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[217].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -11603,14 +11603,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[217].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[217].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -11620,39 +11620,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_435[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[217].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[217].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_435[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[217].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[217].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -11660,19 +11660,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_435[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_436, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[217].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_435[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_435[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_435[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_435[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -11766,7 +11766,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[217].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -11777,25 +11777,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_435[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_435[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[217].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_435[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_435[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_436, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -11830,7 +11830,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[217].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -11838,12 +11838,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_435[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_435[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_436, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -11878,7 +11878,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[217].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -11886,12 +11886,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_435[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_435[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_435[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_435[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_436, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -11927,7 +11927,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[217].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -11939,14 +11939,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_437[1]);
                  if (Convert.ToInt32(parameter7_4byte1_437[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_437[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_438, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[218].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -11956,14 +11956,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_437[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_438, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[218].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -11973,16 +11973,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_437[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[218].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -11991,7 +11991,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[218].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -12002,22 +12002,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_437[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[218].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[218].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -12027,14 +12027,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[218].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[218].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -12044,14 +12044,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[218].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[218].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -12061,39 +12061,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_437[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[218].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[218].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_437[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[218].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[218].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -12101,19 +12101,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_437[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_438, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[218].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_437[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_437[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_437[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_437[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -12207,7 +12207,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[218].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -12218,25 +12218,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_437[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_437[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[218].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_437[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_437[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_438, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -12271,7 +12271,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[218].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -12279,12 +12279,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_437[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_437[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_438, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -12319,7 +12319,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[218].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -12327,12 +12327,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_437[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_437[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_437[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_437[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_438, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -12368,7 +12368,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[218].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -12380,14 +12380,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_439[1]);
                  if (Convert.ToInt32(parameter7_4byte1_439[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_439[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_440, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[219].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -12397,14 +12397,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_439[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_440, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[219].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -12414,16 +12414,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_439[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[219].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -12432,7 +12432,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[219].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -12443,22 +12443,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_439[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[219].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[219].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -12468,14 +12468,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[219].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[219].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -12485,14 +12485,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[219].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[219].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -12502,39 +12502,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_439[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[219].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[219].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_439[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[219].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[219].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -12542,19 +12542,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_439[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_440, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[219].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_439[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_439[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_439[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_439[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -12648,7 +12648,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[219].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -12659,25 +12659,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_439[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_439[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[219].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_439[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_439[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_440, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -12712,7 +12712,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[219].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -12720,12 +12720,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_439[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_439[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_440, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -12760,7 +12760,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[219].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -12768,12 +12768,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_439[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_439[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_439[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_439[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_440, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -12809,7 +12809,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[219].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -12821,14 +12821,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_441[1]);
                  if (Convert.ToInt32(parameter7_4byte1_441[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_441[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_442, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[220].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -12838,14 +12838,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_441[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_442, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[220].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -12855,16 +12855,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_441[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[220].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -12873,7 +12873,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[220].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -12884,22 +12884,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_441[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[220].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[220].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -12909,14 +12909,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[220].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[220].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -12926,14 +12926,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[220].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[220].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -12943,39 +12943,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_441[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[220].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[220].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_441[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[220].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[220].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -12983,19 +12983,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_441[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_442, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[220].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_441[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_441[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_441[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_441[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -13089,7 +13089,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[220].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -13100,25 +13100,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_441[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_441[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[220].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_441[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_441[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_442, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -13153,7 +13153,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[220].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -13161,12 +13161,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_441[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_441[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_442, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -13201,7 +13201,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[220].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -13209,12 +13209,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_441[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_441[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_441[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_441[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_442, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -13250,7 +13250,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[220].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -13263,14 +13263,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_443[1]);
                  if (Convert.ToInt32(parameter7_4byte1_443[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_443[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_444, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[221].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -13280,14 +13280,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_443[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_444, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[221].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -13297,16 +13297,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_443[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[221].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -13315,7 +13315,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[221].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -13326,22 +13326,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_443[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[221].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[221].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -13351,14 +13351,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[221].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[221].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -13368,14 +13368,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[221].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[221].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -13385,39 +13385,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_443[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[221].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[221].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_443[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[221].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[221].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -13425,19 +13425,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_443[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_444, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[221].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_443[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_443[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_443[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_443[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -13531,7 +13531,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[221].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -13542,25 +13542,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_443[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_443[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[221].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_443[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_443[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_444, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -13595,7 +13595,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[221].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -13603,12 +13603,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_443[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_443[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_444, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -13643,7 +13643,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[221].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -13651,12 +13651,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_443[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_443[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_443[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_443[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_444, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -13692,7 +13692,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[221].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -13704,14 +13704,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_445[1]);
                  if (Convert.ToInt32(parameter7_4byte1_445[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_445[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_446, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[222].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -13721,14 +13721,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_445[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_446, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[222].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -13738,16 +13738,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_445[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[222].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -13756,7 +13756,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[222].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -13767,22 +13767,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_445[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[222].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[222].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -13792,14 +13792,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[222].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[222].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -13809,14 +13809,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[222].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[222].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -13826,39 +13826,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_445[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[222].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[222].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_445[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[222].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[222].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -13866,19 +13866,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_445[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_446, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[222].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_445[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_445[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_445[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_445[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -13972,7 +13972,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[222].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -13983,25 +13983,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_445[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_445[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[222].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_445[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_445[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_446, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -14036,7 +14036,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[222].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -14044,12 +14044,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_445[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_445[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_446, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -14084,7 +14084,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[222].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -14092,12 +14092,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_445[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_445[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_445[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_445[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_446, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -14133,7 +14133,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[222].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -14145,14 +14145,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_447[1]);
                  if (Convert.ToInt32(parameter7_4byte1_447[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_447[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_448, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[223].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -14162,14 +14162,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_447[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_448, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[223].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -14179,16 +14179,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_447[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[223].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -14197,7 +14197,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[223].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -14208,22 +14208,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_447[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[223].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[223].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -14233,14 +14233,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[223].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[223].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -14250,14 +14250,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[223].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[223].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -14267,39 +14267,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_447[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[223].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[223].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_447[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[223].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[223].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -14307,19 +14307,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_447[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_448, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[223].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_447[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_447[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_447[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_447[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -14413,7 +14413,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[223].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -14424,25 +14424,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_447[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_447[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[223].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_447[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_447[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_448, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -14477,7 +14477,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[223].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -14485,12 +14485,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_447[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_447[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_448, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -14525,7 +14525,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[223].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -14533,12 +14533,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_447[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_447[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_447[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_447[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_448, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -14574,7 +14574,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[223].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -14586,14 +14586,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_449[1]);
                  if (Convert.ToInt32(parameter7_4byte1_449[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_449[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_450, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[224].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -14603,14 +14603,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_449[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_450, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[224].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -14620,16 +14620,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_449[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[224].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -14638,7 +14638,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[224].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -14649,22 +14649,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_449[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[224].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[224].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -14674,14 +14674,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[224].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[224].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -14691,14 +14691,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[224].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[224].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -14708,39 +14708,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_449[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[224].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[224].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_449[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[224].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[224].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -14748,19 +14748,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_449[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_450, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[224].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_449[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_449[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_449[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_449[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -14854,7 +14854,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[224].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -14865,25 +14865,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_449[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_449[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[224].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_449[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_449[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_450, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -14918,7 +14918,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[224].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -14926,12 +14926,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_449[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_449[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_450, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -14966,7 +14966,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[224].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -14974,12 +14974,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_449[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_449[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_449[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_449[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_450, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -15015,7 +15015,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[224].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -15027,14 +15027,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_451[1]);
                  if (Convert.ToInt32(parameter7_4byte1_451[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_451[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_452, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[225].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -15044,14 +15044,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_451[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_452, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[225].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -15061,16 +15061,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_451[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[225].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -15079,7 +15079,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[225].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -15090,22 +15090,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_451[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[225].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[225].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -15115,14 +15115,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[225].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[225].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -15132,14 +15132,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[225].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[225].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -15149,39 +15149,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_451[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[225].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[225].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_451[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                 SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[0]) >> 4);                 //속도번호  hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+              BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[225].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[225].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -15189,19 +15189,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_451[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_452, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[225].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_451[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_451[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_451[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_451[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -15295,7 +15295,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[225].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -15306,25 +15306,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_451[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_451[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[225].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_451[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_451[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_452, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -15359,7 +15359,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[225].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -15367,12 +15367,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_451[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_451[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_452, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -15407,7 +15407,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[225].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -15415,12 +15415,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_451[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_451[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_451[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_451[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_452, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -15456,7 +15456,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[225].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -15468,14 +15468,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_453[1]);
                  if (Convert.ToInt32(parameter7_4byte1_453[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_453[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_454, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[226].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -15485,14 +15485,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_453[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_454, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[226].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -15502,16 +15502,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_453[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[226].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -15520,7 +15520,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[226].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -15531,22 +15531,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_453[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[226].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[226].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -15556,14 +15556,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[226].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[226].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -15573,14 +15573,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[226].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[226].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -15590,39 +15590,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_453[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[226].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[226].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_453[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[226].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[226].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -15630,19 +15630,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_453[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_454, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[226].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_453[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_453[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_453[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_453[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -15736,7 +15736,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[226].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -15747,25 +15747,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_453[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_453[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[226].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_453[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_453[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_454, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -15800,7 +15800,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[226].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -15808,12 +15808,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_453[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_453[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_454, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -15848,7 +15848,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[226].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -15856,12 +15856,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_453[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_453[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_453[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_453[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_454, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -15897,7 +15897,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[226].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -15909,14 +15909,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_455[1]);
                  if (Convert.ToInt32(parameter7_4byte1_455[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_455[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_456, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[227].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -15926,14 +15926,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_455[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_456, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[227].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -15943,16 +15943,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_455[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[227].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -15961,7 +15961,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[227].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -15972,22 +15972,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_455[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[227].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[227].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -15997,14 +15997,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[227].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[227].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -16014,14 +16014,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[227].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[227].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -16031,39 +16031,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_455[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[227].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[227].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_455[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                 SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[0]) >> 4);                 //속도번호  hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+              BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[227].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[227].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -16071,19 +16071,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_455[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_456, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[227].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_455[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_455[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_455[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_455[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -16177,7 +16177,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[227].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -16188,25 +16188,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_455[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_455[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[227].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_455[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_455[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_456, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -16241,7 +16241,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[227].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -16249,12 +16249,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_455[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_455[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_456, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -16289,7 +16289,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[227].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -16297,12 +16297,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_455[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_455[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_455[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_455[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_456, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -16338,7 +16338,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[227].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -16350,14 +16350,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_457[1]);
                  if (Convert.ToInt32(parameter7_4byte1_457[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_457[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_458, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[228].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -16367,14 +16367,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_457[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_458, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[228].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -16384,16 +16384,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_457[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[228].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -16402,7 +16402,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[228].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -16413,22 +16413,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_457[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[228].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[228].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -16438,14 +16438,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[228].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[228].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -16455,14 +16455,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[228].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[228].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -16472,39 +16472,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_457[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[228].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[228].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_457[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[228].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[228].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -16512,19 +16512,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_457[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_458, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[228].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_457[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_457[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_457[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_457[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -16618,7 +16618,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[228].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -16629,25 +16629,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_457[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_457[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[228].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_457[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_457[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_458, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -16682,7 +16682,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[228].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -16690,12 +16690,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_457[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_457[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_458, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -16730,7 +16730,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[228].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -16738,12 +16738,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_457[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_457[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_457[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_457[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_458, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -16779,7 +16779,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[228].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -16791,14 +16791,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_459[1]);
                  if (Convert.ToInt32(parameter7_4byte1_459[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_459[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_460, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[229].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -16808,14 +16808,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_459[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_460, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[229].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -16825,16 +16825,15 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_459[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[229].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -16843,7 +16842,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[229].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -16854,22 +16853,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_459[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[229].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[229].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -16879,14 +16878,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[229].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[229].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -16896,14 +16895,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[229].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[229].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -16913,39 +16912,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_459[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[229].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[229].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_459[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                 SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[0]) >> 4);                 //속도번호  hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+              BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[229].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[229].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -16953,19 +16952,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_459[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_460, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[229].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_459[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_459[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_459[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_459[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -17059,7 +17058,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[229].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -17070,25 +17069,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_459[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_459[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[229].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_459[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_459[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_460, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -17123,7 +17122,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[229].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -17131,12 +17130,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_459[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_459[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_460, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -17171,7 +17170,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[229].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -17179,12 +17178,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_459[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_459[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_459[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_459[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_460, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -17220,7 +17219,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[229].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -17232,14 +17231,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_461[1]);
                  if (Convert.ToInt32(parameter7_4byte1_461[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_461[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_462, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[230].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -17249,14 +17248,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_461[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_462, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[230].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -17266,16 +17265,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_461[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[230].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -17284,7 +17283,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[230].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -17295,22 +17294,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_461[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[230].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[230].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -17320,14 +17319,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[230].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[230].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -17337,14 +17336,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[230].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[230].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -17354,39 +17353,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_461[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[230].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[230].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_461[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[230].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[230].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -17394,19 +17393,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_461[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_462, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[230].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_461[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_461[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_461[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_461[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -17500,7 +17499,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[230].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -17511,25 +17510,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_461[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_461[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[230].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_461[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_461[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_462, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -17564,7 +17563,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[230].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -17572,12 +17571,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_461[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_461[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_462, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -17612,7 +17611,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[230].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -17620,12 +17619,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_461[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_461[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_461[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_461[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_462, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -17661,7 +17660,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[230].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -17673,14 +17672,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_463[1]);
                  if (Convert.ToInt32(parameter7_4byte1_463[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_463[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_464, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[231].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -17690,14 +17689,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_463[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_464, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[231].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -17707,16 +17706,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_463[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[231].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -17725,7 +17724,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[231].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -17736,22 +17735,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_463[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                 SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[0]) >> 4);                 //검출방법 hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+              BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[231].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[231].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -17761,14 +17760,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[231].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[231].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -17778,14 +17777,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[231].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[231].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -17795,39 +17794,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_463[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[231].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[231].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_463[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[231].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[231].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -17835,19 +17834,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_463[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_464, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[231].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_463[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_463[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_463[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_463[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -17941,7 +17940,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[231].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -17952,25 +17951,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_463[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_463[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[231].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_463[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_463[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_464, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -18005,7 +18004,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[231].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -18013,12 +18012,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_463[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_463[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_464, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -18053,7 +18052,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[231].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -18061,12 +18060,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_463[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_463[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_463[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_463[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_464, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -18102,7 +18101,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[231].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -18114,14 +18113,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_465[1]);
                  if (Convert.ToInt32(parameter7_4byte1_465[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_465[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_466, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[232].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -18131,14 +18130,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_465[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_466, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[232].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -18148,16 +18147,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_465[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[232].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -18166,7 +18165,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[232].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -18177,22 +18176,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_465[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[232].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[232].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -18202,14 +18201,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[232].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[232].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -18219,14 +18218,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[232].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[232].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -18236,39 +18235,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_465[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[232].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[232].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_465[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[232].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[232].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -18276,19 +18275,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_465[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_466, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[232].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_465[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_465[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_465[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_465[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -18382,7 +18381,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[232].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -18393,25 +18392,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_465[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_465[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[232].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_465[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_465[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_466, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -18446,7 +18445,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[232].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -18454,12 +18453,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_465[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_465[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_466, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -18494,7 +18493,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[232].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -18502,12 +18501,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_465[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_465[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_465[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_465[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_466, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -18543,7 +18542,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[232].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -18555,14 +18554,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_467[1]);
                  if (Convert.ToInt32(parameter7_4byte1_467[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_467[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_468, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[233].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -18572,14 +18571,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_467[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_468, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[233].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -18589,16 +18588,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_467[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[233].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -18607,7 +18606,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[233].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -18618,22 +18617,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_467[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[233].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[233].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -18643,14 +18642,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[233].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[233].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -18660,14 +18659,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[233].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[233].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -18677,39 +18676,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_467[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[233].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[233].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_467[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[233].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[233].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -18717,8 +18716,8 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_467[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_468, 0);                           //카운트 설정값 hiki7
 
                 BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
@@ -18726,10 +18725,10 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_467[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_467[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_467[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_467[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -18823,7 +18822,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[233].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -18834,25 +18833,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_467[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_467[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[233].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_467[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_467[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_468, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -18887,7 +18886,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[233].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -18895,12 +18894,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_467[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_467[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_468, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -18935,7 +18934,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[233].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -18943,12 +18942,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_467[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_467[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_467[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_467[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_468, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -18984,7 +18983,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[233].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -18996,14 +18995,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_469[1]);
                  if (Convert.ToInt32(parameter7_4byte1_469[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_469[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_470, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[234].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -19013,14 +19012,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_469[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_470, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[234].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -19030,16 +19029,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_469[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[234].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -19048,7 +19047,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[234].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -19059,22 +19058,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_469[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[234].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[234].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -19084,14 +19083,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[234].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[234].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -19101,14 +19100,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[234].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[234].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -19118,39 +19117,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_469[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[234].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[234].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_469[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[234].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[234].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -19158,19 +19157,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_469[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_470, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[234].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_469[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_469[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_469[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_469[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -19264,7 +19263,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[234].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -19275,25 +19274,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_469[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_469[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[234].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_469[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_469[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_470, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -19328,7 +19327,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[234].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -19336,12 +19335,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_469[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_469[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_470, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -19376,7 +19375,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[234].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -19384,12 +19383,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_469[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_469[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_469[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_469[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_470, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -19425,7 +19424,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[234].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -19437,14 +19436,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_471[1]);
                  if (Convert.ToInt32(parameter7_4byte1_471[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_471[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_472, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[235].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -19454,14 +19453,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_471[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_472, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[235].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -19471,16 +19470,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_471[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[235].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -19489,7 +19488,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[235].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -19500,22 +19499,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_471[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[235].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[235].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -19525,14 +19524,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[235].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[235].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -19542,14 +19541,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[235].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[235].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -19559,39 +19558,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_471[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[235].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[235].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_471[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[235].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[235].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -19599,19 +19598,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_471[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_472, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[235].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_471[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_471[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_471[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_471[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -19705,7 +19704,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[235].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -19716,25 +19715,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_471[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_471[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[235].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_471[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_471[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_472, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -19769,7 +19768,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[235].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -19777,12 +19776,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_471[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_471[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_472, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -19817,7 +19816,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[235].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -19825,12 +19824,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_471[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_471[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_471[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_471[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_472, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -19866,7 +19865,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[235].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -19878,14 +19877,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_473[1]);
                  if (Convert.ToInt32(parameter7_4byte1_473[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_473[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_474, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[236].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -19895,14 +19894,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_473[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_473[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_474, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[236].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -19912,16 +19911,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_473[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_473[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[236].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -19930,7 +19929,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[236].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -19941,22 +19940,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_473[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                  SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[0]) >> 4);                 //검출방법 hiki1
+                 Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_473[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+               BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[236].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[236].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -19966,14 +19965,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[236].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[236].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -19983,14 +19982,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[236].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[236].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -20000,39 +19999,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_473[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_474[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[236].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[236].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_473[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                   SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[0]) >> 4);                 //속도번호  hiki1
+                  Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_473[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[236].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[236].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -20040,19 +20039,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_473[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_474, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[236].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_473[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_473[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_473[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_473[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -20146,7 +20145,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[236].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -20157,25 +20156,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_473[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_473[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[236].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_473[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_473[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_474, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -20210,7 +20209,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[236].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -20218,12 +20217,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_473[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_473[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_474, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -20258,7 +20257,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[236].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -20266,12 +20265,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_473[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_473[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_473[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_473[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_474, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -20307,7 +20306,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[236].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -20319,14 +20318,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_475[1]);
                  if (Convert.ToInt32(parameter7_4byte1_475[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_475[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_476, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[237].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -20336,14 +20335,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_475[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_476, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[237].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -20353,16 +20352,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_475[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[237].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -20371,7 +20370,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[237].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -20382,22 +20381,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_475[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[237].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[237].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -20407,14 +20406,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[237].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[237].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -20424,14 +20423,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[237].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[237].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -20441,39 +20440,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_475[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[237].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[237].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_475[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[237].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[237].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -20481,19 +20480,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_475[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_476, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[237].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_475[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_475[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_475[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_475[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -20587,7 +20586,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[237].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -20598,25 +20597,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_475[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_475[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[237].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_475[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_475[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_476, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -20651,7 +20650,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[237].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -20659,12 +20658,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_475[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_475[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_476, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -20699,7 +20698,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[237].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -20707,12 +20706,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_475[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_475[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_475[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_475[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_476, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -20748,7 +20747,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[237].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -20760,14 +20759,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_477[1]);
                  if (Convert.ToInt32(parameter7_4byte1_477[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_477[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_478, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[238].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -20777,14 +20776,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_477[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_478, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[238].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -20794,16 +20793,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_477[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[238].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -20812,7 +20811,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[238].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -20823,22 +20822,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_477[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[238].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[238].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -20848,14 +20847,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[238].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[238].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -20865,14 +20864,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[238].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[238].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -20882,39 +20881,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_477[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[238].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[238].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_477[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                   SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[0]) >> 4);                 //속도번호  hiki1
+                  Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[238].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[238].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -20922,19 +20921,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_477[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_478, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[238].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_477[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_477[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_477[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_477[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -21028,7 +21027,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[238].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -21039,25 +21038,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_477[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_477[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[238].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_477[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_477[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_478, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -21092,7 +21091,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[238].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -21100,12 +21099,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_477[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_477[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_478, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -21140,7 +21139,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[238].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -21148,12 +21147,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_477[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_477[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_477[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_477[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_478, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -21189,7 +21188,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[238].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -21201,14 +21200,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_479[1]);
                  if (Convert.ToInt32(parameter7_4byte1_479[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_479[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_480, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[239].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -21218,14 +21217,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_479[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_480, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[239].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -21235,16 +21234,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_479[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[239].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -21253,7 +21252,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[239].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -21264,22 +21263,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_479[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[239].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[239].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -21289,14 +21288,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[239].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[239].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -21306,14 +21305,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[239].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[239].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -21323,39 +21322,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_479[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[239].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[239].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_479[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[239].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[239].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -21363,19 +21362,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_479[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_480, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[239].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_479[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_479[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_479[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_479[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -21469,7 +21468,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[239].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -21480,25 +21479,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_479[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_479[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[239].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_479[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_479[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_480, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -21533,7 +21532,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[239].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -21541,12 +21540,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_479[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_479[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_480, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -21581,7 +21580,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[239].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -21589,12 +21588,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_479[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_479[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_479[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_479[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_480, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -21630,7 +21629,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[239].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -21642,14 +21641,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_481[1]);
                  if (Convert.ToInt32(parameter7_4byte1_481[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_481[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_482, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[240].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -21659,14 +21658,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_481[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_482, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[240].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -21676,16 +21675,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_481[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[240].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -21694,7 +21693,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[240].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -21705,22 +21704,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_481[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[240].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[240].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -21730,14 +21729,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[240].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[240].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -21747,14 +21746,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[240].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[240].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -21764,39 +21763,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_481[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[240].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[240].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_481[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                 SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[0]) >> 4);                 //속도번호  hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+              BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[240].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[240].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -21804,19 +21803,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_481[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_482, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[240].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_481[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_481[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_481[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_481[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -21910,7 +21909,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[240].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -21921,25 +21920,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_481[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_481[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[240].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_481[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_481[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_482, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -21974,7 +21973,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[240].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -21982,12 +21981,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_481[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_481[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_482, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -22022,7 +22021,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[240].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -22030,12 +22029,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_481[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_481[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_481[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_481[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_482, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -22071,7 +22070,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[240].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -22083,14 +22082,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_483[1]);
                  if (Convert.ToInt32(parameter7_4byte1_483[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_483[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_484, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[241].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -22100,14 +22099,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_483[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_484, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[241].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -22117,16 +22116,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_483[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[241].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -22135,7 +22134,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[241].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -22146,22 +22145,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_483[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[241].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[241].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -22171,14 +22170,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[241].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[241].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -22188,14 +22187,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[241].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[241].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -22205,39 +22204,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_483[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[241].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[241].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_483[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[241].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[241].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -22245,19 +22244,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_483[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_484, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[241].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_483[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_483[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_483[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_483[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -22351,7 +22350,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[241].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -22362,25 +22361,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_483[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_483[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[241].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_483[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_483[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_484, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -22415,7 +22414,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[241].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -22423,12 +22422,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_483[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_483[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_484, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -22463,7 +22462,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[241].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -22471,12 +22470,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_483[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_483[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_483[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_483[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_484, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -22512,7 +22511,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[241].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -22524,14 +22523,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_485[1]);
                  if (Convert.ToInt32(parameter7_4byte1_485[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_485[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_486, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[242].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -22541,14 +22540,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_485[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_486, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[242].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -22558,16 +22557,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_485[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[242].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -22576,7 +22575,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[242].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -22587,22 +22586,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_485[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[242].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[242].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -22612,14 +22611,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[242].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[242].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -22629,14 +22628,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[242].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[242].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -22646,39 +22645,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_485[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[242].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[242].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_485[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[242].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[242].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -22686,19 +22685,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_485[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_486, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[242].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_485[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_485[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_485[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_485[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -22792,7 +22791,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[242].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -22803,25 +22802,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_485[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_485[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[242].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_485[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_485[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_486, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -22856,7 +22855,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[242].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -22864,12 +22863,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_485[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_485[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_486, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -22904,7 +22903,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[242].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -22912,12 +22911,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_485[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_485[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_485[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_485[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_486, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -22953,7 +22952,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[242].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -22965,14 +22964,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_487[1]);
                  if (Convert.ToInt32(parameter7_4byte1_487[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_487[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_488, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[243].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -22982,14 +22981,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_487[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_488, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[243].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -22999,16 +22998,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_487[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[243].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -23017,7 +23016,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[243].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -23028,22 +23027,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_487[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[243].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[243].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -23053,14 +23052,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[243].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[243].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -23070,14 +23069,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[243].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[243].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -23087,39 +23086,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_487[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[243].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[243].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_487[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[243].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[243].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -23127,19 +23126,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_487[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_488, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[243].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_487[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_487[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_487[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_487[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -23233,7 +23232,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[243].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -23244,25 +23243,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_487[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_487[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[243].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_487[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_487[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_488, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -23297,7 +23296,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[243].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -23305,12 +23304,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_487[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_487[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_488, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -23345,7 +23344,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[243].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -23353,12 +23352,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_487[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_487[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_487[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_487[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_488, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -23394,7 +23393,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[243].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -23406,14 +23405,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_489[1]);
                  if (Convert.ToInt32(parameter7_4byte1_489[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_489[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_490, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[244].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -23423,14 +23422,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_489[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_490, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[244].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -23440,16 +23439,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_489[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[244].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -23458,7 +23457,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[244].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -23469,22 +23468,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_489[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[244].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[244].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -23494,14 +23493,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[244].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[244].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -23511,14 +23510,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[244].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[244].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -23528,39 +23527,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_489[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[244].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[244].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_489[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[244].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[244].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -23568,19 +23567,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_489[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_490, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[244].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_489[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_489[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_489[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_489[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -23674,7 +23673,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[244].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -23685,25 +23684,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_489[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_489[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[244].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_489[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_489[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_490, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -23738,7 +23737,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[244].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -23746,12 +23745,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_489[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_489[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_490, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -23786,7 +23785,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[244].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -23794,12 +23793,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_489[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_489[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_489[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_489[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_490, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -23835,7 +23834,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[244].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -23847,14 +23846,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_491[1]);
                  if (Convert.ToInt32(parameter7_4byte1_491[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_491[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_492, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[245].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -23864,14 +23863,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_491[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_492, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[245].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -23881,16 +23880,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_491[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[245].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -23899,7 +23898,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[245].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -23910,22 +23909,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_491[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[245].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[245].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -23935,14 +23934,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[245].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[245].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -23952,14 +23951,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[245].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[245].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -23969,39 +23968,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_491[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[245].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[245].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_491[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                  SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[0]) >> 4);                 //속도번호  hiki1
+                 Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+               BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[245].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[245].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -24009,19 +24008,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_491[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_492, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[245].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_491[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_491[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_491[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_491[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -24115,7 +24114,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[245].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -24126,25 +24125,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_491[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_491[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[245].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_491[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_491[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_492, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -24179,7 +24178,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[245].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -24187,12 +24186,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_491[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_491[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_492, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -24227,7 +24226,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[245].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -24235,12 +24234,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_491[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_491[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_491[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_491[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_492, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -24276,7 +24275,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[245].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -24288,14 +24287,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_493[1]);
                  if (Convert.ToInt32(parameter7_4byte1_493[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_493[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_494, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[246].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -24305,14 +24304,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_493[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_494, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[246].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -24322,16 +24321,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_493[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[246].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -24340,7 +24339,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[246].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -24351,22 +24350,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_493[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[246].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[246].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -24376,14 +24375,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[246].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[246].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -24393,14 +24392,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[246].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[246].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -24410,39 +24409,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_493[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[246].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[246].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_493[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                 SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[0]) >> 4);                 //속도번호  hiki1
+                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+              BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[246].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[246].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -24450,19 +24449,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_493[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_494, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[246].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_493[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_493[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_493[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_493[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -24556,7 +24555,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[246].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -24567,25 +24566,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_493[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_493[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[246].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_493[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_493[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_494, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -24620,7 +24619,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[246].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -24628,12 +24627,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_493[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_493[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_494, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -24668,7 +24667,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[246].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -24676,12 +24675,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_493[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_493[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_493[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_493[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_494, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -24717,7 +24716,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[246].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -24729,14 +24728,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_495[1]);
                  if (Convert.ToInt32(parameter7_4byte1_495[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_495[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_496, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[247].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -24746,14 +24745,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_495[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_496, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[247].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -24763,16 +24762,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_495[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[247].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -24781,7 +24780,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[247].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -24792,22 +24791,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_495[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[247].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[247].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -24817,14 +24816,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[247].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[247].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -24834,14 +24833,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[247].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[247].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -24851,39 +24850,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_495[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[247].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[247].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_495[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[247].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[247].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -24891,19 +24890,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_495[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_496, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[247].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_495[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_495[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_495[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_495[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -24997,7 +24996,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[247].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -25008,25 +25007,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_495[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_495[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[247].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_495[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_495[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_496, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -25061,7 +25060,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[247].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -25069,12 +25068,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_495[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_495[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_496, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -25109,7 +25108,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[247].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -25117,12 +25116,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_495[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_495[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_495[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_495[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_496, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -25158,7 +25157,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[247].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -25170,14 +25169,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_497[1]);
                  if (Convert.ToInt32(parameter7_4byte1_497[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_497[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_498, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[248].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -25187,14 +25186,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_497[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_498, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[248].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -25204,16 +25203,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_497[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[248].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -25222,7 +25221,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[248].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -25233,22 +25232,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_497[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[248].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[248].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -25258,14 +25257,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[248].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[248].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -25275,14 +25274,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[248].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[248].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -25292,39 +25291,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_497[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[248].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[248].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_497[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[248].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[248].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -25332,19 +25331,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_497[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_498, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[248].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_497[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_497[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_497[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_497[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -25438,7 +25437,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[248].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -25449,25 +25448,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_497[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_497[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[248].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_497[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_497[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_498, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -25502,7 +25501,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[248].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -25510,12 +25509,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_497[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_497[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_498, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -25550,7 +25549,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[248].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -25558,12 +25557,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_497[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_497[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_497[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_497[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_498, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -25599,7 +25598,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[248].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -25611,14 +25610,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_499[1]);
                  if (Convert.ToInt32(parameter7_4byte1_499[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_499[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_500, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[249].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -25628,14 +25627,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_499[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_500, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[249].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -25645,16 +25644,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_499[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[249].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -25663,7 +25662,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[249].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -25674,22 +25673,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_499[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[249].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[249].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -25699,14 +25698,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[249].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[249].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -25716,14 +25715,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[249].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[249].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -25733,39 +25732,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_499[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[249].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[249].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_499[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[249].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[249].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -25773,19 +25772,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_499[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_500, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[249].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_499[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_499[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_499[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_499[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -25879,7 +25878,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[249].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -25890,25 +25889,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_499[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_499[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[249].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_499[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_499[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_500, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -25943,7 +25942,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[249].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -25951,12 +25950,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_499[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_499[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_500, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -25991,7 +25990,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[249].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -25999,12 +25998,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_499[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_499[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_499[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_499[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_500, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -26040,7 +26039,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[249].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -26052,14 +26051,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_501[1]);
                  if (Convert.ToInt32(parameter7_4byte1_501[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_501[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_502, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[250].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -26069,14 +26068,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_501[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_502, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[250].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -26086,16 +26085,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_501[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[250].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -26104,7 +26103,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[250].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -26115,22 +26114,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_501[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[250].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[250].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -26140,14 +26139,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[250].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[250].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -26157,14 +26156,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[250].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[250].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -26174,39 +26173,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_501[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[250].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[250].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_501[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[250].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[250].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -26214,19 +26213,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_501[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_502, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[250].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_501[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_501[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_501[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_501[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -26320,7 +26319,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[250].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -26331,25 +26330,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_501[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_501[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[250].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_501[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_501[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_502, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -26384,7 +26383,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[250].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -26392,12 +26391,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_501[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_501[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_502, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -26432,7 +26431,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[250].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -26440,12 +26439,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_501[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_501[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_501[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_501[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_502, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -26481,7 +26480,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[250].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -26493,14 +26492,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_503[1]);
                  if (Convert.ToInt32(parameter7_4byte1_503[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_503[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_504, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[251].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -26510,14 +26509,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_503[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_504, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[251].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -26527,16 +26526,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_503[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[251].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -26545,7 +26544,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[251].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -26556,22 +26555,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_503[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[251].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[251].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -26581,14 +26580,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[251].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[251].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -26598,14 +26597,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[251].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[251].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -26615,39 +26614,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_503[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[251].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[251].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_503[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[251].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[251].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -26655,19 +26654,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_503[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_0011);       //천이조건 hiki5
+                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_504, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[251].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_503[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_503[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_503[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_503[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -26761,7 +26760,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[251].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -26772,25 +26771,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_503[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_503[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[251].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_503[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_503[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_504, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -26825,7 +26824,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[251].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -26833,12 +26832,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_503[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_503[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_504, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -26873,7 +26872,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[251].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -26881,12 +26880,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_503[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_503[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_503[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_503[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_504, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -26922,7 +26921,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[251].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -26934,14 +26933,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_505[1]);
                  if (Convert.ToInt32(parameter7_4byte1_505[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_505[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_506, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[252].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -26951,14 +26950,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_505[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_506, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[252].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -26968,16 +26967,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_505[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[252].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -26986,7 +26985,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[252].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -26997,22 +26996,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_505[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[252].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[252].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -27022,14 +27021,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[252].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[252].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -27039,14 +27038,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[252].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[252].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -27056,39 +27055,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_505[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[252].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[252].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_505[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[252].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[252].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -27096,19 +27095,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_505[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_506, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[252].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_505[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_505[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_505[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_505[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -27202,7 +27201,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[252].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -27213,25 +27212,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_505[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_505[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[252].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_505[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_505[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_506, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -27266,7 +27265,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[252].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -27274,12 +27273,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_505[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_505[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_506, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -27314,7 +27313,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[252].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -27322,12 +27321,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_505[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_505[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_505[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_505[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_506, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -27363,7 +27362,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[252].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -27375,14 +27374,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_507[1]);
                  if (Convert.ToInt32(parameter7_4byte1_507[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_507[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_508, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[253].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -27392,14 +27391,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_507[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_508, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[253].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -27409,16 +27408,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_507[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[253].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -27427,7 +27426,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[253].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -27438,22 +27437,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_507[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[253].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[253].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -27463,14 +27462,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[253].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[253].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -27480,14 +27479,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[253].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[253].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -27497,39 +27496,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_507[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[253].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[253].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_507[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[253].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[253].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -27537,19 +27536,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_507[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_508, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[253].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_507[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_507[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_507[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_507[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -27643,7 +27642,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[253].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -27654,25 +27653,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_507[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_507[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[253].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_507[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_507[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_508, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -27707,7 +27706,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[253].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -27715,12 +27714,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_507[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_507[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_508, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -27755,7 +27754,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[253].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -27763,12 +27762,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_507[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_507[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_507[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_507[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_508, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -27804,7 +27803,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[253].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -27816,14 +27815,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_509[1]);
                  if (Convert.ToInt32(parameter7_4byte1_509[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_509[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_510, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[254].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -27833,14 +27832,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_509[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_510, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[254].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -27850,16 +27849,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_509[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[254].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -27868,7 +27867,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[254].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -27879,22 +27878,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_509[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[254].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[254].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -27904,14 +27903,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[254].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[254].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -27921,14 +27920,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[254].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[254].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -27938,39 +27937,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_509[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+               StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[0]) >> 4);                 //정지방법 hiki1
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[254].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[254].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_509[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[254].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[254].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -27978,19 +27977,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_509[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_510, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[254].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_509[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_509[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_509[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_509[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -28084,7 +28083,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[254].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -28095,25 +28094,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_509[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_509[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[254].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_509[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_509[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_510, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -28148,7 +28147,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[254].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -28156,12 +28155,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_509[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_509[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_510, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -28196,7 +28195,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[254].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -28204,12 +28203,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_509[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_509[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_509[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_509[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_510, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -28245,7 +28244,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[254].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -28257,14 +28256,14 @@ namespace MINASA6SF_Rev.ViewModels
            cmdCode = Convert.ToInt32(parameter7_4byte1_511[1]);
                  if (Convert.ToInt32(parameter7_4byte1_511[1]) == 1)                                       //상대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);           //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_0011);//천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                    //블록데이터 구성
+                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[0]) >> 4);           //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[0]) & 0b_0000_1111); //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[3]) >> 4);           //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_511[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[3]) & 0b_0000_0011);//천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_512, 0);                    //블록데이터 구성
 
-                BlockParaModel1s[190].BlockData = "상대위치결정" +
+                BlockParaModel1s[255].BlockData = "상대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -28274,14 +28273,14 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_511[1]) == 2)                                        //절대위치결정
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호  hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호  hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[0]) >> 4);                 //속도번호  hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[0]) & 0b_0000_1111);       //가속번호  hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[3]) >> 4);                 //감속번호  hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_1111) >> 2);//방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_0011);       //천이조건  hiki5
+            TargetPosition = BitConverter.ToInt32(parameter7_4byte1_512, 0);
 
-                BlockParaModel1s[190].BlockData = "절대위치결정" +
+                BlockParaModel1s[255].BlockData = "절대위치결정" +
                     ", 속도번호:V" + SpdNum.ToString() +
                     ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
@@ -28291,16 +28290,16 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_511[1]) == 3)                                       //JOG운전
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호 hiki1
-                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) & 0b_0000_1111);       //가속번호 hiki2
-                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) >> 4);                 //감속번호 hiki3
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[0]) >> 4);                 //속도번호 hiki1
+                AccNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[0]) & 0b_0000_1111);       //가속번호 hiki2
+                Decnum = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[3]) >> 4);                 //감속번호 hiki3
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[255].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -28309,7 +28308,7 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "JOG" +
+                    BlockParaModel1s[255].BlockData = "JOG" +
                    ", 속도번호:V" + SpdNum.ToString() +
                    ", 가속설정번호:A" + AccNum.ToString() +
                    ", 감속설정번호:D" + Decnum.ToString() +
@@ -28320,22 +28319,22 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_511[1]) == 4)                                      //원점복귀
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //검출방법 hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//방향     hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[0]) >> 4);                 //검출방법 hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_1111) >> 2);//방향     hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_0011);       //천이조건 hiki5
 
                 if (SpdNum == 1)
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[255].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[255].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME+Z상" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -28345,14 +28344,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[255].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[255].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:HOME" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -28362,14 +28361,14 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     if (Movidr == 0)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[255].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:정방향" +
                         ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
-                        BlockParaModel1s[190].BlockData = "원점복귀" +
+                        BlockParaModel1s[255].BlockData = "원점복귀" +
                         ", 원점 복귀 방법:제조사 사용" +
                         ", 복귀방향:부방향" +
                         ", 천이조건:" + BlockChif.ToString();
@@ -28379,39 +28378,39 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_511[1]) == 5)                                       //감속정지
             {
-                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //정지방법 hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
+                StopMethod = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[0]) >> 4);                 //정지방법 hiki1
+                 BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_0011);       //천이조건 hiki5
 
 
                 if (StopMethod == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[255].BlockData = "감속정지" +
                     ", 정지방법:감속정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "감속정지" +
+                    BlockParaModel1s[255].BlockData = "감속정지" +
                     ", 정지방법:즉시정지" +
                    ", 천이조건:" + BlockChif.ToString();
                 }
             }
             else if (Convert.ToInt32(parameter7_4byte1_511[1]) == 6)                                       //속도갱신
             {
-                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[0]) >> 4);                 //속도번호  hiki1
-                Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건  hiki5
+                SpdNum = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[0]) >> 4);                 //속도번호  hiki1
+               Movidr = (UInt16)((Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_1111) >> 2);//동작방향  hiki4
+             BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_0011);       //천이조건  hiki5
 
                 if (Movidr == 0)
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[255].BlockData = "속도갱신" +
                        ", 속도번호:V" + SpdNum.ToString() +
                       ", JOG방향:정방향" +
                       ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    BlockParaModel1s[190].BlockData = "속도갱신" +
+                    BlockParaModel1s[255].BlockData = "속도갱신" +
                       ", 속도번호:V" + SpdNum.ToString() +
                      ", JOG방향:부방향" +
                      ", 천이조건:" + BlockChif.ToString();
@@ -28419,19 +28418,19 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_511[1]) == 7)                                       //디크리멘트 카운트 기동
             {
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                           //카운트 설정값 hiki7
+                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_0011);       //천이조건 hiki5
+               TargetPosition = BitConverter.ToInt32(parameter7_4byte1_512, 0);                           //카운트 설정값 hiki7
 
-                BlockParaModel1s[190].BlockData = "디크리멘트 카운터 기동" +
+                BlockParaModel1s[255].BlockData = "디크리멘트 카운터 기동" +
                      ", 천이조건:" + BlockChif.ToString() +
                      ", 카운터 설정지[1ms]:" + TargetPosition.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_511[1]) == 8)                                       //출력신호조작            
             {
-                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_381[0]) >> 4);                       //hiki1
-                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_381[0]) & 0b_0000_1111);             //hiki2
-                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_381[3]) >> 4);                       //hiki3
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);       //천이 조건hiki5
+                b_CTRL1_2 = (Convert.ToUInt16(parameter7_4byte1_511[0]) >> 4);                       //hiki1
+                b_CTRL3_4 = (Convert.ToUInt16(parameter7_4byte1_511[0]) & 0b_0000_1111);             //hiki2
+                b_CTRL5_6 = (Convert.ToUInt16(parameter7_4byte1_511[3]) >> 4);                       //hiki3
+         BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_0011);       //천이 조건hiki5
 
                 OutPutsignalcombo1 = (int)(((b_CTRL1_2) & 0b_1100) >> 2);
                 OutPutsignalcombo2 = (int)((b_CTRL1_2) & 0b_0011);
@@ -28525,7 +28524,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "출력신호조작" +
+                BlockParaModel1s[255].BlockData = "출력신호조작" +
                 ", B-CTRL1:" + bctrl1 +
                 ", B-CTRL2:" + bctrl2 +
                 ", B-CTRL3:" + bctrl3 +
@@ -28536,25 +28535,25 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_511[1]) == 9)                                       //점프
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  //   hiki4
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);          //천이조건 hiki5
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_511[3]) & 0b_0000_1111) >> 2);  //   hiki4
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_0011);          //천이조건 hiki5
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
-                BlockParaModel1s[190].BlockData = "점프" +
+                BlockParaModel1s[255].BlockData = "점프" +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString();
             }
             else if (Convert.ToInt32(parameter7_4byte1_511[1]) == 10)      // 조건분기(=)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_511[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_512, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -28589,7 +28588,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(=)" +
+                BlockParaModel1s[255].BlockData = "조건분기(=)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -28597,12 +28596,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_511[1]) == 11)      // 조건분기(>)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4   
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_511[3]) & 0b_0000_1111) >> 2);  // hiki4   
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[0]) >> 4);                      // 비교대상  hiki1
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_0011);      //천이조건 hiki5
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_512, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
                 string comp = "";
@@ -28637,7 +28636,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(>)" +
+                BlockParaModel1s[255].BlockData = "조건분기(>)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
@@ -28645,12 +28644,12 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (Convert.ToInt32(parameter7_4byte1_511[1]) == 12)      // 조건분기(<)
             {
-                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) & 0b_0000_1111); // hiki2
-                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[3]) >> 4);           // hiki3
-                ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_381[3]) & 0b_0000_1111) >> 2);  // hiki4
-                SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_381[0]) >> 4);                      // 비교대상  hiki1              
-                BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_381[3]) & 0b_0000_0011);      //천이조건 hiki5   
-                TargetPosition = BitConverter.ToInt32(parameter7_4byte1_382, 0);                     //비교값   hiki7
+                ushort hiki2local = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[0]) & 0b_0000_1111); // hiki2
+                ushort hiki3local = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[3]) >> 4);           // hiki3
+               ushort hiki4local = (UInt16)((Convert.ToInt16(parameter7_4byte1_511[3]) & 0b_0000_1111) >> 2);  // hiki4
+                           SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_511[0]) >> 4);                      // 비교대상  hiki1              
+                        BlockChif = (UInt16)(Convert.ToInt32(parameter7_4byte1_511[3]) & 0b_0000_0011);      //천이조건 hiki5   
+                       TargetPosition = BitConverter.ToInt32(parameter7_4byte1_512, 0);                     //비교값   hiki7
 
                 JumpBlockNum = (ushort)((hiki2local << 6) + (hiki3local << 2) + hiki4local);
 
@@ -28686,7 +28685,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                 }
 
-                BlockParaModel1s[190].BlockData = "조건분기(<)" +
+                BlockParaModel1s[255].BlockData = "조건분기(<)" +
                 ", 비교대상:" + comp +
                 ", 블록번호:" + JumpBlockNum.ToString() +
                 ", 천이조건:" + BlockChif.ToString() +
