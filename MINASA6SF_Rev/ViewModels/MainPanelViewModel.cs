@@ -31,7 +31,8 @@ namespace MINASA6SF_Rev.ViewModels
 {
     public partial class MainPanelViewModel : ViewModelBase, IWindowService
     {
-        public BackgroundWorker worker2 = new BackgroundWorker(); //블럭 파라미터 송신 
+        public BackgroundWorker worker2 = new BackgroundWorker(); //블럭 동작편집 파라미터 송신 
+        public BackgroundWorker worker3 = new BackgroundWorker(); //블럭 매개변수 파라미터 송신 
         private readonly object balanceLock = new object();
         public BackgroundWorker worker1 = new BackgroundWorker();
 
@@ -39,7 +40,8 @@ namespace MINASA6SF_Rev.ViewModels
         Thread thread = new Thread(ModbusTCPConstructor);
 
        
-        partial void BlockParameterRec1(object sender, DoWorkEventArgs e);     
+        partial void BlockParameterRec1(object sender, DoWorkEventArgs e);
+        partial void BlockParameterRec11(object sender, DoWorkEventArgs e);
         partial void BlockParameterRec2();
         partial void BlockParameterRec3();
         partial void BlockParameterRec4();
@@ -2275,9 +2277,6 @@ namespace MINASA6SF_Rev.ViewModels
 
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadObjectViewModel();
-
-            worker2.WorkerReportsProgress = false;
-            worker2.WorkerSupportsCancellation = true;
 
             mirrtimer = new System.Timers.Timer(50);
 
@@ -19401,18 +19400,32 @@ namespace MINASA6SF_Rev.ViewModels
         #region 블럭 파라미터 수신, 송신, EEP버튼 커맨드 함수
         //블럭 파라미터 수신,송신,EEP 커맨드
         private void ExecuteRecCommand(object parameter)
-        {
+        {           
+            if (blockpara.Tabcontrol.SelectedIndex == 0)
+            {
+                settings.Disconnect.IsEnabled = false;
+                worker2.WorkerSupportsCancellation = true;
+                worker2.WorkerReportsProgress = true;
+                worker2.DoWork += BlockParameterRec1;
+                worker2.RunWorkerCompleted += Worker2_RunWorkerCompleted;
+                worker2.RunWorkerAsync();   //  ->BlockParameterRec1
+                Debug.WriteLine("블럭 동작편집 수신버튼 누름");
 
-            settings.Disconnect.IsEnabled = false;
-            worker2.WorkerSupportsCancellation = true;
-            worker2.WorkerReportsProgress = true;
-            worker2.DoWork += BlockParameterRec1;
-            worker2.RunWorkerCompleted += Worker2_RunWorkerCompleted;
-            worker2.RunWorkerAsync();   //  ->BlockParameterRec1
-                       
-            //BlockParaModel1s[0].BlockData
-            //BlockParaModel2s[0].SettingValue = 33;            //Block속도 파라미터 값
-            Debug.WriteLine("수신버튼 테스트");
+
+
+            }
+            else
+            {
+                settings.Disconnect.IsEnabled = false;
+                worker3.WorkerSupportsCancellation = true;
+                worker3.WorkerReportsProgress = true;
+                worker3.DoWork += BlockParameterRec11;
+                worker3.RunWorkerCompleted += Worker3_RunWorkerCompleted;
+                worker3.RunWorkerAsync();   //  ->
+               
+                Debug.WriteLine("블럭 매개변수 수신버튼 누름");
+
+            }
         }
 
         //블럭 파라미터 수신 완료 후 실행되는 함수
@@ -19420,6 +19433,12 @@ namespace MINASA6SF_Rev.ViewModels
         {
             settings.Disconnect.IsEnabled = true;
         }
+
+        private void Worker3_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            settings.Disconnect.IsEnabled = true;
+        }
+
 
         private bool CanexecuteRecCommand(object parameter)
         {
