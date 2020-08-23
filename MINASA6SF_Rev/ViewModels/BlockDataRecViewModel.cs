@@ -35,12 +35,12 @@ namespace MINASA6SF_Rev.ViewModels
         partial void BlockParameterRec1(object sender, DoWorkEventArgs e)
         {
             mirrtimer.Stop();
-            Thread.Sleep(8000);
+            Thread.Sleep(10000);
             for (int i = 0; i < 256; i++)
             {
-                BlockParameterRec(i);
+                BlockActParameterRec(i);
                 Count += 1;
-                Debug.WriteLine(count.ToString());
+                Debug.WriteLine(Count.ToString());
 
                 if (worker2.CancellationPending == true)
                 {
@@ -52,7 +52,7 @@ namespace MINASA6SF_Rev.ViewModels
             Count = 0;
             mirrtimer.Start();
 
-            #region 블럭 파라미터 수신 변수 Reverse처리   //Array.Reverse(recValue1);
+            #region 블럭 동작 파라미터 수신 변수 Reverse처리   //Array.Reverse(recValue1);
             Array.Reverse(recValue1);
             Array.Reverse(recValue2);
             Array.Reverse(recValue3);
@@ -4097,13 +4097,156 @@ namespace MINASA6SF_Rev.ViewModels
             parameter7_4byte1_512[3] = parameter7_4byte512[1];
             #endregion
 
-
             BlockParameterRec2();
         }
 
         partial void BlockParameterRec11(object sender, DoWorkEventArgs e)
         {
-            //BlockParaModel2s[0].SettingValue = 33;            //Block속도 파라미터 값
+            mirrtimer.Stop();
+            Thread.Sleep(10000);
+            for (int i = 0; i < 48; i++)
+            {
+                BlockParameterRec(i);
+                Count += 5;
+                Debug.WriteLine(Count.ToString());
+
+                if (worker3.CancellationPending == true)
+                {
+                    e.Cancel = true;
+                    Debug.WriteLine("worker3.Cancel 실행");
+                    return;
+                }
+            }
+            Count = 0;
+            mirrtimer.Start();
+
+            #region 블럭 파라미터 수신 변수 Reverse처리   //Array.Reverse(BlockVelParameterSetting1);
+            Array.Reverse(BlockVelParameterSetting1);
+            Array.Reverse(BlockVelParameterSetting2);
+            Array.Reverse(BlockVelParameterSetting3);
+            Array.Reverse(BlockVelParameterSetting4);
+            Array.Reverse(BlockVelParameterSetting5);
+            Array.Reverse(BlockVelParameterSetting6);
+            Array.Reverse(BlockVelParameterSetting7);
+            Array.Reverse(BlockVelParameterSetting8);
+            Array.Reverse(BlockVelParameterSetting9);
+            Array.Reverse(BlockVelParameterSetting10);
+            Array.Reverse(BlockVelParameterSetting11);
+            Array.Reverse(BlockVelParameterSetting12);
+            Array.Reverse(BlockVelParameterSetting13);
+            Array.Reverse(BlockVelParameterSetting14);
+            Array.Reverse(BlockVelParameterSetting15);
+            Array.Reverse(BlockVelParameterSetting16);
+            Array.Reverse(BlockAccParameterSetting1);
+            Array.Reverse(BlockAccParameterSetting2);
+            Array.Reverse(BlockAccParameterSetting3);
+            Array.Reverse(BlockAccParameterSetting4);
+            Array.Reverse(BlockAccParameterSetting5);
+            Array.Reverse(BlockAccParameterSetting6);
+            Array.Reverse(BlockAccParameterSetting7);
+            Array.Reverse(BlockAccParameterSetting8);
+            Array.Reverse(BlockAccParameterSetting9);
+            Array.Reverse(BlockAccParameterSetting10);
+            Array.Reverse(BlockAccParameterSetting11);
+            Array.Reverse(BlockAccParameterSetting12);
+            Array.Reverse(BlockAccParameterSetting13);
+            Array.Reverse(BlockAccParameterSetting14);
+            Array.Reverse(BlockAccParameterSetting15);
+            Array.Reverse(BlockAccParameterSetting16);
+            Array.Reverse(BlockDecParameterSetting1);
+            Array.Reverse(BlockDecParameterSetting2);
+            Array.Reverse(BlockDecParameterSetting3);
+            Array.Reverse(BlockDecParameterSetting4);
+            Array.Reverse(BlockDecParameterSetting5);
+            Array.Reverse(BlockDecParameterSetting6);
+            Array.Reverse(BlockDecParameterSetting7);
+            Array.Reverse(BlockDecParameterSetting8);
+            Array.Reverse(BlockDecParameterSetting9);
+            Array.Reverse(BlockDecParameterSetting10);
+            Array.Reverse(BlockDecParameterSetting11);
+            Array.Reverse(BlockDecParameterSetting12);
+            Array.Reverse(BlockDecParameterSetting13);
+            Array.Reverse(BlockDecParameterSetting14);
+            Array.Reverse(BlockDecParameterSetting15);
+            Array.Reverse(BlockDecParameterSetting16);
+            #endregion
+
+            #region 블럭 파라미터 수신 데이터 변수에 할당   // Array.Copy(BlockVelParameterSetting1, 0, BlockVelAccDelPara_Temp1, 0, 2);
+            Array.Copy(BlockVelParameterSetting1, 0, BlockVelAccDelPara_Temp1, 0, 2);
+            Array.Copy(BlockVelParameterSetting2, 0, BlockVelAccDelPara_Temp2, 0, 2);
+            Array.Copy(BlockVelParameterSetting3, 0, BlockVelAccDelPara_Temp3, 0, 2);
+            Array.Copy(BlockVelParameterSetting4, 0, BlockVelAccDelPara_Temp4, 0, 2);
+            Array.Copy(BlockVelParameterSetting5, 0, BlockVelAccDelPara_Temp5, 0, 2);
+            Array.Copy(BlockVelParameterSetting6, 0, BlockVelAccDelPara_Temp6, 0, 2);
+            Array.Copy(BlockVelParameterSetting7, 0, BlockVelAccDelPara_Temp7, 0, 2);
+            Array.Copy(BlockVelParameterSetting8, 0, BlockVelAccDelPara_Temp8, 0, 2);
+            Array.Copy(BlockVelParameterSetting9, 0, BlockVelAccDelPara_Temp9, 0, 2);
+            Array.Copy(BlockVelParameterSetting10, 0, BlockVelAccDelPara_Temp10, 0, 2);
+            Array.Copy(BlockVelParameterSetting11, 0, BlockVelAccDelPara_Temp11, 0, 2);
+            Array.Copy(BlockVelParameterSetting12, 0, BlockVelAccDelPara_Temp12, 0, 2);
+            Array.Copy(BlockVelParameterSetting13, 0, BlockVelAccDelPara_Temp13, 0, 2);
+            Array.Copy(BlockVelParameterSetting14, 0, BlockVelAccDelPara_Temp14, 0, 2);
+            Array.Copy(BlockVelParameterSetting15, 0, BlockVelAccDelPara_Temp15, 0, 2);
+            Array.Copy(BlockVelParameterSetting16, 0, BlockVelAccDelPara_Temp16, 0, 2);
+            Array.Copy(BlockAccParameterSetting1, 0, BlockVelAccDelPara_Temp17, 0, 2);
+            Array.Copy(BlockAccParameterSetting2, 0, BlockVelAccDelPara_Temp18, 0, 2);
+            Array.Copy(BlockAccParameterSetting3, 0, BlockVelAccDelPara_Temp19, 0, 2);
+            Array.Copy(BlockAccParameterSetting4, 0, BlockVelAccDelPara_Temp20, 0, 2);
+            Array.Copy(BlockAccParameterSetting5, 0, BlockVelAccDelPara_Temp21, 0, 2);
+            Array.Copy(BlockAccParameterSetting6, 0, BlockVelAccDelPara_Temp22, 0, 2);
+            Array.Copy(BlockAccParameterSetting7, 0, BlockVelAccDelPara_Temp23, 0, 2);
+            Array.Copy(BlockAccParameterSetting8, 0, BlockVelAccDelPara_Temp24, 0, 2);
+            Array.Copy(BlockAccParameterSetting9, 0, BlockVelAccDelPara_Temp25, 0, 2);
+            Array.Copy(BlockAccParameterSetting10, 0, BlockVelAccDelPara_Temp26, 0, 2);
+            Array.Copy(BlockAccParameterSetting11, 0, BlockVelAccDelPara_Temp27, 0, 2);
+            Array.Copy(BlockAccParameterSetting12, 0, BlockVelAccDelPara_Temp28, 0, 2);
+            Array.Copy(BlockAccParameterSetting13, 0, BlockVelAccDelPara_Temp29, 0, 2);
+            Array.Copy(BlockAccParameterSetting14, 0, BlockVelAccDelPara_Temp30, 0, 2);
+            Array.Copy(BlockAccParameterSetting15, 0, BlockVelAccDelPara_Temp31, 0, 2);
+            Array.Copy(BlockAccParameterSetting16, 0, BlockVelAccDelPara_Temp32, 0, 2);
+            Array.Copy(BlockDecParameterSetting1, 0, BlockVelAccDelPara_Temp33, 0, 2);
+            Array.Copy(BlockDecParameterSetting2, 0, BlockVelAccDelPara_Temp34, 0, 2);
+            Array.Copy(BlockDecParameterSetting3, 0, BlockVelAccDelPara_Temp35, 0, 2);
+            Array.Copy(BlockDecParameterSetting4, 0, BlockVelAccDelPara_Temp36, 0, 2);
+            Array.Copy(BlockDecParameterSetting5, 0, BlockVelAccDelPara_Temp37, 0, 2);
+            Array.Copy(BlockDecParameterSetting6, 0, BlockVelAccDelPara_Temp38, 0, 2);
+            Array.Copy(BlockDecParameterSetting7, 0, BlockVelAccDelPara_Temp39, 0, 2);
+            Array.Copy(BlockDecParameterSetting8, 0, BlockVelAccDelPara_Temp40, 0, 2);
+            Array.Copy(BlockDecParameterSetting9, 0, BlockVelAccDelPara_Temp41, 0, 2);
+            Array.Copy(BlockDecParameterSetting10, 0, BlockVelAccDelPara_Temp42, 0, 2);
+            Array.Copy(BlockDecParameterSetting11, 0, BlockVelAccDelPara_Temp43, 0, 2);
+            Array.Copy(BlockDecParameterSetting12, 0, BlockVelAccDelPara_Temp44, 0, 2);
+            Array.Copy(BlockDecParameterSetting13, 0, BlockVelAccDelPara_Temp45, 0, 2);
+            Array.Copy(BlockDecParameterSetting14, 0, BlockVelAccDelPara_Temp46, 0, 2);
+            Array.Copy(BlockDecParameterSetting15, 0, BlockVelAccDelPara_Temp47, 0, 2);
+            Array.Copy(BlockDecParameterSetting16, 0, BlockVelAccDelPara_Temp48, 0, 2);
+            #endregion
+
+            BlockParameterdata();
+        }
+
+        private void BlockParameterdata()
+        {
+            BlockParaModel2s[0].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp1, 0);        
+
+            //    cmdCode = Convert.ToInt32(parameter7_4byte1_1[1]);        //커맨드 Code  
+            //    if (Convert.ToInt32(parameter7_4byte1_1[1]) == 1)                                       //상대위치결정
+            //    {
+            //        SpdNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) >> 4);           //속도번호  hiki1
+            //        AccNum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[0]) & 0b_0000_1111); //가속번호  hiki2
+            //        //dummy1 =        Convert.ToInt32(parameter7_4byte1_1[2]);                        //예약
+            //        Decnum = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) >> 4);           //감속번호  hiki3
+            //        Movidr = (UInt16)((Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_1111) >> 2);  //  방향  hiki4
+            //        BlockChif = (UInt16)(Convert.ToInt16(parameter7_4byte1_1[3]) & 0b_0000_0011);//천이조건  hiki5
+            //        TargetPosition = BitConverter.ToInt32(parameter7_4byte1_2, 0);                    //블록데이터 구성
+
+            //        BlockParaModel1s[0].BlockData = "상대위치결정" +
+            //            ", 속도번호:V" + SpdNum.ToString() +
+            //            ", 가속설정번호:A" + AccNum.ToString() +
+            //            ", 감속설정번호:D" + Decnum.ToString() +
+            //            ", 천이조건:" + BlockChif.ToString() +
+            //            ", 상대이동량:" + TargetPosition.ToString();        
+            //    }
         }
     }
 }

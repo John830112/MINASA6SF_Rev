@@ -290,9 +290,9 @@ namespace MINASA6SF_Rev.ViewModels
         ushort cmdcode0Bh = 0x0B;
         ushort cmdcode0Ch = 0x0C;
         byte[] value1 = new byte[4];
-        byte[] value11 = new byte[4];
+        byte[] value11 = new byte[4]; 
 
-        #region BlockSetting 수신 변수  recValue1~recValue512
+        #region BlockActParameterSetting 수신 변수  recValue1~recValue512
         byte[] recValue1 = new byte[4];
         byte[] recValue2 = new byte[4];
         byte[] recValue3 = new byte[4];
@@ -807,8 +807,111 @@ namespace MINASA6SF_Rev.ViewModels
         byte[] recValue512= new byte[4];
         #endregion
 
+        #region BlockParameterSetting 수신 변수  BlockParamter1~48
+        byte[] BlockVelParameterSetting1 = new byte[2];
+        byte[] BlockVelParameterSetting2 = new byte[2];
+        byte[] BlockVelParameterSetting3 = new byte[2];
+        byte[] BlockVelParameterSetting4 = new byte[2];
+        byte[] BlockVelParameterSetting5 = new byte[2];
+        byte[] BlockVelParameterSetting6 = new byte[2];
+        byte[] BlockVelParameterSetting7 = new byte[2];
+        byte[] BlockVelParameterSetting8 = new byte[2];
+        byte[] BlockVelParameterSetting9 = new byte[2];
+        byte[] BlockVelParameterSetting10 = new byte[2];
+        byte[] BlockVelParameterSetting11 = new byte[2];
+        byte[] BlockVelParameterSetting12 = new byte[2];
+        byte[] BlockVelParameterSetting13 = new byte[2];
+        byte[] BlockVelParameterSetting14 = new byte[2];
+        byte[] BlockVelParameterSetting15 = new byte[2];
+        byte[] BlockVelParameterSetting16 = new byte[2];
+        byte[] BlockAccParameterSetting1 = new byte[2];
+        byte[] BlockAccParameterSetting2 = new byte[2];
+        byte[] BlockAccParameterSetting3 = new byte[2];
+        byte[] BlockAccParameterSetting4 = new byte[2];
+        byte[] BlockAccParameterSetting5 = new byte[2];
+        byte[] BlockAccParameterSetting6 = new byte[2];
+        byte[] BlockAccParameterSetting7 = new byte[2];
+        byte[] BlockAccParameterSetting8 = new byte[2];
+        byte[] BlockAccParameterSetting9 = new byte[2];
+        byte[] BlockAccParameterSetting10 = new byte[2];
+        byte[] BlockAccParameterSetting11 = new byte[2];
+        byte[] BlockAccParameterSetting12 = new byte[2];
+        byte[] BlockAccParameterSetting13 = new byte[2];
+        byte[] BlockAccParameterSetting14 = new byte[2];
+        byte[] BlockAccParameterSetting15 = new byte[2];
+        byte[] BlockAccParameterSetting16 = new byte[2];
+        byte[] BlockDecParameterSetting1 = new byte[2];
+        byte[] BlockDecParameterSetting2 = new byte[2];
+        byte[] BlockDecParameterSetting3 = new byte[2];
+        byte[] BlockDecParameterSetting4 = new byte[2];
+        byte[] BlockDecParameterSetting5 = new byte[2];
+        byte[] BlockDecParameterSetting6 = new byte[2];
+        byte[] BlockDecParameterSetting7 = new byte[2];
+        byte[] BlockDecParameterSetting8 = new byte[2];
+        byte[] BlockDecParameterSetting9 = new byte[2];
+        byte[] BlockDecParameterSetting10 = new byte[2];
+        byte[] BlockDecParameterSetting11 = new byte[2];
+        byte[] BlockDecParameterSetting12 = new byte[2];
+        byte[] BlockDecParameterSetting13 = new byte[2];
+        byte[] BlockDecParameterSetting14 = new byte[2];
+        byte[] BlockDecParameterSetting15 = new byte[2];
+        byte[] BlockDecParameterSetting16 = new byte[2];
+        #endregion
+
+        byte[] BlockVelAccDelPara_Temp1 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp2 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp3 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp4 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp5 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp6 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp7 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp8 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp9 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp10 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp11 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp12 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp13 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp14 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp15 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp16 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp17 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp18 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp19 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp20 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp21 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp22 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp23 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp24 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp25 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp26 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp27 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp28 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp29 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp30 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp31 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp32 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp33 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp34 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp35 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp36 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp37 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp38 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp39 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp40 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp41 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp42 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp43 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp44 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp45 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp46 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp47 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp48 = new byte[2];
+
+
+
+
         #region 블록 커맨드 수신 변수
-      
+
 
         //감속정지 
         ushort stopMethod;     //정지방법 hiki1
@@ -2284,6 +2387,11 @@ namespace MINASA6SF_Rev.ViewModels
             worker1.WorkerReportsProgress = true;
             worker1.RunWorkerCompleted += Worker1_RunWorkerCompleted;
 
+            worker2.WorkerSupportsCancellation = true;
+            worker2.WorkerReportsProgress = true;
+            worker3.WorkerSupportsCancellation = true;
+            worker3.WorkerReportsProgress = true;
+
             //BlockSettingDialog 객체 할당
             blockSettingDialog = new BlockSettingDialogs();
             blockSettingDialog.DataContext = this;
@@ -2742,6 +2850,7 @@ namespace MINASA6SF_Rev.ViewModels
             MirrorONOFF = false;
             mirrtimer.Enabled = false;
             worker2.CancelAsync();
+            worker3.CancelAsync();
             
             for (int i=0; i<10; i++)
             {
@@ -2755,8 +2864,7 @@ namespace MINASA6SF_Rev.ViewModels
             AlarmStatus = 0;
             LampStatus = 0;
             ModbusOnStatus = false;
-            ErrorCode = "00.0";
-            
+            ErrorCode = "00.0";            
         }
 
 
@@ -19403,28 +19511,19 @@ namespace MINASA6SF_Rev.ViewModels
         {           
             if (blockpara.Tabcontrol.SelectedIndex == 0)
             {
-                settings.Disconnect.IsEnabled = false;
-                worker2.WorkerSupportsCancellation = true;
-                worker2.WorkerReportsProgress = true;
+                settings.Disconnect.IsEnabled = false;               
                 worker2.DoWork += BlockParameterRec1;
                 worker2.RunWorkerCompleted += Worker2_RunWorkerCompleted;
                 worker2.RunWorkerAsync();   //  ->BlockParameterRec1
                 Debug.WriteLine("블럭 동작편집 수신버튼 누름");
-
-
-
             }
             else
             {
-                settings.Disconnect.IsEnabled = false;
-                worker3.WorkerSupportsCancellation = true;
-                worker3.WorkerReportsProgress = true;
+                settings.Disconnect.IsEnabled = false;            
                 worker3.DoWork += BlockParameterRec11;
                 worker3.RunWorkerCompleted += Worker3_RunWorkerCompleted;
                 worker3.RunWorkerAsync();   //  ->
-               
                 Debug.WriteLine("블럭 매개변수 수신버튼 누름");
-
             }
         }
 
@@ -19446,7 +19545,7 @@ namespace MINASA6SF_Rev.ViewModels
         }
 
         // recValue1~recValue512
-        private void BlockParameterRec(int blockNum)
+        private void BlockActParameterRec(int blockNum)
         {
             switch (blockNum)
             {
@@ -20473,6 +20572,158 @@ namespace MINASA6SF_Rev.ViewModels
                 case 255:
                     modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BFC, 2, ref recValue511);
                     modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4BFE, 2, ref recValue512);
+                    break;
+            }
+        }
+
+
+        private void BlockParameterRec(int adr)
+        {
+            switch (adr)
+            {
+                case 0:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4600, 1, ref BlockVelParameterSetting1);
+                    break;
+                case 1:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4601, 1, ref BlockVelParameterSetting2);
+                    break;
+                case 2:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4602, 1, ref BlockVelParameterSetting3);
+                    break;
+                case 3:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4603, 1, ref BlockVelParameterSetting4);
+                    break;
+                case 4:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4604, 1, ref BlockVelParameterSetting5);
+                    break;
+                case 5:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4605, 1, ref BlockVelParameterSetting6);
+                    break;
+                case 6:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4606, 1, ref BlockVelParameterSetting7);
+                    break;
+                case 7:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4607, 1, ref BlockVelParameterSetting8);
+                    break;
+                case 8:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4608, 1, ref BlockVelParameterSetting9);
+                    break;
+                case 9:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4609, 1, ref BlockVelParameterSetting10);
+                    break;
+                case 10:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x460A, 1, ref BlockVelParameterSetting11);
+                    break;
+                case 11:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x460B, 1, ref BlockVelParameterSetting12);
+                    break;
+                case 12:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x460C, 1, ref BlockVelParameterSetting13);
+                    break;
+                case 13:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x460D, 1, ref BlockVelParameterSetting14);
+                    break;
+                case 14:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x460E, 1, ref BlockVelParameterSetting15);
+                    break;
+                case 15:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x460F, 1, ref BlockVelParameterSetting16);
+                    break;
+                case 16:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4610, 1, ref BlockAccParameterSetting1);
+                    break;
+                case 17:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4611, 1, ref BlockAccParameterSetting2);
+                    break;
+                case 18:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4612, 1, ref BlockAccParameterSetting3);
+                    break;
+                case 19:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4613, 1, ref BlockAccParameterSetting4);
+                    break;
+                case 20:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4614, 1, ref BlockAccParameterSetting5);
+                    break;
+                case 21:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4615, 1, ref BlockAccParameterSetting6);
+                    break;
+                case 22:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4616, 1, ref BlockAccParameterSetting7);
+                    break;
+                case 23:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4617, 1, ref BlockAccParameterSetting8);
+                    break;
+                case 24:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4618, 1, ref BlockAccParameterSetting9);
+                    break;
+                case 25:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4619, 1, ref BlockAccParameterSetting10);
+                    break;
+                case 26:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x461A, 1, ref BlockAccParameterSetting11);
+                    break;
+                case 27:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x461B, 1, ref BlockAccParameterSetting12);
+                    break;
+                case 28:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x461C, 1, ref BlockAccParameterSetting13);
+                    break;
+                case 29:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x461D, 1, ref BlockAccParameterSetting14);
+                    break;
+                case 30:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x461E, 1, ref BlockAccParameterSetting15);
+                    break;
+                case 31:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x461F, 1, ref BlockAccParameterSetting16);
+                    break;
+                case 32:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4620, 1, ref BlockDecParameterSetting1);
+                    break;
+                case 33:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4621, 1, ref BlockDecParameterSetting2);
+                    break;
+                case 34:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4622, 1, ref BlockDecParameterSetting3);
+                    break;
+                case 35:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4623, 1, ref BlockDecParameterSetting4);
+                    break;
+                case 36:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4624, 1, ref BlockDecParameterSetting5);
+                    break;
+                case 37:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4625, 1, ref BlockDecParameterSetting6);
+                    break;
+                case 38:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4626, 1, ref BlockDecParameterSetting7);
+                    break;
+                case 39:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4627, 1, ref BlockDecParameterSetting8);
+                    break;
+                case 40:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4628, 1, ref BlockDecParameterSetting9);
+                    break;
+                case 41:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4629, 1, ref BlockDecParameterSetting10);
+                    break;
+                case 42:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x462A, 1, ref BlockDecParameterSetting11);
+                    break;
+                case 43:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x462B, 1, ref BlockDecParameterSetting12);
+                    break;
+                case 44:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x462C, 1, ref BlockDecParameterSetting13);
+                    break;
+                case 45:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x462D, 1, ref BlockDecParameterSetting14);
+                    break;
+                case 46:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x462E, 1, ref BlockDecParameterSetting15);
+                    break;
+                case 47:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x462F, 1, ref BlockDecParameterSetting16);
                     break;
             }
         }
