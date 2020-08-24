@@ -214,6 +214,11 @@ namespace MINASA6SF_Rev.ViewModels
         BlockSettingDialogs blockSettingDialog;
         public ObservableCollection<BlockFunction> blockFunctions { set; get; }
 
+        //Block매개변수 편집 VM Instance
+        public ObservableCollection<BlockParaModel2> blockParaModel2s { set; get; }
+        ObservableCollection<BlockParaModel2> BlockParaModel2s = new ObservableCollection<BlockParaModel2>();
+
+
         //BlockSettingDialog Frame 페이지 생성
         IncPosition_Page1 incPosition_Page1 = new IncPosition_Page1();
         Abs_Position_Page2 abs_Position_Page2 = new Abs_Position_Page2();
@@ -227,11 +232,6 @@ namespace MINASA6SF_Rev.ViewModels
         ConditionDiv_Page10 conditionDiv_Page10 = new ConditionDiv_Page10();
         ConditionDiv_Page11 conditionDiv_Page11 = new ConditionDiv_Page11();
         ConditionDiv_Page12 conditionDiv_Page12 = new ConditionDiv_Page12();
-
-        //Block매개변수 편집 VM Instance
-        public ObservableCollection<BlockParaModel2> blockParaModel2s { set; get; }
-        ObservableCollection<BlockParaModel2> BlockParaModel2s = new ObservableCollection<BlockParaModel2>();
-
         //ServoPara para0~para1의 객체생성
         public ObservableCollection<ServoParaModel> para0 { set; get; }
         public ObservableCollection<ServoParaModel> para1 { set; get; }
@@ -924,7 +924,11 @@ namespace MINASA6SF_Rev.ViewModels
         byte[] BlockVelAccDelPara_Temp56 = new byte[2];
         #endregion
 
+        #region 블록 파라미터 송신 변수
+        byte[] BlockParaValue = new byte[2];
+        byte[] BlockParaValues = new byte[4];
 
+        #endregion
         #region 블록 커맨드 수신 변수
 
 
@@ -2282,6 +2286,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         //블럭 동작 편집 커맨드
         public ICommand BlockActDouClick { set; get; }
+        public ICommand BlockParameterEnter { set; get;}
         public ICommand Setting_Reset { set; get; }
         public ICommand Confirm { set; get; }
         public ICommand Cancel { set; get; }
@@ -2346,7 +2351,7 @@ namespace MINASA6SF_Rev.ViewModels
 
             //블럭 동작 편집 커맨드
             this.BlockActDouClick = new commandModel(ExecuteBlockActDouClick, CanexecuteBlockActDuoClick);
-
+            this.BlockParameterEnter = new commandModel(ExecuteBlockParameterDoubleClick, CanexecuteExecuteBlockParameterDoubleClick);
             //블럭 동작 파라미터 설정 창 커맨드
             this.Setting_Reset = new commandModel(ExecuteSetting_reset, CanexecuteSetting_Rset);
             this.Confirm = new commandModel(ExecuteConfirm, CanexecuteConfirm);
@@ -2412,7 +2417,7 @@ namespace MINASA6SF_Rev.ViewModels
             blockSettingDialog.DataContext = this;
             blockSettingDialog.FunctionSelect1.ItemsSource = blockFunctions;
             blockSettingDialog.BlockActionParaWindow.Navigate(incPosition_Page1);
-        }
+        }      
         #endregion
         private static void ModbusTCPConstructor()
         {
@@ -19518,6 +19523,202 @@ namespace MINASA6SF_Rev.ViewModels
         {
             return true;
         }
+
+        private void ExecuteBlockParameterDoubleClick(object parameter)
+        {
+            Debug.WriteLine("그리드 버튼 테스트");
+            Debug.WriteLine(((BlockParaModel2)blockpara.blockparam.SelectedValue).SettingValue.ToString());
+
+            if(blockpara.blockparam.SelectedIndex==49 || blockpara.blockparam.SelectedIndex == 50 || blockpara.blockparam.SelectedIndex == 51)
+            {
+                BlockParaValues[0] = (byte)((((BlockParaModel2)blockpara.blockparam.SelectedValue).SettingValue) >> 8);
+                BlockParaValues[1] = (byte)(((BlockParaModel2)blockpara.blockparam.SelectedValue).SettingValue);
+                BlockParaValues[2] = (byte)((((BlockParaModel2)blockpara.blockparam.SelectedValue).SettingValue) >> 24);
+                BlockParaValues[3] = (byte)((((BlockParaModel2)blockpara.blockparam.SelectedValue).SettingValue) >> 16);
+            }
+            else
+            {
+                BlockParaValue[0] = (byte)((((BlockParaModel2)blockpara.blockparam.SelectedValue).SettingValue) >> 8);
+                BlockParaValue[1] = (byte)(((BlockParaModel2)blockpara.blockparam.SelectedValue).SettingValue);
+            }
+
+            switch (blockpara.blockparam.SelectedIndex)
+            {
+                case 0:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4600, BlockParaValue);
+                    break;
+                case 1:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4601, BlockParaValue);
+                    break;
+                case 2:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4602, BlockParaValue);
+                    break;
+                case 3:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4603, BlockParaValue);
+                    break;
+                case 4:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4604, BlockParaValue);
+                    break;
+                case 5:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4605, BlockParaValue);
+                    break;
+                case 6:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4606, BlockParaValue);
+                    break;
+                case 7:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4607, BlockParaValue);
+                    break;
+                case 8:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4608, BlockParaValue);
+                    break;
+                case 9:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4609, BlockParaValue);
+                    break;
+                case 10:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x460A, BlockParaValue);
+                    break;
+                case 11:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x460B, BlockParaValue);
+                    break;
+                case 12:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x460C, BlockParaValue);
+                    break;
+                case 13:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x460D, BlockParaValue);
+                    break;
+                case 14:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x460E, BlockParaValue);
+                    break;
+                case 15:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x460F, BlockParaValue);
+                    break;
+                case 16:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4610, BlockParaValue);
+                    break;
+                case 17:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4611, BlockParaValue);
+                    break;
+                case 18:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4612, BlockParaValue);
+                    break;
+                case 19:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4613, BlockParaValue);
+                    break;
+                case 20:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4614, BlockParaValue);
+                    break;
+                case 21:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4615, BlockParaValue);
+                    break;
+                case 22:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4616, BlockParaValue);
+                    break;
+                case 23:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4617, BlockParaValue);
+                    break;
+                case 24:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4618, BlockParaValue);
+                    break;
+                case 25:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4619, BlockParaValue);
+                    break;
+                case 26:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x461A, BlockParaValue);
+                    break;
+                case 27:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x461B, BlockParaValue);
+                    break;
+                case 28:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x461C, BlockParaValue);
+                    break;
+                case 29:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x461D, BlockParaValue);
+                    break;
+                case 30:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x461E, BlockParaValue);
+                    break;
+                case 31:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x461F, BlockParaValue);
+                    break;
+                case 32:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4620, BlockParaValue);
+                    break;
+                case 33:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4621, BlockParaValue);
+                    break;
+                case 34:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4622, BlockParaValue);
+                    break;
+                case 35:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4623, BlockParaValue);
+                    break;
+                case 36:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4624, BlockParaValue);
+                    break;
+                case 37:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4625, BlockParaValue);
+                    break;
+                case 38:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4626, BlockParaValue);
+                    break;
+                case 39:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4627, BlockParaValue);
+                    break;
+                case 40:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4628, BlockParaValue);
+                    break;
+                case 41:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4629, BlockParaValue);
+                    break;
+                case 42:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x462A, BlockParaValue);
+                    break;
+                case 43:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x462B, BlockParaValue);
+                    break;
+                case 44:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x462C, BlockParaValue);
+                    break;
+                case 45:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x462D, BlockParaValue);
+                    break;
+                case 46:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x462E, BlockParaValue);
+                    break;
+                case 47:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x462F, BlockParaValue);
+                    break;                
+                case 48:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4630, BlockParaValue);
+                    break;
+                case 49:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4631, BlockParaValues);
+                    break;
+                case 50:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4633, BlockParaValues);
+                    break;
+                case 51:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4635, BlockParaValues);
+                    break;
+                case 52:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4637, BlockParaValue);
+                    break;
+                case 53:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4638, BlockParaValue);
+                    break;
+                case 54:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4639, BlockParaValue);
+                    break;
+                case 55:
+                    modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x463A, BlockParaValue);
+                    break;
+            }
+        }
+
+        private bool CanexecuteExecuteBlockParameterDoubleClick(object parameter)
+        {
+            return true;
+        }    
         #endregion
 
         #region 블럭 파라미터 수신, 송신, EEP버튼 커맨드 함수

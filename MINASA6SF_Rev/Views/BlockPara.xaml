@@ -203,6 +203,11 @@
                             </Style.Triggers>
                         </Style>
                     </DataGrid.ItemContainerStyle>
+                    <DataGrid.InputBindings>
+                        <KeyBinding                            
+                            Key="Enter"
+                            Command="{Binding BlockParameterEnter}"/>
+                    </DataGrid.InputBindings>
                 </DataGrid>
             </TabItem>
         </TabControl>
