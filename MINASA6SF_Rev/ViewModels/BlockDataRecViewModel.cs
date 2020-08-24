@@ -4104,10 +4104,10 @@ namespace MINASA6SF_Rev.ViewModels
         {
             mirrtimer.Stop();
             Thread.Sleep(10000);
-            for (int i = 0; i < 48; i++)
+            for (int i = 0; i < 56; i++)
             {
                 BlockParameterRec(i);
-                Count += 5;
+                Count += 4;
                 Debug.WriteLine(Count.ToString());
 
                 if (worker3.CancellationPending == true)
@@ -4169,6 +4169,15 @@ namespace MINASA6SF_Rev.ViewModels
             Array.Reverse(BlockDecParameterSetting14);
             Array.Reverse(BlockDecParameterSetting15);
             Array.Reverse(BlockDecParameterSetting16);
+
+            Array.Reverse(Blockmethods);
+            Array.Reverse(BlockhomeOffset);
+            Array.Reverse(BlockmaxPositionlimit);
+            Array.Reverse(BlockminPositionlimit);
+            Array.Reverse(Blockhomingspeed_high);
+            Array.Reverse(Blockhomingspeed_low);
+            Array.Reverse(BlockhomingAcc);
+            Array.Reverse(BlockHomingless);
             #endregion
 
             #region 블럭 파라미터 수신 데이터 변수에 할당   // Array.Copy(BlockVelParameterSetting1, 0, BlockVelAccDelPara_Temp1, 0, 2);
@@ -4220,6 +4229,32 @@ namespace MINASA6SF_Rev.ViewModels
             Array.Copy(BlockDecParameterSetting14, 0, BlockVelAccDelPara_Temp46, 0, 2);
             Array.Copy(BlockDecParameterSetting15, 0, BlockVelAccDelPara_Temp47, 0, 2);
             Array.Copy(BlockDecParameterSetting16, 0, BlockVelAccDelPara_Temp48, 0, 2);
+
+            Array.Copy(Blockmethods, 0, BlockVelAccDelPara_Temp49, 0, 2);
+            Array.Copy(BlockhomeOffset, 0, BlockVelAccDelPara_Temp50, 0, 4);
+            BlockVelAccDelPara_Temp50s[0] = BlockVelAccDelPara_Temp50[2];
+            BlockVelAccDelPara_Temp50s[1] = BlockVelAccDelPara_Temp50[3];
+            BlockVelAccDelPara_Temp50s[2] = BlockVelAccDelPara_Temp50[0];
+            BlockVelAccDelPara_Temp50s[3] = BlockVelAccDelPara_Temp50[1];
+
+            Array.Copy(BlockmaxPositionlimit, 0, BlockVelAccDelPara_Temp51, 0, 4);
+            BlockVelAccDelPara_Temp51s[0] = BlockVelAccDelPara_Temp51[2];
+            BlockVelAccDelPara_Temp51s[1] = BlockVelAccDelPara_Temp51[3];
+            BlockVelAccDelPara_Temp51s[2] = BlockVelAccDelPara_Temp51[0];
+            BlockVelAccDelPara_Temp51s[3] = BlockVelAccDelPara_Temp51[1];
+
+            Array.Copy(BlockminPositionlimit, 0, BlockVelAccDelPara_Temp52, 0, 4);
+            BlockVelAccDelPara_Temp52s[0] = BlockVelAccDelPara_Temp52[2];
+            BlockVelAccDelPara_Temp52s[1] = BlockVelAccDelPara_Temp52[3];
+            BlockVelAccDelPara_Temp52s[2] = BlockVelAccDelPara_Temp52[0];
+            BlockVelAccDelPara_Temp52s[3] = BlockVelAccDelPara_Temp52[1];
+
+
+
+            Array.Copy(Blockhomingspeed_high, 0, BlockVelAccDelPara_Temp53, 0, 2);
+            Array.Copy(Blockhomingspeed_low, 0, BlockVelAccDelPara_Temp54, 0, 2);
+            Array.Copy(BlockhomingAcc, 0, BlockVelAccDelPara_Temp55, 0, 2);
+            Array.Copy(BlockHomingless, 0, BlockVelAccDelPara_Temp56, 0, 2);
             #endregion
 
             BlockParameterdata();
@@ -4227,7 +4262,66 @@ namespace MINASA6SF_Rev.ViewModels
 
         private void BlockParameterdata()
         {
-            BlockParaModel2s[0].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp1, 0);        
+            BlockParaModel2s[0].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp1, 0);
+            BlockParaModel2s[1].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp2, 0);
+            BlockParaModel2s[2].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp3, 0);
+            BlockParaModel2s[3].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp4, 0);
+            BlockParaModel2s[4].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp5, 0);
+            BlockParaModel2s[5].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp6, 0);
+            BlockParaModel2s[6].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp7, 0);
+            BlockParaModel2s[7].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp8, 0);
+            BlockParaModel2s[8].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp9, 0);
+            BlockParaModel2s[9].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp10, 0);
+            BlockParaModel2s[10].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp11, 0);
+            BlockParaModel2s[11].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp12, 0);
+            BlockParaModel2s[12].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp13, 0);
+            BlockParaModel2s[13].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp14, 0);
+            BlockParaModel2s[14].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp15, 0);
+            BlockParaModel2s[15].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp16, 0);
+            BlockParaModel2s[16].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp17, 0);
+            BlockParaModel2s[17].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp18, 0);
+            BlockParaModel2s[18].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp19, 0);
+            BlockParaModel2s[19].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp20, 0);
+            BlockParaModel2s[20].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp21, 0);
+            BlockParaModel2s[21].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp22, 0);
+            BlockParaModel2s[22].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp23, 0);
+            BlockParaModel2s[23].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp24, 0);
+            BlockParaModel2s[24].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp25, 0);
+            BlockParaModel2s[25].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp26, 0);
+            BlockParaModel2s[26].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp27, 0);
+            BlockParaModel2s[27].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp28, 0);
+            BlockParaModel2s[28].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp29, 0);
+            BlockParaModel2s[29].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp30, 0);
+            BlockParaModel2s[30].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp31, 0);
+            BlockParaModel2s[31].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp32, 0);
+            BlockParaModel2s[32].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp33, 0);
+            BlockParaModel2s[33].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp34, 0);
+            BlockParaModel2s[34].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp35, 0);
+            BlockParaModel2s[35].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp36, 0);
+            BlockParaModel2s[36].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp37, 0);
+            BlockParaModel2s[37].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp38, 0);
+            BlockParaModel2s[38].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp39, 0);
+            BlockParaModel2s[39].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp40, 0);
+            BlockParaModel2s[40].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp41, 0);        
+            BlockParaModel2s[41].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp42, 0);        
+            BlockParaModel2s[42].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp43, 0);        
+            BlockParaModel2s[43].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp44, 0);        
+            BlockParaModel2s[44].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp45, 0);        
+            BlockParaModel2s[45].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp46, 0);        
+            BlockParaModel2s[46].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp47, 0);        
+            BlockParaModel2s[47].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp48, 0);
+
+            BlockParaModel2s[48].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp49, 0);
+            BlockParaModel2s[49].SettingValue = BitConverter.ToInt32(BlockVelAccDelPara_Temp50s, 0);
+            BlockParaModel2s[50].SettingValue = BitConverter.ToInt32(BlockVelAccDelPara_Temp51s, 0);
+            BlockParaModel2s[51].SettingValue = BitConverter.ToInt32(BlockVelAccDelPara_Temp52s, 0);
+            BlockParaModel2s[52].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp53, 0);
+            BlockParaModel2s[53].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp54, 0);
+            BlockParaModel2s[54].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp55, 0);
+            BlockParaModel2s[55].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp56, 0);
+
+
+
 
             //    cmdCode = Convert.ToInt32(parameter7_4byte1_1[1]);        //커맨드 Code  
             //    if (Convert.ToInt32(parameter7_4byte1_1[1]) == 1)                                       //상대위치결정

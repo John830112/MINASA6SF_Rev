@@ -52,15 +52,12 @@ namespace MINASA6SF_Rev.ViewModels
             get { return count; }
             set { SetProperty(ref count, value); }
         }
-
-
         public bool mirrorONOFF;
         public bool MirrorONOFF
         {
             get { return mirrorONOFF; }
             set { SetProperty(ref mirrorONOFF, value); }
         }
-
         bool blockselect_Lock_Release=false;
         public bool BlockSelect_Lock_Release
         {
@@ -75,8 +72,6 @@ namespace MINASA6SF_Rev.ViewModels
             get { return lampstatus; }
             set { SetProperty(ref lampstatus, value); }
         }
-
-
         byte[] _alarmStatus = new byte[2];
         int alarmStatus = 0;
         public int AlarmStatus
@@ -84,18 +79,16 @@ namespace MINASA6SF_Rev.ViewModels
             get { return alarmStatus; }
             set { SetProperty(ref alarmStatus, value); }
         }
-
         bool _modbusOnStatus = false;
         public bool ModbusOnStatus
         {
             get { return _modbusOnStatus; }
             set { SetProperty(ref _modbusOnStatus, value); }
         }
-
         byte[] _errorCode = new byte[2];
         ushort _maincode = 0;
         ushort _subcode = 0;
-
+        bool recONOFF;
         string errorcode = "00.0";
         public string ErrorCode
         {
@@ -856,7 +849,15 @@ namespace MINASA6SF_Rev.ViewModels
         byte[] BlockDecParameterSetting14 = new byte[2];
         byte[] BlockDecParameterSetting15 = new byte[2];
         byte[] BlockDecParameterSetting16 = new byte[2];
-        #endregion
+
+        byte[] Blockmethods = new byte[2];
+        byte[] BlockhomeOffset = new byte[4];
+        byte[] BlockmaxPositionlimit = new byte[4];
+        byte[] BlockminPositionlimit = new byte[4];
+        byte[] Blockhomingspeed_high = new byte[2];
+        byte[] Blockhomingspeed_low = new byte[2];
+        byte[] BlockhomingAcc = new byte[2];
+        byte[] BlockHomingless = new byte[2];
 
         byte[] BlockVelAccDelPara_Temp1 = new byte[2];
         byte[] BlockVelAccDelPara_Temp2 = new byte[2];
@@ -907,7 +908,21 @@ namespace MINASA6SF_Rev.ViewModels
         byte[] BlockVelAccDelPara_Temp47 = new byte[2];
         byte[] BlockVelAccDelPara_Temp48 = new byte[2];
 
+        byte[] BlockVelAccDelPara_Temp49 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp50 = new byte[4];
+        byte[] BlockVelAccDelPara_Temp50s = new byte[4];
 
+        byte[] BlockVelAccDelPara_Temp51 = new byte[4];
+        byte[] BlockVelAccDelPara_Temp51s = new byte[4];
+
+        byte[] BlockVelAccDelPara_Temp52 = new byte[4];
+        byte[] BlockVelAccDelPara_Temp52s = new byte[4];
+
+        byte[] BlockVelAccDelPara_Temp53 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp54 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp55 = new byte[2];
+        byte[] BlockVelAccDelPara_Temp56 = new byte[2];
+        #endregion
 
 
         #region 블록 커맨드 수신 변수
@@ -2303,7 +2318,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         public MainPanelViewModel(Settings _settings, BlockPara _blockpara, ControlPanel1 _controlPanel1)
         {
-           
+            recONOFF = true;
             thread.Start();
             MirrorONOFF = false;
             settings = _settings;
@@ -19511,6 +19526,7 @@ namespace MINASA6SF_Rev.ViewModels
         {           
             if (blockpara.Tabcontrol.SelectedIndex == 0)
             {
+                recONOFF = false;
                 settings.Disconnect.IsEnabled = false;               
                 worker2.DoWork += BlockParameterRec1;
                 worker2.RunWorkerCompleted += Worker2_RunWorkerCompleted;
@@ -19519,6 +19535,7 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else
             {
+                recONOFF = false;
                 settings.Disconnect.IsEnabled = false;            
                 worker3.DoWork += BlockParameterRec11;
                 worker3.RunWorkerCompleted += Worker3_RunWorkerCompleted;
@@ -19531,17 +19548,19 @@ namespace MINASA6SF_Rev.ViewModels
         private void Worker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             settings.Disconnect.IsEnabled = true;
+            recONOFF = true;
         }
 
         private void Worker3_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             settings.Disconnect.IsEnabled = true;
+            recONOFF = true;
         }
 
 
         private bool CanexecuteRecCommand(object parameter)
         {
-            return true;
+            return recONOFF;
         }
 
         // recValue1~recValue512
@@ -20724,6 +20743,30 @@ namespace MINASA6SF_Rev.ViewModels
                     break;
                 case 47:
                     modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x462F, 1, ref BlockDecParameterSetting16);
+                    break;
+                case 48:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4630, 1, ref Blockmethods);
+                    break;
+                case 49:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4631, 2, ref BlockhomeOffset);
+                    break;
+                case 50:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4633, 2, ref BlockmaxPositionlimit);
+                    break;
+                case 51:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4635, 2, ref BlockminPositionlimit);
+                    break;
+                case 52:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4637, 1, ref Blockhomingspeed_high);
+                    break;
+                case 53:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4638, 1, ref Blockhomingspeed_low);
+                    break;
+                case 54:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x4639, 1, ref BlockhomingAcc);
+                    break;
+                case 55:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x463A, 1, ref BlockHomingless);
                     break;
             }
         }
