@@ -781,9 +781,15 @@ namespace MINASA6SF_Rev.Models
                     tcpSynCl.Send(write_data, 0, write_data.Length, SocketFlags.None);
                     Thread.Sleep(50);
                     result = tcpSynCl.Receive(tcpSynClBuffer, 0, tcpSynClBuffer.Length, SocketFlags.None);
-                    unit = tcpSynClBuffer[6];
-                    function = tcpSynClBuffer[7];
-
+                    if (tcpSynClBuffer == null)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        unit = tcpSynClBuffer[6];
+                        function = tcpSynClBuffer[7];
+                    }
 
                     if (result == 0) CallException(id, unit, write_data[7], excExceptionConnectionLost);
 

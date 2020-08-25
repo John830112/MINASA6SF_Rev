@@ -32,25 +32,29 @@ namespace MINASA6SF_Rev.ViewModels
     public partial class MainPanelViewModel
     {
 
-        partial void BlockParameterRec1(object sender, DoWorkEventArgs e)
+        //partial void BlockParameterRec1(object sender, DoWorkEventArgs e)
+        partial void BlockParameterRec1()
         {
-            mirrtimer.Stop();
-            Thread.Sleep(10000);
+            recONOFF = false;
+            MirrorONOFF = false;
+            Thread.Sleep(5000);
             for (int i = 0; i < 256; i++)
             {
                 BlockActParameterRec(i);
                 Count += 1;
                 Debug.WriteLine(Count.ToString());
 
-                if (worker2.CancellationPending == true)
-                {
-                    e.Cancel = true;
-                    Debug.WriteLine("worker2.Cancel 실행");
-                    return;
-                }
+                //if (worker2.CancellationPending == true)
+                //{
+                //    e.Cancel = true;
+                //    Debug.WriteLine("worker2.Cancel 실행");
+                //    return;
+                //}
             }
             Count = 0;
             mirrtimer.Start();
+            MirrorONOFF = true;
+            recONOFF = true;
 
             #region 블럭 동작 파라미터 수신 변수 Reverse처리   //Array.Reverse(recValue1);
             Array.Reverse(recValue1);
@@ -4100,25 +4104,29 @@ namespace MINASA6SF_Rev.ViewModels
             BlockParameterRec2();
         }
 
-        partial void BlockParameterRec11(object sender, DoWorkEventArgs e)
+        //partial void BlockParameterRec11(object sender, DoWorkEventArgs e)
+        partial void BlockParameterRec11()
         {
-            mirrtimer.Stop();
-            Thread.Sleep(10000);
+            MirrorONOFF = false;
+            recONOFF = false;
+            Thread.Sleep(5000);
             for (int i = 0; i < 56; i++)
             {
                 BlockParameterRec(i);
                 Count += 4;
                 Debug.WriteLine(Count.ToString());
 
-                if (worker3.CancellationPending == true)
-                {
-                    e.Cancel = true;
-                    Debug.WriteLine("worker3.Cancel 실행");
-                    return;
-                }
+                //if (worker3.CancellationPending == true)
+                //{
+                //    e.Cancel = true;
+                //    Debug.WriteLine("worker3.Cancel 실행");
+                //    return;
+                //}
             }
             Count = 0;
             mirrtimer.Start();
+            MirrorONOFF = true;
+            recONOFF = true;
 
             #region 블럭 파라미터 수신 변수 Reverse처리   //Array.Reverse(BlockVelParameterSetting1);
             Array.Reverse(BlockVelParameterSetting1);
@@ -4302,13 +4310,13 @@ namespace MINASA6SF_Rev.ViewModels
             BlockParaModel2s[37].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp38, 0);
             BlockParaModel2s[38].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp39, 0);
             BlockParaModel2s[39].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp40, 0);
-            BlockParaModel2s[40].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp41, 0);        
-            BlockParaModel2s[41].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp42, 0);        
-            BlockParaModel2s[42].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp43, 0);        
-            BlockParaModel2s[43].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp44, 0);        
-            BlockParaModel2s[44].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp45, 0);        
-            BlockParaModel2s[45].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp46, 0);        
-            BlockParaModel2s[46].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp47, 0);        
+            BlockParaModel2s[40].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp41, 0);
+            BlockParaModel2s[41].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp42, 0);
+            BlockParaModel2s[42].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp43, 0);
+            BlockParaModel2s[43].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp44, 0);
+            BlockParaModel2s[44].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp45, 0);
+            BlockParaModel2s[45].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp46, 0);
+            BlockParaModel2s[46].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp47, 0);
             BlockParaModel2s[47].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp48, 0);
 
             BlockParaModel2s[48].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp49, 0);
