@@ -91,8 +91,8 @@ namespace MINASA6SF_Rev.ViewModels
         ObservableCollection<int> blockAccSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockDecSpeed = new ObservableCollection<int>();
         ObservableCollection<int> blockSpeed = new ObservableCollection<int>();
-               
-       // partial void BlockParameterRec1(object sender, DoWorkEventArgs e);
+
+        // partial void BlockParameterRec1(object sender, DoWorkEventArgs e);
         partial void BlockParameterRec1();
         //partial void BlockParameterRec11(object sender, DoWorkEventArgs e);
         partial void BlockParameterRec11();
@@ -102,9 +102,13 @@ namespace MINASA6SF_Rev.ViewModels
         int mirrTime;
         byte[] _servoONStatus = new byte[2];
         byte[] _alarmStatus = new byte[2];
-        bool recONOFF;
+        bool RecONOFF;
+        public bool recONOFF 
+        {
+            get { return RecONOFF; }
+            set { SetProperty(ref RecONOFF, value); }
+        }
         int axisNum1 = 1;
-
         public double count = 0;
         public double Count
         {
@@ -150,7 +154,6 @@ namespace MINASA6SF_Rev.ViewModels
         }
         ushort _maincode = 0;
         ushort _subcode = 0;
-
         ushort _eeprom = 0x6173;
         byte[] _eepromwrite = new byte[4];
         byte[] blockNumSelect = new byte[2];
@@ -2868,13 +2871,6 @@ namespace MINASA6SF_Rev.ViewModels
             }
         }
 
-        private void Worker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            MessageBox.Show("접속 종료");
-            StatusBar = "접속 종료";
-        }
-
-
         private void Worker1_DoWork(object sender, DoWorkEventArgs e)
         {
             mirrtimer.Stop();
@@ -2897,6 +2893,11 @@ namespace MINASA6SF_Rev.ViewModels
             MirrorONOFF = false;
         }
 
+        private void Worker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("접속 종료");
+            StatusBar = "접속 종료";
+        }
 
         private bool CanexecuteDisconnect(object parameter)
         {
@@ -19796,7 +19797,6 @@ namespace MINASA6SF_Rev.ViewModels
             recONOFF = true;
         }
 
-
         // recValue1~recValue512
         private void BlockActParameterRec(int blockNum)
         {
@@ -20829,7 +20829,6 @@ namespace MINASA6SF_Rev.ViewModels
             }
         }
 
-
         private void BlockParameterRec(int adr)
         {
             switch (adr)
@@ -21015,14 +21014,14 @@ namespace MINASA6SF_Rev.ViewModels
             return true;
         }
 
-        // EEP버튼
-        
+        // EEP버튼        
         private void ExecuteEepCommand(object parameter)
         {        
             recONOFF = false;
             MirrorONOFF = false;
             mirrtimer.Stop();
             Debug.WriteLine("EEP버튼 테스트");
+            modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x1020, _eepromwrite);
             modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x1020, _eepromwrite);
             mirrtimer.Start();
             MirrorONOFF = true;
