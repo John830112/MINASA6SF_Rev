@@ -2499,13 +2499,15 @@ namespace MINASA6SF_Rev.ViewModels
         //빠른 부방향 시작
         private void Executejogrewind1(object parameter)
         {
-           // mirrtimer.Enabled = false;
+            mirrtimer.Stop();
             jogBlockSelect[0] = (byte)(JogBlockSelect_Value1 >> 8);
             jogBlockSelect[1] = (byte)(JogBlockSelect_Value1);
-            modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);  // JOGBLOCK선택            
+            modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);  // JOGBLOCK선택 
+            Thread.Sleep(100);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);  //STB
             Debug.WriteLine("빠른 부방향 Down");
-        //    mirrtimer.Enabled = true;
+            Thread.Sleep(100);
+            mirrtimer.Start();
             return;
         }
 
@@ -2517,11 +2519,13 @@ namespace MINASA6SF_Rev.ViewModels
         //빠른 부방향 정지
         private void Executejogrewind2(object parameter)
         {
-        //    mirrtimer.Enabled = false;
+            mirrtimer.Stop();
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, true);   //즉시정지 ON
+            Thread.Sleep(100);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, false);  //즉시정지 OFF
             Debug.WriteLine("빠른 부방향 Up");
-     //       mirrtimer.Enabled = true;
+            Thread.Sleep(100);
+            mirrtimer.Start();
             return;
         }
 
@@ -2533,13 +2537,15 @@ namespace MINASA6SF_Rev.ViewModels
         //느린 부방향 시작
         private  void Executejogplaybtn1(object parameter)
         {
-       //     mirrtimer.Enabled = false;
+            mirrtimer.Stop();
             jogBlockSelect[0] = (byte)(JogBlockSelect_Value2 >> 8);
             jogBlockSelect[1] = (byte)(JogBlockSelect_Value2);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);
+            Thread.Sleep(100);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             Debug.WriteLine("느린 부방향 Down");
-       //     mirrtimer.Enabled = true;
+            Thread.Sleep(100);
+            mirrtimer.Start();
             return;
         }
 
@@ -2551,11 +2557,13 @@ namespace MINASA6SF_Rev.ViewModels
         //느린 부방향 정지
         private void Executejogplaybtn2(object parameter)
         {
-         //   mirrtimer.Enabled = false;
+            mirrtimer.Stop();
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, true);
+            Thread.Sleep(100);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, false);
             Debug.WriteLine("느린 부방향 Up");
-        //    mirrtimer.Enabled = true;
+            Thread.Sleep(100);
+            mirrtimer.Start();
             return;
         }  
 
@@ -2606,13 +2614,15 @@ namespace MINASA6SF_Rev.ViewModels
         //느린 정방향 시작
         private  void Executejogplaybtn3(object parameter)
         {
-       //     mirrtimer.Enabled = false;
+            mirrtimer.Stop();
             jogBlockSelect[0] = (byte)(JogBlockSelect_Value3 >> 8);
             jogBlockSelect[1] = (byte)(JogBlockSelect_Value3);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);
+            Thread.Sleep(100);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             Debug.WriteLine("느린 정방향 Down");
-       //     mirrtimer.Enabled = true;
+            Thread.Sleep(100);
+            mirrtimer.Start();
             return;
         }
 
@@ -2624,11 +2634,13 @@ namespace MINASA6SF_Rev.ViewModels
         //느린 정방향 정지
         private void Executejogplaybtn4(object parameter)
         {
-      //      mirrtimer.Enabled = false;
+            mirrtimer.Stop();
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, true);
+            Thread.Sleep(100);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, false);
             Debug.WriteLine("느린 정방향 Up");
-     //       mirrtimer.Enabled = true;
+            Thread.Sleep(100);
+            mirrtimer.Start();
             return;
         }     
 
@@ -2640,13 +2652,15 @@ namespace MINASA6SF_Rev.ViewModels
         //빠른 정방향 시작
         private void Executejogfastford1(object parameter)
         {
-       //     mirrtimer.Enabled = false;
+            mirrtimer.Stop();
             jogBlockSelect[0] = (byte)(JogBlockSelect_Value4 >> 8);
             jogBlockSelect[1] = (byte)(JogBlockSelect_Value4);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);
+            Thread.Sleep(100);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             Debug.WriteLine("빠른 정방향 Down");
-        //    mirrtimer.Enabled = true;
+            Thread.Sleep(100);
+            mirrtimer.Start();
             return;
         }
       
@@ -2658,11 +2672,13 @@ namespace MINASA6SF_Rev.ViewModels
         //빠른 정방향 정지
         private  void Executejogfastford2(object parameter)
         {
-         //   mirrtimer.Enabled = false;
+            mirrtimer.Stop();
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, true);
+            Thread.Sleep(100);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, false);
             Debug.WriteLine("빠른 정방향 Up");
-      //      mirrtimer.Enabled = true;
+            Thread.Sleep(100);
+            mirrtimer.Start();
             return;
         }
 
