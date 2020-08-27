@@ -34,12 +34,9 @@ namespace MINASA6SF_Rev.ViewModels
 
         //partial void BlockParameterRec1(object sender, DoWorkEventArgs e)
         partial void BlockParameterRec1()
-        {
-            recONOFF = false;
-            MirrorONOFF = false;
-            Thread.Sleep(3000);
-            for (int i = 0; i < 256; i++)
-            {
+        {           
+            for (int i = 0; i <=255; i++)
+            {               
                 BlockActParameterRec(i);
                 Count += 1;
                 Debug.WriteLine(Count.ToString());
@@ -455,17 +452,7 @@ namespace MINASA6SF_Rev.ViewModels
             Array.Reverse(recValue396);
             Array.Reverse(recValue397);
             Array.Reverse(recValue398);
-            Array.Reverse(recValue399);
-            Array.Reverse(recValue400);
-            Array.Reverse(recValue391);
-            Array.Reverse(recValue392);
-            Array.Reverse(recValue393);
-            Array.Reverse(recValue394);
-            Array.Reverse(recValue395);
-            Array.Reverse(recValue396);
-            Array.Reverse(recValue397);
-            Array.Reverse(recValue398);
-            Array.Reverse(recValue399);
+            Array.Reverse(recValue399);      
             Array.Reverse(recValue400);
             Array.Reverse(recValue401);
             Array.Reverse(recValue402);
@@ -476,7 +463,7 @@ namespace MINASA6SF_Rev.ViewModels
             Array.Reverse(recValue407);
             Array.Reverse(recValue408);
             Array.Reverse(recValue409);
-            Array.Reverse(recValue400);
+            Array.Reverse(recValue410);
             Array.Reverse(recValue411);
             Array.Reverse(recValue412);
             Array.Reverse(recValue413);
@@ -960,7 +947,7 @@ namespace MINASA6SF_Rev.ViewModels
             Array.Copy(recValue376, 0, parameter7_4byte376, 0, 4);
             Array.Copy(recValue377, 0, parameter7_4byte377, 0, 4);
             Array.Copy(recValue378, 0, parameter7_4byte378, 0, 4);
-            Array.Copy(recValue379, 0, parameter7_4byte389, 0, 4);
+            Array.Copy(recValue379, 0, parameter7_4byte379, 0, 4);
             Array.Copy(recValue380, 0, parameter7_4byte380, 0, 4);
             Array.Copy(recValue381, 0, parameter7_4byte381, 0, 4);
             Array.Copy(recValue382, 0, parameter7_4byte382, 0, 4);
@@ -2253,25 +2240,21 @@ namespace MINASA6SF_Rev.ViewModels
             parameter7_4byte1_207[2] = parameter7_4byte207[2];
             parameter7_4byte1_207[3] = parameter7_4byte207[3];
 
-            //0x4800 command
             parameter7_4byte1_208[0] = parameter7_4byte208[2];
             parameter7_4byte1_208[1] = parameter7_4byte208[3];
             parameter7_4byte1_208[2] = parameter7_4byte208[0];
             parameter7_4byte1_208[3] = parameter7_4byte208[1];
 
-            //0x4802 data
             parameter7_4byte1_209[0] = parameter7_4byte209[0];
             parameter7_4byte1_209[1] = parameter7_4byte209[1];
             parameter7_4byte1_209[2] = parameter7_4byte209[2];
             parameter7_4byte1_209[3] = parameter7_4byte209[3];
 
-            //0x4800 command
             parameter7_4byte1_210[0] = parameter7_4byte210[2];
             parameter7_4byte1_210[1] = parameter7_4byte210[3];
             parameter7_4byte1_210[2] = parameter7_4byte210[0];
             parameter7_4byte1_210[3] = parameter7_4byte210[1];
 
-            //0x4802 data
             parameter7_4byte1_211[0] = parameter7_4byte211[0];
             parameter7_4byte1_211[1] = parameter7_4byte211[1];
             parameter7_4byte1_211[2] = parameter7_4byte211[2];
@@ -2734,37 +2717,31 @@ namespace MINASA6SF_Rev.ViewModels
             parameter7_4byte1_287[2] = parameter7_4byte287[2];
             parameter7_4byte1_287[3] = parameter7_4byte287[3];
 
-            //0x4802 data
             parameter7_4byte1_288[0] = parameter7_4byte288[2];
             parameter7_4byte1_288[1] = parameter7_4byte288[3];
             parameter7_4byte1_288[2] = parameter7_4byte288[0];
             parameter7_4byte1_288[3] = parameter7_4byte288[1];
 
-            //0x4800 command
             parameter7_4byte1_289[0] = parameter7_4byte289[0];
             parameter7_4byte1_289[1] = parameter7_4byte289[1];
             parameter7_4byte1_289[2] = parameter7_4byte289[2];
             parameter7_4byte1_289[3] = parameter7_4byte289[3];
 
-            //0x4802 data
             parameter7_4byte1_290[0] = parameter7_4byte290[2];
             parameter7_4byte1_290[1] = parameter7_4byte290[3];
             parameter7_4byte1_290[2] = parameter7_4byte290[0];
             parameter7_4byte1_290[3] = parameter7_4byte290[1];
 
-            //0x4800 command
             parameter7_4byte1_291[0] = parameter7_4byte291[0];
             parameter7_4byte1_291[1] = parameter7_4byte291[1];
             parameter7_4byte1_291[2] = parameter7_4byte291[2];
             parameter7_4byte1_291[3] = parameter7_4byte291[3];
 
-            //0x4802 data
             parameter7_4byte1_292[0] = parameter7_4byte292[2];
             parameter7_4byte1_292[1] = parameter7_4byte292[3];
             parameter7_4byte1_292[2] = parameter7_4byte292[0];
             parameter7_4byte1_292[3] = parameter7_4byte292[1];
 
-            //0x4800 command
             parameter7_4byte1_293[0] = parameter7_4byte293[0];
             parameter7_4byte1_293[1] = parameter7_4byte293[1];
             parameter7_4byte1_293[2] = parameter7_4byte293[2];
@@ -3258,123 +3235,100 @@ namespace MINASA6SF_Rev.ViewModels
             parameter7_4byte1_374[2] = parameter7_4byte374[0];
             parameter7_4byte1_374[3] = parameter7_4byte374[1];
 
-
-            //0x4800 command
             parameter7_4byte1_375[0] = parameter7_4byte375[0];
             parameter7_4byte1_375[1] = parameter7_4byte375[1];
             parameter7_4byte1_375[2] = parameter7_4byte375[2];
             parameter7_4byte1_375[3] = parameter7_4byte375[3];
 
-            //0x4802 data
             parameter7_4byte1_376[0] = parameter7_4byte376[2];
             parameter7_4byte1_376[1] = parameter7_4byte376[3];
             parameter7_4byte1_376[2] = parameter7_4byte376[0];
             parameter7_4byte1_376[3] = parameter7_4byte376[1];
 
-
-            //0x4800 command
             parameter7_4byte1_377[0] = parameter7_4byte377[0];
             parameter7_4byte1_377[1] = parameter7_4byte377[1];
             parameter7_4byte1_377[2] = parameter7_4byte377[2];
             parameter7_4byte1_377[3] = parameter7_4byte377[3];
 
-            //0x4802 data
             parameter7_4byte1_378[0] = parameter7_4byte378[2];
             parameter7_4byte1_378[1] = parameter7_4byte378[3];
             parameter7_4byte1_378[2] = parameter7_4byte378[0];
             parameter7_4byte1_378[3] = parameter7_4byte378[1];
-
 
             parameter7_4byte1_379[0] = parameter7_4byte379[0];
             parameter7_4byte1_379[1] = parameter7_4byte379[1];
             parameter7_4byte1_379[2] = parameter7_4byte379[2];
             parameter7_4byte1_379[3] = parameter7_4byte379[3];
 
-            //0x4802 data
             parameter7_4byte1_380[0] = parameter7_4byte380[2];
             parameter7_4byte1_380[1] = parameter7_4byte380[3];
             parameter7_4byte1_380[2] = parameter7_4byte380[0];
             parameter7_4byte1_380[3] = parameter7_4byte380[1];
 
+            parameter7_4byte1_381[0] = parameter7_4byte381[0];
+            parameter7_4byte1_381[1] = parameter7_4byte381[1];
+            parameter7_4byte1_381[2] = parameter7_4byte381[2];
+            parameter7_4byte1_381[3] = parameter7_4byte381[3];
 
-            parameter7_4byte1_381[3] = parameter7_4byte381[0];
-            parameter7_4byte1_381[0] = parameter7_4byte381[1];
-            parameter7_4byte1_381[1] = parameter7_4byte381[2];
-            parameter7_4byte1_381[2] = parameter7_4byte381[3];
-
-            //0x4802 data
             parameter7_4byte1_382[0] = parameter7_4byte382[2];
             parameter7_4byte1_382[1] = parameter7_4byte382[3];
             parameter7_4byte1_382[2] = parameter7_4byte382[0];
             parameter7_4byte1_382[3] = parameter7_4byte382[1];
 
-
-            //0x4800 command
             parameter7_4byte1_383[0] = parameter7_4byte383[0];
             parameter7_4byte1_383[1] = parameter7_4byte383[1];
             parameter7_4byte1_383[2] = parameter7_4byte383[2];
             parameter7_4byte1_383[3] = parameter7_4byte383[3];
 
-            //0x4802 data
             parameter7_4byte1_384[0] = parameter7_4byte384[2];
             parameter7_4byte1_384[1] = parameter7_4byte384[3];
             parameter7_4byte1_384[2] = parameter7_4byte384[0];
             parameter7_4byte1_384[3] = parameter7_4byte384[1];
-
 
             parameter7_4byte1_385[0] = parameter7_4byte385[0];
             parameter7_4byte1_385[1] = parameter7_4byte385[1];
             parameter7_4byte1_385[2] = parameter7_4byte385[2];
             parameter7_4byte1_385[3] = parameter7_4byte385[3];
 
-            //0x4802 data
             parameter7_4byte1_386[0] = parameter7_4byte386[2];
             parameter7_4byte1_386[1] = parameter7_4byte386[3];
             parameter7_4byte1_386[2] = parameter7_4byte386[0];
             parameter7_4byte1_386[3] = parameter7_4byte386[1];
-
 
             parameter7_4byte1_387[0] = parameter7_4byte387[0];
             parameter7_4byte1_387[1] = parameter7_4byte387[1];
             parameter7_4byte1_387[2] = parameter7_4byte387[2];
             parameter7_4byte1_387[3] = parameter7_4byte387[3];
 
-
             parameter7_4byte1_388[0] = parameter7_4byte388[2];
             parameter7_4byte1_388[1] = parameter7_4byte388[3];
             parameter7_4byte1_388[2] = parameter7_4byte388[0];
             parameter7_4byte1_388[3] = parameter7_4byte388[1];
-
 
             parameter7_4byte1_389[0] = parameter7_4byte389[0];
             parameter7_4byte1_389[1] = parameter7_4byte389[1];
             parameter7_4byte1_389[2] = parameter7_4byte389[2];
             parameter7_4byte1_389[3] = parameter7_4byte389[3];
 
-            //0x4802 data
             parameter7_4byte1_390[0] = parameter7_4byte390[2];
             parameter7_4byte1_390[1] = parameter7_4byte390[3];
             parameter7_4byte1_390[2] = parameter7_4byte390[0];
             parameter7_4byte1_390[3] = parameter7_4byte390[1];
-
 
             parameter7_4byte1_391[0] = parameter7_4byte391[0];
             parameter7_4byte1_391[1] = parameter7_4byte391[1];
             parameter7_4byte1_391[2] = parameter7_4byte391[2];
             parameter7_4byte1_391[3] = parameter7_4byte391[3];
 
-
             parameter7_4byte1_392[0] = parameter7_4byte392[2];
             parameter7_4byte1_392[1] = parameter7_4byte392[3];
             parameter7_4byte1_392[2] = parameter7_4byte392[0];
             parameter7_4byte1_392[3] = parameter7_4byte392[1];
 
-
             parameter7_4byte1_393[0] = parameter7_4byte393[0];
             parameter7_4byte1_393[1] = parameter7_4byte393[1];
             parameter7_4byte1_393[2] = parameter7_4byte393[2];
             parameter7_4byte1_393[3] = parameter7_4byte393[3];
-
 
             parameter7_4byte1_394[0] = parameter7_4byte394[2];
             parameter7_4byte1_394[1] = parameter7_4byte394[3];
@@ -4107,10 +4061,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         //partial void BlockParameterRec11(object sender, DoWorkEventArgs e)
         partial void BlockParameterRec11()
-        {
-            MirrorONOFF = false;
-            recONOFF = false;
-            Thread.Sleep(3000);
+        {           
             for (int i = 0; i < 56; i++)
             {
                 BlockParameterRec(i);

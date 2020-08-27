@@ -492,7 +492,7 @@ namespace MINASA6SF_Rev.Models
             data[10] = values[0];
             data[11] = values[1];
             Debug.WriteLine("WriteSingleRegister 실행");
-            WriteAsyncData(data, id);
+            //WriteAsyncData(data, id);
             WriteSyncData(data, id);
         }
 
