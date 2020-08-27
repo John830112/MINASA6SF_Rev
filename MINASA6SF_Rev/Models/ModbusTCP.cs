@@ -491,8 +491,8 @@ namespace MINASA6SF_Rev.Models
             data = CreateWriteHeader(id, unit, startAddress, 1, 1, fctWriteSingleRegister);
             data[10] = values[0];
             data[11] = values[1];
-
-            //WriteAsyncData(data, id);
+            Debug.WriteLine("WriteSingleRegister 실행");
+            WriteAsyncData(data, id);
             WriteSyncData(data, id);
         }
 
@@ -527,6 +527,7 @@ namespace MINASA6SF_Rev.Models
         /// <param name="values">Contains the register information.</param>
         public void WriteMultipleRegister(ushort id, byte unit, ushort startAddress, byte[] values)
         {
+            //비추천
             ushort numBytes = Convert.ToUInt16(values.Length);
             if (numBytes > 250)
             {
@@ -537,6 +538,7 @@ namespace MINASA6SF_Rev.Models
             if (numBytes % 2 > 0) numBytes++;
             byte[] data;
 
+            Debug.WriteLine("WriteMultipleRegister 실행");
             data = CreateWriteHeader(id, unit, startAddress, Convert.ToUInt16(numBytes / 2), Convert.ToUInt16(numBytes + 2), fctWriteMultipleRegister);
             Array.Copy(values, 0, data, 13, values.Length);
             //WriteAsyncData(data, id);
@@ -778,8 +780,7 @@ namespace MINASA6SF_Rev.Models
             {
                 if (connected1 && write_data != null)
                 {
-                    tcpSynCl.Send(write_data, 0, write_data.Length, SocketFlags.None);
-                    Thread.Sleep(50);
+                    tcpSynCl.Send(write_data, 0, write_data.Length, SocketFlags.None);                    
                     result = tcpSynCl.Receive(tcpSynClBuffer, 0, tcpSynClBuffer.Length, SocketFlags.None);
                     if (tcpSynClBuffer == null)
                     {
@@ -791,7 +792,7 @@ namespace MINASA6SF_Rev.Models
                         function = tcpSynClBuffer[7];
                     }
 
-                    if (result == 0) CallException(id, unit, write_data[7], excExceptionConnectionLost);
+                 //   if (result == 0) CallException(id, unit, write_data[7], excExceptionConnectionLost);
 
                     // ------------------------------------------------------------
                     // Response data is slave exception

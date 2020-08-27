@@ -37,7 +37,7 @@ namespace MINASA6SF_Rev.ViewModels
         {
             recONOFF = false;
             MirrorONOFF = false;
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
             for (int i = 0; i < 256; i++)
             {
                 BlockActParameterRec(i);
@@ -52,9 +52,9 @@ namespace MINASA6SF_Rev.ViewModels
                 //}
             }
             Count = 0;
-            mirrtimer.Start();
             MirrorONOFF = true;
             recONOFF = true;
+            mirrtimer.Enabled = true;
 
             #region 블럭 동작 파라미터 수신 변수 Reverse처리   //Array.Reverse(recValue1);
             Array.Reverse(recValue1);
@@ -4102,6 +4102,7 @@ namespace MINASA6SF_Rev.ViewModels
             #endregion
 
             BlockParameterRec2();
+            return;
         }
 
         //partial void BlockParameterRec11(object sender, DoWorkEventArgs e)
@@ -4109,7 +4110,7 @@ namespace MINASA6SF_Rev.ViewModels
         {
             MirrorONOFF = false;
             recONOFF = false;
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
             for (int i = 0; i < 56; i++)
             {
                 BlockParameterRec(i);
@@ -4124,10 +4125,9 @@ namespace MINASA6SF_Rev.ViewModels
                 //}
             }
             Count = 0;
-            mirrtimer.Start();
             MirrorONOFF = true;
             recONOFF = true;
-
+            mirrtimer.Enabled = true;
             #region 블럭 파라미터 수신 변수 Reverse처리   //Array.Reverse(BlockVelParameterSetting1);
             Array.Reverse(BlockVelParameterSetting1);
             Array.Reverse(BlockVelParameterSetting2);
@@ -4266,6 +4266,7 @@ namespace MINASA6SF_Rev.ViewModels
             #endregion
 
             BlockParameterdata();
+            return;
         }
 
         private void BlockParameterdata()

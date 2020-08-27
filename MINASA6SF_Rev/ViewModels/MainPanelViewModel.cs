@@ -31,13 +31,15 @@ namespace MINASA6SF_Rev.ViewModels
 {
     public partial class MainPanelViewModel : ViewModelBase, IWindowService
     {
+        public BackgroundWorker worker1 = new BackgroundWorker();
         public BackgroundWorker worker2 = new BackgroundWorker(); //블럭 동작편집 파라미터 송신 
         public BackgroundWorker worker3 = new BackgroundWorker(); //블럭 매개변수 파라미터 송신 
-        public BackgroundWorker worker1 = new BackgroundWorker();
         private readonly object balanceLock = new object();
         private readonly object balanceLock1 = new object();
 
         public System.Timers.Timer mirrtimer;
+        public System.Threading.Timer timer;
+
         Thread thread = new Thread(ModbusTCPConstructor);
 
         private static Master modbusTCP;
@@ -2397,8 +2399,8 @@ namespace MINASA6SF_Rev.ViewModels
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadObjectViewModel();
 
-            mirrtimer = new System.Timers.Timer(50);
-
+            mirrtimer = new System.Timers.Timer(1);            
+            
             worker1.DoWork += Worker1_DoWork;
             worker1.WorkerReportsProgress = true;
             worker1.RunWorkerCompleted += Worker1_RunWorkerCompleted;
@@ -2418,9 +2420,11 @@ namespace MINASA6SF_Rev.ViewModels
             _eepromwrite[1] = (byte)_eeprom;
         }
         #endregion
+
         private static void ModbusTCPConstructor()
         {
             modbusTCP = new Master();
+            return;
         }
 
         #region BlockSettingDialog 기능별 Command함수
@@ -2477,8 +2481,8 @@ namespace MINASA6SF_Rev.ViewModels
             //{
             //    blockSettingDialog.Opacity -= 0.1;
             //}
-
             blockSettingDialog.Hide();
+            return;
         }
 
         private bool CanexecuteBlockSettingDialogCloseCommand(object parameter)
@@ -2495,26 +2499,14 @@ namespace MINASA6SF_Rev.ViewModels
         //빠른 부방향 시작
         private void Executejogrewind1(object parameter)
         {
-            mirrtimer.Stop();
+           // mirrtimer.Enabled = false;
             jogBlockSelect[0] = (byte)(JogBlockSelect_Value1 >> 8);
             jogBlockSelect[1] = (byte)(JogBlockSelect_Value1);
-            modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);  // JOGBLOCK선택
-            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, 1, ref _servoONStatus);  //SERVO ON 상태 읽기
-            if (_servoONStatus != null)
-            {
-                if (_servoONStatus[0] == 0)
-                {
-                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);  //SERVO ON
-                }
-            }
-            else
-            {
-                StatusBar = "서보 ON 상태 읽기 실패_JOG운전 버튼";
-                return;
-            }
+            modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);  // JOGBLOCK선택            
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);  //STB
-            mirrtimer.Start();
-            Debug.WriteLine("Down");
+            Debug.WriteLine("빠른 부방향 Down");
+        //    mirrtimer.Enabled = true;
+            return;
         }
 
         private bool Canexecutejogrewind1(object parameter)
@@ -2525,11 +2517,12 @@ namespace MINASA6SF_Rev.ViewModels
         //빠른 부방향 정지
         private void Executejogrewind2(object parameter)
         {
-            mirrtimer.Stop();
+        //    mirrtimer.Enabled = false;
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, true);   //즉시정지 ON
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, false);  //즉시정지 OFF
-            mirrtimer.Start();
-            Debug.WriteLine("Up");
+            Debug.WriteLine("빠른 부방향 Up");
+     //       mirrtimer.Enabled = true;
+            return;
         }
 
         private bool Canexecutejogrewind2(object parameter)
@@ -2538,28 +2531,16 @@ namespace MINASA6SF_Rev.ViewModels
         }
 
         //느린 부방향 시작
-        private void Executejogplaybtn1(object parameter)
+        private  void Executejogplaybtn1(object parameter)
         {
-            mirrtimer.Stop();
+       //     mirrtimer.Enabled = false;
             jogBlockSelect[0] = (byte)(JogBlockSelect_Value2 >> 8);
             jogBlockSelect[1] = (byte)(JogBlockSelect_Value2);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);
-            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, 1, ref _servoONStatus);
-            if (_servoONStatus != null)
-            {
-                if (_servoONStatus[0] == 0)
-                {
-                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
-                }
-            }
-            else
-            {
-                StatusBar = "서보 ON 상태 읽기 실패_JOG운전 버튼";
-                return;
-            }
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
-            mirrtimer.Start();
-            Debug.WriteLine("Down");
+            Debug.WriteLine("느린 부방향 Down");
+       //     mirrtimer.Enabled = true;
+            return;
         }
 
         private bool Canexecutejogplaybtn1(object parameter)
@@ -2570,12 +2551,13 @@ namespace MINASA6SF_Rev.ViewModels
         //느린 부방향 정지
         private void Executejogplaybtn2(object parameter)
         {
-            mirrtimer.Stop();
+         //   mirrtimer.Enabled = false;
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, true);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, false);
-            mirrtimer.Start();
-            Debug.WriteLine("Up");
-        }
+            Debug.WriteLine("느린 부방향 Up");
+        //    mirrtimer.Enabled = true;
+            return;
+        }  
 
         private bool Canexecutejogplaybtn2(object parameter)
         {
@@ -2601,6 +2583,7 @@ namespace MINASA6SF_Rev.ViewModels
                 controlpanel1.combo4.Visibility = Visibility.Visible;
                 BlockSelect_Lock_Release = true;
             }
+            return;
 
         }
 
@@ -2621,29 +2604,16 @@ namespace MINASA6SF_Rev.ViewModels
         }
 
         //느린 정방향 시작
-        private void Executejogplaybtn3(object parameter)
+        private  void Executejogplaybtn3(object parameter)
         {
-            mirrtimer.Stop();
+       //     mirrtimer.Enabled = false;
             jogBlockSelect[0] = (byte)(JogBlockSelect_Value3 >> 8);
             jogBlockSelect[1] = (byte)(JogBlockSelect_Value3);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);
-            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
-            if (_servoONStatus != null)
-            {
-
-                if (_servoONStatus[0] == 0)
-                {
-                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
-                }
-            }
-            else
-            {
-                StatusBar = "서보 ON 상태 읽기 실패_JOG운전 버튼";
-                return;
-            }
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
-            mirrtimer.Start();
-            Debug.WriteLine("Down");
+            Debug.WriteLine("느린 정방향 Down");
+       //     mirrtimer.Enabled = true;
+            return;
         }
 
         private bool Canexecutejogplaybtn3(object parameter)
@@ -2654,57 +2624,46 @@ namespace MINASA6SF_Rev.ViewModels
         //느린 정방향 정지
         private void Executejogplaybtn4(object parameter)
         {
-            mirrtimer.Stop();
+      //      mirrtimer.Enabled = false;
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, true);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, false);
-            mirrtimer.Start();
-            Debug.WriteLine("Up");
-        }
+            Debug.WriteLine("느린 정방향 Up");
+     //       mirrtimer.Enabled = true;
+            return;
+        }     
 
         private bool Canexecutejogplaybtn4(object parameter)
         {
             return true;
         }
 
-        //빠른 부방향 시작
+        //빠른 정방향 시작
         private void Executejogfastford1(object parameter)
         {
-            mirrtimer.Stop();
+       //     mirrtimer.Enabled = false;
             jogBlockSelect[0] = (byte)(JogBlockSelect_Value4 >> 8);
             jogBlockSelect[1] = (byte)(JogBlockSelect_Value4);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);
-            modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, 1, ref _servoONStatus);
-            if (_servoONStatus != null)
-            {
-
-                if (_servoONStatus[0] == 0)
-                {
-                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0060, true);
-                }
-            }
-            else
-            {
-                StatusBar = "서보 ON 상태 읽기 실패_JOG운전 버튼";
-                return;
-            }
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
-            mirrtimer.Start();
-            Debug.WriteLine("Down");
+            Debug.WriteLine("빠른 정방향 Down");
+        //    mirrtimer.Enabled = true;
+            return;
         }
-
+      
         private bool Canexecutejogfastford1(object parameter)
         {
             return true;
         }
 
-        //빠른 부방향 정지
-        private void Executejogfastford2(object parameter)
+        //빠른 정방향 정지
+        private  void Executejogfastford2(object parameter)
         {
-            mirrtimer.Stop();
+         //   mirrtimer.Enabled = false;
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, true);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, false);
-            mirrtimer.Start();
-            Debug.WriteLine("Up");
+            Debug.WriteLine("빠른 정방향 Up");
+      //      mirrtimer.Enabled = true;
+            return;
         }
 
         private bool Canexecutejogfastford2(object parameter)
@@ -2714,7 +2673,8 @@ namespace MINASA6SF_Rev.ViewModels
         #endregion
 
         #region MirrTimer
-        private void MirrTimer_New(object source, EventArgs e)
+        //private void MirrTimer_New(object source, EventArgs e)
+        private void MirrTimer_New(object state)
         {
             try
             {
@@ -2731,7 +2691,6 @@ namespace MINASA6SF_Rev.ViewModels
                             modbusTCP.ReadCoils(0, (byte)axisNum1, 0x0060, 1, ref _servoONStatus);
                             modbusTCP.ReadCoils(0, (byte)axisNum1, 0x00A1, 1, ref _alarmStatus);
                             ModbusOnStatus = modbusTCP.connected;
-
                             Array.Reverse(_errorCode);
                             Array.Reverse(_mirrReg1);
                             Array.Reverse(_mirrReg2);
@@ -2792,7 +2751,8 @@ namespace MINASA6SF_Rev.ViewModels
         //MirrTimer 실행 함수
         public void MirrTimer_Tick()
         {
-            mirrtimer.Elapsed += MirrTimer_New;            
+            //  mirrtimer.Elapsed += MirrTimer_New;  
+            timer = new System.Threading.Timer(new TimerCallback(MirrTimer_New), null, 3000, 10);
             MirrorONOFF = true;
             mirrtimer.Enabled = true;
         }
@@ -2873,6 +2833,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         private void Worker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            mirrtimer.Enabled = false;
             mirrtimer.Stop();
             worker2.CancelAsync();
             worker3.CancelAsync();
@@ -19753,11 +19714,11 @@ namespace MINASA6SF_Rev.ViewModels
             {
                 recONOFF = false;
                 MirrorONOFF = false;
-                mirrtimer.Stop();
+                mirrtimer.Enabled = false;
                 //worker2.DoWork += BlockParameterRec1;
                 //worker2.RunWorkerCompleted += Worker2_RunWorkerCompleted;
                 //worker2.RunWorkerAsync();   //  ->BlockParameterRec1
-                 await Task.Run(() =>
+                await Task.Run(() =>
                   BlockParameterRec1()
                     );
                 Debug.WriteLine("블럭 동작편집 수신버튼 누름");
@@ -19766,7 +19727,7 @@ namespace MINASA6SF_Rev.ViewModels
             {
                 recONOFF = false;
                 MirrorONOFF = false;
-                mirrtimer.Stop();
+                mirrtimer.Enabled = false;
                 //worker3.DoWork += BlockParameterRec11;
                 //worker3.RunWorkerCompleted += Worker3_RunWorkerCompleted;
                 //worker3.RunWorkerAsync();   //  ->
@@ -21015,23 +20976,42 @@ namespace MINASA6SF_Rev.ViewModels
         }
 
         // EEP버튼        
-        private void ExecuteEepCommand(object parameter)
+        private async void ExecuteEepCommand(object parameter)
         {        
             recONOFF = false;
             MirrorONOFF = false;
-            mirrtimer.Stop();
-            Debug.WriteLine("EEP버튼 테스트");
-            modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x1020, _eepromwrite);
-            modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x1020, _eepromwrite);
-            mirrtimer.Start();
-            MirrorONOFF = true;
-            recONOFF = true;
-            
+            mirrtimer.Enabled =false;
+            MessageBoxResult messageBoxResult= MessageBox.Show("EEP를 실행 하시겠습니까?", "EEP 실행?", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if(messageBoxResult==MessageBoxResult.Cancel)
+            {
+                return;
+            }
+            else
+            {
+                await Task.Run(() =>
+                    Worker4_DoWork()
+                    );
+                Debug.WriteLine("EEP버튼 실행 완료2");
+                MirrorONOFF = true;
+                recONOFF = true;
+               
+                return;
+            }
         }
 
         private bool CanexecuteEepCommand(object parameter)
         {
             return recONOFF;
+        }
+
+        private void Worker4_DoWork()
+        {            
+            Debug.WriteLine("EEP버튼 실행");
+            Thread.Sleep(1000);
+            modbusTCP.WriteSingleRegister(0, (byte)axisNum1, 0x1020, _eepromwrite);
+            Debug.WriteLine("EEP버튼 실행 완료1");
+            mirrtimer.Enabled = true;
+            return;
         }
         #endregion
 
