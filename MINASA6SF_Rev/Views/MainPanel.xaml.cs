@@ -42,7 +42,7 @@ namespace MINASA6SF_Rev.Views
         {
 
             Settings = new Settings();
-            mainPanelViewModel = new MainPanelViewModel(Settings, BlockPara, ControlPanel1);
+            mainPanelViewModel = new MainPanelViewModel(Settings, BlockPara, ControlPanel1, this, ServoPara);
             ServoPara = new ServoPara(mainPanelViewModel);
 
             InitializeComponent();
@@ -80,21 +80,40 @@ namespace MINASA6SF_Rev.Views
         private void mainpanel_Click(object sender, RoutedEventArgs e)
         {
             mainpanel.Navigate(ControlPanel1);
+            if (mainPanelViewModel.mirrtimer.Enabled != true)
+            {
+                mainPanelViewModel.mirrtimer.Start();
+                mainPanelViewModel.timer.Start();
+                Debug.WriteLine("Timer Start");
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void blockpara_Click(object sender, RoutedEventArgs e)
         {
             mainpanel.Navigate(BlockPara);
+            mainPanelViewModel.mirrtimer.Stop();
+            mainPanelViewModel.timer.Stop();
+            Debug.WriteLine("Timer Stop");
         }
 
         private void servopara_Click(object sender, RoutedEventArgs e)
         {
             mainpanel.Navigate(ServoPara);
+            mainPanelViewModel.mirrtimer.Stop();
+            mainPanelViewModel.timer.Stop();
+            Debug.WriteLine("Timer Stop");
         }
 
         private void setting_Click(object sender, RoutedEventArgs e)
         {
             mainpanel.Navigate(Settings);
+            mainPanelViewModel.mirrtimer.Stop();
+            mainPanelViewModel.timer.Stop();
+            Debug.WriteLine("Timer Stop");
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)

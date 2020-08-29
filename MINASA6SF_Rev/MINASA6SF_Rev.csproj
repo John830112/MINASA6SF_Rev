@@ -102,7 +102,6 @@
     <Compile Include="Models\LampConverter1.cs" />
     <Compile Include="Models\LampConverter2.cs" />
     <Compile Include="Models\ModbusTCP.cs" />
-    <Compile Include="Models\ModbusTCP_.cs" />
     <Compile Include="Models\MouseBehaviour.cs" />
     <Compile Include="Models\ServoParaModel.cs" />
     <Compile Include="Models\StringConverter.cs" />

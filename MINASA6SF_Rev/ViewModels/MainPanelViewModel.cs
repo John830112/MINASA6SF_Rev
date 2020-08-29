@@ -38,14 +38,16 @@ namespace MINASA6SF_Rev.ViewModels
         private readonly object balanceLock1 = new object();
 
         public System.Timers.Timer mirrtimer;
-        public System.Threading.Timer timer;
-
-        Thread thread = new Thread(ModbusTCPConstructor);
+        public System.Timers.Timer timer;
+        //public System.Threading.Timer timer;
+      
 
         private static Master modbusTCP;
         Settings settings;
         BlockPara blockpara;
         ControlPanel1 controlpanel1;
+        MainPanel mainpanel;
+        ServoPara servopara;
 
         public ObservableCollection<int> axisNum { set; get; }
         ObservableCollection<int> axisNums = new ObservableCollection<int>();
@@ -2316,14 +2318,15 @@ namespace MINASA6SF_Rev.ViewModels
         #region viewmodel 생성자
         public MainPanelViewModel() { }
 
-        public MainPanelViewModel(Settings _settings, BlockPara _blockpara, ControlPanel1 _controlPanel1)
+        public MainPanelViewModel(Settings _settings, BlockPara _blockpara, ControlPanel1 _controlPanel1, MainPanel _mainPanel, ServoPara _servoPara)
         {
             recONOFF = true;
-            thread.Start();
             MirrorONOFF = false;
             settings = _settings;
             blockpara = _blockpara;
             controlpanel1 = _controlPanel1;
+            mainpanel = _mainPanel;
+            servopara = _servoPara;
 
             //BlockParaDialog Page Datacontext 설정
             incPosition_Page1.DataContext = this;
@@ -2333,6 +2336,7 @@ namespace MINASA6SF_Rev.ViewModels
             conditionDiv_Page10.DataContext = this;
             conditionDiv_Page11.DataContext = this;
             conditionDiv_Page12.DataContext = this;
+            mainpanel.DataContext = this;
 
             #region 커맨드 인스턴스
             //ControlPanel 버튼 커맨드
@@ -2396,9 +2400,12 @@ namespace MINASA6SF_Rev.ViewModels
 
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadObjectViewModel();
+            modbusTCP = new Master();
+            mirrtimer = new System.Timers.Timer(1);
 
-            mirrtimer = new System.Timers.Timer(1);            
-            
+            timer = new System.Timers.Timer(10);
+            timer.Elapsed += MirrTimer_New;
+
             worker1.DoWork += Worker1_DoWork;
             worker1.WorkerReportsProgress = true;
             worker1.RunWorkerCompleted += Worker1_RunWorkerCompleted;
@@ -2416,14 +2423,10 @@ namespace MINASA6SF_Rev.ViewModels
 
             _eepromwrite[0] = (byte)(_eeprom >> 8);
             _eepromwrite[1] = (byte)_eeprom;
+            _eepromwrite[2] = (byte)(_eeprom >> 24);
+            _eepromwrite[3] = (byte)(_eeprom >> 16);
         }
         #endregion
-
-        private static void ModbusTCPConstructor()
-        {
-            modbusTCP = new Master();
-            return;
-        }
 
         #region BlockSettingDialog 기능별 Command함수
         private void ExecuteFunSelection(object parameter)
@@ -2500,9 +2503,9 @@ namespace MINASA6SF_Rev.ViewModels
             mirrtimer.Stop();
             jogBlockSelect[0] = (byte)(JogBlockSelect_Value1 >> 8);
             jogBlockSelect[1] = (byte)(JogBlockSelect_Value1);
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);  // JOGBLOCK선택 
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);  //STB
             Debug.WriteLine("빠른 부방향 Down");
             mirrtimer.Start();
@@ -2519,10 +2522,10 @@ namespace MINASA6SF_Rev.ViewModels
         {
             mirrtimer.Stop();
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, true);   //즉시정지 ON
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, false);  //즉시정지 OFF
             Debug.WriteLine("빠른 부방향 Up");
-            await Task.Delay(100);
+            await Task.Delay(50);
             mirrtimer.Start();
             return;
         }
@@ -2538,9 +2541,9 @@ namespace MINASA6SF_Rev.ViewModels
             mirrtimer.Stop();
             jogBlockSelect[0] = (byte)(JogBlockSelect_Value2 >> 8);
             jogBlockSelect[1] = (byte)(JogBlockSelect_Value2);
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             Debug.WriteLine("느린 부방향 Down");
             mirrtimer.Start();
@@ -2556,9 +2559,9 @@ namespace MINASA6SF_Rev.ViewModels
         private async void Executejogplaybtn2(object parameter)
         {
             mirrtimer.Stop();
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, true);
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, false);
             Debug.WriteLine("느린 부방향 Up");
             mirrtimer.Start();
@@ -2615,9 +2618,9 @@ namespace MINASA6SF_Rev.ViewModels
             mirrtimer.Stop();
             jogBlockSelect[0] = (byte)(JogBlockSelect_Value3 >> 8);
             jogBlockSelect[1] = (byte)(JogBlockSelect_Value3);
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             Debug.WriteLine("느린 정방향 Down");
             mirrtimer.Start();
@@ -2633,9 +2636,9 @@ namespace MINASA6SF_Rev.ViewModels
         private async void Executejogplaybtn4(object parameter)
         {
             mirrtimer.Stop();
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, true);
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, false);
             Debug.WriteLine("느린 정방향 Up");
             mirrtimer.Start();
@@ -2653,9 +2656,9 @@ namespace MINASA6SF_Rev.ViewModels
             mirrtimer.Stop();
             jogBlockSelect[0] = (byte)(JogBlockSelect_Value4 >> 8);
             jogBlockSelect[1] = (byte)(JogBlockSelect_Value4);
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleRegister(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x4414, jogBlockSelect);
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0120, true);
             Debug.WriteLine("빠른 정방향 Down");
             mirrtimer.Start();
@@ -2671,9 +2674,9 @@ namespace MINASA6SF_Rev.ViewModels
         private async void Executejogfastford2(object parameter)
         {
             mirrtimer.Stop();
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, true);
-            await Task.Delay(100);
+            await Task.Delay(50);
             modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0123, false);
             Debug.WriteLine("빠른 정방향 Up");
             mirrtimer.Start();
@@ -2687,8 +2690,7 @@ namespace MINASA6SF_Rev.ViewModels
         #endregion
 
         #region MirrTimer
-        //private void MirrTimer_New(object source, EventArgs e)
-        private void MirrTimer_New(object state)
+        private void MirrTimer_New(Object source, ElapsedEventArgs e)
         {
             try
             {
@@ -2739,6 +2741,7 @@ namespace MINASA6SF_Rev.ViewModels
                             powerontimetemp = BitConverter.ToInt32(powerontime, 0);
                             PowerONTime = powerontimetemp / 2;
                             ErrorCode = _maincode.ToString() + "." + _subcode.ToString();
+                            StatusBar = "접속중";
                             Debug.WriteLine("실행중...");
                         }
                     }
@@ -2756,7 +2759,9 @@ namespace MINASA6SF_Rev.ViewModels
             }
             catch (Exception es)
             {
-               // StatusBar = es.Source.ToString() + "  MirrReg_timer";
+                StatusBar = es.Source.ToString() + "  MirrReg_timer";
+                ExecuteDisconnect(this);
+                ExecuteSettingsConfirm(this);
                 return;
             }
         }
@@ -2765,8 +2770,11 @@ namespace MINASA6SF_Rev.ViewModels
         public void MirrTimer_Tick()
         {
             //  mirrtimer.Elapsed += MirrTimer_New;  
-            timer = new System.Threading.Timer(new TimerCallback(MirrTimer_New), null, 3000, 10);
+            //timer = new System.Threading.Timer(new TimerCallback(MirrTimer_New), null, 1000, 10);
+            timer.Start();
             MirrorONOFF = true;
+           
+            //timer.Start();
             mirrtimer.Enabled = true;
         }
         #endregion
@@ -2778,11 +2786,11 @@ namespace MINASA6SF_Rev.ViewModels
             try
             {
                 if (!modbusTCP.connected)
-                {                    
-                    mirrTime = int.Parse(settings.cycleTime.SelectedValue.ToString());                   
+                {
+                    mirrTime = int.Parse(settings.cycleTime.SelectedValue.ToString());
                     modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
                     axisNum1 = int.Parse(settings.axisNumselect.SelectedValue.ToString());
-                    if(modbusTCP.connected)
+                    if (modbusTCP.connected)
                     {
                         MirrorONOFF = true;
                         StatusBar = "접속";
@@ -2793,7 +2801,7 @@ namespace MINASA6SF_Rev.ViewModels
                     {
                         StatusBar = "접속 실패...";
                         return;
-                    }                    
+                    }
                 }
                 else
                 {
@@ -2808,7 +2816,7 @@ namespace MINASA6SF_Rev.ViewModels
         }
         private bool CanexecuteSettingsConfirm(object parameter)
         {
-            if (!MirrorONOFF &&recONOFF)
+            if (!MirrorONOFF && recONOFF)
                 return true;
             else
                 return false;           
@@ -2824,6 +2832,7 @@ namespace MINASA6SF_Rev.ViewModels
                     if (LampStatus == 1)
                     {
                         mirrtimer.Stop();
+                        timer.Stop();
                         modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, false);
                         Debug.WriteLine(LampStatus.ToString());
                     }
@@ -2845,13 +2854,13 @@ namespace MINASA6SF_Rev.ViewModels
 
         private void Worker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            mirrtimer.Enabled = false;
             mirrtimer.Stop();
+            timer.Stop();
             worker2.CancelAsync();
             worker3.CancelAsync();            
             for (int i=0; i<10; i++)
             {
-                Thread.Sleep(600);
+                Thread.Sleep(500);
                 Count += 23;
             }
             Count = 0;
@@ -3568,7 +3577,7 @@ namespace MINASA6SF_Rev.ViewModels
         }
 
         #region BlockSettingDialog 기능별 셋팅 송신 완료
-        private async void ExecuteConfirm(object parameter)
+        private void ExecuteConfirm(object parameter)
         {
             if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.IncPosition_Page1"))
             {
@@ -3595,7 +3604,6 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[3] = (byte)(TargetPosition >> 16);
 
                 functionName = "상대위치결정";
-                await Task.Delay(500);
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -4879,18 +4887,17 @@ namespace MINASA6SF_Rev.ViewModels
                         blockSettingDialog.Hide();
                         break;
                 }
-                mirrtimer.Start();
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + 
-                    ", 속도번호:V" + SpdNum.ToString() + 
-                    ", 가속설정번호:A" + AccNum.ToString() + 
-                    ", 감속설정번호:D" + Decnum.ToString() +
-                    ", 천이조건:"+BlockChif.ToString() + 
-                    " , 상대이동량: "+TargetPosition.ToString(); 
+             ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName +
+                 ", 속도번호:V" + SpdNum.ToString() +
+                 ", 가속설정번호:A" + AccNum.ToString() +
+                 ", 감속설정번호:D" + Decnum.ToString() +
+                 ", 천이조건:" + BlockChif.ToString() +
+                 " , 상대이동량: " + TargetPosition.ToString();
 
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());      
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString());
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.Abs_Position_Page2"))
@@ -4918,7 +4925,6 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[3] = (byte)(TargetPosition >> 16);
 
                 functionName = "절대위치결정";
-                await Task.Delay(500);
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -5264,7 +5270,7 @@ namespace MINASA6SF_Rev.ViewModels
                     case 68:
                         modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4910, value1);
                         modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4912, value11);
-                         blockSettingDialog.Hide();
+                        blockSettingDialog.Hide();
                         break;
                     case 69:
                         modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x4914, value1);
@@ -5378,7 +5384,7 @@ namespace MINASA6SF_Rev.ViewModels
                         break;
                     case 91:
                         modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x496C, value1);
-                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x496E, value11); 
+                        modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x496E, value11);
                         blockSettingDialog.Hide();
                         break;
                     case 92:
@@ -6202,18 +6208,17 @@ namespace MINASA6SF_Rev.ViewModels
                         blockSettingDialog.Hide();
                         break;
                 }
-                mirrtimer.Start();
 
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + 
-                    ", 속도번호:V" + SpdNum.ToString() + 
-                    ", 가속설정번호:A" + AccNum.ToString() + 
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName +
+                    ", 속도번호:V" + SpdNum.ToString() +
+                    ", 가속설정번호:A" + AccNum.ToString() +
                     ", 감속설정번호:D" + Decnum.ToString() +
-                    ", 천이조건:" + BlockChif.ToString() + 
-                    " , 절대 위치: " + TargetPosition.ToString();  
+                    ", 천이조건:" + BlockChif.ToString() +
+                    " , 절대 위치: " + TargetPosition.ToString();
 
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString());
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.JOG_Operation_Page3"))
@@ -6241,7 +6246,6 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[3] = 0;
 
                 functionName = "JOG";
-                await Task.Delay(500);
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -7525,7 +7529,6 @@ namespace MINASA6SF_Rev.ViewModels
                         blockSettingDialog.Hide();
                         break;
                 }
-                mirrtimer.Start();
                 if (Movidr == 0)
                 {
                     ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName +
@@ -7551,9 +7554,9 @@ namespace MINASA6SF_Rev.ViewModels
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.Homebreak_Page4"))
             {
-                SpdNum = (ushort)(homebreak_Page4.HomeMothod4.SelectedIndex + 1);      
-                Movidr = (ushort)homebreak_Page4.HomeDirectNumCombo4.SelectedIndex;    
-                BlockChif = (ushort)homebreak_Page4.SuccNumCombo4.SelectedIndex;       
+                SpdNum = (ushort)(homebreak_Page4.HomeMothod4.SelectedIndex + 1);
+                Movidr = (ushort)homebreak_Page4.HomeDirectNumCombo4.SelectedIndex;
+                BlockChif = (ushort)homebreak_Page4.SuccNumCombo4.SelectedIndex;
 
                 hiki3 = 0;
                 hiki4 = (byte)(Movidr << 2);
@@ -7572,7 +7575,6 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[3] = 0;
 
                 functionName = "원점복귀";
-                await Task.Delay(500);
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -8856,27 +8858,26 @@ namespace MINASA6SF_Rev.ViewModels
                         blockSettingDialog.Hide();
                         break;
                 }
-                mirrtimer.Start();
                 if (SpdNum == 1)
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString();  
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString();
 
                     if (Movidr == 0)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
                         ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME + Z상" + ", 복귀 방향:부방향" + ", 천이조건:" + BlockChif.ToString();
                     }
                 }
-                else if(SpdNum==2)
+                else if (SpdNum == 2)
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString();  
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString();
 
                     if (Movidr == 0)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:HOME" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
@@ -8885,11 +8886,11 @@ namespace MINASA6SF_Rev.ViewModels
                 }
                 else if (SpdNum == 3)
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString();
 
                     if (Movidr == 0)
                     {
-                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString(); 
+                        ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 원점복귀방법:제조사 사용" + ", 복귀 방향:정방향" + ", 천이조건:" + BlockChif.ToString();
                     }
                     else if (Movidr == 1)
                     {
@@ -8897,9 +8898,9 @@ namespace MINASA6SF_Rev.ViewModels
                     }
                 }
 
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString()); 
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());
                 Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString());
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                            
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.DecStop_Page5"))
@@ -8924,7 +8925,6 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[3] = 0;
 
                 functionName = "감속정지";
-                await Task.Delay(500);
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -10208,8 +10208,7 @@ namespace MINASA6SF_Rev.ViewModels
                         blockSettingDialog.Hide();
                         break;
                 }
-                mirrtimer.Start();
-                if(SpdNum==0)
+                if (SpdNum == 0)
                 {
                     ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 정지방법:감속정지" + ", 천이조건:" + BlockChif.ToString();
                 }
@@ -10217,9 +10216,9 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 정지방법:즉시정지" + ", 천이조건:" + BlockChif.ToString();
                 }
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString());
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.SpeedUpdate_Page6"))
@@ -10245,7 +10244,6 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[3] = 0;
 
                 functionName = "속도갱신";
-                await Task.Delay(500);
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -11529,21 +11527,20 @@ namespace MINASA6SF_Rev.ViewModels
                         blockSettingDialog.Hide();
                         break;
                 }
-                mirrtimer.Start();
                 if (Movidr == 0)
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 속도번호:V" + 
-                        SpdNum.ToString() + ", JOG 방향:정방향" + ", 천이조건:" + BlockChif.ToString();    
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 속도번호:V" +
+                        SpdNum.ToString() + ", JOG 방향:정방향" + ", 천이조건:" + BlockChif.ToString();
                 }
                 else
                 {
-                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "속도갱신" + ", 속도번호:V" + 
+                    ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = "속도갱신" + ", 속도번호:V" +
                         SpdNum.ToString() + ", JOG 방향:부방향" + ", 천이조건:" + BlockChif.ToString();
                 }
 
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString());
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.DecrementCount_Page7"))
@@ -11571,7 +11568,6 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[3] = (byte)(TargetPosition >> 16);
 
                 functionName = "디크리멘트 카운터 기동";
-                await Task.Delay(500);
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -12855,12 +12851,11 @@ namespace MINASA6SF_Rev.ViewModels
                         blockSettingDialog.Hide();
                         break;
                 }
-                mirrtimer.Start();
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName  + ", 천이조건:" + BlockChif.ToString() + " , 카운터 설정치[1ms]: " + TargetPosition.ToString();  
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + ", 천이조건:" + BlockChif.ToString() + " , 카운터 설정치[1ms]: " + TargetPosition.ToString();
 
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString());
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.OutPutSignal_Page8"))
@@ -12876,11 +12871,11 @@ namespace MINASA6SF_Rev.ViewModels
                 BlockChif = (ushort)outPutSignal_Page8.SuccNumCombo8.SelectedIndex;
 
 
-                ushort hiki1temp1 = (byte)(Convert.ToUInt16(BCTL1)<<2);
+                ushort hiki1temp1 = (byte)(Convert.ToUInt16(BCTL1) << 2);
                 ushort hiki1temp2 = (byte)(Convert.ToUInt16(BCTL2));
-                ushort hiki1temp3 = (byte)(Convert.ToUInt16(BCTL3)<<2);
+                ushort hiki1temp3 = (byte)(Convert.ToUInt16(BCTL3) << 2);
                 ushort hiki1temp4 = (byte)(Convert.ToUInt16(BCTL4));
-                ushort hiki1temp5 = (byte)(Convert.ToUInt16(BCTL5)<<2);
+                ushort hiki1temp5 = (byte)(Convert.ToUInt16(BCTL5) << 2);
                 ushort hiki1temp6 = (byte)(Convert.ToUInt16(BCTL6));
 
 
@@ -12897,14 +12892,13 @@ namespace MINASA6SF_Rev.ViewModels
                 value1[1] = 0;
                 value1[2] = (byte)cmdcode08h;
                 value1[3] = (byte)(hiki1tem + hiki2);
-                
+
                 value11[0] = 0;
                 value11[1] = 0;
                 value11[2] = 0;
                 value11[3] = 0;
 
                 functionName = "출력신호조작";
-                await Task.Delay(500);
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -14188,8 +14182,7 @@ namespace MINASA6SF_Rev.ViewModels
                         blockSettingDialog.Hide();
                         break;
                 }
-                mirrtimer.Start();
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + 
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName +
                     ", B-CTRL1" + outPutSignal_Page8.B_CTRL1Combo8.SelectedValue.ToString().Substring(1) +
                     ", B-CTRL2" + outPutSignal_Page8.B_CTRL2Combo8.SelectedValue.ToString().Substring(1) +
                     ", B-CTRL3" + outPutSignal_Page8.B_CTRL3Combo8.SelectedValue.ToString().Substring(1) +
@@ -14212,13 +14205,13 @@ namespace MINASA6SF_Rev.ViewModels
                 Movidr = 0;
                 BlockChif = (ushort)jump_Page9.SuccNumCombo9.SelectedIndex;
 
-                hiki3 = (byte)((JumpBlockNum & 0b0000_0000_0011_1100));       
-                hiki4 = (byte)((JumpBlockNum & 0b0000_0000_0000_0011));       
+                hiki3 = (byte)((JumpBlockNum & 0b0000_0000_0011_1100));
+                hiki4 = (byte)((JumpBlockNum & 0b0000_0000_0000_0011));
                 hiki5 = (ushort)(BlockChif);
                 hiki1 = 0;
-                hiki2 = (ushort)((JumpBlockNum & 0b0000_0011_1100_0000));       
+                hiki2 = (ushort)((JumpBlockNum & 0b0000_0011_1100_0000));
 
-                value1[0] = (byte)((hiki3<<2) + (hiki4<<2) + hiki5);
+                value1[0] = (byte)((hiki3 << 2) + (hiki4 << 2) + hiki5);
                 value1[1] = 0;
                 value1[2] = (byte)cmdcode09h;
                 value1[3] = (byte)(hiki1 + (hiki2 >> 6));
@@ -14229,7 +14222,6 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[3] = 0;
 
                 functionName = "점프";
-                await Task.Delay(500);
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -15513,13 +15505,12 @@ namespace MINASA6SF_Rev.ViewModels
                         blockSettingDialog.Hide();
                         break;
                 }
-                mirrtimer.Start();
                 ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + "" +
                     ", 블록번호:" + JumpBlockNum.ToString() + ", 천이조건:" + BlockChif.ToString();
 
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString());
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.ConditionDiv_Page10"))
@@ -15540,7 +15531,7 @@ namespace MINASA6SF_Rev.ViewModels
                 value1[0] = (byte)((hiki3 << 2) + (hiki4 << 2) + hiki5);
                 value1[1] = 0;
                 value1[2] = (byte)cmdcode0Ah;
-                value1[3] = (byte)((hiki1 <<4) + (hiki2 >> 6));
+                value1[3] = (byte)((hiki1 << 4) + (hiki2 >> 6));
 
                 value11[0] = (byte)(TargetPosition >> 8);
                 value11[1] = (byte)(TargetPosition);
@@ -15548,7 +15539,6 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[3] = (byte)(TargetPosition >> 16);
 
                 functionName = "조건분기(=)";
-                await Task.Delay(500);
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -16832,15 +16822,14 @@ namespace MINASA6SF_Rev.ViewModels
                         blockSettingDialog.Hide();
                         break;
                 }
-                mirrtimer.Start();
-                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName + 
-                    ", 비교대상:" + conditionDiv_Page10.CompaNumCombo10.SelectedValue.ToString().Substring(2) + 
-                    ", 블록번호:" + JumpBlockNum.ToString() + 
-                    ", 천이조건:" + BlockChif.ToString() + 
-                    " , 비교값(역치):" + TargetPosition.ToString();  
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
+                ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName +
+                    ", 비교대상:" + conditionDiv_Page10.CompaNumCombo10.SelectedValue.ToString().Substring(2) +
+                    ", 블록번호:" + JumpBlockNum.ToString() +
+                    ", 천이조건:" + BlockChif.ToString() +
+                    " , 비교값(역치):" + TargetPosition.ToString();
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString());
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.ConditionDiv_Page11"))
@@ -16869,7 +16858,6 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[3] = (byte)(TargetPosition >> 16);
 
                 functionName = "조건분기(>)";
-                await Task.Delay(500);
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -18153,16 +18141,15 @@ namespace MINASA6SF_Rev.ViewModels
                         blockSettingDialog.Hide();
                         break;
                 }
-                mirrtimer.Start();
                   ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName +
                     ", 비교대상:" + conditionDiv_Page11.CompaNumCombo11.SelectedValue.ToString().Substring(2) +
                     ", 블록번호:" + JumpBlockNum.ToString() +
                     ", 천이조건:" + BlockChif.ToString() +
                     " , 비교값(역치):" + TargetPosition.ToString();
 
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString());
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             else if (blockSettingDialog.BlockActionParaWindow.Content.ToString().Equals("MINASA6SF_Rev.Views.ConditionDiv_Page12"))
@@ -18190,7 +18177,6 @@ namespace MINASA6SF_Rev.ViewModels
                 value11[3] = (byte)(TargetPosition >> 16);
 
                 functionName = "조건분기(<)";
-                await Task.Delay(500);
                 switch (((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum)
                 {
                     case 0:
@@ -19474,25 +19460,25 @@ namespace MINASA6SF_Rev.ViewModels
                         blockSettingDialog.Hide();
                         break;
                 }
-                mirrtimer.Start();
                  ((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData = functionName +
                     ", 비교대상:" + conditionDiv_Page12.CompaNumCombo12.SelectedValue.ToString().Substring(2) +
                     ", 블록번호:" + JumpBlockNum.ToString() +
                     ", 천이조건:" + BlockChif.ToString() +
                     " , 비교값(역치):" + TargetPosition.ToString();
 
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());  
-                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString()); 
-                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());                             
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockNum.ToString());
+                Debug.WriteLine(((BlockParaModel1)blockpara.blockParaModel1.SelectedItem).BlockData.ToString());
+                Debug.WriteLine(blockpara.blockParaModel1.SelectedIndex.ToString());
                 Debug.WriteLine(((BlockFunction)blockSettingDialog.FunctionSelect1.SelectedValue).Id.ToString());
             }
             Debug.WriteLine("블럭 셋팅 창 확인 테스트");
+            return;
         }
 
         private bool CanexecuteConfirm(object parameter)
         {
             return true;
-        }
+        }      
         #endregion
 
         private void ExecuteCancel(object parameter)
@@ -19509,7 +19495,6 @@ namespace MINASA6SF_Rev.ViewModels
         private void ExecuteBlockActDouClick(object parameter)
         {
             Debug.WriteLine("그리드 버튼 테스트");
-            mirrtimer.Stop();
             showWindow(this);
         }
 
@@ -19708,7 +19693,6 @@ namespace MINASA6SF_Rev.ViewModels
                     modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x463A, BlockParaValue);
                     break;
             }
-            Thread.Sleep(1000);
             MirrorONOFF = true;
         }
 
@@ -19722,35 +19706,78 @@ namespace MINASA6SF_Rev.ViewModels
         //블럭 파라미터 수신,송신,EEP 커맨드
         private async void ExecuteRecCommand(object parameter)
         {
-            if (blockpara.Tabcontrol.SelectedIndex == 0)
+            try
             {
-                recONOFF = false;
-                MirrorONOFF = false;
-                mirrtimer.Stop();
-                //worker2.DoWork += BlockParameterRec1;
-                //worker2.RunWorkerCompleted += Worker2_RunWorkerCompleted;
-                //worker2.RunWorkerAsync();   //  ->BlockParameterRec1
-                await Task.Delay(7000);
-                await Task.Run(() =>
-                  BlockParameterRec1()
+                if (blockpara.Tabcontrol.SelectedIndex == 0)
+                {
+                    mainpanel.MainButton.IsEnabled = false;
+                    mainpanel.ServoParaButton.IsEnabled = false;
+                    mainpanel.SettingsButton.IsEnabled = false;
+                    for(int i=0; i<5;i++)
+                    {
+                        mainpanel.MainButton.Opacity -= 0.1;
+                        mainpanel.ServoParaButton.Opacity -= 0.1;
+                        mainpanel.SettingsButton.Opacity -= 0.1;
+                    }
+                    recONOFF = false;
+                    MirrorONOFF = false;
+                    //worker2.DoWork += BlockParameterRec1;
+                    //worker2.RunWorkerCompleted += Worker2_RunWorkerCompleted;
+                    //worker2.RunWorkerAsync();   //  ->BlockParameterRec1
+                    await Task.Delay(2000);
+                    await Task.Run(() =>
+                      BlockParameterRec1()
+                        );
+                    Debug.WriteLine("블럭 동작편집 수신버튼 누름");
+                    mainpanel.MainButton.IsEnabled = true;
+                    mainpanel.ServoParaButton.IsEnabled = true;
+                    mainpanel.SettingsButton.IsEnabled = true;
+                    for (int i = 0; i < 5; i++)
+                    {
+                        mainpanel.MainButton.Opacity += 0.1;
+                        mainpanel.ServoParaButton.Opacity += 0.1;
+                        mainpanel.SettingsButton.Opacity += 0.1;
+                    }
+                    return;
+                }
+                else
+                {
+                    mainpanel.MainButton.IsEnabled = false;
+                    mainpanel.ServoParaButton.IsEnabled = false;
+                    mainpanel.SettingsButton.IsEnabled = false;
+                    for (int i = 0; i < 5; i++)
+                    {
+                        mainpanel.MainButton.Opacity -= 0.1;
+                        mainpanel.ServoParaButton.Opacity -= 0.1;
+                        mainpanel.SettingsButton.Opacity -= 0.1;
+                    }
+                    recONOFF = false;
+                    MirrorONOFF = false;
+                    //worker3.DoWork += BlockParameterRec11;
+                    //worker3.RunWorkerCompleted += Worker3_RunWorkerCompleted;
+                    //worker3.RunWorkerAsync();   //  ->
+                    await Task.Delay(2000);
+                    await Task.Run(() =>
+                    BlockParameterRec11()
                     );
-                Debug.WriteLine("블럭 동작편집 수신버튼 누름");
-                return;
+                    Debug.WriteLine("블럭 매개변수 수신버튼 누름");
+                    mainpanel.MainButton.IsEnabled = true;
+                    mainpanel.ServoParaButton.IsEnabled = true;
+                    mainpanel.SettingsButton.IsEnabled = true;
+                    for (int i = 0; i < 5; i++)
+                    {
+                        mainpanel.MainButton.Opacity += 0.1;
+                        mainpanel.ServoParaButton.Opacity += 0.1;
+                        mainpanel.SettingsButton.Opacity += 0.1;
+                    }
+                    return;
+                }
             }
-            else
+            catch (Exception e)
             {
-                recONOFF = false;
-                MirrorONOFF = false;
-                mirrtimer.Stop();
-                //worker3.DoWork += BlockParameterRec11;
-                //worker3.RunWorkerCompleted += Worker3_RunWorkerCompleted;
-                //worker3.RunWorkerAsync();   //  ->
-                await Task.Delay(7000);
-                await Task.Run(() =>
-                BlockParameterRec11()
-                );
-                Debug.WriteLine("블럭 매개변수 수신버튼 누름");
-                return;
+                Debug.WriteLine(e.Message);
+                ExecuteDisconnect(this);
+                ExecuteSettingsConfirm(this);
             }
         }
 
@@ -20992,43 +21019,34 @@ namespace MINASA6SF_Rev.ViewModels
         }
 
         // EEP버튼        
-        private async void ExecuteEepCommand(object parameter)
-        {        
-            recONOFF = false;
-            MirrorONOFF = false;
-            mirrtimer.Stop();
-            MessageBoxResult messageBoxResult= MessageBox.Show("EEP를 실행 하시겠습니까?", "EEP 실행?", MessageBoxButton.OKCancel, MessageBoxImage.Question);
-            if(messageBoxResult==MessageBoxResult.Cancel)
+        private  void ExecuteEepCommand(object parameter)
+        {
+            try
             {
-                return;
-            }
-            else
-            {
-                await Task.Delay(4000);
-                await Task.Run(() =>
-                    Worker4_DoWork()
-                    );
-                Debug.WriteLine("EEP버튼 실행 완료2");
+                recONOFF = false;
+                MirrorONOFF = false;
+                Thread.Sleep(300);
+                modbusTCP.WriteMultipleRegister(0, (byte)axisNum1, 0x1020, _eepromwrite);                
+                Debug.WriteLine("EEP버튼 실행 완료");
                 MirrorONOFF = true;
                 recONOFF = true;
-               
                 return;
             }
+            catch(Exception message)
+            {
+                Debug.WriteLine(message.ToString());
+                ExecuteDisconnect(this);
+                ExecuteSettingsConfirm(this);
+                return;
+            }
+
         }
 
         private bool CanexecuteEepCommand(object parameter)
         {
             return recONOFF;
         }
-
-        private void Worker4_DoWork()
-        {            
-            Debug.WriteLine("EEP버튼 실행");
-            modbusTCP.WriteSingleRegister(0, (byte)axisNum1, 0x1020, _eepromwrite);
-            Debug.WriteLine("EEP버튼 실행 완료1");
-            mirrtimer.Enabled = true;
-            return;
-        }
+       
         #endregion
 
         #region ServoParameter 수신, 송신 버튼

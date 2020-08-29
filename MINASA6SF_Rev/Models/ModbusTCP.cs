@@ -9,7 +9,7 @@ using System.Windows;
 using System.Diagnostics.Eventing.Reader;
 using System.Diagnostics;
 using MINASA6SF_Rev.ViewModels;
-
+using System.Threading.Tasks;
 
 namespace MINASA6SF_Rev.Models
 {
@@ -54,7 +54,7 @@ namespace MINASA6SF_Rev.Models
 
         // ------------------------------------------------------------------------
         // Private declarations
-        private static ushort _timeout = 300;
+        private static ushort _timeout = 10000;
         private static ushort _refresh = 50;
         private static bool _connected = false;
         private static bool _no_sync_connection = false;
@@ -66,12 +66,49 @@ namespace MINASA6SF_Rev.Models
 
         private static Socket tcpSynCl;
         private byte[] tcpSynClBuffer = new byte[2048];
+      
 
-        byte[] data = new byte[12];
-        byte[] data2;
-        int result;
-        byte unit;
-        byte function;
+        byte[] data_WriteSingleCoils;
+        ushort numBytes_WriteMultipleCoils;
+        byte[] data_WriteMultipleCoils;
+        byte[] data_WriteSinglRegister;
+        ushort numBytes_WriteMultipleReg;
+        byte[] data_WriteMultipleRegister;
+        ushort numBytes_ReadWirteMultipleRegister;
+        byte[] data_ReadWriteMultipleRegister;
+        ushort numBytes_ReadWriteMultipleRegister2;
+        byte[] data_ReadWriteMultipleRegister2;
+
+        byte[] _id_CreateReadHeader;
+        byte[] data_CreateReadHeader = new byte[12];
+        byte[] _adr_CreateReadHeader;
+        byte[] _length_CreateReadHeader;
+
+        byte[] data_CrateWriteHeader;
+        byte[] _id_CreateWriteHeader;
+        byte[] _adr_CreateWriteHeader;
+        byte[] _size_CreateWriteheader;
+        byte[] _cnt_CreateWriteheader;
+
+        byte[] data_CreateReadWriteHeader;
+        byte[] _id_CreateReadWriteheader;
+        byte[] _size_CreateReadWriteHeader;
+        byte[] _adr_read_CreateReadWriteHeader;
+        byte[] _cnt_read_CreateReadWriteHeader;
+        byte[] _adr_wrtie_CreateReadWriteHeader;
+        byte[] _cnt_Wrtie_CreateReadWriteHeader;
+
+        Int32 size_OnSend;
+        ushort id_OnReceive;
+        byte unit_OnReceive;
+        byte function_OnReceive;
+
+        int result_WriteSyncData;
+        byte unit_WriteSyncData;
+        byte function_WriteSyncData;
+        byte[] data_WriteSyndData;
+
+
         // ------------------------------------------------------------------------
         /// <summary>Response data event. This event is called when new data arrives</summary>
         public delegate void ResponseData(ushort id, byte unit, byte function, byte[] data);
@@ -163,8 +200,8 @@ namespace MINASA6SF_Rev.Models
                 //Connect asynchronous client
                 tcpAsyCl = new Socket(IPAddress.Parse(ip).AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                 tcpAsyCl.Connect(new IPEndPoint(IPAddress.Parse(ip), port));
-                tcpAsyCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.SendTimeout, _timeout);
-                tcpAsyCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, _timeout);
+            //    tcpAsyCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.SendTimeout, _timeout);
+            //    tcpAsyCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, _timeout);
                 tcpAsyCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.NoDelay, 1);
                 // ----------------------------------------------------------------
                 // Connect synchronous client
@@ -172,8 +209,8 @@ namespace MINASA6SF_Rev.Models
                 {
                     tcpSynCl = new Socket(IPAddress.Parse(ip).AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                     tcpSynCl.Connect(new IPEndPoint(IPAddress.Parse(ip), port));
-                    tcpSynCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.SendTimeout, _timeout);
-                    tcpSynCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, _timeout);
+           //         tcpSynCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.SendTimeout, _timeout);
+            //        tcpSynCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, _timeout);
                     tcpSynCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.NoDelay, 1);
                 }
                 _connected = true;
@@ -267,7 +304,7 @@ namespace MINASA6SF_Rev.Models
                 CallException(id, unit, fctReadCoil, excIllegalDataVal);
                 return;
             }
-            WriteAsyncData(CreateReadHeader(id, unit, startAddress, numInputs, fctReadCoil), id);
+            WriteSyncData(CreateReadHeader(id, unit, startAddress, numInputs, fctReadCoil), id);
         }
 
         // ------------------------------------------------------------------------
@@ -300,7 +337,7 @@ namespace MINASA6SF_Rev.Models
                 CallException(id, unit, fctReadDiscreteInputs, excIllegalDataVal);
                 return;
             }
-            WriteAsyncData(CreateReadHeader(id, unit, startAddress, numInputs, fctReadDiscreteInputs), id);
+            WriteSyncData(CreateReadHeader(id, unit, startAddress, numInputs, fctReadDiscreteInputs), id);
         }
 
         // ------------------------------------------------------------------------
@@ -333,7 +370,7 @@ namespace MINASA6SF_Rev.Models
                 CallException(id, unit, fctReadHoldingRegister, excIllegalDataVal);
                 return;
             }
-            WriteAsyncData(CreateReadHeader(id, unit, startAddress, numInputs, fctReadHoldingRegister), id);
+            WriteSyncData(CreateReadHeader(id, unit, startAddress, numInputs, fctReadHoldingRegister), id);
         }
 
         // ------------------------------------------------------------------------
@@ -366,7 +403,7 @@ namespace MINASA6SF_Rev.Models
                 CallException(id, unit, fctReadInputRegister, excIllegalDataVal);
                 return;
             }
-            WriteAsyncData(CreateReadHeader(id, unit, startAddress, numInputs, fctReadInputRegister), id);
+            WriteSyncData(CreateReadHeader(id, unit, startAddress, numInputs, fctReadInputRegister), id);
         }
 
         // ------------------------------------------------------------------------
@@ -421,12 +458,11 @@ namespace MINASA6SF_Rev.Models
         //}
 
         public void WriteSingleCoils(ushort id, byte unit, ushort startAddress, bool OnOff)
-        {
-            byte[] data;
-            data = CreateWriteHeader(id, unit, startAddress, 1, 1, fctWriteSingleCoil);
-            if (OnOff == true) data[10] = 255;
-            else data[10] = 0;
-            WriteSyncData(data, id);
+        {           
+            data_WriteSingleCoils = CreateWriteHeader(id, unit, startAddress, 1, 1, fctWriteSingleCoil);
+            if (OnOff == true) data_WriteSingleCoils[10] = 255;
+            else data_WriteSingleCoils[10] = 0;
+            WriteSyncData(data_WriteSingleCoils, id);
         }
 
         // ------------------------------------------------------------------------
@@ -438,17 +474,16 @@ namespace MINASA6SF_Rev.Models
         /// <param name="values">Contains the bit information in byte format.</param>
         public void WriteMultipleCoils(ushort id, byte unit, ushort startAddress, ushort numBits, byte[] values)
         {
-            ushort numBytes = Convert.ToUInt16(values.Length);
-            if (numBytes > 250 || numBits > 2000)
+            numBytes_WriteMultipleCoils = Convert.ToUInt16(values.Length);
+            if (numBytes_WriteMultipleCoils > 250 || numBits > 2000)
             {
                 CallException(id, unit, fctWriteMultipleCoils, excIllegalDataVal);
                 return;
             }
-
-            byte[] data;
-            data = CreateWriteHeader(id, unit, startAddress, numBits, (byte)(numBytes + 2), fctWriteMultipleCoils);
-            Array.Copy(values, 0, data, 13, numBytes);
-            WriteAsyncData(data, id);
+                       
+            data_WriteMultipleCoils = CreateWriteHeader(id, unit, startAddress, numBits, (byte)(numBytes_WriteMultipleCoils + 2), fctWriteMultipleCoils);
+            Array.Copy(values, 0, data_WriteMultipleCoils, 13, numBytes_WriteMultipleCoils);
+            WriteSyncData(data_WriteMultipleCoils, id);
         }
 
         // ------------------------------------------------------------------------
@@ -461,17 +496,16 @@ namespace MINASA6SF_Rev.Models
         /// <param name="result">Contains the result of the synchronous write.</param>
         public void WriteMultipleCoils(ushort id, byte unit, ushort startAddress, ushort numBits, byte[] values, ref byte[] result)
         {
-            ushort numBytes = Convert.ToUInt16(values.Length);
-            if (numBytes > 250 || numBits > 2000)
+             numBytes_WriteMultipleCoils = Convert.ToUInt16(values.Length);
+            if (numBytes_WriteMultipleCoils > 250 || numBits > 2000)
             {
                 CallException(id, unit, fctWriteMultipleCoils, excIllegalDataVal);
                 return;
             }
 
-            byte[] data;
-            data = CreateWriteHeader(id, unit, startAddress, numBits, (byte)(numBytes + 2), fctWriteMultipleCoils);
-            Array.Copy(values, 0, data, 13, numBytes);
-            result = WriteSyncData(data, id);
+            data_WriteMultipleCoils = CreateWriteHeader(id, unit, startAddress, numBits, (byte)(numBytes_WriteMultipleCoils + 2), fctWriteMultipleCoils);
+            Array.Copy(values, 0, data_WriteMultipleCoils, 13, numBytes_WriteMultipleCoils);
+            result = WriteSyncData(data_WriteMultipleCoils, id);
         }
 
         // ------------------------------------------------------------------------
@@ -487,13 +521,12 @@ namespace MINASA6SF_Rev.Models
                 CallException(id, unit, fctReadCoil, excIllegalDataVal);
                 return;
             }
-            byte[] data;
-            data = CreateWriteHeader(id, unit, startAddress, 1, 1, fctWriteSingleRegister);
-            data[10] = values[0];
-            data[11] = values[1];
+            data_WriteSinglRegister = null;
+            data_WriteSinglRegister = CreateWriteHeader(id, unit, startAddress, 1, 1, fctWriteSingleRegister);
+            data_WriteSinglRegister[10] = values[0];
+            data_WriteSinglRegister[11] = values[1];
+            WriteSyncData(data_WriteSinglRegister, id);
             Debug.WriteLine("WriteSingleRegister 실행");
-            //WriteAsyncData(data, id);
-            WriteSyncData(data, id);
         }
 
         // ------------------------------------------------------------------------
@@ -503,8 +536,8 @@ namespace MINASA6SF_Rev.Models
         /// <param name="startAddress">Address to where the data is written.</param>
         /// <param name="values">Contains the register information.</param>
         /// <param name="result">Contains the result of the synchronous write.</param>
-   
-        
+
+
         //public void WriteSingleRegister(ushort id, byte unit, ushort startAddress, byte[] values, ref byte[] result)
         //{
         //    if (values.GetUpperBound(0) != 1)
@@ -512,11 +545,12 @@ namespace MINASA6SF_Rev.Models
         //        CallException(id, unit, fctReadCoil, excIllegalDataVal);
         //        return;
         //    }
-        //    byte[] data;
+
         //    data = CreateWriteHeader(id, unit, startAddress, 1, 1, fctWriteSingleRegister);
         //    data[10] = values[0];
         //    data[11] = values[1];
         //    result = WriteSyncData(data, id);
+        //    Debug.WriteLine("WriteSingleRegister 실행");
         //}
 
         // ------------------------------------------------------------------------
@@ -527,22 +561,18 @@ namespace MINASA6SF_Rev.Models
         /// <param name="values">Contains the register information.</param>
         public void WriteMultipleRegister(ushort id, byte unit, ushort startAddress, byte[] values)
         {
-            //비추천
-            ushort numBytes = Convert.ToUInt16(values.Length);
-            if (numBytes > 250)
+            numBytes_WriteMultipleReg = Convert.ToUInt16(values.Length);
+            if (numBytes_WriteMultipleReg > 250)
             {
                 CallException(id, unit, fctWriteMultipleRegister, excIllegalDataVal);
                 return;
             }
 
-            if (numBytes % 2 > 0) numBytes++;
-            byte[] data;
-
+            if (numBytes_WriteMultipleReg % 2 > 0) numBytes_WriteMultipleReg++;
+            data_WriteMultipleRegister = CreateWriteHeader(id, unit, startAddress, Convert.ToUInt16(numBytes_WriteMultipleReg / 2), Convert.ToUInt16(numBytes_WriteMultipleReg + 2), fctWriteMultipleRegister);
+            Array.Copy(values, 0, data_WriteMultipleRegister, 13, values.Length);
+            WriteSyncData(data_WriteMultipleRegister, id);          
             Debug.WriteLine("WriteMultipleRegister 실행");
-            data = CreateWriteHeader(id, unit, startAddress, Convert.ToUInt16(numBytes / 2), Convert.ToUInt16(numBytes + 2), fctWriteMultipleRegister);
-            Array.Copy(values, 0, data, 13, values.Length);
-            //WriteAsyncData(data, id);
-            WriteSyncData(data, id);
         }
 
         // ------------------------------------------------------------------------
@@ -563,11 +593,10 @@ namespace MINASA6SF_Rev.Models
         //    }
 
         //    if (numBytes % 2 > 0) numBytes++;
-        //    byte[] data;
 
         //    data = CreateWriteHeader(id, unit, startAddress, Convert.ToUInt16(numBytes / 2), Convert.ToUInt16(numBytes + 2), fctWriteMultipleRegister);
         //    Array.Copy(values, 0, data, 13, values.Length);
-        //    //result = WriteSyncData(data, id);
+        //    result = WriteSyncData(data, id);
         //}
 
         // ------------------------------------------------------------------------
@@ -580,19 +609,17 @@ namespace MINASA6SF_Rev.Models
         /// <param name="values">Contains the register information.</param>
         public void ReadWriteMultipleRegister(ushort id, byte unit, ushort startReadAddress, ushort numInputs, ushort startWriteAddress, byte[] values)
         {
-            ushort numBytes = Convert.ToUInt16(values.Length);
-            if (numBytes > 250)
+            numBytes_ReadWirteMultipleRegister = Convert.ToUInt16(values.Length);
+            if (numBytes_ReadWirteMultipleRegister > 250)
             {
                 CallException(id, unit, fctReadWriteMultipleRegister, excIllegalDataVal);
                 return;
             }
+            if (numBytes_ReadWirteMultipleRegister % 2 > 0) numBytes_ReadWirteMultipleRegister++;
 
-            if (numBytes % 2 > 0) numBytes++;
-            byte[] data;
-
-            data = CreateReadWriteHeader(id, unit, startReadAddress, numInputs, startWriteAddress, Convert.ToUInt16(numBytes / 2));
-            Array.Copy(values, 0, data, 17, values.Length);
-            WriteAsyncData(data, id);
+            data_ReadWriteMultipleRegister = CreateReadWriteHeader(id, unit, startReadAddress, numInputs, startWriteAddress, Convert.ToUInt16(numBytes_ReadWirteMultipleRegister / 2));
+            Array.Copy(values, 0, data_ReadWriteMultipleRegister, 17, values.Length);
+            WriteSyncData(data_ReadWriteMultipleRegister, id);
         }
 
         // ------------------------------------------------------------------------
@@ -606,98 +633,95 @@ namespace MINASA6SF_Rev.Models
         /// <param name="result">Contains the result of the synchronous command.</param>
         public void ReadWriteMultipleRegister(ushort id, byte unit, ushort startReadAddress, ushort numInputs, ushort startWriteAddress, byte[] values, ref byte[] result)
         {
-            ushort numBytes = Convert.ToUInt16(values.Length);
-            if (numBytes > 250)
+            numBytes_ReadWriteMultipleRegister2 = Convert.ToUInt16(values.Length);
+            if (numBytes_ReadWriteMultipleRegister2 > 250)
             {
                 CallException(id, unit, fctReadWriteMultipleRegister, excIllegalDataVal);
                 return;
             }
 
-            if (numBytes % 2 > 0) numBytes++;
-            byte[] data;
-
-            data = CreateReadWriteHeader(id, unit, startReadAddress, numInputs, startWriteAddress, Convert.ToUInt16(numBytes / 2));
-            Array.Copy(values, 0, data, 17, values.Length);
-            result = WriteSyncData(data, id);
+            if (numBytes_ReadWriteMultipleRegister2 % 2 > 0) numBytes_ReadWriteMultipleRegister2++;
+            data_ReadWriteMultipleRegister2 = CreateReadWriteHeader(id, unit, startReadAddress, numInputs, startWriteAddress, Convert.ToUInt16(numBytes_ReadWriteMultipleRegister2 / 2));
+            Array.Copy(values, 0, data_ReadWriteMultipleRegister2, 17, values.Length);
+            result = WriteSyncData(data_ReadWriteMultipleRegister2, id);
         }
 
         // ------------------------------------------------------------------------
         // Create modbus header for read action
         private byte[] CreateReadHeader(ushort id, byte unit, ushort startAddress, ushort length, byte function)
         {
-            //byte[] data = new byte[12];
 
-            byte[] _id = BitConverter.GetBytes((short)id);
-            data[0] = _id[1];			    // Slave id high byte
-            data[1] = _id[0];				// Slave id low byte
-            data[5] = 6;					// Message size
-            data[6] = unit;					// Slave address
-            data[7] = function;				// Function code
-            byte[] _adr = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)startAddress));
-            data[8] = _adr[0];				// Start address
-            data[9] = _adr[1];				// Start address
-            byte[] _length = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)length));
-            data[10] = _length[0];			// Number of data to read
-            data[11] = _length[1];			// Number of data to read
-            return data;
+            _id_CreateReadHeader = BitConverter.GetBytes((short)id);
+            data_CreateReadHeader[0] = _id_CreateReadHeader[1];			    // Slave id high byte
+            data_CreateReadHeader[1] = _id_CreateReadHeader[0];				// Slave id low byte
+            data_CreateReadHeader[5] = 6;					// Message size
+            data_CreateReadHeader[6] = unit;					// Slave address
+            data_CreateReadHeader[7] = function;				// Function code
+            _adr_CreateReadHeader = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)startAddress));
+            data_CreateReadHeader[8] = _adr_CreateReadHeader[0];				// Start address
+            data_CreateReadHeader[9] = _adr_CreateReadHeader[1];                // Start address
+            _length_CreateReadHeader = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)length));
+            data_CreateReadHeader[10] = _length_CreateReadHeader[0];			// Number of data to read
+            data_CreateReadHeader[11] = _length_CreateReadHeader[1];			// Number of data to read
+            return data_CreateReadHeader;
         }
 
         // ------------------------------------------------------------------------
         // Create modbus header for write action
         private byte[] CreateWriteHeader(ushort id, byte unit, ushort startAddress, ushort numData, ushort numBytes, byte function)
         {
-            byte[] data = new byte[numBytes + 11];
+            data_CrateWriteHeader = new byte[numBytes + 11];
 
-            byte[] _id = BitConverter.GetBytes((short)id);
-            data[0] = _id[1];				// Slave id high byte
-            data[1] = _id[0];				// Slave id low byte
-            byte[] _size = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)(5 + numBytes)));
-            data[4] = _size[0];				// Complete message size in bytes
-            data[5] = _size[1];				// Complete message size in bytes
-            data[6] = unit;					// Slave address
-            data[7] = function;				// Function code
-            byte[] _adr = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)startAddress));
-            data[8] = _adr[0];				// Start address
-            data[9] = _adr[1];				// Start address
+            _id_CreateWriteHeader = BitConverter.GetBytes((short)id);
+            data_CrateWriteHeader[0] = _id_CreateWriteHeader[1];				// Slave id high byte
+            data_CrateWriteHeader[1] = _id_CreateWriteHeader[0];				// Slave id low byte
+            _size_CreateWriteheader = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)(5 + numBytes)));
+            data_CrateWriteHeader[4] = _size_CreateWriteheader[0];				// Complete message size in bytes
+            data_CrateWriteHeader[5] = _size_CreateWriteheader[1];				// Complete message size in bytes
+            data_CrateWriteHeader[6] = unit;					// Slave address
+            data_CrateWriteHeader[7] = function;                // Function code
+            _adr_CreateWriteHeader = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)startAddress));
+            data_CrateWriteHeader[8] = _adr_CreateWriteHeader[0];				// Start address
+            data_CrateWriteHeader[9] = _adr_CreateWriteHeader[1];				// Start address
             if (function >= fctWriteMultipleCoils)
             {
-                byte[] _cnt = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)numData));
-                data[10] = _cnt[0];			// Number of bytes
-                data[11] = _cnt[1];			// Number of bytes
-                data[12] = (byte)(numBytes - 2);
+                _cnt_CreateWriteheader = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)numData));
+                data_CrateWriteHeader[10] = _cnt_CreateWriteheader[0];			// Number of bytes
+                data_CrateWriteHeader[11] = _cnt_CreateWriteheader[1];			// Number of bytes
+                data_CrateWriteHeader[12] = (byte)(numBytes - 2);
             }
-            return data;
+            return data_CrateWriteHeader;
         }
 
         // ------------------------------------------------------------------------
         // Create modbus header for read/write action
         private byte[] CreateReadWriteHeader(ushort id, byte unit, ushort startReadAddress, ushort numRead, ushort startWriteAddress, ushort numWrite)
         {
-            byte[] data = new byte[numWrite * 2 + 17];
+            data_CreateReadWriteHeader = new byte[numWrite * 2 + 17];
 
-            byte[] _id = BitConverter.GetBytes((short)id);
-            data[0] = _id[1];						// Slave id high byte
-            data[1] = _id[0];						// Slave id low byte
-            byte[] _size = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)(11 + numWrite * 2)));
-            data[4] = _size[0];						// Complete message size in bytes
-            data[5] = _size[1];						// Complete message size in bytes
-            data[6] = unit;							// Slave address
-            data[7] = fctReadWriteMultipleRegister;	// Function code
-            byte[] _adr_read = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)startReadAddress));
-            data[8] = _adr_read[0];					// Start read address
-            data[9] = _adr_read[1];					// Start read address
-            byte[] _cnt_read = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)numRead));
-            data[10] = _cnt_read[0];				// Number of bytes to read
-            data[11] = _cnt_read[1];				// Number of bytes to read
-            byte[] _adr_write = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)startWriteAddress));
-            data[12] = _adr_write[0];				// Start write address
-            data[13] = _adr_write[1];				// Start write address
-            byte[] _cnt_write = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)numWrite));
-            data[14] = _cnt_write[0];				// Number of bytes to write
-            data[15] = _cnt_write[1];				// Number of bytes to write
-            data[16] = (byte)(numWrite * 2);
+            _id_CreateReadWriteheader = BitConverter.GetBytes((short)id);
+            data_CreateReadWriteHeader[0] = _id_CreateReadWriteheader[1];						// Slave id high byte
+            data_CreateReadWriteHeader[1] = _id_CreateReadWriteheader[0];						// Slave id low byte
+            _size_CreateReadWriteHeader = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)(11 + numWrite * 2)));
+            data_CreateReadWriteHeader[4] = _size_CreateReadWriteHeader[0];						// Complete message size in bytes
+            data_CreateReadWriteHeader[5] = _size_CreateReadWriteHeader[1];						// Complete message size in bytes
+            data_CreateReadWriteHeader[6] = unit;							// Slave address
+            data_CreateReadWriteHeader[7] = fctReadWriteMultipleRegister;	// Function code
+            _adr_read_CreateReadWriteHeader = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)startReadAddress));
+            data_CreateReadWriteHeader[8] = _adr_read_CreateReadWriteHeader[0];					// Start read address
+            data_CreateReadWriteHeader[9] = _adr_read_CreateReadWriteHeader[1];					// Start read address
+            _cnt_read_CreateReadWriteHeader = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)numRead));
+            data_CreateReadWriteHeader[10] = _cnt_read_CreateReadWriteHeader[0];				// Number of bytes to read
+            data_CreateReadWriteHeader[11] = _cnt_read_CreateReadWriteHeader[1];				// Number of bytes to read
+            _adr_wrtie_CreateReadWriteHeader = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)startWriteAddress));
+            data_CreateReadWriteHeader[12] = _adr_wrtie_CreateReadWriteHeader[0];				// Start write address
+            data_CreateReadWriteHeader[13] = _adr_wrtie_CreateReadWriteHeader[1];				// Start write address
+            _cnt_Wrtie_CreateReadWriteHeader = BitConverter.GetBytes((short)IPAddress.HostToNetworkOrder((short)numWrite));
+            data_CreateReadWriteHeader[14] = _cnt_Wrtie_CreateReadWriteHeader[0];				// Number of bytes to write
+            data_CreateReadWriteHeader[15] = _cnt_Wrtie_CreateReadWriteHeader[1];				// Number of bytes to write
+            data_CreateReadWriteHeader[16] = (byte)(numWrite * 2);
 
-            return data;
+            return data_CreateReadWriteHeader;
         }
 
         // ------------------------------------------------------------------------
@@ -722,7 +746,7 @@ namespace MINASA6SF_Rev.Models
         // Write asynchronous data acknowledge
         private void OnSend(System.IAsyncResult result)
         {
-            Int32 size = tcpAsyCl.EndSend(result);
+            size_OnSend = tcpAsyCl.EndSend(result);
             if (result.IsCompleted == false) CallException(0xFFFF, 0xFF, 0xFF, excSendFailt);
             else tcpAsyCl.BeginReceive(tcpAsyClBuffer, 0, tcpAsyClBuffer.Length, SocketFlags.None, new AsyncCallback(OnReceive), tcpAsyCl);
         }
@@ -740,14 +764,14 @@ namespace MINASA6SF_Rev.Models
             }
             catch (Exception) { }
 
-            ushort id = SwapUInt16(BitConverter.ToUInt16(tcpAsyClBuffer, 0));
-            byte unit = tcpAsyClBuffer[6];
-            byte function = tcpAsyClBuffer[7];
+            id_OnReceive = SwapUInt16(BitConverter.ToUInt16(tcpAsyClBuffer, 0));
+            unit_OnReceive = tcpAsyClBuffer[6];
+            function_OnReceive = tcpAsyClBuffer[7];
             byte[] data;
 
             // ------------------------------------------------------------
             // Write response data
-            if ((function >= fctWriteSingleCoil) && (function != fctReadWriteMultipleRegister))
+            if ((function_OnReceive >= fctWriteSingleCoil) && (function_OnReceive != fctReadWriteMultipleRegister))
             {
                 data = new byte[2];
                 Array.Copy(tcpAsyClBuffer, 10, data, 0, 2);
@@ -761,62 +785,62 @@ namespace MINASA6SF_Rev.Models
             }
             // ------------------------------------------------------------
             // Response data is slave exception
-            if (function > excExceptionOffset)
+            if (function_OnReceive > excExceptionOffset)
             {
-                function -= excExceptionOffset;
-                CallException(id, unit, function, tcpAsyClBuffer[8]);
+                function_OnReceive -= excExceptionOffset;
+                CallException(id_OnReceive, unit_OnReceive, function_OnReceive, tcpAsyClBuffer[8]);
             }
             // ------------------------------------------------------------
             // Response data is regular data
-            else if (OnResponseData != null) OnResponseData(id, unit, function, data);
+            else if (OnResponseData != null) OnResponseData(id_OnReceive, unit_OnReceive, function_OnReceive, data);
         }
 
         // ------------------------------------------------------------------------
         // Write data and and wait for response
         private byte[] WriteSyncData(byte[] write_data, ushort id)
-        {
-           
+        {           
             try
             {
                 if (connected1 && write_data != null)
                 {
-                    tcpSynCl.Send(write_data, 0, write_data.Length, SocketFlags.None);                    
-                    result = tcpSynCl.Receive(tcpSynClBuffer, 0, tcpSynClBuffer.Length, SocketFlags.None);
+                    tcpSynCl.Send(write_data, 0, write_data.Length, SocketFlags.None);
+                    result_WriteSyncData = tcpSynCl.Receive(tcpSynClBuffer, 0, tcpSynClBuffer.Length, SocketFlags.None);
+                   
                     if (tcpSynClBuffer == null)
                     {
                         return null;
                     }
                     else
                     {
-                        unit = tcpSynClBuffer[6];
-                        function = tcpSynClBuffer[7];
+                        unit_WriteSyncData = tcpSynClBuffer[6];
+                        function_WriteSyncData = tcpSynClBuffer[7];
                     }
 
-                 //   if (result == 0) CallException(id, unit, write_data[7], excExceptionConnectionLost);
+                    if (result_WriteSyncData == 0) CallException(id, unit_WriteSyncData, write_data[7], excExceptionConnectionLost);
 
                     // ------------------------------------------------------------
                     // Response data is slave exception
-                    if (function > excExceptionOffset)
+                    if (function_WriteSyncData > excExceptionOffset)
                     {
-                        function -= excExceptionOffset;
-                        CallException(id, unit, function, tcpSynClBuffer[8]);
+                        function_WriteSyncData -= excExceptionOffset;
+                        CallException(id, unit_WriteSyncData, function_WriteSyncData, tcpSynClBuffer[8]);
                         return null;
                     }
                     // ------------------------------------------------------------
                     // Write response data
-                    else if ((function >= fctWriteSingleCoil) && (function != fctReadWriteMultipleRegister))
+                    else if ((function_WriteSyncData >= fctWriteSingleCoil) && (function_WriteSyncData != fctReadWriteMultipleRegister))
                     {
-                        data2 = new byte[2];
-                        Array.Copy(tcpSynClBuffer, 10, data2, 0, 2);
+                        data_WriteSyndData = new byte[2];
+                        Array.Copy(tcpSynClBuffer, 10, data_WriteSyndData, 0, 2);
                     }
                     // ------------------------------------------------------------
                     // Read response data
                     else
                     {
-                        data2 = new byte[tcpSynClBuffer[8]];
-                        Array.Copy(tcpSynClBuffer, 9, data2, 0, tcpSynClBuffer[8]);
+                        data_WriteSyndData = new byte[tcpSynClBuffer[8]];
+                        Array.Copy(tcpSynClBuffer, 9, data_WriteSyndData, 0, tcpSynClBuffer[8]);
                     }
-                    return data2;
+                    return data_WriteSyndData;
 
                 }
                 else
@@ -824,9 +848,8 @@ namespace MINASA6SF_Rev.Models
             }
             catch (System.Net.Sockets.SocketException e)
             {
-                //CallException(id, write_data[6], write_data[7], excExceptionConnectionLost);
-                Debug.WriteLine(e.Message.ToString() + " " + write_data[6].ToString());
-               
+               // CallException(id, write_data[6], write_data[7], excExceptionConnectionLost);
+                Debug.WriteLine(e.Message.ToString() + " " + result_WriteSyncData.ToString());                               
                 return null;
             }
            

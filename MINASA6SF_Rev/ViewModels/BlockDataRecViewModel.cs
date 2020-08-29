@@ -51,7 +51,6 @@ namespace MINASA6SF_Rev.ViewModels
             Count = 0;
             MirrorONOFF = true;
             recONOFF = true;
-            mirrtimer.Enabled = true;
 
             #region 블럭 동작 파라미터 수신 변수 Reverse처리   //Array.Reverse(recValue1);
             Array.Reverse(recValue1);
@@ -4078,7 +4077,6 @@ namespace MINASA6SF_Rev.ViewModels
             Count = 0;
             MirrorONOFF = true;
             recONOFF = true;
-            mirrtimer.Enabled = true;
             #region 블럭 파라미터 수신 변수 Reverse처리   //Array.Reverse(BlockVelParameterSetting1);
             Array.Reverse(BlockVelParameterSetting1);
             Array.Reverse(BlockVelParameterSetting2);
