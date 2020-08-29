@@ -37,8 +37,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         public System.Timers.Timer mirrtimer;
         public System.Timers.Timer timer;
-        //public System.Threading.Timer timer;
-      
+        //public System.Threading.Timer timer;      
 
         private static Master modbusTCP;
         Settings settings;
@@ -2756,6 +2755,7 @@ namespace MINASA6SF_Rev.ViewModels
                 StatusBar = es.Source.ToString() + "  MirrReg_timer";
                 mirrtimer.Stop();
                 timer.Stop();                 
+                timer.Dispose();
                 return;
             }
         }
@@ -2763,13 +2763,9 @@ namespace MINASA6SF_Rev.ViewModels
         //MirrTimer 실행 함수
         public void MirrTimer_Tick()
         {
-            //  mirrtimer.Elapsed += MirrTimer_New;  
-            //timer = new System.Threading.Timer(new TimerCallback(MirrTimer_New), null, 1000, 10);
-            timer.Start();
-            MirrorONOFF = true;
-           
-            //timer.Start();
+            MirrorONOFF = true;           
             mirrtimer.Enabled = true;
+            timer.Start();
         }
         #endregion
 

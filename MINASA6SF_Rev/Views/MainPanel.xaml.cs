@@ -84,6 +84,7 @@ namespace MINASA6SF_Rev.Views
             {
                 mainPanelViewModel.mirrtimer.Start();
                 mainPanelViewModel.timer.Start();
+                mainPanelViewModel.MirrTimer_Tick();
                 Debug.WriteLine("Timer Start");
             }
             else
@@ -95,24 +96,26 @@ namespace MINASA6SF_Rev.Views
         private void blockpara_Click(object sender, RoutedEventArgs e)
         {
             mainpanel.Navigate(BlockPara);
-            mainPanelViewModel.mirrtimer.Stop();
             mainPanelViewModel.timer.Stop();
+            mainPanelViewModel.mirrtimer.Stop();
             Debug.WriteLine("Timer Stop");
+            return;
         }
 
         private void servopara_Click(object sender, RoutedEventArgs e)
         {
             mainpanel.Navigate(ServoPara);
+            mainPanelViewModel.timer.Stop();            
             mainPanelViewModel.mirrtimer.Stop();
-            mainPanelViewModel.timer.Stop();
             Debug.WriteLine("Timer Stop");
+            return;
         }
 
         private void setting_Click(object sender, RoutedEventArgs e)
         {
             mainpanel.Navigate(Settings);
-            mainPanelViewModel.mirrtimer.Stop();
             mainPanelViewModel.timer.Stop();
+            mainPanelViewModel.mirrtimer.Stop();
             Debug.WriteLine("Timer Stop");
         }
 
