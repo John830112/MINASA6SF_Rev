@@ -107,7 +107,7 @@ namespace MINASA6SF_Rev.Models
         byte unit_WriteSyncData;
         byte function_WriteSyncData;
         byte[] data_WriteSyndData;
-
+        MainPanelViewModel mainPanelViewModel;
 
         // ------------------------------------------------------------------------
         /// <summary>Response data event. This event is called when new data arrives</summary>
@@ -156,8 +156,10 @@ namespace MINASA6SF_Rev.Models
         // ------------------------------------------------------------------------
         /// <summary>Create master instance without parameters.</summary>
        
-        public Master()
-        { }
+        public Master(MainPanelViewModel _mainPanelViewModel)
+        {
+            mainPanelViewModel = _mainPanelViewModel;
+        }
 
         // ------------------------------------------------------------------------
         /// <summary>Create master instance with parameters.</summary>
@@ -174,7 +176,7 @@ namespace MINASA6SF_Rev.Models
         /// <param name="port">Port number of modbus slave. Usually port 502 is used.</param>
         /// <param name="no_sync_connection">Disable second connection for synchronous requests</param>
         public Master(string ip, ushort port, bool no_sync_connection)
-        {
+        {           
             connect(ip, port, no_sync_connection);
         }
 
@@ -200,8 +202,8 @@ namespace MINASA6SF_Rev.Models
                 //Connect asynchronous client
                 tcpAsyCl = new Socket(IPAddress.Parse(ip).AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                 tcpAsyCl.Connect(new IPEndPoint(IPAddress.Parse(ip), port));
-            //    tcpAsyCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.SendTimeout, _timeout);
-            //    tcpAsyCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, _timeout);
+                tcpAsyCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.SendTimeout, _timeout);
+                tcpAsyCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, _timeout);
                 tcpAsyCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.NoDelay, 1);
                 // ----------------------------------------------------------------
                 // Connect synchronous client
@@ -209,8 +211,8 @@ namespace MINASA6SF_Rev.Models
                 {
                     tcpSynCl = new Socket(IPAddress.Parse(ip).AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                     tcpSynCl.Connect(new IPEndPoint(IPAddress.Parse(ip), port));
-           //         tcpSynCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.SendTimeout, _timeout);
-            //        tcpSynCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, _timeout);
+                    tcpSynCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.SendTimeout, _timeout);
+                    tcpSynCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, _timeout);
                     tcpSynCl.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.NoDelay, 1);
                 }
                 _connected = true;
@@ -526,7 +528,6 @@ namespace MINASA6SF_Rev.Models
             data_WriteSinglRegister[10] = values[0];
             data_WriteSinglRegister[11] = values[1];
             WriteSyncData(data_WriteSinglRegister, id);
-            Debug.WriteLine("WriteSingleRegister 실행");
         }
 
         // ------------------------------------------------------------------------
@@ -572,7 +573,6 @@ namespace MINASA6SF_Rev.Models
             data_WriteMultipleRegister = CreateWriteHeader(id, unit, startAddress, Convert.ToUInt16(numBytes_WriteMultipleReg / 2), Convert.ToUInt16(numBytes_WriteMultipleReg + 2), fctWriteMultipleRegister);
             Array.Copy(values, 0, data_WriteMultipleRegister, 13, values.Length);
             WriteSyncData(data_WriteMultipleRegister, id);          
-            Debug.WriteLine("WriteMultipleRegister 실행");
         }
 
         // ------------------------------------------------------------------------
@@ -798,14 +798,14 @@ namespace MINASA6SF_Rev.Models
         // ------------------------------------------------------------------------
         // Write data and and wait for response
         private byte[] WriteSyncData(byte[] write_data, ushort id)
-        {           
+        {
             try
             {
                 if (connected1 && write_data != null)
                 {
                     tcpSynCl.Send(write_data, 0, write_data.Length, SocketFlags.None);
                     result_WriteSyncData = tcpSynCl.Receive(tcpSynClBuffer, 0, tcpSynClBuffer.Length, SocketFlags.None);
-                   
+
                     if (tcpSynClBuffer == null)
                     {
                         return null;
@@ -846,13 +846,16 @@ namespace MINASA6SF_Rev.Models
                 else
                     return null;
             }
-            catch (System.Net.Sockets.SocketException e)
+            catch
             {
-               // CallException(id, write_data[6], write_data[7], excExceptionConnectionLost);
-                Debug.WriteLine(e.Message.ToString() + " " + result_WriteSyncData.ToString());                               
+                MessageBox.Show("확인");
+                mainPanelViewModel.ExecuteSettingsConfirm(this);
+                
+                //Application.Current.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() =>
+                //{
+                //}));
                 return null;
             }
-           
         }
     }
 }

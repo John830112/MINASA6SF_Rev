@@ -32,8 +32,6 @@ namespace MINASA6SF_Rev.ViewModels
     public partial class MainPanelViewModel : ViewModelBase, IWindowService
     {
         public BackgroundWorker worker1 = new BackgroundWorker();
-        public BackgroundWorker worker2 = new BackgroundWorker(); //블럭 동작편집 파라미터 송신 
-        public BackgroundWorker worker3 = new BackgroundWorker(); //블럭 매개변수 파라미터 송신 
         private readonly object balanceLock = new object();
         private readonly object balanceLock1 = new object();
 
@@ -2311,8 +2309,7 @@ namespace MINASA6SF_Rev.ViewModels
         public ICommand jogplaybtn3 { set; get; }
         public ICommand jogplaybtn4 { set; get; }
         public ICommand jogfastford1 { set; get; }
-        public ICommand jogfastford2 { set; get; }
-        
+        public ICommand jogfastford2 { set; get; }        
         #endregion
 
         #region viewmodel 생성자
@@ -2400,7 +2397,7 @@ namespace MINASA6SF_Rev.ViewModels
 
             //Block동작 편집 파라미터, Block매개변수 편집 VM Instance
             LoadObjectViewModel();
-            modbusTCP = new Master();
+            modbusTCP = new Master(this);
             mirrtimer = new System.Timers.Timer(1);
 
             timer = new System.Timers.Timer(10);
@@ -2409,11 +2406,6 @@ namespace MINASA6SF_Rev.ViewModels
             worker1.DoWork += Worker1_DoWork;
             worker1.WorkerReportsProgress = true;
             worker1.RunWorkerCompleted += Worker1_RunWorkerCompleted;
-
-            worker2.WorkerSupportsCancellation = true;
-            worker2.WorkerReportsProgress = true;
-            worker3.WorkerSupportsCancellation = true;
-            worker3.WorkerReportsProgress = true;
 
             //BlockSettingDialog 객체 할당
             blockSettingDialog = new BlockSettingDialogs();
@@ -2425,6 +2417,8 @@ namespace MINASA6SF_Rev.ViewModels
             _eepromwrite[1] = (byte)_eeprom;
             _eepromwrite[2] = (byte)(_eeprom >> 24);
             _eepromwrite[3] = (byte)(_eeprom >> 16);
+
+
         }
         #endregion
 
@@ -2760,8 +2754,8 @@ namespace MINASA6SF_Rev.ViewModels
             catch (Exception es)
             {
                 StatusBar = es.Source.ToString() + "  MirrReg_timer";
-                ExecuteDisconnect(this);
-                ExecuteSettingsConfirm(this);
+                mirrtimer.Stop();
+                timer.Stop();                 
                 return;
             }
         }
@@ -2781,7 +2775,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         #region Settings화면
         //Settings 화면 Confirm 커맨드  --접속--
-        private void ExecuteSettingsConfirm(object parameter)
+        public void ExecuteSettingsConfirm(object parameter)
         {
             try
             {
@@ -2823,7 +2817,7 @@ namespace MINASA6SF_Rev.ViewModels
         }
 
         //Settings 화면 Disconnect 커맨드
-        private void ExecuteDisconnect(object parameter)
+        public void ExecuteDisconnect(object parameter)
         {
             try
             {
@@ -2841,7 +2835,9 @@ namespace MINASA6SF_Rev.ViewModels
                     StatusBar = "접속 종료중...";
                 }
                 else
-                {
+                {                   
+                    settings.Disconnect.IsEnabled = false;
+                    worker1.RunWorkerAsync();
                     StatusBar = "통신 연결 상태가 아님";
                     return;
                 }
@@ -2856,8 +2852,6 @@ namespace MINASA6SF_Rev.ViewModels
         {
             mirrtimer.Stop();
             timer.Stop();
-            worker2.CancelAsync();
-            worker3.CancelAsync();            
             for (int i=0; i<10; i++)
             {
                 Thread.Sleep(500);
@@ -2909,7 +2903,7 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, true);
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 291, false);
-                    Thread.Sleep(50);
+                    Thread.Sleep(30);
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 96, false);
                 }
             }
@@ -2959,21 +2953,18 @@ namespace MINASA6SF_Rev.ViewModels
         private void Executea_Clear(object parameter)
         {
             mirrtimer.Stop();
+            timer.Stop();
             modbusTCP.ReadCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x00A1, 1, ref _alarmStatus);
             if (_alarmStatus != null)
             {
                 if (_alarmStatus[0] != 0)
                 {
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
-                    System.Threading.Thread.Sleep(200);
+                    System.Threading.Thread.Sleep(100);
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
                     System.Threading.Thread.Sleep(100);
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
-                    System.Threading.Thread.Sleep(200);
-                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
                     System.Threading.Thread.Sleep(100);
-                    modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, true);
-                    System.Threading.Thread.Sleep(200);
                     modbusTCP.WriteSingleCoils(0, byte.Parse(settings.axisNumselect.SelectedValue.ToString()), 0x0061, false);
                     System.Threading.Thread.Sleep(100);
                     Debug.WriteLine("알람 클리어");
@@ -2985,6 +2976,7 @@ namespace MINASA6SF_Rev.ViewModels
                 return;
             }
             mirrtimer.Start();
+            timer.Start();
         }
 
         private bool Canexecutea_Clear(object parameter)
@@ -19713,17 +19705,14 @@ namespace MINASA6SF_Rev.ViewModels
                     mainpanel.MainButton.IsEnabled = false;
                     mainpanel.ServoParaButton.IsEnabled = false;
                     mainpanel.SettingsButton.IsEnabled = false;
-                    for(int i=0; i<5;i++)
+                    for(int i=0; i < 9;i++)
                     {
                         mainpanel.MainButton.Opacity -= 0.1;
                         mainpanel.ServoParaButton.Opacity -= 0.1;
                         mainpanel.SettingsButton.Opacity -= 0.1;
                     }
                     recONOFF = false;
-                    MirrorONOFF = false;
-                    //worker2.DoWork += BlockParameterRec1;
-                    //worker2.RunWorkerCompleted += Worker2_RunWorkerCompleted;
-                    //worker2.RunWorkerAsync();   //  ->BlockParameterRec1
+                    MirrorONOFF = false;                   
                     await Task.Delay(2000);
                     await Task.Run(() =>
                       BlockParameterRec1()
@@ -19732,7 +19721,7 @@ namespace MINASA6SF_Rev.ViewModels
                     mainpanel.MainButton.IsEnabled = true;
                     mainpanel.ServoParaButton.IsEnabled = true;
                     mainpanel.SettingsButton.IsEnabled = true;
-                    for (int i = 0; i < 5; i++)
+                    for (int i = 0; i < 9; i++)
                     {
                         mainpanel.MainButton.Opacity += 0.1;
                         mainpanel.ServoParaButton.Opacity += 0.1;
@@ -19745,17 +19734,14 @@ namespace MINASA6SF_Rev.ViewModels
                     mainpanel.MainButton.IsEnabled = false;
                     mainpanel.ServoParaButton.IsEnabled = false;
                     mainpanel.SettingsButton.IsEnabled = false;
-                    for (int i = 0; i < 5; i++)
+                    for (int i = 0; i < 9; i++)
                     {
                         mainpanel.MainButton.Opacity -= 0.1;
                         mainpanel.ServoParaButton.Opacity -= 0.1;
                         mainpanel.SettingsButton.Opacity -= 0.1;
                     }
                     recONOFF = false;
-                    MirrorONOFF = false;
-                    //worker3.DoWork += BlockParameterRec11;
-                    //worker3.RunWorkerCompleted += Worker3_RunWorkerCompleted;
-                    //worker3.RunWorkerAsync();   //  ->
+                    MirrorONOFF = false;                 
                     await Task.Delay(2000);
                     await Task.Run(() =>
                     BlockParameterRec11()
@@ -19764,7 +19750,7 @@ namespace MINASA6SF_Rev.ViewModels
                     mainpanel.MainButton.IsEnabled = true;
                     mainpanel.ServoParaButton.IsEnabled = true;
                     mainpanel.SettingsButton.IsEnabled = true;
-                    for (int i = 0; i < 5; i++)
+                    for (int i = 0; i < 9; i++)
                     {
                         mainpanel.MainButton.Opacity += 0.1;
                         mainpanel.ServoParaButton.Opacity += 0.1;
@@ -21045,8 +21031,7 @@ namespace MINASA6SF_Rev.ViewModels
         private bool CanexecuteEepCommand(object parameter)
         {
             return recONOFF;
-        }
-       
+        }       
         #endregion
 
         #region ServoParameter 수신, 송신 버튼
