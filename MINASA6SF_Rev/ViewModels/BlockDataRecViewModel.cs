@@ -34,9 +34,9 @@ namespace MINASA6SF_Rev.ViewModels
 
         //partial void BlockParameterRec1(object sender, DoWorkEventArgs e)
         partial void BlockParameterRec1()
-        {           
-            for (int i = 0; i <=255; i++)
-            {               
+        {
+            for (int i = 0; i <= 255; i++)
+            {
                 BlockActParameterRec(i);
                 Count += 1;
                 Debug.WriteLine(Count.ToString());
@@ -451,7 +451,7 @@ namespace MINASA6SF_Rev.ViewModels
             Array.Reverse(recValue396);
             Array.Reverse(recValue397);
             Array.Reverse(recValue398);
-            Array.Reverse(recValue399);      
+            Array.Reverse(recValue399);
             Array.Reverse(recValue400);
             Array.Reverse(recValue401);
             Array.Reverse(recValue402);
@@ -4060,7 +4060,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         //partial void BlockParameterRec11(object sender, DoWorkEventArgs e)
         partial void BlockParameterRec11()
-        {           
+        {
             for (int i = 0; i < 56; i++)
             {
                 BlockParameterRec(i);
@@ -4220,7 +4220,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         partial void BlockParameterRec111()
         {
-            for (int i = 0; i < 411; i++)
+            for (int i = 0; i < 410; i++)
             {
                 ServoParameterRec(i);
                 Count += 0.62;
@@ -4236,8 +4236,835 @@ namespace MINASA6SF_Rev.ViewModels
             Count = 0;
             MirrorONOFF = true;
             recONOFF = true;
-         
-         //   BlockParameterdata();
+
+            #region ServoParameter 수신 변수 Reverse처리  //Array.Reverse(ServoParameterRecValue1);
+            Array.Reverse(ServoParameterRecValue1);
+            Array.Reverse(ServoParameterRecValue2);
+            Array.Reverse(ServoParameterRecValue3);
+            Array.Reverse(ServoParameterRecValue4);
+            Array.Reverse(ServoParameterRecValue5);
+            Array.Reverse(ServoParameterRecValue6);
+            Array.Reverse(ServoParameterRecValue7);
+            Array.Reverse(ServoParameterRecValue8);
+            Array.Reverse(ServoParameterRecValue9);
+            Array.Reverse(ServoParameterRecValue10);
+            Array.Reverse(ServoParameterRecValue11);
+            Array.Reverse(ServoParameterRecValue12);
+            Array.Reverse(ServoParameterRecValue13);
+            Array.Reverse(ServoParameterRecValue14);
+            Array.Reverse(ServoParameterRecValue15);
+            Array.Reverse(ServoParameterRecValue16);
+            Array.Reverse(ServoParameterRecValue17);
+            Array.Reverse(ServoParameterRecValue18);
+            Array.Reverse(ServoParameterRecValue19);
+            Array.Reverse(ServoParameterRecValue20);
+            Array.Reverse(ServoParameterRecValue21);
+            Array.Reverse(ServoParameterRecValue22);
+            Array.Reverse(ServoParameterRecValue23);
+            Array.Reverse(ServoParameterRecValue24);
+            Array.Reverse(ServoParameterRecValue25);
+            Array.Reverse(ServoParameterRecValue26);
+            Array.Reverse(ServoParameterRecValue27);
+            Array.Reverse(ServoParameterRecValue28);
+            Array.Reverse(ServoParameterRecValue29);
+            Array.Reverse(ServoParameterRecValue30);
+            Array.Reverse(ServoParameterRecValue31);
+            Array.Reverse(ServoParameterRecValue32);
+            Array.Reverse(ServoParameterRecValue33);
+            Array.Reverse(ServoParameterRecValue34);
+            Array.Reverse(ServoParameterRecValue35);
+            Array.Reverse(ServoParameterRecValue36);
+            Array.Reverse(ServoParameterRecValue37);
+            Array.Reverse(ServoParameterRecValue38);
+            Array.Reverse(ServoParameterRecValue39);
+            Array.Reverse(ServoParameterRecValue40);
+            Array.Reverse(ServoParameterRecValue41);
+            Array.Reverse(ServoParameterRecValue42);
+            Array.Reverse(ServoParameterRecValue43);
+            Array.Reverse(ServoParameterRecValue44);
+            Array.Reverse(ServoParameterRecValue45);
+            Array.Reverse(ServoParameterRecValue46);
+            Array.Reverse(ServoParameterRecValue47);
+            Array.Reverse(ServoParameterRecValue48);
+            Array.Reverse(ServoParameterRecValue49);
+            Array.Reverse(ServoParameterRecValue50);
+            Array.Reverse(ServoParameterRecValue51);
+            Array.Reverse(ServoParameterRecValue52);
+            Array.Reverse(ServoParameterRecValue53);
+            Array.Reverse(ServoParameterRecValue54);
+            Array.Reverse(ServoParameterRecValue55);
+            Array.Reverse(ServoParameterRecValue56);
+            Array.Reverse(ServoParameterRecValue57);
+            Array.Reverse(ServoParameterRecValue58);
+            Array.Reverse(ServoParameterRecValue59);
+            Array.Reverse(ServoParameterRecValue60);
+            Array.Reverse(ServoParameterRecValue61);
+            Array.Reverse(ServoParameterRecValue62);
+            Array.Reverse(ServoParameterRecValue63);
+            Array.Reverse(ServoParameterRecValue64);
+            Array.Reverse(ServoParameterRecValue65);
+            Array.Reverse(ServoParameterRecValue66);
+            Array.Reverse(ServoParameterRecValue67);
+            Array.Reverse(ServoParameterRecValue68);
+            Array.Reverse(ServoParameterRecValue69);
+            Array.Reverse(ServoParameterRecValue70);
+            Array.Reverse(ServoParameterRecValue71);
+            Array.Reverse(ServoParameterRecValue72);
+            Array.Reverse(ServoParameterRecValue73);
+            Array.Reverse(ServoParameterRecValue74);
+            Array.Reverse(ServoParameterRecValue75);
+            Array.Reverse(ServoParameterRecValue76);
+            Array.Reverse(ServoParameterRecValue77);
+            Array.Reverse(ServoParameterRecValue78);
+            Array.Reverse(ServoParameterRecValue79);
+            Array.Reverse(ServoParameterRecValue80);
+            Array.Reverse(ServoParameterRecValue81);
+            Array.Reverse(ServoParameterRecValue82);
+            Array.Reverse(ServoParameterRecValue83);
+            Array.Reverse(ServoParameterRecValue84);
+            Array.Reverse(ServoParameterRecValue85);
+            Array.Reverse(ServoParameterRecValue86);
+            Array.Reverse(ServoParameterRecValue87);
+            Array.Reverse(ServoParameterRecValue88);
+            Array.Reverse(ServoParameterRecValue89);
+            Array.Reverse(ServoParameterRecValue90);
+            Array.Reverse(ServoParameterRecValue91);
+            Array.Reverse(ServoParameterRecValue92);
+            Array.Reverse(ServoParameterRecValue93);
+            Array.Reverse(ServoParameterRecValue94);
+            Array.Reverse(ServoParameterRecValue95);
+            Array.Reverse(ServoParameterRecValue96);
+            Array.Reverse(ServoParameterRecValue97);
+            Array.Reverse(ServoParameterRecValue98);
+            Array.Reverse(ServoParameterRecValue99);
+            Array.Reverse(ServoParameterRecValue100);
+            Array.Reverse(ServoParameterRecValue101);
+            Array.Reverse(ServoParameterRecValue102);
+            Array.Reverse(ServoParameterRecValue103);
+            Array.Reverse(ServoParameterRecValue104);
+            Array.Reverse(ServoParameterRecValue105);
+            Array.Reverse(ServoParameterRecValue106);
+            Array.Reverse(ServoParameterRecValue107);
+            Array.Reverse(ServoParameterRecValue108);
+            Array.Reverse(ServoParameterRecValue109);
+            Array.Reverse(ServoParameterRecValue110);
+            Array.Reverse(ServoParameterRecValue111);
+            Array.Reverse(ServoParameterRecValue112);
+            Array.Reverse(ServoParameterRecValue113);
+            Array.Reverse(ServoParameterRecValue114);
+            Array.Reverse(ServoParameterRecValue115);
+            Array.Reverse(ServoParameterRecValue116);
+            Array.Reverse(ServoParameterRecValue117);
+            Array.Reverse(ServoParameterRecValue118);
+            Array.Reverse(ServoParameterRecValue119);
+            Array.Reverse(ServoParameterRecValue120);
+            Array.Reverse(ServoParameterRecValue121);
+            Array.Reverse(ServoParameterRecValue122);
+            Array.Reverse(ServoParameterRecValue123);
+            Array.Reverse(ServoParameterRecValue124);
+            Array.Reverse(ServoParameterRecValue125);
+            Array.Reverse(ServoParameterRecValue126);
+            Array.Reverse(ServoParameterRecValue127);
+            Array.Reverse(ServoParameterRecValue128);
+            Array.Reverse(ServoParameterRecValue129);
+            Array.Reverse(ServoParameterRecValue130);
+            Array.Reverse(ServoParameterRecValue131);
+            Array.Reverse(ServoParameterRecValue132);
+            Array.Reverse(ServoParameterRecValue133);
+            Array.Reverse(ServoParameterRecValue134);
+            Array.Reverse(ServoParameterRecValue135);
+            Array.Reverse(ServoParameterRecValue136);
+            Array.Reverse(ServoParameterRecValue137);
+            Array.Reverse(ServoParameterRecValue138);
+            Array.Reverse(ServoParameterRecValue139);
+            Array.Reverse(ServoParameterRecValue140);
+            Array.Reverse(ServoParameterRecValue141);
+            Array.Reverse(ServoParameterRecValue142);
+            Array.Reverse(ServoParameterRecValue143);
+            Array.Reverse(ServoParameterRecValue144);
+            Array.Reverse(ServoParameterRecValue145);
+            Array.Reverse(ServoParameterRecValue146);
+            Array.Reverse(ServoParameterRecValue147);
+            Array.Reverse(ServoParameterRecValue148);
+            Array.Reverse(ServoParameterRecValue149);
+            Array.Reverse(ServoParameterRecValue150);
+            Array.Reverse(ServoParameterRecValue151);
+            Array.Reverse(ServoParameterRecValue152);
+            Array.Reverse(ServoParameterRecValue153);
+            Array.Reverse(ServoParameterRecValue154);
+            Array.Reverse(ServoParameterRecValue155);
+            Array.Reverse(ServoParameterRecValue156);
+            Array.Reverse(ServoParameterRecValue157);
+            Array.Reverse(ServoParameterRecValue158);
+            Array.Reverse(ServoParameterRecValue159);
+            Array.Reverse(ServoParameterRecValue160);
+            Array.Reverse(ServoParameterRecValue161);
+            Array.Reverse(ServoParameterRecValue162);
+            Array.Reverse(ServoParameterRecValue163);
+            Array.Reverse(ServoParameterRecValue164);
+            Array.Reverse(ServoParameterRecValue165);
+            Array.Reverse(ServoParameterRecValue166);
+            Array.Reverse(ServoParameterRecValue167);
+            Array.Reverse(ServoParameterRecValue168);
+            Array.Reverse(ServoParameterRecValue169);
+            Array.Reverse(ServoParameterRecValue170);
+            Array.Reverse(ServoParameterRecValue171);
+            Array.Reverse(ServoParameterRecValue172);
+            Array.Reverse(ServoParameterRecValue173);
+            Array.Reverse(ServoParameterRecValue174);
+            Array.Reverse(ServoParameterRecValue175);
+            Array.Reverse(ServoParameterRecValue176);
+            Array.Reverse(ServoParameterRecValue177);
+            Array.Reverse(ServoParameterRecValue178);
+            Array.Reverse(ServoParameterRecValue179);
+            Array.Reverse(ServoParameterRecValue180);
+            Array.Reverse(ServoParameterRecValue181);
+            Array.Reverse(ServoParameterRecValue182);
+            Array.Reverse(ServoParameterRecValue183);
+            Array.Reverse(ServoParameterRecValue184);
+            Array.Reverse(ServoParameterRecValue185);
+            Array.Reverse(ServoParameterRecValue186);
+            Array.Reverse(ServoParameterRecValue187);
+            Array.Reverse(ServoParameterRecValue188);
+            Array.Reverse(ServoParameterRecValue189);
+            Array.Reverse(ServoParameterRecValue190);
+            Array.Reverse(ServoParameterRecValue191);
+            Array.Reverse(ServoParameterRecValue192);
+            Array.Reverse(ServoParameterRecValue193);
+            Array.Reverse(ServoParameterRecValue194);
+            Array.Reverse(ServoParameterRecValue195);
+            Array.Reverse(ServoParameterRecValue196);
+            Array.Reverse(ServoParameterRecValue197);
+            Array.Reverse(ServoParameterRecValue198);
+            Array.Reverse(ServoParameterRecValue199);
+            Array.Reverse(ServoParameterRecValue200);
+            Array.Reverse(ServoParameterRecValue201);
+            Array.Reverse(ServoParameterRecValue202);
+            Array.Reverse(ServoParameterRecValue203);
+            Array.Reverse(ServoParameterRecValue204);
+            Array.Reverse(ServoParameterRecValue205);
+            Array.Reverse(ServoParameterRecValue206);
+            Array.Reverse(ServoParameterRecValue207);
+            Array.Reverse(ServoParameterRecValue208);
+            Array.Reverse(ServoParameterRecValue209);
+            Array.Reverse(ServoParameterRecValue210);
+            Array.Reverse(ServoParameterRecValue211);
+            Array.Reverse(ServoParameterRecValue212);
+            Array.Reverse(ServoParameterRecValue213);
+            Array.Reverse(ServoParameterRecValue214);
+            Array.Reverse(ServoParameterRecValue215);
+            Array.Reverse(ServoParameterRecValue216);
+            Array.Reverse(ServoParameterRecValue217);
+            Array.Reverse(ServoParameterRecValue218);
+            Array.Reverse(ServoParameterRecValue219);
+            Array.Reverse(ServoParameterRecValue220);
+            Array.Reverse(ServoParameterRecValue221);
+            Array.Reverse(ServoParameterRecValue222);
+            Array.Reverse(ServoParameterRecValue223);
+            Array.Reverse(ServoParameterRecValue224);
+            Array.Reverse(ServoParameterRecValue225);
+            Array.Reverse(ServoParameterRecValue226);
+            Array.Reverse(ServoParameterRecValue227);
+            Array.Reverse(ServoParameterRecValue228);
+            Array.Reverse(ServoParameterRecValue229);
+            Array.Reverse(ServoParameterRecValue230);
+            Array.Reverse(ServoParameterRecValue231);
+            Array.Reverse(ServoParameterRecValue232);
+            Array.Reverse(ServoParameterRecValue233);
+            Array.Reverse(ServoParameterRecValue234);
+            Array.Reverse(ServoParameterRecValue235);
+            Array.Reverse(ServoParameterRecValue236);
+            Array.Reverse(ServoParameterRecValue237);
+            Array.Reverse(ServoParameterRecValue238);
+            Array.Reverse(ServoParameterRecValue239);
+            Array.Reverse(ServoParameterRecValue240);
+            Array.Reverse(ServoParameterRecValue241);
+            Array.Reverse(ServoParameterRecValue242);
+            Array.Reverse(ServoParameterRecValue243);
+            Array.Reverse(ServoParameterRecValue244);
+            Array.Reverse(ServoParameterRecValue245);
+            Array.Reverse(ServoParameterRecValue246);
+            Array.Reverse(ServoParameterRecValue247);
+            Array.Reverse(ServoParameterRecValue248);
+            Array.Reverse(ServoParameterRecValue249);
+            Array.Reverse(ServoParameterRecValue250);
+            Array.Reverse(ServoParameterRecValue251);
+            Array.Reverse(ServoParameterRecValue252);
+            Array.Reverse(ServoParameterRecValue253);
+            Array.Reverse(ServoParameterRecValue254);
+            Array.Reverse(ServoParameterRecValue255);
+            Array.Reverse(ServoParameterRecValue256);
+            Array.Reverse(ServoParameterRecValue257);
+            Array.Reverse(ServoParameterRecValue258);
+            Array.Reverse(ServoParameterRecValue259);
+            Array.Reverse(ServoParameterRecValue260);
+            Array.Reverse(ServoParameterRecValue261);
+            Array.Reverse(ServoParameterRecValue262);
+            Array.Reverse(ServoParameterRecValue263);
+            Array.Reverse(ServoParameterRecValue264);
+            Array.Reverse(ServoParameterRecValue265);
+            Array.Reverse(ServoParameterRecValue266);
+            Array.Reverse(ServoParameterRecValue267);
+            Array.Reverse(ServoParameterRecValue268);
+            Array.Reverse(ServoParameterRecValue269);
+            Array.Reverse(ServoParameterRecValue270);
+            Array.Reverse(ServoParameterRecValue271);
+            Array.Reverse(ServoParameterRecValue272);
+            Array.Reverse(ServoParameterRecValue273);
+            Array.Reverse(ServoParameterRecValue274);
+            Array.Reverse(ServoParameterRecValue275);
+            Array.Reverse(ServoParameterRecValue276);
+            Array.Reverse(ServoParameterRecValue277);
+            Array.Reverse(ServoParameterRecValue278);
+            Array.Reverse(ServoParameterRecValue279);
+            Array.Reverse(ServoParameterRecValue280);
+            Array.Reverse(ServoParameterRecValue281);
+            Array.Reverse(ServoParameterRecValue282);
+            Array.Reverse(ServoParameterRecValue283);
+            Array.Reverse(ServoParameterRecValue284);
+            Array.Reverse(ServoParameterRecValue285);
+            Array.Reverse(ServoParameterRecValue286);
+            Array.Reverse(ServoParameterRecValue287);
+            Array.Reverse(ServoParameterRecValue288);
+            Array.Reverse(ServoParameterRecValue289);
+            Array.Reverse(ServoParameterRecValue290);
+            Array.Reverse(ServoParameterRecValue291);
+            Array.Reverse(ServoParameterRecValue292);
+            Array.Reverse(ServoParameterRecValue293);
+            Array.Reverse(ServoParameterRecValue294);
+            Array.Reverse(ServoParameterRecValue295);
+            Array.Reverse(ServoParameterRecValue296);
+            Array.Reverse(ServoParameterRecValue297);
+            Array.Reverse(ServoParameterRecValue298);
+            Array.Reverse(ServoParameterRecValue299);
+            Array.Reverse(ServoParameterRecValue300);
+            Array.Reverse(ServoParameterRecValue301);
+            Array.Reverse(ServoParameterRecValue302);
+            Array.Reverse(ServoParameterRecValue303);
+            Array.Reverse(ServoParameterRecValue304);
+            Array.Reverse(ServoParameterRecValue305);
+            Array.Reverse(ServoParameterRecValue306);
+            Array.Reverse(ServoParameterRecValue307);
+            Array.Reverse(ServoParameterRecValue308);
+            Array.Reverse(ServoParameterRecValue309);
+            Array.Reverse(ServoParameterRecValue310);
+            Array.Reverse(ServoParameterRecValue311);
+            Array.Reverse(ServoParameterRecValue312);
+            Array.Reverse(ServoParameterRecValue313);
+            Array.Reverse(ServoParameterRecValue314);
+            Array.Reverse(ServoParameterRecValue315);
+            Array.Reverse(ServoParameterRecValue316);
+            Array.Reverse(ServoParameterRecValue317);
+            Array.Reverse(ServoParameterRecValue318);
+            Array.Reverse(ServoParameterRecValue319);
+            Array.Reverse(ServoParameterRecValue320);
+            Array.Reverse(ServoParameterRecValue321);
+            Array.Reverse(ServoParameterRecValue322);
+            Array.Reverse(ServoParameterRecValue323);
+            Array.Reverse(ServoParameterRecValue324);
+            Array.Reverse(ServoParameterRecValue325);
+            Array.Reverse(ServoParameterRecValue326);
+            Array.Reverse(ServoParameterRecValue327);
+            Array.Reverse(ServoParameterRecValue328);
+            Array.Reverse(ServoParameterRecValue329);
+            Array.Reverse(ServoParameterRecValue330);
+            Array.Reverse(ServoParameterRecValue331);
+            Array.Reverse(ServoParameterRecValue332);
+            Array.Reverse(ServoParameterRecValue333);
+            Array.Reverse(ServoParameterRecValue334);
+            Array.Reverse(ServoParameterRecValue335);
+            Array.Reverse(ServoParameterRecValue336);
+            Array.Reverse(ServoParameterRecValue337);
+            Array.Reverse(ServoParameterRecValue338);
+            Array.Reverse(ServoParameterRecValue339);
+            Array.Reverse(ServoParameterRecValue340);
+            Array.Reverse(ServoParameterRecValue341);
+            Array.Reverse(ServoParameterRecValue342);
+            Array.Reverse(ServoParameterRecValue343);
+            Array.Reverse(ServoParameterRecValue344);
+            Array.Reverse(ServoParameterRecValue345);
+            Array.Reverse(ServoParameterRecValue346);
+            Array.Reverse(ServoParameterRecValue347);
+            Array.Reverse(ServoParameterRecValue348);
+            Array.Reverse(ServoParameterRecValue349);
+            Array.Reverse(ServoParameterRecValue350);
+            Array.Reverse(ServoParameterRecValue351);
+            Array.Reverse(ServoParameterRecValue352);
+            Array.Reverse(ServoParameterRecValue353);
+            Array.Reverse(ServoParameterRecValue354);
+            Array.Reverse(ServoParameterRecValue355);
+            Array.Reverse(ServoParameterRecValue356);
+            Array.Reverse(ServoParameterRecValue357);
+            Array.Reverse(ServoParameterRecValue358);
+            Array.Reverse(ServoParameterRecValue359);
+            Array.Reverse(ServoParameterRecValue360);
+            Array.Reverse(ServoParameterRecValue361);
+            Array.Reverse(ServoParameterRecValue362);
+            Array.Reverse(ServoParameterRecValue363);
+            Array.Reverse(ServoParameterRecValue364);
+            Array.Reverse(ServoParameterRecValue365);
+            Array.Reverse(ServoParameterRecValue366);
+            Array.Reverse(ServoParameterRecValue367);
+            Array.Reverse(ServoParameterRecValue368);
+            Array.Reverse(ServoParameterRecValue369);
+            Array.Reverse(ServoParameterRecValue370);
+            Array.Reverse(ServoParameterRecValue371);
+            Array.Reverse(ServoParameterRecValue372);
+            Array.Reverse(ServoParameterRecValue373);
+            Array.Reverse(ServoParameterRecValue374);
+            Array.Reverse(ServoParameterRecValue375);
+            Array.Reverse(ServoParameterRecValue376);
+            Array.Reverse(ServoParameterRecValue377);
+            Array.Reverse(ServoParameterRecValue378);
+            Array.Reverse(ServoParameterRecValue379);
+            Array.Reverse(ServoParameterRecValue380);
+            Array.Reverse(ServoParameterRecValue381);
+            Array.Reverse(ServoParameterRecValue382);
+            Array.Reverse(ServoParameterRecValue383);
+            Array.Reverse(ServoParameterRecValue384);
+            Array.Reverse(ServoParameterRecValue385);
+            Array.Reverse(ServoParameterRecValue386);
+            Array.Reverse(ServoParameterRecValue387);
+            Array.Reverse(ServoParameterRecValue388);
+            Array.Reverse(ServoParameterRecValue389);
+            Array.Reverse(ServoParameterRecValue390);
+            Array.Reverse(ServoParameterRecValue391);
+            Array.Reverse(ServoParameterRecValue392);
+            Array.Reverse(ServoParameterRecValue393);
+            Array.Reverse(ServoParameterRecValue394);
+            Array.Reverse(ServoParameterRecValue395);
+            Array.Reverse(ServoParameterRecValue396);
+            Array.Reverse(ServoParameterRecValue397);
+            Array.Reverse(ServoParameterRecValue398);
+            Array.Reverse(ServoParameterRecValue399);
+            Array.Reverse(ServoParameterRecValue400);
+            Array.Reverse(ServoParameterRecValue401);
+            Array.Reverse(ServoParameterRecValue402);
+            Array.Reverse(ServoParameterRecValue403);
+            Array.Reverse(ServoParameterRecValue404);
+            Array.Reverse(ServoParameterRecValue405);
+            Array.Reverse(ServoParameterRecValue406);
+            Array.Reverse(ServoParameterRecValue407);
+            Array.Reverse(ServoParameterRecValue408);
+            Array.Reverse(ServoParameterRecValue409);
+            Array.Reverse(ServoParameterRecValue410);
+            #endregion
+
+            #region ServoParameter 수신 데이터 변수에 할당   //Array.Copy(ServoParameterRecValue1, 0, ServoParameterRecValue_Temp1, 0, 4);
+            Array.Copy(ServoParameterRecValue1, 0, ServoParameterRecValue_Temp1, 0, 4);
+            Array.Copy(ServoParameterRecValue2, 0, ServoParameterRecValue_Temp2, 0, 4);
+            Array.Copy(ServoParameterRecValue3, 0, ServoParameterRecValue_Temp3, 0, 4);
+            Array.Copy(ServoParameterRecValue4, 0, ServoParameterRecValue_Temp4, 0, 4);
+            Array.Copy(ServoParameterRecValue5, 0, ServoParameterRecValue_Temp5, 0, 4);
+            Array.Copy(ServoParameterRecValue6, 0, ServoParameterRecValue_Temp6, 0, 4);
+            Array.Copy(ServoParameterRecValue7, 0, ServoParameterRecValue_Temp7, 0, 4);
+            Array.Copy(ServoParameterRecValue8, 0, ServoParameterRecValue_Temp8, 0, 4);
+            Array.Copy(ServoParameterRecValue9, 0, ServoParameterRecValue_Temp9, 0, 4);
+            Array.Copy(ServoParameterRecValue10, 0, ServoParameterRecValue_Temp10, 0, 4);
+            Array.Copy(ServoParameterRecValue11, 0, ServoParameterRecValue_Temp11, 0, 4);
+            Array.Copy(ServoParameterRecValue12, 0, ServoParameterRecValue_Temp12, 0, 4);
+            Array.Copy(ServoParameterRecValue13, 0, ServoParameterRecValue_Temp13, 0, 4);
+            Array.Copy(ServoParameterRecValue14, 0, ServoParameterRecValue_Temp14, 0, 4);
+            Array.Copy(ServoParameterRecValue15, 0, ServoParameterRecValue_Temp15, 0, 4);
+            Array.Copy(ServoParameterRecValue16, 0, ServoParameterRecValue_Temp16, 0, 4);
+            Array.Copy(ServoParameterRecValue17, 0, ServoParameterRecValue_Temp17, 0, 4);
+            Array.Copy(ServoParameterRecValue18, 0, ServoParameterRecValue_Temp18, 0, 4);
+            Array.Copy(ServoParameterRecValue19, 0, ServoParameterRecValue_Temp19, 0, 4);
+            Array.Copy(ServoParameterRecValue20, 0, ServoParameterRecValue_Temp20, 0, 4);
+            Array.Copy(ServoParameterRecValue21, 0, ServoParameterRecValue_Temp21, 0, 4);
+            Array.Copy(ServoParameterRecValue22, 0, ServoParameterRecValue_Temp22, 0, 4);
+            Array.Copy(ServoParameterRecValue23, 0, ServoParameterRecValue_Temp23, 0, 4);
+            Array.Copy(ServoParameterRecValue24, 0, ServoParameterRecValue_Temp24, 0, 4);
+            Array.Copy(ServoParameterRecValue25, 0, ServoParameterRecValue_Temp25, 0, 4);
+            Array.Copy(ServoParameterRecValue26, 0, ServoParameterRecValue_Temp26, 0, 4);
+            Array.Copy(ServoParameterRecValue27, 0, ServoParameterRecValue_Temp27, 0, 4);
+            Array.Copy(ServoParameterRecValue28, 0, ServoParameterRecValue_Temp28, 0, 4);
+            Array.Copy(ServoParameterRecValue29, 0, ServoParameterRecValue_Temp29, 0, 4);
+            Array.Copy(ServoParameterRecValue30, 0, ServoParameterRecValue_Temp30, 0, 4);
+            Array.Copy(ServoParameterRecValue31, 0, ServoParameterRecValue_Temp31, 0, 4);
+            Array.Copy(ServoParameterRecValue32, 0, ServoParameterRecValue_Temp32, 0, 4);
+            Array.Copy(ServoParameterRecValue33, 0, ServoParameterRecValue_Temp33, 0, 4);
+            Array.Copy(ServoParameterRecValue34, 0, ServoParameterRecValue_Temp34, 0, 4);
+            Array.Copy(ServoParameterRecValue35, 0, ServoParameterRecValue_Temp35, 0, 4);
+            Array.Copy(ServoParameterRecValue36, 0, ServoParameterRecValue_Temp36, 0, 4);
+            Array.Copy(ServoParameterRecValue37, 0, ServoParameterRecValue_Temp37, 0, 4);
+            Array.Copy(ServoParameterRecValue38, 0, ServoParameterRecValue_Temp38, 0, 4);
+            Array.Copy(ServoParameterRecValue39, 0, ServoParameterRecValue_Temp39, 0, 4);
+            Array.Copy(ServoParameterRecValue40, 0, ServoParameterRecValue_Temp40, 0, 4);
+            Array.Copy(ServoParameterRecValue41, 0, ServoParameterRecValue_Temp41, 0, 4);
+            Array.Copy(ServoParameterRecValue42, 0, ServoParameterRecValue_Temp42, 0, 4);
+            Array.Copy(ServoParameterRecValue43, 0, ServoParameterRecValue_Temp43, 0, 4);
+            Array.Copy(ServoParameterRecValue44, 0, ServoParameterRecValue_Temp44, 0, 4);
+            Array.Copy(ServoParameterRecValue45, 0, ServoParameterRecValue_Temp45, 0, 4);
+            Array.Copy(ServoParameterRecValue46, 0, ServoParameterRecValue_Temp46, 0, 4);
+            Array.Copy(ServoParameterRecValue47, 0, ServoParameterRecValue_Temp47, 0, 4);
+            Array.Copy(ServoParameterRecValue48, 0, ServoParameterRecValue_Temp48, 0, 4);
+            Array.Copy(ServoParameterRecValue49, 0, ServoParameterRecValue_Temp49, 0, 4);
+            Array.Copy(ServoParameterRecValue50, 0, ServoParameterRecValue_Temp50, 0, 4);
+            Array.Copy(ServoParameterRecValue51, 0, ServoParameterRecValue_Temp51, 0, 4);
+            Array.Copy(ServoParameterRecValue52, 0, ServoParameterRecValue_Temp52, 0, 4);
+            Array.Copy(ServoParameterRecValue53, 0, ServoParameterRecValue_Temp53, 0, 4);
+            Array.Copy(ServoParameterRecValue54, 0, ServoParameterRecValue_Temp54, 0, 4);
+            Array.Copy(ServoParameterRecValue55, 0, ServoParameterRecValue_Temp55, 0, 4);
+            Array.Copy(ServoParameterRecValue56, 0, ServoParameterRecValue_Temp56, 0, 4);
+            Array.Copy(ServoParameterRecValue57, 0, ServoParameterRecValue_Temp57, 0, 4);
+            Array.Copy(ServoParameterRecValue58, 0, ServoParameterRecValue_Temp58, 0, 4);
+            Array.Copy(ServoParameterRecValue59, 0, ServoParameterRecValue_Temp59, 0, 4);
+            Array.Copy(ServoParameterRecValue60, 0, ServoParameterRecValue_Temp60, 0, 4);
+            Array.Copy(ServoParameterRecValue61, 0, ServoParameterRecValue_Temp61, 0, 4);
+            Array.Copy(ServoParameterRecValue62, 0, ServoParameterRecValue_Temp62, 0, 4);
+            Array.Copy(ServoParameterRecValue63, 0, ServoParameterRecValue_Temp63, 0, 4);
+            Array.Copy(ServoParameterRecValue64, 0, ServoParameterRecValue_Temp64, 0, 4);
+            Array.Copy(ServoParameterRecValue65, 0, ServoParameterRecValue_Temp65, 0, 4);
+            Array.Copy(ServoParameterRecValue66, 0, ServoParameterRecValue_Temp66, 0, 4);
+            Array.Copy(ServoParameterRecValue67, 0, ServoParameterRecValue_Temp67, 0, 4);
+            Array.Copy(ServoParameterRecValue68, 0, ServoParameterRecValue_Temp68, 0, 4);
+            Array.Copy(ServoParameterRecValue69, 0, ServoParameterRecValue_Temp69, 0, 4);
+            Array.Copy(ServoParameterRecValue70, 0, ServoParameterRecValue_Temp70, 0, 4);
+            Array.Copy(ServoParameterRecValue71, 0, ServoParameterRecValue_Temp71, 0, 4);
+            Array.Copy(ServoParameterRecValue72, 0, ServoParameterRecValue_Temp72, 0, 4);
+            Array.Copy(ServoParameterRecValue73, 0, ServoParameterRecValue_Temp73, 0, 4);
+            Array.Copy(ServoParameterRecValue74, 0, ServoParameterRecValue_Temp74, 0, 4);
+            Array.Copy(ServoParameterRecValue75, 0, ServoParameterRecValue_Temp75, 0, 4);
+            Array.Copy(ServoParameterRecValue76, 0, ServoParameterRecValue_Temp76, 0, 4);
+            Array.Copy(ServoParameterRecValue77, 0, ServoParameterRecValue_Temp77, 0, 4);
+            Array.Copy(ServoParameterRecValue78, 0, ServoParameterRecValue_Temp78, 0, 4);
+            Array.Copy(ServoParameterRecValue79, 0, ServoParameterRecValue_Temp79, 0, 4);
+            Array.Copy(ServoParameterRecValue80, 0, ServoParameterRecValue_Temp80, 0, 4);
+            Array.Copy(ServoParameterRecValue81, 0, ServoParameterRecValue_Temp81, 0, 4);
+            Array.Copy(ServoParameterRecValue82, 0, ServoParameterRecValue_Temp82, 0, 4);
+            Array.Copy(ServoParameterRecValue83, 0, ServoParameterRecValue_Temp83, 0, 4);
+            Array.Copy(ServoParameterRecValue84, 0, ServoParameterRecValue_Temp84, 0, 4);
+            Array.Copy(ServoParameterRecValue85, 0, ServoParameterRecValue_Temp85, 0, 4);
+            Array.Copy(ServoParameterRecValue86, 0, ServoParameterRecValue_Temp86, 0, 4);
+            Array.Copy(ServoParameterRecValue87, 0, ServoParameterRecValue_Temp87, 0, 4);
+            Array.Copy(ServoParameterRecValue88, 0, ServoParameterRecValue_Temp88, 0, 4);
+            Array.Copy(ServoParameterRecValue89, 0, ServoParameterRecValue_Temp89, 0, 4);
+            Array.Copy(ServoParameterRecValue90, 0, ServoParameterRecValue_Temp90, 0, 4);
+            Array.Copy(ServoParameterRecValue91, 0, ServoParameterRecValue_Temp91, 0, 4);
+            Array.Copy(ServoParameterRecValue92, 0, ServoParameterRecValue_Temp92, 0, 4);
+            Array.Copy(ServoParameterRecValue93, 0, ServoParameterRecValue_Temp93, 0, 4);
+            Array.Copy(ServoParameterRecValue94, 0, ServoParameterRecValue_Temp94, 0, 4);
+            Array.Copy(ServoParameterRecValue95, 0, ServoParameterRecValue_Temp95, 0, 4);
+            Array.Copy(ServoParameterRecValue96, 0, ServoParameterRecValue_Temp96, 0, 4);
+            Array.Copy(ServoParameterRecValue97, 0, ServoParameterRecValue_Temp97, 0, 4);
+            Array.Copy(ServoParameterRecValue98, 0, ServoParameterRecValue_Temp98, 0, 4);
+            Array.Copy(ServoParameterRecValue99, 0, ServoParameterRecValue_Temp99, 0, 4);
+            Array.Copy(ServoParameterRecValue100, 0, ServoParameterRecValue_Temp100, 0, 4);
+            Array.Copy(ServoParameterRecValue101, 0, ServoParameterRecValue_Temp101, 0, 4);
+            Array.Copy(ServoParameterRecValue102, 0, ServoParameterRecValue_Temp102, 0, 4);
+            Array.Copy(ServoParameterRecValue103, 0, ServoParameterRecValue_Temp103, 0, 4);
+            Array.Copy(ServoParameterRecValue104, 0, ServoParameterRecValue_Temp104, 0, 4);
+            Array.Copy(ServoParameterRecValue105, 0, ServoParameterRecValue_Temp105, 0, 4);
+            Array.Copy(ServoParameterRecValue106, 0, ServoParameterRecValue_Temp106, 0, 4);
+            Array.Copy(ServoParameterRecValue107, 0, ServoParameterRecValue_Temp107, 0, 4);
+            Array.Copy(ServoParameterRecValue108, 0, ServoParameterRecValue_Temp108, 0, 4);
+            Array.Copy(ServoParameterRecValue109, 0, ServoParameterRecValue_Temp109, 0, 4);
+            Array.Copy(ServoParameterRecValue110, 0, ServoParameterRecValue_Temp110, 0, 4);
+            Array.Copy(ServoParameterRecValue111, 0, ServoParameterRecValue_Temp111, 0, 4);
+            Array.Copy(ServoParameterRecValue112, 0, ServoParameterRecValue_Temp112, 0, 4);
+            Array.Copy(ServoParameterRecValue113, 0, ServoParameterRecValue_Temp113, 0, 4);
+            Array.Copy(ServoParameterRecValue114, 0, ServoParameterRecValue_Temp114, 0, 4);
+            Array.Copy(ServoParameterRecValue115, 0, ServoParameterRecValue_Temp115, 0, 4);
+            Array.Copy(ServoParameterRecValue116, 0, ServoParameterRecValue_Temp116, 0, 4);
+            Array.Copy(ServoParameterRecValue117, 0, ServoParameterRecValue_Temp117, 0, 4);
+            Array.Copy(ServoParameterRecValue118, 0, ServoParameterRecValue_Temp118, 0, 4);
+            Array.Copy(ServoParameterRecValue119, 0, ServoParameterRecValue_Temp119, 0, 4);
+            Array.Copy(ServoParameterRecValue120, 0, ServoParameterRecValue_Temp120, 0, 4);
+            Array.Copy(ServoParameterRecValue121, 0, ServoParameterRecValue_Temp121, 0, 4);
+            Array.Copy(ServoParameterRecValue122, 0, ServoParameterRecValue_Temp122, 0, 4);
+            Array.Copy(ServoParameterRecValue123, 0, ServoParameterRecValue_Temp123, 0, 4);
+            Array.Copy(ServoParameterRecValue124, 0, ServoParameterRecValue_Temp124, 0, 4);
+            Array.Copy(ServoParameterRecValue125, 0, ServoParameterRecValue_Temp125, 0, 4);
+            Array.Copy(ServoParameterRecValue126, 0, ServoParameterRecValue_Temp126, 0, 4);
+            Array.Copy(ServoParameterRecValue127, 0, ServoParameterRecValue_Temp127, 0, 4);
+            Array.Copy(ServoParameterRecValue128, 0, ServoParameterRecValue_Temp128, 0, 4);
+            Array.Copy(ServoParameterRecValue129, 0, ServoParameterRecValue_Temp129, 0, 4);
+            Array.Copy(ServoParameterRecValue130, 0, ServoParameterRecValue_Temp130, 0, 4);
+            Array.Copy(ServoParameterRecValue131, 0, ServoParameterRecValue_Temp131, 0, 4);
+            Array.Copy(ServoParameterRecValue132, 0, ServoParameterRecValue_Temp132, 0, 4);
+            Array.Copy(ServoParameterRecValue133, 0, ServoParameterRecValue_Temp133, 0, 4);
+            Array.Copy(ServoParameterRecValue134, 0, ServoParameterRecValue_Temp134, 0, 4);
+            Array.Copy(ServoParameterRecValue135, 0, ServoParameterRecValue_Temp135, 0, 4);
+            Array.Copy(ServoParameterRecValue136, 0, ServoParameterRecValue_Temp136, 0, 4);
+            Array.Copy(ServoParameterRecValue137, 0, ServoParameterRecValue_Temp137, 0, 4);
+            Array.Copy(ServoParameterRecValue138, 0, ServoParameterRecValue_Temp138, 0, 4);
+            Array.Copy(ServoParameterRecValue139, 0, ServoParameterRecValue_Temp139, 0, 4);
+            Array.Copy(ServoParameterRecValue140, 0, ServoParameterRecValue_Temp140, 0, 4);
+            Array.Copy(ServoParameterRecValue141, 0, ServoParameterRecValue_Temp141, 0, 4);
+            Array.Copy(ServoParameterRecValue142, 0, ServoParameterRecValue_Temp142, 0, 4);
+            Array.Copy(ServoParameterRecValue143, 0, ServoParameterRecValue_Temp143, 0, 4);
+            Array.Copy(ServoParameterRecValue144, 0, ServoParameterRecValue_Temp144, 0, 4);
+            Array.Copy(ServoParameterRecValue145, 0, ServoParameterRecValue_Temp145, 0, 4);
+            Array.Copy(ServoParameterRecValue146, 0, ServoParameterRecValue_Temp146, 0, 4);
+            Array.Copy(ServoParameterRecValue147, 0, ServoParameterRecValue_Temp147, 0, 4);
+            Array.Copy(ServoParameterRecValue148, 0, ServoParameterRecValue_Temp148, 0, 4);
+            Array.Copy(ServoParameterRecValue149, 0, ServoParameterRecValue_Temp149, 0, 4);
+            Array.Copy(ServoParameterRecValue150, 0, ServoParameterRecValue_Temp150, 0, 4);
+            Array.Copy(ServoParameterRecValue151, 0, ServoParameterRecValue_Temp151, 0, 4);
+            Array.Copy(ServoParameterRecValue152, 0, ServoParameterRecValue_Temp152, 0, 4);
+            Array.Copy(ServoParameterRecValue153, 0, ServoParameterRecValue_Temp153, 0, 4);
+            Array.Copy(ServoParameterRecValue154, 0, ServoParameterRecValue_Temp154, 0, 4);
+            Array.Copy(ServoParameterRecValue155, 0, ServoParameterRecValue_Temp155, 0, 4);
+            Array.Copy(ServoParameterRecValue156, 0, ServoParameterRecValue_Temp156, 0, 4);
+            Array.Copy(ServoParameterRecValue157, 0, ServoParameterRecValue_Temp157, 0, 4);
+            Array.Copy(ServoParameterRecValue158, 0, ServoParameterRecValue_Temp158, 0, 4);
+            Array.Copy(ServoParameterRecValue159, 0, ServoParameterRecValue_Temp159, 0, 4);
+            Array.Copy(ServoParameterRecValue160, 0, ServoParameterRecValue_Temp160, 0, 4);
+            Array.Copy(ServoParameterRecValue161, 0, ServoParameterRecValue_Temp161, 0, 4);
+            Array.Copy(ServoParameterRecValue162, 0, ServoParameterRecValue_Temp162, 0, 4);
+            Array.Copy(ServoParameterRecValue163, 0, ServoParameterRecValue_Temp163, 0, 4);
+            Array.Copy(ServoParameterRecValue164, 0, ServoParameterRecValue_Temp164, 0, 4);
+            Array.Copy(ServoParameterRecValue165, 0, ServoParameterRecValue_Temp165, 0, 4);
+            Array.Copy(ServoParameterRecValue166, 0, ServoParameterRecValue_Temp166, 0, 4);
+            Array.Copy(ServoParameterRecValue167, 0, ServoParameterRecValue_Temp167, 0, 4);
+            Array.Copy(ServoParameterRecValue168, 0, ServoParameterRecValue_Temp168, 0, 4);
+            Array.Copy(ServoParameterRecValue169, 0, ServoParameterRecValue_Temp169, 0, 4);
+            Array.Copy(ServoParameterRecValue170, 0, ServoParameterRecValue_Temp170, 0, 4);
+            Array.Copy(ServoParameterRecValue171, 0, ServoParameterRecValue_Temp171, 0, 4);
+            Array.Copy(ServoParameterRecValue172, 0, ServoParameterRecValue_Temp172, 0, 4);
+            Array.Copy(ServoParameterRecValue173, 0, ServoParameterRecValue_Temp173, 0, 4);
+            Array.Copy(ServoParameterRecValue174, 0, ServoParameterRecValue_Temp174, 0, 4);
+            Array.Copy(ServoParameterRecValue175, 0, ServoParameterRecValue_Temp175, 0, 4);
+            Array.Copy(ServoParameterRecValue176, 0, ServoParameterRecValue_Temp176, 0, 4);
+            Array.Copy(ServoParameterRecValue177, 0, ServoParameterRecValue_Temp177, 0, 4);
+            Array.Copy(ServoParameterRecValue178, 0, ServoParameterRecValue_Temp178, 0, 4);
+            Array.Copy(ServoParameterRecValue179, 0, ServoParameterRecValue_Temp179, 0, 4);
+            Array.Copy(ServoParameterRecValue180, 0, ServoParameterRecValue_Temp180, 0, 4);
+            Array.Copy(ServoParameterRecValue181, 0, ServoParameterRecValue_Temp181, 0, 4);
+            Array.Copy(ServoParameterRecValue182, 0, ServoParameterRecValue_Temp182, 0, 4);
+            Array.Copy(ServoParameterRecValue183, 0, ServoParameterRecValue_Temp183, 0, 4);
+            Array.Copy(ServoParameterRecValue184, 0, ServoParameterRecValue_Temp184, 0, 4);
+            Array.Copy(ServoParameterRecValue185, 0, ServoParameterRecValue_Temp185, 0, 4);
+            Array.Copy(ServoParameterRecValue186, 0, ServoParameterRecValue_Temp186, 0, 4);
+            Array.Copy(ServoParameterRecValue187, 0, ServoParameterRecValue_Temp187, 0, 4);
+            Array.Copy(ServoParameterRecValue188, 0, ServoParameterRecValue_Temp188, 0, 4);
+            Array.Copy(ServoParameterRecValue189, 0, ServoParameterRecValue_Temp189, 0, 4);
+            Array.Copy(ServoParameterRecValue190, 0, ServoParameterRecValue_Temp190, 0, 4);
+            Array.Copy(ServoParameterRecValue191, 0, ServoParameterRecValue_Temp191, 0, 4);
+            Array.Copy(ServoParameterRecValue192, 0, ServoParameterRecValue_Temp192, 0, 4);
+            Array.Copy(ServoParameterRecValue193, 0, ServoParameterRecValue_Temp193, 0, 4);
+            Array.Copy(ServoParameterRecValue194, 0, ServoParameterRecValue_Temp194, 0, 4);
+            Array.Copy(ServoParameterRecValue195, 0, ServoParameterRecValue_Temp195, 0, 4);
+            Array.Copy(ServoParameterRecValue196, 0, ServoParameterRecValue_Temp196, 0, 4);
+            Array.Copy(ServoParameterRecValue197, 0, ServoParameterRecValue_Temp197, 0, 4);
+            Array.Copy(ServoParameterRecValue198, 0, ServoParameterRecValue_Temp198, 0, 4);
+            Array.Copy(ServoParameterRecValue199, 0, ServoParameterRecValue_Temp199, 0, 4);
+            Array.Copy(ServoParameterRecValue200, 0, ServoParameterRecValue_Temp200, 0, 4);
+            Array.Copy(ServoParameterRecValue201, 0, ServoParameterRecValue_Temp201, 0, 4);
+            Array.Copy(ServoParameterRecValue202, 0, ServoParameterRecValue_Temp202, 0, 4);
+            Array.Copy(ServoParameterRecValue203, 0, ServoParameterRecValue_Temp203, 0, 4);
+            Array.Copy(ServoParameterRecValue204, 0, ServoParameterRecValue_Temp204, 0, 4);
+            Array.Copy(ServoParameterRecValue205, 0, ServoParameterRecValue_Temp205, 0, 4);
+            Array.Copy(ServoParameterRecValue206, 0, ServoParameterRecValue_Temp206, 0, 4);
+            Array.Copy(ServoParameterRecValue207, 0, ServoParameterRecValue_Temp207, 0, 4);
+            Array.Copy(ServoParameterRecValue208, 0, ServoParameterRecValue_Temp208, 0, 4);
+            Array.Copy(ServoParameterRecValue209, 0, ServoParameterRecValue_Temp209, 0, 4);
+            Array.Copy(ServoParameterRecValue210, 0, ServoParameterRecValue_Temp210, 0, 4);
+            Array.Copy(ServoParameterRecValue211, 0, ServoParameterRecValue_Temp211, 0, 4);
+            Array.Copy(ServoParameterRecValue212, 0, ServoParameterRecValue_Temp212, 0, 4);
+            Array.Copy(ServoParameterRecValue213, 0, ServoParameterRecValue_Temp213, 0, 4);
+            Array.Copy(ServoParameterRecValue214, 0, ServoParameterRecValue_Temp214, 0, 4);
+            Array.Copy(ServoParameterRecValue215, 0, ServoParameterRecValue_Temp215, 0, 4);
+            Array.Copy(ServoParameterRecValue216, 0, ServoParameterRecValue_Temp216, 0, 4);
+            Array.Copy(ServoParameterRecValue217, 0, ServoParameterRecValue_Temp217, 0, 4);
+            Array.Copy(ServoParameterRecValue218, 0, ServoParameterRecValue_Temp218, 0, 4);
+            Array.Copy(ServoParameterRecValue219, 0, ServoParameterRecValue_Temp219, 0, 4);
+            Array.Copy(ServoParameterRecValue220, 0, ServoParameterRecValue_Temp220, 0, 4);
+            Array.Copy(ServoParameterRecValue221, 0, ServoParameterRecValue_Temp221, 0, 4);
+            Array.Copy(ServoParameterRecValue222, 0, ServoParameterRecValue_Temp222, 0, 4);
+            Array.Copy(ServoParameterRecValue223, 0, ServoParameterRecValue_Temp223, 0, 4);
+            Array.Copy(ServoParameterRecValue224, 0, ServoParameterRecValue_Temp224, 0, 4);
+            Array.Copy(ServoParameterRecValue225, 0, ServoParameterRecValue_Temp225, 0, 4);
+            Array.Copy(ServoParameterRecValue226, 0, ServoParameterRecValue_Temp226, 0, 4);
+            Array.Copy(ServoParameterRecValue227, 0, ServoParameterRecValue_Temp227, 0, 4);
+            Array.Copy(ServoParameterRecValue228, 0, ServoParameterRecValue_Temp228, 0, 4);
+            Array.Copy(ServoParameterRecValue229, 0, ServoParameterRecValue_Temp229, 0, 4);
+            Array.Copy(ServoParameterRecValue230, 0, ServoParameterRecValue_Temp230, 0, 4);
+            Array.Copy(ServoParameterRecValue231, 0, ServoParameterRecValue_Temp231, 0, 4);
+            Array.Copy(ServoParameterRecValue232, 0, ServoParameterRecValue_Temp232, 0, 4);
+            Array.Copy(ServoParameterRecValue233, 0, ServoParameterRecValue_Temp233, 0, 4);
+            Array.Copy(ServoParameterRecValue234, 0, ServoParameterRecValue_Temp234, 0, 4);
+            Array.Copy(ServoParameterRecValue235, 0, ServoParameterRecValue_Temp235, 0, 4);
+            Array.Copy(ServoParameterRecValue236, 0, ServoParameterRecValue_Temp236, 0, 4);
+            Array.Copy(ServoParameterRecValue237, 0, ServoParameterRecValue_Temp237, 0, 4);
+            Array.Copy(ServoParameterRecValue238, 0, ServoParameterRecValue_Temp238, 0, 4);
+            Array.Copy(ServoParameterRecValue239, 0, ServoParameterRecValue_Temp239, 0, 4);
+            Array.Copy(ServoParameterRecValue240, 0, ServoParameterRecValue_Temp240, 0, 4);
+            Array.Copy(ServoParameterRecValue241, 0, ServoParameterRecValue_Temp241, 0, 4);
+            Array.Copy(ServoParameterRecValue242, 0, ServoParameterRecValue_Temp242, 0, 4);
+            Array.Copy(ServoParameterRecValue243, 0, ServoParameterRecValue_Temp243, 0, 4);
+            Array.Copy(ServoParameterRecValue244, 0, ServoParameterRecValue_Temp244, 0, 4);
+            Array.Copy(ServoParameterRecValue245, 0, ServoParameterRecValue_Temp245, 0, 4);
+            Array.Copy(ServoParameterRecValue246, 0, ServoParameterRecValue_Temp246, 0, 4);
+            Array.Copy(ServoParameterRecValue247, 0, ServoParameterRecValue_Temp247, 0, 4);
+            Array.Copy(ServoParameterRecValue248, 0, ServoParameterRecValue_Temp248, 0, 4);
+            Array.Copy(ServoParameterRecValue249, 0, ServoParameterRecValue_Temp249, 0, 4);
+            Array.Copy(ServoParameterRecValue250, 0, ServoParameterRecValue_Temp250, 0, 4);
+            Array.Copy(ServoParameterRecValue251, 0, ServoParameterRecValue_Temp251, 0, 4);
+            Array.Copy(ServoParameterRecValue252, 0, ServoParameterRecValue_Temp252, 0, 4);
+            Array.Copy(ServoParameterRecValue253, 0, ServoParameterRecValue_Temp253, 0, 4);
+            Array.Copy(ServoParameterRecValue254, 0, ServoParameterRecValue_Temp254, 0, 4);
+            Array.Copy(ServoParameterRecValue255, 0, ServoParameterRecValue_Temp255, 0, 4);
+            Array.Copy(ServoParameterRecValue256, 0, ServoParameterRecValue_Temp256, 0, 4);
+            Array.Copy(ServoParameterRecValue257, 0, ServoParameterRecValue_Temp257, 0, 4);
+            Array.Copy(ServoParameterRecValue258, 0, ServoParameterRecValue_Temp258, 0, 4);
+            Array.Copy(ServoParameterRecValue259, 0, ServoParameterRecValue_Temp259, 0, 4);
+            Array.Copy(ServoParameterRecValue260, 0, ServoParameterRecValue_Temp260, 0, 4);
+            Array.Copy(ServoParameterRecValue261, 0, ServoParameterRecValue_Temp261, 0, 4);
+            Array.Copy(ServoParameterRecValue262, 0, ServoParameterRecValue_Temp262, 0, 4);
+            Array.Copy(ServoParameterRecValue263, 0, ServoParameterRecValue_Temp263, 0, 4);
+            Array.Copy(ServoParameterRecValue264, 0, ServoParameterRecValue_Temp264, 0, 4);
+            Array.Copy(ServoParameterRecValue265, 0, ServoParameterRecValue_Temp265, 0, 4);
+            Array.Copy(ServoParameterRecValue266, 0, ServoParameterRecValue_Temp266, 0, 4);
+            Array.Copy(ServoParameterRecValue267, 0, ServoParameterRecValue_Temp267, 0, 4);
+            Array.Copy(ServoParameterRecValue268, 0, ServoParameterRecValue_Temp268, 0, 4);
+            Array.Copy(ServoParameterRecValue269, 0, ServoParameterRecValue_Temp269, 0, 4);
+            Array.Copy(ServoParameterRecValue270, 0, ServoParameterRecValue_Temp270, 0, 4);
+            Array.Copy(ServoParameterRecValue271, 0, ServoParameterRecValue_Temp271, 0, 4);
+            Array.Copy(ServoParameterRecValue272, 0, ServoParameterRecValue_Temp272, 0, 4);
+            Array.Copy(ServoParameterRecValue273, 0, ServoParameterRecValue_Temp273, 0, 4);
+            Array.Copy(ServoParameterRecValue274, 0, ServoParameterRecValue_Temp274, 0, 4);
+            Array.Copy(ServoParameterRecValue275, 0, ServoParameterRecValue_Temp275, 0, 4);
+            Array.Copy(ServoParameterRecValue276, 0, ServoParameterRecValue_Temp276, 0, 4);
+            Array.Copy(ServoParameterRecValue277, 0, ServoParameterRecValue_Temp277, 0, 4);
+            Array.Copy(ServoParameterRecValue278, 0, ServoParameterRecValue_Temp278, 0, 4);
+            Array.Copy(ServoParameterRecValue279, 0, ServoParameterRecValue_Temp279, 0, 4);
+            Array.Copy(ServoParameterRecValue280, 0, ServoParameterRecValue_Temp280, 0, 4);
+            Array.Copy(ServoParameterRecValue281, 0, ServoParameterRecValue_Temp281, 0, 4);
+            Array.Copy(ServoParameterRecValue282, 0, ServoParameterRecValue_Temp282, 0, 4);
+            Array.Copy(ServoParameterRecValue283, 0, ServoParameterRecValue_Temp283, 0, 4);
+            Array.Copy(ServoParameterRecValue284, 0, ServoParameterRecValue_Temp284, 0, 4);
+            Array.Copy(ServoParameterRecValue285, 0, ServoParameterRecValue_Temp285, 0, 4);
+            Array.Copy(ServoParameterRecValue286, 0, ServoParameterRecValue_Temp286, 0, 4);
+            Array.Copy(ServoParameterRecValue287, 0, ServoParameterRecValue_Temp287, 0, 4);
+            Array.Copy(ServoParameterRecValue288, 0, ServoParameterRecValue_Temp288, 0, 4);
+            Array.Copy(ServoParameterRecValue289, 0, ServoParameterRecValue_Temp289, 0, 4);
+            Array.Copy(ServoParameterRecValue290, 0, ServoParameterRecValue_Temp290, 0, 4);
+            Array.Copy(ServoParameterRecValue291, 0, ServoParameterRecValue_Temp291, 0, 4);
+            Array.Copy(ServoParameterRecValue292, 0, ServoParameterRecValue_Temp292, 0, 4);
+            Array.Copy(ServoParameterRecValue293, 0, ServoParameterRecValue_Temp293, 0, 4);
+            Array.Copy(ServoParameterRecValue294, 0, ServoParameterRecValue_Temp294, 0, 4);
+            Array.Copy(ServoParameterRecValue295, 0, ServoParameterRecValue_Temp295, 0, 4);
+            Array.Copy(ServoParameterRecValue296, 0, ServoParameterRecValue_Temp296, 0, 4);
+            Array.Copy(ServoParameterRecValue297, 0, ServoParameterRecValue_Temp297, 0, 4);
+            Array.Copy(ServoParameterRecValue298, 0, ServoParameterRecValue_Temp298, 0, 4);
+            Array.Copy(ServoParameterRecValue299, 0, ServoParameterRecValue_Temp299, 0, 4);
+            Array.Copy(ServoParameterRecValue300, 0, ServoParameterRecValue_Temp300, 0, 4);
+            Array.Copy(ServoParameterRecValue301, 0, ServoParameterRecValue_Temp301, 0, 4);
+            Array.Copy(ServoParameterRecValue302, 0, ServoParameterRecValue_Temp302, 0, 4);
+            Array.Copy(ServoParameterRecValue303, 0, ServoParameterRecValue_Temp303, 0, 4);
+            Array.Copy(ServoParameterRecValue304, 0, ServoParameterRecValue_Temp304, 0, 4);
+            Array.Copy(ServoParameterRecValue305, 0, ServoParameterRecValue_Temp305, 0, 4);
+            Array.Copy(ServoParameterRecValue306, 0, ServoParameterRecValue_Temp306, 0, 4);
+            Array.Copy(ServoParameterRecValue307, 0, ServoParameterRecValue_Temp307, 0, 4);
+            Array.Copy(ServoParameterRecValue308, 0, ServoParameterRecValue_Temp308, 0, 4);
+            Array.Copy(ServoParameterRecValue309, 0, ServoParameterRecValue_Temp309, 0, 4);
+            Array.Copy(ServoParameterRecValue310, 0, ServoParameterRecValue_Temp310, 0, 4);
+            Array.Copy(ServoParameterRecValue311, 0, ServoParameterRecValue_Temp311, 0, 4);
+            Array.Copy(ServoParameterRecValue312, 0, ServoParameterRecValue_Temp312, 0, 4);
+            Array.Copy(ServoParameterRecValue313, 0, ServoParameterRecValue_Temp313, 0, 4);
+            Array.Copy(ServoParameterRecValue314, 0, ServoParameterRecValue_Temp314, 0, 4);
+            Array.Copy(ServoParameterRecValue315, 0, ServoParameterRecValue_Temp315, 0, 4);
+            Array.Copy(ServoParameterRecValue316, 0, ServoParameterRecValue_Temp316, 0, 4);
+            Array.Copy(ServoParameterRecValue317, 0, ServoParameterRecValue_Temp317, 0, 4);
+            Array.Copy(ServoParameterRecValue318, 0, ServoParameterRecValue_Temp318, 0, 4);
+            Array.Copy(ServoParameterRecValue319, 0, ServoParameterRecValue_Temp319, 0, 4);
+            Array.Copy(ServoParameterRecValue320, 0, ServoParameterRecValue_Temp320, 0, 4);
+            Array.Copy(ServoParameterRecValue321, 0, ServoParameterRecValue_Temp321, 0, 4);
+            Array.Copy(ServoParameterRecValue322, 0, ServoParameterRecValue_Temp322, 0, 4);
+            Array.Copy(ServoParameterRecValue323, 0, ServoParameterRecValue_Temp323, 0, 4);
+            Array.Copy(ServoParameterRecValue324, 0, ServoParameterRecValue_Temp324, 0, 4);
+            Array.Copy(ServoParameterRecValue325, 0, ServoParameterRecValue_Temp325, 0, 4);
+            Array.Copy(ServoParameterRecValue326, 0, ServoParameterRecValue_Temp326, 0, 4);
+            Array.Copy(ServoParameterRecValue327, 0, ServoParameterRecValue_Temp327, 0, 4);
+            Array.Copy(ServoParameterRecValue328, 0, ServoParameterRecValue_Temp328, 0, 4);
+            Array.Copy(ServoParameterRecValue329, 0, ServoParameterRecValue_Temp329, 0, 4);
+            Array.Copy(ServoParameterRecValue330, 0, ServoParameterRecValue_Temp330, 0, 4);
+            Array.Copy(ServoParameterRecValue331, 0, ServoParameterRecValue_Temp331, 0, 4);
+            Array.Copy(ServoParameterRecValue332, 0, ServoParameterRecValue_Temp332, 0, 4);
+            Array.Copy(ServoParameterRecValue333, 0, ServoParameterRecValue_Temp333, 0, 4);
+            Array.Copy(ServoParameterRecValue334, 0, ServoParameterRecValue_Temp334, 0, 4);
+            Array.Copy(ServoParameterRecValue335, 0, ServoParameterRecValue_Temp335, 0, 4);
+            Array.Copy(ServoParameterRecValue336, 0, ServoParameterRecValue_Temp336, 0, 4);
+            Array.Copy(ServoParameterRecValue337, 0, ServoParameterRecValue_Temp337, 0, 4);
+            Array.Copy(ServoParameterRecValue338, 0, ServoParameterRecValue_Temp338, 0, 4);
+            Array.Copy(ServoParameterRecValue339, 0, ServoParameterRecValue_Temp339, 0, 4);
+            Array.Copy(ServoParameterRecValue340, 0, ServoParameterRecValue_Temp340, 0, 4);
+            Array.Copy(ServoParameterRecValue341, 0, ServoParameterRecValue_Temp341, 0, 4);
+            Array.Copy(ServoParameterRecValue342, 0, ServoParameterRecValue_Temp342, 0, 4);
+            Array.Copy(ServoParameterRecValue343, 0, ServoParameterRecValue_Temp343, 0, 4);
+            Array.Copy(ServoParameterRecValue344, 0, ServoParameterRecValue_Temp344, 0, 4);
+            Array.Copy(ServoParameterRecValue345, 0, ServoParameterRecValue_Temp345, 0, 4);
+            Array.Copy(ServoParameterRecValue346, 0, ServoParameterRecValue_Temp346, 0, 4);
+            Array.Copy(ServoParameterRecValue347, 0, ServoParameterRecValue_Temp347, 0, 4);
+            Array.Copy(ServoParameterRecValue348, 0, ServoParameterRecValue_Temp348, 0, 4);
+            Array.Copy(ServoParameterRecValue349, 0, ServoParameterRecValue_Temp349, 0, 4);
+            Array.Copy(ServoParameterRecValue350, 0, ServoParameterRecValue_Temp350, 0, 4);
+            Array.Copy(ServoParameterRecValue351, 0, ServoParameterRecValue_Temp351, 0, 4);
+            Array.Copy(ServoParameterRecValue352, 0, ServoParameterRecValue_Temp352, 0, 4);
+            Array.Copy(ServoParameterRecValue353, 0, ServoParameterRecValue_Temp353, 0, 4);
+            Array.Copy(ServoParameterRecValue354, 0, ServoParameterRecValue_Temp354, 0, 4);
+            Array.Copy(ServoParameterRecValue355, 0, ServoParameterRecValue_Temp355, 0, 4);
+            Array.Copy(ServoParameterRecValue356, 0, ServoParameterRecValue_Temp356, 0, 4);
+            Array.Copy(ServoParameterRecValue357, 0, ServoParameterRecValue_Temp357, 0, 4);
+            Array.Copy(ServoParameterRecValue358, 0, ServoParameterRecValue_Temp358, 0, 4);
+            Array.Copy(ServoParameterRecValue359, 0, ServoParameterRecValue_Temp359, 0, 4);
+            Array.Copy(ServoParameterRecValue360, 0, ServoParameterRecValue_Temp360, 0, 4);
+            Array.Copy(ServoParameterRecValue361, 0, ServoParameterRecValue_Temp361, 0, 4);
+            Array.Copy(ServoParameterRecValue362, 0, ServoParameterRecValue_Temp362, 0, 4);
+            Array.Copy(ServoParameterRecValue363, 0, ServoParameterRecValue_Temp363, 0, 4);
+            Array.Copy(ServoParameterRecValue364, 0, ServoParameterRecValue_Temp364, 0, 4);
+            Array.Copy(ServoParameterRecValue365, 0, ServoParameterRecValue_Temp365, 0, 4);
+            Array.Copy(ServoParameterRecValue366, 0, ServoParameterRecValue_Temp366, 0, 4);
+            Array.Copy(ServoParameterRecValue367, 0, ServoParameterRecValue_Temp367, 0, 4);
+            Array.Copy(ServoParameterRecValue368, 0, ServoParameterRecValue_Temp368, 0, 4);
+            Array.Copy(ServoParameterRecValue369, 0, ServoParameterRecValue_Temp369, 0, 4);
+            Array.Copy(ServoParameterRecValue370, 0, ServoParameterRecValue_Temp370, 0, 4);
+            Array.Copy(ServoParameterRecValue371, 0, ServoParameterRecValue_Temp371, 0, 4);
+            Array.Copy(ServoParameterRecValue372, 0, ServoParameterRecValue_Temp372, 0, 4);
+            Array.Copy(ServoParameterRecValue373, 0, ServoParameterRecValue_Temp373, 0, 4);
+            Array.Copy(ServoParameterRecValue374, 0, ServoParameterRecValue_Temp374, 0, 4);
+            Array.Copy(ServoParameterRecValue375, 0, ServoParameterRecValue_Temp375, 0, 4);
+            Array.Copy(ServoParameterRecValue376, 0, ServoParameterRecValue_Temp376, 0, 4);
+            Array.Copy(ServoParameterRecValue377, 0, ServoParameterRecValue_Temp377, 0, 4);
+            Array.Copy(ServoParameterRecValue378, 0, ServoParameterRecValue_Temp378, 0, 4);
+            Array.Copy(ServoParameterRecValue379, 0, ServoParameterRecValue_Temp379, 0, 4);
+            Array.Copy(ServoParameterRecValue380, 0, ServoParameterRecValue_Temp380, 0, 4);
+            Array.Copy(ServoParameterRecValue381, 0, ServoParameterRecValue_Temp381, 0, 4);
+            Array.Copy(ServoParameterRecValue382, 0, ServoParameterRecValue_Temp382, 0, 4);
+            Array.Copy(ServoParameterRecValue383, 0, ServoParameterRecValue_Temp383, 0, 4);
+            Array.Copy(ServoParameterRecValue384, 0, ServoParameterRecValue_Temp384, 0, 4);
+            Array.Copy(ServoParameterRecValue385, 0, ServoParameterRecValue_Temp385, 0, 4);
+            Array.Copy(ServoParameterRecValue386, 0, ServoParameterRecValue_Temp386, 0, 4);
+            Array.Copy(ServoParameterRecValue387, 0, ServoParameterRecValue_Temp387, 0, 4);
+            Array.Copy(ServoParameterRecValue388, 0, ServoParameterRecValue_Temp388, 0, 4);
+            Array.Copy(ServoParameterRecValue389, 0, ServoParameterRecValue_Temp389, 0, 4);
+            Array.Copy(ServoParameterRecValue390, 0, ServoParameterRecValue_Temp390, 0, 4);
+            Array.Copy(ServoParameterRecValue391, 0, ServoParameterRecValue_Temp391, 0, 4);
+            Array.Copy(ServoParameterRecValue392, 0, ServoParameterRecValue_Temp392, 0, 4);
+            Array.Copy(ServoParameterRecValue393, 0, ServoParameterRecValue_Temp393, 0, 4);
+            Array.Copy(ServoParameterRecValue394, 0, ServoParameterRecValue_Temp394, 0, 4);
+            Array.Copy(ServoParameterRecValue395, 0, ServoParameterRecValue_Temp395, 0, 4);
+            Array.Copy(ServoParameterRecValue396, 0, ServoParameterRecValue_Temp396, 0, 4);
+            Array.Copy(ServoParameterRecValue397, 0, ServoParameterRecValue_Temp397, 0, 4);
+            Array.Copy(ServoParameterRecValue398, 0, ServoParameterRecValue_Temp398, 0, 4);
+            Array.Copy(ServoParameterRecValue399, 0, ServoParameterRecValue_Temp399, 0, 4);
+            Array.Copy(ServoParameterRecValue400, 0, ServoParameterRecValue_Temp400, 0, 4);
+            Array.Copy(ServoParameterRecValue401, 0, ServoParameterRecValue_Temp401, 0, 4);
+            Array.Copy(ServoParameterRecValue402, 0, ServoParameterRecValue_Temp402, 0, 4);
+            Array.Copy(ServoParameterRecValue403, 0, ServoParameterRecValue_Temp403, 0, 4);
+            Array.Copy(ServoParameterRecValue404, 0, ServoParameterRecValue_Temp404, 0, 4);
+            Array.Copy(ServoParameterRecValue405, 0, ServoParameterRecValue_Temp405, 0, 4);
+            Array.Copy(ServoParameterRecValue406, 0, ServoParameterRecValue_Temp406, 0, 4);
+            Array.Copy(ServoParameterRecValue407, 0, ServoParameterRecValue_Temp407, 0, 4);
+            Array.Copy(ServoParameterRecValue408, 0, ServoParameterRecValue_Temp408, 0, 4);
+            Array.Copy(ServoParameterRecValue409, 0, ServoParameterRecValue_Temp409, 0, 4);
+            Array.Copy(ServoParameterRecValue410, 0, ServoParameterRecValue_Temp410, 0, 4);
+
+            #endregion
+
+            ServoParameterdata();
             return;
         }
 
@@ -4324,1241 +5151,2128 @@ namespace MINASA6SF_Rev.ViewModels
             //    }
         }
 
-        private void ServoParameterRec(int index)
+        private void ServoParameterdata()
         {
-            switch (index)
-            {
-                case 0:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3000, 2, ref ServoParameterRecValue1);
-                    break;
-                case 1:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3002, 2, ref ServoParameterRecValue2);
-                    break;
-                case 2:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3004, 2, ref ServoParameterRecValue3);
-                    break;
-                case 3:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3006, 2, ref ServoParameterRecValue4);
-                    break;
-                case 4:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3008, 2, ref ServoParameterRecValue5);
-                    break;
-                case 5:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x300A, 2, ref ServoParameterRecValue6);
-                    break;
-                case 6:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x300C, 2, ref ServoParameterRecValue7);
-                    break;
-                case 7:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x300E, 2, ref ServoParameterRecValue8);
-                    break;
-                case 8:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3010, 2, ref ServoParameterRecValue9);
-                    break;
-                case 9:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3012, 2, ref ServoParameterRecValue10);
-                    break;
-                case 10:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3014, 2, ref ServoParameterRecValue11);
-                    break;
-                case 11:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3016, 2, ref ServoParameterRecValue12);
-                    break;
-                case 12:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3018, 2, ref ServoParameterRecValue13);
-                    break;
-                case 13:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x301A, 2, ref ServoParameterRecValue14);
-                    break;
-                case 14:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x301C, 2, ref ServoParameterRecValue15);
-                    break;
-                case 15:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x301E, 2, ref ServoParameterRecValue16);
-                    break;
-                case 16:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3020, 2, ref ServoParameterRecValue17);
-                    break;
-                case 17:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3022, 2, ref ServoParameterRecValue18);
-                    break;
-                case 18:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3024, 2, ref ServoParameterRecValue19);  //분류1 마지막
-                    break;
-                case 19:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3100, 2, ref ServoParameterRecValue20);
-                    break;
-                case 20:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3102, 2, ref ServoParameterRecValue21);
-                    break;
-                case 21:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3104, 2, ref ServoParameterRecValue22);
-                    break;
-                case 22:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3106, 2, ref ServoParameterRecValue23);
-                    break;
-                case 23:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3108, 2, ref ServoParameterRecValue24);
-                    break;
-                case 24:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x310A, 2, ref ServoParameterRecValue25);
-                    break;
-                case 25:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x310C, 2, ref ServoParameterRecValue26);
-                    break;
-                case 26:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x310E, 2, ref ServoParameterRecValue27);
-                    break;
-                case 27:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3110, 2, ref ServoParameterRecValue28);
-                    break;
-                case 28:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3112, 2, ref ServoParameterRecValue29);
-                    break;
-                case 29:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3114, 2, ref ServoParameterRecValue30);
-                    break;
-                case 30:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3116, 2, ref ServoParameterRecValue31);
-                    break;
-                case 31:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3118, 2, ref ServoParameterRecValue32);
-                    break;
-                case 32:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x311A, 2, ref ServoParameterRecValue33);
-                    break;
-                case 33:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x311C, 2, ref ServoParameterRecValue34);
-                    break;
-                case 34:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x311E, 2, ref ServoParameterRecValue35);
-                    break;
-                case 35:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3120, 2, ref ServoParameterRecValue36);
-                    break;
-                case 36:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3122, 2, ref ServoParameterRecValue37);
-                    break;
-                case 37:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3124, 2, ref ServoParameterRecValue38);
-                    break;
-                case 38:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3126, 2, ref ServoParameterRecValue39);
-                    break;
-                case 39:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3128, 2, ref ServoParameterRecValue40);
-                    break;
-                case 40:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x312A, 2, ref ServoParameterRecValue41);
-                    break;
-                case 41:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x312C, 2, ref ServoParameterRecValue42);
-                    break;
-                case 42:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x312E, 2, ref ServoParameterRecValue43);
-                    break;
-                case 43:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3130, 2, ref ServoParameterRecValue44);
-                    break;
-                case 44:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3132, 2, ref ServoParameterRecValue45);
-                    break;
-                case 45:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3134, 2, ref ServoParameterRecValue46);
-                    break;
-                case 46:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3136, 2, ref ServoParameterRecValue47);
-                    break;
-                case 47:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3138, 2, ref ServoParameterRecValue48);
-                    break;
-                case 48:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x313A, 2, ref ServoParameterRecValue49);
-                    break;
-                case 49:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x313C, 2, ref ServoParameterRecValue50);
-                    break;
-                case 50:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x313E, 2, ref ServoParameterRecValue51);
-                    break;
-                case 51:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3140, 2, ref ServoParameterRecValue52);
-                    break;
-                case 52:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3142, 2, ref ServoParameterRecValue53);
-                    break;
-                case 53:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3144, 2, ref ServoParameterRecValue54);
-                    break;
-                case 54:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3146, 2, ref ServoParameterRecValue55);
-                    break;
-                case 55:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3148, 2, ref ServoParameterRecValue56);
-                    break;
-                case 56:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x314A, 2, ref ServoParameterRecValue57);
-                    break;
-                case 57:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x314C, 2, ref ServoParameterRecValue58);
-                    break;
-                case 58:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x314E, 2, ref ServoParameterRecValue59);
-                    break;
-                case 59:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3150, 2, ref ServoParameterRecValue60);
-                    break;
-                case 60:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3152, 2, ref ServoParameterRecValue61);
-                    break;
-                case 61:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3154, 2, ref ServoParameterRecValue62);
-                    break;
-                case 62:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3156, 2, ref ServoParameterRecValue63);
-                    break;
-                case 63:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3158, 2, ref ServoParameterRecValue64);
-                    break;
-                case 64:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x315A, 2, ref ServoParameterRecValue65);
-                    break;
-                case 65:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x315C, 2, ref ServoParameterRecValue66);
-                    break;
-                case 66:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x315E, 2, ref ServoParameterRecValue67);
-                    break;
-                case 67:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3160, 2, ref ServoParameterRecValue68);
-                    break;
-                case 68:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3162, 2, ref ServoParameterRecValue69);
-                    break;
-                case 69:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3164, 2, ref ServoParameterRecValue70);
-                    break;
-                case 70:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3166, 2, ref ServoParameterRecValue71);
-                    break;
-                case 71:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3168, 2, ref ServoParameterRecValue72);
-                    break;
-                case 72:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x316A, 2, ref ServoParameterRecValue73);
-                    break;
-                case 73:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x316C, 2, ref ServoParameterRecValue74);
-                    break;
-                case 74:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x316E, 2, ref ServoParameterRecValue75);
-                    break;
-                case 75:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3170, 2, ref ServoParameterRecValue76);
-                    break;
-                case 76:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3172, 2, ref ServoParameterRecValue77);
-                    break;
-                case 77:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3174, 2, ref ServoParameterRecValue78);
-                    break;
-                case 78:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3176, 2, ref ServoParameterRecValue79);
-                    break;
-                case 79:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3178, 2, ref ServoParameterRecValue80);
-                    break;
-                case 80:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x317A, 2, ref ServoParameterRecValue81);
-                    break;
-                case 81:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x317C, 2, ref ServoParameterRecValue82);
-                    break;
-                case 82:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x317E, 2, ref ServoParameterRecValue83);
-                    break;
-                case 83:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3180, 2, ref ServoParameterRecValue84);
-                    break;
-                case 84:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3182, 2, ref ServoParameterRecValue85);
-                    break;
-                case 85:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3184, 2, ref ServoParameterRecValue86);
-                    break;
-                case 86:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3186, 2, ref ServoParameterRecValue87);
-                    break;
-                case 87:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3188, 2, ref ServoParameterRecValue88);
-                    break;
-                case 88:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x318A, 2, ref ServoParameterRecValue89);
-                    break;
-                case 89:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x318C, 2, ref ServoParameterRecValue90);
-                    break;
-                case 90:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x318E, 2, ref ServoParameterRecValue91);
-                    break;
-                case 91:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3190, 2, ref ServoParameterRecValue92);
-                    break;
-                case 92:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3192, 2, ref ServoParameterRecValue93);
-                    break;
-                case 93:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3194, 2, ref ServoParameterRecValue94);
-                    break;
-                case 94:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3196, 2, ref ServoParameterRecValue95);
-                    break;
-                case 95:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3198, 2, ref ServoParameterRecValue96);
-                    break;
-                case 96:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x319A, 2, ref ServoParameterRecValue97);
-                    break;
-                case 97:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x319C, 2, ref ServoParameterRecValue98); //분류1 마지막
-                    break;
-                case 98:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3200, 2, ref ServoParameterRecValue99);
-                    break;
-                case 99:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3202, 2, ref ServoParameterRecValue100);
-                    break;
-                case 100:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3204, 2, ref ServoParameterRecValue101);
-                    break;
-                case 101:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3206, 2, ref ServoParameterRecValue102);
-                    break;
-                case 102:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3208, 2, ref ServoParameterRecValue103);
-                    break;
-                case 103:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x320A, 2, ref ServoParameterRecValue104);
-                    break;
-                case 104:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x320C, 2, ref ServoParameterRecValue105);
-                    break;
-                case 105:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x320E, 2, ref ServoParameterRecValue106);
-                    break;
-                case 106:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3210, 2, ref ServoParameterRecValue107);
-                    break;
-                case 107:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3212, 2, ref ServoParameterRecValue108);
-                    break;
-                case 108:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3214, 2, ref ServoParameterRecValue109);
-                    break;
-                case 109:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3216, 2, ref ServoParameterRecValue110);
-                    break;
-                case 110:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3218, 2, ref ServoParameterRecValue111);
-                    break;
-                case 111:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x321A, 2, ref ServoParameterRecValue112);
-                    break;
-                case 112:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x321C, 2, ref ServoParameterRecValue113);
-                    break;
-                case 113:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x321E, 2, ref ServoParameterRecValue114);
-                    break;
-                case 114:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3220, 2, ref ServoParameterRecValue115);
-                    break;
-                case 115:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3224, 2, ref ServoParameterRecValue116);
-                    break;
-                case 116:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3226, 2, ref ServoParameterRecValue117);
-                    break;
-                case 117:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3228, 2, ref ServoParameterRecValue118);
-                    break;
-                case 118:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x322A, 2, ref ServoParameterRecValue119);
-                    break;
-                case 119:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x322C, 2, ref ServoParameterRecValue120);
-                    break;
-                case 120:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x322E, 2, ref ServoParameterRecValue121);
-                    break;
-                case 121:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3230, 2, ref ServoParameterRecValue122);
-                    break;
-                case 122:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3232, 2, ref ServoParameterRecValue123);
-                    break;
-                case 123:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3234, 2, ref ServoParameterRecValue124);
-                    break;
-                case 124:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3236, 2, ref ServoParameterRecValue125);
-                    break;
-                case 125:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3238, 2, ref ServoParameterRecValue126);
-                    break;
-                case 126:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x323A, 2, ref ServoParameterRecValue127);
-                    break;
-                case 127:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x323C, 2, ref ServoParameterRecValue128);
-                    break;
-                case 128:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x323E, 2, ref ServoParameterRecValue129);
-                    break;
-                case 129:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3240, 2, ref ServoParameterRecValue130);
-                    break;
-                case 130:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3242, 2, ref ServoParameterRecValue131);
-                    break;
-                case 131:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3244, 2, ref ServoParameterRecValue132);
-                    break;
-                case 132:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3246, 2, ref ServoParameterRecValue133);
-                    break;
-                case 133:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3248, 2, ref ServoParameterRecValue134);
-                    break;
-                case 134:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x324A, 2, ref ServoParameterRecValue135); //분류2 마지막
-                    break;
-                case 135:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3300, 2, ref ServoParameterRecValue136);
-                    break;
-                case 136:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3302, 2, ref ServoParameterRecValue137);
-                    break;
-                case 137:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3304, 2, ref ServoParameterRecValue138);
-                    break;
-                case 138:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3306, 2, ref ServoParameterRecValue139);
-                    break;
-                case 139:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3308, 2, ref ServoParameterRecValue140);
-                    break;
-                case 140:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x330A, 2, ref ServoParameterRecValue141);
-                    break;
-                case 141:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x330C, 2, ref ServoParameterRecValue142);
-                    break;
-                case 142:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x330E, 2, ref ServoParameterRecValue143);
-                    break;
-                case 143:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3310, 2, ref ServoParameterRecValue144);
-                    break;
-                case 144:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3312, 2, ref ServoParameterRecValue145);
-                    break;
-                case 145:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3314, 2, ref ServoParameterRecValue146);
-                    break;
-                case 146:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3316, 2, ref ServoParameterRecValue147);
-                    break;
-                case 147:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3318, 2, ref ServoParameterRecValue148);
-                    break;
-                case 148:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x331A, 2, ref ServoParameterRecValue149);
-                    break;
-                case 149:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x331C, 2, ref ServoParameterRecValue150);
-                    break;
-                case 150:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x331E, 2, ref ServoParameterRecValue151);
-                    break;
-                case 151:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3320, 2, ref ServoParameterRecValue152);
-                    break;
-                case 152:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3322, 2, ref ServoParameterRecValue153);
-                    break;
-                case 153:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3324, 2, ref ServoParameterRecValue154);
-                    break;
-                case 154:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3326, 2, ref ServoParameterRecValue155);
-                    break;
-                case 155:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3328, 2, ref ServoParameterRecValue156);
-                    break;
-                case 156:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x332A, 2, ref ServoParameterRecValue157);
-                    break;
-                case 157:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x332C, 2, ref ServoParameterRecValue158);
-                    break;
-                case 158:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x332E, 2, ref ServoParameterRecValue159);
-                    break;
-                case 159:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3330, 2, ref ServoParameterRecValue160);
-                    break;
-                case 160:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3332, 2, ref ServoParameterRecValue161);
-                    break;
-                case 161:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3334, 2, ref ServoParameterRecValue162);
-                    break;
-                case 162:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3336, 2, ref ServoParameterRecValue163);
-                    break;
-                case 163:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3338, 2, ref ServoParameterRecValue164);
-                    break;
-                case 164:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x333A, 2, ref ServoParameterRecValue165);//분류3 마지막
-                    break;
-                case 165:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3400, 2, ref ServoParameterRecValue166);
-                    break;
-                case 166:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3402, 2, ref ServoParameterRecValue167);
-                    break;
-                case 167:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3404, 2, ref ServoParameterRecValue168);
-                    break;
-                case 168:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3406, 2, ref ServoParameterRecValue169);
-                    break;
-                case 169:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3408, 2, ref ServoParameterRecValue170);
-                    break;
-                case 170:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x340A, 2, ref ServoParameterRecValue171);
-                    break;
-                case 171:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x340C, 2, ref ServoParameterRecValue172);
-                    break;
-                case 172:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x340E, 2, ref ServoParameterRecValue173);
-                    break;
-                case 173:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3410, 2, ref ServoParameterRecValue174);
-                    break;
-                case 174:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3412, 2, ref ServoParameterRecValue175);
-                    break;
-                case 175:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3414, 2, ref ServoParameterRecValue176);
-                    break;
-                case 176:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3416, 2, ref ServoParameterRecValue177);
-                    break;
-                case 177:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3418, 2, ref ServoParameterRecValue178);
-                    break;
-                case 178:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x341A, 2, ref ServoParameterRecValue179);
-                    break;
-                case 179:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x341C, 2, ref ServoParameterRecValue180);
-                    break;
-                case 180:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x341E, 2, ref ServoParameterRecValue181);
-                    break;
-                case 181:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3420, 2, ref ServoParameterRecValue182);
-                    break;
-                case 182:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3422, 2, ref ServoParameterRecValue183);
-                    break;
-                case 183:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3424, 2, ref ServoParameterRecValue184);
-                    break;
-                case 184:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3426, 2, ref ServoParameterRecValue185);
-                    break;
-                case 185:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3428, 2, ref ServoParameterRecValue186);
-                    break;
-                case 186:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x342A, 2, ref ServoParameterRecValue187);
-                    break;
-                case 187:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x342C, 2, ref ServoParameterRecValue188);
-                    break;
-                case 188:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x342E, 2, ref ServoParameterRecValue189);
-                    break;
-                case 189:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3430, 2, ref ServoParameterRecValue190);
-                    break;
-                case 190:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3432, 2, ref ServoParameterRecValue191);
-                    break;
-                case 191:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3434, 2, ref ServoParameterRecValue192);
-                    break;
-                case 192:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3436, 2, ref ServoParameterRecValue193);
-                    break;
-                case 193:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3438, 2, ref ServoParameterRecValue194);
-                    break;
-                case 194:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x343A, 2, ref ServoParameterRecValue195);
-                    break;
-                case 195:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x343C, 2, ref ServoParameterRecValue196);
-                    break;
-                case 196:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x343E, 2, ref ServoParameterRecValue197);
-                    break;
-                case 197:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3440, 2, ref ServoParameterRecValue198);
-                    break;
-                case 198:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3442, 2, ref ServoParameterRecValue199);
-                    break;
-                case 199:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3444, 2, ref ServoParameterRecValue200);
-                    break;
-                case 200:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3446, 2, ref ServoParameterRecValue201);
-                    break;
-                case 201:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3448, 2, ref ServoParameterRecValue202);
-                    break;
-                case 202:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x344A, 2, ref ServoParameterRecValue203);
-                    break;
-                case 203:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x344C, 2, ref ServoParameterRecValue204);
-                    break;
-                case 204:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x344E, 2, ref ServoParameterRecValue205);
-                    break;
-                case 205:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3450, 2, ref ServoParameterRecValue206);
-                    break;
-                case 206:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3452, 2, ref ServoParameterRecValue207);
-                    break;
-                case 207:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3454, 2, ref ServoParameterRecValue208);
-                    break;
-                case 208:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3458, 2, ref ServoParameterRecValue209);
-                    break;
-                case 209:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x345A, 2, ref ServoParameterRecValue210);
-                    break;
-                case 210:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x345E, 2, ref ServoParameterRecValue211);
-                    break;
-                case 211:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3460, 2, ref ServoParameterRecValue212);
-                    break;
-                case 212:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3462, 2, ref ServoParameterRecValue213);
-                    break;
-                case 213:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3464, 2, ref ServoParameterRecValue214);
-                    break;
-                case 214:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3466, 2, ref ServoParameterRecValue215);
-                    break;
-                case 215:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3468, 2, ref ServoParameterRecValue216);
-                    break;
-                case 216:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x346A, 2, ref ServoParameterRecValue217);
-                    break;
-                case 217:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x346C, 2, ref ServoParameterRecValue218);
-                    break;
-                case 218:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x346E, 2, ref ServoParameterRecValue219);
-                    break;
-                case 219:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3470, 2, ref ServoParameterRecValue220);
-                    break;
-                case 220:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3472, 2, ref ServoParameterRecValue221); //분류4 마지막
-                    break;
-                case 221:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3500, 2, ref ServoParameterRecValue222);
-                    break;
-                case 222:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3502, 2, ref ServoParameterRecValue223);
-                    break;
-                case 223:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3504, 2, ref ServoParameterRecValue224);
-                    break;
-                case 224:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3506, 2, ref ServoParameterRecValue225);
-                    break;
-                case 225:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3508, 2, ref ServoParameterRecValue226);
-                    break;
-                case 226:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x350A, 2, ref ServoParameterRecValue227);
-                    break;
-                case 227:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x350C, 2, ref ServoParameterRecValue228);
-                    break;
-                case 228:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x350E, 2, ref ServoParameterRecValue229);
-                    break;
-                case 229:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3510, 2, ref ServoParameterRecValue230);
-                    break;
-                case 230:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3512, 2, ref ServoParameterRecValue231);
-                    break;
-                case 231:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3514, 2, ref ServoParameterRecValue232);
-                    break;
-                case 232:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3516, 2, ref ServoParameterRecValue233);
-                    break;
-                case 233:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3518, 2, ref ServoParameterRecValue234);
-                    break;
-                case 234:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x351A, 2, ref ServoParameterRecValue235);
-                    break;
-                case 235:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x351C, 2, ref ServoParameterRecValue236);
-                    break;
-                case 236:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x351E, 2, ref ServoParameterRecValue237);
-                    break;
-                case 237:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3520, 2, ref ServoParameterRecValue238);
-                    break;
-                case 238:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3522, 2, ref ServoParameterRecValue239);
-                    break;
-                case 239:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3524, 2, ref ServoParameterRecValue240);
-                    break;
-                case 240:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3526, 2, ref ServoParameterRecValue241);
-                    break;
-                case 241:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3528, 2, ref ServoParameterRecValue242);
-                    break;
-                case 242:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x352A, 2, ref ServoParameterRecValue243);
-                    break;
-                case 243:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x352C, 2, ref ServoParameterRecValue244);
-                    break;
-                case 244:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x352E, 2, ref ServoParameterRecValue245);
-                    break;
-                case 245:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3530, 2, ref ServoParameterRecValue246);
-                    break;
-                case 246:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3532, 2, ref ServoParameterRecValue247);
-                    break;
-                case 247:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3534, 2, ref ServoParameterRecValue248);
-                    break;
-                case 248:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3536, 2, ref ServoParameterRecValue249);
-                    break;
-                case 249:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3538, 2, ref ServoParameterRecValue250);
-                    break;
-                case 250:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x353A, 2, ref ServoParameterRecValue251);
-                    break;
-                case 251:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x353C, 2, ref ServoParameterRecValue252);
-                    break;
-                case 252:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x353E, 2, ref ServoParameterRecValue253);
-                    break;
-                case 253:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3540, 2, ref ServoParameterRecValue254);
-                    break;
-                case 254:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3542, 2, ref ServoParameterRecValue255);
-                    break;
-                case 255:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3544, 2, ref ServoParameterRecValue256);
-                    break;
-                case 256:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3546, 2, ref ServoParameterRecValue257);
-                    break;
-                case 257:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3548, 2, ref ServoParameterRecValue258);
-                    break;
-                case 258:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x354A, 2, ref ServoParameterRecValue259);
-                    break;
-                case 259:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x354C, 2, ref ServoParameterRecValue260);
-                    break;
-                case 260:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x354E, 2, ref ServoParameterRecValue261);
-                    break;
-                case 261:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3550, 2, ref ServoParameterRecValue262);
-                    break;
-                case 262:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3552, 2, ref ServoParameterRecValue263);
-                    break;
-                case 263:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3554, 2, ref ServoParameterRecValue264);
-                    break;
-                case 264:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x355A, 2, ref ServoParameterRecValue265);
-                    break;
-                case 265:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x355C, 2, ref ServoParameterRecValue266);
-                    break;
-                case 266:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x355E, 2, ref ServoParameterRecValue267);
-                    break;
-                case 267:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3560, 2, ref ServoParameterRecValue268);
-                    break;
-                case 268:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3562, 2, ref ServoParameterRecValue269);
-                    break;
-                case 269:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3564, 2, ref ServoParameterRecValue270);
-                    break;
-                case 270:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3566, 2, ref ServoParameterRecValue271);
-                    break;
-                case 271:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3568, 2, ref ServoParameterRecValue272);
-                    break;
-                case 272:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x356A, 2, ref ServoParameterRecValue273);
-                    break;
-                case 273:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x356C, 2, ref ServoParameterRecValue274);
-                    break;
-                case 274:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x356E, 2, ref ServoParameterRecValue275);
-                    break;
-                case 275:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3570, 2, ref ServoParameterRecValue276);
-                    break;
-                case 276:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3572, 2, ref ServoParameterRecValue277);
-                    break;
-                case 277:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3574, 2, ref ServoParameterRecValue278);
-                    break;
-                case 278:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3576, 2, ref ServoParameterRecValue279);
-                    break;
-                case 279:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3578, 2, ref ServoParameterRecValue280);
-                    break;
-                case 280:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x357A, 2, ref ServoParameterRecValue281);
-                    break;
-                case 281:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x357C, 2, ref ServoParameterRecValue282);
-                    break;
-                case 282:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x357E, 2, ref ServoParameterRecValue283);
-                    break;
-                case 283:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3580, 2, ref ServoParameterRecValue284);
-                    break;
-                case 284:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3582, 2, ref ServoParameterRecValue285);
-                    break;
-                case 285:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3584, 2, ref ServoParameterRecValue286);
-                    break;
-                case 286:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3586, 2, ref ServoParameterRecValue287);
-                    break;
-                case 287:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3588, 2, ref ServoParameterRecValue288);
-                    break;
-                case 288:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x358A, 2, ref ServoParameterRecValue289);
-                    break;
-                case 289:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x358C, 2, ref ServoParameterRecValue290);
-                    break;
-                case 290:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x358E, 2, ref ServoParameterRecValue291);
-                    break;
-                case 291:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3590, 2, ref ServoParameterRecValue292);
-                    break;
-                case 292:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3592, 2, ref ServoParameterRecValue293);
-                    break;
-                case 293:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3594, 2, ref ServoParameterRecValue294);
-                    break;
-                case 294:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3596, 2, ref ServoParameterRecValue295);
-                    break;
-                case 295:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3598, 2, ref ServoParameterRecValue296);
-                    break;
-                case 296:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x359A, 2, ref ServoParameterRecValue297);
-                    break;
-                case 297:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x359C, 2, ref ServoParameterRecValue298);
-                    break;
-                case 298:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x359E, 2, ref ServoParameterRecValue299);
-                    break;
-                case 299:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x35A0, 2, ref ServoParameterRecValue300);
-                    break;
-                case 300:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x35AC, 2, ref ServoParameterRecValue301);//분류5 마지막
-                    break;
-                case 301:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3600, 2, ref ServoParameterRecValue302);
-                    break;
-                case 302:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3604, 2, ref ServoParameterRecValue303);
-                    break;
-                case 303:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3608, 2, ref ServoParameterRecValue304);
-                    break;
-                case 304:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x360A, 2, ref ServoParameterRecValue305);
-                    break;
-                case 305:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x360C, 2, ref ServoParameterRecValue306);
-                    break;
-                case 306:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x360E, 2, ref ServoParameterRecValue307);
-                    break;
-                case 307:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3610, 2, ref ServoParameterRecValue308);
-                    break;
-                case 308:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3612, 2, ref ServoParameterRecValue309);
-                    break;
-                case 309:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3614, 2, ref ServoParameterRecValue310);
-                    break;
-                case 310:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3616, 2, ref ServoParameterRecValue311);
-                    break;
-                case 311:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x361A, 2, ref ServoParameterRecValue312);
-                    break;
-                case 312:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x361C, 2, ref ServoParameterRecValue313);
-                    break;
-                case 313:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x361E, 2, ref ServoParameterRecValue314);
-                    break;
-                case 314:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3620, 2, ref ServoParameterRecValue315);
-                    break;
-                case 315:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3622, 2, ref ServoParameterRecValue316);
-                    break;
-                case 316:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3624, 2, ref ServoParameterRecValue317);
-                    break;
-                case 317:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3626, 2, ref ServoParameterRecValue318);
-                    break;
-                case 318:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3628, 2, ref ServoParameterRecValue319);
-                    break;
-                case 319:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x362A, 2, ref ServoParameterRecValue320);
-                    break;
-                case 320:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x362C, 2, ref ServoParameterRecValue321);
-                    break;
-                case 321:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x362E, 2, ref ServoParameterRecValue322);
-                    break;
-                case 322:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3630, 2, ref ServoParameterRecValue323);
-                    break;
-                case 323:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3636, 2, ref ServoParameterRecValue324);
-                    break;
-                case 324:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3638, 2, ref ServoParameterRecValue325);
-                    break;
-                case 325:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x363C, 2, ref ServoParameterRecValue326);
-                    break;
-                case 326:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x363E, 2, ref ServoParameterRecValue327);
-                    break;
-                case 327:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3640, 2, ref ServoParameterRecValue328);
-                    break;
-                case 328:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3642, 2, ref ServoParameterRecValue329);
-                    break;
-                case 329:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3644, 2, ref ServoParameterRecValue330);
-                    break;
-                case 330:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3646, 2, ref ServoParameterRecValue331);
-                    break;
-                case 331:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3648, 2, ref ServoParameterRecValue332);
-                    break;
-                case 332:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x364A, 2, ref ServoParameterRecValue333);
-                    break;
-                case 333:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x364C, 2, ref ServoParameterRecValue334);
-                    break;
-                case 334:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x364E, 2, ref ServoParameterRecValue335);
-                    break;
-                case 335:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3652, 2, ref ServoParameterRecValue336);
-                    break;
-                case 336:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3654, 2, ref ServoParameterRecValue337);
-                    break;
-                case 337:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3656, 2, ref ServoParameterRecValue338);
-                    break;
-                case 338:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x365E, 2, ref ServoParameterRecValue339);
-                    break;
-                case 339:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3660, 2, ref ServoParameterRecValue340);
-                    break;
-                case 340:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3662, 2, ref ServoParameterRecValue341);
-                    break;
-                case 341:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3664, 2, ref ServoParameterRecValue342);
-                    break;
-                case 342:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3666, 2, ref ServoParameterRecValue343);
-                    break;
-                case 343:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3668, 2, ref ServoParameterRecValue344);
-                    break;
-                case 344:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x366A, 2, ref ServoParameterRecValue345);
-                    break;
-                case 345:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x366C, 2, ref ServoParameterRecValue346);
-                    break;
-                case 346:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3672, 2, ref ServoParameterRecValue347);
-                    break;
-                case 347:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3674, 2, ref ServoParameterRecValue348);
-                    break;
-                case 348:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3678, 2, ref ServoParameterRecValue349);
-                    break;
-                case 349:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x367A, 2, ref ServoParameterRecValue350);
-                    break;
-                case 350:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x367C, 2, ref ServoParameterRecValue351);
-                    break;
-                case 351:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x367E, 2, ref ServoParameterRecValue352);
-                    break;
-                case 352:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3680, 2, ref ServoParameterRecValue353);
-                    break;
-                case 353:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3682, 2, ref ServoParameterRecValue354);
-                    break;
-                case 354:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3684, 2, ref ServoParameterRecValue355);
-                    break;
-                case 355:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3686, 2, ref ServoParameterRecValue356);
-                    break;
-                case 356:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3688, 2, ref ServoParameterRecValue357);
-                    break;
-                case 357:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x368A, 2, ref ServoParameterRecValue358);
-                    break;
-                case 358:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x368C, 2, ref ServoParameterRecValue359);
-                    break;
-                case 359:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x368E, 2, ref ServoParameterRecValue360);
-                    break;
-                case 360:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3690, 2, ref ServoParameterRecValue361);
-                    break;
-                case 361:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3692, 2, ref ServoParameterRecValue362);
-                    break;
-                case 362:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3694, 2, ref ServoParameterRecValue363);
-                    break;
-                case 363:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3696, 2, ref ServoParameterRecValue364);
-                    break;
-                case 364:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3698, 2, ref ServoParameterRecValue365);
-                    break;
-                case 365:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x36AE, 2, ref ServoParameterRecValue366);
-                    break;
-                case 367:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x36B0, 2, ref ServoParameterRecValue367);
-                    break;
-                case 368:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x36C2, 2, ref ServoParameterRecValue368);
-                    break;
-                case 369:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x36C4, 2, ref ServoParameterRecValue369);//분류6 마지막
-                    break;
-                case 370:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3700, 2, ref ServoParameterRecValue370);
-                    break;
-                case 371:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3702, 2, ref ServoParameterRecValue371);
-                    break;
-                case 372:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3706, 2, ref ServoParameterRecValue372);
-                    break;
-                case 373:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3708, 2, ref ServoParameterRecValue373);
-                    break;
-                case 374:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x370A, 2, ref ServoParameterRecValue374);
-                    break;
-                case 375:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x370C, 2, ref ServoParameterRecValue375);
-                    break;
-                case 376:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x370E, 2, ref ServoParameterRecValue376);
-                    break;
-                case 377:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3710, 2, ref ServoParameterRecValue377);
-                    break;
-                case 378:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3712, 2, ref ServoParameterRecValue378);
-                    break;
-                case 379:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3714, 2, ref ServoParameterRecValue379);
-                    break;
-                case 380:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3716, 2, ref ServoParameterRecValue380);
-                    break;
-                case 381:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3718, 2, ref ServoParameterRecValue381);
-                    break;
-                case 382:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x371A, 2, ref ServoParameterRecValue382);
-                    break;
-                case 383:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x371C, 2, ref ServoParameterRecValue383);
-                    break;
-                case 384:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x371E, 2, ref ServoParameterRecValue384);
-                    break;
-                case 385:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3720, 2, ref ServoParameterRecValue385);
-                    break;
-                case 386:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3728, 2, ref ServoParameterRecValue386);
-                    break;
-                case 387:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x372A, 2, ref ServoParameterRecValue387);
-                    break;
-                case 388:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x372C, 2, ref ServoParameterRecValue388);
-                    break;
-                case 389:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x372E, 2, ref ServoParameterRecValue389);
-                    break;
-                case 390:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3730, 2, ref ServoParameterRecValue390);
-                    break;
-                case 391:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3732, 2, ref ServoParameterRecValue391);
-                    break;
-                case 392:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3734, 2, ref ServoParameterRecValue392);
-                    break;
-                case 393:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3736, 2, ref ServoParameterRecValue393);
-                    break;
-                case 394:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3738, 2, ref ServoParameterRecValue394);
-                    break;
-                case 395:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x373A, 2, ref ServoParameterRecValue395);
-                    break;
-                case 396:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x373C, 2, ref ServoParameterRecValue396);
-                    break;
-                case 397:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x373E, 2, ref ServoParameterRecValue397);
-                    break;
-                case 398:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3740, 2, ref ServoParameterRecValue398);
-                    break;
-                case 399:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3742, 2, ref ServoParameterRecValue399);
-                    break;
-                case 400:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3744, 2, ref ServoParameterRecValue400);
-                    break;
-                case 401:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3746, 2, ref ServoParameterRecValue401);
-                    break;
-                case 402:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3748, 2, ref ServoParameterRecValue402);
-                    break;
-                case 403:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x374A, 2, ref ServoParameterRecValue403);
-                    break;
-                case 404:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x374C, 2, ref ServoParameterRecValue404);
-                    break;
-                case 405:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x374E, 2, ref ServoParameterRecValue405);
-                    break;
-                case 406:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3752, 2, ref ServoParameterRecValue406);
-                    break;
-                case 407:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x37AE, 2, ref ServoParameterRecValue407);
-                    break;
-                case 408:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x37B6, 2, ref ServoParameterRecValue408);
-                    break;
-                case 409:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x37B8, 2, ref ServoParameterRecValue409);
-                    break;
-                case 410:
-                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x37BA, 2, ref ServoParameterRecValue410);//분류7 마지막
-                    break;
-            }
+            ServoParameterRec_SetValue1[0] = ServoParameterRecValue_Temp1[2];
+            ServoParameterRec_SetValue1[1] = ServoParameterRecValue_Temp1[3];
+            ServoParameterRec_SetValue1[2] = ServoParameterRecValue_Temp1[0];
+            ServoParameterRec_SetValue1[3] = ServoParameterRecValue_Temp1[1];
+
+            ServoParameterRec_SetValue2[0] = ServoParameterRecValue_Temp2[2];
+            ServoParameterRec_SetValue2[1] = ServoParameterRecValue_Temp2[3];
+            ServoParameterRec_SetValue2[2] = ServoParameterRecValue_Temp2[0];
+            ServoParameterRec_SetValue2[3] = ServoParameterRecValue_Temp2[1];
+            
+            ServoParameterRec_SetValue3[0] = ServoParameterRecValue_Temp3[2];
+            ServoParameterRec_SetValue3[1] = ServoParameterRecValue_Temp3[3];
+            ServoParameterRec_SetValue3[2] = ServoParameterRecValue_Temp3[0];
+            ServoParameterRec_SetValue3[3] = ServoParameterRecValue_Temp3[1];
+            
+            ServoParameterRec_SetValue4[0] = ServoParameterRecValue_Temp4[2];
+            ServoParameterRec_SetValue4[1] = ServoParameterRecValue_Temp4[3];
+            ServoParameterRec_SetValue4[2] = ServoParameterRecValue_Temp4[0];
+            ServoParameterRec_SetValue4[3] = ServoParameterRecValue_Temp4[1];
+            
+            ServoParameterRec_SetValue5[0] = ServoParameterRecValue_Temp5[2];
+            ServoParameterRec_SetValue5[1] = ServoParameterRecValue_Temp5[3];
+            ServoParameterRec_SetValue5[2] = ServoParameterRecValue_Temp5[0];
+            ServoParameterRec_SetValue5[3] = ServoParameterRecValue_Temp5[1];
+            
+            ServoParameterRec_SetValue6[0] = ServoParameterRecValue_Temp6[2];
+            ServoParameterRec_SetValue6[1] = ServoParameterRecValue_Temp6[3];
+            ServoParameterRec_SetValue6[2] = ServoParameterRecValue_Temp6[0];
+            ServoParameterRec_SetValue6[3] = ServoParameterRecValue_Temp6[1];
+            
+            ServoParameterRec_SetValue7[0] = ServoParameterRecValue_Temp7[2];
+            ServoParameterRec_SetValue7[1] = ServoParameterRecValue_Temp7[3];
+            ServoParameterRec_SetValue7[2] = ServoParameterRecValue_Temp7[0];
+            ServoParameterRec_SetValue7[3] = ServoParameterRecValue_Temp7[1];
+            
+            ServoParameterRec_SetValue8[0] = ServoParameterRecValue_Temp8[2];
+            ServoParameterRec_SetValue8[1] = ServoParameterRecValue_Temp8[3];
+            ServoParameterRec_SetValue8[2] = ServoParameterRecValue_Temp8[0];
+            ServoParameterRec_SetValue8[3] = ServoParameterRecValue_Temp8[1];
+            
+            ServoParameterRec_SetValue9[0] = ServoParameterRecValue_Temp9[2];
+            ServoParameterRec_SetValue9[1] = ServoParameterRecValue_Temp9[3];
+            ServoParameterRec_SetValue9[2] = ServoParameterRecValue_Temp9[0];
+            ServoParameterRec_SetValue9[3] = ServoParameterRecValue_Temp9[1];
+
+            ServoParameterRec_SetValue10[0] = ServoParameterRecValue_Temp10[2];
+            ServoParameterRec_SetValue10[1] = ServoParameterRecValue_Temp10[3];
+            ServoParameterRec_SetValue10[2] = ServoParameterRecValue_Temp10[0];
+            ServoParameterRec_SetValue10[3] = ServoParameterRecValue_Temp10[1];
+
+            ServoParameterRec_SetValue11[0] = ServoParameterRecValue_Temp11[2];
+            ServoParameterRec_SetValue11[1] = ServoParameterRecValue_Temp11[3];
+            ServoParameterRec_SetValue11[2] = ServoParameterRecValue_Temp11[0];
+            ServoParameterRec_SetValue11[3] = ServoParameterRecValue_Temp11[1];
+
+            ServoParameterRec_SetValue12[0] = ServoParameterRecValue_Temp12[2];
+            ServoParameterRec_SetValue12[1] = ServoParameterRecValue_Temp12[3];
+            ServoParameterRec_SetValue12[2] = ServoParameterRecValue_Temp12[0];
+            ServoParameterRec_SetValue12[3] = ServoParameterRecValue_Temp12[1];
+
+            ServoParameterRec_SetValue13[0] = ServoParameterRecValue_Temp13[2];
+            ServoParameterRec_SetValue13[1] = ServoParameterRecValue_Temp13[3];
+            ServoParameterRec_SetValue13[2] = ServoParameterRecValue_Temp13[0];
+            ServoParameterRec_SetValue13[3] = ServoParameterRecValue_Temp13[1];
+
+            ServoParameterRec_SetValue14[0] = ServoParameterRecValue_Temp14[2];
+            ServoParameterRec_SetValue14[1] = ServoParameterRecValue_Temp14[3];
+            ServoParameterRec_SetValue14[2] = ServoParameterRecValue_Temp14[0];
+            ServoParameterRec_SetValue14[3] = ServoParameterRecValue_Temp14[1];
+
+            ServoParameterRec_SetValue15[0] = ServoParameterRecValue_Temp15[2];
+            ServoParameterRec_SetValue15[1] = ServoParameterRecValue_Temp15[3];
+            ServoParameterRec_SetValue15[2] = ServoParameterRecValue_Temp15[0];
+            ServoParameterRec_SetValue15[3] = ServoParameterRecValue_Temp15[1];
+
+            ServoParameterRec_SetValue16[0] = ServoParameterRecValue_Temp16[2];
+            ServoParameterRec_SetValue16[1] = ServoParameterRecValue_Temp16[3];
+            ServoParameterRec_SetValue16[2] = ServoParameterRecValue_Temp16[0];
+            ServoParameterRec_SetValue16[3] = ServoParameterRecValue_Temp16[1];
+
+            ServoParameterRec_SetValue17[0] = ServoParameterRecValue_Temp17[2];
+            ServoParameterRec_SetValue17[1] = ServoParameterRecValue_Temp17[3];
+            ServoParameterRec_SetValue17[2] = ServoParameterRecValue_Temp17[0];
+            ServoParameterRec_SetValue17[3] = ServoParameterRecValue_Temp17[1];
+
+            ServoParameterRec_SetValue18[0] = ServoParameterRecValue_Temp18[2];
+            ServoParameterRec_SetValue18[1] = ServoParameterRecValue_Temp18[3];
+            ServoParameterRec_SetValue18[2] = ServoParameterRecValue_Temp18[0];
+            ServoParameterRec_SetValue18[3] = ServoParameterRecValue_Temp18[1];
+
+            ServoParameterRec_SetValue19[0] = ServoParameterRecValue_Temp19[2];
+            ServoParameterRec_SetValue19[1] = ServoParameterRecValue_Temp19[3];
+            ServoParameterRec_SetValue19[2] = ServoParameterRecValue_Temp19[0];
+            ServoParameterRec_SetValue19[3] = ServoParameterRecValue_Temp19[1];
+
+            ServoParameterRec_SetValue20[0] = ServoParameterRecValue_Temp20[2];
+            ServoParameterRec_SetValue20[1] = ServoParameterRecValue_Temp20[3];
+            ServoParameterRec_SetValue20[2] = ServoParameterRecValue_Temp20[0];
+            ServoParameterRec_SetValue20[3] = ServoParameterRecValue_Temp20[1];
+
+            ServoParameterRec_SetValue21[0] = ServoParameterRecValue_Temp21[2];
+            ServoParameterRec_SetValue21[1] = ServoParameterRecValue_Temp21[3];
+            ServoParameterRec_SetValue21[2] = ServoParameterRecValue_Temp21[0];
+            ServoParameterRec_SetValue21[3] = ServoParameterRecValue_Temp21[1];
+
+            ServoParameterRec_SetValue22[0] = ServoParameterRecValue_Temp22[2];
+            ServoParameterRec_SetValue22[1] = ServoParameterRecValue_Temp22[3];
+            ServoParameterRec_SetValue22[2] = ServoParameterRecValue_Temp22[0];
+            ServoParameterRec_SetValue22[3] = ServoParameterRecValue_Temp22[1];
+
+            ServoParameterRec_SetValue23[0] = ServoParameterRecValue_Temp23[2];
+            ServoParameterRec_SetValue23[1] = ServoParameterRecValue_Temp23[3];
+            ServoParameterRec_SetValue23[2] = ServoParameterRecValue_Temp23[0];
+            ServoParameterRec_SetValue23[3] = ServoParameterRecValue_Temp23[1];
+
+            ServoParameterRec_SetValue24[0] = ServoParameterRecValue_Temp24[2];
+            ServoParameterRec_SetValue24[1] = ServoParameterRecValue_Temp24[3];
+            ServoParameterRec_SetValue24[2] = ServoParameterRecValue_Temp24[0];
+            ServoParameterRec_SetValue24[3] = ServoParameterRecValue_Temp24[1];
+
+            ServoParameterRec_SetValue25[0] = ServoParameterRecValue_Temp25[2];
+            ServoParameterRec_SetValue25[1] = ServoParameterRecValue_Temp25[3];
+            ServoParameterRec_SetValue25[2] = ServoParameterRecValue_Temp25[0];
+            ServoParameterRec_SetValue25[3] = ServoParameterRecValue_Temp25[1];
+
+            ServoParameterRec_SetValue26[0] = ServoParameterRecValue_Temp26[2];
+            ServoParameterRec_SetValue26[1] = ServoParameterRecValue_Temp26[3];
+            ServoParameterRec_SetValue26[2] = ServoParameterRecValue_Temp26[0];
+            ServoParameterRec_SetValue26[3] = ServoParameterRecValue_Temp26[1];
+
+            ServoParameterRec_SetValue27[0] = ServoParameterRecValue_Temp27[2];
+            ServoParameterRec_SetValue27[1] = ServoParameterRecValue_Temp27[3];
+            ServoParameterRec_SetValue27[2] = ServoParameterRecValue_Temp27[0];
+            ServoParameterRec_SetValue27[3] = ServoParameterRecValue_Temp27[1];
+
+            ServoParameterRec_SetValue28[0] = ServoParameterRecValue_Temp28[2];
+            ServoParameterRec_SetValue28[1] = ServoParameterRecValue_Temp28[3];
+            ServoParameterRec_SetValue28[2] = ServoParameterRecValue_Temp28[0];
+            ServoParameterRec_SetValue28[3] = ServoParameterRecValue_Temp28[1];
+
+            ServoParameterRec_SetValue29[0] = ServoParameterRecValue_Temp29[2];
+            ServoParameterRec_SetValue29[1] = ServoParameterRecValue_Temp29[3];
+            ServoParameterRec_SetValue29[2] = ServoParameterRecValue_Temp29[0];
+            ServoParameterRec_SetValue29[3] = ServoParameterRecValue_Temp29[1];
+
+            ServoParameterRec_SetValue30[0] = ServoParameterRecValue_Temp30[2];
+            ServoParameterRec_SetValue30[1] = ServoParameterRecValue_Temp30[3];
+            ServoParameterRec_SetValue30[2] = ServoParameterRecValue_Temp30[0];
+            ServoParameterRec_SetValue30[3] = ServoParameterRecValue_Temp30[1];
+
+
+            ServoParameterRec_SetValue31[0] = ServoParameterRecValue_Temp31[2];
+            ServoParameterRec_SetValue31[1] = ServoParameterRecValue_Temp31[3];
+            ServoParameterRec_SetValue31[2] = ServoParameterRecValue_Temp31[0];
+            ServoParameterRec_SetValue31[3] = ServoParameterRecValue_Temp31[1];
+
+            ServoParameterRec_SetValue32[0] = ServoParameterRecValue_Temp32[2];
+            ServoParameterRec_SetValue32[1] = ServoParameterRecValue_Temp32[3];
+            ServoParameterRec_SetValue32[2] = ServoParameterRecValue_Temp32[0];
+            ServoParameterRec_SetValue32[3] = ServoParameterRecValue_Temp32[1];
+
+            ServoParameterRec_SetValue33[0] = ServoParameterRecValue_Temp33[2];
+            ServoParameterRec_SetValue33[1] = ServoParameterRecValue_Temp33[3];
+            ServoParameterRec_SetValue33[2] = ServoParameterRecValue_Temp33[0];
+            ServoParameterRec_SetValue33[3] = ServoParameterRecValue_Temp33[1];
+
+            ServoParameterRec_SetValue34[0] = ServoParameterRecValue_Temp34[2];
+            ServoParameterRec_SetValue34[1] = ServoParameterRecValue_Temp34[3];
+            ServoParameterRec_SetValue34[2] = ServoParameterRecValue_Temp34[0];
+            ServoParameterRec_SetValue34[3] = ServoParameterRecValue_Temp34[1];
+
+            ServoParameterRec_SetValue35[0] = ServoParameterRecValue_Temp35[2];
+            ServoParameterRec_SetValue35[1] = ServoParameterRecValue_Temp35[3];
+            ServoParameterRec_SetValue35[2] = ServoParameterRecValue_Temp35[0];
+            ServoParameterRec_SetValue35[3] = ServoParameterRecValue_Temp35[1];
+
+            ServoParameterRec_SetValue36[0] = ServoParameterRecValue_Temp36[2];
+            ServoParameterRec_SetValue36[1] = ServoParameterRecValue_Temp36[3];
+            ServoParameterRec_SetValue36[2] = ServoParameterRecValue_Temp36[0];
+            ServoParameterRec_SetValue36[3] = ServoParameterRecValue_Temp36[1];
+
+            ServoParameterRec_SetValue37[0] = ServoParameterRecValue_Temp37[2];
+            ServoParameterRec_SetValue37[1] = ServoParameterRecValue_Temp37[3];
+            ServoParameterRec_SetValue37[2] = ServoParameterRecValue_Temp37[0];
+            ServoParameterRec_SetValue37[3] = ServoParameterRecValue_Temp37[1];
+
+            ServoParameterRec_SetValue38[0] = ServoParameterRecValue_Temp38[2];
+            ServoParameterRec_SetValue38[1] = ServoParameterRecValue_Temp38[3];
+            ServoParameterRec_SetValue38[2] = ServoParameterRecValue_Temp38[0];
+            ServoParameterRec_SetValue38[3] = ServoParameterRecValue_Temp38[1];
+
+            ServoParameterRec_SetValue39[0] = ServoParameterRecValue_Temp39[2];
+            ServoParameterRec_SetValue39[1] = ServoParameterRecValue_Temp39[3];
+            ServoParameterRec_SetValue39[2] = ServoParameterRecValue_Temp39[0];
+            ServoParameterRec_SetValue39[3] = ServoParameterRecValue_Temp39[1];
+
+            ServoParameterRec_SetValue40[0] = ServoParameterRecValue_Temp40[2];
+            ServoParameterRec_SetValue40[1] = ServoParameterRecValue_Temp40[3];
+            ServoParameterRec_SetValue40[2] = ServoParameterRecValue_Temp40[0];
+            ServoParameterRec_SetValue40[3] = ServoParameterRecValue_Temp40[1];
+
+            ServoParameterRec_SetValue41[0] = ServoParameterRecValue_Temp41[2];
+            ServoParameterRec_SetValue41[1] = ServoParameterRecValue_Temp41[3];
+            ServoParameterRec_SetValue41[2] = ServoParameterRecValue_Temp41[0];
+            ServoParameterRec_SetValue41[3] = ServoParameterRecValue_Temp41[1];
+
+            ServoParameterRec_SetValue42[0] = ServoParameterRecValue_Temp42[2];
+            ServoParameterRec_SetValue42[1] = ServoParameterRecValue_Temp42[3];
+            ServoParameterRec_SetValue42[2] = ServoParameterRecValue_Temp42[0];
+            ServoParameterRec_SetValue42[3] = ServoParameterRecValue_Temp42[1];
+
+            ServoParameterRec_SetValue43[0] = ServoParameterRecValue_Temp43[2];
+            ServoParameterRec_SetValue43[1] = ServoParameterRecValue_Temp43[3];
+            ServoParameterRec_SetValue43[2] = ServoParameterRecValue_Temp43[0];
+            ServoParameterRec_SetValue43[3] = ServoParameterRecValue_Temp43[1];
+
+            ServoParameterRec_SetValue44[0] = ServoParameterRecValue_Temp44[2];
+            ServoParameterRec_SetValue44[1] = ServoParameterRecValue_Temp44[3];
+            ServoParameterRec_SetValue44[2] = ServoParameterRecValue_Temp44[0];
+            ServoParameterRec_SetValue44[3] = ServoParameterRecValue_Temp44[1];
+
+            ServoParameterRec_SetValue45[0] = ServoParameterRecValue_Temp45[2];
+            ServoParameterRec_SetValue45[1] = ServoParameterRecValue_Temp45[3];
+            ServoParameterRec_SetValue45[2] = ServoParameterRecValue_Temp45[0];
+            ServoParameterRec_SetValue45[3] = ServoParameterRecValue_Temp45[1];
+
+            ServoParameterRec_SetValue46[0] = ServoParameterRecValue_Temp46[2];
+            ServoParameterRec_SetValue46[1] = ServoParameterRecValue_Temp46[3];
+            ServoParameterRec_SetValue46[2] = ServoParameterRecValue_Temp46[0];
+            ServoParameterRec_SetValue46[3] = ServoParameterRecValue_Temp46[1];
+
+            ServoParameterRec_SetValue47[0] = ServoParameterRecValue_Temp47[2];
+            ServoParameterRec_SetValue47[1] = ServoParameterRecValue_Temp47[3];
+            ServoParameterRec_SetValue47[2] = ServoParameterRecValue_Temp47[0];
+            ServoParameterRec_SetValue47[3] = ServoParameterRecValue_Temp47[1];
+
+            ServoParameterRec_SetValue48[0] = ServoParameterRecValue_Temp48[2];
+            ServoParameterRec_SetValue48[1] = ServoParameterRecValue_Temp48[3];
+            ServoParameterRec_SetValue48[2] = ServoParameterRecValue_Temp48[0];
+            ServoParameterRec_SetValue48[3] = ServoParameterRecValue_Temp48[1];
+
+            ServoParameterRec_SetValue49[0] = ServoParameterRecValue_Temp49[2];
+            ServoParameterRec_SetValue49[1] = ServoParameterRecValue_Temp49[3];
+            ServoParameterRec_SetValue49[2] = ServoParameterRecValue_Temp49[0];
+            ServoParameterRec_SetValue49[3] = ServoParameterRecValue_Temp49[1];
+
+            ServoParameterRec_SetValue50[0] = ServoParameterRecValue_Temp50[2];
+            ServoParameterRec_SetValue50[1] = ServoParameterRecValue_Temp50[3];
+            ServoParameterRec_SetValue50[2] = ServoParameterRecValue_Temp50[0];
+            ServoParameterRec_SetValue50[3] = ServoParameterRecValue_Temp50[1];
+
+
+            ServoParameterRec_SetValue51[0] = ServoParameterRecValue_Temp51[2];
+            ServoParameterRec_SetValue51[1] = ServoParameterRecValue_Temp51[3];
+            ServoParameterRec_SetValue51[2] = ServoParameterRecValue_Temp51[0];
+            ServoParameterRec_SetValue51[3] = ServoParameterRecValue_Temp51[1];
+
+            ServoParameterRec_SetValue52[0] = ServoParameterRecValue_Temp52[2];
+            ServoParameterRec_SetValue52[1] = ServoParameterRecValue_Temp52[3];
+            ServoParameterRec_SetValue52[2] = ServoParameterRecValue_Temp52[0];
+            ServoParameterRec_SetValue52[3] = ServoParameterRecValue_Temp52[1];
+
+            ServoParameterRec_SetValue53[0] = ServoParameterRecValue_Temp53[2];
+            ServoParameterRec_SetValue53[1] = ServoParameterRecValue_Temp53[3];
+            ServoParameterRec_SetValue53[2] = ServoParameterRecValue_Temp53[0];
+            ServoParameterRec_SetValue53[3] = ServoParameterRecValue_Temp53[1];
+
+            ServoParameterRec_SetValue54[0] = ServoParameterRecValue_Temp54[2];
+            ServoParameterRec_SetValue54[1] = ServoParameterRecValue_Temp54[3];
+            ServoParameterRec_SetValue54[2] = ServoParameterRecValue_Temp54[0];
+            ServoParameterRec_SetValue54[3] = ServoParameterRecValue_Temp54[1];
+
+            ServoParameterRec_SetValue55[0] = ServoParameterRecValue_Temp55[2];
+            ServoParameterRec_SetValue55[1] = ServoParameterRecValue_Temp55[3];
+            ServoParameterRec_SetValue55[2] = ServoParameterRecValue_Temp55[0];
+            ServoParameterRec_SetValue55[3] = ServoParameterRecValue_Temp55[1];
+
+            ServoParameterRec_SetValue56[0] = ServoParameterRecValue_Temp56[2];
+            ServoParameterRec_SetValue56[1] = ServoParameterRecValue_Temp56[3];
+            ServoParameterRec_SetValue56[2] = ServoParameterRecValue_Temp56[0];
+            ServoParameterRec_SetValue56[3] = ServoParameterRecValue_Temp56[1];
+
+            ServoParameterRec_SetValue57[0] = ServoParameterRecValue_Temp57[2];
+            ServoParameterRec_SetValue57[1] = ServoParameterRecValue_Temp57[3];
+            ServoParameterRec_SetValue57[2] = ServoParameterRecValue_Temp57[0];
+            ServoParameterRec_SetValue57[3] = ServoParameterRecValue_Temp57[1];
+
+            ServoParameterRec_SetValue58[0] = ServoParameterRecValue_Temp58[2];
+            ServoParameterRec_SetValue58[1] = ServoParameterRecValue_Temp58[3];
+            ServoParameterRec_SetValue58[2] = ServoParameterRecValue_Temp58[0];
+            ServoParameterRec_SetValue58[3] = ServoParameterRecValue_Temp58[1];
+
+            ServoParameterRec_SetValue59[0] = ServoParameterRecValue_Temp59[2];
+            ServoParameterRec_SetValue59[1] = ServoParameterRecValue_Temp59[3];
+            ServoParameterRec_SetValue59[2] = ServoParameterRecValue_Temp59[0];
+            ServoParameterRec_SetValue59[3] = ServoParameterRecValue_Temp59[1];
+
+            ServoParameterRec_SetValue60[0] = ServoParameterRecValue_Temp60[2];
+            ServoParameterRec_SetValue60[1] = ServoParameterRecValue_Temp60[3];
+            ServoParameterRec_SetValue60[2] = ServoParameterRecValue_Temp60[0];
+            ServoParameterRec_SetValue60[3] = ServoParameterRecValue_Temp60[1];
+
+
+            ServoParameterRec_SetValue61[0] = ServoParameterRecValue_Temp61[2];
+            ServoParameterRec_SetValue61[1] = ServoParameterRecValue_Temp61[3];
+            ServoParameterRec_SetValue61[2] = ServoParameterRecValue_Temp61[0];
+            ServoParameterRec_SetValue61[3] = ServoParameterRecValue_Temp61[1];
+
+            ServoParameterRec_SetValue62[0] = ServoParameterRecValue_Temp62[2];
+            ServoParameterRec_SetValue62[1] = ServoParameterRecValue_Temp62[3];
+            ServoParameterRec_SetValue62[2] = ServoParameterRecValue_Temp62[0];
+            ServoParameterRec_SetValue62[3] = ServoParameterRecValue_Temp62[1];
+
+            ServoParameterRec_SetValue63[0] = ServoParameterRecValue_Temp63[2];
+            ServoParameterRec_SetValue63[1] = ServoParameterRecValue_Temp63[3];
+            ServoParameterRec_SetValue63[2] = ServoParameterRecValue_Temp63[0];
+            ServoParameterRec_SetValue63[3] = ServoParameterRecValue_Temp63[1];
+
+            ServoParameterRec_SetValue64[0] = ServoParameterRecValue_Temp64[2];
+            ServoParameterRec_SetValue64[1] = ServoParameterRecValue_Temp64[3];
+            ServoParameterRec_SetValue64[2] = ServoParameterRecValue_Temp64[0];
+            ServoParameterRec_SetValue64[3] = ServoParameterRecValue_Temp64[1];
+
+            ServoParameterRec_SetValue65[0] = ServoParameterRecValue_Temp65[2];
+            ServoParameterRec_SetValue65[1] = ServoParameterRecValue_Temp65[3];
+            ServoParameterRec_SetValue65[2] = ServoParameterRecValue_Temp65[0];
+            ServoParameterRec_SetValue65[3] = ServoParameterRecValue_Temp65[1];
+
+            ServoParameterRec_SetValue66[0] = ServoParameterRecValue_Temp66[2];
+            ServoParameterRec_SetValue66[1] = ServoParameterRecValue_Temp66[3];
+            ServoParameterRec_SetValue66[2] = ServoParameterRecValue_Temp66[0];
+            ServoParameterRec_SetValue66[3] = ServoParameterRecValue_Temp66[1];
+
+            ServoParameterRec_SetValue67[0] = ServoParameterRecValue_Temp67[2];
+            ServoParameterRec_SetValue67[1] = ServoParameterRecValue_Temp67[3];
+            ServoParameterRec_SetValue67[2] = ServoParameterRecValue_Temp67[0];
+            ServoParameterRec_SetValue67[3] = ServoParameterRecValue_Temp67[1];
+
+            ServoParameterRec_SetValue68[0] = ServoParameterRecValue_Temp68[2];
+            ServoParameterRec_SetValue68[1] = ServoParameterRecValue_Temp68[3];
+            ServoParameterRec_SetValue68[2] = ServoParameterRecValue_Temp68[0];
+            ServoParameterRec_SetValue68[3] = ServoParameterRecValue_Temp68[1];
+
+            ServoParameterRec_SetValue69[0] = ServoParameterRecValue_Temp69[2];
+            ServoParameterRec_SetValue69[1] = ServoParameterRecValue_Temp69[3];
+            ServoParameterRec_SetValue69[2] = ServoParameterRecValue_Temp69[0];
+            ServoParameterRec_SetValue69[3] = ServoParameterRecValue_Temp69[1];
+
+            ServoParameterRec_SetValue70[0] = ServoParameterRecValue_Temp70[2];
+            ServoParameterRec_SetValue70[1] = ServoParameterRecValue_Temp70[3];
+            ServoParameterRec_SetValue70[2] = ServoParameterRecValue_Temp70[0];
+            ServoParameterRec_SetValue70[3] = ServoParameterRecValue_Temp70[1];
+
+
+            ServoParameterRec_SetValue71[0] = ServoParameterRecValue_Temp71[2];
+            ServoParameterRec_SetValue71[1] = ServoParameterRecValue_Temp71[3];
+            ServoParameterRec_SetValue71[2] = ServoParameterRecValue_Temp71[0];
+            ServoParameterRec_SetValue71[3] = ServoParameterRecValue_Temp71[1];
+                                      
+            ServoParameterRec_SetValue72[0] = ServoParameterRecValue_Temp72[2];
+            ServoParameterRec_SetValue72[1] = ServoParameterRecValue_Temp72[3];
+            ServoParameterRec_SetValue72[2] = ServoParameterRecValue_Temp72[0];
+            ServoParameterRec_SetValue72[3] = ServoParameterRecValue_Temp72[1];
+
+            ServoParameterRec_SetValue73[0] = ServoParameterRecValue_Temp73[2];
+            ServoParameterRec_SetValue73[1] = ServoParameterRecValue_Temp73[3];
+            ServoParameterRec_SetValue73[2] = ServoParameterRecValue_Temp73[0];
+            ServoParameterRec_SetValue73[3] = ServoParameterRecValue_Temp73[1];
+
+            ServoParameterRec_SetValue74[0] = ServoParameterRecValue_Temp74[2];
+            ServoParameterRec_SetValue74[1] = ServoParameterRecValue_Temp74[3];
+            ServoParameterRec_SetValue74[2] = ServoParameterRecValue_Temp74[0];
+            ServoParameterRec_SetValue74[3] = ServoParameterRecValue_Temp74[1];
+
+            ServoParameterRec_SetValue75[0] = ServoParameterRecValue_Temp75[2];
+            ServoParameterRec_SetValue75[1] = ServoParameterRecValue_Temp75[3];
+            ServoParameterRec_SetValue75[2] = ServoParameterRecValue_Temp75[0];
+            ServoParameterRec_SetValue75[3] = ServoParameterRecValue_Temp75[1];
+
+            ServoParameterRec_SetValue76[0] = ServoParameterRecValue_Temp76[2];
+            ServoParameterRec_SetValue76[1] = ServoParameterRecValue_Temp76[3];
+            ServoParameterRec_SetValue76[2] = ServoParameterRecValue_Temp76[0];
+            ServoParameterRec_SetValue76[3] = ServoParameterRecValue_Temp76[1];
+
+            ServoParameterRec_SetValue77[0] = ServoParameterRecValue_Temp77[2];
+            ServoParameterRec_SetValue77[1] = ServoParameterRecValue_Temp77[3];
+            ServoParameterRec_SetValue77[2] = ServoParameterRecValue_Temp77[0];
+            ServoParameterRec_SetValue77[3] = ServoParameterRecValue_Temp77[1];
+
+            ServoParameterRec_SetValue78[0] = ServoParameterRecValue_Temp78[2];
+            ServoParameterRec_SetValue78[1] = ServoParameterRecValue_Temp78[3];
+            ServoParameterRec_SetValue78[2] = ServoParameterRecValue_Temp78[0];
+            ServoParameterRec_SetValue78[3] = ServoParameterRecValue_Temp78[1];
+
+            ServoParameterRec_SetValue79[0] = ServoParameterRecValue_Temp79[2];
+            ServoParameterRec_SetValue79[1] = ServoParameterRecValue_Temp79[3];
+            ServoParameterRec_SetValue79[2] = ServoParameterRecValue_Temp79[0];
+            ServoParameterRec_SetValue79[3] = ServoParameterRecValue_Temp79[1];
+
+            ServoParameterRec_SetValue80[0] = ServoParameterRecValue_Temp80[2];
+            ServoParameterRec_SetValue80[1] = ServoParameterRecValue_Temp80[3];
+            ServoParameterRec_SetValue80[2] = ServoParameterRecValue_Temp80[0];
+            ServoParameterRec_SetValue80[3] = ServoParameterRecValue_Temp80[1];
+
+
+            ServoParameterRec_SetValue81[0] = ServoParameterRecValue_Temp81[2];
+            ServoParameterRec_SetValue81[1] = ServoParameterRecValue_Temp81[3];
+            ServoParameterRec_SetValue81[2] = ServoParameterRecValue_Temp81[0];
+            ServoParameterRec_SetValue81[3] = ServoParameterRecValue_Temp81[1];
+
+            ServoParameterRec_SetValue82[0] = ServoParameterRecValue_Temp82[2];
+            ServoParameterRec_SetValue82[1] = ServoParameterRecValue_Temp82[3];
+            ServoParameterRec_SetValue82[2] = ServoParameterRecValue_Temp82[0];
+            ServoParameterRec_SetValue82[3] = ServoParameterRecValue_Temp82[1];
+
+            ServoParameterRec_SetValue83[0] = ServoParameterRecValue_Temp83[2];
+            ServoParameterRec_SetValue83[1] = ServoParameterRecValue_Temp83[3];
+            ServoParameterRec_SetValue83[2] = ServoParameterRecValue_Temp83[0];
+            ServoParameterRec_SetValue83[3] = ServoParameterRecValue_Temp83[1];
+
+            ServoParameterRec_SetValue84[0] = ServoParameterRecValue_Temp84[2];
+            ServoParameterRec_SetValue84[1] = ServoParameterRecValue_Temp84[3];
+            ServoParameterRec_SetValue84[2] = ServoParameterRecValue_Temp84[0];
+            ServoParameterRec_SetValue84[3] = ServoParameterRecValue_Temp84[1];
+
+            ServoParameterRec_SetValue85[0] = ServoParameterRecValue_Temp85[2];
+            ServoParameterRec_SetValue85[1] = ServoParameterRecValue_Temp85[3];
+            ServoParameterRec_SetValue85[2] = ServoParameterRecValue_Temp85[0];
+            ServoParameterRec_SetValue85[3] = ServoParameterRecValue_Temp85[1];
+
+            ServoParameterRec_SetValue86[0] = ServoParameterRecValue_Temp86[2];
+            ServoParameterRec_SetValue86[1] = ServoParameterRecValue_Temp86[3];
+            ServoParameterRec_SetValue86[2] = ServoParameterRecValue_Temp86[0];
+            ServoParameterRec_SetValue86[3] = ServoParameterRecValue_Temp86[1];
+
+            ServoParameterRec_SetValue87[0] = ServoParameterRecValue_Temp87[2];
+            ServoParameterRec_SetValue87[1] = ServoParameterRecValue_Temp87[3];
+            ServoParameterRec_SetValue87[2] = ServoParameterRecValue_Temp87[0];
+            ServoParameterRec_SetValue87[3] = ServoParameterRecValue_Temp87[1];
+
+            ServoParameterRec_SetValue88[0] = ServoParameterRecValue_Temp88[2];
+            ServoParameterRec_SetValue88[1] = ServoParameterRecValue_Temp88[3];
+            ServoParameterRec_SetValue88[2] = ServoParameterRecValue_Temp88[0];
+            ServoParameterRec_SetValue88[3] = ServoParameterRecValue_Temp88[1];
+
+            ServoParameterRec_SetValue89[0] = ServoParameterRecValue_Temp89[2];
+            ServoParameterRec_SetValue89[1] = ServoParameterRecValue_Temp89[3];
+            ServoParameterRec_SetValue89[2] = ServoParameterRecValue_Temp89[0];
+            ServoParameterRec_SetValue89[3] = ServoParameterRecValue_Temp89[1];
+
+            ServoParameterRec_SetValue90[0] = ServoParameterRecValue_Temp90[2];
+            ServoParameterRec_SetValue90[1] = ServoParameterRecValue_Temp90[3];
+            ServoParameterRec_SetValue90[2] = ServoParameterRecValue_Temp90[0];
+            ServoParameterRec_SetValue90[3] = ServoParameterRecValue_Temp90[1];
+
+
+            ServoParameterRec_SetValue91[0] = ServoParameterRecValue_Temp91[2];
+            ServoParameterRec_SetValue91[1] = ServoParameterRecValue_Temp91[3];
+            ServoParameterRec_SetValue91[2] = ServoParameterRecValue_Temp91[0];
+            ServoParameterRec_SetValue91[3] = ServoParameterRecValue_Temp91[1];
+
+            ServoParameterRec_SetValue92[0] = ServoParameterRecValue_Temp92[2];
+            ServoParameterRec_SetValue92[1] = ServoParameterRecValue_Temp92[3];
+            ServoParameterRec_SetValue92[2] = ServoParameterRecValue_Temp92[0];
+            ServoParameterRec_SetValue92[3] = ServoParameterRecValue_Temp92[1];
+
+            ServoParameterRec_SetValue93[0] = ServoParameterRecValue_Temp93[2];
+            ServoParameterRec_SetValue93[1] = ServoParameterRecValue_Temp93[3];
+            ServoParameterRec_SetValue93[2] = ServoParameterRecValue_Temp93[0];
+            ServoParameterRec_SetValue93[3] = ServoParameterRecValue_Temp93[1];
+
+            ServoParameterRec_SetValue94[0] = ServoParameterRecValue_Temp94[2];
+            ServoParameterRec_SetValue94[1] = ServoParameterRecValue_Temp94[3];
+            ServoParameterRec_SetValue94[2] = ServoParameterRecValue_Temp94[0];
+            ServoParameterRec_SetValue94[3] = ServoParameterRecValue_Temp94[1];
+
+            ServoParameterRec_SetValue95[0] = ServoParameterRecValue_Temp95[2];
+            ServoParameterRec_SetValue95[1] = ServoParameterRecValue_Temp95[3];
+            ServoParameterRec_SetValue95[2] = ServoParameterRecValue_Temp95[0];
+            ServoParameterRec_SetValue95[3] = ServoParameterRecValue_Temp95[1];
+
+            ServoParameterRec_SetValue96[0] = ServoParameterRecValue_Temp96[2];
+            ServoParameterRec_SetValue96[1] = ServoParameterRecValue_Temp96[3];
+            ServoParameterRec_SetValue96[2] = ServoParameterRecValue_Temp96[0];
+            ServoParameterRec_SetValue96[3] = ServoParameterRecValue_Temp96[1];
+
+            ServoParameterRec_SetValue97[0] = ServoParameterRecValue_Temp97[2];
+            ServoParameterRec_SetValue97[1] = ServoParameterRecValue_Temp97[3];
+            ServoParameterRec_SetValue97[2] = ServoParameterRecValue_Temp97[0];
+            ServoParameterRec_SetValue97[3] = ServoParameterRecValue_Temp97[1];
+
+            ServoParameterRec_SetValue98[0] = ServoParameterRecValue_Temp98[2];
+            ServoParameterRec_SetValue98[1] = ServoParameterRecValue_Temp98[3];
+            ServoParameterRec_SetValue98[2] = ServoParameterRecValue_Temp98[0];
+            ServoParameterRec_SetValue98[3] = ServoParameterRecValue_Temp98[1];
+
+            ServoParameterRec_SetValue99[0] = ServoParameterRecValue_Temp99[2];
+            ServoParameterRec_SetValue99[1] = ServoParameterRecValue_Temp99[3];
+            ServoParameterRec_SetValue99[2] = ServoParameterRecValue_Temp99[0];
+            ServoParameterRec_SetValue99[3] = ServoParameterRecValue_Temp99[1];
+
+            ServoParameterRec_SetValue100[0] = ServoParameterRecValue_Temp100[2];
+            ServoParameterRec_SetValue100[1] = ServoParameterRecValue_Temp100[3];
+            ServoParameterRec_SetValue100[2] = ServoParameterRecValue_Temp100[0];
+            ServoParameterRec_SetValue100[3] = ServoParameterRecValue_Temp100[1];
+
+
+            ServoParameterRec_SetValue101[0] = ServoParameterRecValue_Temp101[2];
+            ServoParameterRec_SetValue101[1] = ServoParameterRecValue_Temp101[3];
+            ServoParameterRec_SetValue101[2] = ServoParameterRecValue_Temp101[0];
+            ServoParameterRec_SetValue101[3] = ServoParameterRecValue_Temp101[1];
+
+            ServoParameterRec_SetValue102[0] = ServoParameterRecValue_Temp102[2];
+            ServoParameterRec_SetValue102[1] = ServoParameterRecValue_Temp102[3];
+            ServoParameterRec_SetValue102[2] = ServoParameterRecValue_Temp102[0];
+            ServoParameterRec_SetValue102[3] = ServoParameterRecValue_Temp102[1];
+
+            ServoParameterRec_SetValue103[0] = ServoParameterRecValue_Temp103[2];
+            ServoParameterRec_SetValue103[1] = ServoParameterRecValue_Temp103[3];
+            ServoParameterRec_SetValue103[2] = ServoParameterRecValue_Temp103[0];
+            ServoParameterRec_SetValue103[3] = ServoParameterRecValue_Temp103[1];
+
+            ServoParameterRec_SetValue104[0] = ServoParameterRecValue_Temp104[2];
+            ServoParameterRec_SetValue104[1] = ServoParameterRecValue_Temp104[3];
+            ServoParameterRec_SetValue104[2] = ServoParameterRecValue_Temp104[0];
+            ServoParameterRec_SetValue104[3] = ServoParameterRecValue_Temp104[1];
+
+            ServoParameterRec_SetValue105[0] = ServoParameterRecValue_Temp105[2];
+            ServoParameterRec_SetValue105[1] = ServoParameterRecValue_Temp105[3];
+            ServoParameterRec_SetValue105[2] = ServoParameterRecValue_Temp105[0];
+            ServoParameterRec_SetValue105[3] = ServoParameterRecValue_Temp105[1];
+                                                                           
+            ServoParameterRec_SetValue106[0] = ServoParameterRecValue_Temp106[2];
+            ServoParameterRec_SetValue106[1] = ServoParameterRecValue_Temp106[3];
+            ServoParameterRec_SetValue106[2] = ServoParameterRecValue_Temp106[0];
+            ServoParameterRec_SetValue106[3] = ServoParameterRecValue_Temp106[1];
+                                                                           
+            ServoParameterRec_SetValue107[0] = ServoParameterRecValue_Temp107[2];
+            ServoParameterRec_SetValue107[1] = ServoParameterRecValue_Temp107[3];
+            ServoParameterRec_SetValue107[2] = ServoParameterRecValue_Temp107[0];
+            ServoParameterRec_SetValue107[3] = ServoParameterRecValue_Temp107[1];
+                                                                           
+            ServoParameterRec_SetValue108[0] = ServoParameterRecValue_Temp108[2];
+            ServoParameterRec_SetValue108[1] = ServoParameterRecValue_Temp108[3];
+            ServoParameterRec_SetValue108[2] = ServoParameterRecValue_Temp108[0];
+            ServoParameterRec_SetValue108[3] = ServoParameterRecValue_Temp108[1];
+                                                                           
+            ServoParameterRec_SetValue109[0] = ServoParameterRecValue_Temp109[2];
+            ServoParameterRec_SetValue109[1] = ServoParameterRecValue_Temp109[3];
+            ServoParameterRec_SetValue109[2] = ServoParameterRecValue_Temp109[0];
+            ServoParameterRec_SetValue109[3] = ServoParameterRecValue_Temp109[1];
+
+            ServoParameterRec_SetValue110[0] = ServoParameterRecValue_Temp110[2];
+            ServoParameterRec_SetValue110[1] = ServoParameterRecValue_Temp110[3];
+            ServoParameterRec_SetValue110[2] = ServoParameterRecValue_Temp110[0];
+            ServoParameterRec_SetValue110[3] = ServoParameterRecValue_Temp110[1];
+
+
+            ServoParameterRec_SetValue111[0] = ServoParameterRecValue_Temp111[2];
+            ServoParameterRec_SetValue111[1] = ServoParameterRecValue_Temp111[3];
+            ServoParameterRec_SetValue111[2] = ServoParameterRecValue_Temp111[0];
+            ServoParameterRec_SetValue111[3] = ServoParameterRecValue_Temp111[1];
+
+            ServoParameterRec_SetValue112[0] = ServoParameterRecValue_Temp112[2];
+            ServoParameterRec_SetValue112[1] = ServoParameterRecValue_Temp112[3];
+            ServoParameterRec_SetValue112[2] = ServoParameterRecValue_Temp112[0];
+            ServoParameterRec_SetValue112[3] = ServoParameterRecValue_Temp112[1];
+
+            ServoParameterRec_SetValue113[0] = ServoParameterRecValue_Temp113[2];
+            ServoParameterRec_SetValue113[1] = ServoParameterRecValue_Temp113[3];
+            ServoParameterRec_SetValue113[2] = ServoParameterRecValue_Temp113[0];
+            ServoParameterRec_SetValue113[3] = ServoParameterRecValue_Temp113[1];
+
+            ServoParameterRec_SetValue114[0] = ServoParameterRecValue_Temp114[2];
+            ServoParameterRec_SetValue114[1] = ServoParameterRecValue_Temp114[3];
+            ServoParameterRec_SetValue114[2] = ServoParameterRecValue_Temp114[0];
+            ServoParameterRec_SetValue114[3] = ServoParameterRecValue_Temp114[1];
+
+            ServoParameterRec_SetValue115[0] = ServoParameterRecValue_Temp115[2];
+            ServoParameterRec_SetValue115[1] = ServoParameterRecValue_Temp115[3];
+            ServoParameterRec_SetValue115[2] = ServoParameterRecValue_Temp115[0];
+            ServoParameterRec_SetValue115[3] = ServoParameterRecValue_Temp115[1];
+
+            ServoParameterRec_SetValue116[0] = ServoParameterRecValue_Temp116[2];
+            ServoParameterRec_SetValue116[1] = ServoParameterRecValue_Temp116[3];
+            ServoParameterRec_SetValue116[2] = ServoParameterRecValue_Temp116[0];
+            ServoParameterRec_SetValue116[3] = ServoParameterRecValue_Temp116[1];
+
+            ServoParameterRec_SetValue117[0] = ServoParameterRecValue_Temp117[2];
+            ServoParameterRec_SetValue117[1] = ServoParameterRecValue_Temp117[3];
+            ServoParameterRec_SetValue117[2] = ServoParameterRecValue_Temp117[0];
+            ServoParameterRec_SetValue117[3] = ServoParameterRecValue_Temp117[1];
+
+            ServoParameterRec_SetValue118[0] = ServoParameterRecValue_Temp118[2];
+            ServoParameterRec_SetValue118[1] = ServoParameterRecValue_Temp118[3];
+            ServoParameterRec_SetValue118[2] = ServoParameterRecValue_Temp118[0];
+            ServoParameterRec_SetValue118[3] = ServoParameterRecValue_Temp118[1];
+
+            ServoParameterRec_SetValue119[0] = ServoParameterRecValue_Temp119[2];
+            ServoParameterRec_SetValue119[1] = ServoParameterRecValue_Temp119[3];
+            ServoParameterRec_SetValue119[2] = ServoParameterRecValue_Temp119[0];
+            ServoParameterRec_SetValue119[3] = ServoParameterRecValue_Temp119[1];
+
+            ServoParameterRec_SetValue120[0] = ServoParameterRecValue_Temp120[2];
+            ServoParameterRec_SetValue120[1] = ServoParameterRecValue_Temp120[3];
+            ServoParameterRec_SetValue120[2] = ServoParameterRecValue_Temp120[0];
+            ServoParameterRec_SetValue120[3] = ServoParameterRecValue_Temp120[1];
+
+
+            ServoParameterRec_SetValue121[0] = ServoParameterRecValue_Temp121[2];
+            ServoParameterRec_SetValue121[1] = ServoParameterRecValue_Temp121[3];
+            ServoParameterRec_SetValue121[2] = ServoParameterRecValue_Temp121[0];
+            ServoParameterRec_SetValue121[3] = ServoParameterRecValue_Temp121[1];
+                                                                           
+            ServoParameterRec_SetValue122[0] = ServoParameterRecValue_Temp122[2];
+            ServoParameterRec_SetValue122[1] = ServoParameterRecValue_Temp122[3];
+            ServoParameterRec_SetValue122[2] = ServoParameterRecValue_Temp122[0];
+            ServoParameterRec_SetValue122[3] = ServoParameterRecValue_Temp122[1];
+                                                                           
+            ServoParameterRec_SetValue123[0] = ServoParameterRecValue_Temp123[2];
+            ServoParameterRec_SetValue123[1] = ServoParameterRecValue_Temp123[3];
+            ServoParameterRec_SetValue123[2] = ServoParameterRecValue_Temp123[0];
+            ServoParameterRec_SetValue123[3] = ServoParameterRecValue_Temp123[1];
+                                                                           
+            ServoParameterRec_SetValue124[0] = ServoParameterRecValue_Temp124[2];
+            ServoParameterRec_SetValue124[1] = ServoParameterRecValue_Temp124[3];
+            ServoParameterRec_SetValue124[2] = ServoParameterRecValue_Temp124[0];
+            ServoParameterRec_SetValue124[3] = ServoParameterRecValue_Temp124[1];
+                                                                           
+            ServoParameterRec_SetValue125[0] = ServoParameterRecValue_Temp125[2];
+            ServoParameterRec_SetValue125[1] = ServoParameterRecValue_Temp125[3];
+            ServoParameterRec_SetValue125[2] = ServoParameterRecValue_Temp125[0];
+            ServoParameterRec_SetValue125[3] = ServoParameterRecValue_Temp125[1];
+                                                                           
+            ServoParameterRec_SetValue126[0] = ServoParameterRecValue_Temp126[2];
+            ServoParameterRec_SetValue126[1] = ServoParameterRecValue_Temp126[3];
+            ServoParameterRec_SetValue126[2] = ServoParameterRecValue_Temp126[0];
+            ServoParameterRec_SetValue126[3] = ServoParameterRecValue_Temp126[1];
+                                                                           
+            ServoParameterRec_SetValue127[0] = ServoParameterRecValue_Temp127[2];
+            ServoParameterRec_SetValue127[1] = ServoParameterRecValue_Temp127[3];
+            ServoParameterRec_SetValue127[2] = ServoParameterRecValue_Temp127[0];
+            ServoParameterRec_SetValue127[3] = ServoParameterRecValue_Temp127[1];
+                                                                           
+            ServoParameterRec_SetValue128[0] = ServoParameterRecValue_Temp128[2];
+            ServoParameterRec_SetValue128[1] = ServoParameterRecValue_Temp128[3];
+            ServoParameterRec_SetValue128[2] = ServoParameterRecValue_Temp128[0];
+            ServoParameterRec_SetValue128[3] = ServoParameterRecValue_Temp128[1];
+                                                                           
+            ServoParameterRec_SetValue129[0] = ServoParameterRecValue_Temp129[2];
+            ServoParameterRec_SetValue129[1] = ServoParameterRecValue_Temp129[3];
+            ServoParameterRec_SetValue129[2] = ServoParameterRecValue_Temp129[0];
+            ServoParameterRec_SetValue129[3] = ServoParameterRecValue_Temp129[1];
+
+            ServoParameterRec_SetValue130[0] = ServoParameterRecValue_Temp130[2];
+            ServoParameterRec_SetValue130[1] = ServoParameterRecValue_Temp130[3];
+            ServoParameterRec_SetValue130[2] = ServoParameterRecValue_Temp130[0];
+            ServoParameterRec_SetValue130[3] = ServoParameterRecValue_Temp130[1];
+
+
+
+            ServoParameterRec_SetValue131[0] = ServoParameterRecValue_Temp131[2];
+            ServoParameterRec_SetValue131[1] = ServoParameterRecValue_Temp131[3];
+            ServoParameterRec_SetValue131[2] = ServoParameterRecValue_Temp131[0];
+            ServoParameterRec_SetValue131[3] = ServoParameterRecValue_Temp131[1];
+                                                                           
+            ServoParameterRec_SetValue132[0] = ServoParameterRecValue_Temp132[2];
+            ServoParameterRec_SetValue132[1] = ServoParameterRecValue_Temp132[3];
+            ServoParameterRec_SetValue132[2] = ServoParameterRecValue_Temp132[0];
+            ServoParameterRec_SetValue132[3] = ServoParameterRecValue_Temp132[1];
+                                                                           
+            ServoParameterRec_SetValue133[0] = ServoParameterRecValue_Temp133[2];
+            ServoParameterRec_SetValue133[1] = ServoParameterRecValue_Temp133[3];
+            ServoParameterRec_SetValue133[2] = ServoParameterRecValue_Temp133[0];
+            ServoParameterRec_SetValue133[3] = ServoParameterRecValue_Temp133[1];
+                                                                           
+            ServoParameterRec_SetValue134[0] = ServoParameterRecValue_Temp134[2];
+            ServoParameterRec_SetValue134[1] = ServoParameterRecValue_Temp134[3];
+            ServoParameterRec_SetValue134[2] = ServoParameterRecValue_Temp134[0];
+            ServoParameterRec_SetValue134[3] = ServoParameterRecValue_Temp134[1];
+                                                                           
+            ServoParameterRec_SetValue135[0] = ServoParameterRecValue_Temp135[2];
+            ServoParameterRec_SetValue135[1] = ServoParameterRecValue_Temp135[3];
+            ServoParameterRec_SetValue135[2] = ServoParameterRecValue_Temp135[0];
+            ServoParameterRec_SetValue135[3] = ServoParameterRecValue_Temp135[1];
+                                                                           
+            ServoParameterRec_SetValue136[0] = ServoParameterRecValue_Temp136[2];
+            ServoParameterRec_SetValue136[1] = ServoParameterRecValue_Temp136[3];
+            ServoParameterRec_SetValue136[2] = ServoParameterRecValue_Temp136[0];
+            ServoParameterRec_SetValue136[3] = ServoParameterRecValue_Temp136[1];
+                                                                           
+            ServoParameterRec_SetValue137[0] = ServoParameterRecValue_Temp137[2];
+            ServoParameterRec_SetValue137[1] = ServoParameterRecValue_Temp137[3];
+            ServoParameterRec_SetValue137[2] = ServoParameterRecValue_Temp137[0];
+            ServoParameterRec_SetValue137[3] = ServoParameterRecValue_Temp137[1];
+                                                                           
+            ServoParameterRec_SetValue138[0] = ServoParameterRecValue_Temp138[2];
+            ServoParameterRec_SetValue138[1] = ServoParameterRecValue_Temp138[3];
+            ServoParameterRec_SetValue138[2] = ServoParameterRecValue_Temp138[0];
+            ServoParameterRec_SetValue138[3] = ServoParameterRecValue_Temp138[1];
+                                                                           
+            ServoParameterRec_SetValue139[0] = ServoParameterRecValue_Temp139[2];
+            ServoParameterRec_SetValue139[1] = ServoParameterRecValue_Temp139[3];
+            ServoParameterRec_SetValue139[2] = ServoParameterRecValue_Temp139[0];
+            ServoParameterRec_SetValue139[3] = ServoParameterRecValue_Temp139[1];
+
+            ServoParameterRec_SetValue140[0] = ServoParameterRecValue_Temp140[2];
+            ServoParameterRec_SetValue140[1] = ServoParameterRecValue_Temp140[3];
+            ServoParameterRec_SetValue140[2] = ServoParameterRecValue_Temp140[0];
+            ServoParameterRec_SetValue140[3] = ServoParameterRecValue_Temp140[1];
+
+
+            ServoParameterRec_SetValue141[0] = ServoParameterRecValue_Temp141[2];
+            ServoParameterRec_SetValue141[1] = ServoParameterRecValue_Temp141[3];
+            ServoParameterRec_SetValue141[2] = ServoParameterRecValue_Temp141[0];
+            ServoParameterRec_SetValue141[3] = ServoParameterRecValue_Temp141[1];
+                                                                           
+            ServoParameterRec_SetValue142[0] = ServoParameterRecValue_Temp142[2];
+            ServoParameterRec_SetValue142[1] = ServoParameterRecValue_Temp142[3];
+            ServoParameterRec_SetValue142[2] = ServoParameterRecValue_Temp142[0];
+            ServoParameterRec_SetValue142[3] = ServoParameterRecValue_Temp142[1];
+                                                                           
+            ServoParameterRec_SetValue143[0] = ServoParameterRecValue_Temp143[2];
+            ServoParameterRec_SetValue143[1] = ServoParameterRecValue_Temp143[3];
+            ServoParameterRec_SetValue143[2] = ServoParameterRecValue_Temp143[0];
+            ServoParameterRec_SetValue143[3] = ServoParameterRecValue_Temp143[1];
+                                                                           
+            ServoParameterRec_SetValue144[0] = ServoParameterRecValue_Temp144[2];
+            ServoParameterRec_SetValue144[1] = ServoParameterRecValue_Temp144[3];
+            ServoParameterRec_SetValue144[2] = ServoParameterRecValue_Temp144[0];
+            ServoParameterRec_SetValue144[3] = ServoParameterRecValue_Temp144[1];
+                                                                           
+            ServoParameterRec_SetValue145[0] = ServoParameterRecValue_Temp145[2];
+            ServoParameterRec_SetValue145[1] = ServoParameterRecValue_Temp145[3];
+            ServoParameterRec_SetValue145[2] = ServoParameterRecValue_Temp145[0];
+            ServoParameterRec_SetValue145[3] = ServoParameterRecValue_Temp145[1];
+                                                                           
+            ServoParameterRec_SetValue146[0] = ServoParameterRecValue_Temp146[2];
+            ServoParameterRec_SetValue146[1] = ServoParameterRecValue_Temp146[3];
+            ServoParameterRec_SetValue146[2] = ServoParameterRecValue_Temp146[0];
+            ServoParameterRec_SetValue146[3] = ServoParameterRecValue_Temp146[1];
+                                                                           
+            ServoParameterRec_SetValue147[0] = ServoParameterRecValue_Temp147[2];
+            ServoParameterRec_SetValue147[1] = ServoParameterRecValue_Temp147[3];
+            ServoParameterRec_SetValue147[2] = ServoParameterRecValue_Temp147[0];
+            ServoParameterRec_SetValue147[3] = ServoParameterRecValue_Temp147[1];
+                                                                           
+            ServoParameterRec_SetValue148[0] = ServoParameterRecValue_Temp148[2];
+            ServoParameterRec_SetValue148[1] = ServoParameterRecValue_Temp148[3];
+            ServoParameterRec_SetValue148[2] = ServoParameterRecValue_Temp148[0];
+            ServoParameterRec_SetValue148[3] = ServoParameterRecValue_Temp148[1];
+                                                                           
+            ServoParameterRec_SetValue149[0] = ServoParameterRecValue_Temp149[2];
+            ServoParameterRec_SetValue149[1] = ServoParameterRecValue_Temp149[3];
+            ServoParameterRec_SetValue149[2] = ServoParameterRecValue_Temp149[0];
+            ServoParameterRec_SetValue149[3] = ServoParameterRecValue_Temp149[1];
+
+            ServoParameterRec_SetValue150[0] = ServoParameterRecValue_Temp150[2];
+            ServoParameterRec_SetValue150[1] = ServoParameterRecValue_Temp150[3];
+            ServoParameterRec_SetValue150[2] = ServoParameterRecValue_Temp150[0];
+            ServoParameterRec_SetValue150[3] = ServoParameterRecValue_Temp150[1];
+
+
+
+            ServoParameterRec_SetValue151[0] = ServoParameterRecValue_Temp151[2];
+            ServoParameterRec_SetValue151[1] = ServoParameterRecValue_Temp151[3];
+            ServoParameterRec_SetValue151[2] = ServoParameterRecValue_Temp151[0];
+            ServoParameterRec_SetValue151[3] = ServoParameterRecValue_Temp151[1];
+                                                                           
+            ServoParameterRec_SetValue152[0] = ServoParameterRecValue_Temp152[2];
+            ServoParameterRec_SetValue152[1] = ServoParameterRecValue_Temp152[3];
+            ServoParameterRec_SetValue152[2] = ServoParameterRecValue_Temp152[0];
+            ServoParameterRec_SetValue152[3] = ServoParameterRecValue_Temp152[1];
+                                                                           
+            ServoParameterRec_SetValue153[0] = ServoParameterRecValue_Temp153[2];
+            ServoParameterRec_SetValue153[1] = ServoParameterRecValue_Temp153[3];
+            ServoParameterRec_SetValue153[2] = ServoParameterRecValue_Temp153[0];
+            ServoParameterRec_SetValue153[3] = ServoParameterRecValue_Temp153[1];
+                                                                           
+            ServoParameterRec_SetValue154[0] = ServoParameterRecValue_Temp154[2];
+            ServoParameterRec_SetValue154[1] = ServoParameterRecValue_Temp154[3];
+            ServoParameterRec_SetValue154[2] = ServoParameterRecValue_Temp154[0];
+            ServoParameterRec_SetValue154[3] = ServoParameterRecValue_Temp154[1];
+                                                                           
+            ServoParameterRec_SetValue155[0] = ServoParameterRecValue_Temp155[2];
+            ServoParameterRec_SetValue155[1] = ServoParameterRecValue_Temp155[3];
+            ServoParameterRec_SetValue155[2] = ServoParameterRecValue_Temp155[0];
+            ServoParameterRec_SetValue155[3] = ServoParameterRecValue_Temp155[1];
+                                                                           
+            ServoParameterRec_SetValue156[0] = ServoParameterRecValue_Temp156[2];
+            ServoParameterRec_SetValue156[1] = ServoParameterRecValue_Temp156[3];
+            ServoParameterRec_SetValue156[2] = ServoParameterRecValue_Temp156[0];
+            ServoParameterRec_SetValue156[3] = ServoParameterRecValue_Temp156[1];
+                                                                           
+            ServoParameterRec_SetValue157[0] = ServoParameterRecValue_Temp157[2];
+            ServoParameterRec_SetValue157[1] = ServoParameterRecValue_Temp157[3];
+            ServoParameterRec_SetValue157[2] = ServoParameterRecValue_Temp157[0];
+            ServoParameterRec_SetValue157[3] = ServoParameterRecValue_Temp157[1];
+                                                                           
+            ServoParameterRec_SetValue158[0] = ServoParameterRecValue_Temp158[2];
+            ServoParameterRec_SetValue158[1] = ServoParameterRecValue_Temp158[3];
+            ServoParameterRec_SetValue158[2] = ServoParameterRecValue_Temp158[0];
+            ServoParameterRec_SetValue158[3] = ServoParameterRecValue_Temp158[1];
+                                                                           
+            ServoParameterRec_SetValue159[0] = ServoParameterRecValue_Temp159[2];
+            ServoParameterRec_SetValue159[1] = ServoParameterRecValue_Temp159[3];
+            ServoParameterRec_SetValue159[2] = ServoParameterRecValue_Temp159[0];
+            ServoParameterRec_SetValue159[3] = ServoParameterRecValue_Temp159[1];
+
+            ServoParameterRec_SetValue160[0] = ServoParameterRecValue_Temp160[2];
+            ServoParameterRec_SetValue160[1] = ServoParameterRecValue_Temp160[3];
+            ServoParameterRec_SetValue160[2] = ServoParameterRecValue_Temp160[0];
+            ServoParameterRec_SetValue160[3] = ServoParameterRecValue_Temp160[1];
+
+
+
+            ServoParameterRec_SetValue161[0] = ServoParameterRecValue_Temp161[2];
+            ServoParameterRec_SetValue161[1] = ServoParameterRecValue_Temp161[3];
+            ServoParameterRec_SetValue161[2] = ServoParameterRecValue_Temp161[0];
+            ServoParameterRec_SetValue161[3] = ServoParameterRecValue_Temp161[1];
+                                                                           
+            ServoParameterRec_SetValue162[0] = ServoParameterRecValue_Temp162[2];
+            ServoParameterRec_SetValue162[1] = ServoParameterRecValue_Temp162[3];
+            ServoParameterRec_SetValue162[2] = ServoParameterRecValue_Temp162[0];
+            ServoParameterRec_SetValue162[3] = ServoParameterRecValue_Temp162[1];
+                                                                           
+            ServoParameterRec_SetValue163[0] = ServoParameterRecValue_Temp163[2];
+            ServoParameterRec_SetValue163[1] = ServoParameterRecValue_Temp163[3];
+            ServoParameterRec_SetValue163[2] = ServoParameterRecValue_Temp163[0];
+            ServoParameterRec_SetValue163[3] = ServoParameterRecValue_Temp163[1];
+                                                                           
+            ServoParameterRec_SetValue164[0] = ServoParameterRecValue_Temp164[2];
+            ServoParameterRec_SetValue164[1] = ServoParameterRecValue_Temp164[3];
+            ServoParameterRec_SetValue164[2] = ServoParameterRecValue_Temp164[0];
+            ServoParameterRec_SetValue164[3] = ServoParameterRecValue_Temp164[1];
+                                                                           
+            ServoParameterRec_SetValue165[0] = ServoParameterRecValue_Temp165[2];
+            ServoParameterRec_SetValue165[1] = ServoParameterRecValue_Temp165[3];
+            ServoParameterRec_SetValue165[2] = ServoParameterRecValue_Temp165[0];
+            ServoParameterRec_SetValue165[3] = ServoParameterRecValue_Temp165[1];
+                                                                           
+            ServoParameterRec_SetValue166[0] = ServoParameterRecValue_Temp166[2];
+            ServoParameterRec_SetValue166[1] = ServoParameterRecValue_Temp166[3];
+            ServoParameterRec_SetValue166[2] = ServoParameterRecValue_Temp166[0];
+            ServoParameterRec_SetValue166[3] = ServoParameterRecValue_Temp166[1];
+                                                                           
+            ServoParameterRec_SetValue167[0] = ServoParameterRecValue_Temp167[2];
+            ServoParameterRec_SetValue167[1] = ServoParameterRecValue_Temp167[3];
+            ServoParameterRec_SetValue167[2] = ServoParameterRecValue_Temp167[0];
+            ServoParameterRec_SetValue167[3] = ServoParameterRecValue_Temp167[1];
+                                                                           
+            ServoParameterRec_SetValue168[0] = ServoParameterRecValue_Temp168[2];
+            ServoParameterRec_SetValue168[1] = ServoParameterRecValue_Temp168[3];
+            ServoParameterRec_SetValue168[2] = ServoParameterRecValue_Temp168[0];
+            ServoParameterRec_SetValue168[3] = ServoParameterRecValue_Temp168[1];
+                                                                           
+            ServoParameterRec_SetValue169[0] = ServoParameterRecValue_Temp169[2];
+            ServoParameterRec_SetValue169[1] = ServoParameterRecValue_Temp169[3];
+            ServoParameterRec_SetValue169[2] = ServoParameterRecValue_Temp169[0];
+            ServoParameterRec_SetValue169[3] = ServoParameterRecValue_Temp169[1];
+
+            ServoParameterRec_SetValue170[0] = ServoParameterRecValue_Temp170[2];
+            ServoParameterRec_SetValue170[1] = ServoParameterRecValue_Temp170[3];
+            ServoParameterRec_SetValue170[2] = ServoParameterRecValue_Temp170[0];
+            ServoParameterRec_SetValue170[3] = ServoParameterRecValue_Temp170[1];
+
+
+
+            ServoParameterRec_SetValue171[0] = ServoParameterRecValue_Temp171[2];
+            ServoParameterRec_SetValue171[1] = ServoParameterRecValue_Temp171[3];
+            ServoParameterRec_SetValue171[2] = ServoParameterRecValue_Temp171[0];
+            ServoParameterRec_SetValue171[3] = ServoParameterRecValue_Temp171[1];
+                                                                           
+            ServoParameterRec_SetValue172[0] = ServoParameterRecValue_Temp172[2];
+            ServoParameterRec_SetValue172[1] = ServoParameterRecValue_Temp172[3];
+            ServoParameterRec_SetValue172[2] = ServoParameterRecValue_Temp172[0];
+            ServoParameterRec_SetValue172[3] = ServoParameterRecValue_Temp172[1];
+                                                                           
+            ServoParameterRec_SetValue173[0] = ServoParameterRecValue_Temp173[2];
+            ServoParameterRec_SetValue173[1] = ServoParameterRecValue_Temp173[3];
+            ServoParameterRec_SetValue173[2] = ServoParameterRecValue_Temp173[0];
+            ServoParameterRec_SetValue173[3] = ServoParameterRecValue_Temp173[1];
+                                                                           
+            ServoParameterRec_SetValue174[0] = ServoParameterRecValue_Temp174[2];
+            ServoParameterRec_SetValue174[1] = ServoParameterRecValue_Temp174[3];
+            ServoParameterRec_SetValue174[2] = ServoParameterRecValue_Temp174[0];
+            ServoParameterRec_SetValue174[3] = ServoParameterRecValue_Temp174[1];
+                                                                           
+            ServoParameterRec_SetValue175[0] = ServoParameterRecValue_Temp175[2];
+            ServoParameterRec_SetValue175[1] = ServoParameterRecValue_Temp175[3];
+            ServoParameterRec_SetValue175[2] = ServoParameterRecValue_Temp175[0];
+            ServoParameterRec_SetValue175[3] = ServoParameterRecValue_Temp175[1];
+                                                                           
+            ServoParameterRec_SetValue176[0] = ServoParameterRecValue_Temp176[2];
+            ServoParameterRec_SetValue176[1] = ServoParameterRecValue_Temp176[3];
+            ServoParameterRec_SetValue176[2] = ServoParameterRecValue_Temp176[0];
+            ServoParameterRec_SetValue176[3] = ServoParameterRecValue_Temp176[1];
+                                                                           
+            ServoParameterRec_SetValue177[0] = ServoParameterRecValue_Temp177[2];
+            ServoParameterRec_SetValue177[1] = ServoParameterRecValue_Temp177[3];
+            ServoParameterRec_SetValue177[2] = ServoParameterRecValue_Temp177[0];
+            ServoParameterRec_SetValue177[3] = ServoParameterRecValue_Temp177[1];
+                                                                           
+            ServoParameterRec_SetValue178[0] = ServoParameterRecValue_Temp178[2];
+            ServoParameterRec_SetValue178[1] = ServoParameterRecValue_Temp178[3];
+            ServoParameterRec_SetValue178[2] = ServoParameterRecValue_Temp178[0];
+            ServoParameterRec_SetValue178[3] = ServoParameterRecValue_Temp178[1];
+                                                                           
+            ServoParameterRec_SetValue179[0] = ServoParameterRecValue_Temp179[2];
+            ServoParameterRec_SetValue179[1] = ServoParameterRecValue_Temp179[3];
+            ServoParameterRec_SetValue179[2] = ServoParameterRecValue_Temp179[0];
+            ServoParameterRec_SetValue179[3] = ServoParameterRecValue_Temp179[1];
+
+            ServoParameterRec_SetValue180[0] = ServoParameterRecValue_Temp180[2];
+            ServoParameterRec_SetValue180[1] = ServoParameterRecValue_Temp180[3];
+            ServoParameterRec_SetValue180[2] = ServoParameterRecValue_Temp180[0];
+            ServoParameterRec_SetValue180[3] = ServoParameterRecValue_Temp180[1];
+
+
+
+            ServoParameterRec_SetValue181[0] = ServoParameterRecValue_Temp181[2];
+            ServoParameterRec_SetValue181[1] = ServoParameterRecValue_Temp181[3];
+            ServoParameterRec_SetValue181[2] = ServoParameterRecValue_Temp181[0];
+            ServoParameterRec_SetValue181[3] = ServoParameterRecValue_Temp181[1];
+                                                                           
+            ServoParameterRec_SetValue182[0] = ServoParameterRecValue_Temp182[2];
+            ServoParameterRec_SetValue182[1] = ServoParameterRecValue_Temp182[3];
+            ServoParameterRec_SetValue182[2] = ServoParameterRecValue_Temp182[0];
+            ServoParameterRec_SetValue182[3] = ServoParameterRecValue_Temp182[1];
+                                                                           
+            ServoParameterRec_SetValue183[0] = ServoParameterRecValue_Temp183[2];
+            ServoParameterRec_SetValue183[1] = ServoParameterRecValue_Temp183[3];
+            ServoParameterRec_SetValue183[2] = ServoParameterRecValue_Temp183[0];
+            ServoParameterRec_SetValue183[3] = ServoParameterRecValue_Temp183[1];
+                                                                           
+            ServoParameterRec_SetValue184[0] = ServoParameterRecValue_Temp184[2];
+            ServoParameterRec_SetValue184[1] = ServoParameterRecValue_Temp184[3];
+            ServoParameterRec_SetValue184[2] = ServoParameterRecValue_Temp184[0];
+            ServoParameterRec_SetValue184[3] = ServoParameterRecValue_Temp184[1];
+                                                                           
+            ServoParameterRec_SetValue185[0] = ServoParameterRecValue_Temp185[2];
+            ServoParameterRec_SetValue185[1] = ServoParameterRecValue_Temp185[3];
+            ServoParameterRec_SetValue185[2] = ServoParameterRecValue_Temp185[0];
+            ServoParameterRec_SetValue185[3] = ServoParameterRecValue_Temp185[1];
+                                                                           
+            ServoParameterRec_SetValue186[0] = ServoParameterRecValue_Temp186[2];
+            ServoParameterRec_SetValue186[1] = ServoParameterRecValue_Temp186[3];
+            ServoParameterRec_SetValue186[2] = ServoParameterRecValue_Temp186[0];
+            ServoParameterRec_SetValue186[3] = ServoParameterRecValue_Temp186[1];
+                                                                           
+            ServoParameterRec_SetValue187[0] = ServoParameterRecValue_Temp187[2];
+            ServoParameterRec_SetValue187[1] = ServoParameterRecValue_Temp187[3];
+            ServoParameterRec_SetValue187[2] = ServoParameterRecValue_Temp187[0];
+            ServoParameterRec_SetValue187[3] = ServoParameterRecValue_Temp187[1];
+                                                                           
+            ServoParameterRec_SetValue188[0] = ServoParameterRecValue_Temp188[2];
+            ServoParameterRec_SetValue188[1] = ServoParameterRecValue_Temp188[3];
+            ServoParameterRec_SetValue188[2] = ServoParameterRecValue_Temp188[0];
+            ServoParameterRec_SetValue188[3] = ServoParameterRecValue_Temp188[1];
+                                                                           
+            ServoParameterRec_SetValue189[0] = ServoParameterRecValue_Temp189[2];
+            ServoParameterRec_SetValue189[1] = ServoParameterRecValue_Temp189[3];
+            ServoParameterRec_SetValue189[2] = ServoParameterRecValue_Temp189[0];
+            ServoParameterRec_SetValue189[3] = ServoParameterRecValue_Temp189[1];
+
+            ServoParameterRec_SetValue190[0] = ServoParameterRecValue_Temp190[2];
+            ServoParameterRec_SetValue190[1] = ServoParameterRecValue_Temp190[3];
+            ServoParameterRec_SetValue190[2] = ServoParameterRecValue_Temp190[0];
+            ServoParameterRec_SetValue190[3] = ServoParameterRecValue_Temp190[1];
+
+
+
+            ServoParameterRec_SetValue191[0] = ServoParameterRecValue_Temp191[2];
+            ServoParameterRec_SetValue191[1] = ServoParameterRecValue_Temp191[3];
+            ServoParameterRec_SetValue191[2] = ServoParameterRecValue_Temp191[0];
+            ServoParameterRec_SetValue191[3] = ServoParameterRecValue_Temp191[1];
+                                                                           
+            ServoParameterRec_SetValue192[0] = ServoParameterRecValue_Temp192[2];
+            ServoParameterRec_SetValue192[1] = ServoParameterRecValue_Temp192[3];
+            ServoParameterRec_SetValue192[2] = ServoParameterRecValue_Temp192[0];
+            ServoParameterRec_SetValue192[3] = ServoParameterRecValue_Temp192[1];
+                                                                           
+            ServoParameterRec_SetValue193[0] = ServoParameterRecValue_Temp193[2];
+            ServoParameterRec_SetValue193[1] = ServoParameterRecValue_Temp193[3];
+            ServoParameterRec_SetValue193[2] = ServoParameterRecValue_Temp193[0];
+            ServoParameterRec_SetValue193[3] = ServoParameterRecValue_Temp193[1];
+                                                                           
+            ServoParameterRec_SetValue194[0] = ServoParameterRecValue_Temp194[2];
+            ServoParameterRec_SetValue194[1] = ServoParameterRecValue_Temp194[3];
+            ServoParameterRec_SetValue194[2] = ServoParameterRecValue_Temp194[0];
+            ServoParameterRec_SetValue194[3] = ServoParameterRecValue_Temp194[1];
+                                                                           
+            ServoParameterRec_SetValue195[0] = ServoParameterRecValue_Temp195[2];
+            ServoParameterRec_SetValue195[1] = ServoParameterRecValue_Temp195[3];
+            ServoParameterRec_SetValue195[2] = ServoParameterRecValue_Temp195[0];
+            ServoParameterRec_SetValue195[3] = ServoParameterRecValue_Temp195[1];
+                                                                           
+            ServoParameterRec_SetValue196[0] = ServoParameterRecValue_Temp196[2];
+            ServoParameterRec_SetValue196[1] = ServoParameterRecValue_Temp196[3];
+            ServoParameterRec_SetValue196[2] = ServoParameterRecValue_Temp196[0];
+            ServoParameterRec_SetValue196[3] = ServoParameterRecValue_Temp196[1];
+                                                                           
+            ServoParameterRec_SetValue197[0] = ServoParameterRecValue_Temp197[2];
+            ServoParameterRec_SetValue197[1] = ServoParameterRecValue_Temp197[3];
+            ServoParameterRec_SetValue197[2] = ServoParameterRecValue_Temp197[0];
+            ServoParameterRec_SetValue197[3] = ServoParameterRecValue_Temp197[1];
+                                                                           
+            ServoParameterRec_SetValue198[0] = ServoParameterRecValue_Temp198[2];
+            ServoParameterRec_SetValue198[1] = ServoParameterRecValue_Temp198[3];
+            ServoParameterRec_SetValue198[2] = ServoParameterRecValue_Temp198[0];
+            ServoParameterRec_SetValue198[3] = ServoParameterRecValue_Temp198[1];
+                                                                           
+            ServoParameterRec_SetValue199[0] = ServoParameterRecValue_Temp199[2];
+            ServoParameterRec_SetValue199[1] = ServoParameterRecValue_Temp199[3];
+            ServoParameterRec_SetValue199[2] = ServoParameterRecValue_Temp199[0];
+            ServoParameterRec_SetValue199[3] = ServoParameterRecValue_Temp199[1];
+
+            ServoParameterRec_SetValue200[0] = ServoParameterRecValue_Temp200[2];
+            ServoParameterRec_SetValue200[1] = ServoParameterRecValue_Temp200[3];
+            ServoParameterRec_SetValue200[2] = ServoParameterRecValue_Temp200[0];
+            ServoParameterRec_SetValue200[3] = ServoParameterRecValue_Temp200[1];
+
+
+
+            ServoParameterRec_SetValue201[0] = ServoParameterRecValue_Temp201[2];
+            ServoParameterRec_SetValue201[1] = ServoParameterRecValue_Temp201[3];
+            ServoParameterRec_SetValue201[2] = ServoParameterRecValue_Temp201[0];
+            ServoParameterRec_SetValue201[3] = ServoParameterRecValue_Temp201[1];
+                                      
+            ServoParameterRec_SetValue202[0] = ServoParameterRecValue_Temp202[2];
+            ServoParameterRec_SetValue202[1] = ServoParameterRecValue_Temp202[3];
+            ServoParameterRec_SetValue202[2] = ServoParameterRecValue_Temp202[0];
+            ServoParameterRec_SetValue202[3] = ServoParameterRecValue_Temp202[1];
+                                      
+            ServoParameterRec_SetValue203[0] = ServoParameterRecValue_Temp203[2];
+            ServoParameterRec_SetValue203[1] = ServoParameterRecValue_Temp203[3];
+            ServoParameterRec_SetValue203[2] = ServoParameterRecValue_Temp203[0];
+            ServoParameterRec_SetValue203[3] = ServoParameterRecValue_Temp203[1];
+                                      
+            ServoParameterRec_SetValue204[0] = ServoParameterRecValue_Temp204[2];
+            ServoParameterRec_SetValue204[1] = ServoParameterRecValue_Temp204[3];
+            ServoParameterRec_SetValue204[2] = ServoParameterRecValue_Temp204[0];
+            ServoParameterRec_SetValue204[3] = ServoParameterRecValue_Temp204[1];
+                                      
+            ServoParameterRec_SetValue205[0] = ServoParameterRecValue_Temp205[2];
+            ServoParameterRec_SetValue205[1] = ServoParameterRecValue_Temp205[3];
+            ServoParameterRec_SetValue205[2] = ServoParameterRecValue_Temp205[0];
+            ServoParameterRec_SetValue205[3] = ServoParameterRecValue_Temp205[1];
+                                      
+            ServoParameterRec_SetValue206[0] = ServoParameterRecValue_Temp206[2];
+            ServoParameterRec_SetValue206[1] = ServoParameterRecValue_Temp206[3];
+            ServoParameterRec_SetValue206[2] = ServoParameterRecValue_Temp206[0];
+            ServoParameterRec_SetValue206[3] = ServoParameterRecValue_Temp206[1];
+                                      
+            ServoParameterRec_SetValue207[0] = ServoParameterRecValue_Temp207[2];
+            ServoParameterRec_SetValue207[1] = ServoParameterRecValue_Temp207[3];
+            ServoParameterRec_SetValue207[2] = ServoParameterRecValue_Temp207[0];
+            ServoParameterRec_SetValue207[3] = ServoParameterRecValue_Temp207[1];
+                                      
+            ServoParameterRec_SetValue208[0] = ServoParameterRecValue_Temp208[2];
+            ServoParameterRec_SetValue208[1] = ServoParameterRecValue_Temp208[3];
+            ServoParameterRec_SetValue208[2] = ServoParameterRecValue_Temp208[0];
+            ServoParameterRec_SetValue208[3] = ServoParameterRecValue_Temp208[1];
+                                      
+            ServoParameterRec_SetValue209[0] = ServoParameterRecValue_Temp209[2];
+            ServoParameterRec_SetValue209[1] = ServoParameterRecValue_Temp209[3];
+            ServoParameterRec_SetValue209[2] = ServoParameterRecValue_Temp209[0];
+            ServoParameterRec_SetValue209[3] = ServoParameterRecValue_Temp209[1];
+
+            ServoParameterRec_SetValue210[0] = ServoParameterRecValue_Temp210[2];
+            ServoParameterRec_SetValue210[1] = ServoParameterRecValue_Temp210[3];
+            ServoParameterRec_SetValue210[2] = ServoParameterRecValue_Temp210[0];
+            ServoParameterRec_SetValue210[3] = ServoParameterRecValue_Temp210[1];
+
+
+
+            ServoParameterRec_SetValue211[0] = ServoParameterRecValue_Temp211[2];
+            ServoParameterRec_SetValue211[1] = ServoParameterRecValue_Temp211[3];
+            ServoParameterRec_SetValue211[2] = ServoParameterRecValue_Temp211[0];
+            ServoParameterRec_SetValue211[3] = ServoParameterRecValue_Temp211[1];
+                                      
+            ServoParameterRec_SetValue212[0] = ServoParameterRecValue_Temp212[2];
+            ServoParameterRec_SetValue212[1] = ServoParameterRecValue_Temp212[3];
+            ServoParameterRec_SetValue212[2] = ServoParameterRecValue_Temp212[0];
+            ServoParameterRec_SetValue212[3] = ServoParameterRecValue_Temp212[1];
+                                      
+            ServoParameterRec_SetValue213[0] = ServoParameterRecValue_Temp213[2];
+            ServoParameterRec_SetValue213[1] = ServoParameterRecValue_Temp213[3];
+            ServoParameterRec_SetValue213[2] = ServoParameterRecValue_Temp213[0];
+            ServoParameterRec_SetValue213[3] = ServoParameterRecValue_Temp213[1];
+                                      
+            ServoParameterRec_SetValue214[0] = ServoParameterRecValue_Temp214[2];
+            ServoParameterRec_SetValue214[1] = ServoParameterRecValue_Temp214[3];
+            ServoParameterRec_SetValue214[2] = ServoParameterRecValue_Temp214[0];
+            ServoParameterRec_SetValue214[3] = ServoParameterRecValue_Temp214[1];
+                                      
+            ServoParameterRec_SetValue215[0] = ServoParameterRecValue_Temp215[2];
+            ServoParameterRec_SetValue215[1] = ServoParameterRecValue_Temp215[3];
+            ServoParameterRec_SetValue215[2] = ServoParameterRecValue_Temp215[0];
+            ServoParameterRec_SetValue215[3] = ServoParameterRecValue_Temp215[1];
+                                      
+            ServoParameterRec_SetValue216[0] = ServoParameterRecValue_Temp216[2];
+            ServoParameterRec_SetValue216[1] = ServoParameterRecValue_Temp216[3];
+            ServoParameterRec_SetValue216[2] = ServoParameterRecValue_Temp216[0];
+            ServoParameterRec_SetValue216[3] = ServoParameterRecValue_Temp216[1];
+                                      
+            ServoParameterRec_SetValue217[0] = ServoParameterRecValue_Temp217[2];
+            ServoParameterRec_SetValue217[1] = ServoParameterRecValue_Temp217[3];
+            ServoParameterRec_SetValue217[2] = ServoParameterRecValue_Temp217[0];
+            ServoParameterRec_SetValue217[3] = ServoParameterRecValue_Temp217[1];
+                                      
+            ServoParameterRec_SetValue218[0] = ServoParameterRecValue_Temp218[2];
+            ServoParameterRec_SetValue218[1] = ServoParameterRecValue_Temp218[3];
+            ServoParameterRec_SetValue218[2] = ServoParameterRecValue_Temp218[0];
+            ServoParameterRec_SetValue218[3] = ServoParameterRecValue_Temp218[1];
+                                      
+            ServoParameterRec_SetValue219[0] = ServoParameterRecValue_Temp219[2];
+            ServoParameterRec_SetValue219[1] = ServoParameterRecValue_Temp219[3];
+            ServoParameterRec_SetValue219[2] = ServoParameterRecValue_Temp219[0];
+            ServoParameterRec_SetValue219[3] = ServoParameterRecValue_Temp219[1];
+
+            ServoParameterRec_SetValue220[0] = ServoParameterRecValue_Temp220[2];
+            ServoParameterRec_SetValue220[1] = ServoParameterRecValue_Temp220[3];
+            ServoParameterRec_SetValue220[2] = ServoParameterRecValue_Temp220[0];
+            ServoParameterRec_SetValue220[3] = ServoParameterRecValue_Temp220[1];
+
+
+
+            ServoParameterRec_SetValue221[0] = ServoParameterRecValue_Temp221[2];
+            ServoParameterRec_SetValue221[1] = ServoParameterRecValue_Temp221[3];
+            ServoParameterRec_SetValue221[2] = ServoParameterRecValue_Temp221[0];
+            ServoParameterRec_SetValue221[3] = ServoParameterRecValue_Temp221[1];
+                                      
+            ServoParameterRec_SetValue222[0] = ServoParameterRecValue_Temp222[2];
+            ServoParameterRec_SetValue222[1] = ServoParameterRecValue_Temp222[3];
+            ServoParameterRec_SetValue222[2] = ServoParameterRecValue_Temp222[0];
+            ServoParameterRec_SetValue222[3] = ServoParameterRecValue_Temp222[1];
+                                      
+            ServoParameterRec_SetValue223[0] = ServoParameterRecValue_Temp223[2];
+            ServoParameterRec_SetValue223[1] = ServoParameterRecValue_Temp223[3];
+            ServoParameterRec_SetValue223[2] = ServoParameterRecValue_Temp223[0];
+            ServoParameterRec_SetValue223[3] = ServoParameterRecValue_Temp223[1];
+                                      
+            ServoParameterRec_SetValue224[0] = ServoParameterRecValue_Temp224[2];
+            ServoParameterRec_SetValue224[1] = ServoParameterRecValue_Temp224[3];
+            ServoParameterRec_SetValue224[2] = ServoParameterRecValue_Temp224[0];
+            ServoParameterRec_SetValue224[3] = ServoParameterRecValue_Temp224[1];
+                                      
+            ServoParameterRec_SetValue225[0] = ServoParameterRecValue_Temp225[2];
+            ServoParameterRec_SetValue225[1] = ServoParameterRecValue_Temp225[3];
+            ServoParameterRec_SetValue225[2] = ServoParameterRecValue_Temp225[0];
+            ServoParameterRec_SetValue225[3] = ServoParameterRecValue_Temp225[1];
+                                      
+            ServoParameterRec_SetValue226[0] = ServoParameterRecValue_Temp226[2];
+            ServoParameterRec_SetValue226[1] = ServoParameterRecValue_Temp226[3];
+            ServoParameterRec_SetValue226[2] = ServoParameterRecValue_Temp226[0];
+            ServoParameterRec_SetValue226[3] = ServoParameterRecValue_Temp226[1];
+                                      
+            ServoParameterRec_SetValue227[0] = ServoParameterRecValue_Temp227[2];
+            ServoParameterRec_SetValue227[1] = ServoParameterRecValue_Temp227[3];
+            ServoParameterRec_SetValue227[2] = ServoParameterRecValue_Temp227[0];
+            ServoParameterRec_SetValue227[3] = ServoParameterRecValue_Temp227[1];
+                                      
+            ServoParameterRec_SetValue228[0] = ServoParameterRecValue_Temp228[2];
+            ServoParameterRec_SetValue228[1] = ServoParameterRecValue_Temp228[3];
+            ServoParameterRec_SetValue228[2] = ServoParameterRecValue_Temp228[0];
+            ServoParameterRec_SetValue228[3] = ServoParameterRecValue_Temp228[1];
+                                      
+            ServoParameterRec_SetValue229[0] = ServoParameterRecValue_Temp229[2];
+            ServoParameterRec_SetValue229[1] = ServoParameterRecValue_Temp229[3];
+            ServoParameterRec_SetValue229[2] = ServoParameterRecValue_Temp229[0];
+            ServoParameterRec_SetValue229[3] = ServoParameterRecValue_Temp229[1];
+
+            ServoParameterRec_SetValue230[0] = ServoParameterRecValue_Temp230[2];
+            ServoParameterRec_SetValue230[1] = ServoParameterRecValue_Temp230[3];
+            ServoParameterRec_SetValue230[2] = ServoParameterRecValue_Temp230[0];
+            ServoParameterRec_SetValue230[3] = ServoParameterRecValue_Temp230[1];
+
+
+
+            ServoParameterRec_SetValue231[0] = ServoParameterRecValue_Temp231[2];
+            ServoParameterRec_SetValue231[1] = ServoParameterRecValue_Temp231[3];
+            ServoParameterRec_SetValue231[2] = ServoParameterRecValue_Temp231[0];
+            ServoParameterRec_SetValue231[3] = ServoParameterRecValue_Temp231[1];
+                                      
+            ServoParameterRec_SetValue232[0] = ServoParameterRecValue_Temp232[2];
+            ServoParameterRec_SetValue232[1] = ServoParameterRecValue_Temp232[3];
+            ServoParameterRec_SetValue232[2] = ServoParameterRecValue_Temp232[0];
+            ServoParameterRec_SetValue232[3] = ServoParameterRecValue_Temp232[1];
+                                      
+            ServoParameterRec_SetValue233[0] = ServoParameterRecValue_Temp233[2];
+            ServoParameterRec_SetValue233[1] = ServoParameterRecValue_Temp233[3];
+            ServoParameterRec_SetValue233[2] = ServoParameterRecValue_Temp233[0];
+            ServoParameterRec_SetValue233[3] = ServoParameterRecValue_Temp233[1];
+                                      
+            ServoParameterRec_SetValue234[0] = ServoParameterRecValue_Temp234[2];
+            ServoParameterRec_SetValue234[1] = ServoParameterRecValue_Temp234[3];
+            ServoParameterRec_SetValue234[2] = ServoParameterRecValue_Temp234[0];
+            ServoParameterRec_SetValue234[3] = ServoParameterRecValue_Temp234[1];
+                                      
+            ServoParameterRec_SetValue235[0] = ServoParameterRecValue_Temp235[2];
+            ServoParameterRec_SetValue235[1] = ServoParameterRecValue_Temp235[3];
+            ServoParameterRec_SetValue235[2] = ServoParameterRecValue_Temp235[0];
+            ServoParameterRec_SetValue235[3] = ServoParameterRecValue_Temp235[1];
+                                      
+            ServoParameterRec_SetValue236[0] = ServoParameterRecValue_Temp236[2];
+            ServoParameterRec_SetValue236[1] = ServoParameterRecValue_Temp236[3];
+            ServoParameterRec_SetValue236[2] = ServoParameterRecValue_Temp236[0];
+            ServoParameterRec_SetValue236[3] = ServoParameterRecValue_Temp236[1];
+                                      
+            ServoParameterRec_SetValue237[0] = ServoParameterRecValue_Temp237[2];
+            ServoParameterRec_SetValue237[1] = ServoParameterRecValue_Temp237[3];
+            ServoParameterRec_SetValue237[2] = ServoParameterRecValue_Temp237[0];
+            ServoParameterRec_SetValue237[3] = ServoParameterRecValue_Temp237[1];
+                                      
+            ServoParameterRec_SetValue238[0] = ServoParameterRecValue_Temp238[2];
+            ServoParameterRec_SetValue238[1] = ServoParameterRecValue_Temp238[3];
+            ServoParameterRec_SetValue238[2] = ServoParameterRecValue_Temp238[0];
+            ServoParameterRec_SetValue238[3] = ServoParameterRecValue_Temp238[1];
+                                      
+            ServoParameterRec_SetValue239[0] = ServoParameterRecValue_Temp239[2];
+            ServoParameterRec_SetValue239[1] = ServoParameterRecValue_Temp239[3];
+            ServoParameterRec_SetValue239[2] = ServoParameterRecValue_Temp239[0];
+            ServoParameterRec_SetValue239[3] = ServoParameterRecValue_Temp239[1];
+
+            ServoParameterRec_SetValue240[0] = ServoParameterRecValue_Temp240[2];
+            ServoParameterRec_SetValue240[1] = ServoParameterRecValue_Temp240[3];
+            ServoParameterRec_SetValue240[2] = ServoParameterRecValue_Temp240[0];
+            ServoParameterRec_SetValue240[3] = ServoParameterRecValue_Temp240[1];
+
+
+
+            ServoParameterRec_SetValue241[0] = ServoParameterRecValue_Temp241[2];
+            ServoParameterRec_SetValue241[1] = ServoParameterRecValue_Temp241[3];
+            ServoParameterRec_SetValue241[2] = ServoParameterRecValue_Temp241[0];
+            ServoParameterRec_SetValue241[3] = ServoParameterRecValue_Temp241[1];
+                                      
+            ServoParameterRec_SetValue242[0] = ServoParameterRecValue_Temp242[2];
+            ServoParameterRec_SetValue242[1] = ServoParameterRecValue_Temp242[3];
+            ServoParameterRec_SetValue242[2] = ServoParameterRecValue_Temp242[0];
+            ServoParameterRec_SetValue242[3] = ServoParameterRecValue_Temp242[1];
+                                      
+            ServoParameterRec_SetValue243[0] = ServoParameterRecValue_Temp243[2];
+            ServoParameterRec_SetValue243[1] = ServoParameterRecValue_Temp243[3];
+            ServoParameterRec_SetValue243[2] = ServoParameterRecValue_Temp243[0];
+            ServoParameterRec_SetValue243[3] = ServoParameterRecValue_Temp243[1];
+                                      
+            ServoParameterRec_SetValue244[0] = ServoParameterRecValue_Temp244[2];
+            ServoParameterRec_SetValue244[1] = ServoParameterRecValue_Temp244[3];
+            ServoParameterRec_SetValue244[2] = ServoParameterRecValue_Temp244[0];
+            ServoParameterRec_SetValue244[3] = ServoParameterRecValue_Temp244[1];
+                                      
+            ServoParameterRec_SetValue245[0] = ServoParameterRecValue_Temp245[2];
+            ServoParameterRec_SetValue245[1] = ServoParameterRecValue_Temp245[3];
+            ServoParameterRec_SetValue245[2] = ServoParameterRecValue_Temp245[0];
+            ServoParameterRec_SetValue245[3] = ServoParameterRecValue_Temp245[1];
+                                      
+            ServoParameterRec_SetValue246[0] = ServoParameterRecValue_Temp246[2];
+            ServoParameterRec_SetValue246[1] = ServoParameterRecValue_Temp246[3];
+            ServoParameterRec_SetValue246[2] = ServoParameterRecValue_Temp246[0];
+            ServoParameterRec_SetValue246[3] = ServoParameterRecValue_Temp246[1];
+                                      
+            ServoParameterRec_SetValue247[0] = ServoParameterRecValue_Temp247[2];
+            ServoParameterRec_SetValue247[1] = ServoParameterRecValue_Temp247[3];
+            ServoParameterRec_SetValue247[2] = ServoParameterRecValue_Temp247[0];
+            ServoParameterRec_SetValue247[3] = ServoParameterRecValue_Temp247[1];
+                                      
+            ServoParameterRec_SetValue248[0] = ServoParameterRecValue_Temp248[2];
+            ServoParameterRec_SetValue248[1] = ServoParameterRecValue_Temp248[3];
+            ServoParameterRec_SetValue248[2] = ServoParameterRecValue_Temp248[0];
+            ServoParameterRec_SetValue248[3] = ServoParameterRecValue_Temp248[1];
+                                      
+            ServoParameterRec_SetValue249[0] = ServoParameterRecValue_Temp249[2];
+            ServoParameterRec_SetValue249[1] = ServoParameterRecValue_Temp249[3];
+            ServoParameterRec_SetValue249[2] = ServoParameterRecValue_Temp249[0];
+            ServoParameterRec_SetValue249[3] = ServoParameterRecValue_Temp249[1];
+
+            ServoParameterRec_SetValue250[0] = ServoParameterRecValue_Temp250[2];
+            ServoParameterRec_SetValue250[1] = ServoParameterRecValue_Temp250[3];
+            ServoParameterRec_SetValue250[2] = ServoParameterRecValue_Temp250[0];
+            ServoParameterRec_SetValue250[3] = ServoParameterRecValue_Temp250[1];
+
+
+
+            ServoParameterRec_SetValue251[0] = ServoParameterRecValue_Temp251[2];
+            ServoParameterRec_SetValue251[1] = ServoParameterRecValue_Temp251[3];
+            ServoParameterRec_SetValue251[2] = ServoParameterRecValue_Temp251[0];
+            ServoParameterRec_SetValue251[3] = ServoParameterRecValue_Temp251[1];
+                                      
+            ServoParameterRec_SetValue252[0] = ServoParameterRecValue_Temp252[2];
+            ServoParameterRec_SetValue252[1] = ServoParameterRecValue_Temp252[3];
+            ServoParameterRec_SetValue252[2] = ServoParameterRecValue_Temp252[0];
+            ServoParameterRec_SetValue252[3] = ServoParameterRecValue_Temp252[1];
+                                      
+            ServoParameterRec_SetValue253[0] = ServoParameterRecValue_Temp253[2];
+            ServoParameterRec_SetValue253[1] = ServoParameterRecValue_Temp253[3];
+            ServoParameterRec_SetValue253[2] = ServoParameterRecValue_Temp253[0];
+            ServoParameterRec_SetValue253[3] = ServoParameterRecValue_Temp253[1];
+                                      
+            ServoParameterRec_SetValue254[0] = ServoParameterRecValue_Temp254[2];
+            ServoParameterRec_SetValue254[1] = ServoParameterRecValue_Temp254[3];
+            ServoParameterRec_SetValue254[2] = ServoParameterRecValue_Temp254[0];
+            ServoParameterRec_SetValue254[3] = ServoParameterRecValue_Temp254[1];
+                                      
+            ServoParameterRec_SetValue255[0] = ServoParameterRecValue_Temp255[2];
+            ServoParameterRec_SetValue255[1] = ServoParameterRecValue_Temp255[3];
+            ServoParameterRec_SetValue255[2] = ServoParameterRecValue_Temp255[0];
+            ServoParameterRec_SetValue255[3] = ServoParameterRecValue_Temp255[1];
+                                      
+            ServoParameterRec_SetValue256[0] = ServoParameterRecValue_Temp256[2];
+            ServoParameterRec_SetValue256[1] = ServoParameterRecValue_Temp256[3];
+            ServoParameterRec_SetValue256[2] = ServoParameterRecValue_Temp256[0];
+            ServoParameterRec_SetValue256[3] = ServoParameterRecValue_Temp256[1];
+                                      
+            ServoParameterRec_SetValue257[0] = ServoParameterRecValue_Temp257[2];
+            ServoParameterRec_SetValue257[1] = ServoParameterRecValue_Temp257[3];
+            ServoParameterRec_SetValue257[2] = ServoParameterRecValue_Temp257[0];
+            ServoParameterRec_SetValue257[3] = ServoParameterRecValue_Temp257[1];
+                                      
+            ServoParameterRec_SetValue258[0] = ServoParameterRecValue_Temp258[2];
+            ServoParameterRec_SetValue258[1] = ServoParameterRecValue_Temp258[3];
+            ServoParameterRec_SetValue258[2] = ServoParameterRecValue_Temp258[0];
+            ServoParameterRec_SetValue258[3] = ServoParameterRecValue_Temp258[1];
+                                      
+            ServoParameterRec_SetValue259[0] = ServoParameterRecValue_Temp259[2];
+            ServoParameterRec_SetValue259[1] = ServoParameterRecValue_Temp259[3];
+            ServoParameterRec_SetValue259[2] = ServoParameterRecValue_Temp259[0];
+            ServoParameterRec_SetValue259[3] = ServoParameterRecValue_Temp259[1];
+
+            ServoParameterRec_SetValue260[0] = ServoParameterRecValue_Temp260[2];
+            ServoParameterRec_SetValue260[1] = ServoParameterRecValue_Temp260[3];
+            ServoParameterRec_SetValue260[2] = ServoParameterRecValue_Temp260[0];
+            ServoParameterRec_SetValue260[3] = ServoParameterRecValue_Temp260[1];
+
+
+
+            ServoParameterRec_SetValue261[0] = ServoParameterRecValue_Temp261[2];
+            ServoParameterRec_SetValue261[1] = ServoParameterRecValue_Temp261[3];
+            ServoParameterRec_SetValue261[2] = ServoParameterRecValue_Temp261[0];
+            ServoParameterRec_SetValue261[3] = ServoParameterRecValue_Temp261[1];
+                                      
+            ServoParameterRec_SetValue262[0] = ServoParameterRecValue_Temp262[2];
+            ServoParameterRec_SetValue262[1] = ServoParameterRecValue_Temp262[3];
+            ServoParameterRec_SetValue262[2] = ServoParameterRecValue_Temp262[0];
+            ServoParameterRec_SetValue262[3] = ServoParameterRecValue_Temp262[1];
+                                      
+            ServoParameterRec_SetValue263[0] = ServoParameterRecValue_Temp263[2];
+            ServoParameterRec_SetValue263[1] = ServoParameterRecValue_Temp263[3];
+            ServoParameterRec_SetValue263[2] = ServoParameterRecValue_Temp263[0];
+            ServoParameterRec_SetValue263[3] = ServoParameterRecValue_Temp263[1];
+                                      
+            ServoParameterRec_SetValue264[0] = ServoParameterRecValue_Temp264[2];
+            ServoParameterRec_SetValue264[1] = ServoParameterRecValue_Temp264[3];
+            ServoParameterRec_SetValue264[2] = ServoParameterRecValue_Temp264[0];
+            ServoParameterRec_SetValue264[3] = ServoParameterRecValue_Temp264[1];
+                                      
+            ServoParameterRec_SetValue265[0] = ServoParameterRecValue_Temp265[2];
+            ServoParameterRec_SetValue265[1] = ServoParameterRecValue_Temp265[3];
+            ServoParameterRec_SetValue265[2] = ServoParameterRecValue_Temp265[0];
+            ServoParameterRec_SetValue265[3] = ServoParameterRecValue_Temp265[1];
+                                      
+            ServoParameterRec_SetValue266[0] = ServoParameterRecValue_Temp266[2];
+            ServoParameterRec_SetValue266[1] = ServoParameterRecValue_Temp266[3];
+            ServoParameterRec_SetValue266[2] = ServoParameterRecValue_Temp266[0];
+            ServoParameterRec_SetValue266[3] = ServoParameterRecValue_Temp266[1];
+                                      
+            ServoParameterRec_SetValue267[0] = ServoParameterRecValue_Temp267[2];
+            ServoParameterRec_SetValue267[1] = ServoParameterRecValue_Temp267[3];
+            ServoParameterRec_SetValue267[2] = ServoParameterRecValue_Temp267[0];
+            ServoParameterRec_SetValue267[3] = ServoParameterRecValue_Temp267[1];
+                                      
+            ServoParameterRec_SetValue268[0] = ServoParameterRecValue_Temp268[2];
+            ServoParameterRec_SetValue268[1] = ServoParameterRecValue_Temp268[3];
+            ServoParameterRec_SetValue268[2] = ServoParameterRecValue_Temp268[0];
+            ServoParameterRec_SetValue268[3] = ServoParameterRecValue_Temp268[1];
+                                      
+            ServoParameterRec_SetValue269[0] = ServoParameterRecValue_Temp269[2];
+            ServoParameterRec_SetValue269[1] = ServoParameterRecValue_Temp269[3];
+            ServoParameterRec_SetValue269[2] = ServoParameterRecValue_Temp269[0];
+            ServoParameterRec_SetValue269[3] = ServoParameterRecValue_Temp269[1];
+
+            ServoParameterRec_SetValue270[0] = ServoParameterRecValue_Temp270[2];
+            ServoParameterRec_SetValue270[1] = ServoParameterRecValue_Temp270[3];
+            ServoParameterRec_SetValue270[2] = ServoParameterRecValue_Temp270[0];
+            ServoParameterRec_SetValue270[3] = ServoParameterRecValue_Temp270[1];
+
+
+
+            ServoParameterRec_SetValue271[0] = ServoParameterRecValue_Temp271[2];
+            ServoParameterRec_SetValue271[1] = ServoParameterRecValue_Temp271[3];
+            ServoParameterRec_SetValue271[2] = ServoParameterRecValue_Temp271[0];
+            ServoParameterRec_SetValue271[3] = ServoParameterRecValue_Temp271[1];
+                                      
+            ServoParameterRec_SetValue272[0] = ServoParameterRecValue_Temp272[2];
+            ServoParameterRec_SetValue272[1] = ServoParameterRecValue_Temp272[3];
+            ServoParameterRec_SetValue272[2] = ServoParameterRecValue_Temp272[0];
+            ServoParameterRec_SetValue272[3] = ServoParameterRecValue_Temp272[1];
+                                      
+            ServoParameterRec_SetValue273[0] = ServoParameterRecValue_Temp273[2];
+            ServoParameterRec_SetValue273[1] = ServoParameterRecValue_Temp273[3];
+            ServoParameterRec_SetValue273[2] = ServoParameterRecValue_Temp273[0];
+            ServoParameterRec_SetValue273[3] = ServoParameterRecValue_Temp273[1];
+                                      
+            ServoParameterRec_SetValue274[0] = ServoParameterRecValue_Temp274[2];
+            ServoParameterRec_SetValue274[1] = ServoParameterRecValue_Temp274[3];
+            ServoParameterRec_SetValue274[2] = ServoParameterRecValue_Temp274[0];
+            ServoParameterRec_SetValue274[3] = ServoParameterRecValue_Temp274[1];
+                                      
+            ServoParameterRec_SetValue275[0] = ServoParameterRecValue_Temp275[2];
+            ServoParameterRec_SetValue275[1] = ServoParameterRecValue_Temp275[3];
+            ServoParameterRec_SetValue275[2] = ServoParameterRecValue_Temp275[0];
+            ServoParameterRec_SetValue275[3] = ServoParameterRecValue_Temp275[1];
+                                      
+            ServoParameterRec_SetValue276[0] = ServoParameterRecValue_Temp276[2];
+            ServoParameterRec_SetValue276[1] = ServoParameterRecValue_Temp276[3];
+            ServoParameterRec_SetValue276[2] = ServoParameterRecValue_Temp276[0];
+            ServoParameterRec_SetValue276[3] = ServoParameterRecValue_Temp276[1];
+                                      
+            ServoParameterRec_SetValue277[0] = ServoParameterRecValue_Temp277[2];
+            ServoParameterRec_SetValue277[1] = ServoParameterRecValue_Temp277[3];
+            ServoParameterRec_SetValue277[2] = ServoParameterRecValue_Temp277[0];
+            ServoParameterRec_SetValue277[3] = ServoParameterRecValue_Temp277[1];
+                                      
+            ServoParameterRec_SetValue278[0] = ServoParameterRecValue_Temp278[2];
+            ServoParameterRec_SetValue278[1] = ServoParameterRecValue_Temp278[3];
+            ServoParameterRec_SetValue278[2] = ServoParameterRecValue_Temp278[0];
+            ServoParameterRec_SetValue278[3] = ServoParameterRecValue_Temp278[1];
+                                      
+            ServoParameterRec_SetValue279[0] = ServoParameterRecValue_Temp279[2];
+            ServoParameterRec_SetValue279[1] = ServoParameterRecValue_Temp279[3];
+            ServoParameterRec_SetValue279[2] = ServoParameterRecValue_Temp279[0];
+            ServoParameterRec_SetValue279[3] = ServoParameterRecValue_Temp279[1];
+
+            ServoParameterRec_SetValue280[0] = ServoParameterRecValue_Temp280[2];
+            ServoParameterRec_SetValue280[1] = ServoParameterRecValue_Temp280[3];
+            ServoParameterRec_SetValue280[2] = ServoParameterRecValue_Temp280[0];
+            ServoParameterRec_SetValue280[3] = ServoParameterRecValue_Temp280[1];
+
+
+
+            ServoParameterRec_SetValue281[0] = ServoParameterRecValue_Temp281[2];
+            ServoParameterRec_SetValue281[1] = ServoParameterRecValue_Temp281[3];
+            ServoParameterRec_SetValue281[2] = ServoParameterRecValue_Temp281[0];
+            ServoParameterRec_SetValue281[3] = ServoParameterRecValue_Temp281[1];
+                                      
+            ServoParameterRec_SetValue282[0] = ServoParameterRecValue_Temp282[2];
+            ServoParameterRec_SetValue282[1] = ServoParameterRecValue_Temp282[3];
+            ServoParameterRec_SetValue282[2] = ServoParameterRecValue_Temp282[0];
+            ServoParameterRec_SetValue282[3] = ServoParameterRecValue_Temp282[1];
+                                      
+            ServoParameterRec_SetValue283[0] = ServoParameterRecValue_Temp283[2];
+            ServoParameterRec_SetValue283[1] = ServoParameterRecValue_Temp283[3];
+            ServoParameterRec_SetValue283[2] = ServoParameterRecValue_Temp283[0];
+            ServoParameterRec_SetValue283[3] = ServoParameterRecValue_Temp283[1];
+                                      
+            ServoParameterRec_SetValue284[0] = ServoParameterRecValue_Temp284[2];
+            ServoParameterRec_SetValue284[1] = ServoParameterRecValue_Temp284[3];
+            ServoParameterRec_SetValue284[2] = ServoParameterRecValue_Temp284[0];
+            ServoParameterRec_SetValue284[3] = ServoParameterRecValue_Temp284[1];
+                                      
+            ServoParameterRec_SetValue285[0] = ServoParameterRecValue_Temp285[2];
+            ServoParameterRec_SetValue285[1] = ServoParameterRecValue_Temp285[3];
+            ServoParameterRec_SetValue285[2] = ServoParameterRecValue_Temp285[0];
+            ServoParameterRec_SetValue285[3] = ServoParameterRecValue_Temp285[1];
+                                      
+            ServoParameterRec_SetValue286[0] = ServoParameterRecValue_Temp286[2];
+            ServoParameterRec_SetValue286[1] = ServoParameterRecValue_Temp286[3];
+            ServoParameterRec_SetValue286[2] = ServoParameterRecValue_Temp286[0];
+            ServoParameterRec_SetValue286[3] = ServoParameterRecValue_Temp286[1];
+                                      
+            ServoParameterRec_SetValue287[0] = ServoParameterRecValue_Temp287[2];
+            ServoParameterRec_SetValue287[1] = ServoParameterRecValue_Temp287[3];
+            ServoParameterRec_SetValue287[2] = ServoParameterRecValue_Temp287[0];
+            ServoParameterRec_SetValue287[3] = ServoParameterRecValue_Temp287[1];
+                                      
+            ServoParameterRec_SetValue288[0] = ServoParameterRecValue_Temp288[2];
+            ServoParameterRec_SetValue288[1] = ServoParameterRecValue_Temp288[3];
+            ServoParameterRec_SetValue288[2] = ServoParameterRecValue_Temp288[0];
+            ServoParameterRec_SetValue288[3] = ServoParameterRecValue_Temp288[1];
+                                      
+            ServoParameterRec_SetValue289[0] = ServoParameterRecValue_Temp289[2];
+            ServoParameterRec_SetValue289[1] = ServoParameterRecValue_Temp289[3];
+            ServoParameterRec_SetValue289[2] = ServoParameterRecValue_Temp289[0];
+            ServoParameterRec_SetValue289[3] = ServoParameterRecValue_Temp289[1];
+
+            ServoParameterRec_SetValue290[0] = ServoParameterRecValue_Temp290[2];
+            ServoParameterRec_SetValue290[1] = ServoParameterRecValue_Temp290[3];
+            ServoParameterRec_SetValue290[2] = ServoParameterRecValue_Temp290[0];
+            ServoParameterRec_SetValue290[3] = ServoParameterRecValue_Temp290[1];
+
+
+
+            ServoParameterRec_SetValue291[0] = ServoParameterRecValue_Temp291[2];
+            ServoParameterRec_SetValue291[1] = ServoParameterRecValue_Temp291[3];
+            ServoParameterRec_SetValue291[2] = ServoParameterRecValue_Temp291[0];
+            ServoParameterRec_SetValue291[3] = ServoParameterRecValue_Temp291[1];
+                                      
+            ServoParameterRec_SetValue292[0] = ServoParameterRecValue_Temp292[2];
+            ServoParameterRec_SetValue292[1] = ServoParameterRecValue_Temp292[3];
+            ServoParameterRec_SetValue292[2] = ServoParameterRecValue_Temp292[0];
+            ServoParameterRec_SetValue292[3] = ServoParameterRecValue_Temp292[1];
+                                      
+            ServoParameterRec_SetValue293[0] = ServoParameterRecValue_Temp293[2];
+            ServoParameterRec_SetValue293[1] = ServoParameterRecValue_Temp293[3];
+            ServoParameterRec_SetValue293[2] = ServoParameterRecValue_Temp293[0];
+            ServoParameterRec_SetValue293[3] = ServoParameterRecValue_Temp293[1];
+                                      
+            ServoParameterRec_SetValue294[0] = ServoParameterRecValue_Temp294[2];
+            ServoParameterRec_SetValue294[1] = ServoParameterRecValue_Temp294[3];
+            ServoParameterRec_SetValue294[2] = ServoParameterRecValue_Temp294[0];
+            ServoParameterRec_SetValue294[3] = ServoParameterRecValue_Temp294[1];
+                                      
+            ServoParameterRec_SetValue295[0] = ServoParameterRecValue_Temp295[2];
+            ServoParameterRec_SetValue295[1] = ServoParameterRecValue_Temp295[3];
+            ServoParameterRec_SetValue295[2] = ServoParameterRecValue_Temp295[0];
+            ServoParameterRec_SetValue295[3] = ServoParameterRecValue_Temp295[1];
+                                      
+            ServoParameterRec_SetValue296[0] = ServoParameterRecValue_Temp296[2];
+            ServoParameterRec_SetValue296[1] = ServoParameterRecValue_Temp296[3];
+            ServoParameterRec_SetValue296[2] = ServoParameterRecValue_Temp296[0];
+            ServoParameterRec_SetValue296[3] = ServoParameterRecValue_Temp296[1];
+                                      
+            ServoParameterRec_SetValue297[0] = ServoParameterRecValue_Temp297[2];
+            ServoParameterRec_SetValue297[1] = ServoParameterRecValue_Temp297[3];
+            ServoParameterRec_SetValue297[2] = ServoParameterRecValue_Temp297[0];
+            ServoParameterRec_SetValue297[3] = ServoParameterRecValue_Temp297[1];
+                                      
+            ServoParameterRec_SetValue298[0] = ServoParameterRecValue_Temp298[2];
+            ServoParameterRec_SetValue298[1] = ServoParameterRecValue_Temp298[3];
+            ServoParameterRec_SetValue298[2] = ServoParameterRecValue_Temp298[0];
+            ServoParameterRec_SetValue298[3] = ServoParameterRecValue_Temp298[1];
+                                      
+            ServoParameterRec_SetValue299[0] = ServoParameterRecValue_Temp299[2];
+            ServoParameterRec_SetValue299[1] = ServoParameterRecValue_Temp299[3];
+            ServoParameterRec_SetValue299[2] = ServoParameterRecValue_Temp299[0];
+            ServoParameterRec_SetValue299[3] = ServoParameterRecValue_Temp299[1];
+
+            ServoParameterRec_SetValue300[0] = ServoParameterRecValue_Temp300[2];
+            ServoParameterRec_SetValue300[1] = ServoParameterRecValue_Temp300[3];
+            ServoParameterRec_SetValue300[2] = ServoParameterRecValue_Temp300[0];
+            ServoParameterRec_SetValue300[3] = ServoParameterRecValue_Temp300[1];
+
+
+
+            ServoParameterRec_SetValue301[0] = ServoParameterRecValue_Temp301[2];
+            ServoParameterRec_SetValue301[1] = ServoParameterRecValue_Temp301[3];
+            ServoParameterRec_SetValue301[2] = ServoParameterRecValue_Temp301[0];
+            ServoParameterRec_SetValue301[3] = ServoParameterRecValue_Temp301[1];
+                                      
+            ServoParameterRec_SetValue302[0] = ServoParameterRecValue_Temp302[2];
+            ServoParameterRec_SetValue302[1] = ServoParameterRecValue_Temp302[3];
+            ServoParameterRec_SetValue302[2] = ServoParameterRecValue_Temp302[0];
+            ServoParameterRec_SetValue302[3] = ServoParameterRecValue_Temp302[1];
+                                      
+            ServoParameterRec_SetValue303[0] = ServoParameterRecValue_Temp303[2];
+            ServoParameterRec_SetValue303[1] = ServoParameterRecValue_Temp303[3];
+            ServoParameterRec_SetValue303[2] = ServoParameterRecValue_Temp303[0];
+            ServoParameterRec_SetValue303[3] = ServoParameterRecValue_Temp303[1];
+                                      
+            ServoParameterRec_SetValue304[0] = ServoParameterRecValue_Temp304[2];
+            ServoParameterRec_SetValue304[1] = ServoParameterRecValue_Temp304[3];
+            ServoParameterRec_SetValue304[2] = ServoParameterRecValue_Temp304[0];
+            ServoParameterRec_SetValue304[3] = ServoParameterRecValue_Temp304[1];
+                                      
+            ServoParameterRec_SetValue305[0] = ServoParameterRecValue_Temp305[2];
+            ServoParameterRec_SetValue305[1] = ServoParameterRecValue_Temp305[3];
+            ServoParameterRec_SetValue305[2] = ServoParameterRecValue_Temp305[0];
+            ServoParameterRec_SetValue305[3] = ServoParameterRecValue_Temp305[1];
+                                      
+            ServoParameterRec_SetValue306[0] = ServoParameterRecValue_Temp306[2];
+            ServoParameterRec_SetValue306[1] = ServoParameterRecValue_Temp306[3];
+            ServoParameterRec_SetValue306[2] = ServoParameterRecValue_Temp306[0];
+            ServoParameterRec_SetValue306[3] = ServoParameterRecValue_Temp306[1];
+                                      
+            ServoParameterRec_SetValue307[0] = ServoParameterRecValue_Temp307[2];
+            ServoParameterRec_SetValue307[1] = ServoParameterRecValue_Temp307[3];
+            ServoParameterRec_SetValue307[2] = ServoParameterRecValue_Temp307[0];
+            ServoParameterRec_SetValue307[3] = ServoParameterRecValue_Temp307[1];
+                                      
+            ServoParameterRec_SetValue308[0] = ServoParameterRecValue_Temp308[2];
+            ServoParameterRec_SetValue308[1] = ServoParameterRecValue_Temp308[3];
+            ServoParameterRec_SetValue308[2] = ServoParameterRecValue_Temp308[0];
+            ServoParameterRec_SetValue308[3] = ServoParameterRecValue_Temp308[1];
+                                      
+            ServoParameterRec_SetValue309[0] = ServoParameterRecValue_Temp309[2];
+            ServoParameterRec_SetValue309[1] = ServoParameterRecValue_Temp309[3];
+            ServoParameterRec_SetValue309[2] = ServoParameterRecValue_Temp309[0];
+            ServoParameterRec_SetValue309[3] = ServoParameterRecValue_Temp309[1];
+
+            ServoParameterRec_SetValue310[0] = ServoParameterRecValue_Temp310[2];
+            ServoParameterRec_SetValue310[1] = ServoParameterRecValue_Temp310[3];
+            ServoParameterRec_SetValue310[2] = ServoParameterRecValue_Temp310[0];
+            ServoParameterRec_SetValue310[3] = ServoParameterRecValue_Temp310[1];
+
+
+
+            ServoParameterRec_SetValue311[0] = ServoParameterRecValue_Temp311[2];
+            ServoParameterRec_SetValue311[1] = ServoParameterRecValue_Temp311[3];
+            ServoParameterRec_SetValue311[2] = ServoParameterRecValue_Temp311[0];
+            ServoParameterRec_SetValue311[3] = ServoParameterRecValue_Temp311[1];
+                                                                          
+            ServoParameterRec_SetValue312[0] = ServoParameterRecValue_Temp312[2];
+            ServoParameterRec_SetValue312[1] = ServoParameterRecValue_Temp312[3];
+            ServoParameterRec_SetValue312[2] = ServoParameterRecValue_Temp312[0];
+            ServoParameterRec_SetValue312[3] = ServoParameterRecValue_Temp312[1];
+                                                                          
+            ServoParameterRec_SetValue313[0] = ServoParameterRecValue_Temp313[2];
+            ServoParameterRec_SetValue313[1] = ServoParameterRecValue_Temp313[3];
+            ServoParameterRec_SetValue313[2] = ServoParameterRecValue_Temp313[0];
+            ServoParameterRec_SetValue313[3] = ServoParameterRecValue_Temp313[1];
+                                                                          
+            ServoParameterRec_SetValue314[0] = ServoParameterRecValue_Temp314[2];
+            ServoParameterRec_SetValue314[1] = ServoParameterRecValue_Temp314[3];
+            ServoParameterRec_SetValue314[2] = ServoParameterRecValue_Temp314[0];
+            ServoParameterRec_SetValue314[3] = ServoParameterRecValue_Temp314[1];
+                                                                          
+            ServoParameterRec_SetValue315[0] = ServoParameterRecValue_Temp315[2];
+            ServoParameterRec_SetValue315[1] = ServoParameterRecValue_Temp315[3];
+            ServoParameterRec_SetValue315[2] = ServoParameterRecValue_Temp315[0];
+            ServoParameterRec_SetValue315[3] = ServoParameterRecValue_Temp315[1];
+                                                                          
+            ServoParameterRec_SetValue316[0] = ServoParameterRecValue_Temp316[2];
+            ServoParameterRec_SetValue316[1] = ServoParameterRecValue_Temp316[3];
+            ServoParameterRec_SetValue316[2] = ServoParameterRecValue_Temp316[0];
+            ServoParameterRec_SetValue316[3] = ServoParameterRecValue_Temp316[1];
+                                                                          
+            ServoParameterRec_SetValue317[0] = ServoParameterRecValue_Temp317[2];
+            ServoParameterRec_SetValue317[1] = ServoParameterRecValue_Temp317[3];
+            ServoParameterRec_SetValue317[2] = ServoParameterRecValue_Temp317[0];
+            ServoParameterRec_SetValue317[3] = ServoParameterRecValue_Temp317[1];
+                                                                          
+            ServoParameterRec_SetValue318[0] = ServoParameterRecValue_Temp318[2];
+            ServoParameterRec_SetValue318[1] = ServoParameterRecValue_Temp318[3];
+            ServoParameterRec_SetValue318[2] = ServoParameterRecValue_Temp318[0];
+            ServoParameterRec_SetValue318[3] = ServoParameterRecValue_Temp318[1];
+                                                                          
+            ServoParameterRec_SetValue319[0] = ServoParameterRecValue_Temp319[2];
+            ServoParameterRec_SetValue319[1] = ServoParameterRecValue_Temp319[3];
+            ServoParameterRec_SetValue319[2] = ServoParameterRecValue_Temp319[0];
+            ServoParameterRec_SetValue319[3] = ServoParameterRecValue_Temp319[1];
+                                                                          
+            ServoParameterRec_SetValue320[0] = ServoParameterRecValue_Temp320[2];
+            ServoParameterRec_SetValue320[1] = ServoParameterRecValue_Temp320[3];
+            ServoParameterRec_SetValue320[2] = ServoParameterRecValue_Temp320[0];
+            ServoParameterRec_SetValue320[3] = ServoParameterRecValue_Temp320[1];
+
+
+
+            ServoParameterRec_SetValue321[0] = ServoParameterRecValue_Temp321[2];
+            ServoParameterRec_SetValue321[1] = ServoParameterRecValue_Temp321[3];
+            ServoParameterRec_SetValue321[2] = ServoParameterRecValue_Temp321[0];
+            ServoParameterRec_SetValue321[3] = ServoParameterRecValue_Temp321[1];
+                                      
+            ServoParameterRec_SetValue322[0] = ServoParameterRecValue_Temp322[2];
+            ServoParameterRec_SetValue322[1] = ServoParameterRecValue_Temp322[3];
+            ServoParameterRec_SetValue322[2] = ServoParameterRecValue_Temp322[0];
+            ServoParameterRec_SetValue322[3] = ServoParameterRecValue_Temp322[1];
+                                      
+            ServoParameterRec_SetValue323[0] = ServoParameterRecValue_Temp323[2];
+            ServoParameterRec_SetValue323[1] = ServoParameterRecValue_Temp323[3];
+            ServoParameterRec_SetValue323[2] = ServoParameterRecValue_Temp323[0];
+            ServoParameterRec_SetValue323[3] = ServoParameterRecValue_Temp323[1];
+                                      
+            ServoParameterRec_SetValue324[0] = ServoParameterRecValue_Temp324[2];
+            ServoParameterRec_SetValue324[1] = ServoParameterRecValue_Temp324[3];
+            ServoParameterRec_SetValue324[2] = ServoParameterRecValue_Temp324[0];
+            ServoParameterRec_SetValue324[3] = ServoParameterRecValue_Temp324[1];
+                                      
+            ServoParameterRec_SetValue325[0] = ServoParameterRecValue_Temp325[2];
+            ServoParameterRec_SetValue325[1] = ServoParameterRecValue_Temp325[3];
+            ServoParameterRec_SetValue325[2] = ServoParameterRecValue_Temp325[0];
+            ServoParameterRec_SetValue325[3] = ServoParameterRecValue_Temp325[1];
+                                      
+            ServoParameterRec_SetValue326[0] = ServoParameterRecValue_Temp326[2];
+            ServoParameterRec_SetValue326[1] = ServoParameterRecValue_Temp326[3];
+            ServoParameterRec_SetValue326[2] = ServoParameterRecValue_Temp326[0];
+            ServoParameterRec_SetValue326[3] = ServoParameterRecValue_Temp326[1];
+                                      
+            ServoParameterRec_SetValue327[0] = ServoParameterRecValue_Temp327[2];
+            ServoParameterRec_SetValue327[1] = ServoParameterRecValue_Temp327[3];
+            ServoParameterRec_SetValue327[2] = ServoParameterRecValue_Temp327[0];
+            ServoParameterRec_SetValue327[3] = ServoParameterRecValue_Temp327[1];
+                                      
+            ServoParameterRec_SetValue328[0] = ServoParameterRecValue_Temp328[2];
+            ServoParameterRec_SetValue328[1] = ServoParameterRecValue_Temp328[3];
+            ServoParameterRec_SetValue328[2] = ServoParameterRecValue_Temp328[0];
+            ServoParameterRec_SetValue328[3] = ServoParameterRecValue_Temp328[1];
+                                      
+            ServoParameterRec_SetValue329[0] = ServoParameterRecValue_Temp329[2];
+            ServoParameterRec_SetValue329[1] = ServoParameterRecValue_Temp329[3];
+            ServoParameterRec_SetValue329[2] = ServoParameterRecValue_Temp329[0];
+            ServoParameterRec_SetValue329[3] = ServoParameterRecValue_Temp329[1];
+
+            ServoParameterRec_SetValue330[0] = ServoParameterRecValue_Temp330[2];
+            ServoParameterRec_SetValue330[1] = ServoParameterRecValue_Temp330[3];
+            ServoParameterRec_SetValue330[2] = ServoParameterRecValue_Temp330[0];
+            ServoParameterRec_SetValue330[3] = ServoParameterRecValue_Temp330[1];
+
+
+
+            ServoParameterRec_SetValue331[0] = ServoParameterRecValue_Temp331[2];
+            ServoParameterRec_SetValue331[1] = ServoParameterRecValue_Temp331[3];
+            ServoParameterRec_SetValue331[2] = ServoParameterRecValue_Temp331[0];
+            ServoParameterRec_SetValue331[3] = ServoParameterRecValue_Temp331[1];
+                                      
+            ServoParameterRec_SetValue332[0] = ServoParameterRecValue_Temp332[2];
+            ServoParameterRec_SetValue332[1] = ServoParameterRecValue_Temp332[3];
+            ServoParameterRec_SetValue332[2] = ServoParameterRecValue_Temp332[0];
+            ServoParameterRec_SetValue332[3] = ServoParameterRecValue_Temp332[1];
+                                      
+            ServoParameterRec_SetValue333[0] = ServoParameterRecValue_Temp333[2];
+            ServoParameterRec_SetValue333[1] = ServoParameterRecValue_Temp333[3];
+            ServoParameterRec_SetValue333[2] = ServoParameterRecValue_Temp333[0];
+            ServoParameterRec_SetValue333[3] = ServoParameterRecValue_Temp333[1];
+                                      
+            ServoParameterRec_SetValue334[0] = ServoParameterRecValue_Temp334[2];
+            ServoParameterRec_SetValue334[1] = ServoParameterRecValue_Temp334[3];
+            ServoParameterRec_SetValue334[2] = ServoParameterRecValue_Temp334[0];
+            ServoParameterRec_SetValue334[3] = ServoParameterRecValue_Temp334[1];
+                                      
+            ServoParameterRec_SetValue335[0] = ServoParameterRecValue_Temp335[2];
+            ServoParameterRec_SetValue335[1] = ServoParameterRecValue_Temp335[3];
+            ServoParameterRec_SetValue335[2] = ServoParameterRecValue_Temp335[0];
+            ServoParameterRec_SetValue335[3] = ServoParameterRecValue_Temp335[1];
+                                      
+            ServoParameterRec_SetValue336[0] = ServoParameterRecValue_Temp336[2];
+            ServoParameterRec_SetValue336[1] = ServoParameterRecValue_Temp336[3];
+            ServoParameterRec_SetValue336[2] = ServoParameterRecValue_Temp336[0];
+            ServoParameterRec_SetValue336[3] = ServoParameterRecValue_Temp336[1];
+                                      
+            ServoParameterRec_SetValue337[0] = ServoParameterRecValue_Temp337[2];
+            ServoParameterRec_SetValue337[1] = ServoParameterRecValue_Temp337[3];
+            ServoParameterRec_SetValue337[2] = ServoParameterRecValue_Temp337[0];
+            ServoParameterRec_SetValue337[3] = ServoParameterRecValue_Temp337[1];
+                                      
+            ServoParameterRec_SetValue338[0] = ServoParameterRecValue_Temp338[2];
+            ServoParameterRec_SetValue338[1] = ServoParameterRecValue_Temp338[3];
+            ServoParameterRec_SetValue338[2] = ServoParameterRecValue_Temp338[0];
+            ServoParameterRec_SetValue338[3] = ServoParameterRecValue_Temp338[1];
+                                      
+            ServoParameterRec_SetValue339[0] = ServoParameterRecValue_Temp339[2];
+            ServoParameterRec_SetValue339[1] = ServoParameterRecValue_Temp339[3];
+            ServoParameterRec_SetValue339[2] = ServoParameterRecValue_Temp339[0];
+            ServoParameterRec_SetValue339[3] = ServoParameterRecValue_Temp339[1];
+
+            ServoParameterRec_SetValue340[0] = ServoParameterRecValue_Temp340[2];
+            ServoParameterRec_SetValue340[1] = ServoParameterRecValue_Temp340[3];
+            ServoParameterRec_SetValue340[2] = ServoParameterRecValue_Temp340[0];
+            ServoParameterRec_SetValue340[3] = ServoParameterRecValue_Temp340[1];
+
+
+
+            ServoParameterRec_SetValue341[0] = ServoParameterRecValue_Temp341[2];
+            ServoParameterRec_SetValue341[1] = ServoParameterRecValue_Temp341[3];
+            ServoParameterRec_SetValue341[2] = ServoParameterRecValue_Temp341[0];
+            ServoParameterRec_SetValue341[3] = ServoParameterRecValue_Temp341[1];
+                                      
+            ServoParameterRec_SetValue342[0] = ServoParameterRecValue_Temp342[2];
+            ServoParameterRec_SetValue342[1] = ServoParameterRecValue_Temp342[3];
+            ServoParameterRec_SetValue342[2] = ServoParameterRecValue_Temp342[0];
+            ServoParameterRec_SetValue342[3] = ServoParameterRecValue_Temp342[1];
+                                      
+            ServoParameterRec_SetValue343[0] = ServoParameterRecValue_Temp343[2];
+            ServoParameterRec_SetValue343[1] = ServoParameterRecValue_Temp343[3];
+            ServoParameterRec_SetValue343[2] = ServoParameterRecValue_Temp343[0];
+            ServoParameterRec_SetValue343[3] = ServoParameterRecValue_Temp343[1];
+                                      
+            ServoParameterRec_SetValue344[0] = ServoParameterRecValue_Temp344[2];
+            ServoParameterRec_SetValue344[1] = ServoParameterRecValue_Temp344[3];
+            ServoParameterRec_SetValue344[2] = ServoParameterRecValue_Temp344[0];
+            ServoParameterRec_SetValue344[3] = ServoParameterRecValue_Temp344[1];
+                                      
+            ServoParameterRec_SetValue345[0] = ServoParameterRecValue_Temp345[2];
+            ServoParameterRec_SetValue345[1] = ServoParameterRecValue_Temp345[3];
+            ServoParameterRec_SetValue345[2] = ServoParameterRecValue_Temp345[0];
+            ServoParameterRec_SetValue345[3] = ServoParameterRecValue_Temp345[1];
+                                      
+            ServoParameterRec_SetValue346[0] = ServoParameterRecValue_Temp346[2];
+            ServoParameterRec_SetValue346[1] = ServoParameterRecValue_Temp346[3];
+            ServoParameterRec_SetValue346[2] = ServoParameterRecValue_Temp346[0];
+            ServoParameterRec_SetValue346[3] = ServoParameterRecValue_Temp346[1];
+                                      
+            ServoParameterRec_SetValue347[0] = ServoParameterRecValue_Temp347[2];
+            ServoParameterRec_SetValue347[1] = ServoParameterRecValue_Temp347[3];
+            ServoParameterRec_SetValue347[2] = ServoParameterRecValue_Temp347[0];
+            ServoParameterRec_SetValue347[3] = ServoParameterRecValue_Temp347[1];
+                                      
+            ServoParameterRec_SetValue348[0] = ServoParameterRecValue_Temp348[2];
+            ServoParameterRec_SetValue348[1] = ServoParameterRecValue_Temp348[3];
+            ServoParameterRec_SetValue348[2] = ServoParameterRecValue_Temp348[0];
+            ServoParameterRec_SetValue348[3] = ServoParameterRecValue_Temp348[1];
+                                      
+            ServoParameterRec_SetValue349[0] = ServoParameterRecValue_Temp349[2];
+            ServoParameterRec_SetValue349[1] = ServoParameterRecValue_Temp349[3];
+            ServoParameterRec_SetValue349[2] = ServoParameterRecValue_Temp349[0];
+            ServoParameterRec_SetValue349[3] = ServoParameterRecValue_Temp349[1];
+
+            ServoParameterRec_SetValue350[0] = ServoParameterRecValue_Temp350[2];
+            ServoParameterRec_SetValue350[1] = ServoParameterRecValue_Temp350[3];
+            ServoParameterRec_SetValue350[2] = ServoParameterRecValue_Temp350[0];
+            ServoParameterRec_SetValue350[3] = ServoParameterRecValue_Temp350[1];
+
+
+
+            ServoParameterRec_SetValue351[0] = ServoParameterRecValue_Temp351[2];
+            ServoParameterRec_SetValue351[1] = ServoParameterRecValue_Temp351[3];
+            ServoParameterRec_SetValue351[2] = ServoParameterRecValue_Temp351[0];
+            ServoParameterRec_SetValue351[3] = ServoParameterRecValue_Temp351[1];
+                                      
+            ServoParameterRec_SetValue352[0] = ServoParameterRecValue_Temp352[2];
+            ServoParameterRec_SetValue352[1] = ServoParameterRecValue_Temp352[3];
+            ServoParameterRec_SetValue352[2] = ServoParameterRecValue_Temp352[0];
+            ServoParameterRec_SetValue352[3] = ServoParameterRecValue_Temp352[1];
+                                      
+            ServoParameterRec_SetValue353[0] = ServoParameterRecValue_Temp353[2];
+            ServoParameterRec_SetValue353[1] = ServoParameterRecValue_Temp353[3];
+            ServoParameterRec_SetValue353[2] = ServoParameterRecValue_Temp353[0];
+            ServoParameterRec_SetValue353[3] = ServoParameterRecValue_Temp353[1];
+                                      
+            ServoParameterRec_SetValue354[0] = ServoParameterRecValue_Temp354[2];
+            ServoParameterRec_SetValue354[1] = ServoParameterRecValue_Temp354[3];
+            ServoParameterRec_SetValue354[2] = ServoParameterRecValue_Temp354[0];
+            ServoParameterRec_SetValue354[3] = ServoParameterRecValue_Temp354[1];
+                                      
+            ServoParameterRec_SetValue355[0] = ServoParameterRecValue_Temp355[2];
+            ServoParameterRec_SetValue355[1] = ServoParameterRecValue_Temp355[3];
+            ServoParameterRec_SetValue355[2] = ServoParameterRecValue_Temp355[0];
+            ServoParameterRec_SetValue355[3] = ServoParameterRecValue_Temp355[1];
+                                      
+            ServoParameterRec_SetValue356[0] = ServoParameterRecValue_Temp356[2];
+            ServoParameterRec_SetValue356[1] = ServoParameterRecValue_Temp356[3];
+            ServoParameterRec_SetValue356[2] = ServoParameterRecValue_Temp356[0];
+            ServoParameterRec_SetValue356[3] = ServoParameterRecValue_Temp356[1];
+                                      
+            ServoParameterRec_SetValue357[0] = ServoParameterRecValue_Temp357[2];
+            ServoParameterRec_SetValue357[1] = ServoParameterRecValue_Temp357[3];
+            ServoParameterRec_SetValue357[2] = ServoParameterRecValue_Temp357[0];
+            ServoParameterRec_SetValue357[3] = ServoParameterRecValue_Temp357[1];
+                                      
+            ServoParameterRec_SetValue358[0] = ServoParameterRecValue_Temp358[2];
+            ServoParameterRec_SetValue358[1] = ServoParameterRecValue_Temp358[3];
+            ServoParameterRec_SetValue358[2] = ServoParameterRecValue_Temp358[0];
+            ServoParameterRec_SetValue358[3] = ServoParameterRecValue_Temp358[1];
+                                      
+            ServoParameterRec_SetValue359[0] = ServoParameterRecValue_Temp359[2];
+            ServoParameterRec_SetValue359[1] = ServoParameterRecValue_Temp359[3];
+            ServoParameterRec_SetValue359[2] = ServoParameterRecValue_Temp359[0];
+            ServoParameterRec_SetValue359[3] = ServoParameterRecValue_Temp359[1];
+
+            ServoParameterRec_SetValue360[0] = ServoParameterRecValue_Temp360[2];
+            ServoParameterRec_SetValue360[1] = ServoParameterRecValue_Temp360[3];
+            ServoParameterRec_SetValue360[2] = ServoParameterRecValue_Temp360[0];
+            ServoParameterRec_SetValue360[3] = ServoParameterRecValue_Temp360[1];
+
+
+
+            ServoParameterRec_SetValue361[0] = ServoParameterRecValue_Temp361[2];
+            ServoParameterRec_SetValue361[1] = ServoParameterRecValue_Temp361[3];
+            ServoParameterRec_SetValue361[2] = ServoParameterRecValue_Temp361[0];
+            ServoParameterRec_SetValue361[3] = ServoParameterRecValue_Temp361[1];
+                                      
+            ServoParameterRec_SetValue362[0] = ServoParameterRecValue_Temp362[2];
+            ServoParameterRec_SetValue362[1] = ServoParameterRecValue_Temp362[3];
+            ServoParameterRec_SetValue362[2] = ServoParameterRecValue_Temp362[0];
+            ServoParameterRec_SetValue362[3] = ServoParameterRecValue_Temp362[1];
+                                      
+            ServoParameterRec_SetValue363[0] = ServoParameterRecValue_Temp363[2];
+            ServoParameterRec_SetValue363[1] = ServoParameterRecValue_Temp363[3];
+            ServoParameterRec_SetValue363[2] = ServoParameterRecValue_Temp363[0];
+            ServoParameterRec_SetValue363[3] = ServoParameterRecValue_Temp363[1];
+                                      
+            ServoParameterRec_SetValue364[0] = ServoParameterRecValue_Temp364[2];
+            ServoParameterRec_SetValue364[1] = ServoParameterRecValue_Temp364[3];
+            ServoParameterRec_SetValue364[2] = ServoParameterRecValue_Temp364[0];
+            ServoParameterRec_SetValue364[3] = ServoParameterRecValue_Temp364[1];
+                                      
+            ServoParameterRec_SetValue365[0] = ServoParameterRecValue_Temp365[2];
+            ServoParameterRec_SetValue365[1] = ServoParameterRecValue_Temp365[3];
+            ServoParameterRec_SetValue365[2] = ServoParameterRecValue_Temp365[0];
+            ServoParameterRec_SetValue365[3] = ServoParameterRecValue_Temp365[1];
+                                      
+            ServoParameterRec_SetValue366[0] = ServoParameterRecValue_Temp366[2];
+            ServoParameterRec_SetValue366[1] = ServoParameterRecValue_Temp366[3];
+            ServoParameterRec_SetValue366[2] = ServoParameterRecValue_Temp366[0];
+            ServoParameterRec_SetValue366[3] = ServoParameterRecValue_Temp366[1];
+                                      
+            ServoParameterRec_SetValue367[0] = ServoParameterRecValue_Temp367[2];
+            ServoParameterRec_SetValue367[1] = ServoParameterRecValue_Temp367[3];
+            ServoParameterRec_SetValue367[2] = ServoParameterRecValue_Temp367[0];
+            ServoParameterRec_SetValue367[3] = ServoParameterRecValue_Temp367[1];
+                                      
+            ServoParameterRec_SetValue368[0] = ServoParameterRecValue_Temp368[2];
+            ServoParameterRec_SetValue368[1] = ServoParameterRecValue_Temp368[3];
+            ServoParameterRec_SetValue368[2] = ServoParameterRecValue_Temp368[0];
+            ServoParameterRec_SetValue368[3] = ServoParameterRecValue_Temp368[1];
+                                      
+            ServoParameterRec_SetValue369[0] = ServoParameterRecValue_Temp369[2];
+            ServoParameterRec_SetValue369[1] = ServoParameterRecValue_Temp369[3];
+            ServoParameterRec_SetValue369[2] = ServoParameterRecValue_Temp369[0];
+            ServoParameterRec_SetValue369[3] = ServoParameterRecValue_Temp369[1];
+
+            ServoParameterRec_SetValue370[0] = ServoParameterRecValue_Temp370[2];
+            ServoParameterRec_SetValue370[1] = ServoParameterRecValue_Temp370[3];
+            ServoParameterRec_SetValue370[2] = ServoParameterRecValue_Temp370[0];
+            ServoParameterRec_SetValue370[3] = ServoParameterRecValue_Temp370[1];
+
+
+
+            ServoParameterRec_SetValue371[0] = ServoParameterRecValue_Temp371[2];
+            ServoParameterRec_SetValue371[1] = ServoParameterRecValue_Temp371[3];
+            ServoParameterRec_SetValue371[2] = ServoParameterRecValue_Temp371[0];
+            ServoParameterRec_SetValue371[3] = ServoParameterRecValue_Temp371[1];
+                                      
+            ServoParameterRec_SetValue372[0] = ServoParameterRecValue_Temp372[2];
+            ServoParameterRec_SetValue372[1] = ServoParameterRecValue_Temp372[3];
+            ServoParameterRec_SetValue372[2] = ServoParameterRecValue_Temp372[0];
+            ServoParameterRec_SetValue372[3] = ServoParameterRecValue_Temp372[1];
+                                      
+            ServoParameterRec_SetValue373[0] = ServoParameterRecValue_Temp373[2];
+            ServoParameterRec_SetValue373[1] = ServoParameterRecValue_Temp373[3];
+            ServoParameterRec_SetValue373[2] = ServoParameterRecValue_Temp373[0];
+            ServoParameterRec_SetValue373[3] = ServoParameterRecValue_Temp373[1];
+                                      
+            ServoParameterRec_SetValue374[0] = ServoParameterRecValue_Temp374[2];
+            ServoParameterRec_SetValue374[1] = ServoParameterRecValue_Temp374[3];
+            ServoParameterRec_SetValue374[2] = ServoParameterRecValue_Temp374[0];
+            ServoParameterRec_SetValue374[3] = ServoParameterRecValue_Temp374[1];
+                                      
+            ServoParameterRec_SetValue375[0] = ServoParameterRecValue_Temp375[2];
+            ServoParameterRec_SetValue375[1] = ServoParameterRecValue_Temp375[3];
+            ServoParameterRec_SetValue375[2] = ServoParameterRecValue_Temp375[0];
+            ServoParameterRec_SetValue375[3] = ServoParameterRecValue_Temp375[1];
+                                      
+            ServoParameterRec_SetValue376[0] = ServoParameterRecValue_Temp376[2];
+            ServoParameterRec_SetValue376[1] = ServoParameterRecValue_Temp376[3];
+            ServoParameterRec_SetValue376[2] = ServoParameterRecValue_Temp376[0];
+            ServoParameterRec_SetValue376[3] = ServoParameterRecValue_Temp376[1];
+                                      
+            ServoParameterRec_SetValue377[0] = ServoParameterRecValue_Temp377[2];
+            ServoParameterRec_SetValue377[1] = ServoParameterRecValue_Temp377[3];
+            ServoParameterRec_SetValue377[2] = ServoParameterRecValue_Temp377[0];
+            ServoParameterRec_SetValue377[3] = ServoParameterRecValue_Temp377[1];
+                                      
+            ServoParameterRec_SetValue378[0] = ServoParameterRecValue_Temp378[2];
+            ServoParameterRec_SetValue378[1] = ServoParameterRecValue_Temp378[3];
+            ServoParameterRec_SetValue378[2] = ServoParameterRecValue_Temp378[0];
+            ServoParameterRec_SetValue378[3] = ServoParameterRecValue_Temp378[1];
+                                      
+            ServoParameterRec_SetValue379[0] = ServoParameterRecValue_Temp379[2];
+            ServoParameterRec_SetValue379[1] = ServoParameterRecValue_Temp379[3];
+            ServoParameterRec_SetValue379[2] = ServoParameterRecValue_Temp379[0];
+            ServoParameterRec_SetValue379[3] = ServoParameterRecValue_Temp379[1];
+
+            ServoParameterRec_SetValue380[0] = ServoParameterRecValue_Temp380[2];
+            ServoParameterRec_SetValue380[1] = ServoParameterRecValue_Temp380[3];
+            ServoParameterRec_SetValue380[2] = ServoParameterRecValue_Temp380[0];
+            ServoParameterRec_SetValue380[3] = ServoParameterRecValue_Temp380[1];
+
+
+
+            ServoParameterRec_SetValue381[0] = ServoParameterRecValue_Temp381[2];
+            ServoParameterRec_SetValue381[1] = ServoParameterRecValue_Temp381[3];
+            ServoParameterRec_SetValue381[2] = ServoParameterRecValue_Temp381[0];
+            ServoParameterRec_SetValue381[3] = ServoParameterRecValue_Temp381[1];
+                                      
+            ServoParameterRec_SetValue382[0] = ServoParameterRecValue_Temp382[2];
+            ServoParameterRec_SetValue382[1] = ServoParameterRecValue_Temp382[3];
+            ServoParameterRec_SetValue382[2] = ServoParameterRecValue_Temp382[0];
+            ServoParameterRec_SetValue382[3] = ServoParameterRecValue_Temp382[1];
+                                      
+            ServoParameterRec_SetValue383[0] = ServoParameterRecValue_Temp383[2];
+            ServoParameterRec_SetValue383[1] = ServoParameterRecValue_Temp383[3];
+            ServoParameterRec_SetValue383[2] = ServoParameterRecValue_Temp383[0];
+            ServoParameterRec_SetValue383[3] = ServoParameterRecValue_Temp383[1];
+                                      
+            ServoParameterRec_SetValue384[0] = ServoParameterRecValue_Temp384[2];
+            ServoParameterRec_SetValue384[1] = ServoParameterRecValue_Temp384[3];
+            ServoParameterRec_SetValue384[2] = ServoParameterRecValue_Temp384[0];
+            ServoParameterRec_SetValue384[3] = ServoParameterRecValue_Temp384[1];
+                                      
+            ServoParameterRec_SetValue385[0] = ServoParameterRecValue_Temp385[2];
+            ServoParameterRec_SetValue385[1] = ServoParameterRecValue_Temp385[3];
+            ServoParameterRec_SetValue385[2] = ServoParameterRecValue_Temp385[0];
+            ServoParameterRec_SetValue385[3] = ServoParameterRecValue_Temp385[1];
+                                      
+            ServoParameterRec_SetValue386[0] = ServoParameterRecValue_Temp386[2];
+            ServoParameterRec_SetValue386[1] = ServoParameterRecValue_Temp386[3];
+            ServoParameterRec_SetValue386[2] = ServoParameterRecValue_Temp386[0];
+            ServoParameterRec_SetValue386[3] = ServoParameterRecValue_Temp386[1];
+                                      
+            ServoParameterRec_SetValue387[0] = ServoParameterRecValue_Temp387[2];
+            ServoParameterRec_SetValue387[1] = ServoParameterRecValue_Temp387[3];
+            ServoParameterRec_SetValue387[2] = ServoParameterRecValue_Temp387[0];
+            ServoParameterRec_SetValue387[3] = ServoParameterRecValue_Temp387[1];
+                                      
+            ServoParameterRec_SetValue388[0] = ServoParameterRecValue_Temp388[2];
+            ServoParameterRec_SetValue388[1] = ServoParameterRecValue_Temp388[3];
+            ServoParameterRec_SetValue388[2] = ServoParameterRecValue_Temp388[0];
+            ServoParameterRec_SetValue388[3] = ServoParameterRecValue_Temp388[1];
+                                      
+            ServoParameterRec_SetValue389[0] = ServoParameterRecValue_Temp389[2];
+            ServoParameterRec_SetValue389[1] = ServoParameterRecValue_Temp389[3];
+            ServoParameterRec_SetValue389[2] = ServoParameterRecValue_Temp389[0];
+            ServoParameterRec_SetValue389[3] = ServoParameterRecValue_Temp389[1];
+
+            ServoParameterRec_SetValue390[0] = ServoParameterRecValue_Temp390[2];
+            ServoParameterRec_SetValue390[1] = ServoParameterRecValue_Temp390[3];
+            ServoParameterRec_SetValue390[2] = ServoParameterRecValue_Temp390[0];
+            ServoParameterRec_SetValue390[3] = ServoParameterRecValue_Temp390[1];
+
+
+
+            ServoParameterRec_SetValue391[0] = ServoParameterRecValue_Temp391[2];
+            ServoParameterRec_SetValue391[1] = ServoParameterRecValue_Temp391[3];
+            ServoParameterRec_SetValue391[2] = ServoParameterRecValue_Temp391[0];
+            ServoParameterRec_SetValue391[3] = ServoParameterRecValue_Temp391[1];
+                                      
+            ServoParameterRec_SetValue392[0] = ServoParameterRecValue_Temp392[2];
+            ServoParameterRec_SetValue392[1] = ServoParameterRecValue_Temp392[3];
+            ServoParameterRec_SetValue392[2] = ServoParameterRecValue_Temp392[0];
+            ServoParameterRec_SetValue392[3] = ServoParameterRecValue_Temp392[1];
+                                      
+            ServoParameterRec_SetValue393[0] = ServoParameterRecValue_Temp393[2];
+            ServoParameterRec_SetValue393[1] = ServoParameterRecValue_Temp393[3];
+            ServoParameterRec_SetValue393[2] = ServoParameterRecValue_Temp393[0];
+            ServoParameterRec_SetValue393[3] = ServoParameterRecValue_Temp393[1];
+                                      
+            ServoParameterRec_SetValue394[0] = ServoParameterRecValue_Temp394[2];
+            ServoParameterRec_SetValue394[1] = ServoParameterRecValue_Temp394[3];
+            ServoParameterRec_SetValue394[2] = ServoParameterRecValue_Temp394[0];
+            ServoParameterRec_SetValue394[3] = ServoParameterRecValue_Temp394[1];
+                                      
+            ServoParameterRec_SetValue395[0] = ServoParameterRecValue_Temp395[2];
+            ServoParameterRec_SetValue395[1] = ServoParameterRecValue_Temp395[3];
+            ServoParameterRec_SetValue395[2] = ServoParameterRecValue_Temp395[0];
+            ServoParameterRec_SetValue395[3] = ServoParameterRecValue_Temp395[1];
+                                      
+            ServoParameterRec_SetValue396[0] = ServoParameterRecValue_Temp396[2];
+            ServoParameterRec_SetValue396[1] = ServoParameterRecValue_Temp396[3];
+            ServoParameterRec_SetValue396[2] = ServoParameterRecValue_Temp396[0];
+            ServoParameterRec_SetValue396[3] = ServoParameterRecValue_Temp396[1];
+                                      
+            ServoParameterRec_SetValue397[0] = ServoParameterRecValue_Temp397[2];
+            ServoParameterRec_SetValue397[1] = ServoParameterRecValue_Temp397[3];
+            ServoParameterRec_SetValue397[2] = ServoParameterRecValue_Temp397[0];
+            ServoParameterRec_SetValue397[3] = ServoParameterRecValue_Temp397[1];
+                                      
+            ServoParameterRec_SetValue398[0] = ServoParameterRecValue_Temp398[2];
+            ServoParameterRec_SetValue398[1] = ServoParameterRecValue_Temp398[3];
+            ServoParameterRec_SetValue398[2] = ServoParameterRecValue_Temp398[0];
+            ServoParameterRec_SetValue398[3] = ServoParameterRecValue_Temp398[1];
+                                      
+            ServoParameterRec_SetValue399[0] = ServoParameterRecValue_Temp399[2];
+            ServoParameterRec_SetValue399[1] = ServoParameterRecValue_Temp399[3];
+            ServoParameterRec_SetValue399[2] = ServoParameterRecValue_Temp399[0];
+            ServoParameterRec_SetValue399[3] = ServoParameterRecValue_Temp399[1];
+
+            ServoParameterRec_SetValue400[0] = ServoParameterRecValue_Temp400[2];
+            ServoParameterRec_SetValue400[1] = ServoParameterRecValue_Temp400[3];
+            ServoParameterRec_SetValue400[2] = ServoParameterRecValue_Temp400[0];
+            ServoParameterRec_SetValue400[3] = ServoParameterRecValue_Temp400[1];
+
+
+
+            ServoParameterRec_SetValue401[0] = ServoParameterRecValue_Temp401[2];
+            ServoParameterRec_SetValue401[1] = ServoParameterRecValue_Temp401[3];
+            ServoParameterRec_SetValue401[2] = ServoParameterRecValue_Temp401[0];
+            ServoParameterRec_SetValue401[3] = ServoParameterRecValue_Temp401[1];
+                                      
+            ServoParameterRec_SetValue402[0] = ServoParameterRecValue_Temp402[2];
+            ServoParameterRec_SetValue402[1] = ServoParameterRecValue_Temp402[3];
+            ServoParameterRec_SetValue402[2] = ServoParameterRecValue_Temp402[0];
+            ServoParameterRec_SetValue402[3] = ServoParameterRecValue_Temp402[1];
+                                      
+            ServoParameterRec_SetValue403[0] = ServoParameterRecValue_Temp403[2];
+            ServoParameterRec_SetValue403[1] = ServoParameterRecValue_Temp403[3];
+            ServoParameterRec_SetValue403[2] = ServoParameterRecValue_Temp403[0];
+            ServoParameterRec_SetValue403[3] = ServoParameterRecValue_Temp403[1];
+                                      
+            ServoParameterRec_SetValue404[0] = ServoParameterRecValue_Temp404[2];
+            ServoParameterRec_SetValue404[1] = ServoParameterRecValue_Temp404[3];
+            ServoParameterRec_SetValue404[2] = ServoParameterRecValue_Temp404[0];
+            ServoParameterRec_SetValue404[3] = ServoParameterRecValue_Temp404[1];
+                                      
+            ServoParameterRec_SetValue405[0] = ServoParameterRecValue_Temp405[2];
+            ServoParameterRec_SetValue405[1] = ServoParameterRecValue_Temp405[3];
+            ServoParameterRec_SetValue405[2] = ServoParameterRecValue_Temp405[0];
+            ServoParameterRec_SetValue405[3] = ServoParameterRecValue_Temp405[1];
+                                      
+            ServoParameterRec_SetValue406[0] = ServoParameterRecValue_Temp406[2];
+            ServoParameterRec_SetValue406[1] = ServoParameterRecValue_Temp406[3];
+            ServoParameterRec_SetValue406[2] = ServoParameterRecValue_Temp406[0];
+            ServoParameterRec_SetValue406[3] = ServoParameterRecValue_Temp406[1];
+                                      
+            ServoParameterRec_SetValue407[0] = ServoParameterRecValue_Temp407[2];
+            ServoParameterRec_SetValue407[1] = ServoParameterRecValue_Temp407[3];
+            ServoParameterRec_SetValue407[2] = ServoParameterRecValue_Temp407[0];
+            ServoParameterRec_SetValue407[3] = ServoParameterRecValue_Temp407[1];
+                                      
+            ServoParameterRec_SetValue408[0] = ServoParameterRecValue_Temp408[2];
+            ServoParameterRec_SetValue408[1] = ServoParameterRecValue_Temp408[3];
+            ServoParameterRec_SetValue408[2] = ServoParameterRecValue_Temp408[0];
+            ServoParameterRec_SetValue408[3] = ServoParameterRecValue_Temp408[1];
+                                      
+            ServoParameterRec_SetValue409[0] = ServoParameterRecValue_Temp409[2];
+            ServoParameterRec_SetValue409[1] = ServoParameterRecValue_Temp409[3];
+            ServoParameterRec_SetValue409[2] = ServoParameterRecValue_Temp409[0];
+            ServoParameterRec_SetValue409[3] = ServoParameterRecValue_Temp409[1];
+
+            ServoParameterRec_SetValue410[0] = ServoParameterRecValue_Temp410[2];
+            ServoParameterRec_SetValue410[1] = ServoParameterRecValue_Temp410[3];
+            ServoParameterRec_SetValue410[2] = ServoParameterRecValue_Temp410[0];
+            ServoParameterRec_SetValue410[3] = ServoParameterRecValue_Temp410[1];
+
+
+
+
+            para0[0].SetVal = BitConverter.ToSingle(ServoParameterRec_SetValue1, 0);
+            Debug.WriteLine(para0[0].SetVal.ToString());
+
         }
     }
 }

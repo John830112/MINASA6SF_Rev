@@ -21,14 +21,14 @@ namespace MINASA6SF_Rev.Views
     /// </summary>
     public partial class ServoPara : UserControl
     {
-        para0 Ppara0 = new para0();
-        para1 Ppara1 = new para1();
-        para2 Ppara2 = new para2();
-        para3 Ppara3 = new para3();
-        para4 Ppara4 = new para4();
-        para5 Ppara5 = new para5();
-        para6 Ppara6 = new para6();
-        para7 Ppara7 = new para7();
+       public para0 Ppara0 = new para0();
+       public para1 Ppara1 = new para1();
+       public para2 Ppara2 = new para2();
+       public para3 Ppara3 = new para3();
+       public para4 Ppara4 = new para4();
+       public para5 Ppara5 = new para5();
+       public para6 Ppara6 = new para6();
+       public para7 Ppara7 = new para7();
 
         public ServoPara(MainPanelViewModel mainPanelViewModel)
         {

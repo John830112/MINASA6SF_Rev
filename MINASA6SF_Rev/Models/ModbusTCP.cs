@@ -804,7 +804,7 @@ namespace MINASA6SF_Rev.Models
                 if (connected1 && write_data != null)
                 {
                     tcpSynCl.Send(write_data, 0, write_data.Length, SocketFlags.None);
-                    Thread.Sleep(30);
+                    Thread.Sleep(10);
                     result_WriteSyncData = tcpSynCl.Receive(tcpSynClBuffer, 0, tcpSynClBuffer.Length, SocketFlags.None);
 
                     if (tcpSynClBuffer == null)
@@ -850,8 +850,9 @@ namespace MINASA6SF_Rev.Models
             catch(NullReferenceException e)
             {
                 MessageBox.Show("확인",e.Message, MessageBoxButton.OK);
-                mainPanelViewModel.ExecuteSettingsConfirm(this);
-                
+                //  mainPanelViewModel.ExecuteSettingsConfirm(this);
+
+                result_WriteSyncData = tcpSynCl.Receive(tcpSynClBuffer, 0, tcpSynClBuffer.Length, SocketFlags.None);
                 //Application.Current.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() =>
                 //{
                 //}));

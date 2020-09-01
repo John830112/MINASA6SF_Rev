@@ -932,7 +932,6 @@ namespace MINASA6SF_Rev.ViewModels
         #endregion
         #region 블록 커맨드 수신 변수
 
-
         //감속정지 
         ushort stopMethod;     //정지방법 hiki1
         public ushort StopMethod
@@ -2078,7 +2077,6 @@ namespace MINASA6SF_Rev.ViewModels
         #endregion
 
         #region ServoParameter 수신 변수
-        //분류0
         byte[] ServoParameterRecValue1 = new byte[4];
         byte[] ServoParameterRecValue2 = new byte[4];
         byte[] ServoParameterRecValue3 = new byte[4];
@@ -2098,8 +2096,6 @@ namespace MINASA6SF_Rev.ViewModels
         byte[] ServoParameterRecValue17 = new byte[4];
         byte[] ServoParameterRecValue18 = new byte[4];
         byte[] ServoParameterRecValue19 = new byte[4];
-
-        //분류1
         byte[] ServoParameterRecValue20 = new byte[4];
         byte[] ServoParameterRecValue21 = new byte[4];
         byte[] ServoParameterRecValue22 = new byte[4];
@@ -2179,8 +2175,6 @@ namespace MINASA6SF_Rev.ViewModels
         byte[] ServoParameterRecValue96 = new byte[4];
         byte[] ServoParameterRecValue97 = new byte[4];
         byte[] ServoParameterRecValue98 = new byte[4];
-
-        //분류2
         byte[] ServoParameterRecValue99 = new byte[4];
         byte[] ServoParameterRecValue100 = new byte[4];
         byte[] ServoParameterRecValue101 = new byte[4];
@@ -2494,6 +2488,827 @@ namespace MINASA6SF_Rev.ViewModels
         byte[] ServoParameterRecValue409 = new byte[4];
         byte[] ServoParameterRecValue410 = new byte[4];
 
+        byte[] ServoParameterRecValue_Temp1 = new byte[4];
+        byte[] ServoParameterRecValue_Temp2 = new byte[4];
+        byte[] ServoParameterRecValue_Temp3 = new byte[4];
+        byte[] ServoParameterRecValue_Temp4 = new byte[4];
+        byte[] ServoParameterRecValue_Temp5 = new byte[4];
+        byte[] ServoParameterRecValue_Temp6 = new byte[4];
+        byte[] ServoParameterRecValue_Temp7 = new byte[4];
+        byte[] ServoParameterRecValue_Temp8 = new byte[4];
+        byte[] ServoParameterRecValue_Temp9 = new byte[4];
+        byte[] ServoParameterRecValue_Temp10 = new byte[4];
+        byte[] ServoParameterRecValue_Temp11 = new byte[4];
+        byte[] ServoParameterRecValue_Temp12 = new byte[4];
+        byte[] ServoParameterRecValue_Temp13 = new byte[4];
+        byte[] ServoParameterRecValue_Temp14 = new byte[4];
+        byte[] ServoParameterRecValue_Temp15 = new byte[4];
+        byte[] ServoParameterRecValue_Temp16 = new byte[4];
+        byte[] ServoParameterRecValue_Temp17 = new byte[4];
+        byte[] ServoParameterRecValue_Temp18 = new byte[4];
+        byte[] ServoParameterRecValue_Temp19 = new byte[4];
+        byte[] ServoParameterRecValue_Temp20 = new byte[4];
+        byte[] ServoParameterRecValue_Temp21 = new byte[4];
+        byte[] ServoParameterRecValue_Temp22 = new byte[4];
+        byte[] ServoParameterRecValue_Temp23 = new byte[4];
+        byte[] ServoParameterRecValue_Temp24 = new byte[4];
+        byte[] ServoParameterRecValue_Temp25 = new byte[4];
+        byte[] ServoParameterRecValue_Temp26 = new byte[4];
+        byte[] ServoParameterRecValue_Temp27 = new byte[4];
+        byte[] ServoParameterRecValue_Temp28 = new byte[4];
+        byte[] ServoParameterRecValue_Temp29 = new byte[4];
+        byte[] ServoParameterRecValue_Temp30 = new byte[4];
+        byte[] ServoParameterRecValue_Temp31 = new byte[4];
+        byte[] ServoParameterRecValue_Temp32 = new byte[4];
+        byte[] ServoParameterRecValue_Temp33 = new byte[4];
+        byte[] ServoParameterRecValue_Temp34 = new byte[4];
+        byte[] ServoParameterRecValue_Temp35 = new byte[4];
+        byte[] ServoParameterRecValue_Temp36 = new byte[4];
+        byte[] ServoParameterRecValue_Temp37 = new byte[4];
+        byte[] ServoParameterRecValue_Temp38 = new byte[4];
+        byte[] ServoParameterRecValue_Temp39 = new byte[4];
+        byte[] ServoParameterRecValue_Temp40 = new byte[4];
+        byte[] ServoParameterRecValue_Temp41 = new byte[4];
+        byte[] ServoParameterRecValue_Temp42 = new byte[4];
+        byte[] ServoParameterRecValue_Temp43 = new byte[4];
+        byte[] ServoParameterRecValue_Temp44 = new byte[4];
+        byte[] ServoParameterRecValue_Temp45 = new byte[4];
+        byte[] ServoParameterRecValue_Temp46 = new byte[4];
+        byte[] ServoParameterRecValue_Temp47 = new byte[4];
+        byte[] ServoParameterRecValue_Temp48 = new byte[4];
+        byte[] ServoParameterRecValue_Temp49 = new byte[4];
+        byte[] ServoParameterRecValue_Temp50 = new byte[4];
+        byte[] ServoParameterRecValue_Temp51 = new byte[4];
+        byte[] ServoParameterRecValue_Temp52 = new byte[4];
+        byte[] ServoParameterRecValue_Temp53 = new byte[4];
+        byte[] ServoParameterRecValue_Temp54 = new byte[4];
+        byte[] ServoParameterRecValue_Temp55 = new byte[4];
+        byte[] ServoParameterRecValue_Temp56 = new byte[4];
+        byte[] ServoParameterRecValue_Temp57 = new byte[4];
+        byte[] ServoParameterRecValue_Temp58 = new byte[4];
+        byte[] ServoParameterRecValue_Temp59 = new byte[4];
+        byte[] ServoParameterRecValue_Temp60 = new byte[4];
+        byte[] ServoParameterRecValue_Temp61 = new byte[4];
+        byte[] ServoParameterRecValue_Temp62 = new byte[4];
+        byte[] ServoParameterRecValue_Temp63 = new byte[4];
+        byte[] ServoParameterRecValue_Temp64 = new byte[4];
+        byte[] ServoParameterRecValue_Temp65 = new byte[4];
+        byte[] ServoParameterRecValue_Temp66 = new byte[4];
+        byte[] ServoParameterRecValue_Temp67 = new byte[4];
+        byte[] ServoParameterRecValue_Temp68 = new byte[4];
+        byte[] ServoParameterRecValue_Temp69 = new byte[4];
+        byte[] ServoParameterRecValue_Temp70 = new byte[4];
+        byte[] ServoParameterRecValue_Temp71 = new byte[4];
+        byte[] ServoParameterRecValue_Temp72 = new byte[4];
+        byte[] ServoParameterRecValue_Temp73 = new byte[4];
+        byte[] ServoParameterRecValue_Temp74 = new byte[4];
+        byte[] ServoParameterRecValue_Temp75 = new byte[4];
+        byte[] ServoParameterRecValue_Temp76 = new byte[4];
+        byte[] ServoParameterRecValue_Temp77 = new byte[4];
+        byte[] ServoParameterRecValue_Temp78 = new byte[4];
+        byte[] ServoParameterRecValue_Temp79 = new byte[4];
+        byte[] ServoParameterRecValue_Temp80 = new byte[4];
+        byte[] ServoParameterRecValue_Temp81 = new byte[4];
+        byte[] ServoParameterRecValue_Temp82 = new byte[4];
+        byte[] ServoParameterRecValue_Temp83 = new byte[4];
+        byte[] ServoParameterRecValue_Temp84 = new byte[4];
+        byte[] ServoParameterRecValue_Temp85 = new byte[4];
+        byte[] ServoParameterRecValue_Temp86 = new byte[4];
+        byte[] ServoParameterRecValue_Temp87 = new byte[4];
+        byte[] ServoParameterRecValue_Temp88 = new byte[4];
+        byte[] ServoParameterRecValue_Temp89 = new byte[4];
+        byte[] ServoParameterRecValue_Temp90 = new byte[4];
+        byte[] ServoParameterRecValue_Temp91 = new byte[4];
+        byte[] ServoParameterRecValue_Temp92 = new byte[4];
+        byte[] ServoParameterRecValue_Temp93 = new byte[4];
+        byte[] ServoParameterRecValue_Temp94 = new byte[4];
+        byte[] ServoParameterRecValue_Temp95 = new byte[4];
+        byte[] ServoParameterRecValue_Temp96 = new byte[4];
+        byte[] ServoParameterRecValue_Temp97 = new byte[4];
+        byte[] ServoParameterRecValue_Temp98 = new byte[4];
+        byte[] ServoParameterRecValue_Temp99 = new byte[4];
+        byte[] ServoParameterRecValue_Temp100 = new byte[4];
+        byte[] ServoParameterRecValue_Temp101 = new byte[4];
+        byte[] ServoParameterRecValue_Temp102 = new byte[4];
+        byte[] ServoParameterRecValue_Temp103 = new byte[4];
+        byte[] ServoParameterRecValue_Temp104 = new byte[4];
+        byte[] ServoParameterRecValue_Temp105 = new byte[4];
+        byte[] ServoParameterRecValue_Temp106 = new byte[4];
+        byte[] ServoParameterRecValue_Temp107 = new byte[4];
+        byte[] ServoParameterRecValue_Temp108 = new byte[4];
+        byte[] ServoParameterRecValue_Temp109 = new byte[4];
+        byte[] ServoParameterRecValue_Temp110 = new byte[4];
+        byte[] ServoParameterRecValue_Temp111 = new byte[4];
+        byte[] ServoParameterRecValue_Temp112 = new byte[4];
+        byte[] ServoParameterRecValue_Temp113 = new byte[4];
+        byte[] ServoParameterRecValue_Temp114 = new byte[4];
+        byte[] ServoParameterRecValue_Temp115 = new byte[4];
+        byte[] ServoParameterRecValue_Temp116 = new byte[4];
+        byte[] ServoParameterRecValue_Temp117 = new byte[4];
+        byte[] ServoParameterRecValue_Temp118 = new byte[4];
+        byte[] ServoParameterRecValue_Temp119 = new byte[4];
+        byte[] ServoParameterRecValue_Temp120 = new byte[4];
+        byte[] ServoParameterRecValue_Temp121 = new byte[4];
+        byte[] ServoParameterRecValue_Temp122 = new byte[4];
+        byte[] ServoParameterRecValue_Temp123 = new byte[4];
+        byte[] ServoParameterRecValue_Temp124 = new byte[4];
+        byte[] ServoParameterRecValue_Temp125 = new byte[4];
+        byte[] ServoParameterRecValue_Temp126 = new byte[4];
+        byte[] ServoParameterRecValue_Temp127 = new byte[4];
+        byte[] ServoParameterRecValue_Temp128 = new byte[4];
+        byte[] ServoParameterRecValue_Temp129 = new byte[4];
+        byte[] ServoParameterRecValue_Temp130 = new byte[4];
+        byte[] ServoParameterRecValue_Temp131 = new byte[4];
+        byte[] ServoParameterRecValue_Temp132 = new byte[4];
+        byte[] ServoParameterRecValue_Temp133 = new byte[4];
+        byte[] ServoParameterRecValue_Temp134 = new byte[4];
+        byte[] ServoParameterRecValue_Temp135 = new byte[4];
+        byte[] ServoParameterRecValue_Temp136 = new byte[4];
+        byte[] ServoParameterRecValue_Temp137 = new byte[4];
+        byte[] ServoParameterRecValue_Temp138 = new byte[4];
+        byte[] ServoParameterRecValue_Temp139 = new byte[4];
+        byte[] ServoParameterRecValue_Temp140 = new byte[4];
+        byte[] ServoParameterRecValue_Temp141 = new byte[4];
+        byte[] ServoParameterRecValue_Temp142 = new byte[4];
+        byte[] ServoParameterRecValue_Temp143 = new byte[4];
+        byte[] ServoParameterRecValue_Temp144 = new byte[4];
+        byte[] ServoParameterRecValue_Temp145 = new byte[4];
+        byte[] ServoParameterRecValue_Temp146 = new byte[4];
+        byte[] ServoParameterRecValue_Temp147 = new byte[4];
+        byte[] ServoParameterRecValue_Temp148 = new byte[4];
+        byte[] ServoParameterRecValue_Temp149 = new byte[4];
+        byte[] ServoParameterRecValue_Temp150 = new byte[4];
+        byte[] ServoParameterRecValue_Temp151 = new byte[4];
+        byte[] ServoParameterRecValue_Temp152 = new byte[4];
+        byte[] ServoParameterRecValue_Temp153 = new byte[4];
+        byte[] ServoParameterRecValue_Temp154 = new byte[4];
+        byte[] ServoParameterRecValue_Temp155 = new byte[4];
+        byte[] ServoParameterRecValue_Temp156 = new byte[4];
+        byte[] ServoParameterRecValue_Temp157 = new byte[4];
+        byte[] ServoParameterRecValue_Temp158 = new byte[4];
+        byte[] ServoParameterRecValue_Temp159 = new byte[4];
+        byte[] ServoParameterRecValue_Temp160 = new byte[4];
+        byte[] ServoParameterRecValue_Temp161 = new byte[4];
+        byte[] ServoParameterRecValue_Temp162 = new byte[4];
+        byte[] ServoParameterRecValue_Temp163 = new byte[4];
+        byte[] ServoParameterRecValue_Temp164 = new byte[4];
+        byte[] ServoParameterRecValue_Temp165 = new byte[4];
+        byte[] ServoParameterRecValue_Temp166 = new byte[4];
+        byte[] ServoParameterRecValue_Temp167 = new byte[4];
+        byte[] ServoParameterRecValue_Temp168 = new byte[4];
+        byte[] ServoParameterRecValue_Temp169 = new byte[4];
+        byte[] ServoParameterRecValue_Temp170 = new byte[4];
+        byte[] ServoParameterRecValue_Temp171 = new byte[4];
+        byte[] ServoParameterRecValue_Temp172 = new byte[4];
+        byte[] ServoParameterRecValue_Temp173 = new byte[4];
+        byte[] ServoParameterRecValue_Temp174 = new byte[4];
+        byte[] ServoParameterRecValue_Temp175 = new byte[4];
+        byte[] ServoParameterRecValue_Temp176 = new byte[4];
+        byte[] ServoParameterRecValue_Temp177 = new byte[4];
+        byte[] ServoParameterRecValue_Temp178 = new byte[4];
+        byte[] ServoParameterRecValue_Temp179 = new byte[4];
+        byte[] ServoParameterRecValue_Temp180 = new byte[4];
+        byte[] ServoParameterRecValue_Temp181 = new byte[4];
+        byte[] ServoParameterRecValue_Temp182 = new byte[4];
+        byte[] ServoParameterRecValue_Temp183 = new byte[4];
+        byte[] ServoParameterRecValue_Temp184 = new byte[4];
+        byte[] ServoParameterRecValue_Temp185 = new byte[4];
+        byte[] ServoParameterRecValue_Temp186 = new byte[4];
+        byte[] ServoParameterRecValue_Temp187 = new byte[4];
+        byte[] ServoParameterRecValue_Temp188 = new byte[4];
+        byte[] ServoParameterRecValue_Temp189 = new byte[4];
+        byte[] ServoParameterRecValue_Temp190 = new byte[4];
+        byte[] ServoParameterRecValue_Temp191 = new byte[4];
+        byte[] ServoParameterRecValue_Temp192 = new byte[4];
+        byte[] ServoParameterRecValue_Temp193 = new byte[4];
+        byte[] ServoParameterRecValue_Temp194 = new byte[4];
+        byte[] ServoParameterRecValue_Temp195 = new byte[4];
+        byte[] ServoParameterRecValue_Temp196 = new byte[4];
+        byte[] ServoParameterRecValue_Temp197 = new byte[4];
+        byte[] ServoParameterRecValue_Temp198 = new byte[4];
+        byte[] ServoParameterRecValue_Temp199 = new byte[4];
+        byte[] ServoParameterRecValue_Temp200 = new byte[4];
+        byte[] ServoParameterRecValue_Temp201 = new byte[4];
+        byte[] ServoParameterRecValue_Temp202 = new byte[4];
+        byte[] ServoParameterRecValue_Temp203 = new byte[4];
+        byte[] ServoParameterRecValue_Temp204 = new byte[4];
+        byte[] ServoParameterRecValue_Temp205 = new byte[4];
+        byte[] ServoParameterRecValue_Temp206 = new byte[4];
+        byte[] ServoParameterRecValue_Temp207 = new byte[4];
+        byte[] ServoParameterRecValue_Temp208 = new byte[4];
+        byte[] ServoParameterRecValue_Temp209 = new byte[4];
+        byte[] ServoParameterRecValue_Temp210 = new byte[4];
+        byte[] ServoParameterRecValue_Temp211 = new byte[4];
+        byte[] ServoParameterRecValue_Temp212 = new byte[4];
+        byte[] ServoParameterRecValue_Temp213 = new byte[4];
+        byte[] ServoParameterRecValue_Temp214 = new byte[4];
+        byte[] ServoParameterRecValue_Temp215 = new byte[4];
+        byte[] ServoParameterRecValue_Temp216 = new byte[4];
+        byte[] ServoParameterRecValue_Temp217 = new byte[4];
+        byte[] ServoParameterRecValue_Temp218 = new byte[4];
+        byte[] ServoParameterRecValue_Temp219 = new byte[4];
+        byte[] ServoParameterRecValue_Temp220 = new byte[4];
+        byte[] ServoParameterRecValue_Temp221 = new byte[4];
+        byte[] ServoParameterRecValue_Temp222 = new byte[4];
+        byte[] ServoParameterRecValue_Temp223 = new byte[4];
+        byte[] ServoParameterRecValue_Temp224 = new byte[4];
+        byte[] ServoParameterRecValue_Temp225 = new byte[4];
+        byte[] ServoParameterRecValue_Temp226 = new byte[4];
+        byte[] ServoParameterRecValue_Temp227 = new byte[4];
+        byte[] ServoParameterRecValue_Temp228 = new byte[4];
+        byte[] ServoParameterRecValue_Temp229 = new byte[4];
+        byte[] ServoParameterRecValue_Temp230 = new byte[4];
+        byte[] ServoParameterRecValue_Temp231 = new byte[4];
+        byte[] ServoParameterRecValue_Temp232 = new byte[4];
+        byte[] ServoParameterRecValue_Temp233 = new byte[4];
+        byte[] ServoParameterRecValue_Temp234 = new byte[4];
+        byte[] ServoParameterRecValue_Temp235 = new byte[4];
+        byte[] ServoParameterRecValue_Temp236 = new byte[4];
+        byte[] ServoParameterRecValue_Temp237 = new byte[4];
+        byte[] ServoParameterRecValue_Temp238 = new byte[4];
+        byte[] ServoParameterRecValue_Temp239 = new byte[4];
+        byte[] ServoParameterRecValue_Temp240 = new byte[4];
+        byte[] ServoParameterRecValue_Temp241 = new byte[4];
+        byte[] ServoParameterRecValue_Temp242 = new byte[4];
+        byte[] ServoParameterRecValue_Temp243 = new byte[4];
+        byte[] ServoParameterRecValue_Temp244 = new byte[4];
+        byte[] ServoParameterRecValue_Temp245 = new byte[4];
+        byte[] ServoParameterRecValue_Temp246 = new byte[4];
+        byte[] ServoParameterRecValue_Temp247 = new byte[4];
+        byte[] ServoParameterRecValue_Temp248 = new byte[4];
+        byte[] ServoParameterRecValue_Temp249 = new byte[4];
+        byte[] ServoParameterRecValue_Temp250 = new byte[4];
+        byte[] ServoParameterRecValue_Temp251 = new byte[4];
+        byte[] ServoParameterRecValue_Temp252 = new byte[4];
+        byte[] ServoParameterRecValue_Temp253 = new byte[4];
+        byte[] ServoParameterRecValue_Temp254 = new byte[4];
+        byte[] ServoParameterRecValue_Temp255 = new byte[4];
+        byte[] ServoParameterRecValue_Temp256 = new byte[4];
+        byte[] ServoParameterRecValue_Temp257 = new byte[4];
+        byte[] ServoParameterRecValue_Temp258 = new byte[4];
+        byte[] ServoParameterRecValue_Temp259 = new byte[4];
+        byte[] ServoParameterRecValue_Temp260 = new byte[4];
+        byte[] ServoParameterRecValue_Temp261 = new byte[4];
+        byte[] ServoParameterRecValue_Temp262 = new byte[4];
+        byte[] ServoParameterRecValue_Temp263 = new byte[4];
+        byte[] ServoParameterRecValue_Temp264 = new byte[4];
+        byte[] ServoParameterRecValue_Temp265 = new byte[4];
+        byte[] ServoParameterRecValue_Temp266 = new byte[4];
+        byte[] ServoParameterRecValue_Temp267 = new byte[4];
+        byte[] ServoParameterRecValue_Temp268 = new byte[4];
+        byte[] ServoParameterRecValue_Temp269 = new byte[4];
+        byte[] ServoParameterRecValue_Temp270 = new byte[4];
+        byte[] ServoParameterRecValue_Temp271 = new byte[4];
+        byte[] ServoParameterRecValue_Temp272 = new byte[4];
+        byte[] ServoParameterRecValue_Temp273 = new byte[4];
+        byte[] ServoParameterRecValue_Temp274 = new byte[4];
+        byte[] ServoParameterRecValue_Temp275 = new byte[4];
+        byte[] ServoParameterRecValue_Temp276 = new byte[4];
+        byte[] ServoParameterRecValue_Temp277 = new byte[4];
+        byte[] ServoParameterRecValue_Temp278 = new byte[4];
+        byte[] ServoParameterRecValue_Temp279 = new byte[4];
+        byte[] ServoParameterRecValue_Temp280 = new byte[4];
+        byte[] ServoParameterRecValue_Temp281 = new byte[4];
+        byte[] ServoParameterRecValue_Temp282 = new byte[4];
+        byte[] ServoParameterRecValue_Temp283 = new byte[4];
+        byte[] ServoParameterRecValue_Temp284 = new byte[4];
+        byte[] ServoParameterRecValue_Temp285 = new byte[4];
+        byte[] ServoParameterRecValue_Temp286 = new byte[4];
+        byte[] ServoParameterRecValue_Temp287 = new byte[4];
+        byte[] ServoParameterRecValue_Temp288 = new byte[4];
+        byte[] ServoParameterRecValue_Temp289 = new byte[4];
+        byte[] ServoParameterRecValue_Temp290 = new byte[4];
+        byte[] ServoParameterRecValue_Temp291 = new byte[4];
+        byte[] ServoParameterRecValue_Temp292 = new byte[4];
+        byte[] ServoParameterRecValue_Temp293 = new byte[4];
+        byte[] ServoParameterRecValue_Temp294 = new byte[4];
+        byte[] ServoParameterRecValue_Temp295 = new byte[4];
+        byte[] ServoParameterRecValue_Temp296 = new byte[4];
+        byte[] ServoParameterRecValue_Temp297 = new byte[4];
+        byte[] ServoParameterRecValue_Temp298 = new byte[4];
+        byte[] ServoParameterRecValue_Temp299 = new byte[4];
+        byte[] ServoParameterRecValue_Temp300 = new byte[4];
+        byte[] ServoParameterRecValue_Temp301 = new byte[4];
+        byte[] ServoParameterRecValue_Temp302 = new byte[4];
+        byte[] ServoParameterRecValue_Temp303 = new byte[4];
+        byte[] ServoParameterRecValue_Temp304 = new byte[4];
+        byte[] ServoParameterRecValue_Temp305 = new byte[4];
+        byte[] ServoParameterRecValue_Temp306 = new byte[4];
+        byte[] ServoParameterRecValue_Temp307 = new byte[4];
+        byte[] ServoParameterRecValue_Temp308 = new byte[4];
+        byte[] ServoParameterRecValue_Temp309 = new byte[4];
+        byte[] ServoParameterRecValue_Temp310 = new byte[4];
+        byte[] ServoParameterRecValue_Temp311 = new byte[4];
+        byte[] ServoParameterRecValue_Temp312 = new byte[4];
+        byte[] ServoParameterRecValue_Temp313 = new byte[4];
+        byte[] ServoParameterRecValue_Temp314 = new byte[4];
+        byte[] ServoParameterRecValue_Temp315 = new byte[4];
+        byte[] ServoParameterRecValue_Temp316 = new byte[4];
+        byte[] ServoParameterRecValue_Temp317 = new byte[4];
+        byte[] ServoParameterRecValue_Temp318 = new byte[4];
+        byte[] ServoParameterRecValue_Temp319 = new byte[4];
+        byte[] ServoParameterRecValue_Temp320 = new byte[4];
+        byte[] ServoParameterRecValue_Temp321 = new byte[4];
+        byte[] ServoParameterRecValue_Temp322 = new byte[4];
+        byte[] ServoParameterRecValue_Temp323 = new byte[4];
+        byte[] ServoParameterRecValue_Temp324 = new byte[4];
+        byte[] ServoParameterRecValue_Temp325 = new byte[4];
+        byte[] ServoParameterRecValue_Temp326 = new byte[4];
+        byte[] ServoParameterRecValue_Temp327 = new byte[4];
+        byte[] ServoParameterRecValue_Temp328 = new byte[4];
+        byte[] ServoParameterRecValue_Temp329 = new byte[4];
+        byte[] ServoParameterRecValue_Temp330 = new byte[4];
+        byte[] ServoParameterRecValue_Temp331 = new byte[4];
+        byte[] ServoParameterRecValue_Temp332 = new byte[4];
+        byte[] ServoParameterRecValue_Temp333 = new byte[4];
+        byte[] ServoParameterRecValue_Temp334 = new byte[4];
+        byte[] ServoParameterRecValue_Temp335 = new byte[4];
+        byte[] ServoParameterRecValue_Temp336 = new byte[4];
+        byte[] ServoParameterRecValue_Temp337 = new byte[4];
+        byte[] ServoParameterRecValue_Temp338 = new byte[4];
+        byte[] ServoParameterRecValue_Temp339 = new byte[4];
+        byte[] ServoParameterRecValue_Temp340 = new byte[4];
+        byte[] ServoParameterRecValue_Temp341 = new byte[4];
+        byte[] ServoParameterRecValue_Temp342 = new byte[4];
+        byte[] ServoParameterRecValue_Temp343 = new byte[4];
+        byte[] ServoParameterRecValue_Temp344 = new byte[4];
+        byte[] ServoParameterRecValue_Temp345 = new byte[4];
+        byte[] ServoParameterRecValue_Temp346 = new byte[4];
+        byte[] ServoParameterRecValue_Temp347 = new byte[4];
+        byte[] ServoParameterRecValue_Temp348 = new byte[4];
+        byte[] ServoParameterRecValue_Temp349 = new byte[4];
+        byte[] ServoParameterRecValue_Temp350 = new byte[4];
+        byte[] ServoParameterRecValue_Temp351 = new byte[4];
+        byte[] ServoParameterRecValue_Temp352 = new byte[4];
+        byte[] ServoParameterRecValue_Temp353 = new byte[4];
+        byte[] ServoParameterRecValue_Temp354 = new byte[4];
+        byte[] ServoParameterRecValue_Temp355 = new byte[4];
+        byte[] ServoParameterRecValue_Temp356 = new byte[4];
+        byte[] ServoParameterRecValue_Temp357 = new byte[4];
+        byte[] ServoParameterRecValue_Temp358 = new byte[4];
+        byte[] ServoParameterRecValue_Temp359 = new byte[4];
+        byte[] ServoParameterRecValue_Temp360 = new byte[4];
+        byte[] ServoParameterRecValue_Temp361 = new byte[4];
+        byte[] ServoParameterRecValue_Temp362 = new byte[4];
+        byte[] ServoParameterRecValue_Temp363 = new byte[4];
+        byte[] ServoParameterRecValue_Temp364 = new byte[4];
+        byte[] ServoParameterRecValue_Temp365 = new byte[4];
+        byte[] ServoParameterRecValue_Temp366 = new byte[4];
+        byte[] ServoParameterRecValue_Temp367 = new byte[4];
+        byte[] ServoParameterRecValue_Temp368 = new byte[4];
+        byte[] ServoParameterRecValue_Temp369 = new byte[4];
+        byte[] ServoParameterRecValue_Temp370 = new byte[4];
+        byte[] ServoParameterRecValue_Temp371 = new byte[4];
+        byte[] ServoParameterRecValue_Temp372 = new byte[4];
+        byte[] ServoParameterRecValue_Temp373 = new byte[4];
+        byte[] ServoParameterRecValue_Temp374 = new byte[4];
+        byte[] ServoParameterRecValue_Temp375 = new byte[4];
+        byte[] ServoParameterRecValue_Temp376 = new byte[4];
+        byte[] ServoParameterRecValue_Temp377 = new byte[4];
+        byte[] ServoParameterRecValue_Temp378 = new byte[4];
+        byte[] ServoParameterRecValue_Temp379 = new byte[4];
+        byte[] ServoParameterRecValue_Temp380 = new byte[4];
+        byte[] ServoParameterRecValue_Temp381 = new byte[4];
+        byte[] ServoParameterRecValue_Temp382 = new byte[4];
+        byte[] ServoParameterRecValue_Temp383 = new byte[4];
+        byte[] ServoParameterRecValue_Temp384 = new byte[4];
+        byte[] ServoParameterRecValue_Temp385 = new byte[4];
+        byte[] ServoParameterRecValue_Temp386 = new byte[4];
+        byte[] ServoParameterRecValue_Temp387 = new byte[4];
+        byte[] ServoParameterRecValue_Temp388 = new byte[4];
+        byte[] ServoParameterRecValue_Temp389 = new byte[4];
+        byte[] ServoParameterRecValue_Temp390 = new byte[4];
+        byte[] ServoParameterRecValue_Temp391 = new byte[4];
+        byte[] ServoParameterRecValue_Temp392 = new byte[4];
+        byte[] ServoParameterRecValue_Temp393 = new byte[4];
+        byte[] ServoParameterRecValue_Temp394 = new byte[4];
+        byte[] ServoParameterRecValue_Temp395 = new byte[4];
+        byte[] ServoParameterRecValue_Temp396 = new byte[4];
+        byte[] ServoParameterRecValue_Temp397 = new byte[4];
+        byte[] ServoParameterRecValue_Temp398 = new byte[4];
+        byte[] ServoParameterRecValue_Temp399 = new byte[4];
+        byte[] ServoParameterRecValue_Temp400 = new byte[4];
+        byte[] ServoParameterRecValue_Temp401 = new byte[4];
+        byte[] ServoParameterRecValue_Temp402 = new byte[4];
+        byte[] ServoParameterRecValue_Temp403 = new byte[4];
+        byte[] ServoParameterRecValue_Temp404 = new byte[4];
+        byte[] ServoParameterRecValue_Temp405 = new byte[4];
+        byte[] ServoParameterRecValue_Temp406 = new byte[4];
+        byte[] ServoParameterRecValue_Temp407 = new byte[4];
+        byte[] ServoParameterRecValue_Temp408 = new byte[4];
+        byte[] ServoParameterRecValue_Temp409 = new byte[4];
+        byte[] ServoParameterRecValue_Temp410 = new byte[4];
+
+        byte[] ServoParameterRec_SetValue1 = new byte[4];
+        byte[] ServoParameterRec_SetValue2 = new byte[4];
+        byte[] ServoParameterRec_SetValue3 = new byte[4];
+        byte[] ServoParameterRec_SetValue4 = new byte[4];
+        byte[] ServoParameterRec_SetValue5 = new byte[4];
+        byte[] ServoParameterRec_SetValue6 = new byte[4];
+        byte[] ServoParameterRec_SetValue7 = new byte[4];
+        byte[] ServoParameterRec_SetValue8 = new byte[4];
+        byte[] ServoParameterRec_SetValue9 = new byte[4];
+        byte[] ServoParameterRec_SetValue10 = new byte[4];
+        byte[] ServoParameterRec_SetValue11 = new byte[4];
+        byte[] ServoParameterRec_SetValue12 = new byte[4];
+        byte[] ServoParameterRec_SetValue13 = new byte[4];
+        byte[] ServoParameterRec_SetValue14 = new byte[4];
+        byte[] ServoParameterRec_SetValue15 = new byte[4];
+        byte[] ServoParameterRec_SetValue16 = new byte[4];
+        byte[] ServoParameterRec_SetValue17 = new byte[4];
+        byte[] ServoParameterRec_SetValue18 = new byte[4];
+        byte[] ServoParameterRec_SetValue19 = new byte[4];
+        byte[] ServoParameterRec_SetValue20 = new byte[4];
+        byte[] ServoParameterRec_SetValue21 = new byte[4];
+        byte[] ServoParameterRec_SetValue22 = new byte[4];
+        byte[] ServoParameterRec_SetValue23 = new byte[4];
+        byte[] ServoParameterRec_SetValue24 = new byte[4];
+        byte[] ServoParameterRec_SetValue25 = new byte[4];
+        byte[] ServoParameterRec_SetValue26 = new byte[4];
+        byte[] ServoParameterRec_SetValue27 = new byte[4];
+        byte[] ServoParameterRec_SetValue28 = new byte[4];
+        byte[] ServoParameterRec_SetValue29 = new byte[4];
+        byte[] ServoParameterRec_SetValue30 = new byte[4];
+        byte[] ServoParameterRec_SetValue31 = new byte[4];
+        byte[] ServoParameterRec_SetValue32 = new byte[4];
+        byte[] ServoParameterRec_SetValue33 = new byte[4];
+        byte[] ServoParameterRec_SetValue34 = new byte[4];
+        byte[] ServoParameterRec_SetValue35 = new byte[4];
+        byte[] ServoParameterRec_SetValue36 = new byte[4];
+        byte[] ServoParameterRec_SetValue37 = new byte[4];
+        byte[] ServoParameterRec_SetValue38 = new byte[4];
+        byte[] ServoParameterRec_SetValue39 = new byte[4];
+        byte[] ServoParameterRec_SetValue40 = new byte[4];
+        byte[] ServoParameterRec_SetValue41 = new byte[4];
+        byte[] ServoParameterRec_SetValue42 = new byte[4];
+        byte[] ServoParameterRec_SetValue43 = new byte[4];
+        byte[] ServoParameterRec_SetValue44 = new byte[4];
+        byte[] ServoParameterRec_SetValue45 = new byte[4];
+        byte[] ServoParameterRec_SetValue46 = new byte[4];
+        byte[] ServoParameterRec_SetValue47 = new byte[4];
+        byte[] ServoParameterRec_SetValue48 = new byte[4];
+        byte[] ServoParameterRec_SetValue49 = new byte[4];
+        byte[] ServoParameterRec_SetValue50 = new byte[4];
+        byte[] ServoParameterRec_SetValue51 = new byte[4];
+        byte[] ServoParameterRec_SetValue52 = new byte[4];
+        byte[] ServoParameterRec_SetValue53 = new byte[4];
+        byte[] ServoParameterRec_SetValue54 = new byte[4];
+        byte[] ServoParameterRec_SetValue55 = new byte[4];
+        byte[] ServoParameterRec_SetValue56 = new byte[4];
+        byte[] ServoParameterRec_SetValue57 = new byte[4];
+        byte[] ServoParameterRec_SetValue58 = new byte[4];
+        byte[] ServoParameterRec_SetValue59 = new byte[4];
+        byte[] ServoParameterRec_SetValue60 = new byte[4];
+        byte[] ServoParameterRec_SetValue61 = new byte[4];
+        byte[] ServoParameterRec_SetValue62 = new byte[4];
+        byte[] ServoParameterRec_SetValue63 = new byte[4];
+        byte[] ServoParameterRec_SetValue64 = new byte[4];
+        byte[] ServoParameterRec_SetValue65 = new byte[4];
+        byte[] ServoParameterRec_SetValue66 = new byte[4];
+        byte[] ServoParameterRec_SetValue67 = new byte[4];
+        byte[] ServoParameterRec_SetValue68 = new byte[4];
+        byte[] ServoParameterRec_SetValue69 = new byte[4];
+        byte[] ServoParameterRec_SetValue70 = new byte[4];
+        byte[] ServoParameterRec_SetValue71 = new byte[4];
+        byte[] ServoParameterRec_SetValue72 = new byte[4];
+        byte[] ServoParameterRec_SetValue73 = new byte[4];
+        byte[] ServoParameterRec_SetValue74 = new byte[4];
+        byte[] ServoParameterRec_SetValue75 = new byte[4];
+        byte[] ServoParameterRec_SetValue76 = new byte[4];
+        byte[] ServoParameterRec_SetValue77 = new byte[4];
+        byte[] ServoParameterRec_SetValue78 = new byte[4];
+        byte[] ServoParameterRec_SetValue79 = new byte[4];
+        byte[] ServoParameterRec_SetValue80 = new byte[4];
+        byte[] ServoParameterRec_SetValue81 = new byte[4];
+        byte[] ServoParameterRec_SetValue82 = new byte[4];
+        byte[] ServoParameterRec_SetValue83 = new byte[4];
+        byte[] ServoParameterRec_SetValue84 = new byte[4];
+        byte[] ServoParameterRec_SetValue85 = new byte[4];
+        byte[] ServoParameterRec_SetValue86 = new byte[4];
+        byte[] ServoParameterRec_SetValue87 = new byte[4];
+        byte[] ServoParameterRec_SetValue88 = new byte[4];
+        byte[] ServoParameterRec_SetValue89 = new byte[4];
+        byte[] ServoParameterRec_SetValue90 = new byte[4];
+        byte[] ServoParameterRec_SetValue91 = new byte[4];
+        byte[] ServoParameterRec_SetValue92 = new byte[4];
+        byte[] ServoParameterRec_SetValue93 = new byte[4];
+        byte[] ServoParameterRec_SetValue94 = new byte[4];
+        byte[] ServoParameterRec_SetValue95 = new byte[4];
+        byte[] ServoParameterRec_SetValue96 = new byte[4];
+        byte[] ServoParameterRec_SetValue97 = new byte[4];
+        byte[] ServoParameterRec_SetValue98 = new byte[4];
+        byte[] ServoParameterRec_SetValue99 = new byte[4];
+        byte[] ServoParameterRec_SetValue100 = new byte[4];
+        byte[] ServoParameterRec_SetValue101 = new byte[4];
+        byte[] ServoParameterRec_SetValue102 = new byte[4];
+        byte[] ServoParameterRec_SetValue103 = new byte[4];
+        byte[] ServoParameterRec_SetValue104 = new byte[4];
+        byte[] ServoParameterRec_SetValue105 = new byte[4];
+        byte[] ServoParameterRec_SetValue106 = new byte[4];
+        byte[] ServoParameterRec_SetValue107 = new byte[4];
+        byte[] ServoParameterRec_SetValue108 = new byte[4];
+        byte[] ServoParameterRec_SetValue109 = new byte[4];
+        byte[] ServoParameterRec_SetValue110 = new byte[4];
+        byte[] ServoParameterRec_SetValue111 = new byte[4];
+        byte[] ServoParameterRec_SetValue112 = new byte[4];
+        byte[] ServoParameterRec_SetValue113 = new byte[4];
+        byte[] ServoParameterRec_SetValue114 = new byte[4];
+        byte[] ServoParameterRec_SetValue115 = new byte[4];
+        byte[] ServoParameterRec_SetValue116 = new byte[4];
+        byte[] ServoParameterRec_SetValue117 = new byte[4];
+        byte[] ServoParameterRec_SetValue118 = new byte[4];
+        byte[] ServoParameterRec_SetValue119 = new byte[4];
+        byte[] ServoParameterRec_SetValue120 = new byte[4];
+        byte[] ServoParameterRec_SetValue121 = new byte[4];
+        byte[] ServoParameterRec_SetValue122 = new byte[4];
+        byte[] ServoParameterRec_SetValue123 = new byte[4];
+        byte[] ServoParameterRec_SetValue124 = new byte[4];
+        byte[] ServoParameterRec_SetValue125 = new byte[4];
+        byte[] ServoParameterRec_SetValue126 = new byte[4];
+        byte[] ServoParameterRec_SetValue127 = new byte[4];
+        byte[] ServoParameterRec_SetValue128 = new byte[4];
+        byte[] ServoParameterRec_SetValue129 = new byte[4];
+        byte[] ServoParameterRec_SetValue130 = new byte[4];
+        byte[] ServoParameterRec_SetValue131 = new byte[4];
+        byte[] ServoParameterRec_SetValue132 = new byte[4];
+        byte[] ServoParameterRec_SetValue133 = new byte[4];
+        byte[] ServoParameterRec_SetValue134 = new byte[4];
+        byte[] ServoParameterRec_SetValue135 = new byte[4];
+        byte[] ServoParameterRec_SetValue136 = new byte[4];
+        byte[] ServoParameterRec_SetValue137 = new byte[4];
+        byte[] ServoParameterRec_SetValue138 = new byte[4];
+        byte[] ServoParameterRec_SetValue139 = new byte[4];
+        byte[] ServoParameterRec_SetValue140 = new byte[4];
+        byte[] ServoParameterRec_SetValue141 = new byte[4];
+        byte[] ServoParameterRec_SetValue142 = new byte[4];
+        byte[] ServoParameterRec_SetValue143 = new byte[4];
+        byte[] ServoParameterRec_SetValue144 = new byte[4];
+        byte[] ServoParameterRec_SetValue145 = new byte[4];
+        byte[] ServoParameterRec_SetValue146 = new byte[4];
+        byte[] ServoParameterRec_SetValue147 = new byte[4];
+        byte[] ServoParameterRec_SetValue148 = new byte[4];
+        byte[] ServoParameterRec_SetValue149 = new byte[4];
+        byte[] ServoParameterRec_SetValue150 = new byte[4];
+        byte[] ServoParameterRec_SetValue151 = new byte[4];
+        byte[] ServoParameterRec_SetValue152 = new byte[4];
+        byte[] ServoParameterRec_SetValue153 = new byte[4];
+        byte[] ServoParameterRec_SetValue154 = new byte[4];
+        byte[] ServoParameterRec_SetValue155 = new byte[4];
+        byte[] ServoParameterRec_SetValue156 = new byte[4];
+        byte[] ServoParameterRec_SetValue157 = new byte[4];
+        byte[] ServoParameterRec_SetValue158 = new byte[4];
+        byte[] ServoParameterRec_SetValue159 = new byte[4];
+        byte[] ServoParameterRec_SetValue160 = new byte[4];
+        byte[] ServoParameterRec_SetValue161 = new byte[4];
+        byte[] ServoParameterRec_SetValue162 = new byte[4];
+        byte[] ServoParameterRec_SetValue163 = new byte[4];
+        byte[] ServoParameterRec_SetValue164 = new byte[4];
+        byte[] ServoParameterRec_SetValue165 = new byte[4];
+        byte[] ServoParameterRec_SetValue166 = new byte[4];
+        byte[] ServoParameterRec_SetValue167 = new byte[4];
+        byte[] ServoParameterRec_SetValue168 = new byte[4];
+        byte[] ServoParameterRec_SetValue169 = new byte[4];
+        byte[] ServoParameterRec_SetValue170 = new byte[4];
+        byte[] ServoParameterRec_SetValue171 = new byte[4];
+        byte[] ServoParameterRec_SetValue172 = new byte[4];
+        byte[] ServoParameterRec_SetValue173 = new byte[4];
+        byte[] ServoParameterRec_SetValue174 = new byte[4];
+        byte[] ServoParameterRec_SetValue175 = new byte[4];
+        byte[] ServoParameterRec_SetValue176 = new byte[4];
+        byte[] ServoParameterRec_SetValue177 = new byte[4];
+        byte[] ServoParameterRec_SetValue178 = new byte[4];
+        byte[] ServoParameterRec_SetValue179 = new byte[4];
+        byte[] ServoParameterRec_SetValue180 = new byte[4];
+        byte[] ServoParameterRec_SetValue181 = new byte[4];
+        byte[] ServoParameterRec_SetValue182 = new byte[4];
+        byte[] ServoParameterRec_SetValue183 = new byte[4];
+        byte[] ServoParameterRec_SetValue184 = new byte[4];
+        byte[] ServoParameterRec_SetValue185 = new byte[4];
+        byte[] ServoParameterRec_SetValue186 = new byte[4];
+        byte[] ServoParameterRec_SetValue187 = new byte[4];
+        byte[] ServoParameterRec_SetValue188 = new byte[4];
+        byte[] ServoParameterRec_SetValue189 = new byte[4];
+        byte[] ServoParameterRec_SetValue190 = new byte[4];
+        byte[] ServoParameterRec_SetValue191 = new byte[4];
+        byte[] ServoParameterRec_SetValue192 = new byte[4];
+        byte[] ServoParameterRec_SetValue193 = new byte[4];
+        byte[] ServoParameterRec_SetValue194 = new byte[4];
+        byte[] ServoParameterRec_SetValue195 = new byte[4];
+        byte[] ServoParameterRec_SetValue196 = new byte[4];
+        byte[] ServoParameterRec_SetValue197 = new byte[4];
+        byte[] ServoParameterRec_SetValue198 = new byte[4];
+        byte[] ServoParameterRec_SetValue199 = new byte[4];
+        byte[] ServoParameterRec_SetValue200 = new byte[4];
+        byte[] ServoParameterRec_SetValue201 = new byte[4];
+        byte[] ServoParameterRec_SetValue202 = new byte[4];
+        byte[] ServoParameterRec_SetValue203 = new byte[4];
+        byte[] ServoParameterRec_SetValue204 = new byte[4];
+        byte[] ServoParameterRec_SetValue205 = new byte[4];
+        byte[] ServoParameterRec_SetValue206 = new byte[4];
+        byte[] ServoParameterRec_SetValue207 = new byte[4];
+        byte[] ServoParameterRec_SetValue208 = new byte[4];
+        byte[] ServoParameterRec_SetValue209 = new byte[4];
+        byte[] ServoParameterRec_SetValue210 = new byte[4];
+        byte[] ServoParameterRec_SetValue211 = new byte[4];
+        byte[] ServoParameterRec_SetValue212 = new byte[4];
+        byte[] ServoParameterRec_SetValue213 = new byte[4];
+        byte[] ServoParameterRec_SetValue214 = new byte[4];
+        byte[] ServoParameterRec_SetValue215 = new byte[4];
+        byte[] ServoParameterRec_SetValue216 = new byte[4];
+        byte[] ServoParameterRec_SetValue217 = new byte[4];
+        byte[] ServoParameterRec_SetValue218 = new byte[4];
+        byte[] ServoParameterRec_SetValue219 = new byte[4];
+        byte[] ServoParameterRec_SetValue220 = new byte[4];
+        byte[] ServoParameterRec_SetValue221 = new byte[4];
+        byte[] ServoParameterRec_SetValue222 = new byte[4];
+        byte[] ServoParameterRec_SetValue223 = new byte[4];
+        byte[] ServoParameterRec_SetValue224 = new byte[4];
+        byte[] ServoParameterRec_SetValue225 = new byte[4];
+        byte[] ServoParameterRec_SetValue226 = new byte[4];
+        byte[] ServoParameterRec_SetValue227 = new byte[4];
+        byte[] ServoParameterRec_SetValue228 = new byte[4];
+        byte[] ServoParameterRec_SetValue229 = new byte[4];
+        byte[] ServoParameterRec_SetValue230 = new byte[4];
+        byte[] ServoParameterRec_SetValue231 = new byte[4];
+        byte[] ServoParameterRec_SetValue232 = new byte[4];
+        byte[] ServoParameterRec_SetValue233 = new byte[4];
+        byte[] ServoParameterRec_SetValue234 = new byte[4];
+        byte[] ServoParameterRec_SetValue235 = new byte[4];
+        byte[] ServoParameterRec_SetValue236 = new byte[4];
+        byte[] ServoParameterRec_SetValue237 = new byte[4];
+        byte[] ServoParameterRec_SetValue238 = new byte[4];
+        byte[] ServoParameterRec_SetValue239 = new byte[4];
+        byte[] ServoParameterRec_SetValue240 = new byte[4];
+        byte[] ServoParameterRec_SetValue241 = new byte[4];
+        byte[] ServoParameterRec_SetValue242 = new byte[4];
+        byte[] ServoParameterRec_SetValue243 = new byte[4];
+        byte[] ServoParameterRec_SetValue244 = new byte[4];
+        byte[] ServoParameterRec_SetValue245 = new byte[4];
+        byte[] ServoParameterRec_SetValue246 = new byte[4];
+        byte[] ServoParameterRec_SetValue247 = new byte[4];
+        byte[] ServoParameterRec_SetValue248 = new byte[4];
+        byte[] ServoParameterRec_SetValue249 = new byte[4];
+        byte[] ServoParameterRec_SetValue250 = new byte[4];
+        byte[] ServoParameterRec_SetValue251 = new byte[4];
+        byte[] ServoParameterRec_SetValue252 = new byte[4];
+        byte[] ServoParameterRec_SetValue253 = new byte[4];
+        byte[] ServoParameterRec_SetValue254 = new byte[4];
+        byte[] ServoParameterRec_SetValue255 = new byte[4];
+        byte[] ServoParameterRec_SetValue256 = new byte[4];
+        byte[] ServoParameterRec_SetValue257 = new byte[4];
+        byte[] ServoParameterRec_SetValue258 = new byte[4];
+        byte[] ServoParameterRec_SetValue259 = new byte[4];
+        byte[] ServoParameterRec_SetValue260 = new byte[4];
+        byte[] ServoParameterRec_SetValue261 = new byte[4];
+        byte[] ServoParameterRec_SetValue262 = new byte[4];
+        byte[] ServoParameterRec_SetValue263 = new byte[4];
+        byte[] ServoParameterRec_SetValue264 = new byte[4];
+        byte[] ServoParameterRec_SetValue265 = new byte[4];
+        byte[] ServoParameterRec_SetValue266 = new byte[4];
+        byte[] ServoParameterRec_SetValue267 = new byte[4];
+        byte[] ServoParameterRec_SetValue268 = new byte[4];
+        byte[] ServoParameterRec_SetValue269 = new byte[4];
+        byte[] ServoParameterRec_SetValue270 = new byte[4];
+        byte[] ServoParameterRec_SetValue271 = new byte[4];
+        byte[] ServoParameterRec_SetValue272 = new byte[4];
+        byte[] ServoParameterRec_SetValue273 = new byte[4];
+        byte[] ServoParameterRec_SetValue274 = new byte[4];
+        byte[] ServoParameterRec_SetValue275 = new byte[4];
+        byte[] ServoParameterRec_SetValue276 = new byte[4];
+        byte[] ServoParameterRec_SetValue277 = new byte[4];
+        byte[] ServoParameterRec_SetValue278 = new byte[4];
+        byte[] ServoParameterRec_SetValue279 = new byte[4];
+        byte[] ServoParameterRec_SetValue280 = new byte[4];
+        byte[] ServoParameterRec_SetValue281 = new byte[4];
+        byte[] ServoParameterRec_SetValue282 = new byte[4];
+        byte[] ServoParameterRec_SetValue283 = new byte[4];
+        byte[] ServoParameterRec_SetValue284 = new byte[4];
+        byte[] ServoParameterRec_SetValue285 = new byte[4];
+        byte[] ServoParameterRec_SetValue286 = new byte[4];
+        byte[] ServoParameterRec_SetValue287 = new byte[4];
+        byte[] ServoParameterRec_SetValue288 = new byte[4];
+        byte[] ServoParameterRec_SetValue289 = new byte[4];
+        byte[] ServoParameterRec_SetValue290 = new byte[4];
+        byte[] ServoParameterRec_SetValue291 = new byte[4];
+        byte[] ServoParameterRec_SetValue292 = new byte[4];
+        byte[] ServoParameterRec_SetValue293 = new byte[4];
+        byte[] ServoParameterRec_SetValue294 = new byte[4];
+        byte[] ServoParameterRec_SetValue295 = new byte[4];
+        byte[] ServoParameterRec_SetValue296 = new byte[4];
+        byte[] ServoParameterRec_SetValue297 = new byte[4];
+        byte[] ServoParameterRec_SetValue298 = new byte[4];
+        byte[] ServoParameterRec_SetValue299 = new byte[4];
+        byte[] ServoParameterRec_SetValue300 = new byte[4];
+        byte[] ServoParameterRec_SetValue301 = new byte[4];
+        byte[] ServoParameterRec_SetValue302 = new byte[4];
+        byte[] ServoParameterRec_SetValue303 = new byte[4];
+        byte[] ServoParameterRec_SetValue304 = new byte[4];
+        byte[] ServoParameterRec_SetValue305 = new byte[4];
+        byte[] ServoParameterRec_SetValue306 = new byte[4];
+        byte[] ServoParameterRec_SetValue307 = new byte[4];
+        byte[] ServoParameterRec_SetValue308 = new byte[4];
+        byte[] ServoParameterRec_SetValue309 = new byte[4];
+        byte[] ServoParameterRec_SetValue310 = new byte[4];
+        byte[] ServoParameterRec_SetValue311 = new byte[4];
+        byte[] ServoParameterRec_SetValue312 = new byte[4];
+        byte[] ServoParameterRec_SetValue313 = new byte[4];
+        byte[] ServoParameterRec_SetValue314 = new byte[4];
+        byte[] ServoParameterRec_SetValue315 = new byte[4];
+        byte[] ServoParameterRec_SetValue316 = new byte[4];
+        byte[] ServoParameterRec_SetValue317 = new byte[4];
+        byte[] ServoParameterRec_SetValue318 = new byte[4];
+        byte[] ServoParameterRec_SetValue319 = new byte[4];
+        byte[] ServoParameterRec_SetValue320 = new byte[4];
+        byte[] ServoParameterRec_SetValue321 = new byte[4];
+        byte[] ServoParameterRec_SetValue322 = new byte[4];
+        byte[] ServoParameterRec_SetValue323 = new byte[4];
+        byte[] ServoParameterRec_SetValue324 = new byte[4];
+        byte[] ServoParameterRec_SetValue325 = new byte[4];
+        byte[] ServoParameterRec_SetValue326 = new byte[4];
+        byte[] ServoParameterRec_SetValue327 = new byte[4];
+        byte[] ServoParameterRec_SetValue328 = new byte[4];
+        byte[] ServoParameterRec_SetValue329 = new byte[4];
+        byte[] ServoParameterRec_SetValue330 = new byte[4];
+        byte[] ServoParameterRec_SetValue331 = new byte[4];
+        byte[] ServoParameterRec_SetValue332 = new byte[4];
+        byte[] ServoParameterRec_SetValue333 = new byte[4];
+        byte[] ServoParameterRec_SetValue334 = new byte[4];
+        byte[] ServoParameterRec_SetValue335 = new byte[4];
+        byte[] ServoParameterRec_SetValue336 = new byte[4];
+        byte[] ServoParameterRec_SetValue337 = new byte[4];
+        byte[] ServoParameterRec_SetValue338 = new byte[4];
+        byte[] ServoParameterRec_SetValue339 = new byte[4];
+        byte[] ServoParameterRec_SetValue340 = new byte[4];
+        byte[] ServoParameterRec_SetValue341 = new byte[4];
+        byte[] ServoParameterRec_SetValue342 = new byte[4];
+        byte[] ServoParameterRec_SetValue343 = new byte[4];
+        byte[] ServoParameterRec_SetValue344 = new byte[4];
+        byte[] ServoParameterRec_SetValue345 = new byte[4];
+        byte[] ServoParameterRec_SetValue346 = new byte[4];
+        byte[] ServoParameterRec_SetValue347 = new byte[4];
+        byte[] ServoParameterRec_SetValue348 = new byte[4];
+        byte[] ServoParameterRec_SetValue349 = new byte[4];
+        byte[] ServoParameterRec_SetValue350 = new byte[4];
+        byte[] ServoParameterRec_SetValue351 = new byte[4];
+        byte[] ServoParameterRec_SetValue352 = new byte[4];
+        byte[] ServoParameterRec_SetValue353 = new byte[4];
+        byte[] ServoParameterRec_SetValue354 = new byte[4];
+        byte[] ServoParameterRec_SetValue355 = new byte[4];
+        byte[] ServoParameterRec_SetValue356 = new byte[4];
+        byte[] ServoParameterRec_SetValue357 = new byte[4];
+        byte[] ServoParameterRec_SetValue358 = new byte[4];
+        byte[] ServoParameterRec_SetValue359 = new byte[4];
+        byte[] ServoParameterRec_SetValue360 = new byte[4];
+        byte[] ServoParameterRec_SetValue361 = new byte[4];
+        byte[] ServoParameterRec_SetValue362 = new byte[4];
+        byte[] ServoParameterRec_SetValue363 = new byte[4];
+        byte[] ServoParameterRec_SetValue364 = new byte[4];
+        byte[] ServoParameterRec_SetValue365 = new byte[4];
+        byte[] ServoParameterRec_SetValue366 = new byte[4];
+        byte[] ServoParameterRec_SetValue367 = new byte[4];
+        byte[] ServoParameterRec_SetValue368 = new byte[4];
+        byte[] ServoParameterRec_SetValue369 = new byte[4];
+        byte[] ServoParameterRec_SetValue370 = new byte[4];
+        byte[] ServoParameterRec_SetValue371 = new byte[4];
+        byte[] ServoParameterRec_SetValue372 = new byte[4];
+        byte[] ServoParameterRec_SetValue373 = new byte[4];
+        byte[] ServoParameterRec_SetValue374 = new byte[4];
+        byte[] ServoParameterRec_SetValue375 = new byte[4];
+        byte[] ServoParameterRec_SetValue376 = new byte[4];
+        byte[] ServoParameterRec_SetValue377 = new byte[4];
+        byte[] ServoParameterRec_SetValue378 = new byte[4];
+        byte[] ServoParameterRec_SetValue379 = new byte[4];
+        byte[] ServoParameterRec_SetValue380 = new byte[4];
+        byte[] ServoParameterRec_SetValue381 = new byte[4];
+        byte[] ServoParameterRec_SetValue382 = new byte[4];
+        byte[] ServoParameterRec_SetValue383 = new byte[4];
+        byte[] ServoParameterRec_SetValue384 = new byte[4];
+        byte[] ServoParameterRec_SetValue385 = new byte[4];
+        byte[] ServoParameterRec_SetValue386 = new byte[4];
+        byte[] ServoParameterRec_SetValue387 = new byte[4];
+        byte[] ServoParameterRec_SetValue388 = new byte[4];
+        byte[] ServoParameterRec_SetValue389 = new byte[4];
+        byte[] ServoParameterRec_SetValue390 = new byte[4];
+        byte[] ServoParameterRec_SetValue391 = new byte[4];
+        byte[] ServoParameterRec_SetValue392 = new byte[4];
+        byte[] ServoParameterRec_SetValue393 = new byte[4];
+        byte[] ServoParameterRec_SetValue394 = new byte[4];
+        byte[] ServoParameterRec_SetValue395 = new byte[4];
+        byte[] ServoParameterRec_SetValue396 = new byte[4];
+        byte[] ServoParameterRec_SetValue397 = new byte[4];
+        byte[] ServoParameterRec_SetValue398 = new byte[4];
+        byte[] ServoParameterRec_SetValue399 = new byte[4];
+        byte[] ServoParameterRec_SetValue400 = new byte[4];
+        byte[] ServoParameterRec_SetValue401 = new byte[4];
+        byte[] ServoParameterRec_SetValue402 = new byte[4];
+        byte[] ServoParameterRec_SetValue403 = new byte[4];
+        byte[] ServoParameterRec_SetValue404 = new byte[4];
+        byte[] ServoParameterRec_SetValue405 = new byte[4];
+        byte[] ServoParameterRec_SetValue406 = new byte[4];
+        byte[] ServoParameterRec_SetValue407 = new byte[4];
+        byte[] ServoParameterRec_SetValue408 = new byte[4];
+        byte[] ServoParameterRec_SetValue409 = new byte[4];
+        byte[] ServoParameterRec_SetValue410 = new byte[4];
         #endregion
 
         //StatusBar 변수
@@ -3530,445 +4345,445 @@ namespace MINASA6SF_Rev.ViewModels
 
             para0 = new ObservableCollection<ServoParaModel>()
             {
-                 new ServoParaModel() { MainIndex = "0", SubIndex = 0, ParaName = "회전 방향 설정", range = "0- 1", SetVal = 1, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 1, ParaName = "제어 모드 설정", range = "0- 6", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 3, ParaName = "실시간 오토뉴닝 기계 강성", range = "0- 31", SetVal = 13, unitVal = "%" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 2, ParaName = "실시간 오토튜닝 설정", range = "0- 6", SetVal = 1, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 4, ParaName = "관성비", range = "0- 10000", SetVal = 250, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 5, ParaName = "지령 펄스 입력 선택", range = "0- 2", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 6, ParaName = "지령 펄스 회전 방향 설정", range = "0- 1", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 7, ParaName = "지령 펄스 입력 모드 설정", range = "0- 3", SetVal = 1, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 8, ParaName = "모터 1회전당 지령 펄스 수", range = "0- 8388608", SetVal = 10000, unitVal = "4체배 후" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 9, ParaName = "제1 지령 분주 체배 분자", range = "0- 1073741824", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 10, ParaName = "지령 분주 체배 분모", range = "0- 1073741824", SetVal = 10000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 11, ParaName = "모터 1회전당 출력 펄스", range = "0- 2907152", SetVal = 2500, unitVal = "4체배 전" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 12, ParaName = "펄스 출력 논리 반전/출력 소스 선택", range = "0- 3", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 13, ParaName = "제1 토크 한계", range = "0- 500", SetVal = 500, unitVal = "%" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 14, ParaName = "위치 편차 과대 설정", range = "0- 1073741824", SetVal = 100000, unitVal = "단위설정에 의존" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 15, ParaName = "앱솔루트 인코더 설정", range = "0- 4", SetVal = 1, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 16, ParaName = "회생 저항 외장 설정", range = "0- 4", SetVal = 3, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 17, ParaName = "외장 회생 저항 부하율 선택", range = "0- 4", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "0", SubIndex = 18, ParaName = "제조사 사용", range = "0- 1", SetVal = 0, unitVal = "---" }
+                 new ServoParaModel() { MainIndex = "0", SubIndex = 0, ParaName = "회전 방향 설정", range = "0- 1", SetVal = 1f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 1, ParaName = "제어 모드 설정", range = "0- 6", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 3, ParaName = "실시간 오토뉴닝 기계 강성", range = "0- 31", SetVal = 13f, unitVal = "%" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 2, ParaName = "실시간 오토튜닝 설정", range = "0- 6", SetVal = 1f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 4, ParaName = "관성비", range = "0- 10000", SetVal = 250f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 5, ParaName = "지령 펄스 입력 선택", range = "0- 2", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 6, ParaName = "지령 펄스 회전 방향 설정", range = "0- 1", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 7, ParaName = "지령 펄스 입력 모드 설정", range = "0- 3", SetVal = 1f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 8, ParaName = "모터 1회전당 지령 펄스 수", range = "0- 8388608", SetVal = 10000f, unitVal = "4체배 후" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 9, ParaName = "제1 지령 분주 체배 분자", range = "0- 1073741824", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 10, ParaName = "지령 분주 체배 분모", range = "0- 1073741824", SetVal = 10000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 11, ParaName = "모터 1회전당 출력 펄스", range = "0- 2907152", SetVal = 2500f, unitVal = "4체배 전" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 12, ParaName = "펄스 출력 논리 반전/출력 소스 선택", range = "0- 3", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 13, ParaName = "제1 토크 한계", range = "0- 500", SetVal = 500f, unitVal = "%" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 14, ParaName = "위치 편차 과대 설정", range = "0- 1073741824", SetVal = 100000f, unitVal = "단위설정에 의존" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 15, ParaName = "앱솔루트 인코더 설정", range = "0- 4", SetVal = 1f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 16, ParaName = "회생 저항 외장 설정", range = "0- 4", SetVal = 3f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 17, ParaName = "외장 회생 저항 부하율 선택", range = "0- 4", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "0", SubIndex = 18, ParaName = "제조사 사용", range = "0- 1", SetVal = 0f, unitVal = "---" }
             };
             para1 = new ObservableCollection<ServoParaModel>()
             {
-                 new ServoParaModel() { MainIndex = "1", SubIndex = 0, ParaName = "제1 위치 루프 게인", range = "0- 30000", SetVal = 48, unitVal = "1/s" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 1, ParaName = "제1 속도 루프 게인", range = "0.1- 3276.7", SetVal = 27.0, unitVal = "Hz" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 2, ParaName = "제1 속도 루프 적분 시정수", range = "0.1- 1000.0", SetVal = 21.0, unitVal = "ms" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 3, ParaName = "제1 속도 검출 필터", range = "0- 5", SetVal = 0, unitVal = "--" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 4, ParaName = "제1 토크 필터 시정수", range = "0.00- 25.00", SetVal = 0.84, unitVal = "ms" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 5, ParaName = "제2 위치 루프 게인", range = "0.0- 3000.0", SetVal = 48.0, unitVal = "1/s" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 6, ParaName = "제2 속도 루프 게인", range = "0.1- 3276.7", SetVal = 27.0, unitVal = "Hz" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 7, ParaName = "제2 속도 루프 적분 시정수", range = "0.1- 1000.0", SetVal = 21.0, unitVal = "ms" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 8, ParaName = "제2 속도 검출 필터", range = "0- 5", SetVal = 0, unitVal = "--" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 9, ParaName = "제2 토크 필터 시정수", range = "0.00- 25.00", SetVal = 0.84, unitVal = "ms" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 10, ParaName = "속도 피드포워드 게인", range = "0.0- 400.0", SetVal = 100.0, unitVal = "%" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 11, ParaName = "속도 피드포워드 필터", range = "0.00- 64.00", SetVal = 0.00, unitVal = "ms" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 12, ParaName = "토크 피드포워드 게인", range = "0.0- 200.0", SetVal = 100.0, unitVal = "%" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 13, ParaName = "토크 피드포워드 필터", range = "0.00- 64.00", SetVal = 0.00, unitVal = "ms" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 14, ParaName = "제2 게인 설정", range = "0- 1", SetVal = 1, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 15, ParaName = "위치 제어 전환 모드", range = "0- 10", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 16, ParaName = "위치 제어 전환 지연 시간", range = "0.0- 1000.0", SetVal = 1.0, unitVal = "ms" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 17, ParaName = "위치 제어 전환 레벨", range = "0.0- 1000.0", SetVal = 0, unitVal = "모드" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 18, ParaName = "위치 제어 전환 시 히스테리", range = "0- 20000", SetVal = 0, unitVal = "모드" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 19, ParaName = "위치 게인 전환 시간", range = "0.0- 1000.0", SetVal = 1.0, unitVal = "ms" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 20, ParaName = "속도 제어 전환 모드", range = "0- 5", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 21, ParaName = "속도 제어 전환 시간", range = "0.0- 1000.0", SetVal = 480, unitVal = "ms" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 22, ParaName = "속도 제어 전환 레벨", range = "0- 20000", SetVal = 0, unitVal = "모드" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 23, ParaName = "속도 제어 전환 시 히스테리", range = "0- 20000", SetVal = 0, unitVal = "모드" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 24, ParaName = "토크 제어 전환 모드", range = "0- 3", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 25, ParaName = "토크 제어 전환 시간", range = "0.0- 1000.0", SetVal = 0.0, unitVal = "ms" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 26, ParaName = "토크 제어 전환 레벨", range = "0- 20000", SetVal = 0, unitVal = "모드" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 27, ParaName = "토크 제어 전환 시 히스테리", range = "0- 20000", SetVal = 0, unitVal = "모드" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 28, ParaName = "제조사 사용", range = "0- 4000", SetVal = 1000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 29, ParaName = "제조사 사용", range = "0- 2000", SetVal = 1000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 30, ParaName = "제조사 사용", range = "0- 10000", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 31, ParaName = "제조사 사용", range = "0- 30000", SetVal = 480, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 32, ParaName = "제조사 사용", range = "0- 32767", SetVal = 270, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 33, ParaName = "제조사 사용", range = "0- 10000", SetVal = 210, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 34, ParaName = "제조사 사용", range = "0- 2500", SetVal = 84, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 35, ParaName = "제조사 사용", range = "0- 10000", SetVal = 250, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 36, ParaName = "제조사 사용", range = "0- 4000", SetVal = 1000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 37, ParaName = "제조사 사용", range = "0- 2000", SetVal = 1000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 38, ParaName = "제조사 사용", range = "0- 10000", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 39, ParaName = "제조사 사용", range = "0- 30000", SetVal = 480, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 40, ParaName = "제조사 사용", range = "0- 32767", SetVal = 270, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 41, ParaName = "제조사 사용", range = "0- 10000", SetVal = 210, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 42, ParaName = "제조사 사용", range = "0- 2500", SetVal = 84, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 43, ParaName = "제조사 사용", range = "0- 10000", SetVal = 250, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 44, ParaName = "제조사 사용", range = "0- 4000", SetVal = 1000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 45, ParaName = "제조사 사용", range = "0- 2000", SetVal = 1000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 46, ParaName = "제조사 사용", range = "0- 10000", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 47, ParaName = "제조사 사용", range = "0- 30000", SetVal = 480, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 48, ParaName = "제조사 사용", range = "0- 32767", SetVal = 270, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 49, ParaName = "제조사 사용", range = "0- 10000", SetVal = 210, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 50, ParaName = "제조사 사용", range = "0- 2500", SetVal = 84, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 51, ParaName = "제조사 사용", range = "0- 10000", SetVal = 250, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 52, ParaName = "제조사 사용", range = "0- 4000", SetVal = 1000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 53, ParaName = "제조사 사용", range = "0- 2000", SetVal = 1000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 54, ParaName = "제조사 사용", range = "0- 10000", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 55, ParaName = "제조사 사용", range = "0- 30000", SetVal = 480, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 56, ParaName = "제조사 사용", range = "0- 32767", SetVal = 270, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 57, ParaName = "제조사 사용", range = "0- 10000", SetVal = 210, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 58, ParaName = "제조사 사용", range = "0- 2500", SetVal = 84, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 59, ParaName = "제조사 사용", range = "0- 10000", SetVal = 250, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 60, ParaName = "제조사 사용", range = "0- 4000", SetVal = 1000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 61, ParaName = "제조사 사용", range = "0- 2000", SetVal = 1000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 62, ParaName = "제조사 사용", range = "0- 10000", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 63, ParaName = "제조사 사용", range = "0- 30000", SetVal = 480, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 64, ParaName = "제조사 사용", range = "0- 32767", SetVal = 270, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 65, ParaName = "제조사 사용", range = "0- 10000", SetVal = 210, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 66, ParaName = "제조사 사용", range = "0- 2500", SetVal = 84, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 67, ParaName = "제조사 사용", range = "0- 10000", SetVal = 250, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 68, ParaName = "제조사 사용", range = "0- 4000", SetVal = 1000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 69, ParaName = "제조사 사용", range = "0- 2000", SetVal = 1000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 70, ParaName = "제조사 사용", range = "0- 10000", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 71, ParaName = "제조사 사용", range = "0- 30000", SetVal = 480, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 72, ParaName = "제조사 사용", range = "0- 32767", SetVal = 270, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 73, ParaName = "제조사 사용", range = "0- 10000", SetVal = 210, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 74, ParaName = "제조사 사용", range = "0- 2500", SetVal = 84, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 75, ParaName = "제조사 사용", range = "0- 10000", SetVal = 250, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 76, ParaName = "제조사 사용", range = "0- 4000", SetVal = 1000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 77, ParaName = "제조사 사용", range = "0- 2000", SetVal = 1000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "1", SubIndex = 77, ParaName = "제조사 사용", range = "0- 10000", SetVal = 0, unitVal = "---" }
+                 new ServoParaModel() { MainIndex = "1", SubIndex = 0, ParaName = "제1 위치 루프 게인", range = "0- 30000", SetVal = 48f, unitVal = "1/s" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 1, ParaName = "제1 속도 루프 게인", range = "0.1- 3276.7", SetVal = 27.0f, unitVal = "Hz" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 2, ParaName = "제1 속도 루프 적분 시정수", range = "0.1- 1000.0", SetVal = 21.0f, unitVal = "ms" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 3, ParaName = "제1 속도 검출 필터", range = "0- 5", SetVal = 0f, unitVal = "--" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 4, ParaName = "제1 토크 필터 시정수", range = "0.00- 25.00", SetVal = 0.84f, unitVal = "ms" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 5, ParaName = "제2 위치 루프 게인", range = "0.0- 3000.0", SetVal = 48.0f, unitVal = "1/s" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 6, ParaName = "제2 속도 루프 게인", range = "0.1- 3276.7", SetVal = 27.0f, unitVal = "Hz" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 7, ParaName = "제2 속도 루프 적분 시정수", range = "0.1- 1000.0", SetVal = 21.0f, unitVal = "ms" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 8, ParaName = "제2 속도 검출 필터", range = "0- 5", SetVal = 0f, unitVal = "--" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 9, ParaName = "제2 토크 필터 시정수", range = "0.00- 25.00", SetVal = 0.84f, unitVal = "ms" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 10, ParaName = "속도 피드포워드 게인", range = "0.0- 400.0", SetVal = 100.0f, unitVal = "%" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 11, ParaName = "속도 피드포워드 필터", range = "0.00- 64.00", SetVal = 0.00f, unitVal = "ms" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 12, ParaName = "토크 피드포워드 게인", range = "0.0- 200.0", SetVal = 100.0f, unitVal = "%" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 13, ParaName = "토크 피드포워드 필터", range = "0.00- 64.00", SetVal = 0.00f, unitVal = "ms" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 14, ParaName = "제2 게인 설정", range = "0- 1", SetVal = 1f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 15, ParaName = "위치 제어 전환 모드", range = "0- 10", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 16, ParaName = "위치 제어 전환 지연 시간", range = "0.0- 1000.0", SetVal = 1.0f, unitVal = "ms" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 17, ParaName = "위치 제어 전환 레벨", range = "0.0- 1000.0", SetVal = 0f, unitVal = "모드" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 18, ParaName = "위치 제어 전환 시 히스테리", range = "0- 20000", SetVal = 0f, unitVal = "모드" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 19, ParaName = "위치 게인 전환 시간", range = "0.0- 1000.0", SetVal = 1.0f, unitVal = "ms" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 20, ParaName = "속도 제어 전환 모드", range = "0- 5", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 21, ParaName = "속도 제어 전환 시간", range = "0.0- 1000.0", SetVal = 480f, unitVal = "ms" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 22, ParaName = "속도 제어 전환 레벨", range = "0- 20000", SetVal = 0f, unitVal = "모드" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 23, ParaName = "속도 제어 전환 시 히스테리", range = "0- 20000", SetVal = 0f, unitVal = "모드" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 24, ParaName = "토크 제어 전환 모드", range = "0- 3", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 25, ParaName = "토크 제어 전환 시간", range = "0.0- 1000.0", SetVal = 0.0f, unitVal = "ms" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 26, ParaName = "토크 제어 전환 레벨", range = "0- 20000", SetVal = 0f, unitVal = "모드" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 27, ParaName = "토크 제어 전환 시 히스테리", range = "0- 20000", SetVal = 0f, unitVal = "모드" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 28, ParaName = "제조사 사용", range = "0- 4000", SetVal = 1000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 29, ParaName = "제조사 사용", range = "0- 2000", SetVal = 1000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 30, ParaName = "제조사 사용", range = "0- 10000", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 31, ParaName = "제조사 사용", range = "0- 30000", SetVal = 480f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 32, ParaName = "제조사 사용", range = "0- 32767", SetVal = 270f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 33, ParaName = "제조사 사용", range = "0- 10000", SetVal = 210f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 34, ParaName = "제조사 사용", range = "0- 2500", SetVal = 84f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 35, ParaName = "제조사 사용", range = "0- 10000", SetVal = 250f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 36, ParaName = "제조사 사용", range = "0- 4000", SetVal = 1000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 37, ParaName = "제조사 사용", range = "0- 2000", SetVal = 1000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 38, ParaName = "제조사 사용", range = "0- 10000", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 39, ParaName = "제조사 사용", range = "0- 30000", SetVal = 480f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 40, ParaName = "제조사 사용", range = "0- 32767", SetVal = 270f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 41, ParaName = "제조사 사용", range = "0- 10000", SetVal = 210f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 42, ParaName = "제조사 사용", range = "0- 2500", SetVal = 84f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 43, ParaName = "제조사 사용", range = "0- 10000", SetVal = 250f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 44, ParaName = "제조사 사용", range = "0- 4000", SetVal = 1000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 45, ParaName = "제조사 사용", range = "0- 2000", SetVal = 1000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 46, ParaName = "제조사 사용", range = "0- 10000", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 47, ParaName = "제조사 사용", range = "0- 30000", SetVal = 480f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 48, ParaName = "제조사 사용", range = "0- 32767", SetVal = 270f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 49, ParaName = "제조사 사용", range = "0- 10000", SetVal = 210f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 50, ParaName = "제조사 사용", range = "0- 2500", SetVal = 84f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 51, ParaName = "제조사 사용", range = "0- 10000", SetVal = 250f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 52, ParaName = "제조사 사용", range = "0- 4000", SetVal = 1000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 53, ParaName = "제조사 사용", range = "0- 2000", SetVal = 1000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 54, ParaName = "제조사 사용", range = "0- 10000", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 55, ParaName = "제조사 사용", range = "0- 30000", SetVal = 480f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 56, ParaName = "제조사 사용", range = "0- 32767", SetVal = 270f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 57, ParaName = "제조사 사용", range = "0- 10000", SetVal = 210f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 58, ParaName = "제조사 사용", range = "0- 2500", SetVal = 84f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 59, ParaName = "제조사 사용", range = "0- 10000", SetVal = 250f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 60, ParaName = "제조사 사용", range = "0- 4000", SetVal = 1000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 61, ParaName = "제조사 사용", range = "0- 2000", SetVal = 1000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 62, ParaName = "제조사 사용", range = "0- 10000", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 63, ParaName = "제조사 사용", range = "0- 30000", SetVal = 480f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 64, ParaName = "제조사 사용", range = "0- 32767", SetVal = 270f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 65, ParaName = "제조사 사용", range = "0- 10000", SetVal = 210f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 66, ParaName = "제조사 사용", range = "0- 2500", SetVal = 84f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 67, ParaName = "제조사 사용", range = "0- 10000", SetVal = 250f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 68, ParaName = "제조사 사용", range = "0- 4000", SetVal = 1000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 69, ParaName = "제조사 사용", range = "0- 2000", SetVal = 1000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 70, ParaName = "제조사 사용", range = "0- 10000", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 71, ParaName = "제조사 사용", range = "0- 30000", SetVal = 480f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 72, ParaName = "제조사 사용", range = "0- 32767", SetVal = 270f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 73, ParaName = "제조사 사용", range = "0- 10000", SetVal = 210f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 74, ParaName = "제조사 사용", range = "0- 2500", SetVal = 84f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 75, ParaName = "제조사 사용", range = "0- 10000", SetVal = 250f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 76, ParaName = "제조사 사용", range = "0- 4000", SetVal = 1000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 77, ParaName = "제조사 사용", range = "0- 2000", SetVal = 1000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "1", SubIndex = 77, ParaName = "제조사 사용", range = "0- 10000", SetVal = 0f, unitVal = "---" }
             };
             para2 = new ObservableCollection<ServoParaModel>()
             {
-                new ServoParaModel() { MainIndex = "2", SubIndex = 0, ParaName = "적응 필터 모드 설정", range = "0- 6", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 1, ParaName = "제1 노치 주파수", range = "50- 5000", SetVal = 5000, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 2, ParaName = "제1 노치 폭 선택", range = "0- 20", SetVal = 2, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 3, ParaName = "제1 노치 깊이 선택", range = "0- 99", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 4, ParaName = "제2 노치 주파수", range = "50- 5000", SetVal = 5000, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 5, ParaName = "제2 노치 폭 선택", range = "0- 20", SetVal = 2, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 6, ParaName = "제2 노치 깊이 선택", range = "0- 99", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 7, ParaName = "제3 노치 주파수", range = "50- 5000", SetVal = 5000, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 8, ParaName = "제3 노치 폭 선택", range = "0- 20", SetVal = 2, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 9, ParaName = "제3 노치 깊이 선택", range = "0- 99", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 10, ParaName = "제4 노치 주파수", range = "50- 5000", SetVal = 5000, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 11, ParaName = "제4 노치 폭 선택", range = "0- 20", SetVal = 2, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 12, ParaName = "제4 노치 깊이 선택", range = "0- 99", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 13, ParaName = "제진 필터 전환 선택", range = "0- 6", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 14, ParaName = "제1 제진 주파수", range = "0.0- 300.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 15, ParaName = "제1 제진 필터 설정", range = "0.0- 150.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 16, ParaName = "제2 제진 주파수", range = "0.0- 300.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 17, ParaName = "제2 제진 필터 설정", range = "0.0- 150.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 18, ParaName = "제3 제진 주파수", range = "0.0- 300.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 19, ParaName = "제3 제진 필터 설정", range = "0.0- 150.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 20, ParaName = "제4 제진 주파수", range = "0.0- 300.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 21, ParaName = "제4 제진 필터 설정", range = "0.0- 150.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 22, ParaName = "지령 스무딩 필터", range = "0.0- 1000.0", SetVal = 9.2, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 23, ParaName = "지령 FIR필터", range = "0.0- 1000.0", SetVal = 1.0, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 24, ParaName = "제5 노치 주파수", range = "50- 5000", SetVal = 5000, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 25, ParaName = "제5 노치 폭", range = "0- 20", SetVal = 2, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 26, ParaName = "제5 노치 깊이", range = "0- 99", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 27, ParaName = "제1 제진 폭 설정", range = "0- 1000", SetVal = 0, unitVal = "---" }
+                new ServoParaModel() { MainIndex = "2", SubIndex = 0, ParaName = "적응 필터 모드 설정", range = "0- 6", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 1, ParaName = "제1 노치 주파수", range = "50- 5000", SetVal = 5000f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 2, ParaName = "제1 노치 폭 선택", range = "0- 20", SetVal = 2f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 3, ParaName = "제1 노치 깊이 선택", range = "0- 99", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 4, ParaName = "제2 노치 주파수", range = "50- 5000", SetVal = 5000f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 5, ParaName = "제2 노치 폭 선택", range = "0- 20", SetVal = 2f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 6, ParaName = "제2 노치 깊이 선택", range = "0- 99", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 7, ParaName = "제3 노치 주파수", range = "50- 5000", SetVal = 5000f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 8, ParaName = "제3 노치 폭 선택", range = "0- 20", SetVal = 2f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 9, ParaName = "제3 노치 깊이 선택", range = "0- 99", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 10, ParaName = "제4 노치 주파수", range = "50- 5000", SetVal = 5000f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 11, ParaName = "제4 노치 폭 선택", range = "0- 20", SetVal = 2f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 12, ParaName = "제4 노치 깊이 선택", range = "0- 99", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 13, ParaName = "제진 필터 전환 선택", range = "0- 6", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 14, ParaName = "제1 제진 주파수", range = "0.0- 300.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 15, ParaName = "제1 제진 필터 설정", range = "0.0- 150.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 16, ParaName = "제2 제진 주파수", range = "0.0- 300.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 17, ParaName = "제2 제진 필터 설정", range = "0.0- 150.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 18, ParaName = "제3 제진 주파수", range = "0.0- 300.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 19, ParaName = "제3 제진 필터 설정", range = "0.0- 150.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 20, ParaName = "제4 제진 주파수", range = "0.0- 300.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 21, ParaName = "제4 제진 필터 설정", range = "0.0- 150.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 22, ParaName = "지령 스무딩 필터", range = "0.0- 1000.0", SetVal = 9.2f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 23, ParaName = "지령 FIR필터", range = "0.0- 1000.0", SetVal = 1.0f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 24, ParaName = "제5 노치 주파수", range = "50- 5000", SetVal = 5000f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 25, ParaName = "제5 노치 폭", range = "0- 20", SetVal = 2f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 26, ParaName = "제5 노치 깊이", range = "0- 99", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 27, ParaName = "제1 제진 폭 설정", range = "0- 1000", SetVal = 0f, unitVal = "---" }
                ,new ServoParaModel() { MainIndex = "2", SubIndex = 28, ParaName = "제2 제진 폭 설정", range = "0- 1000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 29, ParaName = "제3 제진 폭 설정", range = "0- 1000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 30, ParaName = "제4 제진 폭 설정", range = "0- 1000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 31, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 32, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 33, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 34, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 35, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 36, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "2", SubIndex = 37, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 29, ParaName = "제3 제진 폭 설정", range = "0- 1000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 30, ParaName = "제4 제진 폭 설정", range = "0- 1000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 31, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 32, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 33, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 34, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 35, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 36, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "2", SubIndex = 37, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
             };
             para3 = new ObservableCollection<ServoParaModel>()
             {
-                 new ServoParaModel() { MainIndex = "3", SubIndex = 0, ParaName = "속도 설정 내외 전환", range = "0- 3", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 1, ParaName = "속도 지령 방향 지정 선택", range = "0- 1", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 2, ParaName = "속도 지령 입력 게인", range = "10- 2000", SetVal = 500, unitVal = "(r/min)/V" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 3, ParaName = "속도 지령 입력 반전", range = "0- 1", SetVal = 1, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 4, ParaName = "속도 설정 제 1속", range = "-20000- 20000", SetVal = 0, unitVal = "r/min" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 5, ParaName = "속도 설정 제 2속", range = "-20000- 20000", SetVal = 0, unitVal = "r/min" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 6, ParaName = "속도 설정 제 3속", range = "-20000- 20000", SetVal = 0, unitVal = "r/min" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 7, ParaName = "속도 설정 제 4속", range = "-20000- 20000", SetVal = 0, unitVal = "r/min" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 8, ParaName = "속도 설정 제 5속", range = "-20000- 20000", SetVal = 0, unitVal = "r/min" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 9, ParaName = "속도 설정 제 6속", range = "-20000- 20000", SetVal = 0, unitVal = "r/min" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 10, ParaName = "속도 설정 제 7속", range = "-20000- 20000", SetVal = 0, unitVal = "r/min" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 11, ParaName = "속도 설정 제 8속", range = "-20000- 20000", SetVal = 0, unitVal = "r/min" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 12, ParaName = "가속 시간 설정", range = "0- 10000", SetVal = 0, unitVal = "ms/(1000r/min)" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 13, ParaName = "감속 시간 설정", range = "0- 10000", SetVal = 0, unitVal = "ms/(1000r/min)" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 14, ParaName = "S자 가감속 설정", range = "0- 1000", SetVal = 0, unitVal = "ms" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 15, ParaName = "속도 제로 클램프 기능 선택", range = "0- 3", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 16, ParaName = "속도 제로 클램프 레벨", range = "10- 20000", SetVal = 30, unitVal = "r/min" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 17, ParaName = "토크 지령 선택", range = "0- 2", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 18, ParaName = "토크 지령 방향 지정 선택", range = "0- 1", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 19, ParaName = "토크 지령 입력 게인", range = "1.0- 10.0", SetVal = 3.0, unitVal = "V/10" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 20, ParaName = "토크 지령 입력 반전", range = "0- 1", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 21, ParaName = "속도 제한값 1", range = "0- 20000", SetVal = 0, unitVal = "r/min" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 22, ParaName = "속도 제한값 2", range = "0- 20000", SetVal = 0, unitVal = "r/min" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 23, ParaName = "외부 스케일 타입 선택", range = "0- 6", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 24, ParaName = "외부 스케일 분주 분자", range = "0- 8388608", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 25, ParaName = "외부 스케일 분주 분모", range = "1- 8388608", SetVal = 10000, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 26, ParaName = "외부 스케일 방향 반전", range = "0- 3", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 27, ParaName = "외부 스케일 Z상 단선 검출", range = "0- 1", SetVal = 0, unitVal = "---" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 28, ParaName = "하이브리드 편차 과대 설정", range = "1- 134217728", SetVal = 16000, unitVal = "지령" }
-                ,new ServoParaModel() { MainIndex = "3", SubIndex = 29, ParaName = "하이브리드 편차 클리어 설정", range = "0- 100", SetVal = 0, unitVal = "회전" }
+                 new ServoParaModel() { MainIndex = "3", SubIndex = 0, ParaName = "속도 설정 내외 전환", range = "0- 3", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 1, ParaName = "속도 지령 방향 지정 선택", range = "0- 1", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 2, ParaName = "속도 지령 입력 게인", range = "10- 2000", SetVal = 500f, unitVal = "(r/min)/V" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 3, ParaName = "속도 지령 입력 반전", range = "0- 1", SetVal = 1f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 4, ParaName = "속도 설정 제 1속", range = "-20000- 20000", SetVal = 0f, unitVal = "r/min" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 5, ParaName = "속도 설정 제 2속", range = "-20000- 20000", SetVal = 0f, unitVal = "r/min" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 6, ParaName = "속도 설정 제 3속", range = "-20000- 20000", SetVal = 0f, unitVal = "r/min" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 7, ParaName = "속도 설정 제 4속", range = "-20000- 20000", SetVal = 0f, unitVal = "r/min" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 8, ParaName = "속도 설정 제 5속", range = "-20000- 20000", SetVal = 0f, unitVal = "r/min" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 9, ParaName = "속도 설정 제 6속", range = "-20000- 20000", SetVal = 0f, unitVal = "r/min" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 10, ParaName = "속도 설정 제 7속", range = "-20000- 20000", SetVal = 0f, unitVal = "r/min" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 11, ParaName = "속도 설정 제 8속", range = "-20000- 20000", SetVal = 0f, unitVal = "r/min" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 12, ParaName = "가속 시간 설정", range = "0- 10000", SetVal = 0f, unitVal = "ms/(1000r/min)" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 13, ParaName = "감속 시간 설정", range = "0- 10000", SetVal = 0f, unitVal = "ms/(1000r/min)" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 14, ParaName = "S자 가감속 설정", range = "0- 1000", SetVal = 0f, unitVal = "ms" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 15, ParaName = "속도 제로 클램프 기능 선택", range = "0- 3", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 16, ParaName = "속도 제로 클램프 레벨", range = "10- 20000", SetVal = 30f, unitVal = "r/min" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 17, ParaName = "토크 지령 선택", range = "0- 2", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 18, ParaName = "토크 지령 방향 지정 선택", range = "0- 1", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 19, ParaName = "토크 지령 입력 게인", range = "1.0- 10.0", SetVal = 3.0f, unitVal = "V/10" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 20, ParaName = "토크 지령 입력 반전", range = "0- 1", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 21, ParaName = "속도 제한값 1", range = "0- 20000", SetVal = 0f, unitVal = "r/min" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 22, ParaName = "속도 제한값 2", range = "0- 20000", SetVal = 0f, unitVal = "r/min" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 23, ParaName = "외부 스케일 타입 선택", range = "0- 6", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 24, ParaName = "외부 스케일 분주 분자", range = "0- 8388608", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 25, ParaName = "외부 스케일 분주 분모", range = "1- 8388608", SetVal = 10000f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 26, ParaName = "외부 스케일 방향 반전", range = "0- 3", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 27, ParaName = "외부 스케일 Z상 단선 검출", range = "0- 1", SetVal = 0f, unitVal = "---" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 28, ParaName = "하이브리드 편차 과대 설정", range = "1- 134217728", SetVal = 16000f, unitVal = "지령" }
+                ,new ServoParaModel() { MainIndex = "3", SubIndex = 29, ParaName = "하이브리드 편차 클리어 설정", range = "0- 100", SetVal = 0f, unitVal = "회전" }
             };
             para4 = new ObservableCollection<ServoParaModel>()
             {
-                new ServoParaModel() { MainIndex = "4", SubIndex = 0, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 1, ParaName = "SI2 입력 선택", range = "0- 16777215", SetVal = 8487297, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 2, ParaName = "SI3 입력 선택", range = "0- 16777215", SetVal = 9539850, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 3, ParaName = "SI4 입력 선택", range = "0- 16777215", SetVal = 394758, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 4, ParaName = "SI5 입력 선택", range = "0- 16777215", SetVal = 4108, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 5, ParaName = "SI6 입력 선택", range = "0- 16777215", SetVal = 197379, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 6, ParaName = "SI7 입력 선택", range = "0- 16777215", SetVal = 3847, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 7, ParaName = "SI8 입력 선택", range = "0- 16777215", SetVal = 263172, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 8, ParaName = "SI9 입력 선택", range = "0- 16777215", SetVal = 328965, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 9, ParaName = "SI10 입력 선택", range = "0- 16777215", SetVal = 3720, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 10, ParaName = "SO1 출력 선택", range = "0- 16777215", SetVal = 197379, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 11, ParaName = "SO2 출력 선택", range = "0- 16777215", SetVal = 131586, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 12, ParaName = "SO3 출력 선택", range = "0- 16777215", SetVal = 65793, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 13, ParaName = "SO4 출력 선택", range = "0- 16777215", SetVal = 328964, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 14, ParaName = "SO5 출력 선택", range = "0- 16777215", SetVal = 460551, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 15, ParaName = "SO6 출력 선택", range = "0- 16777215", SetVal = 394758, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 16, ParaName = "아날로그 모니터1 종류", range = "0- 28", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 17, ParaName = "아날로그 모니터1 출력 게인", range = "0- 214748364", SetVal = 0, unitVal = "모니터 단위/V" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 18, ParaName = "아날로그 모니터2 종류", range = "0- 28", SetVal = 4, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 19, ParaName = "아날로그 모니터2 출력 게인", range = "0- 214748364", SetVal = 0, unitVal = "모니터 단위/V" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 20, ParaName = "제조사 사용", range = "0- 3", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 21, ParaName = "아날로그 모니터 출력 설정", range = "0- 2", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 22, ParaName = "아날로그 입력1(AI1)오프셋 설정", range = "-27888- 27888", SetVal = 0, unitVal = "LSB" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 23, ParaName = "아날로그 입력1(AI1)필터 설정", range = "0.00- 64.00", SetVal = 0.00, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 24, ParaName = "아날로그 입력1(AI1)과전압 설정", range = "0.0- 10.0", SetVal = 0.0, unitVal = "V" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 25, ParaName = "아날로그 입력2(AI2)오프셋 설정", range = "-1707- 1707", SetVal = 0, unitVal = "LSB" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 26, ParaName = "아날로그 입력2(AI2)필터 설정", range = "-0.00- 64.00", SetVal = 0.00, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 27, ParaName = "아날로그 입력2(AI2)과전압 설정", range = "0.0- 10.0", SetVal = 0.0, unitVal = "V" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 28, ParaName = "아날로그 입력3(AI3)오프셋 설정", range = "-1707- 1707", SetVal = 0, unitVal = "LSB" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 29, ParaName = "아날로그 입력3(AI3)필터 설정", range = "0.00- 64.00", SetVal = 0.00, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 30, ParaName = "아날로그 입력3(AI3)과전압 설정", range = "-0.0- 10.0", SetVal = 0.0, unitVal = "V" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 31, ParaName = "위치 결정 완료 범위", range = "0- 2097152", SetVal = 10, unitVal = "단위 설정에 의존" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 32, ParaName = "위치 결정 완료 출력 설정", range = "0- 10", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 33, ParaName = "위치 결정 완료 홀딩 시간", range = "0- 30000", SetVal = 0, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 34, ParaName = "제로 속도", range = "10- 20000", SetVal = 50, unitVal = "r/min" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 35, ParaName = "속도 일치 폭", range = "10- 20000", SetVal = 50, unitVal = "r/min" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 36, ParaName = "도달 속도", range = "10- 20000", SetVal = 1000, unitVal = "r/min" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 37, ParaName = "정지 시 메카 브레이크 동작 설정", range = "0- 10000", SetVal = 0, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 38, ParaName = "동작 시 브레이크 동작 설정", range = "0- 32000", SetVal = 0, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 39, ParaName = "브레이크 해제 속도 설정", range = "30- 3000", SetVal = 30, unitVal = "r/min" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 40, ParaName = "경고 출력 선택1", range = "0- 40", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 41, ParaName = "경고 출력 선택2", range = "0- 40", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 42, ParaName = "위치 결정 완료 범위2", range = "0- 2097152", SetVal = 10, unitVal = "단위 설정에 의존" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 44, ParaName = "위치 컴페어 출력 펄스 폭 설정", range = "0.0- 3276.7", SetVal = 0.0, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 45, ParaName = "위치 컴페어 출력 극성 선택", range = "0- 63", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 47, ParaName = "펄스 출력 선택", range = "0- 7", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 48, ParaName = "위치 컴페어값1", range = "-2147483648- 2147483647", SetVal = 0, unitVal = "지령 단위" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 49, ParaName = "위치 컴페어값2", range = "-2147483648- 2147483647", SetVal = 0, unitVal = "지령 단위" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 50, ParaName = "위치 컴페어값3", range = "-2147483648- 2147483647", SetVal = 0, unitVal = "지령 단위" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 51, ParaName = "위치 컴페어값4", range = "-2147483648- 2147483647", SetVal = 0, unitVal = "지령 단위" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 52, ParaName = "위치 컴페어값5", range = "-2147483648- 2147483647", SetVal = 0, unitVal = "지령 단위" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 53, ParaName = "위치 컴페어값6", range = "-2147483648- 2147483647", SetVal = 0, unitVal = "지령 단위" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 54, ParaName = "위치 컴페어값7", range = "-2147483648- 2147483647", SetVal = 0, unitVal = "지령 단위" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 55, ParaName = "위치 컴페어값8", range = "-2147483648- 2147483647", SetVal = 0, unitVal = "지령 단위" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 56, ParaName = "위치 컴페어 출력 지연 보상량", range = "-3276.8- 3276.7", SetVal = 0.0, unitVal = "us" }
-               ,new ServoParaModel() { MainIndex = "4", SubIndex = 57, ParaName = "위치 컴페어 출력 할당 설정", range = "-2147483648- 2147483647", SetVal = 0, unitVal = "---" }
+                new ServoParaModel() { MainIndex = "4", SubIndex = 0, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 1, ParaName = "SI2 입력 선택", range = "0- 16777215", SetVal = 8487297f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 2, ParaName = "SI3 입력 선택", range = "0- 16777215", SetVal = 9539850f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 3, ParaName = "SI4 입력 선택", range = "0- 16777215", SetVal = 394758f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 4, ParaName = "SI5 입력 선택", range = "0- 16777215", SetVal = 4108f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 5, ParaName = "SI6 입력 선택", range = "0- 16777215", SetVal = 197379f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 6, ParaName = "SI7 입력 선택", range = "0- 16777215", SetVal = 3847f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 7, ParaName = "SI8 입력 선택", range = "0- 16777215", SetVal = 263172f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 8, ParaName = "SI9 입력 선택", range = "0- 16777215", SetVal = 328965f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 9, ParaName = "SI10 입력 선택", range = "0- 16777215", SetVal = 3720f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 10, ParaName = "SO1 출력 선택", range = "0- 16777215", SetVal = 197379f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 11, ParaName = "SO2 출력 선택", range = "0- 16777215", SetVal = 131586f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 12, ParaName = "SO3 출력 선택", range = "0- 16777215", SetVal = 65793f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 13, ParaName = "SO4 출력 선택", range = "0- 16777215", SetVal = 328964f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 14, ParaName = "SO5 출력 선택", range = "0- 16777215", SetVal = 460551f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 15, ParaName = "SO6 출력 선택", range = "0- 16777215", SetVal = 394758f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 16, ParaName = "아날로그 모니터1 종류", range = "0- 28", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 17, ParaName = "아날로그 모니터1 출력 게인", range = "0- 214748364", SetVal = 0f, unitVal = "모니터 단위/V" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 18, ParaName = "아날로그 모니터2 종류", range = "0- 28", SetVal = 4f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 19, ParaName = "아날로그 모니터2 출력 게인", range = "0- 214748364", SetVal = 0f, unitVal = "모니터 단위/V" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 20, ParaName = "제조사 사용", range = "0- 3", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 21, ParaName = "아날로그 모니터 출력 설정", range = "0- 2", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 22, ParaName = "아날로그 입력1(AI1)오프셋 설정", range = "-27888- 27888", SetVal = 0f, unitVal = "LSB" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 23, ParaName = "아날로그 입력1(AI1)필터 설정", range = "0.00- 64.00", SetVal = 0.00f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 24, ParaName = "아날로그 입력1(AI1)과전압 설정", range = "0.0- 10.0", SetVal = 0.0f, unitVal = "V" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 25, ParaName = "아날로그 입력2(AI2)오프셋 설정", range = "-1707- 1707", SetVal = 0f, unitVal = "LSB" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 26, ParaName = "아날로그 입력2(AI2)필터 설정", range = "-0.00- 64.00", SetVal = 0.00f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 27, ParaName = "아날로그 입력2(AI2)과전압 설정", range = "0.0- 10.0", SetVal = 0.0f, unitVal = "V" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 28, ParaName = "아날로그 입력3(AI3)오프셋 설정", range = "-1707- 1707", SetVal = 0f, unitVal = "LSB" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 29, ParaName = "아날로그 입력3(AI3)필터 설정", range = "0.00- 64.00", SetVal = 0.00f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 30, ParaName = "아날로그 입력3(AI3)과전압 설정", range = "-0.0- 10.0", SetVal = 0.0f, unitVal = "V" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 31, ParaName = "위치 결정 완료 범위", range = "0- 2097152", SetVal = 10f, unitVal = "단위 설정에 의존" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 32, ParaName = "위치 결정 완료 출력 설정", range = "0- 10", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 33, ParaName = "위치 결정 완료 홀딩 시간", range = "0- 30000", SetVal = 0f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 34, ParaName = "제로 속도", range = "10- 20000", SetVal = 50f, unitVal = "r/min" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 35, ParaName = "속도 일치 폭", range = "10- 20000", SetVal = 50f, unitVal = "r/min" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 36, ParaName = "도달 속도", range = "10- 20000", SetVal = 1000f, unitVal = "r/min" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 37, ParaName = "정지 시 메카 브레이크 동작 설정", range = "0- 10000", SetVal = 0f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 38, ParaName = "동작 시 브레이크 동작 설정", range = "0- 32000", SetVal = 0f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 39, ParaName = "브레이크 해제 속도 설정", range = "30- 3000", SetVal = 30f, unitVal = "r/min" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 40, ParaName = "경고 출력 선택1", range = "0- 40", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 41, ParaName = "경고 출력 선택2", range = "0- 40", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 42, ParaName = "위치 결정 완료 범위2", range = "0- 2097152", SetVal = 10f, unitVal = "단위 설정에 의존" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 44, ParaName = "위치 컴페어 출력 펄스 폭 설정", range = "0.0- 3276.7", SetVal = 0.0f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 45, ParaName = "위치 컴페어 출력 극성 선택", range = "0- 63", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 47, ParaName = "펄스 출력 선택", range = "0- 7", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 48, ParaName = "위치 컴페어값1", range = "-2147483648- 2147483647", SetVal = 0f, unitVal = "지령 단위" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 49, ParaName = "위치 컴페어값2", range = "-2147483648- 2147483647", SetVal = 0f, unitVal = "지령 단위" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 50, ParaName = "위치 컴페어값3", range = "-2147483648- 2147483647", SetVal = 0f, unitVal = "지령 단위" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 51, ParaName = "위치 컴페어값4", range = "-2147483648- 2147483647", SetVal = 0f, unitVal = "지령 단위" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 52, ParaName = "위치 컴페어값5", range = "-2147483648- 2147483647", SetVal = 0f, unitVal = "지령 단위" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 53, ParaName = "위치 컴페어값6", range = "-2147483648- 2147483647", SetVal = 0f, unitVal = "지령 단위" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 54, ParaName = "위치 컴페어값7", range = "-2147483648- 2147483647", SetVal = 0f, unitVal = "지령 단위" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 55, ParaName = "위치 컴페어값8", range = "-2147483648- 2147483647", SetVal = 0f, unitVal = "지령 단위" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 56, ParaName = "위치 컴페어 출력 지연 보상량", range = "-3276.8- 3276.7", SetVal = 0.0f, unitVal = "us" }
+               ,new ServoParaModel() { MainIndex = "4", SubIndex = 57, ParaName = "위치 컴페어 출력 할당 설정", range = "-2147483648- 2147483647", SetVal = 0f, unitVal = "---" }
              };
             para5 = new ObservableCollection<ServoParaModel>()
             {
-                new ServoParaModel() { MainIndex = "5", SubIndex = 0, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 1, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 2, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 3, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 4, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 5, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 6, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 7, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 8, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 9, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 10, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 11, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 12, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 13, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 14, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 15, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 16, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 17, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 18, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 19, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 20, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 21, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 22, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 23, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 24, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 25, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 26, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 27, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 28, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 29, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 30, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 31, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 32, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 33, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 34, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 35, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 36, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 37, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 38, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 39, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 40, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 41, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 42, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 43, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 44, ParaName = "", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 45, ParaName = "상한 돌기 정방향 보상치", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 46, ParaName = "상한 돌기 부방향 보상치", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 47, ParaName = "상한 돌기 보상 지연 시간", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 48, ParaName = "상한 돌기 보상 필터 설정 L", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 49, ParaName = "상한 돌기 보상 필터 설정 H", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 50, ParaName = "제조사 사용", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 51, ParaName = "제조사 사용", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 52, ParaName = "제조사 사용", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 53, ParaName = "제조사 사용", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 54, ParaName = "제조사 사용", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 55, ParaName = "제조사 사용", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 56, ParaName = "Slow Stop 시 감속시간 설정", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 57, ParaName = "Slow Stop 시 S자 가감속 설정", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 58, ParaName = "Modbus 미러 레지스터 설정 1", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 59, ParaName = "Modbus 미러 레지스터 설정 2", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 60, ParaName = "Modbus 미러 레지스터 설정 3", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 61, ParaName = "Modbus 미러 레지스터 설정 4", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 62, ParaName = "Modbus 미러 레지스터 설정 5", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 63, ParaName = "Modbus 미러 레지스터 설정 6", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 64, ParaName = "Modbus 미러 레지스터 설정 7", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 65, ParaName = "Modbus 미러 레지스터 설정 8", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 66, ParaName = "열화 진단 수속 판정시간", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 67, ParaName = "열화 진단 관성비 상한값", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 68, ParaName = "열화 진단 관성비 하한값", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 69, ParaName = "열화 진단 편하중 상한값", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 70, ParaName = "열화 진단 편하중 하한값", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 71, ParaName = "열화 진단 동마찰 상한값", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 72, ParaName = "열화 진단 동마찰 하한값", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 73, ParaName = "열화 진단 점성마찰 상한값", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 74, ParaName = "열화 진단 점성마찰 하한값", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 75, ParaName = "열화 진단 속도 설정", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 76, ParaName = "열화 진단 토크 평균 시간", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 77, ParaName = "열화 진단 토크 상한값", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 78, ParaName = "열화 진단 토크 하한값", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 79, ParaName = "Modbus 미러 레지스터 설정 9", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 80, ParaName = "Modbus 미러 레지스터 설정 10", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 81, ParaName = "Modbus 미러 레지스터 설정 11", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 82, ParaName = "Modbus 미러 레지스터 설정 12", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 83, ParaName = "Modbus 미러 레지스터 설정 13", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 84, ParaName = "Modbus 미러 레지스터 설정 14", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 85, ParaName = "Modbus 미러 레지스터 설정 15", range = "0 - 16777215", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "5", SubIndex = 86, ParaName = "Modbus 미러 레지스터 설정 16", range = "0- 16777215", SetVal = 8553090, unitVal = "---" }
+                new ServoParaModel() { MainIndex = "5", SubIndex = 0, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 1, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 2, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 3, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 4, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 5, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 6, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 7, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 8, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 9, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 10, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 11, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 12, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 13, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 14, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 15, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 16, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 17, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 18, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 19, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 20, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 21, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 22, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 23, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 24, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 25, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 26, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 27, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 28, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 29, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 30, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 31, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 32, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 33, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 34, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 35, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 36, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 37, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 38, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 39, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 40, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 41, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 42, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 43, ParaName = "SI1 입력 선택", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 44, ParaName = "", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 45, ParaName = "상한 돌기 정방향 보상치", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 46, ParaName = "상한 돌기 부방향 보상치", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 47, ParaName = "상한 돌기 보상 지연 시간", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 48, ParaName = "상한 돌기 보상 필터 설정 L", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 49, ParaName = "상한 돌기 보상 필터 설정 H", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 50, ParaName = "제조사 사용", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 51, ParaName = "제조사 사용", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 52, ParaName = "제조사 사용", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 53, ParaName = "제조사 사용", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 54, ParaName = "제조사 사용", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 55, ParaName = "제조사 사용", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 56, ParaName = "Slow Stop 시 감속시간 설정", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 57, ParaName = "Slow Stop 시 S자 가감속 설정", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 58, ParaName = "Modbus 미러 레지스터 설정 1", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 59, ParaName = "Modbus 미러 레지스터 설정 2", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 60, ParaName = "Modbus 미러 레지스터 설정 3", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 61, ParaName = "Modbus 미러 레지스터 설정 4", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 62, ParaName = "Modbus 미러 레지스터 설정 5", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 63, ParaName = "Modbus 미러 레지스터 설정 6", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 64, ParaName = "Modbus 미러 레지스터 설정 7", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 65, ParaName = "Modbus 미러 레지스터 설정 8", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 66, ParaName = "열화 진단 수속 판정시간", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 67, ParaName = "열화 진단 관성비 상한값", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 68, ParaName = "열화 진단 관성비 하한값", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 69, ParaName = "열화 진단 편하중 상한값", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 70, ParaName = "열화 진단 편하중 하한값", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 71, ParaName = "열화 진단 동마찰 상한값", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 72, ParaName = "열화 진단 동마찰 하한값", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 73, ParaName = "열화 진단 점성마찰 상한값", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 74, ParaName = "열화 진단 점성마찰 하한값", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 75, ParaName = "열화 진단 속도 설정", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 76, ParaName = "열화 진단 토크 평균 시간", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 77, ParaName = "열화 진단 토크 상한값", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 78, ParaName = "열화 진단 토크 하한값", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 79, ParaName = "Modbus 미러 레지스터 설정 9", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 80, ParaName = "Modbus 미러 레지스터 설정 10", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 81, ParaName = "Modbus 미러 레지스터 설정 11", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 82, ParaName = "Modbus 미러 레지스터 설정 12", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 83, ParaName = "Modbus 미러 레지스터 설정 13", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 84, ParaName = "Modbus 미러 레지스터 설정 14", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 85, ParaName = "Modbus 미러 레지스터 설정 15", range = "0 - 16777215", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "5", SubIndex = 86, ParaName = "Modbus 미러 레지스터 설정 16", range = "0- 16777215", SetVal = 8553090f, unitVal = "---" }
             };
             para6 = new ObservableCollection<ServoParaModel>()
             {
-                new ServoParaModel() { MainIndex = "6", SubIndex = 0, ParaName = "아날로그 토크 피드포워드 변환 게인", range = "0.0- 10.0", SetVal = 0.0, unitVal = "V/100%" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 2, ParaName = "속도 편차 과대 설정", range = "0- 20000", SetVal = 0, unitVal = "r/min" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 4, ParaName = "JOG 시운전 지령 속도", range = "0- 500", SetVal = 300, unitVal = "r/min" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 5, ParaName = "위치 제3게인 유효 시간", range = "0.0- 1000.0", SetVal = 0.0, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 6, ParaName = "위치 제3게인 배율", range = "50- 1000", SetVal = 100, unitVal = "%" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 7, ParaName = "토크 지령 가산값", range = "-100- 100", SetVal = 0, unitVal = "%" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 8, ParaName = "정방향 토크 보상값", range = "-100- 100", SetVal = 0, unitVal = "%" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 9, ParaName = "부방향 토크 보상값", range = "-100- 100", SetVal = 0, unitVal = "%" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 10, ParaName = "기능 확장 설정", range = "-32768- 32767", SetVal = 16, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 11, ParaName = "전류 응답 설정", range = "10- 300", SetVal = 16, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 13, ParaName = "제2 관성비", range = "0- 10000", SetVal = 250, unitVal = "%" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 14, ParaName = "알람 시 즉시 정지 시간", range = "0- 1000", SetVal = 200, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 15, ParaName = "제2 과속도 레벨 설정", range = "0- 20000", SetVal = 0, unitVal = "r/min" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 16, ParaName = "제조사 사용", range = "0- 1", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 17, ParaName = "전면 패널 매개변수 입력 선택", range = "0- 1", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 18, ParaName = "전원 투입 유휴 시간", range = "0.0- 10.0", SetVal = 0.0, unitVal = "s" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 19, ParaName = "인코더 Z상 설정", range = "0- 32767", SetVal = 0, unitVal = "pulse" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 20, ParaName = "외부 스케일 Z상 설정", range = "0- 400", SetVal = 0, unitVal = "us" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 21, ParaName = "시리얼 앱솔루트 외부 스케일 Z상 설정", range = "0- 268435456", SetVal = 0, unitVal = "외부 스케일 A상 펄스 수" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 22, ParaName = "AB상 외부 스케일 펄스 출력 방법 선택", range = "0- 1", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 23, ParaName = "부하 변동 보상 게인", range = "-100- 100", SetVal = 0, unitVal = "%" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 24, ParaName = "부하 변동 보상 필터", range = "0.10- 25.00", SetVal = 0.53, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 27, ParaName = "경고 래치 시간 선택", range = "0- 10", SetVal = 5, unitVal = "s" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 28, ParaName = "특수 기능 선택", range = "0- 2", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 30, ParaName = "제조사 사용", range = "0- 1", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 31, ParaName = "실시간 오토튜닝 추정 속도", range = "0- 3", SetVal = 1, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 32, ParaName = "실시간 오토튜닝 사용자 정의 설정", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 33, ParaName = "제조사 사용", range = "1000- 3000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 34, ParaName = "하이브리드 진동 억제 게인", range = "0.0- 3000.0", SetVal = 0.0, unitVal = "1/s" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 35, ParaName = "하이브리드 진동 억제 필터", range = "0.00- 320.00", SetVal = 0.10, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 36, ParaName = "다이나믹 브레이크 조작 입력", range = "0- 1", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 37, ParaName = "발진 검출 타이밍", range = "0.0- 100.0", SetVal = 0.0, unitVal = "%" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 38, ParaName = "경고 마스크 설정", range = "-32768- 32767", SetVal = 4, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 39, ParaName = "경고 마스크 설정 2", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 41, ParaName = "제1 제진 깊이", range = "0- 1000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 42, ParaName = "2단 토크 필터 시정수", range = "0.00- 25.00", SetVal = 0.00, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 43, ParaName = "2단 토크 필터 감쇠 항", range = "0- 1000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 47, ParaName = "기능 확장 설정 2", range = "-32768- 32767", SetVal = 1, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 48, ParaName = "조정 필터", range = "0.0- 200.0", SetVal = 1.1, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 49, ParaName = "지령 응답 / 조정 필터 감쇠", range = "0- 99", SetVal = 15, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 50, ParaName = "점성 마찰 보상 게인", range = "0.0- 1000.0", SetVal = 0.0, unitVal = "%/(10000r/min)" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 51, ParaName = "즉시 정지 완료 기다리는 시간", range = "0- 10000", SetVal = 0, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 52, ParaName = "제조사 사용", range = "0- 95", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 53, ParaName = "제조사 사용", range = "0- 95", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 54, ParaName = "제조사 사용", range = "0- 1", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 57, ParaName = "토크 포화 이상 보호 검출 시간", range = "0- 5000", SetVal = 0, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 58, ParaName = "시리얼 앱솔루트 외부 스케일 Z상 이동량", range = "0- 5000", SetVal = 0, unitVal = "외부 스케일 A상 펄스 수" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 60, ParaName = "제2 제진 깊이", range = "0- 1000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 61, ParaName = "제1 공진 주파소", range = "0.0- 300.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 62, ParaName = "제1 공진 감쇠비", range = "0- 1000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 63, ParaName = "제1 반공진 주파수", range = "0.0- 300.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 64, ParaName = "제1 반공진 감쇠비", range = "0- 1000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 65, ParaName = "제1 응답 주파수", range = "0- 300.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 66, ParaName = "제2 공진 주파수", range = "0- 300.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 67, ParaName = "제2 공진 감쇠비", range = "0- 1000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 68, ParaName = "제2 반공진 주파수", range = "0- 300.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 69, ParaName = "제2 반공진 감쇠비", range = "0- 1000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 70, ParaName = "제2 응답 주파수", range = "0- 300.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 71, ParaName = "제3 제진 깊이", range = "0- 1000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 72, ParaName = "제4 제진 깊이", range = "0- 1000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 73, ParaName = "부하 추정 필터", range = "0.00- 25.00", SetVal = 0.00, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 74, ParaName = "토크 보상 주파수 1", range = "0.0- 500.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 75, ParaName = "토크 보상 주파수 2", range = "0.0- 500.0", SetVal = 0.0, unitVal = "Hz" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 76, ParaName = "부하 추정 횟수", range = "0- 8", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 87, ParaName = "제조사 사용", range = "0- 65534", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 88, ParaName = "앱솔루트 다회전 데이터 상한치", range = "0- 65534", SetVal = 8553090, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 97, ParaName = "기능 확장 설정 3", range = "-2147483648- 2147483647", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "6", SubIndex = 98, ParaName = "기능 확장 설정 4", range = "-2147483648- 2147483647", SetVal = 0, unitVal = "---" }
+                new ServoParaModel() { MainIndex = "6", SubIndex = 0, ParaName = "아날로그 토크 피드포워드 변환 게인", range = "0.0- 10.0", SetVal = 0.0f, unitVal = "V/100%" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 2, ParaName = "속도 편차 과대 설정", range = "0- 20000", SetVal = 0f, unitVal = "r/min" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 4, ParaName = "JOG 시운전 지령 속도", range = "0- 500", SetVal = 300f, unitVal = "r/min" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 5, ParaName = "위치 제3게인 유효 시간", range = "0.0- 1000.0", SetVal = 0.0f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 6, ParaName = "위치 제3게인 배율", range = "50- 1000", SetVal = 100f, unitVal = "%" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 7, ParaName = "토크 지령 가산값", range = "-100- 100", SetVal = 0f, unitVal = "%" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 8, ParaName = "정방향 토크 보상값", range = "-100- 100", SetVal = 0f, unitVal = "%" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 9, ParaName = "부방향 토크 보상값", range = "-100- 100", SetVal = 0f, unitVal = "%" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 10, ParaName = "기능 확장 설정", range = "-32768- 32767", SetVal = 16f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 11, ParaName = "전류 응답 설정", range = "10- 300", SetVal = 16f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 13, ParaName = "제2 관성비", range = "0- 10000", SetVal = 250f, unitVal = "%" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 14, ParaName = "알람 시 즉시 정지 시간", range = "0- 1000", SetVal = 200f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 15, ParaName = "제2 과속도 레벨 설정", range = "0- 20000", SetVal = 0f, unitVal = "r/min" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 16, ParaName = "제조사 사용", range = "0- 1", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 17, ParaName = "전면 패널 매개변수 입력 선택", range = "0- 1", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 18, ParaName = "전원 투입 유휴 시간", range = "0.0- 10.0", SetVal = 0.0f, unitVal = "s" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 19, ParaName = "인코더 Z상 설정", range = "0- 32767", SetVal = 0f, unitVal = "pulse" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 20, ParaName = "외부 스케일 Z상 설정", range = "0- 400", SetVal = 0f, unitVal = "us" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 21, ParaName = "시리얼 앱솔루트 외부 스케일 Z상 설정", range = "0- 268435456", SetVal = 0f, unitVal = "외부 스케일 A상 펄스 수" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 22, ParaName = "AB상 외부 스케일 펄스 출력 방법 선택", range = "0- 1", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 23, ParaName = "부하 변동 보상 게인", range = "-100- 100", SetVal = 0f, unitVal = "%" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 24, ParaName = "부하 변동 보상 필터", range = "0.10- 25.00", SetVal = 0.53f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 27, ParaName = "경고 래치 시간 선택", range = "0- 10", SetVal = 5f, unitVal = "s" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 28, ParaName = "특수 기능 선택", range = "0- 2", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 30, ParaName = "제조사 사용", range = "0- 1", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 31, ParaName = "실시간 오토튜닝 추정 속도", range = "0- 3", SetVal = 1f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 32, ParaName = "실시간 오토튜닝 사용자 정의 설정", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 33, ParaName = "제조사 사용", range = "1000- 3000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 34, ParaName = "하이브리드 진동 억제 게인", range = "0.0- 3000.0", SetVal = 0.0f, unitVal = "1/s" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 35, ParaName = "하이브리드 진동 억제 필터", range = "0.00- 320.00", SetVal = 0.10f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 36, ParaName = "다이나믹 브레이크 조작 입력", range = "0- 1", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 37, ParaName = "발진 검출 타이밍", range = "0.0- 100.0", SetVal = 0.0f, unitVal = "%" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 38, ParaName = "경고 마스크 설정", range = "-32768- 32767", SetVal = 4f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 39, ParaName = "경고 마스크 설정 2", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 41, ParaName = "제1 제진 깊이", range = "0- 1000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 42, ParaName = "2단 토크 필터 시정수", range = "0.00- 25.00", SetVal = 0.00f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 43, ParaName = "2단 토크 필터 감쇠 항", range = "0- 1000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 47, ParaName = "기능 확장 설정 2", range = "-32768- 32767", SetVal = 1f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 48, ParaName = "조정 필터", range = "0.0- 200.0", SetVal = 1.1f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 49, ParaName = "지령 응답 / 조정 필터 감쇠", range = "0- 99", SetVal = 15f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 50, ParaName = "점성 마찰 보상 게인", range = "0.0- 1000.0", SetVal = 0.0f, unitVal = "%/(10000r/min)" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 51, ParaName = "즉시 정지 완료 기다리는 시간", range = "0- 10000", SetVal = 0f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 52, ParaName = "제조사 사용", range = "0- 95", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 53, ParaName = "제조사 사용", range = "0- 95", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 54, ParaName = "제조사 사용", range = "0- 1", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 57, ParaName = "토크 포화 이상 보호 검출 시간", range = "0- 5000", SetVal = 0f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 58, ParaName = "시리얼 앱솔루트 외부 스케일 Z상 이동량", range = "0- 5000", SetVal = 0f, unitVal = "외부 스케일 A상 펄스 수" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 60, ParaName = "제2 제진 깊이", range = "0- 1000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 61, ParaName = "제1 공진 주파소", range = "0.0- 300.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 62, ParaName = "제1 공진 감쇠비", range = "0- 1000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 63, ParaName = "제1 반공진 주파수", range = "0.0- 300.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 64, ParaName = "제1 반공진 감쇠비", range = "0- 1000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 65, ParaName = "제1 응답 주파수", range = "0- 300.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 66, ParaName = "제2 공진 주파수", range = "0- 300.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 67, ParaName = "제2 공진 감쇠비", range = "0- 1000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 68, ParaName = "제2 반공진 주파수", range = "0- 300.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 69, ParaName = "제2 반공진 감쇠비", range = "0- 1000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 70, ParaName = "제2 응답 주파수", range = "0- 300.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 71, ParaName = "제3 제진 깊이", range = "0- 1000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 72, ParaName = "제4 제진 깊이", range = "0- 1000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 73, ParaName = "부하 추정 필터", range = "0.00- 25.00", SetVal = 0.00f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 74, ParaName = "토크 보상 주파수 1", range = "0.0- 500.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 75, ParaName = "토크 보상 주파수 2", range = "0.0- 500.0", SetVal = 0.0f, unitVal = "Hz" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 76, ParaName = "부하 추정 횟수", range = "0- 8", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 87, ParaName = "제조사 사용", range = "0- 65534", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 88, ParaName = "앱솔루트 다회전 데이터 상한치", range = "0- 65534", SetVal = 8553090f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 97, ParaName = "기능 확장 설정 3", range = "-2147483648- 2147483647", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "6", SubIndex = 98, ParaName = "기능 확장 설정 4", range = "-2147483648- 2147483647", SetVal = 0f, unitVal = "---" }
             };
             para7 = new ObservableCollection<ServoParaModel>()
             {
-                new ServoParaModel() { MainIndex = "7", SubIndex = 0, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 1, ParaName = "제조사 사용", range = "-1- 1000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 3, ParaName = "제조사 사용", range = "0- 1", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 4, ParaName = "제조사 사용", range = "0- 2", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 5, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 6, ParaName = "제조사 사용", range = "0- 6400", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 7, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 8, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 9, ParaName = "제조사 사용", range = "-2000- 2000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 10, ParaName = "제조사 사용", range = "0- 3", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 11, ParaName = "제조사 사용", range = "-1073741823- 1073741823", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 12, ParaName = "제조사 사용", range = "-1073741823- 1073741823", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 13, ParaName = "제조사 사용", range = "-1073741823- 1073741823", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 14, ParaName = "주전원 오프 경고 검출 시간", range = "0- 2000", SetVal = 0, unitVal = "ms" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 15, ParaName = "제조사 사용", range = "0- 1073741823", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 16, ParaName = "제조사 사용", range = "0- 30000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 20, ParaName = "제조사 사용", range = "-1- 12", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 21, ParaName = "제조사 사용", range = "-0- 2", SetVal = 1, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 22, ParaName = "특수 기능 확장 설정1", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 23, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 24, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 25, ParaName = "제조사 사용", range = "0- 1", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 26, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 27, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 28, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 29, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 30, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 31, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 32, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 33, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 34, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 35, ParaName = "제조사 사용", range = "0- 2", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 36, ParaName = "제조사 사용", range = "0- 2", SetVal = 0, unitVal = "--- " }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 37, ParaName = "제조사 사용", range = "0- 2", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 38, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 39, ParaName = "제조사 사용", range = "0- 31", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 41, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 87, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 91, ParaName = "제조사 사용", range = "0- 2147483647", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 92, ParaName = "제조사 사용", range = "-2000- 2000", SetVal = 0, unitVal = "---" }
-               ,new ServoParaModel() { MainIndex = "7", SubIndex = 93, ParaName = "제조사 사용", range = "0- 2000", SetVal = 0, unitVal = "---" }
+                new ServoParaModel() { MainIndex = "7", SubIndex = 0, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 1, ParaName = "제조사 사용", range = "-1- 1000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 3, ParaName = "제조사 사용", range = "0- 1", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 4, ParaName = "제조사 사용", range = "0- 2", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 5, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 6, ParaName = "제조사 사용", range = "0- 6400", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 7, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 8, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 9, ParaName = "제조사 사용", range = "-2000- 2000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 10, ParaName = "제조사 사용", range = "0- 3", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 11, ParaName = "제조사 사용", range = "-1073741823- 1073741823", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 12, ParaName = "제조사 사용", range = "-1073741823- 1073741823", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 13, ParaName = "제조사 사용", range = "-1073741823- 1073741823", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 14, ParaName = "주전원 오프 경고 검출 시간", range = "0- 2000", SetVal = 0f, unitVal = "ms" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 15, ParaName = "제조사 사용", range = "0- 1073741823", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 16, ParaName = "제조사 사용", range = "0- 30000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 20, ParaName = "제조사 사용", range = "-1- 12", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 21, ParaName = "제조사 사용", range = "-0- 2", SetVal = 1f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 22, ParaName = "특수 기능 확장 설정1", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 23, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 24, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 25, ParaName = "제조사 사용", range = "0- 1", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 26, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 27, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 28, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 29, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 30, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 31, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 32, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 33, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 34, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 35, ParaName = "제조사 사용", range = "0- 2", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 36, ParaName = "제조사 사용", range = "0- 2", SetVal = 0f, unitVal = "--- " }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 37, ParaName = "제조사 사용", range = "0- 2", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 38, ParaName = "제조사 사용", range = "0- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 39, ParaName = "제조사 사용", range = "0- 31", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 41, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 87, ParaName = "제조사 사용", range = "-32768- 32767", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 91, ParaName = "제조사 사용", range = "0- 2147483647", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 92, ParaName = "제조사 사용", range = "-2000- 2000", SetVal = 0f, unitVal = "---" }
+               ,new ServoParaModel() { MainIndex = "7", SubIndex = 93, ParaName = "제조사 사용", range = "0- 2000", SetVal = 0f, unitVal = "---" }
             };
         }
         #endregion
@@ -20235,7 +21050,7 @@ namespace MINASA6SF_Rev.ViewModels
             recONOFF = true;
         }
 
-        // recValue1~recValue512
+        // 블록 동작 매개변수 수신 동작
         private void BlockActParameterRec(int blockNum)
         {
             switch (blockNum)
@@ -21267,6 +22082,7 @@ namespace MINASA6SF_Rev.ViewModels
             }
         }
 
+        // 블록 매개변수 수신 동작
         private void BlockParameterRec(int adr)
         {
             switch (adr)
@@ -21441,6 +22257,1245 @@ namespace MINASA6SF_Rev.ViewModels
                     break;
             }
         }
+
+        // 서보 매개변수 수신 동작
+        private void ServoParameterRec(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3000, 2, ref ServoParameterRecValue1);
+                    break;
+                case 1:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3002, 2, ref ServoParameterRecValue2);
+                    break;
+                case 2:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3004, 2, ref ServoParameterRecValue3);
+                    break;
+                case 3:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3006, 2, ref ServoParameterRecValue4);
+                    break;
+                case 4:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3008, 2, ref ServoParameterRecValue5);
+                    break;
+                case 5:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x300A, 2, ref ServoParameterRecValue6);
+                    break;
+                case 6:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x300C, 2, ref ServoParameterRecValue7);
+                    break;
+                case 7:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x300E, 2, ref ServoParameterRecValue8);
+                    break;
+                case 8:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3010, 2, ref ServoParameterRecValue9);
+                    break;
+                case 9:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3012, 2, ref ServoParameterRecValue10);
+                    break;
+                case 10:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3014, 2, ref ServoParameterRecValue11);
+                    break;
+                case 11:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3016, 2, ref ServoParameterRecValue12);
+                    break;
+                case 12:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3018, 2, ref ServoParameterRecValue13);
+                    break;
+                case 13:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x301A, 2, ref ServoParameterRecValue14);
+                    break;
+                case 14:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x301C, 2, ref ServoParameterRecValue15);
+                    break;
+                case 15:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x301E, 2, ref ServoParameterRecValue16);
+                    break;
+                case 16:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3020, 2, ref ServoParameterRecValue17);
+                    break;
+                case 17:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3022, 2, ref ServoParameterRecValue18);
+                    break;
+                case 18:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3024, 2, ref ServoParameterRecValue19);  //분류1 마지막
+                    break;
+                case 19:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3100, 2, ref ServoParameterRecValue20);
+                    break;
+                case 20:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3102, 2, ref ServoParameterRecValue21);
+                    break;
+                case 21:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3104, 2, ref ServoParameterRecValue22);
+                    break;
+                case 22:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3106, 2, ref ServoParameterRecValue23);
+                    break;
+                case 23:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3108, 2, ref ServoParameterRecValue24);
+                    break;
+                case 24:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x310A, 2, ref ServoParameterRecValue25);
+                    break;
+                case 25:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x310C, 2, ref ServoParameterRecValue26);
+                    break;
+                case 26:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x310E, 2, ref ServoParameterRecValue27);
+                    break;
+                case 27:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3110, 2, ref ServoParameterRecValue28);
+                    break;
+                case 28:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3112, 2, ref ServoParameterRecValue29);
+                    break;
+                case 29:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3114, 2, ref ServoParameterRecValue30);
+                    break;
+                case 30:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3116, 2, ref ServoParameterRecValue31);
+                    break;
+                case 31:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3118, 2, ref ServoParameterRecValue32);
+                    break;
+                case 32:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x311A, 2, ref ServoParameterRecValue33);
+                    break;
+                case 33:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x311C, 2, ref ServoParameterRecValue34);
+                    break;
+                case 34:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x311E, 2, ref ServoParameterRecValue35);
+                    break;
+                case 35:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3120, 2, ref ServoParameterRecValue36);
+                    break;
+                case 36:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3122, 2, ref ServoParameterRecValue37);
+                    break;
+                case 37:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3124, 2, ref ServoParameterRecValue38);
+                    break;
+                case 38:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3126, 2, ref ServoParameterRecValue39);
+                    break;
+                case 39:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3128, 2, ref ServoParameterRecValue40);
+                    break;
+                case 40:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x312A, 2, ref ServoParameterRecValue41);
+                    break;
+                case 41:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x312C, 2, ref ServoParameterRecValue42);
+                    break;
+                case 42:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x312E, 2, ref ServoParameterRecValue43);
+                    break;
+                case 43:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3130, 2, ref ServoParameterRecValue44);
+                    break;
+                case 44:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3132, 2, ref ServoParameterRecValue45);
+                    break;
+                case 45:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3134, 2, ref ServoParameterRecValue46);
+                    break;
+                case 46:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3136, 2, ref ServoParameterRecValue47);
+                    break;
+                case 47:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3138, 2, ref ServoParameterRecValue48);
+                    break;
+                case 48:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x313A, 2, ref ServoParameterRecValue49);
+                    break;
+                case 49:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x313C, 2, ref ServoParameterRecValue50);
+                    break;
+                case 50:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x313E, 2, ref ServoParameterRecValue51);
+                    break;
+                case 51:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3140, 2, ref ServoParameterRecValue52);
+                    break;
+                case 52:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3142, 2, ref ServoParameterRecValue53);
+                    break;
+                case 53:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3144, 2, ref ServoParameterRecValue54);
+                    break;
+                case 54:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3146, 2, ref ServoParameterRecValue55);
+                    break;
+                case 55:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3148, 2, ref ServoParameterRecValue56);
+                    break;
+                case 56:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x314A, 2, ref ServoParameterRecValue57);
+                    break;
+                case 57:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x314C, 2, ref ServoParameterRecValue58);
+                    break;
+                case 58:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x314E, 2, ref ServoParameterRecValue59);
+                    break;
+                case 59:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3150, 2, ref ServoParameterRecValue60);
+                    break;
+                case 60:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3152, 2, ref ServoParameterRecValue61);
+                    break;
+                case 61:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3154, 2, ref ServoParameterRecValue62);
+                    break;
+                case 62:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3156, 2, ref ServoParameterRecValue63);
+                    break;
+                case 63:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3158, 2, ref ServoParameterRecValue64);
+                    break;
+                case 64:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x315A, 2, ref ServoParameterRecValue65);
+                    break;
+                case 65:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x315C, 2, ref ServoParameterRecValue66);
+                    break;
+                case 66:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x315E, 2, ref ServoParameterRecValue67);
+                    break;
+                case 67:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3160, 2, ref ServoParameterRecValue68);
+                    break;
+                case 68:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3162, 2, ref ServoParameterRecValue69);
+                    break;
+                case 69:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3164, 2, ref ServoParameterRecValue70);
+                    break;
+                case 70:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3166, 2, ref ServoParameterRecValue71);
+                    break;
+                case 71:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3168, 2, ref ServoParameterRecValue72);
+                    break;
+                case 72:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x316A, 2, ref ServoParameterRecValue73);
+                    break;
+                case 73:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x316C, 2, ref ServoParameterRecValue74);
+                    break;
+                case 74:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x316E, 2, ref ServoParameterRecValue75);
+                    break;
+                case 75:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3170, 2, ref ServoParameterRecValue76);
+                    break;
+                case 76:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3172, 2, ref ServoParameterRecValue77);
+                    break;
+                case 77:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3174, 2, ref ServoParameterRecValue78);
+                    break;
+                case 78:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3176, 2, ref ServoParameterRecValue79);
+                    break;
+                case 79:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3178, 2, ref ServoParameterRecValue80);
+                    break;
+                case 80:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x317A, 2, ref ServoParameterRecValue81);
+                    break;
+                case 81:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x317C, 2, ref ServoParameterRecValue82);
+                    break;
+                case 82:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x317E, 2, ref ServoParameterRecValue83);
+                    break;
+                case 83:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3180, 2, ref ServoParameterRecValue84);
+                    break;
+                case 84:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3182, 2, ref ServoParameterRecValue85);
+                    break;
+                case 85:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3184, 2, ref ServoParameterRecValue86);
+                    break;
+                case 86:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3186, 2, ref ServoParameterRecValue87);
+                    break;
+                case 87:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3188, 2, ref ServoParameterRecValue88);
+                    break;
+                case 88:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x318A, 2, ref ServoParameterRecValue89);
+                    break;
+                case 89:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x318C, 2, ref ServoParameterRecValue90);
+                    break;
+                case 90:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x318E, 2, ref ServoParameterRecValue91);
+                    break;
+                case 91:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3190, 2, ref ServoParameterRecValue92);
+                    break;
+                case 92:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3192, 2, ref ServoParameterRecValue93);
+                    break;
+                case 93:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3194, 2, ref ServoParameterRecValue94);
+                    break;
+                case 94:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3196, 2, ref ServoParameterRecValue95);
+                    break;
+                case 95:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3198, 2, ref ServoParameterRecValue96);
+                    break;
+                case 96:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x319A, 2, ref ServoParameterRecValue97);
+                    break;
+                case 97:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x319C, 2, ref ServoParameterRecValue98); //분류1 마지막
+                    break;
+                case 98:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3200, 2, ref ServoParameterRecValue99);
+                    break;
+                case 99:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3202, 2, ref ServoParameterRecValue100);
+                    break;
+                case 100:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3204, 2, ref ServoParameterRecValue101);
+                    break;
+                case 101:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3206, 2, ref ServoParameterRecValue102);
+                    break;
+                case 102:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3208, 2, ref ServoParameterRecValue103);
+                    break;
+                case 103:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x320A, 2, ref ServoParameterRecValue104);
+                    break;
+                case 104:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x320C, 2, ref ServoParameterRecValue105);
+                    break;
+                case 105:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x320E, 2, ref ServoParameterRecValue106);
+                    break;
+                case 106:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3210, 2, ref ServoParameterRecValue107);
+                    break;
+                case 107:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3212, 2, ref ServoParameterRecValue108);
+                    break;
+                case 108:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3214, 2, ref ServoParameterRecValue109);
+                    break;
+                case 109:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3216, 2, ref ServoParameterRecValue110);
+                    break;
+                case 110:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3218, 2, ref ServoParameterRecValue111);
+                    break;
+                case 111:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x321A, 2, ref ServoParameterRecValue112);
+                    break;
+                case 112:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x321C, 2, ref ServoParameterRecValue113);
+                    break;
+                case 113:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x321E, 2, ref ServoParameterRecValue114);
+                    break;
+                case 114:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3220, 2, ref ServoParameterRecValue115);
+                    break;
+                case 115:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3224, 2, ref ServoParameterRecValue116);
+                    break;
+                case 116:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3226, 2, ref ServoParameterRecValue117);
+                    break;
+                case 117:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3228, 2, ref ServoParameterRecValue118);
+                    break;
+                case 118:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x322A, 2, ref ServoParameterRecValue119);
+                    break;
+                case 119:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x322C, 2, ref ServoParameterRecValue120);
+                    break;
+                case 120:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x322E, 2, ref ServoParameterRecValue121);
+                    break;
+                case 121:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3230, 2, ref ServoParameterRecValue122);
+                    break;
+                case 122:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3232, 2, ref ServoParameterRecValue123);
+                    break;
+                case 123:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3234, 2, ref ServoParameterRecValue124);
+                    break;
+                case 124:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3236, 2, ref ServoParameterRecValue125);
+                    break;
+                case 125:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3238, 2, ref ServoParameterRecValue126);
+                    break;
+                case 126:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x323A, 2, ref ServoParameterRecValue127);
+                    break;
+                case 127:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x323C, 2, ref ServoParameterRecValue128);
+                    break;
+                case 128:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x323E, 2, ref ServoParameterRecValue129);
+                    break;
+                case 129:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3240, 2, ref ServoParameterRecValue130);
+                    break;
+                case 130:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3242, 2, ref ServoParameterRecValue131);
+                    break;
+                case 131:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3244, 2, ref ServoParameterRecValue132);
+                    break;
+                case 132:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3246, 2, ref ServoParameterRecValue133);
+                    break;
+                case 133:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3248, 2, ref ServoParameterRecValue134);
+                    break;
+                case 134:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x324A, 2, ref ServoParameterRecValue135); //분류2 마지막
+                    break;
+                case 135:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3300, 2, ref ServoParameterRecValue136);
+                    break;
+                case 136:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3302, 2, ref ServoParameterRecValue137);
+                    break;
+                case 137:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3304, 2, ref ServoParameterRecValue138);
+                    break;
+                case 138:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3306, 2, ref ServoParameterRecValue139);
+                    break;
+                case 139:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3308, 2, ref ServoParameterRecValue140);
+                    break;
+                case 140:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x330A, 2, ref ServoParameterRecValue141);
+                    break;
+                case 141:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x330C, 2, ref ServoParameterRecValue142);
+                    break;
+                case 142:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x330E, 2, ref ServoParameterRecValue143);
+                    break;
+                case 143:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3310, 2, ref ServoParameterRecValue144);
+                    break;
+                case 144:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3312, 2, ref ServoParameterRecValue145);
+                    break;
+                case 145:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3314, 2, ref ServoParameterRecValue146);
+                    break;
+                case 146:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3316, 2, ref ServoParameterRecValue147);
+                    break;
+                case 147:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3318, 2, ref ServoParameterRecValue148);
+                    break;
+                case 148:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x331A, 2, ref ServoParameterRecValue149);
+                    break;
+                case 149:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x331C, 2, ref ServoParameterRecValue150);
+                    break;
+                case 150:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x331E, 2, ref ServoParameterRecValue151);
+                    break;
+                case 151:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3320, 2, ref ServoParameterRecValue152);
+                    break;
+                case 152:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3322, 2, ref ServoParameterRecValue153);
+                    break;
+                case 153:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3324, 2, ref ServoParameterRecValue154);
+                    break;
+                case 154:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3326, 2, ref ServoParameterRecValue155);
+                    break;
+                case 155:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3328, 2, ref ServoParameterRecValue156);
+                    break;
+                case 156:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x332A, 2, ref ServoParameterRecValue157);
+                    break;
+                case 157:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x332C, 2, ref ServoParameterRecValue158);
+                    break;
+                case 158:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x332E, 2, ref ServoParameterRecValue159);
+                    break;
+                case 159:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3330, 2, ref ServoParameterRecValue160);
+                    break;
+                case 160:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3332, 2, ref ServoParameterRecValue161);
+                    break;
+                case 161:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3334, 2, ref ServoParameterRecValue162);
+                    break;
+                case 162:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3336, 2, ref ServoParameterRecValue163);
+                    break;
+                case 163:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3338, 2, ref ServoParameterRecValue164);
+                    break;
+                case 164:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x333A, 2, ref ServoParameterRecValue165);//분류3 마지막
+                    break;
+                case 165:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3400, 2, ref ServoParameterRecValue166);
+                    break;
+                case 166:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3402, 2, ref ServoParameterRecValue167);
+                    break;
+                case 167:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3404, 2, ref ServoParameterRecValue168);
+                    break;
+                case 168:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3406, 2, ref ServoParameterRecValue169);
+                    break;
+                case 169:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3408, 2, ref ServoParameterRecValue170);
+                    break;
+                case 170:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x340A, 2, ref ServoParameterRecValue171);
+                    break;
+                case 171:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x340C, 2, ref ServoParameterRecValue172);
+                    break;
+                case 172:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x340E, 2, ref ServoParameterRecValue173);
+                    break;
+                case 173:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3410, 2, ref ServoParameterRecValue174);
+                    break;
+                case 174:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3412, 2, ref ServoParameterRecValue175);
+                    break;
+                case 175:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3414, 2, ref ServoParameterRecValue176);
+                    break;
+                case 176:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3416, 2, ref ServoParameterRecValue177);
+                    break;
+                case 177:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3418, 2, ref ServoParameterRecValue178);
+                    break;
+                case 178:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x341A, 2, ref ServoParameterRecValue179);
+                    break;
+                case 179:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x341C, 2, ref ServoParameterRecValue180);
+                    break;
+                case 180:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x341E, 2, ref ServoParameterRecValue181);
+                    break;
+                case 181:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3420, 2, ref ServoParameterRecValue182);
+                    break;
+                case 182:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3422, 2, ref ServoParameterRecValue183);
+                    break;
+                case 183:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3424, 2, ref ServoParameterRecValue184);
+                    break;
+                case 184:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3426, 2, ref ServoParameterRecValue185);
+                    break;
+                case 185:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3428, 2, ref ServoParameterRecValue186);
+                    break;
+                case 186:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x342A, 2, ref ServoParameterRecValue187);
+                    break;
+                case 187:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x342C, 2, ref ServoParameterRecValue188);
+                    break;
+                case 188:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x342E, 2, ref ServoParameterRecValue189);
+                    break;
+                case 189:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3430, 2, ref ServoParameterRecValue190);
+                    break;
+                case 190:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3432, 2, ref ServoParameterRecValue191);
+                    break;
+                case 191:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3434, 2, ref ServoParameterRecValue192);
+                    break;
+                case 192:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3436, 2, ref ServoParameterRecValue193);
+                    break;
+                case 193:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3438, 2, ref ServoParameterRecValue194);
+                    break;
+                case 194:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x343A, 2, ref ServoParameterRecValue195);
+                    break;
+                case 195:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x343C, 2, ref ServoParameterRecValue196);
+                    break;
+                case 196:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x343E, 2, ref ServoParameterRecValue197);
+                    break;
+                case 197:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3440, 2, ref ServoParameterRecValue198);
+                    break;
+                case 198:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3442, 2, ref ServoParameterRecValue199);
+                    break;
+                case 199:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3444, 2, ref ServoParameterRecValue200);
+                    break;
+                case 200:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3446, 2, ref ServoParameterRecValue201);
+                    break;
+                case 201:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3448, 2, ref ServoParameterRecValue202);
+                    break;
+                case 202:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x344A, 2, ref ServoParameterRecValue203);
+                    break;
+                case 203:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x344C, 2, ref ServoParameterRecValue204);
+                    break;
+                case 204:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x344E, 2, ref ServoParameterRecValue205);
+                    break;
+                case 205:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3450, 2, ref ServoParameterRecValue206);
+                    break;
+                case 206:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3452, 2, ref ServoParameterRecValue207);
+                    break;
+                case 207:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3454, 2, ref ServoParameterRecValue208);
+                    break;
+                case 208:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3458, 2, ref ServoParameterRecValue209);
+                    break;
+                case 209:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x345A, 2, ref ServoParameterRecValue210);
+                    break;
+                case 210:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x345E, 2, ref ServoParameterRecValue211);
+                    break;
+                case 211:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3460, 2, ref ServoParameterRecValue212);
+                    break;
+                case 212:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3462, 2, ref ServoParameterRecValue213);
+                    break;
+                case 213:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3464, 2, ref ServoParameterRecValue214);
+                    break;
+                case 214:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3466, 2, ref ServoParameterRecValue215);
+                    break;
+                case 215:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3468, 2, ref ServoParameterRecValue216);
+                    break;
+                case 216:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x346A, 2, ref ServoParameterRecValue217);
+                    break;
+                case 217:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x346C, 2, ref ServoParameterRecValue218);
+                    break;
+                case 218:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x346E, 2, ref ServoParameterRecValue219);
+                    break;
+                case 219:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3470, 2, ref ServoParameterRecValue220);
+                    break;
+                case 220:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3472, 2, ref ServoParameterRecValue221); //분류4 마지막
+                    break;
+                case 221:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3500, 2, ref ServoParameterRecValue222);
+                    break;
+                case 222:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3502, 2, ref ServoParameterRecValue223);
+                    break;
+                case 223:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3504, 2, ref ServoParameterRecValue224);
+                    break;
+                case 224:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3506, 2, ref ServoParameterRecValue225);
+                    break;
+                case 225:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3508, 2, ref ServoParameterRecValue226);
+                    break;
+                case 226:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x350A, 2, ref ServoParameterRecValue227);
+                    break;
+                case 227:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x350C, 2, ref ServoParameterRecValue228);
+                    break;
+                case 228:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x350E, 2, ref ServoParameterRecValue229);
+                    break;
+                case 229:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3510, 2, ref ServoParameterRecValue230);
+                    break;
+                case 230:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3512, 2, ref ServoParameterRecValue231);
+                    break;
+                case 231:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3514, 2, ref ServoParameterRecValue232);
+                    break;
+                case 232:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3516, 2, ref ServoParameterRecValue233);
+                    break;
+                case 233:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3518, 2, ref ServoParameterRecValue234);
+                    break;
+                case 234:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x351A, 2, ref ServoParameterRecValue235);
+                    break;
+                case 235:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x351C, 2, ref ServoParameterRecValue236);
+                    break;
+                case 236:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x351E, 2, ref ServoParameterRecValue237);
+                    break;
+                case 237:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3520, 2, ref ServoParameterRecValue238);
+                    break;
+                case 238:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3522, 2, ref ServoParameterRecValue239);
+                    break;
+                case 239:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3524, 2, ref ServoParameterRecValue240);
+                    break;
+                case 240:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3526, 2, ref ServoParameterRecValue241);
+                    break;
+                case 241:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3528, 2, ref ServoParameterRecValue242);
+                    break;
+                case 242:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x352A, 2, ref ServoParameterRecValue243);
+                    break;
+                case 243:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x352C, 2, ref ServoParameterRecValue244);
+                    break;
+                case 244:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x352E, 2, ref ServoParameterRecValue245);
+                    break;
+                case 245:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3530, 2, ref ServoParameterRecValue246);
+                    break;
+                case 246:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3532, 2, ref ServoParameterRecValue247);
+                    break;
+                case 247:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3534, 2, ref ServoParameterRecValue248);
+                    break;
+                case 248:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3536, 2, ref ServoParameterRecValue249);
+                    break;
+                case 249:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3538, 2, ref ServoParameterRecValue250);
+                    break;
+                case 250:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x353A, 2, ref ServoParameterRecValue251);
+                    break;
+                case 251:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x353C, 2, ref ServoParameterRecValue252);
+                    break;
+                case 252:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x353E, 2, ref ServoParameterRecValue253);
+                    break;
+                case 253:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3540, 2, ref ServoParameterRecValue254);
+                    break;
+                case 254:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3542, 2, ref ServoParameterRecValue255);
+                    break;
+                case 255:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3544, 2, ref ServoParameterRecValue256);
+                    break;
+                case 256:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3546, 2, ref ServoParameterRecValue257);
+                    break;
+                case 257:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3548, 2, ref ServoParameterRecValue258);
+                    break;
+                case 258:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x354A, 2, ref ServoParameterRecValue259);
+                    break;
+                case 259:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x354C, 2, ref ServoParameterRecValue260);
+                    break;
+                case 260:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x354E, 2, ref ServoParameterRecValue261);
+                    break;
+                case 261:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3550, 2, ref ServoParameterRecValue262);
+                    break;
+                case 262:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3552, 2, ref ServoParameterRecValue263);
+                    break;
+                case 263:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3554, 2, ref ServoParameterRecValue264);
+                    break;
+                case 264:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x355A, 2, ref ServoParameterRecValue265);
+                    break;
+                case 265:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x355C, 2, ref ServoParameterRecValue266);
+                    break;
+                case 266:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x355E, 2, ref ServoParameterRecValue267);
+                    break;
+                case 267:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3560, 2, ref ServoParameterRecValue268);
+                    break;
+                case 268:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3562, 2, ref ServoParameterRecValue269);
+                    break;
+                case 269:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3564, 2, ref ServoParameterRecValue270);
+                    break;
+                case 270:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3566, 2, ref ServoParameterRecValue271);
+                    break;
+                case 271:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3568, 2, ref ServoParameterRecValue272);
+                    break;
+                case 272:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x356A, 2, ref ServoParameterRecValue273);
+                    break;
+                case 273:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x356C, 2, ref ServoParameterRecValue274);
+                    break;
+                case 274:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x356E, 2, ref ServoParameterRecValue275);
+                    break;
+                case 275:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3570, 2, ref ServoParameterRecValue276);
+                    break;
+                case 276:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3572, 2, ref ServoParameterRecValue277);
+                    break;
+                case 277:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3574, 2, ref ServoParameterRecValue278);
+                    break;
+                case 278:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3576, 2, ref ServoParameterRecValue279);
+                    break;
+                case 279:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3578, 2, ref ServoParameterRecValue280);
+                    break;
+                case 280:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x357A, 2, ref ServoParameterRecValue281);
+                    break;
+                case 281:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x357C, 2, ref ServoParameterRecValue282);
+                    break;
+                case 282:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x357E, 2, ref ServoParameterRecValue283);
+                    break;
+                case 283:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3580, 2, ref ServoParameterRecValue284);
+                    break;
+                case 284:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3582, 2, ref ServoParameterRecValue285);
+                    break;
+                case 285:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3584, 2, ref ServoParameterRecValue286);
+                    break;
+                case 286:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3586, 2, ref ServoParameterRecValue287);
+                    break;
+                case 287:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3588, 2, ref ServoParameterRecValue288);
+                    break;
+                case 288:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x358A, 2, ref ServoParameterRecValue289);
+                    break;
+                case 289:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x358C, 2, ref ServoParameterRecValue290);
+                    break;
+                case 290:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x358E, 2, ref ServoParameterRecValue291);
+                    break;
+                case 291:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3590, 2, ref ServoParameterRecValue292);
+                    break;
+                case 292:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3592, 2, ref ServoParameterRecValue293);
+                    break;
+                case 293:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3594, 2, ref ServoParameterRecValue294);
+                    break;
+                case 294:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3596, 2, ref ServoParameterRecValue295);
+                    break;
+                case 295:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3598, 2, ref ServoParameterRecValue296);
+                    break;
+                case 296:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x359A, 2, ref ServoParameterRecValue297);
+                    break;
+                case 297:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x359C, 2, ref ServoParameterRecValue298);
+                    break;
+                case 298:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x359E, 2, ref ServoParameterRecValue299);
+                    break;
+                case 299:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x35A0, 2, ref ServoParameterRecValue300);
+                    break;
+                case 300:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x35AC, 2, ref ServoParameterRecValue301);//분류5 마지막
+                    break;
+                case 301:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3600, 2, ref ServoParameterRecValue302);
+                    break;
+                case 302:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3604, 2, ref ServoParameterRecValue303);
+                    break;
+                case 303:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3608, 2, ref ServoParameterRecValue304);
+                    break;
+                case 304:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x360A, 2, ref ServoParameterRecValue305);
+                    break;
+                case 305:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x360C, 2, ref ServoParameterRecValue306);
+                    break;
+                case 306:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x360E, 2, ref ServoParameterRecValue307);
+                    break;
+                case 307:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3610, 2, ref ServoParameterRecValue308);
+                    break;
+                case 308:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3612, 2, ref ServoParameterRecValue309);
+                    break;
+                case 309:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3614, 2, ref ServoParameterRecValue310);
+                    break;
+                case 310:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3616, 2, ref ServoParameterRecValue311);
+                    break;
+                case 311:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x361A, 2, ref ServoParameterRecValue312);
+                    break;
+                case 312:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x361C, 2, ref ServoParameterRecValue313);
+                    break;
+                case 313:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x361E, 2, ref ServoParameterRecValue314);
+                    break;
+                case 314:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3620, 2, ref ServoParameterRecValue315);
+                    break;
+                case 315:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3622, 2, ref ServoParameterRecValue316);
+                    break;
+                case 316:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3624, 2, ref ServoParameterRecValue317);
+                    break;
+                case 317:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3626, 2, ref ServoParameterRecValue318);
+                    break;
+                case 318:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3628, 2, ref ServoParameterRecValue319);
+                    break;
+                case 319:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x362A, 2, ref ServoParameterRecValue320);
+                    break;
+                case 320:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x362C, 2, ref ServoParameterRecValue321);
+                    break;
+                case 321:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x362E, 2, ref ServoParameterRecValue322);
+                    break;
+                case 322:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3630, 2, ref ServoParameterRecValue323);
+                    break;
+                case 323:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3636, 2, ref ServoParameterRecValue324);
+                    break;
+                case 324:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3638, 2, ref ServoParameterRecValue325);
+                    break;
+                case 325:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x363C, 2, ref ServoParameterRecValue326);
+                    break;
+                case 326:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x363E, 2, ref ServoParameterRecValue327);
+                    break;
+                case 327:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3640, 2, ref ServoParameterRecValue328);
+                    break;
+                case 328:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3642, 2, ref ServoParameterRecValue329);
+                    break;
+                case 329:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3644, 2, ref ServoParameterRecValue330);
+                    break;
+                case 330:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3646, 2, ref ServoParameterRecValue331);
+                    break;
+                case 331:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3648, 2, ref ServoParameterRecValue332);
+                    break;
+                case 332:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x364A, 2, ref ServoParameterRecValue333);
+                    break;
+                case 333:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x364C, 2, ref ServoParameterRecValue334);
+                    break;
+                case 334:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x364E, 2, ref ServoParameterRecValue335);
+                    break;
+                case 335:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3652, 2, ref ServoParameterRecValue336);
+                    break;
+                case 336:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3654, 2, ref ServoParameterRecValue337);
+                    break;
+                case 337:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3656, 2, ref ServoParameterRecValue338);
+                    break;
+                case 338:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x365E, 2, ref ServoParameterRecValue339);
+                    break;
+                case 339:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3660, 2, ref ServoParameterRecValue340);
+                    break;
+                case 340:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3662, 2, ref ServoParameterRecValue341);
+                    break;
+                case 341:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3664, 2, ref ServoParameterRecValue342);
+                    break;
+                case 342:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3666, 2, ref ServoParameterRecValue343);
+                    break;
+                case 343:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3668, 2, ref ServoParameterRecValue344);
+                    break;
+                case 344:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x366A, 2, ref ServoParameterRecValue345);
+                    break;
+                case 345:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x366C, 2, ref ServoParameterRecValue346);
+                    break;
+                case 346:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3672, 2, ref ServoParameterRecValue347);
+                    break;
+                case 347:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3674, 2, ref ServoParameterRecValue348);
+                    break;
+                case 348:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3678, 2, ref ServoParameterRecValue349);
+                    break;
+                case 349:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x367A, 2, ref ServoParameterRecValue350);
+                    break;
+                case 350:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x367C, 2, ref ServoParameterRecValue351);
+                    break;
+                case 351:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x367E, 2, ref ServoParameterRecValue352);
+                    break;
+                case 352:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3680, 2, ref ServoParameterRecValue353);
+                    break;
+                case 353:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3682, 2, ref ServoParameterRecValue354);
+                    break;
+                case 354:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3684, 2, ref ServoParameterRecValue355);
+                    break;
+                case 355:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3686, 2, ref ServoParameterRecValue356);
+                    break;
+                case 356:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3688, 2, ref ServoParameterRecValue357);
+                    break;
+                case 357:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x368A, 2, ref ServoParameterRecValue358);
+                    break;
+                case 358:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x368C, 2, ref ServoParameterRecValue359);
+                    break;
+                case 359:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x368E, 2, ref ServoParameterRecValue360);
+                    break;
+                case 360:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3690, 2, ref ServoParameterRecValue361);
+                    break;
+                case 361:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3692, 2, ref ServoParameterRecValue362);
+                    break;
+                case 362:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3694, 2, ref ServoParameterRecValue363);
+                    break;
+                case 363:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3696, 2, ref ServoParameterRecValue364);
+                    break;
+                case 364:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3698, 2, ref ServoParameterRecValue365);
+                    break;
+                case 365:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x36AE, 2, ref ServoParameterRecValue366);
+                    break;
+                case 366:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x36B0, 2, ref ServoParameterRecValue367);
+                    break;
+                case 367:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x36C2, 2, ref ServoParameterRecValue368);
+                    break;
+                case 368:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x36C4, 2, ref ServoParameterRecValue369);//분류6 마지막
+                    break;
+                case 369:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3700, 2, ref ServoParameterRecValue370);
+                    break;
+                case 370:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3702, 2, ref ServoParameterRecValue371);
+                    break;
+                case 371:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3706, 2, ref ServoParameterRecValue372);
+                    break;
+                case 372:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3708, 2, ref ServoParameterRecValue373);
+                    break;
+                case 373:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x370A, 2, ref ServoParameterRecValue374);
+                    break;
+                case 374:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x370C, 2, ref ServoParameterRecValue375);
+                    break;
+                case 375:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x370E, 2, ref ServoParameterRecValue376);
+                    break;
+                case 376:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3710, 2, ref ServoParameterRecValue377);
+                    break;
+                case 377:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3712, 2, ref ServoParameterRecValue378);
+                    break;
+                case 378:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3714, 2, ref ServoParameterRecValue379);
+                    break;
+                case 379:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3716, 2, ref ServoParameterRecValue380);
+                    break;
+                case 380:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3718, 2, ref ServoParameterRecValue381);
+                    break;
+                case 381:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x371A, 2, ref ServoParameterRecValue382);
+                    break;
+                case 382:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x371C, 2, ref ServoParameterRecValue383);
+                    break;
+                case 383:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x371E, 2, ref ServoParameterRecValue384);
+                    break;
+                case 384:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3720, 2, ref ServoParameterRecValue385);
+                    break;
+                case 385:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3728, 2, ref ServoParameterRecValue386);
+                    break;
+                case 386:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x372A, 2, ref ServoParameterRecValue387);
+                    break;
+                case 387:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x372C, 2, ref ServoParameterRecValue388);
+                    break;
+                case 388:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x372E, 2, ref ServoParameterRecValue389);
+                    break;
+                case 389:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3730, 2, ref ServoParameterRecValue390);
+                    break;
+                case 390:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3732, 2, ref ServoParameterRecValue391);
+                    break;
+                case 391:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3734, 2, ref ServoParameterRecValue392);
+                    break;
+                case 392:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3736, 2, ref ServoParameterRecValue393);
+                    break;
+                case 393:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3738, 2, ref ServoParameterRecValue394);
+                    break;
+                case 394:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x373A, 2, ref ServoParameterRecValue395);
+                    break;
+                case 395:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x373C, 2, ref ServoParameterRecValue396);
+                    break;
+                case 396:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x373E, 2, ref ServoParameterRecValue397);
+                    break;
+                case 397:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3740, 2, ref ServoParameterRecValue398);
+                    break;
+                case 398:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3742, 2, ref ServoParameterRecValue399);
+                    break;
+                case 399:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3744, 2, ref ServoParameterRecValue400);
+                    break;
+                case 400:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3746, 2, ref ServoParameterRecValue401);
+                    break;
+                case 401:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3748, 2, ref ServoParameterRecValue402);
+                    break;
+                case 402:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x374A, 2, ref ServoParameterRecValue403);
+                    break;
+                case 403:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x374C, 2, ref ServoParameterRecValue404);
+                    break;
+                case 404:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x374E, 2, ref ServoParameterRecValue405);
+                    break;
+                case 405:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3752, 2, ref ServoParameterRecValue406);
+                    break;
+                case 406:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x37AE, 2, ref ServoParameterRecValue407);
+                    break;
+                case 407:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x37B6, 2, ref ServoParameterRecValue408);
+                    break;
+                case 408:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x37B8, 2, ref ServoParameterRecValue409);
+                    break;
+                case 409:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x37BA, 2, ref ServoParameterRecValue410);//분류7 마지막
+                    break;
+            }
+        }
+
 
         private void ExecuteTransCommand(object parameter)
         {

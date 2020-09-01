@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace MINASA6SF_Rev.Models
 {
@@ -75,8 +76,8 @@ namespace MINASA6SF_Rev.Models
         }
 
 
-        private double setval;
-        public double SetVal
+        private float setval;
+        public float SetVal
         {
             get
             {
