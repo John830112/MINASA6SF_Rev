@@ -54,6 +54,7 @@ namespace MINASA6SF_Rev.Views
             Settings.DataContext = mainPanelViewModel;
             mainpanel.DataContext = mainPanelViewModel;
             mainpanel.Navigate(ControlPanel1);
+            mainPanelViewModel.pageindex = 0;
 
             this.Loaded += UserControl1_Loaded;
         }
@@ -79,6 +80,7 @@ namespace MINASA6SF_Rev.Views
 
         private void mainpanel_Click(object sender, RoutedEventArgs e)
         {
+            mainPanelViewModel.pageindex = 0;
             mainpanel.Navigate(ControlPanel1);
             if (mainPanelViewModel.mirrtimer.Enabled != true)
             {
@@ -95,6 +97,7 @@ namespace MINASA6SF_Rev.Views
 
         private void blockpara_Click(object sender, RoutedEventArgs e)
         {
+            mainPanelViewModel.pageindex = 1;
             mainpanel.Navigate(BlockPara);
             mainPanelViewModel.timer.Stop();
             mainPanelViewModel.mirrtimer.Stop();
@@ -104,6 +107,7 @@ namespace MINASA6SF_Rev.Views
 
         private void servopara_Click(object sender, RoutedEventArgs e)
         {
+            mainPanelViewModel.pageindex = 2;
             mainpanel.Navigate(ServoPara);
             mainPanelViewModel.timer.Stop();            
             mainPanelViewModel.mirrtimer.Stop();
@@ -113,6 +117,7 @@ namespace MINASA6SF_Rev.Views
 
         private void setting_Click(object sender, RoutedEventArgs e)
         {
+            mainPanelViewModel.pageindex = 3;
             mainpanel.Navigate(Settings);
             mainPanelViewModel.timer.Stop();
             mainPanelViewModel.mirrtimer.Stop();

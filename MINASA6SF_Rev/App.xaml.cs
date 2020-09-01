@@ -15,6 +15,5 @@ namespace MINASA6SF_Rev
     /// </summary>
     public partial class App : Application
     {
-       
     }
 }

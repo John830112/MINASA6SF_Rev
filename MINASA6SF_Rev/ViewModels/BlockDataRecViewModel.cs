@@ -4218,6 +4218,29 @@ namespace MINASA6SF_Rev.ViewModels
             return;
         }
 
+        partial void BlockParameterRec111()
+        {
+            for (int i = 0; i < 411; i++)
+            {
+                ServoParameterRec(i);
+                Count += 0.62;
+                Debug.WriteLine(Count.ToString());
+
+                //if (worker3.CancellationPending == true)
+                //{
+                //    e.Cancel = true;
+                //    Debug.WriteLine("worker3.Cancel 실행");
+                //    return;
+                //}
+            }
+            Count = 0;
+            MirrorONOFF = true;
+            recONOFF = true;
+         
+         //   BlockParameterdata();
+            return;
+        }
+
         private void BlockParameterdata()
         {
             BlockParaModel2s[0].SettingValue = BitConverter.ToUInt16(BlockVelAccDelPara_Temp1, 0);
@@ -4299,6 +4322,1243 @@ namespace MINASA6SF_Rev.ViewModels
             //            ", 천이조건:" + BlockChif.ToString() +
             //            ", 상대이동량:" + TargetPosition.ToString();        
             //    }
+        }
+
+        private void ServoParameterRec(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3000, 2, ref ServoParameterRecValue1);
+                    break;
+                case 1:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3002, 2, ref ServoParameterRecValue2);
+                    break;
+                case 2:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3004, 2, ref ServoParameterRecValue3);
+                    break;
+                case 3:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3006, 2, ref ServoParameterRecValue4);
+                    break;
+                case 4:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3008, 2, ref ServoParameterRecValue5);
+                    break;
+                case 5:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x300A, 2, ref ServoParameterRecValue6);
+                    break;
+                case 6:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x300C, 2, ref ServoParameterRecValue7);
+                    break;
+                case 7:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x300E, 2, ref ServoParameterRecValue8);
+                    break;
+                case 8:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3010, 2, ref ServoParameterRecValue9);
+                    break;
+                case 9:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3012, 2, ref ServoParameterRecValue10);
+                    break;
+                case 10:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3014, 2, ref ServoParameterRecValue11);
+                    break;
+                case 11:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3016, 2, ref ServoParameterRecValue12);
+                    break;
+                case 12:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3018, 2, ref ServoParameterRecValue13);
+                    break;
+                case 13:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x301A, 2, ref ServoParameterRecValue14);
+                    break;
+                case 14:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x301C, 2, ref ServoParameterRecValue15);
+                    break;
+                case 15:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x301E, 2, ref ServoParameterRecValue16);
+                    break;
+                case 16:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3020, 2, ref ServoParameterRecValue17);
+                    break;
+                case 17:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3022, 2, ref ServoParameterRecValue18);
+                    break;
+                case 18:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3024, 2, ref ServoParameterRecValue19);  //분류1 마지막
+                    break;
+                case 19:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3100, 2, ref ServoParameterRecValue20);
+                    break;
+                case 20:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3102, 2, ref ServoParameterRecValue21);
+                    break;
+                case 21:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3104, 2, ref ServoParameterRecValue22);
+                    break;
+                case 22:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3106, 2, ref ServoParameterRecValue23);
+                    break;
+                case 23:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3108, 2, ref ServoParameterRecValue24);
+                    break;
+                case 24:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x310A, 2, ref ServoParameterRecValue25);
+                    break;
+                case 25:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x310C, 2, ref ServoParameterRecValue26);
+                    break;
+                case 26:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x310E, 2, ref ServoParameterRecValue27);
+                    break;
+                case 27:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3110, 2, ref ServoParameterRecValue28);
+                    break;
+                case 28:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3112, 2, ref ServoParameterRecValue29);
+                    break;
+                case 29:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3114, 2, ref ServoParameterRecValue30);
+                    break;
+                case 30:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3116, 2, ref ServoParameterRecValue31);
+                    break;
+                case 31:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3118, 2, ref ServoParameterRecValue32);
+                    break;
+                case 32:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x311A, 2, ref ServoParameterRecValue33);
+                    break;
+                case 33:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x311C, 2, ref ServoParameterRecValue34);
+                    break;
+                case 34:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x311E, 2, ref ServoParameterRecValue35);
+                    break;
+                case 35:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3120, 2, ref ServoParameterRecValue36);
+                    break;
+                case 36:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3122, 2, ref ServoParameterRecValue37);
+                    break;
+                case 37:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3124, 2, ref ServoParameterRecValue38);
+                    break;
+                case 38:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3126, 2, ref ServoParameterRecValue39);
+                    break;
+                case 39:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3128, 2, ref ServoParameterRecValue40);
+                    break;
+                case 40:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x312A, 2, ref ServoParameterRecValue41);
+                    break;
+                case 41:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x312C, 2, ref ServoParameterRecValue42);
+                    break;
+                case 42:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x312E, 2, ref ServoParameterRecValue43);
+                    break;
+                case 43:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3130, 2, ref ServoParameterRecValue44);
+                    break;
+                case 44:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3132, 2, ref ServoParameterRecValue45);
+                    break;
+                case 45:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3134, 2, ref ServoParameterRecValue46);
+                    break;
+                case 46:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3136, 2, ref ServoParameterRecValue47);
+                    break;
+                case 47:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3138, 2, ref ServoParameterRecValue48);
+                    break;
+                case 48:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x313A, 2, ref ServoParameterRecValue49);
+                    break;
+                case 49:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x313C, 2, ref ServoParameterRecValue50);
+                    break;
+                case 50:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x313E, 2, ref ServoParameterRecValue51);
+                    break;
+                case 51:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3140, 2, ref ServoParameterRecValue52);
+                    break;
+                case 52:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3142, 2, ref ServoParameterRecValue53);
+                    break;
+                case 53:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3144, 2, ref ServoParameterRecValue54);
+                    break;
+                case 54:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3146, 2, ref ServoParameterRecValue55);
+                    break;
+                case 55:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3148, 2, ref ServoParameterRecValue56);
+                    break;
+                case 56:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x314A, 2, ref ServoParameterRecValue57);
+                    break;
+                case 57:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x314C, 2, ref ServoParameterRecValue58);
+                    break;
+                case 58:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x314E, 2, ref ServoParameterRecValue59);
+                    break;
+                case 59:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3150, 2, ref ServoParameterRecValue60);
+                    break;
+                case 60:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3152, 2, ref ServoParameterRecValue61);
+                    break;
+                case 61:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3154, 2, ref ServoParameterRecValue62);
+                    break;
+                case 62:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3156, 2, ref ServoParameterRecValue63);
+                    break;
+                case 63:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3158, 2, ref ServoParameterRecValue64);
+                    break;
+                case 64:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x315A, 2, ref ServoParameterRecValue65);
+                    break;
+                case 65:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x315C, 2, ref ServoParameterRecValue66);
+                    break;
+                case 66:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x315E, 2, ref ServoParameterRecValue67);
+                    break;
+                case 67:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3160, 2, ref ServoParameterRecValue68);
+                    break;
+                case 68:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3162, 2, ref ServoParameterRecValue69);
+                    break;
+                case 69:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3164, 2, ref ServoParameterRecValue70);
+                    break;
+                case 70:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3166, 2, ref ServoParameterRecValue71);
+                    break;
+                case 71:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3168, 2, ref ServoParameterRecValue72);
+                    break;
+                case 72:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x316A, 2, ref ServoParameterRecValue73);
+                    break;
+                case 73:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x316C, 2, ref ServoParameterRecValue74);
+                    break;
+                case 74:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x316E, 2, ref ServoParameterRecValue75);
+                    break;
+                case 75:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3170, 2, ref ServoParameterRecValue76);
+                    break;
+                case 76:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3172, 2, ref ServoParameterRecValue77);
+                    break;
+                case 77:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3174, 2, ref ServoParameterRecValue78);
+                    break;
+                case 78:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3176, 2, ref ServoParameterRecValue79);
+                    break;
+                case 79:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3178, 2, ref ServoParameterRecValue80);
+                    break;
+                case 80:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x317A, 2, ref ServoParameterRecValue81);
+                    break;
+                case 81:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x317C, 2, ref ServoParameterRecValue82);
+                    break;
+                case 82:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x317E, 2, ref ServoParameterRecValue83);
+                    break;
+                case 83:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3180, 2, ref ServoParameterRecValue84);
+                    break;
+                case 84:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3182, 2, ref ServoParameterRecValue85);
+                    break;
+                case 85:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3184, 2, ref ServoParameterRecValue86);
+                    break;
+                case 86:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3186, 2, ref ServoParameterRecValue87);
+                    break;
+                case 87:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3188, 2, ref ServoParameterRecValue88);
+                    break;
+                case 88:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x318A, 2, ref ServoParameterRecValue89);
+                    break;
+                case 89:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x318C, 2, ref ServoParameterRecValue90);
+                    break;
+                case 90:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x318E, 2, ref ServoParameterRecValue91);
+                    break;
+                case 91:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3190, 2, ref ServoParameterRecValue92);
+                    break;
+                case 92:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3192, 2, ref ServoParameterRecValue93);
+                    break;
+                case 93:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3194, 2, ref ServoParameterRecValue94);
+                    break;
+                case 94:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3196, 2, ref ServoParameterRecValue95);
+                    break;
+                case 95:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3198, 2, ref ServoParameterRecValue96);
+                    break;
+                case 96:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x319A, 2, ref ServoParameterRecValue97);
+                    break;
+                case 97:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x319C, 2, ref ServoParameterRecValue98); //분류1 마지막
+                    break;
+                case 98:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3200, 2, ref ServoParameterRecValue99);
+                    break;
+                case 99:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3202, 2, ref ServoParameterRecValue100);
+                    break;
+                case 100:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3204, 2, ref ServoParameterRecValue101);
+                    break;
+                case 101:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3206, 2, ref ServoParameterRecValue102);
+                    break;
+                case 102:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3208, 2, ref ServoParameterRecValue103);
+                    break;
+                case 103:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x320A, 2, ref ServoParameterRecValue104);
+                    break;
+                case 104:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x320C, 2, ref ServoParameterRecValue105);
+                    break;
+                case 105:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x320E, 2, ref ServoParameterRecValue106);
+                    break;
+                case 106:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3210, 2, ref ServoParameterRecValue107);
+                    break;
+                case 107:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3212, 2, ref ServoParameterRecValue108);
+                    break;
+                case 108:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3214, 2, ref ServoParameterRecValue109);
+                    break;
+                case 109:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3216, 2, ref ServoParameterRecValue110);
+                    break;
+                case 110:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3218, 2, ref ServoParameterRecValue111);
+                    break;
+                case 111:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x321A, 2, ref ServoParameterRecValue112);
+                    break;
+                case 112:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x321C, 2, ref ServoParameterRecValue113);
+                    break;
+                case 113:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x321E, 2, ref ServoParameterRecValue114);
+                    break;
+                case 114:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3220, 2, ref ServoParameterRecValue115);
+                    break;
+                case 115:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3224, 2, ref ServoParameterRecValue116);
+                    break;
+                case 116:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3226, 2, ref ServoParameterRecValue117);
+                    break;
+                case 117:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3228, 2, ref ServoParameterRecValue118);
+                    break;
+                case 118:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x322A, 2, ref ServoParameterRecValue119);
+                    break;
+                case 119:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x322C, 2, ref ServoParameterRecValue120);
+                    break;
+                case 120:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x322E, 2, ref ServoParameterRecValue121);
+                    break;
+                case 121:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3230, 2, ref ServoParameterRecValue122);
+                    break;
+                case 122:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3232, 2, ref ServoParameterRecValue123);
+                    break;
+                case 123:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3234, 2, ref ServoParameterRecValue124);
+                    break;
+                case 124:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3236, 2, ref ServoParameterRecValue125);
+                    break;
+                case 125:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3238, 2, ref ServoParameterRecValue126);
+                    break;
+                case 126:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x323A, 2, ref ServoParameterRecValue127);
+                    break;
+                case 127:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x323C, 2, ref ServoParameterRecValue128);
+                    break;
+                case 128:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x323E, 2, ref ServoParameterRecValue129);
+                    break;
+                case 129:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3240, 2, ref ServoParameterRecValue130);
+                    break;
+                case 130:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3242, 2, ref ServoParameterRecValue131);
+                    break;
+                case 131:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3244, 2, ref ServoParameterRecValue132);
+                    break;
+                case 132:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3246, 2, ref ServoParameterRecValue133);
+                    break;
+                case 133:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3248, 2, ref ServoParameterRecValue134);
+                    break;
+                case 134:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x324A, 2, ref ServoParameterRecValue135); //분류2 마지막
+                    break;
+                case 135:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3300, 2, ref ServoParameterRecValue136);
+                    break;
+                case 136:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3302, 2, ref ServoParameterRecValue137);
+                    break;
+                case 137:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3304, 2, ref ServoParameterRecValue138);
+                    break;
+                case 138:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3306, 2, ref ServoParameterRecValue139);
+                    break;
+                case 139:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3308, 2, ref ServoParameterRecValue140);
+                    break;
+                case 140:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x330A, 2, ref ServoParameterRecValue141);
+                    break;
+                case 141:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x330C, 2, ref ServoParameterRecValue142);
+                    break;
+                case 142:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x330E, 2, ref ServoParameterRecValue143);
+                    break;
+                case 143:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3310, 2, ref ServoParameterRecValue144);
+                    break;
+                case 144:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3312, 2, ref ServoParameterRecValue145);
+                    break;
+                case 145:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3314, 2, ref ServoParameterRecValue146);
+                    break;
+                case 146:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3316, 2, ref ServoParameterRecValue147);
+                    break;
+                case 147:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3318, 2, ref ServoParameterRecValue148);
+                    break;
+                case 148:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x331A, 2, ref ServoParameterRecValue149);
+                    break;
+                case 149:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x331C, 2, ref ServoParameterRecValue150);
+                    break;
+                case 150:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x331E, 2, ref ServoParameterRecValue151);
+                    break;
+                case 151:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3320, 2, ref ServoParameterRecValue152);
+                    break;
+                case 152:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3322, 2, ref ServoParameterRecValue153);
+                    break;
+                case 153:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3324, 2, ref ServoParameterRecValue154);
+                    break;
+                case 154:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3326, 2, ref ServoParameterRecValue155);
+                    break;
+                case 155:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3328, 2, ref ServoParameterRecValue156);
+                    break;
+                case 156:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x332A, 2, ref ServoParameterRecValue157);
+                    break;
+                case 157:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x332C, 2, ref ServoParameterRecValue158);
+                    break;
+                case 158:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x332E, 2, ref ServoParameterRecValue159);
+                    break;
+                case 159:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3330, 2, ref ServoParameterRecValue160);
+                    break;
+                case 160:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3332, 2, ref ServoParameterRecValue161);
+                    break;
+                case 161:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3334, 2, ref ServoParameterRecValue162);
+                    break;
+                case 162:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3336, 2, ref ServoParameterRecValue163);
+                    break;
+                case 163:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3338, 2, ref ServoParameterRecValue164);
+                    break;
+                case 164:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x333A, 2, ref ServoParameterRecValue165);//분류3 마지막
+                    break;
+                case 165:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3400, 2, ref ServoParameterRecValue166);
+                    break;
+                case 166:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3402, 2, ref ServoParameterRecValue167);
+                    break;
+                case 167:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3404, 2, ref ServoParameterRecValue168);
+                    break;
+                case 168:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3406, 2, ref ServoParameterRecValue169);
+                    break;
+                case 169:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3408, 2, ref ServoParameterRecValue170);
+                    break;
+                case 170:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x340A, 2, ref ServoParameterRecValue171);
+                    break;
+                case 171:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x340C, 2, ref ServoParameterRecValue172);
+                    break;
+                case 172:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x340E, 2, ref ServoParameterRecValue173);
+                    break;
+                case 173:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3410, 2, ref ServoParameterRecValue174);
+                    break;
+                case 174:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3412, 2, ref ServoParameterRecValue175);
+                    break;
+                case 175:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3414, 2, ref ServoParameterRecValue176);
+                    break;
+                case 176:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3416, 2, ref ServoParameterRecValue177);
+                    break;
+                case 177:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3418, 2, ref ServoParameterRecValue178);
+                    break;
+                case 178:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x341A, 2, ref ServoParameterRecValue179);
+                    break;
+                case 179:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x341C, 2, ref ServoParameterRecValue180);
+                    break;
+                case 180:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x341E, 2, ref ServoParameterRecValue181);
+                    break;
+                case 181:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3420, 2, ref ServoParameterRecValue182);
+                    break;
+                case 182:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3422, 2, ref ServoParameterRecValue183);
+                    break;
+                case 183:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3424, 2, ref ServoParameterRecValue184);
+                    break;
+                case 184:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3426, 2, ref ServoParameterRecValue185);
+                    break;
+                case 185:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3428, 2, ref ServoParameterRecValue186);
+                    break;
+                case 186:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x342A, 2, ref ServoParameterRecValue187);
+                    break;
+                case 187:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x342C, 2, ref ServoParameterRecValue188);
+                    break;
+                case 188:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x342E, 2, ref ServoParameterRecValue189);
+                    break;
+                case 189:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3430, 2, ref ServoParameterRecValue190);
+                    break;
+                case 190:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3432, 2, ref ServoParameterRecValue191);
+                    break;
+                case 191:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3434, 2, ref ServoParameterRecValue192);
+                    break;
+                case 192:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3436, 2, ref ServoParameterRecValue193);
+                    break;
+                case 193:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3438, 2, ref ServoParameterRecValue194);
+                    break;
+                case 194:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x343A, 2, ref ServoParameterRecValue195);
+                    break;
+                case 195:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x343C, 2, ref ServoParameterRecValue196);
+                    break;
+                case 196:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x343E, 2, ref ServoParameterRecValue197);
+                    break;
+                case 197:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3440, 2, ref ServoParameterRecValue198);
+                    break;
+                case 198:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3442, 2, ref ServoParameterRecValue199);
+                    break;
+                case 199:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3444, 2, ref ServoParameterRecValue200);
+                    break;
+                case 200:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3446, 2, ref ServoParameterRecValue201);
+                    break;
+                case 201:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3448, 2, ref ServoParameterRecValue202);
+                    break;
+                case 202:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x344A, 2, ref ServoParameterRecValue203);
+                    break;
+                case 203:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x344C, 2, ref ServoParameterRecValue204);
+                    break;
+                case 204:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x344E, 2, ref ServoParameterRecValue205);
+                    break;
+                case 205:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3450, 2, ref ServoParameterRecValue206);
+                    break;
+                case 206:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3452, 2, ref ServoParameterRecValue207);
+                    break;
+                case 207:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3454, 2, ref ServoParameterRecValue208);
+                    break;
+                case 208:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3458, 2, ref ServoParameterRecValue209);
+                    break;
+                case 209:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x345A, 2, ref ServoParameterRecValue210);
+                    break;
+                case 210:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x345E, 2, ref ServoParameterRecValue211);
+                    break;
+                case 211:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3460, 2, ref ServoParameterRecValue212);
+                    break;
+                case 212:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3462, 2, ref ServoParameterRecValue213);
+                    break;
+                case 213:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3464, 2, ref ServoParameterRecValue214);
+                    break;
+                case 214:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3466, 2, ref ServoParameterRecValue215);
+                    break;
+                case 215:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3468, 2, ref ServoParameterRecValue216);
+                    break;
+                case 216:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x346A, 2, ref ServoParameterRecValue217);
+                    break;
+                case 217:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x346C, 2, ref ServoParameterRecValue218);
+                    break;
+                case 218:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x346E, 2, ref ServoParameterRecValue219);
+                    break;
+                case 219:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3470, 2, ref ServoParameterRecValue220);
+                    break;
+                case 220:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3472, 2, ref ServoParameterRecValue221); //분류4 마지막
+                    break;
+                case 221:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3500, 2, ref ServoParameterRecValue222);
+                    break;
+                case 222:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3502, 2, ref ServoParameterRecValue223);
+                    break;
+                case 223:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3504, 2, ref ServoParameterRecValue224);
+                    break;
+                case 224:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3506, 2, ref ServoParameterRecValue225);
+                    break;
+                case 225:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3508, 2, ref ServoParameterRecValue226);
+                    break;
+                case 226:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x350A, 2, ref ServoParameterRecValue227);
+                    break;
+                case 227:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x350C, 2, ref ServoParameterRecValue228);
+                    break;
+                case 228:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x350E, 2, ref ServoParameterRecValue229);
+                    break;
+                case 229:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3510, 2, ref ServoParameterRecValue230);
+                    break;
+                case 230:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3512, 2, ref ServoParameterRecValue231);
+                    break;
+                case 231:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3514, 2, ref ServoParameterRecValue232);
+                    break;
+                case 232:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3516, 2, ref ServoParameterRecValue233);
+                    break;
+                case 233:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3518, 2, ref ServoParameterRecValue234);
+                    break;
+                case 234:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x351A, 2, ref ServoParameterRecValue235);
+                    break;
+                case 235:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x351C, 2, ref ServoParameterRecValue236);
+                    break;
+                case 236:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x351E, 2, ref ServoParameterRecValue237);
+                    break;
+                case 237:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3520, 2, ref ServoParameterRecValue238);
+                    break;
+                case 238:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3522, 2, ref ServoParameterRecValue239);
+                    break;
+                case 239:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3524, 2, ref ServoParameterRecValue240);
+                    break;
+                case 240:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3526, 2, ref ServoParameterRecValue241);
+                    break;
+                case 241:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3528, 2, ref ServoParameterRecValue242);
+                    break;
+                case 242:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x352A, 2, ref ServoParameterRecValue243);
+                    break;
+                case 243:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x352C, 2, ref ServoParameterRecValue244);
+                    break;
+                case 244:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x352E, 2, ref ServoParameterRecValue245);
+                    break;
+                case 245:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3530, 2, ref ServoParameterRecValue246);
+                    break;
+                case 246:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3532, 2, ref ServoParameterRecValue247);
+                    break;
+                case 247:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3534, 2, ref ServoParameterRecValue248);
+                    break;
+                case 248:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3536, 2, ref ServoParameterRecValue249);
+                    break;
+                case 249:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3538, 2, ref ServoParameterRecValue250);
+                    break;
+                case 250:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x353A, 2, ref ServoParameterRecValue251);
+                    break;
+                case 251:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x353C, 2, ref ServoParameterRecValue252);
+                    break;
+                case 252:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x353E, 2, ref ServoParameterRecValue253);
+                    break;
+                case 253:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3540, 2, ref ServoParameterRecValue254);
+                    break;
+                case 254:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3542, 2, ref ServoParameterRecValue255);
+                    break;
+                case 255:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3544, 2, ref ServoParameterRecValue256);
+                    break;
+                case 256:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3546, 2, ref ServoParameterRecValue257);
+                    break;
+                case 257:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3548, 2, ref ServoParameterRecValue258);
+                    break;
+                case 258:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x354A, 2, ref ServoParameterRecValue259);
+                    break;
+                case 259:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x354C, 2, ref ServoParameterRecValue260);
+                    break;
+                case 260:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x354E, 2, ref ServoParameterRecValue261);
+                    break;
+                case 261:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3550, 2, ref ServoParameterRecValue262);
+                    break;
+                case 262:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3552, 2, ref ServoParameterRecValue263);
+                    break;
+                case 263:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3554, 2, ref ServoParameterRecValue264);
+                    break;
+                case 264:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x355A, 2, ref ServoParameterRecValue265);
+                    break;
+                case 265:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x355C, 2, ref ServoParameterRecValue266);
+                    break;
+                case 266:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x355E, 2, ref ServoParameterRecValue267);
+                    break;
+                case 267:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3560, 2, ref ServoParameterRecValue268);
+                    break;
+                case 268:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3562, 2, ref ServoParameterRecValue269);
+                    break;
+                case 269:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3564, 2, ref ServoParameterRecValue270);
+                    break;
+                case 270:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3566, 2, ref ServoParameterRecValue271);
+                    break;
+                case 271:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3568, 2, ref ServoParameterRecValue272);
+                    break;
+                case 272:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x356A, 2, ref ServoParameterRecValue273);
+                    break;
+                case 273:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x356C, 2, ref ServoParameterRecValue274);
+                    break;
+                case 274:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x356E, 2, ref ServoParameterRecValue275);
+                    break;
+                case 275:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3570, 2, ref ServoParameterRecValue276);
+                    break;
+                case 276:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3572, 2, ref ServoParameterRecValue277);
+                    break;
+                case 277:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3574, 2, ref ServoParameterRecValue278);
+                    break;
+                case 278:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3576, 2, ref ServoParameterRecValue279);
+                    break;
+                case 279:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3578, 2, ref ServoParameterRecValue280);
+                    break;
+                case 280:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x357A, 2, ref ServoParameterRecValue281);
+                    break;
+                case 281:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x357C, 2, ref ServoParameterRecValue282);
+                    break;
+                case 282:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x357E, 2, ref ServoParameterRecValue283);
+                    break;
+                case 283:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3580, 2, ref ServoParameterRecValue284);
+                    break;
+                case 284:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3582, 2, ref ServoParameterRecValue285);
+                    break;
+                case 285:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3584, 2, ref ServoParameterRecValue286);
+                    break;
+                case 286:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3586, 2, ref ServoParameterRecValue287);
+                    break;
+                case 287:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3588, 2, ref ServoParameterRecValue288);
+                    break;
+                case 288:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x358A, 2, ref ServoParameterRecValue289);
+                    break;
+                case 289:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x358C, 2, ref ServoParameterRecValue290);
+                    break;
+                case 290:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x358E, 2, ref ServoParameterRecValue291);
+                    break;
+                case 291:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3590, 2, ref ServoParameterRecValue292);
+                    break;
+                case 292:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3592, 2, ref ServoParameterRecValue293);
+                    break;
+                case 293:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3594, 2, ref ServoParameterRecValue294);
+                    break;
+                case 294:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3596, 2, ref ServoParameterRecValue295);
+                    break;
+                case 295:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3598, 2, ref ServoParameterRecValue296);
+                    break;
+                case 296:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x359A, 2, ref ServoParameterRecValue297);
+                    break;
+                case 297:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x359C, 2, ref ServoParameterRecValue298);
+                    break;
+                case 298:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x359E, 2, ref ServoParameterRecValue299);
+                    break;
+                case 299:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x35A0, 2, ref ServoParameterRecValue300);
+                    break;
+                case 300:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x35AC, 2, ref ServoParameterRecValue301);//분류5 마지막
+                    break;
+                case 301:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3600, 2, ref ServoParameterRecValue302);
+                    break;
+                case 302:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3604, 2, ref ServoParameterRecValue303);
+                    break;
+                case 303:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3608, 2, ref ServoParameterRecValue304);
+                    break;
+                case 304:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x360A, 2, ref ServoParameterRecValue305);
+                    break;
+                case 305:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x360C, 2, ref ServoParameterRecValue306);
+                    break;
+                case 306:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x360E, 2, ref ServoParameterRecValue307);
+                    break;
+                case 307:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3610, 2, ref ServoParameterRecValue308);
+                    break;
+                case 308:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3612, 2, ref ServoParameterRecValue309);
+                    break;
+                case 309:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3614, 2, ref ServoParameterRecValue310);
+                    break;
+                case 310:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3616, 2, ref ServoParameterRecValue311);
+                    break;
+                case 311:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x361A, 2, ref ServoParameterRecValue312);
+                    break;
+                case 312:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x361C, 2, ref ServoParameterRecValue313);
+                    break;
+                case 313:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x361E, 2, ref ServoParameterRecValue314);
+                    break;
+                case 314:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3620, 2, ref ServoParameterRecValue315);
+                    break;
+                case 315:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3622, 2, ref ServoParameterRecValue316);
+                    break;
+                case 316:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3624, 2, ref ServoParameterRecValue317);
+                    break;
+                case 317:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3626, 2, ref ServoParameterRecValue318);
+                    break;
+                case 318:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3628, 2, ref ServoParameterRecValue319);
+                    break;
+                case 319:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x362A, 2, ref ServoParameterRecValue320);
+                    break;
+                case 320:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x362C, 2, ref ServoParameterRecValue321);
+                    break;
+                case 321:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x362E, 2, ref ServoParameterRecValue322);
+                    break;
+                case 322:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3630, 2, ref ServoParameterRecValue323);
+                    break;
+                case 323:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3636, 2, ref ServoParameterRecValue324);
+                    break;
+                case 324:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3638, 2, ref ServoParameterRecValue325);
+                    break;
+                case 325:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x363C, 2, ref ServoParameterRecValue326);
+                    break;
+                case 326:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x363E, 2, ref ServoParameterRecValue327);
+                    break;
+                case 327:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3640, 2, ref ServoParameterRecValue328);
+                    break;
+                case 328:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3642, 2, ref ServoParameterRecValue329);
+                    break;
+                case 329:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3644, 2, ref ServoParameterRecValue330);
+                    break;
+                case 330:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3646, 2, ref ServoParameterRecValue331);
+                    break;
+                case 331:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3648, 2, ref ServoParameterRecValue332);
+                    break;
+                case 332:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x364A, 2, ref ServoParameterRecValue333);
+                    break;
+                case 333:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x364C, 2, ref ServoParameterRecValue334);
+                    break;
+                case 334:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x364E, 2, ref ServoParameterRecValue335);
+                    break;
+                case 335:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3652, 2, ref ServoParameterRecValue336);
+                    break;
+                case 336:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3654, 2, ref ServoParameterRecValue337);
+                    break;
+                case 337:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3656, 2, ref ServoParameterRecValue338);
+                    break;
+                case 338:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x365E, 2, ref ServoParameterRecValue339);
+                    break;
+                case 339:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3660, 2, ref ServoParameterRecValue340);
+                    break;
+                case 340:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3662, 2, ref ServoParameterRecValue341);
+                    break;
+                case 341:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3664, 2, ref ServoParameterRecValue342);
+                    break;
+                case 342:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3666, 2, ref ServoParameterRecValue343);
+                    break;
+                case 343:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3668, 2, ref ServoParameterRecValue344);
+                    break;
+                case 344:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x366A, 2, ref ServoParameterRecValue345);
+                    break;
+                case 345:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x366C, 2, ref ServoParameterRecValue346);
+                    break;
+                case 346:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3672, 2, ref ServoParameterRecValue347);
+                    break;
+                case 347:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3674, 2, ref ServoParameterRecValue348);
+                    break;
+                case 348:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3678, 2, ref ServoParameterRecValue349);
+                    break;
+                case 349:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x367A, 2, ref ServoParameterRecValue350);
+                    break;
+                case 350:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x367C, 2, ref ServoParameterRecValue351);
+                    break;
+                case 351:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x367E, 2, ref ServoParameterRecValue352);
+                    break;
+                case 352:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3680, 2, ref ServoParameterRecValue353);
+                    break;
+                case 353:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3682, 2, ref ServoParameterRecValue354);
+                    break;
+                case 354:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3684, 2, ref ServoParameterRecValue355);
+                    break;
+                case 355:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3686, 2, ref ServoParameterRecValue356);
+                    break;
+                case 356:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3688, 2, ref ServoParameterRecValue357);
+                    break;
+                case 357:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x368A, 2, ref ServoParameterRecValue358);
+                    break;
+                case 358:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x368C, 2, ref ServoParameterRecValue359);
+                    break;
+                case 359:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x368E, 2, ref ServoParameterRecValue360);
+                    break;
+                case 360:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3690, 2, ref ServoParameterRecValue361);
+                    break;
+                case 361:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3692, 2, ref ServoParameterRecValue362);
+                    break;
+                case 362:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3694, 2, ref ServoParameterRecValue363);
+                    break;
+                case 363:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3696, 2, ref ServoParameterRecValue364);
+                    break;
+                case 364:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3698, 2, ref ServoParameterRecValue365);
+                    break;
+                case 365:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x36AE, 2, ref ServoParameterRecValue366);
+                    break;
+                case 367:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x36B0, 2, ref ServoParameterRecValue367);
+                    break;
+                case 368:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x36C2, 2, ref ServoParameterRecValue368);
+                    break;
+                case 369:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x36C4, 2, ref ServoParameterRecValue369);//분류6 마지막
+                    break;
+                case 370:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3700, 2, ref ServoParameterRecValue370);
+                    break;
+                case 371:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3702, 2, ref ServoParameterRecValue371);
+                    break;
+                case 372:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3706, 2, ref ServoParameterRecValue372);
+                    break;
+                case 373:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3708, 2, ref ServoParameterRecValue373);
+                    break;
+                case 374:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x370A, 2, ref ServoParameterRecValue374);
+                    break;
+                case 375:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x370C, 2, ref ServoParameterRecValue375);
+                    break;
+                case 376:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x370E, 2, ref ServoParameterRecValue376);
+                    break;
+                case 377:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3710, 2, ref ServoParameterRecValue377);
+                    break;
+                case 378:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3712, 2, ref ServoParameterRecValue378);
+                    break;
+                case 379:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3714, 2, ref ServoParameterRecValue379);
+                    break;
+                case 380:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3716, 2, ref ServoParameterRecValue380);
+                    break;
+                case 381:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3718, 2, ref ServoParameterRecValue381);
+                    break;
+                case 382:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x371A, 2, ref ServoParameterRecValue382);
+                    break;
+                case 383:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x371C, 2, ref ServoParameterRecValue383);
+                    break;
+                case 384:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x371E, 2, ref ServoParameterRecValue384);
+                    break;
+                case 385:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3720, 2, ref ServoParameterRecValue385);
+                    break;
+                case 386:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3728, 2, ref ServoParameterRecValue386);
+                    break;
+                case 387:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x372A, 2, ref ServoParameterRecValue387);
+                    break;
+                case 388:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x372C, 2, ref ServoParameterRecValue388);
+                    break;
+                case 389:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x372E, 2, ref ServoParameterRecValue389);
+                    break;
+                case 390:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3730, 2, ref ServoParameterRecValue390);
+                    break;
+                case 391:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3732, 2, ref ServoParameterRecValue391);
+                    break;
+                case 392:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3734, 2, ref ServoParameterRecValue392);
+                    break;
+                case 393:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3736, 2, ref ServoParameterRecValue393);
+                    break;
+                case 394:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3738, 2, ref ServoParameterRecValue394);
+                    break;
+                case 395:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x373A, 2, ref ServoParameterRecValue395);
+                    break;
+                case 396:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x373C, 2, ref ServoParameterRecValue396);
+                    break;
+                case 397:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x373E, 2, ref ServoParameterRecValue397);
+                    break;
+                case 398:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3740, 2, ref ServoParameterRecValue398);
+                    break;
+                case 399:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3742, 2, ref ServoParameterRecValue399);
+                    break;
+                case 400:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3744, 2, ref ServoParameterRecValue400);
+                    break;
+                case 401:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3746, 2, ref ServoParameterRecValue401);
+                    break;
+                case 402:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3748, 2, ref ServoParameterRecValue402);
+                    break;
+                case 403:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x374A, 2, ref ServoParameterRecValue403);
+                    break;
+                case 404:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x374C, 2, ref ServoParameterRecValue404);
+                    break;
+                case 405:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x374E, 2, ref ServoParameterRecValue405);
+                    break;
+                case 406:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x3752, 2, ref ServoParameterRecValue406);
+                    break;
+                case 407:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x37AE, 2, ref ServoParameterRecValue407);
+                    break;
+                case 408:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x37B6, 2, ref ServoParameterRecValue408);
+                    break;
+                case 409:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x37B8, 2, ref ServoParameterRecValue409);
+                    break;
+                case 410:
+                    modbusTCP.ReadHoldingRegister(0, (byte)axisNum1, 0x37BA, 2, ref ServoParameterRecValue410);//분류7 마지막
+                    break;
+            }
         }
     }
 }
