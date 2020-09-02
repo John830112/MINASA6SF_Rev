@@ -143,7 +143,7 @@
                     </Button.RenderTransform>
                 </Button>
 
-                <Button x:Name="ServoParaButton" Margin="5 10 5 0" Width="170" Background="Transparent" BorderThickness="0.3" BorderBrush="Transparent"
+                <!--<Button x:Name="ServoParaButton" Margin="5 10 5 0" Width="170" Background="Transparent" BorderThickness="0.3" BorderBrush="Transparent"
                         Template="{StaticResource buttontemplate}" FocusVisualStyle="{x:Null}"
                         HorizontalContentAlignment="Center" Click="servopara_Click">
 
@@ -156,7 +156,7 @@
                     <Button.RenderTransform>
                         <ScaleTransform CenterX="25" CenterY="25"/>
                     </Button.RenderTransform>
-                </Button>
+                </Button>-->
 
                 <Button x:Name="SettingsButton" Margin="5 10 5 0" Width="170" Background="Transparent" BorderThickness="0.3" BorderBrush="Transparent"
                         Template="{StaticResource buttontemplate}" FocusVisualStyle="{x:Null}"

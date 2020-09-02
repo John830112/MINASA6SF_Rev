@@ -20935,12 +20935,12 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     Debug.WriteLine(pageindex.ToString());
                     mainpanel.MainButton.IsEnabled = false;
-                    mainpanel.ServoParaButton.IsEnabled = false;
+               //     mainpanel.ServoParaButton.IsEnabled = false;
                     mainpanel.SettingsButton.IsEnabled = false;
                     for (int i=0; i < 9;i++)
                     {
                         mainpanel.MainButton.Opacity -= 0.1;
-                        mainpanel.ServoParaButton.Opacity -= 0.1;
+               //         mainpanel.ServoParaButton.Opacity -= 0.1;
                         mainpanel.SettingsButton.Opacity -= 0.1;
                     }
                     recONOFF = false;
@@ -20951,12 +20951,12 @@ namespace MINASA6SF_Rev.ViewModels
                         );
                     Debug.WriteLine("블럭 동작편집 수신버튼 누름");
                     mainpanel.MainButton.IsEnabled = true;
-                    mainpanel.ServoParaButton.IsEnabled = true;
+              //      mainpanel.ServoParaButton.IsEnabled = true;
                     mainpanel.SettingsButton.IsEnabled = true;
                     for (int i = 0; i < 9; i++)
                     {
                         mainpanel.MainButton.Opacity += 0.1;
-                        mainpanel.ServoParaButton.Opacity += 0.1;
+               //         mainpanel.ServoParaButton.Opacity += 0.1;
                         mainpanel.SettingsButton.Opacity += 0.1;
                     }
                     return;
@@ -20965,12 +20965,12 @@ namespace MINASA6SF_Rev.ViewModels
                 {
                     Debug.WriteLine(pageindex.ToString());
                     mainpanel.MainButton.IsEnabled = false;
-                    mainpanel.ServoParaButton.IsEnabled = false;
+              //      mainpanel.ServoParaButton.IsEnabled = false;
                     mainpanel.SettingsButton.IsEnabled = false;
                     for (int i = 0; i < 9; i++)
                     {
                         mainpanel.MainButton.Opacity -= 0.1;
-                        mainpanel.ServoParaButton.Opacity -= 0.1;
+              //      mainpanel.ServoParaButton.Opacity -= 0.1;
                         mainpanel.SettingsButton.Opacity -= 0.1;
                     }
                     recONOFF = false;
@@ -20981,12 +20981,12 @@ namespace MINASA6SF_Rev.ViewModels
                     );
                     Debug.WriteLine("블럭 매개변수 수신버튼 누름");
                     mainpanel.MainButton.IsEnabled = true;
-                    mainpanel.ServoParaButton.IsEnabled = true;
+              //     mainpanel.ServoParaButton.IsEnabled = true;
                     mainpanel.SettingsButton.IsEnabled = true;
                     for (int i = 0; i < 9; i++)
                     {
                         mainpanel.MainButton.Opacity += 0.1;
-                        mainpanel.ServoParaButton.Opacity += 0.1;
+                //        mainpanel.ServoParaButton.Opacity += 0.1;
                         mainpanel.SettingsButton.Opacity += 0.1;
                     }
                     return;
