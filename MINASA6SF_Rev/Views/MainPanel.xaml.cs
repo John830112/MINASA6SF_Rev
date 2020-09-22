@@ -35,6 +35,10 @@ namespace MINASA6SF_Rev.Views
         ControlPanel1 ControlPanel1 = new ControlPanel1();
         ServoPara ServoPara;
         Settings Settings;
+        bool isDragging;
+        public Point startPoint;
+        public Point endPoint;
+        public Point currentPosition;
 
         public MainPanel() {}
 
@@ -55,6 +59,8 @@ namespace MINASA6SF_Rev.Views
             mainpanel.DataContext = mainPanelViewModel;
             mainpanel.Navigate(ControlPanel1);
             mainPanelViewModel.pageindex = 0;
+            currentPosition.X = System.Windows.SystemParameters.PrimaryScreenWidth/2;
+            currentPosition.Y = System.Windows.SystemParameters.PrimaryScreenHeight/2;
 
             this.Loaded += UserControl1_Loaded;
         }
@@ -74,9 +80,18 @@ namespace MINASA6SF_Rev.Views
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
+                Cursor = Cursors.SizeAll;                
                 mainWindowlocal.DragMove();
             }
+            if(e.LeftButton == MouseButtonState.Released)
+            {
+                Cursor = Cursors.Arrow;
+                currentPosition.X = mainWindowlocal.Left;
+                currentPosition.Y = mainWindowlocal.Top;
+                
+            }
         }
+
 
         private void mainpanel_Click(object sender, RoutedEventArgs e)
         {
@@ -129,5 +144,10 @@ namespace MINASA6SF_Rev.Views
             System.Windows.Application.Current.Shutdown();
         }
 
+        private void panelHeader_MouseMove(object sender, MouseEventArgs e)
+        {
+            currentPosition.X = mainWindowlocal.Left;
+            currentPosition.Y = mainWindowlocal.Top;
+        }
     }
 }

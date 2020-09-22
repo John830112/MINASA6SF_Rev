@@ -3558,6 +3558,7 @@ namespace MINASA6SF_Rev.ViewModels
             controlpanel1 = _controlPanel1;
             mainpanel = _mainPanel;
             servopara = _servoPara;
+           
 
             //BlockParaDialog Page Datacontext 설정
             incPosition_Page1.DataContext = this;
@@ -3646,12 +3647,14 @@ namespace MINASA6SF_Rev.ViewModels
             blockSettingDialog.DataContext = this;
             blockSettingDialog.FunctionSelect1.ItemsSource = blockFunctions;
             blockSettingDialog.BlockActionParaWindow.Navigate(incPosition_Page1);
+            blockSettingDialog.WindowStartupLocation = WindowStartupLocation.Manual;
+            blockSettingDialog.Left = System.Windows.SystemParameters.PrimaryScreenWidth/2;
+            blockSettingDialog.Top = System.Windows.SystemParameters.PrimaryScreenHeight/2;
 
             _eepromwrite[0] = (byte)(_eeprom >> 8);
             _eepromwrite[1] = (byte)_eeprom;
             _eepromwrite[2] = (byte)(_eeprom >> 24);
             _eepromwrite[3] = (byte)(_eeprom >> 16);
-
 
         }
         #endregion
@@ -20718,6 +20721,8 @@ namespace MINASA6SF_Rev.ViewModels
         private void ExecuteBlockActDouClick(object parameter)
         {
             Debug.WriteLine("그리드 버튼 테스트");
+            blockSettingDialog.Left=mainpanel.currentPosition.X;
+            blockSettingDialog.Top =mainpanel.currentPosition.Y;
             showWindow(this);
         }
 
@@ -23563,7 +23568,10 @@ namespace MINASA6SF_Rev.ViewModels
         //블럭 셋팅 창 오픈
         public void showWindow(object MPViewModel)
         {
-            switch(cmdCode)
+
+         
+
+            switch (cmdCode)
             {
                 case 1:
                     blockSettingDialog.FunctionSelect1.SelectedIndex = 0;

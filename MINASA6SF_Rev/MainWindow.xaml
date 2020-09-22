@@ -7,7 +7,7 @@
         xmlns:local2="clr-namespace:MINASA6SF_Rev.Views"       
         mc:Ignorable="d" Name="mainWin"
         Title="MainWindow" Height="500" Width="900" ResizeMode="NoResize" WindowStyle="None" 
-        WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" Padding="0" Topmost="True"
+        KeyDown="Window_KeyDown" Padding="0" Topmost="True"
         Opacity="0">
 
     <Window.Triggers>
