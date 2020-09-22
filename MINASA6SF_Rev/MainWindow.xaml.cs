@@ -29,14 +29,8 @@ namespace MINASA6SF_Rev
             InitializeComponent();
             this.Content = new MainPanel(this);
             this.WindowStartupLocation = WindowStartupLocation.Manual;
-            this.Left = System.Windows.SystemParameters.FullPrimaryScreenWidth / 2;
-            this.Top = System.Windows.SystemParameters.FullPrimaryScreenHeight / 2;
-            //double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
-            //double screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
-            //double windowWidth = this.Width;
-            //double windowHeight = this.Height;
-            //this.Left = (screenWidth / 2) - (windowWidth / 2);
-            //this.Top = (screenHeight / 2) - (windowHeight / 2);
+            this.Left = (System.Windows.SystemParameters.FullPrimaryScreenWidth / 2)-(Width/2);
+            this.Top = (System.Windows.SystemParameters.FullPrimaryScreenHeight / 2)-(Height/2);
 
         }
         

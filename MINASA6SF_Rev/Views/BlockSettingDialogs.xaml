@@ -12,6 +12,7 @@
     <Window.InputBindings>
         <KeyBinding Key="Escape" Command="{Binding BlockSettingDialogCloseCommand}"/>
     </Window.InputBindings>
+   
     <Window.Triggers>
         <EventTrigger RoutedEvent="Loaded">
             <BeginStoryboard>
@@ -25,7 +26,20 @@
         </EventTrigger>
     </Window.Triggers>
 
-    <Border BorderBrush="LightGray" BorderThickness="10" CornerRadius="1"  Background="Black">
+    <Border BorderBrush="Black" BorderThickness="3" Background="Black">
+        <Border.Triggers>
+            <EventTrigger RoutedEvent="MouseDown">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation From="Black" To="LightGray"
+                                        Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                        RepeatBehavior="Forever"
+                                        
+                                        Duration="0:0:1"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Border.Triggers>
         <Grid Background="LightGray">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>

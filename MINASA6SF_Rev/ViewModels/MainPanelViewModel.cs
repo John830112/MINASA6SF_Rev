@@ -3648,8 +3648,8 @@ namespace MINASA6SF_Rev.ViewModels
             blockSettingDialog.FunctionSelect1.ItemsSource = blockFunctions;
             blockSettingDialog.BlockActionParaWindow.Navigate(incPosition_Page1);
             blockSettingDialog.WindowStartupLocation = WindowStartupLocation.Manual;
-            blockSettingDialog.Left = System.Windows.SystemParameters.PrimaryScreenWidth/2;
-            blockSettingDialog.Top = System.Windows.SystemParameters.PrimaryScreenHeight/2;
+            blockSettingDialog.Left = (System.Windows.SystemParameters.PrimaryScreenWidth/2)-(blockSettingDialog.Width/2);
+            blockSettingDialog.Top = (System.Windows.SystemParameters.PrimaryScreenHeight/2)-(blockSettingDialog.Height/2);
 
             _eepromwrite[0] = (byte)(_eeprom >> 8);
             _eepromwrite[1] = (byte)_eeprom;
@@ -23567,9 +23567,7 @@ namespace MINASA6SF_Rev.ViewModels
 
         //블럭 셋팅 창 오픈
         public void showWindow(object MPViewModel)
-        {
-
-         
+        {        
 
             switch (cmdCode)
             {

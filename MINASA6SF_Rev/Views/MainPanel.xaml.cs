@@ -59,8 +59,8 @@ namespace MINASA6SF_Rev.Views
             mainpanel.DataContext = mainPanelViewModel;
             mainpanel.Navigate(ControlPanel1);
             mainPanelViewModel.pageindex = 0;
-            currentPosition.X = System.Windows.SystemParameters.PrimaryScreenWidth/2;
-            currentPosition.Y = System.Windows.SystemParameters.PrimaryScreenHeight/2;
+            currentPosition.X = (System.Windows.SystemParameters.PrimaryScreenWidth/2)-(330/2);
+            currentPosition.Y = (System.Windows.SystemParameters.PrimaryScreenHeight/2)-(370/2);
 
             this.Loaded += UserControl1_Loaded;
         }
@@ -86,8 +86,8 @@ namespace MINASA6SF_Rev.Views
             if(e.LeftButton == MouseButtonState.Released)
             {
                 Cursor = Cursors.Arrow;
-                currentPosition.X = mainWindowlocal.Left;
-                currentPosition.Y = mainWindowlocal.Top;
+                currentPosition.X = mainWindowlocal.Left+(mainWindowlocal.Width/2)-(330 / 2); 
+                currentPosition.Y = mainWindowlocal.Top+(mainWindowlocal.Height/2)-(370/2);
                 
             }
         }
@@ -146,8 +146,8 @@ namespace MINASA6SF_Rev.Views
 
         private void panelHeader_MouseMove(object sender, MouseEventArgs e)
         {
-            currentPosition.X = mainWindowlocal.Left;
-            currentPosition.Y = mainWindowlocal.Top;
+            currentPosition.X = mainWindowlocal.Left + (mainWindowlocal.Width / 2)-(330/2);
+            currentPosition.Y = mainWindowlocal.Top + (mainWindowlocal.Height / 2)-(370/2);
         }
     }
 }
