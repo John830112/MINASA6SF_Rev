@@ -4015,7 +4015,7 @@ namespace MINASA6SF_Rev.ViewModels
             {
                 if (!modbusTCP.connected)
                 {
-                    mirrTime = int.Parse(settings.cycleTime.SelectedValue.ToString());
+                    //mirrTime = int.Parse(settings.cycleTime.SelectedValue.ToString());
                     modbusTCP.connect(settings.xxxx.Address, Convert.ToUInt16(settings.portxxxx.Text), false);
                     axisNum1 = int.Parse(settings.axisNumselect.SelectedValue.ToString());
                     if (modbusTCP.connected)
