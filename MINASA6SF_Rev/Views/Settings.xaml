@@ -48,6 +48,10 @@
                     <TextBlock Margin="10 0 0 0">IP Address :</TextBlock>
                     <TextBlock Margin="10 5 0 0">Port :</TextBlock>
                     <TextBlock Margin="10 5 0 0">Axis Num :</TextBlock>
+                    <TextBlock Margin="10 5 0 0">Cycle Time :</TextBlock>
+                    <TextBlock Margin="10 5 0 0">Dummy :</TextBlock>
+                    <TextBlock Margin="10 5 0 0">Dummy :</TextBlock>
+                    <TextBlock Margin="10 5 0 0">Block 동작 기동 선택 :</TextBlock>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
                     <local2:IP_Address_ x:Name="xxxx" Width="160" Address="10.10.100.254" Height="23" FontSize="15" 
@@ -58,6 +62,23 @@
                     <ComboBox x:Name="axisNumselect" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
                               MaxDropDownHeight="200" Margin="0 1 0 1" BorderThickness="1" HorizontalContentAlignment="Right"
                               ItemsSource="{Binding axisNum}" SelectedIndex="0" FocusVisualStyle="{x:Null}"/>
+
+                    <ComboBox x:Name="cycleTime" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" HorizontalContentAlignment="Right"
+                              Margin="0 1 0 1" BorderThickness="1" ItemsSource="{Binding cycTime}" SelectedIndex="0"
+                              FocusVisualStyle="{x:Null}"/>
+
+                    <ComboBox x:Name="dummy1" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
+                              Margin="0 1 0 1" BorderThickness="1" FocusVisualStyle="{x:Null}"/>
+
+                    <ComboBox x:Name="dummy2" FontSize="12" VerticalContentAlignment="Center" FontStretch="Medium" 
+                              Margin="0 1 0 1" BorderThickness="1" FocusVisualStyle="{x:Null}"/>
+
+                    <ComboBox x:Name="BlockFunctionSelectionSetting" FontSize="12" VerticalContentAlignment="Center" 
+                              FontStretch="Medium" Margin="0 1 0 0" BorderThickness="1" FocusVisualStyle="{x:Null}">
+                        <ComboBoxItem Content="0 : Block 동작무효"/>
+                        <ComboBoxItem Content="1 : Modbus 통신기동"/>
+                        <ComboBoxItem Content="2 : I/O 신호기동"/>
+                    </ComboBox>
 
                 </StackPanel>
             </Grid>
