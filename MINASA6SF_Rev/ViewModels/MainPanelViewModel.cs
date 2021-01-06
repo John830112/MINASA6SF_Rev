@@ -3993,7 +3993,6 @@ namespace MINASA6SF_Rev.ViewModels
                 StatusBar = es.Source.ToString() + "  MirrReg_timer";
                 mirrtimer.Stop();
                 timer.Stop();                 
-                timer.Dispose();
                 return;
             }
         }
